@@ -1,7 +1,7 @@
-version="0.2.0"
+﻿version="0.2.1"
 name="Voltara2"
 tags={ "Total Conversion" }
-supported_version="1.19.*"
+supported_version="1.20.*"
 replace_path="common/bookmarks"
 replace_path="common/bookmarks/bookmarks"
 replace_path="common/bookmarks/groups"

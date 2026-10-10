@@ -1,4 +1,4 @@
-version="0.2.0"
+﻿version="0.2.1"
 name="Voltara2"
 tags={
 	"Total Conversion"
@@ -26,5 +26,5 @@ replace_path="map_data"
 replace_path="map_data/geographical_regions"
 replace_path="gfx/map/map_object_data"
 replace_path="gfx/map/map_object_data/generated"
-supported_version="1.19.*"
+supported_version="1.20.*"
 path="C:/Users/ethen/OneDrive/Documents/Paradox Interactive/Crusader Kings III/mod/voltara2"
