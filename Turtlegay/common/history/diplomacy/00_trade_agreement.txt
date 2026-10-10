@@ -1,8 +1,0 @@
-﻿DIPLOMACY = {
-	c:X75 = {
-		create_diplomatic_pact = {
-			country = c:X77
-			type = trade_agreement
-		}
-	}
-}

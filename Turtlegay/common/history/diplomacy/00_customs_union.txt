@@ -1,8 +1,0 @@
-﻿DIPLOMACY = {
-	c:X77 = {
-		create_diplomatic_pact = {
-			country = c:BRZ
-			type = customs_union
-		}
-	}
-}
