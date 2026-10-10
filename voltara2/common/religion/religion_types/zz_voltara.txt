@@ -1,0 +1,98 @@
+﻿# Faith names are canon; mechanics and holy sites remain provisional test data.
+voltara_religion = {
+ family = rf_pagan
+ graphical_faith = pagan_gfx
+ pagan_roots = yes
+ doctrine = pagan_hostility_doctrine
+ doctrine = doctrine_polytheist
+ doctrine = doctrine_no_head
+ doctrine = doctrine_gender_male_dominated
+ doctrine = doctrine_pluralism_pluralistic
+ doctrine = doctrine_theocracy_temporal
+ doctrine = doctrine_monogamy
+ doctrine = doctrine_divorce_allowed
+ doctrine = doctrine_bastardry_legitimization
+ doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+ doctrine = doctrine_homosexuality_shunned
+ doctrine = doctrine_adultery_men_crime
+ doctrine = doctrine_adultery_women_crime
+ doctrine = doctrine_kinslaying_close_kin_crime
+ doctrine = doctrine_deviancy_shunned
+ doctrine = doctrine_witchcraft_crime
+ doctrine = doctrine_clerical_function_taxation
+ doctrine = doctrine_clerical_gender_either
+ doctrine = doctrine_clerical_marriage_allowed
+ doctrine = doctrine_clerical_succession_temporal_appointment
+ doctrine = doctrine_pilgrimage_encouraged
+ doctrine = doctrine_funeral_bewailment
+ doctrine = doctrine_no_anointment
+ traits = { virtues = { brave just compassionate } sins = { craven arbitrary callous } }
+ faiths = {
+  voltara_faith_0 = {
+   color = { 136 136 136 }
+   icon = pagan
+   graphical_faith = pagan_gfx
+   holy_site = voltara_faith_0_test_206
+   holy_site = voltara_faith_0_test_216
+   holy_site = voltara_faith_0_test_227
+   doctrine = tenet_ritual_celebrations
+   doctrine = tenet_ancestor_worship
+   doctrine = tenet_sanctity_of_nature
+  }
+  voltara_faith_22 = {
+   color = { 61 179 179 }
+   icon = pagan
+   graphical_faith = pagan_gfx
+   holy_site = voltara_faith_22_test_205
+   holy_site = voltara_faith_22_test_212
+   holy_site = voltara_faith_22_test_217
+   doctrine = tenet_ritual_celebrations
+   doctrine = tenet_ancestor_worship
+   doctrine = tenet_sanctity_of_nature
+  }
+  voltara_faith_23 = {
+   color = { 236 171 46 }
+   icon = pagan
+   graphical_faith = pagan_gfx
+   holy_site = voltara_faith_23_test_207
+   holy_site = voltara_faith_23_test_208
+   holy_site = voltara_faith_23_test_210
+   doctrine = tenet_ritual_celebrations
+   doctrine = tenet_ancestor_worship
+   doctrine = tenet_sanctity_of_nature
+  }
+  voltara_faith_24 = {
+   color = { 27 218 170 }
+   icon = pagan
+   graphical_faith = pagan_gfx
+   holy_site = voltara_faith_24_test_416
+   holy_site = voltara_faith_24_test_428
+   holy_site = voltara_faith_24_test_432
+   doctrine = tenet_ritual_celebrations
+   doctrine = tenet_ancestor_worship
+   doctrine = tenet_sanctity_of_nature
+  }
+  voltara_faith_25 = {
+   color = { 192 63 167 }
+   icon = pagan
+   graphical_faith = pagan_gfx
+   holy_site = voltara_faith_25_test_209
+   holy_site = voltara_faith_25_test_213
+   holy_site = voltara_faith_25_test_224
+   doctrine = tenet_ritual_celebrations
+   doctrine = tenet_ancestor_worship
+   doctrine = tenet_sanctity_of_nature
+  }
+  voltara_faith_26 = {
+   color = { 55 159 184 }
+   icon = pagan
+   graphical_faith = pagan_gfx
+   holy_site = voltara_faith_26_test_200
+   holy_site = voltara_faith_26_test_201
+   holy_site = voltara_faith_26_test_202
+   doctrine = tenet_ritual_celebrations
+   doctrine = tenet_ancestor_worship
+   doctrine = tenet_sanctity_of_nature
+  }
+ }
+}

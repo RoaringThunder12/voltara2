@@ -1,0 +1,7 @@
+﻿bm_voltara = {
+ start_date = 1066.1.1
+ is_playable = yes
+ group = bm_group_voltara
+ weight = { value = 100 }
+ character = { name = voltara_titus dynasty = 9900021 dynasty_splendor_level = 2 type = male birth = 1030.1.1 title = e_voltara_21 government = feudal_government culture = voltara_culture_22 religion = voltara_faith_23 difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_HARD" history_id = 9900021 position = { 500 500 } animation = war_over_win }
+}
