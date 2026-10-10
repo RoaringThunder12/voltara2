@@ -1,4 +1,4 @@
-﻿version="0.2.1"
+version="0.2.1"
 name="Voltara2"
 tags={
 	"Total Conversion"

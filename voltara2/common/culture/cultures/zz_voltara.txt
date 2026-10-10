@@ -26,7 +26,7 @@ voltara_culture_18 = {
  building_gfx = { western_building_gfx }
  clothing_gfx = { western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
- ethnicities = { 100 = mediterranean }
+ ethnicities = { 100 = voltara_high_elven }
 }
 voltara_culture_19 = {
  color = { 170 241 89 }
@@ -56,7 +56,7 @@ voltara_culture_20 = {
  building_gfx = { western_building_gfx }
  clothing_gfx = { western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
- ethnicities = { 100 = mediterranean }
+ ethnicities = { 100 = voltara_orc }
 }
 voltara_culture_21 = {
  color = { 195 218 63 }
@@ -71,7 +71,7 @@ voltara_culture_21 = {
  building_gfx = { western_building_gfx }
  clothing_gfx = { western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
- ethnicities = { 100 = mediterranean }
+ ethnicities = { 100 = voltara_goblin }
 }
 voltara_culture_22 = {
  color = { 236 171 46 }
@@ -101,7 +101,7 @@ voltara_culture_23 = {
  building_gfx = { western_building_gfx }
  clothing_gfx = { western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
- ethnicities = { 100 = mediterranean }
+ ethnicities = { 100 = voltara_stoneborn }
 }
 voltara_culture_24 = {
  color = { 37 218 141 }
@@ -266,7 +266,7 @@ voltara_culture_39 = {
  building_gfx = { western_building_gfx }
  clothing_gfx = { western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
- ethnicities = { 100 = mediterranean }
+ ethnicities = { 100 = voltara_naga }
 }
 voltara_culture_40 = {
  color = { 255 103 88 }
@@ -311,7 +311,7 @@ voltara_culture_42 = {
  building_gfx = { western_building_gfx }
  clothing_gfx = { western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
- ethnicities = { 100 = mediterranean }
+ ethnicities = { 100 = voltara_deep_elven }
 }
 voltara_culture_43 = {
  color = { 255 79 123 }
