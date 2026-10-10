@@ -7,53 +7,15 @@
  eminent_holy_sites = { voltara_faith_0_test_206 voltara_faith_0_test_216 voltara_faith_0_test_227 }
  tenets = { tenet_ritual_celebrations tenet_ancestor_worship tenet_sanctity_of_nature }
 }
-
-voltara_faith_22 = {
- faith_details = { religion = voltara_religion
- color = { 61 179 179 }
- icon = pagan
- graphical_faith = pagan_gfx
- }
- eminent_holy_sites = { voltara_faith_22_test_205 voltara_faith_22_test_212 voltara_faith_22_test_217 }
- tenets = { tenet_ritual_celebrations tenet_ancestor_worship tenet_sanctity_of_nature }
-}
-
-voltara_faith_23 = {
- faith_details = { religion = voltara_religion
- color = { 236 171 46 }
- icon = pagan
- graphical_faith = pagan_gfx
- }
+voltara_aeluinist = {
+ main_rite = voltara_order_rite_23
+ faith_details = { religion = voltara_religion color = { 236 171 46 } icon = pagan graphical_faith = pagan_gfx }
  eminent_holy_sites = { voltara_faith_23_test_207 voltara_faith_23_test_208 voltara_faith_23_test_210 }
- tenets = { tenet_ritual_celebrations tenet_ancestor_worship tenet_sanctity_of_nature }
+ doctrines = { voltara_order_hostility }
 }
-
-voltara_faith_24 = {
- faith_details = { religion = voltara_religion
- color = { 27 218 170 }
- icon = pagan
- graphical_faith = pagan_gfx
- }
- eminent_holy_sites = { voltara_faith_24_test_416 voltara_faith_24_test_428 voltara_faith_24_test_432 }
- tenets = { tenet_ritual_celebrations tenet_ancestor_worship tenet_sanctity_of_nature }
-}
-
-voltara_faith_25 = {
- faith_details = { religion = voltara_religion
- color = { 192 63 167 }
- icon = pagan
- graphical_faith = pagan_gfx
- }
- eminent_holy_sites = { voltara_faith_25_test_209 voltara_faith_25_test_213 voltara_faith_25_test_224 }
- tenets = { tenet_ritual_celebrations tenet_ancestor_worship tenet_sanctity_of_nature }
-}
-
-voltara_faith_26 = {
- faith_details = { religion = voltara_religion
- color = { 55 159 184 }
- icon = pagan
- graphical_faith = pagan_gfx
- }
- eminent_holy_sites = { voltara_faith_26_test_200 voltara_faith_26_test_201 voltara_faith_26_test_202 }
- tenets = { tenet_ritual_celebrations tenet_ancestor_worship tenet_sanctity_of_nature }
+voltara_khaotism = {
+ main_rite = voltara_khaotism_rite
+ faith_details = { religion = voltara_khaos_religion color = { 120 40 160 } icon = pagan graphical_faith = pagan_gfx }
+ eminent_holy_sites = { voltara_khaos_site_0 voltara_khaos_site_1 voltara_khaos_site_2 }
+ doctrines = { voltara_khaos_hostility }
 }
