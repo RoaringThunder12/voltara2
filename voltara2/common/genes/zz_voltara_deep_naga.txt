@@ -415,6 +415,150 @@ giantish_features = {
 			boy = male
 			girl = female
 		}
+imgan_features = {
+			index = 3
+			male = {
+
+				setting = { attribute = "imga_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+				setting = { attribute = "imga_head_normals"	value = { min = 0.0 max = 1.0 }	 }
+				setting = { attribute = "imga_head_proportions"	value = { min = 0.0 max = 1.0 }	 }
+				setting = { attribute = "imgan_body_bs"	value = { min = 0.0 max = 1.0 }	 }
+				setting = { attribute = "imgan_body_proportions"	value = { min = 0.0 max = 1.0 }	 }
+				
+
+				eye_hsv_shift_curve = {
+					curve = {
+						{ 0.0   { 0.0 0.0 0.0 } }
+						{ 1.0   { 0.0 0.5 0.0 } }
+					}
+				}
+
+				texture_override = {
+					weight = 100  
+					diffuse = 	"gfx/models/portraits/male_head/imga_textures/imgan_head_diffuse.dds"
+					normal = 	"gfx/models/portraits/male_head/imga_textures/imgan_head_normal.dds"
+					specular = 	"gfx/models/portraits/male_head/imga_textures/imgan_head_properties.dds"
+				}
+
+
+
+				decal = { 
+					body_part = head
+					textures = {
+						diffuse = "gfx/models/portraits/decals/imgan_head_fur_colour_control.dds"
+					}
+					alpha_curve = {              
+						
+						{ 0.0  1.0 }
+						{ 1.0  1.0 }
+					}
+					blend_modes = {              
+						diffuse = replace
+					}
+					priority = 1
+					decal_apply_order = post_skin_color 
+				}
+
+				decal = { 
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/imgan_body_fur_colour_control.dds"
+					}
+					alpha_curve = {              
+						
+						{ 0.0  1.0 }
+						{ 1.0  1.0 }
+					}
+					blend_modes = {              
+						diffuse = replace
+					}
+					priority = 1
+					decal_apply_order = post_skin_color 
+				}
+			
+				decal = { 
+					body_part = head
+					textures = {
+						
+						normal = 		"gfx/models/portraits/decals/male_head/imgan/imgan_head_base_normal.dds"
+						properties = 	"gfx/models/portraits/decals/male_head/imgan/imgan_head_base_properties.dds"
+					}
+					alpha_curve = {              
+						
+						{ 0.0  1.0 }
+						{ 1.0  1.0 }
+					}
+					blend_modes = {              
+						
+						normal = replace
+						properties = replace
+
+					}
+					priority = 5
+					decal_apply_order = post_skin_color 
+				}
+
+				decal = { 
+					body_part = torso
+					textures = {
+						
+						normal = 		"gfx/models/portraits/decals/male_body/imgan/imgan_body_base_normal.dds"
+						properties = 	"gfx/models/portraits/decals/male_body/imgan/imgan_body_base_properties.dds"
+					}
+					alpha_curve = {              
+						
+						{ 0.0  1.0 }
+						{ 1.0  1.0 }
+					}
+					blend_modes = {              
+						
+						normal = replace
+						properties = replace
+
+					}
+					priority = 5
+					decal_apply_order = post_skin_color 
+				}
+
+				decal = { 
+					body_part = head
+					textures = {
+						diffuse = 	"gfx/models/portraits/decals/male_head/imgan/imgan_head_fur_diffuse.dds"
+					}
+					alpha_curve = {              
+						
+						{ 0.0  1.0 }
+						{ 1.0  1.0 }
+					}
+					blend_modes = {              
+						diffuse = hard_light
+					}
+					priority = 8
+					decal_apply_order = post_skin_color 
+				}
+
+				decal = { 
+					body_part = torso
+					textures = {
+						diffuse = 	"gfx/models/portraits/decals/male_body/imgan/imgan_body_fur_diffuse.dds"
+					}
+					alpha_curve = {              
+						
+						{ 0.0  1.0 }
+						{ 1.0  1.0 }
+					}
+					blend_modes = {              
+						diffuse = hard_light
+					}
+					priority = 8
+					decal_apply_order = post_skin_color 
+				}
+			}
+
+			female = male
+			boy = male
+			girl = female
+		}
 }
 }
 morph_genes = {

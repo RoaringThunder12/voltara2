@@ -262,6 +262,10 @@ additive_animation = { id = "female_giantish_body_proportions"			type = "female_
 additive_animation = { id = "female_giantish_height"			type = "female_giantish_height.anim" }
 
 blend_shape = { id = "female_giantish_body" type = "blendshapes/female_giantish_body.mesh"}
+
+additive_animation = { id = "female_imgan_body_proportions"			type = "female_imgan_body_proportions.anim" }
+
+blend_shape = { id = "female_imgan_body"		type = "blendshapes/female_imgan_body.mesh" }
 }
 
 entity = {
@@ -1479,4 +1483,7 @@ attribute = { name = "argonian_digitigrade_bs"				blend_shape = "female_argonian
 attribute = { name = "giantish_body_bs"						blend_shape = "female_giantish_body" }
 attribute = { name = "giantish_body_proportions" 				additive_animation = "female_giantish_body_proportions"}
 attribute = { name = "giantish_height" 				additive_animation = "female_giantish_height"}
+
+attribute = { name = "imgan_body_bs"						blend_shape = "female_imgan_body" }
+attribute = { name = "imgan_body_proportions" 				additive_animation = "female_imgan_body_proportions" }
 }

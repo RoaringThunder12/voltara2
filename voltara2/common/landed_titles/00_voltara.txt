@@ -243,15 +243,15 @@ k_voltara_test_1001 = { color = { 128 142 125 } capital = c_voltara_1001
   c_voltara_1001 = { color = { 128 142 125 }
    b_voltara_1001 = { province = 1001 }
    b_voltara_1023 = { province = 1023 }
-   b_voltara_1027 = { province = 1027 }
+   # Impassable ridge 1027
    b_voltara_1009 = { province = 1009 }
    b_voltara_1028 = { province = 1028 }
   }
   c_voltara_1003 = { color = { 128 142 125 }
    b_voltara_1003 = { province = 1003 }
    b_voltara_1014 = { province = 1014 }
-   b_voltara_1017 = { province = 1017 }
-   b_voltara_1020 = { province = 1020 }
+   # Impassable ridge 1017
+   # Impassable ridge 1020
   }
   c_voltara_1012 = { color = { 128 142 125 }
    b_voltara_1012 = { province = 1012 }
@@ -274,7 +274,7 @@ k_voltara_test_1001 = { color = { 128 142 125 } capital = c_voltara_1001
    b_voltara_1836 = { province = 1836 }
    b_voltara_1849 = { province = 1849 }
    b_voltara_1861 = { province = 1861 }
-   b_voltara_1839 = { province = 1839 }
+   # Impassable ridge 1839
   }
  }
  d_voltara_test_1002 = { color = { 128 142 125 } capital = c_voltara_1002
@@ -292,8 +292,8 @@ k_voltara_test_1001 = { color = { 128 142 125 } capital = c_voltara_1001
   }
   c_voltara_1007 = { color = { 128 142 125 }
    b_voltara_1007 = { province = 1007 }
-   b_voltara_1033 = { province = 1033 }
-   b_voltara_1034 = { province = 1034 }
+   # Impassable ridge 1033
+   # Impassable ridge 1034
    b_voltara_1036 = { province = 1036 }
   }
   c_voltara_1835 = { color = { 128 142 125 }
@@ -310,17 +310,17 @@ k_voltara_test_1001 = { color = { 128 142 125 } capital = c_voltara_1001
  d_voltara_test_1004 = { color = { 128 142 125 } capital = c_voltara_1004
   c_voltara_1004 = { color = { 128 142 125 }
    b_voltara_1004 = { province = 1004 }
-   b_voltara_1016 = { province = 1016 }
+   # Impassable ridge 1016
    b_voltara_1030 = { province = 1030 }
-   b_voltara_1006 = { province = 1006 }
+   # Impassable ridge 1006
    b_voltara_1010 = { province = 1010 }
   }
   c_voltara_1011 = { color = { 128 142 125 }
    b_voltara_1011 = { province = 1011 }
    b_voltara_1022 = { province = 1022 }
-   b_voltara_1035 = { province = 1035 }
-   b_voltara_1013 = { province = 1013 }
-   b_voltara_1029 = { province = 1029 }
+   # Impassable ridge 1035
+   # Impassable ridge 1013
+   # Impassable ridge 1029
   }
   c_voltara_2179 = { color = { 128 142 125 }
    b_voltara_2179 = { province = 2179 }
@@ -331,13 +331,13 @@ k_voltara_test_1001 = { color = { 128 142 125 } capital = c_voltara_1001
   c_voltara_2180 = { color = { 128 142 125 }
    b_voltara_2180 = { province = 2180 }
    b_voltara_2201 = { province = 2201 }
-   b_voltara_2205 = { province = 2205 }
-   b_voltara_2212 = { province = 2212 }
+   # Impassable ridge 2205
+   # Impassable ridge 2212
   }
   c_voltara_96 = { color = { 128 142 125 }
    b_voltara_96 = { province = 96 }
    b_voltara_1015 = { province = 1015 }
-   b_voltara_1021 = { province = 1021 }
+   # Impassable ridge 1021
    b_voltara_1024 = { province = 1024 }
   }
  }
@@ -377,7 +377,7 @@ k_voltara_test_1001 = { color = { 128 142 125 } capital = c_voltara_1001
    b_voltara_116 = { province = 116 }
    b_voltara_1536 = { province = 1536 }
    b_voltara_1548 = { province = 1548 }
-   b_voltara_1549 = { province = 1549 }
+   # Impassable ridge 1549
    b_voltara_1558 = { province = 1558 }
   }
   c_voltara_1524 = { color = { 128 142 125 }
@@ -385,7 +385,7 @@ k_voltara_test_1001 = { color = { 128 142 125 } capital = c_voltara_1001
    b_voltara_1557 = { province = 1557 }
    b_voltara_1570 = { province = 1570 }
    b_voltara_1532 = { province = 1532 }
-   b_voltara_1538 = { province = 1538 }
+   # Impassable ridge 1538
   }
   c_voltara_1527 = { color = { 128 142 125 }
    b_voltara_1527 = { province = 1527 }
@@ -1619,32 +1619,32 @@ k_voltara_test_102 = { color = { 128 142 125 } capital = c_voltara_102
   c_voltara_102 = { color = { 128 142 125 }
    b_voltara_102 = { province = 102 }
    b_voltara_1182 = { province = 1182 }
-   b_voltara_1183 = { province = 1183 }
-   b_voltara_1187 = { province = 1187 }
-   b_voltara_1178 = { province = 1178 }
+   # Impassable ridge 1183
+   # Impassable ridge 1187
+   # Impassable ridge 1178
   }
   c_voltara_1172 = { color = { 128 142 125 }
    b_voltara_1172 = { province = 1172 }
    b_voltara_1181 = { province = 1181 }
-   b_voltara_1185 = { province = 1185 }
-   b_voltara_1176 = { province = 1176 }
-   b_voltara_1179 = { province = 1179 }
+   # Impassable ridge 1185
+   # Impassable ridge 1176
+   # Impassable ridge 1179
   }
   c_voltara_1173 = { color = { 128 142 125 }
    b_voltara_1173 = { province = 1173 }
    b_voltara_1180 = { province = 1180 }
-   b_voltara_1189 = { province = 1189 }
-   b_voltara_1190 = { province = 1190 }
+   # Impassable ridge 1189
+   # Impassable ridge 1190
   }
   c_voltara_1174 = { color = { 128 142 125 }
    b_voltara_1174 = { province = 1174 }
-   b_voltara_1184 = { province = 1184 }
+   # Impassable ridge 1184
    b_voltara_1186 = { province = 1186 }
-   b_voltara_1177 = { province = 1177 }
+   # Impassable ridge 1177
   }
   c_voltara_1175 = { color = { 128 142 125 }
    b_voltara_1175 = { province = 1175 }
-   b_voltara_1188 = { province = 1188 }
+   # Impassable ridge 1188
    b_voltara_1191 = { province = 1191 }
   }
  }
@@ -1653,12 +1653,12 @@ k_voltara_test_102 = { color = { 128 142 125 } capital = c_voltara_102
    b_voltara_126 = { province = 126 }
    b_voltara_1799 = { province = 1799 }
    b_voltara_1806 = { province = 1806 }
-   b_voltara_1808 = { province = 1808 }
+   # Impassable ridge 1808
   }
   c_voltara_1785 = { color = { 128 142 125 }
    b_voltara_1785 = { province = 1785 }
-   b_voltara_1801 = { province = 1801 }
-   b_voltara_1804 = { province = 1804 }
+   # Impassable ridge 1801
+   # Impassable ridge 1804
    b_voltara_1822 = { province = 1822 }
   }
   c_voltara_1789 = { color = { 128 142 125 }
@@ -1675,8 +1675,8 @@ k_voltara_test_102 = { color = { 128 142 125 } capital = c_voltara_102
   c_voltara_1792 = { color = { 128 142 125 }
    b_voltara_1792 = { province = 1792 }
    b_voltara_1830 = { province = 1830 }
-   b_voltara_1832 = { province = 1832 }
-   b_voltara_1833 = { province = 1833 }
+   # Impassable ridge 1832
+   # Impassable ridge 1833
   }
  }
  d_voltara_test_133 = { color = { 128 142 125 } capital = c_voltara_133
@@ -1716,56 +1716,56 @@ k_voltara_test_102 = { color = { 128 142 125 } capital = c_voltara_102
   c_voltara_152 = { color = { 128 142 125 }
    b_voltara_152 = { province = 152 }
    b_voltara_2440 = { province = 2440 }
-   b_voltara_2442 = { province = 2442 }
+   # Impassable ridge 2442
    b_voltara_2445 = { province = 2445 }
    b_voltara_2436 = { province = 2436 }
   }
   c_voltara_2434 = { color = { 128 142 125 }
    b_voltara_2434 = { province = 2434 }
-   b_voltara_2438 = { province = 2438 }
+   # Impassable ridge 2438
    b_voltara_2441 = { province = 2441 }
-   b_voltara_2443 = { province = 2443 }
-   b_voltara_2446 = { province = 2446 }
+   # Impassable ridge 2443
+   # Impassable ridge 2446
   }
   c_voltara_2435 = { color = { 128 142 125 }
    b_voltara_2435 = { province = 2435 }
    b_voltara_2444 = { province = 2444 }
-   b_voltara_2437 = { province = 2437 }
+   # Impassable ridge 2437
    b_voltara_2439 = { province = 2439 }
-   b_voltara_2447 = { province = 2447 }
+   # Impassable ridge 2447
   }
   c_voltara_1788 = { color = { 128 142 125 }
    b_voltara_1788 = { province = 1788 }
    b_voltara_1798 = { province = 1798 }
-   b_voltara_1811 = { province = 1811 }
-   b_voltara_1823 = { province = 1823 }
+   # Impassable ridge 1811
+   # Impassable ridge 1823
   }
  }
  d_voltara_test_153 = { color = { 128 142 125 } capital = c_voltara_153
   c_voltara_153 = { color = { 128 142 125 }
    b_voltara_153 = { province = 153 }
    b_voltara_2458 = { province = 2458 }
-   b_voltara_2459 = { province = 2459 }
+   # Impassable ridge 2459
    b_voltara_2461 = { province = 2461 }
   }
   c_voltara_2449 = { color = { 128 142 125 }
    b_voltara_2449 = { province = 2449 }
-   b_voltara_2468 = { province = 2468 }
+   # Impassable ridge 2468
    b_voltara_2469 = { province = 2469 }
-   b_voltara_2457 = { province = 2457 }
+   # Impassable ridge 2457
    b_voltara_2455 = { province = 2455 }
   }
   c_voltara_2451 = { color = { 128 142 125 }
    b_voltara_2451 = { province = 2451 }
    b_voltara_2462 = { province = 2462 }
-   b_voltara_2467 = { province = 2467 }
+   # Impassable ridge 2467
    b_voltara_2452 = { province = 2452 }
   }
   c_voltara_2453 = { color = { 128 142 125 }
    b_voltara_2453 = { province = 2453 }
    b_voltara_2463 = { province = 2463 }
    b_voltara_2473 = { province = 2473 }
-   b_voltara_2456 = { province = 2456 }
+   # Impassable ridge 2456
   }
   c_voltara_2465 = { color = { 128 142 125 }
    b_voltara_2465 = { province = 2465 }
@@ -1797,8 +1797,8 @@ k_voltara_test_102 = { color = { 128 142 125 } capital = c_voltara_102
   c_voltara_2450 = { color = { 128 142 125 }
    b_voltara_2450 = { province = 2450 }
    b_voltara_2470 = { province = 2470 }
-   b_voltara_2471 = { province = 2471 }
-   b_voltara_2460 = { province = 2460 }
+   # Impassable ridge 2471
+   # Impassable ridge 2460
   }
   c_voltara_2400 = { color = { 128 142 125 }
    b_voltara_2400 = { province = 2400 }
@@ -1824,15 +1824,15 @@ k_voltara_test_102 = { color = { 128 142 125 } capital = c_voltara_102
   c_voltara_1787 = { color = { 128 142 125 }
    b_voltara_1787 = { province = 1787 }
    b_voltara_1797 = { province = 1797 }
-   b_voltara_1807 = { province = 1807 }
-   b_voltara_1819 = { province = 1819 }
-   b_voltara_1828 = { province = 1828 }
+   # Impassable ridge 1807
+   # Impassable ridge 1819
+   # Impassable ridge 1828
   }
   c_voltara_1793 = { color = { 128 142 125 }
    b_voltara_1793 = { province = 1793 }
-   b_voltara_1818 = { province = 1818 }
+   # Impassable ridge 1818
    b_voltara_1824 = { province = 1824 }
-   b_voltara_1821 = { province = 1821 }
+   # Impassable ridge 1821
   }
  }
 }
@@ -2505,32 +2505,32 @@ k_voltara_test_103 = { color = { 128 142 125 } capital = c_voltara_103
   c_voltara_2182 = { color = { 128 142 125 }
    b_voltara_2182 = { province = 2182 }
    b_voltara_2209 = { province = 2209 }
-   b_voltara_2190 = { province = 2190 }
+   # Impassable ridge 2190
    b_voltara_2202 = { province = 2202 }
   }
   c_voltara_2183 = { color = { 128 142 125 }
    b_voltara_2183 = { province = 2183 }
    b_voltara_2191 = { province = 2191 }
-   b_voltara_2210 = { province = 2210 }
-   b_voltara_2219 = { province = 2219 }
+   # Impassable ridge 2210
+   # Impassable ridge 2219
    b_voltara_2217 = { province = 2217 }
   }
   c_voltara_141 = { color = { 128 142 125 }
    b_voltara_141 = { province = 141 }
-   b_voltara_2204 = { province = 2204 }
+   # Impassable ridge 2204
    b_voltara_2206 = { province = 2206 }
-   b_voltara_2208 = { province = 2208 }
-   b_voltara_2189 = { province = 2189 }
+   # Impassable ridge 2208
+   # Impassable ridge 2189
   }
   c_voltara_2193 = { color = { 128 142 125 }
    b_voltara_2193 = { province = 2193 }
-   b_voltara_2220 = { province = 2220 }
+   # Impassable ridge 2220
    b_voltara_2224 = { province = 2224 }
   }
   c_voltara_2187 = { color = { 128 142 125 }
    b_voltara_2187 = { province = 2187 }
    b_voltara_2221 = { province = 2221 }
-   b_voltara_2225 = { province = 2225 }
+   # Impassable ridge 2225
   }
  }
  d_voltara_test_1199 = { color = { 128 142 125 } capital = c_voltara_1199
@@ -2582,8 +2582,8 @@ k_voltara_test_103 = { color = { 128 142 125 } capital = c_voltara_103
   c_voltara_1526 = { color = { 128 142 125 }
    b_voltara_1526 = { province = 1526 }
    b_voltara_1544 = { province = 1544 }
-   b_voltara_1553 = { province = 1553 }
-   b_voltara_1561 = { province = 1561 }
+   # Impassable ridge 1553
+   # Impassable ridge 1561
   }
   c_voltara_1539 = { color = { 128 142 125 }
    b_voltara_1539 = { province = 1539 }
@@ -2591,28 +2591,28 @@ k_voltara_test_103 = { color = { 128 142 125 } capital = c_voltara_103
   }
   c_voltara_2186 = { color = { 128 142 125 }
    b_voltara_2186 = { province = 2186 }
-   b_voltara_2195 = { province = 2195 }
-   b_voltara_2199 = { province = 2199 }
+   # Impassable ridge 2195
+   # Impassable ridge 2199
    b_voltara_2222 = { province = 2222 }
-   b_voltara_2226 = { province = 2226 }
+   # Impassable ridge 2226
   }
   c_voltara_2177 = { color = { 128 142 125 }
    b_voltara_2177 = { province = 2177 }
    b_voltara_2218 = { province = 2218 }
-   b_voltara_2184 = { province = 2184 }
-   b_voltara_2197 = { province = 2197 }
+   # Impassable ridge 2184
+   # Impassable ridge 2197
   }
   c_voltara_2181 = { color = { 128 142 125 }
    b_voltara_2181 = { province = 2181 }
-   b_voltara_2203 = { province = 2203 }
-   b_voltara_2213 = { province = 2213 }
+   # Impassable ridge 2203
+   # Impassable ridge 2213
    b_voltara_2223 = { province = 2223 }
   }
   c_voltara_2176 = { color = { 128 142 125 }
    b_voltara_2176 = { province = 2176 }
    b_voltara_2207 = { province = 2207 }
-   b_voltara_2185 = { province = 2185 }
-   b_voltara_2196 = { province = 2196 }
+   # Impassable ridge 2185
+   # Impassable ridge 2196
   }
  }
  d_voltara_test_118 = { color = { 128 142 125 } capital = c_voltara_118
@@ -2620,27 +2620,27 @@ k_voltara_test_103 = { color = { 128 142 125 } capital = c_voltara_103
    b_voltara_118 = { province = 118 }
    b_voltara_1597 = { province = 1597 }
    b_voltara_1600 = { province = 1600 }
-   b_voltara_1605 = { province = 1605 }
+   # Impassable ridge 1605
    b_voltara_1594 = { province = 1594 }
   }
   c_voltara_1590 = { color = { 128 142 125 }
    b_voltara_1590 = { province = 1590 }
    b_voltara_1601 = { province = 1601 }
-   b_voltara_1607 = { province = 1607 }
+   # Impassable ridge 1607
    b_voltara_1610 = { province = 1610 }
   }
   c_voltara_1591 = { color = { 128 142 125 }
    b_voltara_1591 = { province = 1591 }
    b_voltara_1609 = { province = 1609 }
    b_voltara_1595 = { province = 1595 }
-   b_voltara_1611 = { province = 1611 }
+   # Impassable ridge 1611
   }
   c_voltara_1587 = { color = { 128 142 125 }
    b_voltara_1587 = { province = 1587 }
-   b_voltara_1593 = { province = 1593 }
+   # Impassable ridge 1593
    b_voltara_1598 = { province = 1598 }
    b_voltara_1604 = { province = 1604 }
-   b_voltara_1608 = { province = 1608 }
+   # Impassable ridge 1608
   }
   c_voltara_2032 = { color = { 128 142 125 }
    b_voltara_2032 = { province = 2032 }
@@ -2658,10 +2658,10 @@ k_voltara_test_103 = { color = { 128 142 125 } capital = c_voltara_103
   }
   c_voltara_2273 = { color = { 128 142 125 }
    b_voltara_2273 = { province = 2273 }
-   b_voltara_2278 = { province = 2278 }
+   # Impassable ridge 2278
    b_voltara_2280 = { province = 2280 }
-   b_voltara_2276 = { province = 2276 }
-   b_voltara_2283 = { province = 2283 }
+   # Impassable ridge 2276
+   # Impassable ridge 2283
   }
   c_voltara_2275 = { color = { 128 142 125 }
    b_voltara_2275 = { province = 2275 }
@@ -2670,15 +2670,15 @@ k_voltara_test_103 = { color = { 128 142 125 } capital = c_voltara_103
   c_voltara_1471 = { color = { 128 142 125 }
    b_voltara_1471 = { province = 1471 }
    b_voltara_1480 = { province = 1480 }
-   b_voltara_1485 = { province = 1485 }
-   b_voltara_1492 = { province = 1492 }
-   b_voltara_1477 = { province = 1477 }
+   # Impassable ridge 1485
+   # Impassable ridge 1492
+   # Impassable ridge 1477
   }
   c_voltara_776 = { color = { 128 142 125 }
    b_voltara_776 = { province = 776 }
    b_voltara_784 = { province = 784 }
-   b_voltara_788 = { province = 788 }
-   b_voltara_794 = { province = 794 }
+   # Impassable ridge 788
+   # Impassable ridge 794
   }
  }
 }
@@ -3880,9 +3880,9 @@ k_voltara_test_104 = { color = { 128 142 125 } capital = c_voltara_104
   }
   c_voltara_866 = { color = { 128 142 125 }
    b_voltara_866 = { province = 866 }
-   b_voltara_877 = { province = 877 }
+   # Impassable ridge 877
    b_voltara_882 = { province = 882 }
-   b_voltara_885 = { province = 885 }
+   # Impassable ridge 885
    b_voltara_871 = { province = 871 }
   }
   c_voltara_1740 = { color = { 128 142 125 }
@@ -3898,25 +3898,25 @@ k_voltara_test_104 = { color = { 128 142 125 } capital = c_voltara_104
    b_voltara_1750 = { province = 1750 }
    b_voltara_1755 = { province = 1755 }
    b_voltara_1756 = { province = 1756 }
-   b_voltara_1747 = { province = 1747 }
+   # Impassable ridge 1747
   }
   c_voltara_1737 = { color = { 128 142 125 }
    b_voltara_1737 = { province = 1737 }
    b_voltara_1759 = { province = 1759 }
-   b_voltara_1775 = { province = 1775 }
-   b_voltara_1776 = { province = 1776 }
+   # Impassable ridge 1775
+   # Impassable ridge 1776
   }
   c_voltara_1739 = { color = { 128 142 125 }
    b_voltara_1739 = { province = 1739 }
-   b_voltara_1764 = { province = 1764 }
-   b_voltara_1769 = { province = 1769 }
+   # Impassable ridge 1764
+   # Impassable ridge 1769
    b_voltara_1771 = { province = 1771 }
   }
   c_voltara_1742 = { color = { 128 142 125 }
    b_voltara_1742 = { province = 1742 }
    b_voltara_1767 = { province = 1767 }
-   b_voltara_1770 = { province = 1770 }
-   b_voltara_1745 = { province = 1745 }
+   # Impassable ridge 1770
+   # Impassable ridge 1745
   }
   c_voltara_1757 = { color = { 128 142 125 }
    b_voltara_1757 = { province = 1757 }
@@ -3939,13 +3939,13 @@ k_voltara_test_104 = { color = { 128 142 125 } capital = c_voltara_104
   c_voltara_2492 = { color = { 128 142 125 }
    b_voltara_2492 = { province = 2492 }
    b_voltara_2503 = { province = 2503 }
-   b_voltara_2507 = { province = 2507 }
+   # Impassable ridge 2507
    b_voltara_2516 = { province = 2516 }
-   b_voltara_2500 = { province = 2500 }
+   # Impassable ridge 2500
   }
   c_voltara_2494 = { color = { 128 142 125 }
    b_voltara_2494 = { province = 2494 }
-   b_voltara_2510 = { province = 2510 }
+   # Impassable ridge 2510
    b_voltara_2513 = { province = 2513 }
    b_voltara_2515 = { province = 2515 }
   }
@@ -3975,26 +3975,26 @@ k_voltara_test_104 = { color = { 128 142 125 } capital = c_voltara_104
    b_voltara_867 = { province = 867 }
    b_voltara_886 = { province = 886 }
    b_voltara_889 = { province = 889 }
-   b_voltara_873 = { province = 873 }
-   b_voltara_887 = { province = 887 }
+   # Impassable ridge 873
+   # Impassable ridge 887
   }
   c_voltara_869 = { color = { 128 142 125 }
    b_voltara_869 = { province = 869 }
-   b_voltara_874 = { province = 874 }
-   b_voltara_875 = { province = 875 }
+   # Impassable ridge 874
+   # Impassable ridge 875
    b_voltara_876 = { province = 876 }
   }
   c_voltara_90 = { color = { 128 142 125 }
    b_voltara_90 = { province = 90 }
    b_voltara_878 = { province = 878 }
    b_voltara_881 = { province = 881 }
-   b_voltara_890 = { province = 890 }
+   # Impassable ridge 890
   }
   c_voltara_868 = { color = { 128 142 125 }
    b_voltara_868 = { province = 868 }
    b_voltara_879 = { province = 879 }
-   b_voltara_880 = { province = 880 }
-   b_voltara_888 = { province = 888 }
+   # Impassable ridge 880
+   # Impassable ridge 888
   }
   c_voltara_870 = { color = { 128 142 125 }
    b_voltara_870 = { province = 870 }
@@ -4007,7 +4007,7 @@ k_voltara_test_104 = { color = { 128 142 125 } capital = c_voltara_104
    b_voltara_1119 = { province = 1119 }
    b_voltara_1122 = { province = 1122 }
    b_voltara_1124 = { province = 1124 }
-   b_voltara_1114 = { province = 1114 }
+   # Impassable ridge 1114
   }
   c_voltara_1110 = { color = { 128 142 125 }
    b_voltara_1110 = { province = 1110 }
@@ -4023,7 +4023,7 @@ k_voltara_test_104 = { color = { 128 142 125 } capital = c_voltara_104
   c_voltara_1735 = { color = { 128 142 125 }
    b_voltara_1735 = { province = 1735 }
    b_voltara_1744 = { province = 1744 }
-   b_voltara_1753 = { province = 1753 }
+   # Impassable ridge 1753
    b_voltara_1754 = { province = 1754 }
   }
   c_voltara_1741 = { color = { 128 142 125 }
@@ -4042,26 +4042,26 @@ k_voltara_test_104 = { color = { 128 142 125 } capital = c_voltara_104
   c_voltara_154 = { color = { 128 142 125 }
    b_voltara_154 = { province = 154 }
    b_voltara_2482 = { province = 2482 }
-   b_voltara_2487 = { province = 2487 }
+   # Impassable ridge 2487
    b_voltara_2489 = { province = 2489 }
   }
   c_voltara_2474 = { color = { 128 142 125 }
    b_voltara_2474 = { province = 2474 }
    b_voltara_2484 = { province = 2484 }
    b_voltara_2477 = { province = 2477 }
-   b_voltara_2479 = { province = 2479 }
+   # Impassable ridge 2479
   }
   c_voltara_2475 = { color = { 128 142 125 }
    b_voltara_2475 = { province = 2475 }
-   b_voltara_2481 = { province = 2481 }
+   # Impassable ridge 2481
    b_voltara_2483 = { province = 2483 }
-   b_voltara_2486 = { province = 2486 }
+   # Impassable ridge 2486
   }
   c_voltara_2476 = { color = { 128 142 125 }
    b_voltara_2476 = { province = 2476 }
-   b_voltara_2485 = { province = 2485 }
+   # Impassable ridge 2485
    b_voltara_2490 = { province = 2490 }
-   b_voltara_2478 = { province = 2478 }
+   # Impassable ridge 2478
   }
   c_voltara_2480 = { color = { 128 142 125 }
    b_voltara_2480 = { province = 2480 }
@@ -4090,7 +4090,7 @@ k_voltara_test_104 = { color = { 128 142 125 } capital = c_voltara_104
    b_voltara_155 = { province = 155 }
    b_voltara_2504 = { province = 2504 }
    b_voltara_2506 = { province = 2506 }
-   b_voltara_2508 = { province = 2508 }
+   # Impassable ridge 2508
    b_voltara_2497 = { province = 2497 }
   }
   c_voltara_2496 = { color = { 128 142 125 }
@@ -4598,7 +4598,7 @@ k_voltara_test_105 = { color = { 128 142 125 } capital = c_voltara_105
   c_voltara_2344 = { color = { 128 142 125 }
    b_voltara_2344 = { province = 2344 }
    b_voltara_2360 = { province = 2360 }
-   b_voltara_2362 = { province = 2362 }
+   # Impassable ridge 2362
    b_voltara_2367 = { province = 2367 }
   }
   c_voltara_2345 = { color = { 128 142 125 }
@@ -4685,22 +4685,22 @@ k_voltara_test_105 = { color = { 128 142 125 } capital = c_voltara_105
   c_voltara_148 = { color = { 128 142 125 }
    b_voltara_148 = { province = 148 }
    b_voltara_2354 = { province = 2354 }
-   b_voltara_2356 = { province = 2356 }
+   # Impassable ridge 2356
    b_voltara_2357 = { province = 2357 }
-   b_voltara_2375 = { province = 2375 }
+   # Impassable ridge 2375
   }
   c_voltara_2341 = { color = { 128 142 125 }
    b_voltara_2341 = { province = 2341 }
    b_voltara_2353 = { province = 2353 }
-   b_voltara_2369 = { province = 2369 }
-   b_voltara_2346 = { province = 2346 }
-   b_voltara_2373 = { province = 2373 }
+   # Impassable ridge 2369
+   # Impassable ridge 2346
+   # Impassable ridge 2373
   }
   c_voltara_2342 = { color = { 128 142 125 }
    b_voltara_2342 = { province = 2342 }
-   b_voltara_2352 = { province = 2352 }
+   # Impassable ridge 2352
    b_voltara_2364 = { province = 2364 }
-   b_voltara_2349 = { province = 2349 }
+   # Impassable ridge 2349
   }
   c_voltara_2348 = { color = { 128 142 125 }
    b_voltara_2348 = { province = 2348 }
@@ -4710,8 +4710,8 @@ k_voltara_test_105 = { color = { 128 142 125 } capital = c_voltara_105
   }
   c_voltara_2350 = { color = { 128 142 125 }
    b_voltara_2350 = { province = 2350 }
-   b_voltara_2368 = { province = 2368 }
-   b_voltara_2371 = { province = 2371 }
+   # Impassable ridge 2368
+   # Impassable ridge 2371
    b_voltara_2372 = { province = 2372 }
   }
  }
@@ -4810,9 +4810,9 @@ k_voltara_test_105 = { color = { 128 142 125 } capital = c_voltara_105
   }
   c_voltara_1317 = { color = { 128 142 125 }
    b_voltara_1317 = { province = 1317 }
-   b_voltara_1344 = { province = 1344 }
+   # Impassable ridge 1344
    b_voltara_1350 = { province = 1350 }
-   b_voltara_1360 = { province = 1360 }
+   # Impassable ridge 1360
   }
  }
 }
@@ -5057,12 +5057,12 @@ k_voltara_test_1054 = { color = { 128 142 125 } capital = c_voltara_1054
    b_voltara_1059 = { province = 1059 }
    b_voltara_1078 = { province = 1078 }
    b_voltara_1086 = { province = 1086 }
-   b_voltara_1087 = { province = 1087 }
+   # Impassable ridge 1087
   }
   c_voltara_1064 = { color = { 128 142 125 }
    b_voltara_1064 = { province = 1064 }
    b_voltara_1068 = { province = 1068 }
-   b_voltara_1088 = { province = 1088 }
+   # Impassable ridge 1088
    b_voltara_1092 = { province = 1092 }
   }
   c_voltara_1386 = { color = { 128 142 125 }
@@ -5076,31 +5076,31 @@ k_voltara_test_1054 = { color = { 128 142 125 } capital = c_voltara_1054
   c_voltara_1056 = { color = { 128 142 125 }
    b_voltara_1056 = { province = 1056 }
    b_voltara_1080 = { province = 1080 }
-   b_voltara_1103 = { province = 1103 }
-   b_voltara_1065 = { province = 1065 }
+   # Impassable ridge 1103
+   # Impassable ridge 1065
   }
   c_voltara_1060 = { color = { 128 142 125 }
    b_voltara_1060 = { province = 1060 }
-   b_voltara_1079 = { province = 1079 }
-   b_voltara_1094 = { province = 1094 }
+   # Impassable ridge 1079
+   # Impassable ridge 1094
    b_voltara_1104 = { province = 1104 }
   }
   c_voltara_1061 = { color = { 128 142 125 }
    b_voltara_1061 = { province = 1061 }
    b_voltara_1074 = { province = 1074 }
-   b_voltara_1095 = { province = 1095 }
+   # Impassable ridge 1095
    b_voltara_1102 = { province = 1102 }
-   b_voltara_1073 = { province = 1073 }
+   # Impassable ridge 1073
   }
   c_voltara_1066 = { color = { 128 142 125 }
    b_voltara_1066 = { province = 1066 }
    b_voltara_1090 = { province = 1090 }
-   b_voltara_1093 = { province = 1093 }
-   b_voltara_1100 = { province = 1100 }
+   # Impassable ridge 1093
+   # Impassable ridge 1100
   }
   c_voltara_1076 = { color = { 128 142 125 }
    b_voltara_1076 = { province = 1076 }
-   b_voltara_1099 = { province = 1099 }
+   # Impassable ridge 1099
    b_voltara_1107 = { province = 1107 }
   }
  }
@@ -5115,7 +5115,7 @@ k_voltara_test_1054 = { color = { 128 142 125 } capital = c_voltara_1054
    b_voltara_1063 = { province = 1063 }
    b_voltara_1106 = { province = 1106 }
    b_voltara_1067 = { province = 1067 }
-   b_voltara_1105 = { province = 1105 }
+   # Impassable ridge 1105
   }
   c_voltara_2418 = { color = { 128 142 125 }
    b_voltara_2418 = { province = 2418 }
@@ -5124,16 +5124,16 @@ k_voltara_test_1054 = { color = { 128 142 125 } capital = c_voltara_1054
   }
   c_voltara_1058 = { color = { 128 142 125 }
    b_voltara_1058 = { province = 1058 }
-   b_voltara_1082 = { province = 1082 }
+   # Impassable ridge 1082
    b_voltara_1089 = { province = 1089 }
-   b_voltara_1097 = { province = 1097 }
+   # Impassable ridge 1097
   }
   c_voltara_98 = { color = { 128 142 125 }
    b_voltara_98 = { province = 98 }
-   b_voltara_1081 = { province = 1081 }
-   b_voltara_1083 = { province = 1083 }
+   # Impassable ridge 1081
+   # Impassable ridge 1083
    b_voltara_1091 = { province = 1091 }
-   b_voltara_1069 = { province = 1069 }
+   # Impassable ridge 1069
   }
  }
  d_voltara_test_110 = { color = { 128 142 125 } capital = c_voltara_110
@@ -5506,10 +5506,10 @@ k_voltara_test_106 = { color = { 128 142 125 } capital = c_voltara_106
   }
   c_voltara_1314 = { color = { 128 142 125 }
    b_voltara_1314 = { province = 1314 }
-   b_voltara_1328 = { province = 1328 }
+   # Impassable ridge 1328
    b_voltara_1331 = { province = 1331 }
-   b_voltara_1336 = { province = 1336 }
-   b_voltara_1355 = { province = 1355 }
+   # Impassable ridge 1336
+   # Impassable ridge 1355
   }
   c_voltara_1315 = { color = { 128 142 125 }
    b_voltara_1315 = { province = 1315 }
@@ -5526,10 +5526,10 @@ k_voltara_test_106 = { color = { 128 142 125 } capital = c_voltara_106
   }
   c_voltara_1319 = { color = { 128 142 125 }
    b_voltara_1319 = { province = 1319 }
-   b_voltara_1324 = { province = 1324 }
-   b_voltara_1357 = { province = 1357 }
+   # Impassable ridge 1324
+   # Impassable ridge 1357
    b_voltara_1366 = { province = 1366 }
-   b_voltara_1326 = { province = 1326 }
+   # Impassable ridge 1326
   }
   c_voltara_1330 = { color = { 128 142 125 }
    b_voltara_1330 = { province = 1330 }
@@ -5566,9 +5566,9 @@ k_voltara_test_106 = { color = { 128 142 125 } capital = c_voltara_106
   }
   c_voltara_1862 = { color = { 128 142 125 }
    b_voltara_1862 = { province = 1862 }
-   b_voltara_1880 = { province = 1880 }
+   # Impassable ridge 1880
    b_voltara_1892 = { province = 1892 }
-   b_voltara_1899 = { province = 1899 }
+   # Impassable ridge 1899
   }
  }
  d_voltara_test_1249 = { color = { 128 142 125 } capital = c_voltara_1249
@@ -5641,8 +5641,8 @@ k_voltara_test_106 = { color = { 128 142 125 } capital = c_voltara_106
   c_voltara_1313 = { color = { 128 142 125 }
    b_voltara_1313 = { province = 1313 }
    b_voltara_1335 = { province = 1335 }
-   b_voltara_1358 = { province = 1358 }
-   b_voltara_1361 = { province = 1361 }
+   # Impassable ridge 1358
+   # Impassable ridge 1361
   }
   c_voltara_1998 = { color = { 128 142 125 }
    b_voltara_1998 = { province = 1998 }
@@ -7899,8 +7899,8 @@ k_voltara_test_1111 = { color = { 128 142 125 } capital = c_voltara_1111
   }
   c_voltara_1588 = { color = { 128 142 125 }
    b_voltara_1588 = { province = 1588 }
-   b_voltara_1599 = { province = 1599 }
-   b_voltara_1603 = { province = 1603 }
+   # Impassable ridge 1599
+   # Impassable ridge 1603
    b_voltara_1606 = { province = 1606 }
   }
   c_voltara_2228 = { color = { 128 142 125 }
@@ -7932,8 +7932,8 @@ k_voltara_test_1111 = { color = { 128 142 125 } capital = c_voltara_1111
   }
   c_voltara_777 = { color = { 128 142 125 }
    b_voltara_777 = { province = 777 }
-   b_voltara_786 = { province = 786 }
-   b_voltara_789 = { province = 789 }
+   # Impassable ridge 786
+   # Impassable ridge 789
    b_voltara_795 = { province = 795 }
    b_voltara_785 = { province = 785 }
   }
@@ -7958,7 +7958,7 @@ k_voltara_test_1111 = { color = { 128 142 125 } capital = c_voltara_1111
    b_voltara_85 = { province = 85 }
    b_voltara_787 = { province = 787 }
    b_voltara_796 = { province = 796 }
-   b_voltara_779 = { province = 779 }
+   # Impassable ridge 779
   }
  }
 }
@@ -8679,33 +8679,33 @@ k_voltara_test_113 = { color = { 128 142 125 } capital = c_voltara_113
    b_voltara_113 = { province = 113 }
    b_voltara_1487 = { province = 1487 }
    b_voltara_1493 = { province = 1493 }
-   b_voltara_1475 = { province = 1475 }
+   # Impassable ridge 1475
    b_voltara_1478 = { province = 1478 }
   }
   c_voltara_1472 = { color = { 128 142 125 }
    b_voltara_1472 = { province = 1472 }
-   b_voltara_1482 = { province = 1482 }
-   b_voltara_1483 = { province = 1483 }
+   # Impassable ridge 1482
+   # Impassable ridge 1483
    b_voltara_1486 = { province = 1486 }
   }
   c_voltara_1473 = { color = { 128 142 125 }
    b_voltara_1473 = { province = 1473 }
    b_voltara_1481 = { province = 1481 }
    b_voltara_1491 = { province = 1491 }
-   b_voltara_1494 = { province = 1494 }
-   b_voltara_1488 = { province = 1488 }
+   # Impassable ridge 1494
+   # Impassable ridge 1488
   }
   c_voltara_1474 = { color = { 128 142 125 }
    b_voltara_1474 = { province = 1474 }
    b_voltara_1484 = { province = 1484 }
    b_voltara_1489 = { province = 1489 }
-   b_voltara_1490 = { province = 1490 }
+   # Impassable ridge 1490
   }
   c_voltara_1476 = { color = { 128 142 125 }
    b_voltara_1476 = { province = 1476 }
-   b_voltara_1495 = { province = 1495 }
+   # Impassable ridge 1495
    b_voltara_1497 = { province = 1497 }
-   b_voltara_1498 = { province = 1498 }
+   # Impassable ridge 1498
   }
   c_voltara_1479 = { color = { 128 142 125 }
    b_voltara_1479 = { province = 1479 }
@@ -8741,7 +8741,7 @@ k_voltara_test_113 = { color = { 128 142 125 } capital = c_voltara_113
   }
   c_voltara_2274 = { color = { 128 142 125 }
    b_voltara_2274 = { province = 2274 }
-   b_voltara_2281 = { province = 2281 }
+   # Impassable ridge 2281
    b_voltara_2284 = { province = 2284 }
    b_voltara_2277 = { province = 2277 }
   }
@@ -8755,9 +8755,9 @@ k_voltara_test_113 = { color = { 128 142 125 } capital = c_voltara_113
   }
   c_voltara_934 = { color = { 128 142 125 }
    b_voltara_934 = { province = 934 }
-   b_voltara_949 = { province = 949 }
+   # Impassable ridge 949
    b_voltara_950 = { province = 950 }
-   b_voltara_951 = { province = 951 }
+   # Impassable ridge 951
   }
   c_voltara_2250 = { color = { 128 142 125 }
    b_voltara_2250 = { province = 2250 }
@@ -8767,42 +8767,42 @@ k_voltara_test_113 = { color = { 128 142 125 } capital = c_voltara_113
   }
   c_voltara_933 = { color = { 128 142 125 }
    b_voltara_933 = { province = 933 }
-   b_voltara_947 = { province = 947 }
+   # Impassable ridge 947
    b_voltara_956 = { province = 956 }
    b_voltara_937 = { province = 937 }
-   b_voltara_964 = { province = 964 }
+   # Impassable ridge 964
   }
   c_voltara_941 = { color = { 128 142 125 }
    b_voltara_941 = { province = 941 }
-   b_voltara_955 = { province = 955 }
+   # Impassable ridge 955
    b_voltara_959 = { province = 959 }
-   b_voltara_962 = { province = 962 }
+   # Impassable ridge 962
   }
  }
  d_voltara_test_1613 = { color = { 128 142 125 } capital = c_voltara_1613
   c_voltara_1613 = { color = { 128 142 125 }
    b_voltara_1613 = { province = 1613 }
-   b_voltara_1618 = { province = 1618 }
+   # Impassable ridge 1618
    b_voltara_1624 = { province = 1624 }
    b_voltara_1631 = { province = 1631 }
   }
   c_voltara_931 = { color = { 128 142 125 }
    b_voltara_931 = { province = 931 }
-   b_voltara_952 = { province = 952 }
+   # Impassable ridge 952
    b_voltara_966 = { province = 966 }
-   b_voltara_938 = { province = 938 }
-   b_voltara_960 = { province = 960 }
+   # Impassable ridge 938
+   # Impassable ridge 960
   }
   c_voltara_932 = { color = { 128 142 125 }
    b_voltara_932 = { province = 932 }
-   b_voltara_944 = { province = 944 }
+   # Impassable ridge 944
    b_voltara_961 = { province = 961 }
    b_voltara_940 = { province = 940 }
   }
   c_voltara_935 = { color = { 128 142 125 }
    b_voltara_935 = { province = 935 }
-   b_voltara_943 = { province = 943 }
-   b_voltara_953 = { province = 953 }
+   # Impassable ridge 943
+   # Impassable ridge 953
    b_voltara_957 = { province = 957 }
   }
   c_voltara_936 = { color = { 128 142 125 }
@@ -8829,7 +8829,7 @@ k_voltara_test_113 = { color = { 128 142 125 } capital = c_voltara_113
   c_voltara_119 = { color = { 128 142 125 }
    b_voltara_119 = { province = 119 }
    b_voltara_1623 = { province = 1623 }
-   b_voltara_1626 = { province = 1626 }
+   # Impassable ridge 1626
    b_voltara_1632 = { province = 1632 }
   }
   c_voltara_1612 = { color = { 128 142 125 }
@@ -8840,10 +8840,10 @@ k_voltara_test_113 = { color = { 128 142 125 } capital = c_voltara_113
   }
   c_voltara_1614 = { color = { 128 142 125 }
    b_voltara_1614 = { province = 1614 }
-   b_voltara_1620 = { province = 1620 }
-   b_voltara_1625 = { province = 1625 }
+   # Impassable ridge 1620
+   # Impassable ridge 1625
    b_voltara_1627 = { province = 1627 }
-   b_voltara_1633 = { province = 1633 }
+   # Impassable ridge 1633
   }
   c_voltara_1616 = { color = { 128 142 125 }
    b_voltara_1616 = { province = 1616 }
@@ -9050,7 +9050,7 @@ k_voltara_test_128 = { color = { 128 142 125 } capital = c_voltara_128
    b_voltara_1869 = { province = 1869 }
    b_voltara_1891 = { province = 1891 }
    b_voltara_1896 = { province = 1896 }
-   b_voltara_1893 = { province = 1893 }
+   # Impassable ridge 1893
   }
   c_voltara_1870 = { color = { 128 142 125 }
    b_voltara_1870 = { province = 1870 }
@@ -9061,7 +9061,7 @@ k_voltara_test_128 = { color = { 128 142 125 } capital = c_voltara_128
   c_voltara_1872 = { color = { 128 142 125 }
    b_voltara_1872 = { province = 1872 }
    b_voltara_1898 = { province = 1898 }
-   b_voltara_1900 = { province = 1900 }
+   # Impassable ridge 1900
   }
   c_voltara_1863 = { color = { 128 142 125 }
    b_voltara_1863 = { province = 1863 }
@@ -9086,9 +9086,9 @@ k_voltara_test_128 = { color = { 128 142 125 } capital = c_voltara_128
   }
   c_voltara_1868 = { color = { 128 142 125 }
    b_voltara_1868 = { province = 1868 }
-   b_voltara_1874 = { province = 1874 }
+   # Impassable ridge 1874
    b_voltara_1886 = { province = 1886 }
-   b_voltara_1887 = { province = 1887 }
+   # Impassable ridge 1887
   }
   c_voltara_892 = { color = { 128 142 125 }
    b_voltara_892 = { province = 892 }
@@ -9098,9 +9098,9 @@ k_voltara_test_128 = { color = { 128 142 125 } capital = c_voltara_128
   }
   c_voltara_894 = { color = { 128 142 125 }
    b_voltara_894 = { province = 894 }
-   b_voltara_907 = { province = 907 }
+   # Impassable ridge 907
    b_voltara_909 = { province = 909 }
-   b_voltara_900 = { province = 900 }
+   # Impassable ridge 900
   }
   c_voltara_1871 = { color = { 128 142 125 }
    b_voltara_1871 = { province = 1871 }
@@ -9115,11 +9115,11 @@ k_voltara_test_128 = { color = { 128 142 125 } capital = c_voltara_128
    b_voltara_905 = { province = 905 }
    b_voltara_914 = { province = 914 }
    b_voltara_896 = { province = 896 }
-   b_voltara_904 = { province = 904 }
+   # Impassable ridge 904
   }
   c_voltara_893 = { color = { 128 142 125 }
    b_voltara_893 = { province = 893 }
-   b_voltara_908 = { province = 908 }
+   # Impassable ridge 908
    b_voltara_910 = { province = 910 }
    b_voltara_911 = { province = 911 }
   }
@@ -9129,7 +9129,7 @@ k_voltara_test_128 = { color = { 128 142 125 } capital = c_voltara_128
   }
   c_voltara_91 = { color = { 128 142 125 }
    b_voltara_91 = { province = 91 }
-   b_voltara_899 = { province = 899 }
+   # Impassable ridge 899
    b_voltara_906 = { province = 906 }
    b_voltara_912 = { province = 912 }
    b_voltara_902 = { province = 902 }
@@ -9198,14 +9198,14 @@ k_voltara_test_1525 = { color = { 128 142 125 } capital = c_voltara_1525
   }
   c_voltara_2178 = { color = { 128 142 125 }
    b_voltara_2178 = { province = 2178 }
-   b_voltara_2200 = { province = 2200 }
+   # Impassable ridge 2200
    b_voltara_2211 = { province = 2211 }
-   b_voltara_2214 = { province = 2214 }
+   # Impassable ridge 2214
   }
   c_voltara_2188 = { color = { 128 142 125 }
    b_voltara_2188 = { province = 2188 }
    b_voltara_2215 = { province = 2215 }
-   b_voltara_2198 = { province = 2198 }
+   # Impassable ridge 2198
   }
   c_voltara_2448 = { color = { 128 142 125 }
    b_voltara_2448 = { province = 2448 }
@@ -9216,9 +9216,9 @@ k_voltara_test_1525 = { color = { 128 142 125 } capital = c_voltara_1525
   c_voltara_853 = { color = { 128 142 125 }
    b_voltara_853 = { province = 853 }
    b_voltara_862 = { province = 862 }
-   b_voltara_856 = { province = 856 }
+   # Impassable ridge 856
    b_voltara_858 = { province = 858 }
-   b_voltara_855 = { province = 855 }
+   # Impassable ridge 855
   }
  }
  d_voltara_test_854 = { color = { 128 142 125 } capital = c_voltara_854
@@ -9226,7 +9226,7 @@ k_voltara_test_1525 = { color = { 128 142 125 } capital = c_voltara_1525
    b_voltara_854 = { province = 854 }
    b_voltara_861 = { province = 861 }
    b_voltara_865 = { province = 865 }
-   b_voltara_863 = { province = 863 }
+   # Impassable ridge 863
    b_voltara_859 = { province = 859 }
   }
   c_voltara_89 = { color = { 128 142 125 }
@@ -9833,203 +9833,52 @@ k_voltara_test_243 = { color = { 128 142 125 } capital = c_voltara_243
 }
 k_voltara_test_257 = { color = { 128 142 125 } capital = c_voltara_257
  d_voltara_test_257 = { color = { 128 142 125 } capital = c_voltara_257
-  c_voltara_257 = { color = { 128 142 125 }
-   b_voltara_257 = { province = 257 }
-   b_voltara_3765 = { province = 3765 }
-   b_voltara_3766 = { province = 3766 }
-   b_voltara_3768 = { province = 3768 }
-   b_voltara_3760 = { province = 3760 }
-  }
-  c_voltara_3756 = { color = { 128 142 125 }
-   b_voltara_3756 = { province = 3756 }
-   b_voltara_3764 = { province = 3764 }
-   b_voltara_3771 = { province = 3771 }
-   b_voltara_3761 = { province = 3761 }
-  }
-  c_voltara_3757 = { color = { 128 142 125 }
-   b_voltara_3757 = { province = 3757 }
-   b_voltara_3763 = { province = 3763 }
-   b_voltara_3767 = { province = 3767 }
-   b_voltara_3773 = { province = 3773 }
-  }
-  c_voltara_3758 = { color = { 128 142 125 }
-   b_voltara_3758 = { province = 3758 }
-   b_voltara_3769 = { province = 3769 }
-   b_voltara_3770 = { province = 3770 }
-   b_voltara_3772 = { province = 3772 }
-  }
-  c_voltara_3759 = { color = { 128 142 125 }
-   b_voltara_3759 = { province = 3759 }
-   b_voltara_3774 = { province = 3774 }
-  }
+  
+  
+  
+  
+  
  }
  d_voltara_test_261 = { color = { 128 142 125 } capital = c_voltara_261
-  c_voltara_261 = { color = { 128 142 125 }
-   b_voltara_261 = { province = 261 }
-   b_voltara_3817 = { province = 3817 }
-   b_voltara_3818 = { province = 3818 }
-   b_voltara_3813 = { province = 3813 }
-   b_voltara_3814 = { province = 3814 }
-  }
-  c_voltara_3811 = { color = { 128 142 125 }
-   b_voltara_3811 = { province = 3811 }
-   b_voltara_3815 = { province = 3815 }
-   b_voltara_3816 = { province = 3816 }
-   b_voltara_3812 = { province = 3812 }
-  }
-  c_voltara_3798 = { color = { 128 142 125 }
-   b_voltara_3798 = { province = 3798 }
-   b_voltara_3801 = { province = 3801 }
-   b_voltara_3807 = { province = 3807 }
-   b_voltara_3800 = { province = 3800 }
-  }
-  c_voltara_3762 = { color = { 128 142 125 }
-   b_voltara_3762 = { province = 3762 }
-   b_voltara_3775 = { province = 3775 }
-  }
-  c_voltara_3797 = { color = { 128 142 125 }
-   b_voltara_3797 = { province = 3797 }
-   b_voltara_3804 = { province = 3804 }
-   b_voltara_3806 = { province = 3806 }
-   b_voltara_3810 = { province = 3810 }
-  }
+  
+  
+  
+  
+  
  }
  d_voltara_test_262 = { color = { 128 142 125 } capital = c_voltara_262
-  c_voltara_262 = { color = { 128 142 125 }
-   b_voltara_262 = { province = 262 }
-   b_voltara_3833 = { province = 3833 }
-   b_voltara_3835 = { province = 3835 }
-   b_voltara_3837 = { province = 3837 }
-   b_voltara_3847 = { province = 3847 }
-  }
-  c_voltara_3819 = { color = { 128 142 125 }
-   b_voltara_3819 = { province = 3819 }
-   b_voltara_3838 = { province = 3838 }
-   b_voltara_3844 = { province = 3844 }
-   b_voltara_3825 = { province = 3825 }
-  }
-  c_voltara_3821 = { color = { 128 142 125 }
-   b_voltara_3821 = { province = 3821 }
-   b_voltara_3834 = { province = 3834 }
-   b_voltara_3840 = { province = 3840 }
-   b_voltara_3852 = { province = 3852 }
-  }
+  
+  
+  
   c_voltara_3822 = { color = { 128 142 125 }
    b_voltara_3822 = { province = 3822 }
    b_voltara_3831 = { province = 3831 }
-   b_voltara_3826 = { province = 3826 }
-   b_voltara_3845 = { province = 3845 }
+   # Impassable ridge 3826
+   # Impassable ridge 3845
   }
-  c_voltara_3823 = { color = { 128 142 125 }
-   b_voltara_3823 = { province = 3823 }
-   b_voltara_3841 = { province = 3841 }
-   b_voltara_3828 = { province = 3828 }
-   b_voltara_3850 = { province = 3850 }
-   b_voltara_3853 = { province = 3853 }
-  }
-  c_voltara_3827 = { color = { 128 142 125 }
-   b_voltara_3827 = { province = 3827 }
-   b_voltara_3843 = { province = 3843 }
-   b_voltara_3839 = { province = 3839 }
-   b_voltara_3829 = { province = 3829 }
-  }
+  
+  
  }
  d_voltara_test_258 = { color = { 128 142 125 } capital = c_voltara_258
-  c_voltara_258 = { color = { 128 142 125 }
-   b_voltara_258 = { province = 258 }
-   b_voltara_3777 = { province = 3777 }
-   b_voltara_3778 = { province = 3778 }
-   b_voltara_3779 = { province = 3779 }
-   b_voltara_3776 = { province = 3776 }
-  }
-  c_voltara_3856 = { color = { 128 142 125 }
-   b_voltara_3856 = { province = 3856 }
-   b_voltara_3873 = { province = 3873 }
-   b_voltara_3862 = { province = 3862 }
-   b_voltara_3866 = { province = 3866 }
-   b_voltara_3869 = { province = 3869 }
-  }
-  c_voltara_3857 = { color = { 128 142 125 }
-   b_voltara_3857 = { province = 3857 }
-   b_voltara_3872 = { province = 3872 }
-   b_voltara_3861 = { province = 3861 }
-   b_voltara_3870 = { province = 3870 }
-  }
-  c_voltara_263 = { color = { 128 142 125 }
-   b_voltara_263 = { province = 263 }
-   b_voltara_3863 = { province = 3863 }
-   b_voltara_3865 = { province = 3865 }
-   b_voltara_3868 = { province = 3868 }
-   b_voltara_3859 = { province = 3859 }
-  }
-  c_voltara_260 = { color = { 128 142 125 }
-   b_voltara_260 = { province = 260 }
-   b_voltara_3802 = { province = 3802 }
-   b_voltara_3805 = { province = 3805 }
-   b_voltara_3809 = { province = 3809 }
-  }
+  
+  
+  
+  
+  
  }
  d_voltara_test_3799 = { color = { 128 142 125 } capital = c_voltara_3799
-  c_voltara_3799 = { color = { 128 142 125 }
-   b_voltara_3799 = { province = 3799 }
-   b_voltara_3803 = { province = 3803 }
-   b_voltara_3808 = { province = 3808 }
-  }
-  c_voltara_3855 = { color = { 128 142 125 }
-   b_voltara_3855 = { province = 3855 }
-   b_voltara_3864 = { province = 3864 }
-   b_voltara_3867 = { province = 3867 }
-   b_voltara_3858 = { province = 3858 }
-   b_voltara_3860 = { province = 3860 }
-  }
-  c_voltara_3830 = { color = { 128 142 125 }
-   b_voltara_3830 = { province = 3830 }
-   b_voltara_3848 = { province = 3848 }
-   b_voltara_3836 = { province = 3836 }
-   b_voltara_3851 = { province = 3851 }
-  }
-  c_voltara_3871 = { color = { 128 142 125 }
-   b_voltara_3871 = { province = 3871 }
-  }
+  
+  
+  
+  
  }
  d_voltara_test_259 = { color = { 128 142 125 } capital = c_voltara_259
-  c_voltara_259 = { color = { 128 142 125 }
-   b_voltara_259 = { province = 259 }
-   b_voltara_3790 = { province = 3790 }
-   b_voltara_3794 = { province = 3794 }
-   b_voltara_3795 = { province = 3795 }
-  }
-  c_voltara_3783 = { color = { 128 142 125 }
-   b_voltara_3783 = { province = 3783 }
-   b_voltara_3787 = { province = 3787 }
-   b_voltara_3788 = { province = 3788 }
-   b_voltara_3784 = { province = 3784 }
-  }
-  c_voltara_3780 = { color = { 128 142 125 }
-   b_voltara_3780 = { province = 3780 }
-   b_voltara_3785 = { province = 3785 }
-   b_voltara_3791 = { province = 3791 }
-   b_voltara_3782 = { province = 3782 }
-   b_voltara_3792 = { province = 3792 }
-  }
-  c_voltara_3781 = { color = { 128 142 125 }
-   b_voltara_3781 = { province = 3781 }
-   b_voltara_3786 = { province = 3786 }
-   b_voltara_3789 = { province = 3789 }
-   b_voltara_3793 = { province = 3793 }
-   b_voltara_3796 = { province = 3796 }
-  }
-  c_voltara_3820 = { color = { 128 142 125 }
-   b_voltara_3820 = { province = 3820 }
-   b_voltara_3832 = { province = 3832 }
-   b_voltara_3846 = { province = 3846 }
-   b_voltara_3824 = { province = 3824 }
-  }
-  c_voltara_3842 = { color = { 128 142 125 }
-   b_voltara_3842 = { province = 3842 }
-   b_voltara_3849 = { province = 3849 }
-   b_voltara_3854 = { province = 3854 }
-  }
+  
+  
+  
+  
+  
+  
  }
 }
 k_voltara_test_277 = { color = { 128 142 125 } capital = c_voltara_277
@@ -17253,10 +17102,7 @@ k_voltara_38 = { color = { 255 118 72 } capital = c_voltara_208
    b_voltara_3130 = { province = 3130 }
    b_voltara_3139 = { province = 3139 }
   }
-  c_voltara_3115 = { color = { 255 118 72 }
-   b_voltara_3115 = { province = 3115 }
-   b_voltara_3136 = { province = 3136 }
-  }
+  
  }
  d_voltara_test_217 = { color = { 255 118 72 } capital = c_voltara_217
   c_voltara_217 = { color = { 255 118 72 }

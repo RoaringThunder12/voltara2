@@ -168,6 +168,10 @@ additive_animation = { id = "male_giantish_body_proportions"			type = "male_gian
 additive_animation = { id = "male_giantish_height"			type = "male_giantish_height.anim" }
 
 blend_shape = { id = "male_giantish_body" type = "blendshapes/male_giantish_body.mesh"}
+
+additive_animation = { id = "male_imgan_body_proportions"			type = "male_imgan_body_proportions.anim" }
+
+blend_shape = { id = "male_imgan_body"		type = "blendshapes/male_imgan_body.mesh" }
 }
 
 entity = {
@@ -1359,4 +1363,7 @@ attribute = { name = "tail_model_thick"						blend_shape = "male_bs_body_neutral
 attribute = { name = "giantish_body_bs"						blend_shape = "male_giantish_body" }
 attribute = { name = "giantish_body_proportions" 				additive_animation = "male_giantish_body_proportions"}
 attribute = { name = "giantish_height" 				additive_animation = "male_giantish_height"}
+
+attribute = { name = "imgan_body_bs"						blend_shape = "male_imgan_body" }
+attribute = { name = "imgan_body_proportions" 				additive_animation = "male_imgan_body_proportions" }
 }

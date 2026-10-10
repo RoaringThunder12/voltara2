@@ -1,0 +1,15 @@
+﻿morph_genes = {
+race_gene_hunchbacked = { inheritable = yes
+ voltara_neutral = { index = 0 male = {} female = male boy = male girl = male }
+hunchbacked = {
+			index = 1
+			male = {
+					setting = { attribute = "body_hunchbacked"  value = { min = 0.01 max = 0.25 }	}
+					setting = { attribute = "head_hunchbacked"  value = { min = 0.01 max = 0.25 }	}
+			}
+			female = male
+			boy = male
+			girl = male
+		}
+}
+}

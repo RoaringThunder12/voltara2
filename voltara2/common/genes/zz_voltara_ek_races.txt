@@ -122,6 +122,20 @@ dunmer_skin = {
 		boy = male
 		girl = male
 	}
+bosmer_skin = { 
+		index = 3
+		male = {
+			skin_hsv_shift_curve = {
+				curve = {
+					{ 0.0 	{ 0.0 0.0 0.0 } }
+					{ 1.0   { 0.0 0.0 0.0 } }
+				}
+			}
+		}
+		female = male
+		boy = male
+		girl = male
+	}
 }
 }
 morph_genes = {
@@ -195,7 +209,16 @@ race_gene_mer_ears_01 = {
 		}
 		
 
-	}
+	mer_ears_03 = {
+			index = 3
+			male = {
+				setting = { required_tags = "not(snug_headgear)" attribute = "race_mer_ears_03_bs"	value = { min = 0.0 max = 0.5 }	age = age_preset_child_features_wide_range }
+			}
+			female = male
+			boy = male
+			girl = male
+		}
+}
 }
 morph_genes = {
 race_gene_mer_ears_02 = {

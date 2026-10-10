@@ -321,6 +321,12 @@ additive_animation = { id = "female_giantish_head_proportions"			type = "female_
 blend_shape = { id = "female_giantish_head" type = "blendshapes/female_giantish_head.mesh"}
 
 blend_shape = { id = "female_giantish_horns_1" type = "blendshapes/female_giantish_head_spikes.mesh" }
+
+additive_animation = { id = "female_head_imga_proportions"			type = "female_imga_head_proportions.anim" }
+
+blend_shape = { id = "female_imga_head"								type = "blendshapes/female_imga_head.mesh"  data = "position"}
+
+blend_shape = { id = "female_imga_head_normals"						type = "blendshapes/female_imga_head_normals.mesh"  data = "normal|tangent"}
 }
 
 entity = {
@@ -1489,4 +1495,8 @@ attribute = { name = "giantish_head_bs"					blend_shape = "female_giantish_head"
 attribute = { name = "giantish_head_proportions"		additive_animation = "female_giantish_head_proportions" }
 attribute = { name = "giantish_head_height" 				additive_animation = "female_giantish_head_height" }
 attribute = { name = "giantish_horns_1_bs" blend_shape = "female_giantish_horns_1" }
+
+attribute = { name = "imga_head_bs"					blend_shape = "female_imga_head" }
+attribute = { name = "imga_head_normals"			blend_shape = "female_imga_head_normals" }
+attribute = { name = "imga_head_proportions"		additive_animation = "female_head_imga_proportions" }
 }
