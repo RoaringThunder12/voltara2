@@ -1,0 +1,175 @@
+﻿at_artifact_trading = {
+	categories = {
+		at_artifact_trade
+	}
+
+	default = at_artifact_trading_enabled
+
+	at_artifact_trading_disabled = {
+		flag = GG_can_change_rule
+	}
+
+	at_artifact_trading_enabled = {
+		flag = GG_can_change_rule
+	}
+}
+
+at_improved_destroy_artifact = {
+	categories = {
+		at_artifact_trade
+	}
+
+	default = at_improved_destroy_artifact_enabled
+
+	at_improved_destroy_artifact_disabled = {
+		flag = GG_can_change_rule
+	}
+
+	at_improved_destroy_artifact_enabled = {
+		flag = GG_can_change_rule
+	}
+}
+
+at_improved_vls_decision = {
+	categories = {
+		at_artifact_trade
+	}
+
+	default = at_improved_vls_decision_enabled
+
+	at_improved_vls_decision_disabled = {
+		flag = GG_can_change_rule
+	}
+
+	at_improved_vls_decision_enabled = {
+		flag = GG_can_change_rule
+	}
+}
+
+at_craftsmen_holdings = {
+	categories = {
+		at_artifact_trade
+	}
+
+	default = at_craftsmen_holdings_all_10
+
+	at_craftsmen_holdings_city = {
+		flag = GG_can_change_rule
+	}
+
+	at_craftsmen_holdings_all = {
+		flag = GG_can_change_rule
+	}
+
+	at_craftsmen_holdings_all_10 = {
+		flag = GG_can_change_rule
+	}
+
+	at_craftsmen_holdings_all_20 = {
+		flag = GG_can_change_rule
+	}
+}
+
+at_valid_trading_partners = {
+	categories = {
+		at_artifact_trade
+	}
+
+	default = at_valid_trading_partners_within_trading_range
+
+	at_valid_trading_partners_within_trading_range = {
+		flag = GG_can_change_rule
+	}
+
+	at_valid_trading_partners_all = {
+		flag = GG_can_change_rule
+	}
+}
+
+at_interaction_range = {
+	categories = {
+		at_artifact_trade
+	}
+
+	default = at_interaction_range_all
+
+	at_interaction_range_small = {
+		flag = GG_can_change_rule
+	}
+
+	at_interaction_range_medium = {
+		flag = GG_can_change_rule
+	}
+
+	at_interaction_range_large = {
+		flag = GG_can_change_rule
+	}
+
+	at_interaction_range_huge = {
+		flag = GG_can_change_rule
+	}
+
+	at_interaction_range_massive = {
+		flag = GG_can_change_rule
+	}
+
+	at_interaction_range_all = {
+		flag = GG_can_change_rule
+	}
+}
+
+at_number_of_potential_buyers = {
+	categories = {
+		at_artifact_trade
+	}
+
+	default = at_number_of_potential_buyers_05
+
+	at_number_of_potential_buyers_01 = {
+		flag = GG_can_change_rule
+	}
+
+	at_number_of_potential_buyers_02 = {
+		flag = GG_can_change_rule
+	}
+
+	at_number_of_potential_buyers_05 = {
+		flag = GG_can_change_rule
+	}
+
+	at_number_of_potential_buyers_10 = {
+		flag = GG_can_change_rule
+	}
+
+	at_number_of_potential_buyers_20 = {
+		flag = GG_can_change_rule
+	}
+
+	at_number_of_potential_buyers_50 = {
+		flag = GG_can_change_rule
+	}
+
+	at_number_of_potential_buyers_all = {
+		flag = GG_can_change_rule
+	}
+}
+
+at_widget_position = {
+	categories = {
+		at_artifact_trade
+	}
+
+	default = at_widget_position_right
+
+	at_widget_position_left = {
+		flag = GG_can_change_rule
+	}
+
+	at_widget_position_center = {
+		flag = GG_can_change_rule
+	}
+
+	at_widget_position_right = {
+		flag = GG_can_change_rule
+	}
+}

@@ -1,0 +1,452 @@
+﻿#######################
+## Supernatural Mod
+#######################
+
+mage_tower_01 = {
+	construction_time = standard_construction_time
+	type_icon = "icon_structure_iron_pillar_of_dhar.dds"
+	can_construct_potential = {
+		scope:holder = {
+			OR = {
+				has_perk = mage_tower_p2_perk
+				has_perk = mage_p4_perk
+			}
+		}
+	}
+	
+	can_construct_showing_failures_only = {
+		custom_description = {
+			text = not_have_mage_tower
+			scope:holder = {
+				NOT = {
+					any_held_title = {
+						exists = title_province
+						title_province = {
+							OR = {
+								has_building = mage_tower_01
+								has_building = mage_tower_02
+								has_building = mage_tower_03
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	cost_gold = 300
+	next_building = mage_tower_02
+	character_modifier = {
+		monthly_magic_lifestyle_xp_gain_mult = 0.1
+		dread_decay_mult = -0.1
+		diplomatic_range_mult = 0.25
+		mtriangulation_terrain_cancel_negative_supply = yes
+		mr_progress_boost_terrain_advantage = 3
+	}
+
+	character_culture_modifier = {
+		parameter = mage_rulership_rule
+		monthly_prestige = 0.05
+		monthly_dynasty_prestige = 0.05
+		legitimacy_gain_mult = 0.1
+		monthly_influence_mult = 0.1
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.1
+	}
+	
+	#province_modifier = {
+	#	fort_level = great_building_fort_level_tier_1
+	#}
+	flag = wc_mage_tower_flag
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}
+
+mage_tower_02 = {
+
+	construction_time = slow_construction_time
+
+	type_icon = "icon_structure_iron_pillar_of_dhar.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+		scope:holder = {
+			OR = {
+				has_perk = mage_tower_p2_perk
+				AND = {
+					exists = dynasty
+					dynasty = {
+						has_dynasty_perk = witchcraft_legacy_1
+					}
+				}
+			}
+		}
+	}
+	
+	can_construct_showing_failures_only = {
+		custom_description = {
+			text = not_have_mage_tower
+			scope:holder = {
+				NOT = {
+					any_held_title = {
+						exists = title_province
+						title_province = {
+							OR = {
+								#has_building = mage_tower_01
+								has_building = mage_tower_02
+								has_building = mage_tower_03
+								#has_building = mage_tower_01a
+								#has_building = mage_tower_02a
+								#has_building = mage_tower_03a
+							}
+						}
+					}
+				}
+				
+			}
+		}
+	
+	}
+	
+	
+	
+	cost_gold = 600
+	next_building = mage_tower_03
+	
+	character_modifier = {
+		monthly_magic_lifestyle_xp_gain_mult = 0.30
+		monthly_county_control_growth_factor = 0.1
+		dread_decay_mult = -0.1
+		diplomatic_range_mult = 0.5
+		enemy_hostile_scheme_success_chance_add = -5
+		mtriangulation_terrain_cancel_negative_supply = yes
+		mr_progress_boost_terrain_advantage = 4
+	}
+	
+	county_modifier = {
+		development_growth = 0.1
+		development_growth_factor = 0.1
+		travel_danger = -10
+	}
+
+	character_culture_modifier = {
+		parameter = mage_rulership_rule
+		monthly_prestige = 0.05
+		monthly_dynasty_prestige = 0.05
+		legitimacy_gain_mult = 0.2
+		monthly_influence_mult = 0.2
+	}
+	
+	province_modifier = {
+		monthly_income = 4.0
+	}
+	flag = wc_mage_tower_flag
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}
+
+
+mage_tower_03 = {
+
+	construction_time = standard_construction_time
+
+	type_icon = "icon_structure_iron_pillar_of_dhar.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+		scope:holder = {
+			OR = {
+				has_perk = mage_tower_p2_perk
+				has_perk = mage_p4_perk
+				AND = {
+					exists = dynasty
+					dynasty = {
+						has_dynasty_perk = witchcraft_legacy_1
+					}
+				}
+			}
+		}
+	}
+	
+	can_construct_showing_failures_only = {
+		custom_description = {
+			text = already_has_ge_palace
+			scope:holder = {
+				NOT = {
+					any_held_county = {
+						exists = title_province
+						title_province = {
+							OR = {
+								has_building_or_higher = mage_tower_03
+								has_variable = magic_tower_t2_exists
+							}
+						}
+					}
+				}
+			}
+		}
+		custom_description = {
+			text = mage_rulership_required
+			scope:holder = {
+				culture = {
+					has_cultural_tradition = mage_rulership_tradition
+				}
+			}
+		}
+	}
+	show_disabled = yes
+	
+	
+	cost_gold = 900
+	cost_prestige = 1000
+
+	character_modifier = {
+		monthly_magic_lifestyle_xp_gain_mult = 0.40
+		monthly_county_control_growth_factor = 0.15
+		liege_opinion = -10
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.2
+		development_growth = 0.2
+		monthly_county_control_growth_add = 0.2
+	}
+	
+	province_modifier = {
+		monthly_income = 6.0
+	}
+	on_start = {
+		set_variable = magic_tower_t2_exists
+	}
+	on_cancelled = {
+		remove_variable = magic_tower_t2_exists
+	}
+	on_complete = {
+		#remove_variable = magic_tower_t2_exists
+		county.holder = {
+			trigger_event = magic_ev10.100
+		}
+	}
+	ai_value = {
+		base = 100
+	}
+	#flag = wc_place_of_power
+	type = special
+}
+
+witch_house = {
+
+	construction_time = standard_construction_time
+
+	type_icon = "icon_witch_house.dds"
+	
+	#can_construct_potential = {
+	#	scope:holder = {
+	#		
+	#	}
+	#}
+	
+	#can_construct_showing_failures_only = {
+	#
+	#}
+	
+	
+	cost_gold = 400
+	character_modifier = {
+		monthly_magic_lifestyle_xp_gain_mult = 0.1
+		monthly_county_control_growth_factor = 0.1
+		#hostile_scheme_resistance_add = 10
+		enemy_hostile_scheme_phase_duration_add = 2
+		enemy_hostile_scheme_success_chance_add = -10
+		magic_gain_terrain_advantage = 0.5
+		#health = 1
+		yaga_witch_house2_terrain_cancel_negative_supply = yes
+		arcane_terrain_cancel_negative_supply = yes
+		yaga_witch_house_terrain_cancel_negative_supply = yes
+		ultimate_spell_bonus_terrain_advantage = 0.05
+		men_at_arms_cap = 1
+	}
+
+	character_culture_modifier = {
+		parameter = coven_rule3
+		monthly_dynasty_prestige = 2
+		monthly_prestige = 2
+	}
+	
+	county_modifier = {
+		development_growth = 0.1
+	}
+	
+	province_modifier = {
+		fort_level = great_building_fort_level_tier_1
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	flag = wc_place_of_power
+	type = special
+}
+
+horned_god_house = {
+
+	construction_time = standard_construction_time
+
+	type_icon = "icon_dark_temple.dds"
+	
+	#can_construct_potential = {
+	#	scope:holder = {
+	#		
+	#	}
+	#}
+	
+	#can_construct_showing_failures_only = {
+	#
+	#}
+	
+	
+	cost_gold = 400
+	character_modifier = {
+		intrigue_per_prestige_level = 2
+		magic_gain_terrain_advantage = 0.5
+		dread_decay_mult = -0.25
+		arcane_terrain_cancel_negative_supply = yes
+		demon_army_terrain_cancel_negative_supply = yes
+		life_expectancy = 10
+		#cultists_damage_mult = 0.5
+		#cultists_toughness_mult = 0.5
+		#cultists_pursuit_mult = 0.5
+		#cultists_screen_mult = 0.5
+		monthly_demon_lifestyle_xp_gain_mult = 0.25
+		yaga_witch_house2_terrain_advantage = -0.5	#grand rite cooldown
+		ultimate_spell_bonus_terrain_advantage = 0.05
+	}
+
+	character_culture_modifier = {
+		parameter = coven_rule3
+		monthly_dynasty_prestige = 2
+		monthly_prestige = 2
+	}
+	
+	county_modifier = {
+		development_growth = 0.1
+		garrison_size = 0.5
+		tax_mult = 0.5
+	}
+	
+	province_modifier = {
+		fort_level = great_building_fort_level_tier_2
+		stationed_maa_damage_mult = normal_maa_damage_tier_4
+		stationed_maa_toughness_mult = normal_maa_toughness_tier_4
+		stationed_siege_weapon_siege_value_mult = normal_maa_siege_value_tier_4
+		travel_danger = -20
+		epidemic_resistance = 20
+		hostile_raid_time = 1
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	flag = wc_place_of_power
+	type = special
+}
+
+mage_house = {
+
+	construction_time = standard_construction_time
+
+	type_icon = "icon_magic_academy.dds"
+	
+	#can_construct_potential = {
+	#	scope:holder = {
+	#		
+	#	}
+	#}
+	
+	#can_construct_showing_failures_only = {
+	#
+	#}
+	
+	
+	cost_gold = 400
+	character_modifier = {
+		learning_per_prestige_level = 3
+		monthly_magic_lifestyle_xp_gain_mult = 0.5
+		magic_gain_terrain_advantage = 0.5
+		#md_doom_spell_terrain_advantage = 1
+		negate_health_penalty_add = 0.5
+		mage_house_learn_terrain_cancel_negative_supply = yes
+		arcane_terrain_cancel_negative_supply = yes
+		#magic_epic_cooldown_terrain_advantage = -5
+		mr_progress_boost_terrain_advantage = 3
+		ultimate_spell_bonus_terrain_advantage = 0.05
+	}
+
+	character_culture_modifier = {
+		parameter = mage_rulership_rule6
+		monthly_dynasty_prestige = 2
+		monthly_prestige = 2
+	}
+	#characer_dynasty_modifier = {
+	#	county_holder_dynasty_perk = witchcraft_legacy_3
+	#	monthly_magic_lifestyle_xp_gain_mult = 0.1
+	#}
+	
+	county_modifier = {
+		development_growth = 0.1
+	}
+	
+	province_modifier = {
+		fort_level = great_building_fort_level_tier_1
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	flag = wc_place_of_power
+	type = special
+}
+
+houska = {
+
+	construction_time = standard_construction_time
+
+	type_icon = "icon_houska.dds"
+	
+	cost_gold = 400
+	character_modifier = {
+		learning_per_prestige_level = 1
+		monthly_magic_lifestyle_xp_gain_mult = 0.25
+		negate_health_penalty_add = 0.5
+		blackgrimoire_demonology_terrain_advantage = 0.5
+	}
+
+	character_culture_modifier = {
+		parameter = coven_rule3
+		monthly_dynasty_prestige = 0.5
+		monthly_prestige = 0.5
+	}
+	
+	county_modifier = {
+		development_growth = 0.1
+	}
+	
+	province_modifier = {
+		fort_level = great_building_fort_level_tier_1
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	type = special
+}
+#has_building_with_flag

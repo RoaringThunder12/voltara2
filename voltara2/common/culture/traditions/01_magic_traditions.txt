@@ -1,0 +1,169 @@
+﻿##############################
+# WITCHCRAFT CULTURAL TRADITIONS #
+##############################
+
+coven_rule_tradition = {
+	category = realm
+
+	layers = {
+		0 = intrigue
+		1 = mena
+		4 = speech.dds
+	}
+
+	parameters = {
+		coven_rule = yes
+		coven_rule2 = yes
+		coven_rule3 = yes
+		coven_rule4 = yes
+		coven_rule5 = yes
+	}
+
+	character_modifier = {
+		#intrigue = 1
+		#learning = 1
+		monthly_magic_lifestyle_xp_gain_mult = 0.05
+		#convert_to_witchcraft_scheme_power_mult = 0.1
+		convert_to_witchcraft_scheme_phase_duration_add = -3
+	}
+
+	can_pick = {
+		custom_description = {
+			text = coven_needed
+			exists = scope:character.house
+			scope:character.house = {
+				has_house_modifier = witch_coven
+			}
+		}
+		custom_description = {
+			#text = true_witch_needed
+			text = grandmaster_coven_needed
+			scope:character = {
+				has_trait = grandmaster_coven
+			}
+		}
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					scope:character = {
+						trait_is_criminal_in_rite_trigger = { TRAIT = trait:witch RITE = this.rite GENDER_CHARACTER = this }
+					}
+				}
+				add = {
+					value = 2000
+					desc = not_accepted_witchcraft_faith_desc
+				}
+			}			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = { value = 100 }
+	#county_modifier = {
+	#	development_growth_factor = 0.05
+	#}
+
+	#province_modifier = {
+	#	monthly_income = poor_building_tax_tier_4
+	#}
+
+	#doctrine_character_modifier = {
+	#	doctrine = doctrine_pluralism_righteous
+	#	same_faith_opinion = 5
+	#	tyranny_gain_mult = -0.25
+	#}
+}
+
+mage_rulership_tradition = {
+	category = realm
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = crown.dds
+		#4 = mrulership.dds
+	}
+
+	parameters = {
+		mage_rulership_rule = yes
+		mage_rulership_rule2 = yes
+		mage_rulership_rule3 = yes
+		mage_rulership_rule4 = yes
+		mage_rulership_rule5 = yes
+		mage_rulership_rule6 = yes
+		mage_rulership_rule7 = yes
+	}
+
+	character_modifier = {
+		monthly_magic_lifestyle_xp_gain_mult = 0.1
+		stewardship = 1
+	}
+
+	can_pick = {
+		custom_description = {
+			text = must_accepts_witchcraft
+			scope:character = {
+				NOT = {
+					trait_is_criminal_in_rite_trigger = { TRAIT = trait:witch RITE = this.rite GENDER_CHARACTER = this }
+				}
+			}
+		}
+		custom_description = {
+			text = not_archmage_txt
+			scope:character = {
+				has_trait = archmage
+			}
+		}
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = 4000
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					scope:character = {
+						has_character_flag = dicount_from_legend_flag
+					}
+				}
+				add = {
+					value = -2000
+					desc = dicount_from_legend_desc
+				}
+			}		
+			multiply = tradition_replacement_cost_if_relevant
+		}
+		#piety = {
+		#	add = {
+		#		value = 3000
+		#		desc = BASE
+		#		format = "BASE_VALUE_FORMAT"
+		#	}
+		#	if = {
+		#		limit = {
+		#			scope:character = {
+		#				has_character_flag = dicount_from_legend_flag
+		#			}
+		#		}
+		#		add = {
+		#			value = -2000
+		#			desc = dicount_from_legend_desc
+		#		}
+		#	}
+		#	multiply = tradition_replacement_cost_if_relevant
+		#}
+	}
+	
+	ai_will_do = { value = 10 }
+}

@@ -1,0 +1,1845 @@
+﻿# Difference between the QWA of the scoped artifact
+# and the QWA of the n-th artifact of the same type owned and equippable by scope:buyer,
+# where n is the number of slots for the artifact's slot type.
+at_nth_buyer_equippable_artifact_quality_wealth_average_difference_value = {
+	value = at_artifact_quality_wealth_average_value
+	save_temporary_scope_as = artifact
+	subtract = scope:buyer.at_nth_equippable_artifact_quality_wealth_average_value
+}
+
+# Difference between the QWA of the scoped artifact
+# and the QWA of the n+1-th artifact of the same type owned and equippable by scope:seller,
+# where n is the number of slots for the artifact's slot type.
+at_np1th_seller_equippable_artifact_quality_wealth_average_difference_value = {
+	value = at_artifact_quality_wealth_average_value
+	save_temporary_scope_as = artifact
+	subtract = scope:seller.at_np1th_equippable_artifact_quality_wealth_average_value
+}
+
+at_nth_equippable_artifact_quality_wealth_average_value = {
+	save_temporary_scope_as = artifact_owner
+	value = 0
+	if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = primary_armament }
+			any_character_artifact = {
+				artifact_slot_type = primary_armament
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 1
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = primary_armament
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 0
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = armor }
+			any_character_artifact = {
+				artifact_slot_type = armor
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 1
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = armor
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 0
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = regalia }
+			any_character_artifact = {
+				artifact_slot_type = regalia
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 1
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = regalia
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 0
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = helmet }
+			any_character_artifact = {
+				artifact_slot_type = helmet
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 1
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = helmet
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 0
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = miscellaneous }
+			any_character_artifact = {
+				artifact_slot_type = miscellaneous
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 4
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = miscellaneous
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 3
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = journal }
+			any_character_artifact = {
+				artifact_slot_type = journal
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 1
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = journal
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 0
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = throne }
+			any_character_artifact = {
+				artifact_slot_type = throne
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 1
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = throne
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 0
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = wall_big }
+			any_character_artifact = {
+				artifact_slot_type = wall_big
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 3
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = wall_big
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 2
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = wall_small }
+			any_character_artifact = {
+				artifact_slot_type = wall_small
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 3
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = wall_small
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 2
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = sculpture }
+			any_character_artifact = {
+				artifact_slot_type = sculpture
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 2
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = sculpture
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 1
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = book }
+			any_character_artifact = {
+				artifact_slot_type = book
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 2
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = book
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 1
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = pedestal }
+			any_character_artifact = {
+				artifact_slot_type = pedestal
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 4
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = pedestal
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 3
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+}
+
+at_np1th_equippable_artifact_quality_wealth_average_value = {
+	save_temporary_scope_as = artifact_owner
+	value = 0
+	if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = primary_armament }
+			any_character_artifact = {
+				artifact_slot_type = primary_armament
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 2
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = primary_armament
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 1
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = armor }
+			any_character_artifact = {
+				artifact_slot_type = armor
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 2
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = armor
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 1
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = regalia }
+			any_character_artifact = {
+				artifact_slot_type = regalia
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 2
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = regalia
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 1
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = helmet }
+			any_character_artifact = {
+				artifact_slot_type = helmet
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 2
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = helmet
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 1
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = miscellaneous }
+			any_character_artifact = {
+				artifact_slot_type = miscellaneous
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 5
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = miscellaneous
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 4
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = journal }
+			any_character_artifact = {
+				artifact_slot_type = journal
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 2
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = journal
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 1
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = throne }
+			any_character_artifact = {
+				artifact_slot_type = throne
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 2
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = throne
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 1
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = wall_big }
+			any_character_artifact = {
+				artifact_slot_type = wall_big
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 4
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = wall_big
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 3
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = wall_small }
+			any_character_artifact = {
+				artifact_slot_type = wall_small
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 4
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = wall_small
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 3
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = sculpture }
+			any_character_artifact = {
+				artifact_slot_type = sculpture
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 3
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = sculpture
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 2
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = book }
+			any_character_artifact = {
+				artifact_slot_type = book
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 3
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = book
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 2
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+	else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = pedestal }
+			any_character_artifact = {
+				artifact_slot_type = pedestal
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+				count >= 5
+			}
+		}
+		ordered_character_artifact = {
+			limit = {
+				artifact_slot_type = pedestal
+				at_is_artifact_equppable_and_beneficial_trigger = { CHARACTER = scope:artifact_owner }
+			}
+			order_by = at_artifact_quality_wealth_average_value
+			position = 4
+			add = at_artifact_quality_wealth_average_value
+		}
+	}
+}
+
+# Artifact quality and wealth average (QWA).
+# Preferred over artifact_wealth_quality_average_value since some artifacts don't have
+# var:quality or var:wealth, and scope:quality and scope:wealth are usually not set.
+at_artifact_quality_wealth_average_value = {
+	value = at_artifact_quality_value
+	add = at_artifact_wealth_value
+	multiply = 0.5
+}
+
+# Artifact quality. Uses var:quality and other variables,
+# falls back to at_artifact_default_quality_wealth_value if neither is set.
+at_artifact_quality_value = {
+	if = {
+		limit = { exists = var:quality }
+		value = var:quality
+	}
+	else_if = {
+		limit = { exists = var:unwanted_artifact }
+		value = 5
+	}
+	else_if = {
+		limit = { exists = var:platypus_trinket }
+		value = 25
+	}
+	else_if = {
+		limit = {
+			OR = {
+				exists = var:mythical_horn_trinket
+				exists = var:mythical_creature_figurine_trinket
+				exists = var:st_davids_taper_trinket
+				exists = var:jira_stick_trinket
+				exists = var:lucky_coin_trinket
+				exists = var:lavender_jade_pendant_trinket
+			}
+		}
+		value = 45
+	}
+	else_if = {
+		limit = {
+			OR = {
+				exists = var:sekhmet_ring_trinket
+				exists = var:ancient_scarab_brooch_trinket
+			}
+		}
+		value = 65
+	}
+	else_if = {
+		limit = { exists = var:small_wooden_carving_artifact }
+		value = 20
+	}
+	else = {
+		value = at_artifact_default_quality_wealth_value
+	}
+}
+
+# Artifact wealth. Uses var:wealth and other variables,
+# falls back to at_artifact_default_quality_wealth_value if neither is set.
+at_artifact_wealth_value = {
+	if = {
+		limit = { exists = var:wealth }
+		value = var:wealth
+	}
+	else_if = {
+		limit = { exists = var:unwanted_artifact }
+		value = 5
+	}
+	else_if = {
+		limit = { exists = var:platypus_trinket }
+		value = 25
+	}
+	else_if = {
+		limit = {
+			OR = {
+				exists = var:mythical_horn_trinket
+				exists = var:mythical_creature_figurine_trinket
+				exists = var:st_davids_taper_trinket
+				exists = var:jira_stick_trinket
+				exists = var:lucky_coin_trinket
+				exists = var:lavender_jade_pendant_trinket
+			}
+		}
+		value = 45
+	}
+	else_if = {
+		limit = {
+			OR = {
+				exists = var:sekhmet_ring_trinket
+				exists = var:ancient_scarab_brooch_trinket
+			}
+		}
+		value = 65
+	}
+	else_if = {
+		limit = { exists = var:small_wooden_carving_artifact }
+		value = 10
+	}
+	else = {
+		value = at_artifact_default_quality_wealth_value
+	}
+}
+
+# Default artifact quality / wealth value per rarity.
+# Values correspond to set_artifact_rarity_* effects for historical artifacts.
+at_artifact_default_quality_wealth_value = {
+	if = {
+		limit = { rarity = common }
+		value = 15
+	}
+	else_if = {
+		limit = { rarity = masterwork }
+		value = 30
+	}
+	else_if = {
+		limit = { rarity = famed }
+		value = 70
+	}
+	else_if = {
+		limit = { rarity = illustrious }
+		value = 100
+	}
+}
+
+# Artifact base price, calculated using a formula similar to the one
+# from "Auction Off Artifact", but using QWA and a multiplier instead
+# Logic duplicated in at_artifact_ask_price_value and at_artifact_bid_price_value to avoid a tooltip bug
+at_artifact_base_price_value = {
+	# QWA
+	value = 0
+	add = {
+		value = at_artifact_quality_wealth_average_value
+		multiply = at_artifact_qwa_price_multiplier
+	}
+
+	# Durability
+	multiply = at_artifact_durability_multiplier
+
+	# Uniqueness
+	if = {
+		limit = { at_is_unique_artifact_trigger = yes }
+		multiply = at_artifact_unique_price_multiplier
+	}
+
+	add = at_custom_artifact_base_price_value
+	multiply = at_custom_artifact_base_price_multiplier
+
+	round = yes
+	min = 5
+}
+
+# Artifact ask price. Calculated by multiplying the base price by several multipliers:
+# - at_artifact_ask_price_player_multiplier if scope:actor is human
+# - a scope:seller personality multiplier based on ai_greed
+at_artifact_ask_price_value = {
+	# QWA
+	value = 0
+	add = {
+		value = at_artifact_quality_wealth_average_value
+		multiply = at_artifact_qwa_price_multiplier
+		desc = at_artifact_price_qwa_desc
+	}
+
+	# Durability
+	multiply = {
+		value = at_artifact_durability_multiplier
+		desc = at_artifact_price_durability_desc
+	}
+
+	# Uniqueness
+	if = {
+		limit = { at_is_unique_artifact_trigger = yes }
+		multiply = {
+			value = at_artifact_unique_price_multiplier
+			desc = at_artifact_price_unique_desc
+		}
+	}
+
+	add = at_custom_artifact_base_price_value
+	multiply = at_custom_artifact_base_price_multiplier
+
+	round = yes
+	min = {
+		value = 5
+		desc = at_artifact_price_min_desc
+	}
+
+	# Set destroy artifact gold value as minimum to prevent exploits
+	if = {
+		limit = {
+			trigger_if = {
+				limit = {
+					NOT = { has_game_rule = at_improved_destroy_artifact_enabled }
+				}
+				OR = {
+					rarity = common
+					rarity = masterwork
+				}
+			}
+		}
+		min = {
+			value = at_destroy_artifact_gold_value
+			desc = at_artifact_price_destroy_desc
+		}
+	}
+
+	# Make it higher for the player
+	if = {
+		limit = {
+			scope:actor = { is_ai = no }
+		}
+		multiply = {
+			value = at_artifact_ask_price_player_multiplier
+			desc = at_artifact_ask_price_player_desc
+		}
+	}
+
+	# Adjust for tribal rulers
+	multiply = {
+		value = at_artifact_price_tribal_multiplier
+		desc = at_artifact_price_tribal_desc
+	}
+
+	# Seller personality multiplier (0.8 to 1.2 based on ai_greed)
+	# Chosen so that 0.8 * 1.5 = 1.2
+	multiply = {
+		value = scope:seller.ai_greed
+		multiply = 0.002
+		add = 1
+		desc = at_artifact_ask_price_ai_greed_desc
+	}
+
+	add = at_custom_artifact_ask_price_value
+	multiply = at_custom_artifact_ask_price_multiplier
+
+	round = yes
+	min = {
+		value = 5
+		desc = at_artifact_price_min_desc
+	}
+}
+
+# Artifact bid price. Calculated by multiplying the base price by several multipliers:
+# - a scope:buyer personality multiplier based on ai_greed
+at_artifact_bid_price_value = {
+	# QWA
+	value = 0
+	add = {
+		value = at_artifact_quality_wealth_average_value
+		multiply = at_artifact_qwa_price_multiplier
+		desc = at_artifact_price_qwa_desc
+	}
+
+	# Durability
+	multiply = {
+		value = at_artifact_durability_multiplier
+		desc = at_artifact_price_durability_desc
+	}
+
+	# Uniqueness
+	if = {
+		limit = { at_is_unique_artifact_trigger = yes }
+		multiply = {
+			value = at_artifact_unique_price_multiplier
+			desc = at_artifact_price_unique_desc
+		}
+	}
+
+	add = at_custom_artifact_base_price_value
+	multiply = at_custom_artifact_base_price_multiplier
+
+	round = yes
+	min = {
+		value = 5
+		desc = at_artifact_price_min_desc
+	}
+
+	# Adjust for tribal rulers
+	multiply = {
+		value = at_artifact_price_tribal_multiplier
+		desc = at_artifact_price_tribal_desc
+	}
+
+	# Buyer personality multiplier (0.8 to 1.2 based on ai_greed)
+	multiply = {
+		value = scope:buyer.ai_greed
+		multiply = -0.002
+		add = 1
+		desc = at_artifact_bid_price_ai_greed_desc
+	}
+
+	if = {
+		limit = { has_variable = at_bid_price_multiplier }
+		multiply = {
+			value = var:at_bid_price_multiplier
+			desc = at_artifact_bid_price_multiplier_desc
+		}
+	}
+
+	add = at_custom_artifact_bid_price_value
+	multiply = at_custom_artifact_bid_price_multiplier
+
+	round = yes
+	min = {
+		value = 5
+		desc = at_artifact_price_min_desc
+	}
+}
+
+# Destroy artifact gold value, calculated using the formula from destroy_artifact_aniconist_effect
+# adjusted for durability if improved destroying of artifacts is enabled
+at_destroy_artifact_gold_value = {
+	if = {
+		limit = { has_game_rule = at_improved_destroy_artifact_enabled }
+		# Take into account actual quality & wealth
+		# With default values, this will give 38 / 75 / 175 / 250, close to the values below
+		value = at_artifact_quality_wealth_average_value
+		multiply = at_artifact_qwa_price_multiplier
+	}
+	else = {
+		# Base value (from destroy_artifact_aniconist_effect)
+		if = {
+			limit = { rarity = common }
+			value = 40
+		}
+		else_if = {
+			limit = { rarity = masterwork }
+			value = 80
+		}
+		else_if = {
+			limit = { rarity = famed }
+			value = 150
+		}
+		else_if = {
+			limit = { rarity = illustrious }
+			value = 250
+		}
+	}
+
+	# Durability
+	multiply = at_artifact_durability_multiplier
+
+	# Nerf it to bits for LAAMPs
+	if = {
+		limit = {
+			scope:actor = { is_landless_adventurer = yes }
+		}
+		multiply = 0.1
+	}
+
+	# Adjust for tribal rulers
+	if = {
+		limit = {
+			scope:actor = { government_has_flag = government_is_tribal }
+		}
+		multiply = 0.6
+	}
+}
+
+# Destroy artifact piety value, calculated using the formula from destroy_artifact_aniconist_effect
+# adjusted for durability if improved destroying of artifacts is enabled
+at_destroy_artifact_piety_value = {
+	# Base value (from destroy_artifact_aniconist_effect)
+	if = {
+		limit = { rarity = common }
+		value = 180
+	}
+	else_if = {
+		limit = { rarity = masterwork }
+		value = 260
+	}
+	else_if = {
+		limit = { rarity = famed }
+		value = 340
+	}
+	else_if = {
+		limit = { rarity = illustrious }
+		value = 500
+	}
+
+	# Durability
+	if = {
+		limit = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+		}
+		multiply = at_artifact_durability_multiplier
+	}
+
+	# Double for relics
+	if = {
+		limit = {
+			exists = var:relic
+		}
+		multiply = 2
+	}
+}
+
+# Artifact durability multiplier
+at_artifact_durability_multiplier = {
+	value = artifact_durability
+	divide = artifact_max_durability
+	multiply = 0.5
+	add = 0.5
+}
+
+at_artifact_price_tribal_multiplier = {
+	# Determine party (buyer or seller)
+	if = {
+		limit = {
+			exists = scope:buyer
+			scope:buyer != scope:actor
+		}
+		scope:buyer = { save_temporary_scope_as = party }
+	}
+	else_if = {
+		limit = {
+			exists = scope:seller
+			scope:seller != scope:actor
+		}
+		scope:seller = { save_temporary_scope_as = party }
+	}
+
+	# Change party to liege, host, or county holder if not ruler
+	scope:party ?= {
+		if = {
+			limit = { is_ruler = yes }
+			# Do nothing
+		}
+		else_if = {
+			limit = { exists = liege }
+			liege = { save_temporary_scope_as = party }
+		}
+		else_if = {
+			limit = { exists = host }
+			host = { save_temporary_scope_as = party }
+		}
+		else_if = {
+			limit = {
+				exists = location
+				exists = location.county
+			}
+			location.county.holder ?= { save_temporary_scope_as = party }
+		}
+	}
+
+	if = {
+		limit = {
+			scope:actor = { government_has_flag = government_is_tribal }
+			scope:party ?= { government_has_flag = government_is_tribal }
+		}
+		value = 0.6
+	}
+	else_if = {
+		limit = {
+			OR = {
+				scope:actor = { government_has_flag = government_is_tribal }
+				scope:party ?= { government_has_flag = government_is_tribal }
+			}
+		}
+		value = 0.8
+	}
+	else = {
+		value = 1
+	}
+}
+
+# AI accept value of the Buy Artifact interaction, used in effects to evaluate whether
+# scope:seller would accept the interaction initiated by scope:actor with the scoped artifact as target.
+# Must exactly match the ai_accept section of at_buy_artifact_interaction.
+at_buy_artifact_ai_accept_value = {
+	save_temporary_scope_as = artifact
+	value = 50
+
+	# Artifact recently bought
+	if = {
+		limit = {
+			scope:artifact = {
+				has_variable = at_artifact_recently_bought
+			}
+			scope:seller = {
+				NOT = { has_variable = at_merchant_type }
+			}
+		}
+		add = -100
+	}
+
+	# Artifact QWA (rarity)
+	add = {
+		value = scope:artifact.at_artifact_quality_wealth_average_value
+		multiply = at_ai_negative_qwa_impact_value
+	}
+
+	# Artifact equipped
+	if = {
+		limit = {
+			scope:artifact = { is_equipped = yes }
+		}
+		add = at_ai_negative_equipped_impact_value
+	}
+
+	# Difference between the QWA of the target artifact
+	# and the QWA of the n+1-th artifact of the same type owned and equippable by scope:seller
+	if = {
+		limit = {
+			scope:seller = {
+				at_can_equip_and_benefit_from_artifact_trigger = { ARTIFACT = scope:artifact }
+			}
+			scope:artifact.at_np1th_seller_equippable_artifact_quality_wealth_average_difference_value > 0
+		}
+		add = {
+			value = scope:artifact.at_np1th_seller_equippable_artifact_quality_wealth_average_difference_value
+			multiply = at_ai_negative_qwa_difference_impact_value
+		}
+	}
+
+	# Artifact durability
+	if = {
+		limit = {
+			scope:artifact.artifact_durability < scope:artifact.artifact_max_durability
+		}
+		add = {
+			value = scope:artifact.artifact_max_durability
+			subtract = scope:artifact.artifact_durability
+			divide = scope:artifact.artifact_max_durability
+			multiply = at_ai_positive_durability_impact_value
+		}
+	}
+
+	# Artifact uniqueness
+	if = {
+		limit = {
+			scope:artifact = { at_is_unique_artifact_trigger = yes }
+		}
+		add = at_ai_negative_uniqueness_impact_value
+	}
+
+	# Useless, not relevant, unwanted, or cursed artifacts
+	if = {
+		limit = {
+			scope:seller = {
+				NOT = { at_can_equip_artifact_trigger = { ARTIFACT = scope:artifact } }
+			}
+		}
+		add = 50
+	}
+	if = {
+		limit = {
+			scope:seller = {
+				NOT = { can_benefit_from_artifact = scope:artifact }
+			}
+		}
+		add = 50
+	}
+	if = {
+		limit = {
+			scope:artifact = { has_variable = unwanted_artifact }
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			scope:artifact = { has_variable = cursed_artifact }
+		}
+		add = 200
+	}
+
+	# Trash or common low durability artifacts
+	if = {
+		limit = {
+			scope:artifact = { at_is_worthless_artifact_trigger = yes }
+		}
+		add = at_ai_positive_trash_impact_value
+	}
+
+	# Dynasty or house banner
+	if = {
+		limit = {
+			scope:seller = {
+				at_is_dynasty_banner_trigger = { ARTIFACT = scope:artifact }
+			}
+		}
+		add = {
+			if = {
+				limit = { scope:seller = { this = dynasty.dynast } }
+				value = at_ai_negative_relationship_impact_value
+			}
+			else = {
+				value = at_ai_negative_relationship_impact_reduced_value
+			}
+		}
+	}
+	if = {
+		limit = {
+			scope:seller = {
+				at_is_house_banner_trigger = { ARTIFACT = scope:artifact }
+			}
+		}
+		add = {
+			if = {
+				limit = { scope:seller = { this = house.house_head } }
+				value = at_ai_negative_relationship_impact_value
+			}
+			else = {
+				value = at_ai_negative_relationship_impact_reduced_value
+			}
+		}
+	}
+
+	# Religious relic
+	if = {
+		limit = {
+			scope:seller = {
+				at_is_religion_relic_trigger = { ARTIFACT = scope:artifact }
+			}
+		}
+		add = {
+			if = {
+				limit = {
+					scope:seller = { any_held_title = { is_head_of_faith = yes } }
+				}
+				value = at_ai_negative_relationship_impact_value
+			}
+			else = {
+				value = at_ai_negative_relationship_impact_reduced_value
+			}
+		}
+	}
+
+	# Holds succession title
+	if = {
+		limit = {
+			scope:seller = {
+				at_has_artifact_succession_title_trigger = { ARTIFACT = scope:artifact }
+			}
+		}
+		add = at_ai_negative_relationship_impact_value
+	}
+
+	# Price
+	if = {
+		limit = {
+			scope:artifact.at_artifact_ask_price_value < scope:seller.minor_gold_value
+		}
+		add = at_ai_negative_price_impact_value
+	}
+	else_if = {
+		limit = {
+			scope:artifact.at_artifact_ask_price_value > scope:seller.major_gold_value
+		}
+		add = at_ai_positive_price_impact_value
+	}
+
+	# Seller wealth
+	if = {
+		limit = {
+			scope:seller = {
+				at_is_character_poor_trigger = yes
+			}
+		}
+		add = at_ai_positive_wealth_impact_value
+	}
+	else_if = {
+		limit = {
+			scope:seller = {
+				at_is_character_rich_trigger = yes
+			}
+		}
+		add = at_ai_negative_wealth_impact_value
+	}
+
+	# Merchants are more willing to sell
+	if = {
+		limit = {
+			scope:seller = {
+				has_variable = at_merchant_type
+			}
+		}
+		add = at_ai_positive_merchant_impact_value
+	}
+
+	# Opinion of actor
+	add = {
+		value = scope:opinion_of_actor
+		multiply = at_buy_sell_artifact_ai_opinion_multiplier
+		floor = yes
+	}
+
+	# Avoid doing business with rivals or nemesises
+	if = {
+		limit = {
+			scope:seller = {
+				has_relation_rival = scope:actor
+			}
+		}
+		add = -100
+	}
+	if = {
+		limit = {
+			scope:seller = {
+				has_relation_nemesis = scope:actor
+			}
+		}
+		add = -200
+	}
+
+	# Not enough gold
+	if = {
+		limit = {
+			scope:actor = {
+				gold < scope:artifact.at_artifact_ask_price_value
+			}
+		}
+		add = -1000
+	}
+}
+
+# AI accept value of the Sell Artifact interaction, used in effects to evaluate whether
+# the scoped character would accept the interaction initiated by scope:actor with scope:artifact as target.
+# Must exactly match the ai_accept section of at_sell_artifact_interaction.
+at_sell_artifact_ai_accept_value = {
+	save_temporary_scope_as = buyer
+	value = -50
+
+	# Avoid spending money if at war
+	if = {
+		limit = {
+			is_at_war = yes
+		}
+		add = -50
+	}
+
+	# Artifact QWA (rarity)
+	add = {
+		value = scope:artifact.at_artifact_quality_wealth_average_value
+		subtract = 100
+		multiply = at_ai_positive_qwa_impact_value
+	}
+
+	# Artifact claims
+	if = {
+		limit = {
+			scope:artifact = { can_be_claimed_by = scope:buyer }
+		}
+		add = at_ai_positive_claim_impact_value
+	}
+
+	# Difference between the QWA of the target artifact
+	# and the QWA of the n-th artifact of the same type owned and equippable by scope:buyer
+	if = {
+		limit = {
+			at_can_equip_and_benefit_from_artifact_trigger = { ARTIFACT = scope:artifact }
+			scope:artifact.at_nth_buyer_equippable_artifact_quality_wealth_average_difference_value > 0
+		}
+		add = {
+			value = scope:artifact.at_nth_buyer_equippable_artifact_quality_wealth_average_difference_value
+			multiply = at_ai_positive_qwa_difference_impact_value
+		}
+	}
+
+	# Artifact durability
+	if = {
+		limit = {
+			scope:artifact.artifact_durability < scope:artifact.artifact_max_durability
+		}
+		add = {
+			value = scope:artifact.artifact_max_durability
+			subtract = scope:artifact.artifact_durability
+			divide = scope:artifact.artifact_max_durability
+			multiply = at_ai_negative_durability_impact_value
+		}
+	}
+
+	# Artifact uniqueness
+	if = {
+		limit = {
+			scope:artifact = { at_is_unique_artifact_trigger = yes }
+		}
+		add = at_ai_positive_uniqueness_impact_value
+	}
+
+	# Useless, not relevant, unwanted, or cursed artifacts
+	if = {
+		limit = {
+			NOT = { at_can_equip_artifact_trigger = { ARTIFACT = scope:artifact } }
+		}
+		add = -50
+	}
+	if = {
+		limit = {
+			NOT = { can_benefit_from_artifact = scope:artifact }
+		}
+		add = -50
+	}
+	if = {
+		limit = {
+			scope:artifact = { has_variable = unwanted_artifact }
+		}
+		add = -100
+	}
+	if = {
+		limit = {
+			scope:artifact = { has_variable = cursed_artifact }
+		}
+		add = -200
+	}
+
+	# Trash or common low durability artifacts
+	if = {
+		limit = {
+			scope:artifact = { at_is_worthless_artifact_trigger = yes }
+		}
+		add = at_ai_negative_trash_impact_value
+	}
+
+	# Dynasty or house banner
+	if = {
+		limit = {
+			at_is_dynasty_banner_trigger = { ARTIFACT = scope:artifact }
+		}
+		add = {
+			if = {
+				limit = { this = dynasty.dynast }
+				value = at_ai_positive_relationship_impact_value
+			}
+			else = {
+				value = at_ai_positive_relationship_impact_reduced_value
+			}
+		}
+	}
+	if = {
+		limit = {
+			at_is_house_banner_trigger = { ARTIFACT = scope:artifact }
+		}
+		add = {
+			if = {
+				limit = { this = house.house_head }
+				value = at_ai_positive_relationship_impact_value
+			}
+			else = {
+				value = at_ai_positive_relationship_impact_reduced_value
+			}
+		}
+	}
+
+	# Religious relic
+	if = {
+		limit = {
+			at_is_religion_relic_trigger = { ARTIFACT = scope:artifact }
+		}
+		add = {
+			if = {
+				limit = {
+					any_held_title = { is_head_of_faith = yes }
+				}
+				value = at_ai_positive_relationship_impact_value
+			}
+			else = {
+				value = at_ai_positive_relationship_impact_reduced_value
+			}
+		}
+	}
+
+	# Holds succession title
+	if = {
+		limit = {
+			at_has_artifact_succession_title_trigger = { ARTIFACT = scope:artifact }
+		}
+		add = at_ai_positive_relationship_impact_value
+	}
+
+	# Price
+	if = {
+		limit = {
+			scope:artifact.at_artifact_bid_price_value < scope:buyer.minor_gold_value
+		}
+		add = at_ai_positive_price_impact_value
+	}
+	else_if = {
+		limit = {
+			scope:artifact.at_artifact_bid_price_value > scope:buyer.major_gold_value
+		}
+		add = at_ai_negative_price_impact_value
+	}
+
+	# Buyer wealth
+	if = {
+		limit = {
+			at_is_character_poor_trigger = yes
+		}
+		add = at_ai_negative_wealth_impact_value
+	}
+	else_if = {
+		limit = {
+			at_is_character_rich_trigger = yes
+		}
+		add = at_ai_positive_wealth_impact_value
+	}
+
+	# Peddlers are more willing to buy
+	if = {
+		limit = {
+			var:at_merchant_type ?= flag:peddler
+		}
+		add = at_ai_positive_merchant_impact_value
+	}
+
+	# Opinion of actor
+	add = {
+		value = scope:opinion_of_actor
+		multiply = at_buy_sell_artifact_ai_opinion_multiplier
+		floor = yes
+	}
+
+	# Avoid doing business with rivals or nemesises
+	if = {
+		limit = {
+			has_relation_rival = scope:actor
+		}
+		add = -100
+	}
+	if = {
+		limit = {
+			has_relation_nemesis = scope:actor
+		}
+		add = -200
+	}
+}
+
+# AI will do value of the Buy Artifact interaction, used in effects to evaluate whether
+# the scoped character would initiate the interaction against scope:seller with scope:artifact as target.
+# Must exactly match the ai_will_do section of at_buy_artifact_interaction.
+at_buy_artifact_ai_will_do_value = {
+	save_temporary_scope_as = buyer
+	value = -50
+
+	# Artifact QWA (rarity) (-25 to 0)
+	add = {
+		value = scope:artifact.at_artifact_quality_wealth_average_value
+		subtract = 100
+		multiply = at_ai_positive_qwa_impact_value
+	}
+
+	# Artifact claims (25 if claim)
+	if = {
+		limit = {
+			scope:artifact = { can_be_claimed_by = scope:buyer }
+		}
+		add = at_ai_positive_claim_impact_value
+	}
+
+	# Difference between the QWA of the target artifact
+	# and the QWA of the n-th artifact of the same type owned and equippable by scope:buyer
+	if = {
+		limit = {
+			at_can_equip_and_benefit_from_artifact_trigger = { ARTIFACT = scope:artifact }
+			scope:artifact.at_nth_buyer_equippable_artifact_quality_wealth_average_difference_value > 0
+		}
+		add = {
+			value = scope:artifact.at_nth_buyer_equippable_artifact_quality_wealth_average_difference_value
+			multiply = at_ai_positive_qwa_difference_impact_value
+		}
+	}
+
+	# Artifact durability (-25 to 0)
+	if = {
+		limit = {
+			scope:artifact.artifact_durability < scope:artifact.artifact_max_durability
+		}
+		add = {
+			value = scope:artifact.artifact_max_durability
+			subtract = scope:artifact.artifact_durability
+			divide = scope:artifact.artifact_max_durability
+			multiply = at_ai_negative_durability_impact_value
+		}
+	}
+
+	# Artifact uniqueness (50 if unique)
+	if = {
+		limit = {
+			scope:artifact = { at_is_unique_artifact_trigger = yes }
+		}
+		add = at_ai_positive_uniqueness_impact_value
+	}
+
+	# Dynasty or house banner
+	if = {
+		limit = {
+			at_is_dynasty_banner_trigger = { ARTIFACT = scope:artifact }
+		}
+		add = {
+			if = {
+				limit = { this = dynasty.dynast }
+				value = at_ai_positive_relationship_impact_value
+			}
+			else = {
+				value = at_ai_positive_relationship_impact_reduced_value
+			}
+		}
+	}
+	if = {
+		limit = {
+			at_is_house_banner_trigger = { ARTIFACT = scope:artifact }
+		}
+		add = {
+			if = {
+				limit = { this = house.house_head }
+				value = at_ai_positive_relationship_impact_value
+			}
+			else = {
+				value = at_ai_positive_relationship_impact_reduced_value
+			}
+		}
+	}
+
+	# Religious relic
+	if = {
+		limit = {
+			at_is_religion_relic_trigger = { ARTIFACT = scope:artifact }
+		}
+		add = {
+			if = {
+				limit = {
+					any_held_title = { is_head_of_faith = yes }
+				}
+				value = at_ai_positive_relationship_impact_value
+			}
+			else = {
+				value = at_ai_positive_relationship_impact_reduced_value
+			}
+		}
+	}
+
+	# Holds succession title
+	if = {
+		limit = {
+			at_has_artifact_succession_title_trigger = { ARTIFACT = scope:artifact }
+		}
+		add = at_ai_positive_relationship_impact_value
+	}
+
+	# Price (-10 if expensive, 10 if cheap)
+	if = {
+		limit = {
+			scope:artifact.at_artifact_ask_price_value < scope:buyer.minor_gold_value
+		}
+		add = at_ai_positive_price_impact_value
+	}
+	else_if = {
+		limit = {
+			scope:artifact.at_artifact_ask_price_value > scope:buyer.major_gold_value
+		}
+		add = at_ai_negative_price_impact_value
+	}
+
+	# Buyer wealth (-10 if poor, 10 if rich)
+	if = {
+		limit = {
+			at_is_character_poor_trigger = yes
+		}
+		add = at_ai_negative_wealth_impact_value
+	}
+	else_if = {
+		limit = {
+			at_is_character_rich_trigger = yes
+		}
+		add = at_ai_positive_wealth_impact_value
+	}
+
+	# Landless adventurers are more willing to buy from merchants
+	if = {
+		limit = {
+			is_landless_adventurer = yes
+			scope:seller = {
+				has_variable = at_merchant_type
+			}
+		}
+		add = at_ai_positive_laamp_impact_value
+	}
+
+	# Opinion of seller
+	add = {
+		value = scope:opinion_of_seller
+		multiply = at_buy_sell_artifact_ai_opinion_multiplier
+		floor = yes
+	}
+
+	# Avoid doing business with rivals or nemesises
+	if = {
+		limit = {
+			has_relation_rival = scope:seller
+		}
+		add = -100
+	}
+	if = {
+		limit = {
+			has_relation_nemesis = scope:seller
+		}
+		add = -200
+	}
+}
+
+# AI will do value of the Sell Artifact interaction, used in effects to evaluate whether
+# the scoped AI character would initiate the interaction against scope:buyer with scope:artifact as target.
+# Must exactly match the ai_will_do section of at_sell_artifact_interaction.
+at_sell_artifact_ai_will_do_value = {
+	save_temporary_scope_as = seller
+	value = 50
+
+	# Artifact QWA (rarity) (-25 to 0)
+	add = {
+		value = scope:artifact.at_artifact_quality_wealth_average_value
+		multiply = at_ai_negative_qwa_impact_value
+	}
+
+	# Artifact equipped (-50 if equipped)
+	if = {
+		limit = {
+			scope:artifact = { is_equipped = yes }
+		}
+		add = at_ai_negative_equipped_impact_value
+	}
+
+	# Difference between the QWA of the target artifact
+	# and the QWA of the n+1-th artifact of the same type owned and equippable by scope:seller
+	if = {
+		limit = {
+			at_can_equip_and_benefit_from_artifact_trigger = { ARTIFACT = scope:artifact }
+			scope:artifact.at_np1th_seller_equippable_artifact_quality_wealth_average_difference_value > 0
+		}
+		add = {
+			value = scope:artifact.at_np1th_seller_equippable_artifact_quality_wealth_average_difference_value
+			multiply = at_ai_negative_qwa_difference_impact_value
+		}
+	}
+
+	# Artifact durability (0 to 25)
+	if = {
+		limit = {
+			scope:artifact.artifact_durability < scope:artifact.artifact_max_durability
+		}
+		add = {
+			value = scope:artifact.artifact_max_durability
+			subtract = scope:artifact.artifact_durability
+			divide = scope:artifact.artifact_max_durability
+			multiply = at_ai_positive_durability_impact_value
+		}
+	}
+
+	# Artifact uniqueness (-50 if unique)
+	if = {
+		limit = {
+			scope:artifact = { at_is_unique_artifact_trigger = yes }
+		}
+		add = at_ai_negative_uniqueness_impact_value
+	}
+
+	# Useless or not relevant artifacts
+	if = {
+		limit = {
+			NOT = { at_can_equip_artifact_trigger = { ARTIFACT = scope:artifact } }
+		}
+		add = 50
+	}
+	if = {
+		limit = {
+			NOT = { can_benefit_from_artifact = scope:artifact }
+		}
+		add = 50
+	}
+
+	# Price (-10 if cheap, 10 if expensive)
+	if = {
+		limit = {
+			scope:artifact.at_artifact_bid_price_value < scope:seller.minor_gold_value
+		}
+		add = at_ai_negative_price_impact_value
+	}
+	else_if = {
+		limit = {
+			scope:artifact.at_artifact_bid_price_value > scope:seller.major_gold_value
+		}
+		add = at_ai_positive_price_impact_value
+	}
+
+	# Seller wealth (-10 if rich, 10 if poor)
+	if = {
+		limit = {
+			at_is_character_poor_trigger = yes
+		}
+		add = at_ai_positive_wealth_impact_value
+	}
+	else_if = {
+		limit = {
+			at_is_character_rich_trigger = yes
+		}
+		add = at_ai_negative_wealth_impact_value
+	}
+
+	# Landless adventurers are more willing to sell to merchants
+	if = {
+		limit = {
+			is_landless_adventurer = yes
+			scope:buyer = {
+				has_variable = at_merchant_type
+			}
+		}
+		add = at_ai_positive_laamp_impact_value
+		multiply = at_attempted_artifact_haggle_multiplier
+	}
+
+	# Opinion of buyer
+	add = {
+		value = scope:opinion_of_buyer
+		multiply = at_buy_sell_artifact_ai_opinion_multiplier
+		floor = yes
+	}
+
+	# Avoid doing business with rivals or nemesises
+	if = {
+		limit = {
+			has_relation_rival = scope:buyer
+		}
+		add = -100
+	}
+	if = {
+		limit = {
+			has_relation_nemesis = scope:buyer
+		}
+		add = -200
+	}
+}
+
+at_attempted_artifact_haggle_multiplier = {
+	value = 1
+	if = {
+		limit = { scope:attempted_artifact_haggle ?= flag:success }
+		value = 2
+	}
+	else_if = {
+		limit = { scope:attempted_artifact_haggle ?= flag:failure }
+		value = 0.5
+	}
+}
+
+# Artifact trading range, depends on title tier.
+at_artifact_trading_range_value = {
+	if = {
+		limit = { is_landless_adventurer = yes }
+		value = define:NTaskContract|ADVENTURER_DISTANCE_RESTRICTION
+	}
+	else_if = {
+		limit = {
+			OR = {
+				exists = current_travel_plan
+				is_commanding_army = yes
+			}
+		}
+		value = at_squared_distance_small
+	}
+	else = {
+		if = {
+			limit = { highest_held_title_tier = tier_empire }
+			value = at_squared_distance_massive
+		}
+		else_if = {
+			limit = { highest_held_title_tier = tier_kingdom }
+			value = at_squared_distance_huge
+		}
+		else_if = {
+			limit = { highest_held_title_tier = tier_duchy }
+			value = at_squared_distance_large
+		}
+		else_if = {
+			limit = { highest_held_title_tier = tier_county }
+			value = at_squared_distance_medium
+		}
+		else = {
+			value = at_squared_distance_small
+		}
+	}
+}
+
+at_interaction_range_value = {
+	if = {
+		limit = { has_game_rule = at_interaction_range_small }
+		value = squared_distance_small
+	}
+	else_if = {
+		limit = { has_game_rule = at_interaction_range_medium }
+		value = squared_distance_medium
+	}
+	else_if = {
+		limit = { has_game_rule = at_interaction_range_large }
+		value = squared_distance_large
+	}
+	else_if = {
+		limit = { has_game_rule = at_interaction_range_huge }
+		value = squared_distance_huge
+	}
+	else_if = {
+		limit = { has_game_rule = at_interaction_range_massive }
+		value = squared_distance_almost_massive
+	}
+	else = {
+		value = squared_distance_massive
+	}
+}
+
+# Number of potential buyers shown in the Sell Artifacts interaction.
+at_number_of_potential_buyers_value = {
+	if = {
+		limit = { has_game_rule = at_number_of_potential_buyers_01 }
+		value = 1
+	}
+	else_if = {
+		limit = { has_game_rule = at_number_of_potential_buyers_02 }
+		value = 2
+	}
+	else_if = {
+		limit = { has_game_rule = at_number_of_potential_buyers_05 }
+		value = 5
+	}
+	else_if = {
+		limit = { has_game_rule = at_number_of_potential_buyers_10 }
+		value = 10
+	}
+	else_if = {
+		limit = { has_game_rule = at_number_of_potential_buyers_20 }
+		value = 20
+	}
+	else_if = {
+		limit = { has_game_rule = at_number_of_potential_buyers_50 }
+		value = 50
+	}
+	else = {
+		value = 1000
+	}
+}
+
+at_short_term_gold_value = {
+	value = short_term_gold
+}
+
+# Used in localization.
+at_scope_buyer_current_gold_value = {
+	value = scope:buyer.at_short_term_gold_value
+}
+
+# Used in localization.
+at_scope_artifact_price_value = {
+	value = scope:artifact_price
+}
+
+# Used in localization.
+at_artifact_actual_price_value = {
+	if = {
+		limit = { scope:actor = scope:buyer }
+		value = at_artifact_ask_price_value
+	}
+	else = {
+		value = at_artifact_bid_price_value
+	}
+}

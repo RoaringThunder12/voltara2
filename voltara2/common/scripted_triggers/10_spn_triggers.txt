@@ -1,0 +1,667 @@
+﻿spn_has_supernatural_trait = {
+	OR = {
+		is_a_demon_trigger = yes
+		has_trait = supernatural_vampire
+		has_trait = supernatural_werewolf
+		has_trait = supernatural_hybrid
+	}
+}
+
+# Generalized "actor can physically reach the recipient" check (Force Gift now; reusable for future
+# melee/touch-based options). Mirrors the contact conditions of has_physical_contanct2 but is our own,
+# WITHOUT the magic-specific unlimited_spells_range game rule. Call inside scope:actor with scope:recipient set.
+spn_has_physical_contact = {
+	OR = {
+		AND = {
+			scope:actor = {
+				OR = {
+					is_landed_or_landless_administrative = yes
+					AND = { is_in_army = yes  scope:recipient = { is_in_army = yes } }
+					AND = { is_landless_ruler = yes  scope:recipient = { is_landless_ruler = yes } }
+					AND = {
+						exists = involved_activity
+						exists = scope:recipient.involved_activity
+						involved_activity = scope:recipient.involved_activity
+					}
+				}
+			}
+			trigger_if = {
+				limit = { exists = scope:actor.location  exists = scope:recipient.location }
+				scope:actor.location = scope:recipient.location
+			}
+		}
+		# GENUINE proximity / in-your-power only (no relationship shortcuts - a hostile clawing
+		# needs you to actually reach them, not just be their distant friend).
+		scope:recipient = { is_vassal_of = scope:actor  NOT = { is_at_war_with = scope:actor } }
+		scope:recipient = { is_imprisoned_by = scope:actor }
+		scope:recipient = { is_courtier_of = scope:actor }
+		scope:recipient = { is_foreign_court_or_pool_guest_of = scope:actor }
+		# A neighbouring ruler is "right next to you" - within reach to claw (your realm + the realms bordering it).
+		scope:actor = { character_is_realm_neighbor = scope:recipient }
+	}
+}
+
+has_POD_shapeshifted_form_trigger = {
+	has_POD_werewolf_form_trigger = yes
+}
+
+spn_has_hunter_trait = {
+	has_trait = supernatural_hunter
+}
+
+has_vampirism_trigger = {
+	has_trait = supernatural_vampire
+}
+
+has_lycanthropy_trigger = {
+	has_trait =  supernatural_werewolf
+}
+
+has_hybrid_trigger = {
+	has_trait = supernatural_hybrid
+}
+
+has_hunter_trigger = {
+	has_trait = supernatural_hunter
+}
+
+has_supernatural_skill_low = {
+	OR = {
+		has_trait_xp = {	#As of 1.24 Vampires are infertile, this is just for future rule allowing their procreation
+			trait = supernatural_vampire
+			track = vampirism
+			value >= 25
+		}
+		has_trait_xp = {
+			trait = supernatural_werewolf
+			track = lycanthropy
+			value >= 25
+		}
+		has_trait_xp = {
+			trait = supernatural_hybrid
+			track = hybrid_lycanthropy
+			value >= 25
+		}
+	}
+}
+
+has_supernatural_skill_medium = {
+	OR = {
+		has_trait_xp = {	#As of 1.24 Vampires are infertile, this is just for future rule allowing their procreation
+			trait = supernatural_vampire
+			track = vampirism
+			value >= 50
+		}
+		has_trait_xp = {
+			trait = supernatural_werewolf
+			track = lycanthropy
+			value >= 50
+		}
+		has_trait_xp = {
+			trait = supernatural_hybrid
+			track = hybrid_lycanthropy
+			value >= 50
+		}
+	}
+}
+
+has_supernatural_skill_high = {
+	OR = {
+		has_trait_xp = {	#As of 1.24 Vampires are infertile, this is just for future rule allowing their procreation
+			trait = supernatural_vampire
+			track = vampirism
+			value >= 75
+		}
+		has_trait_xp = {
+			trait = supernatural_werewolf
+			track = lycanthropy
+			value >= 75
+		}
+		has_trait_xp = {
+			trait = supernatural_hybrid
+			track = hybrid_lycanthropy
+			value >= 75
+		}
+	}
+}
+
+is_mikaelson_trigger = {
+	dynasty = dynasty:5000001 # Mikaelson
+}
+
+# Can $HOST$ plausibly know what this character is? Gates feeding-activity invitations.
+# Evaluated in the CANDIDATE's scope. $HOST$ is the inviter.
+#   ONLY IF: they carry the known trait openly, OR the host actually knows their secret,
+#            OR they are the host's spouse or close family - those people already know.
+#   NEVER IF: none of the above. An inviter cannot know what nobody has told them.
+spn_host_knows_supernatural_trigger = {
+	OR = {
+		has_trait = spn_known_vampire
+		has_trait = spn_known_hybrid
+		any_secret = {
+			type = spn_secret_vampire
+			is_known_by = $HOST$
+		}
+		any_secret = {
+			type = spn_secret_hybrid
+			is_known_by = $HOST$
+		}
+		is_spouse_of = $HOST$
+		is_close_family_of = $HOST$
+		# 2.32 -- THE SIRE BOND, and it is deliberately NOT a secret check.
+		# A maker knows what their progeny is because they made them. Routing that through
+		# "the host knows their secret" would be both wrong and harmful: holding someone's
+		# secret is exactly what enables exposure and blackmail, and a sire needs neither to
+		# know. Both directions, because either of them can be the one throwing the evening.
+		has_relation_mmaker = $HOST$
+		has_relation_pprogeny = $HOST$
+	}
+}
+
+is_shapeshifted_trigger = {
+	OR = {
+		#"lupus" was only ever a send_option flag on the shapeshift interaction - that is a scope,
+		#not a character flag, so this arm never matched. And glabro form was not checked at all,
+		#so a werewolf in glabro kept their hair. Both modifiers exist in 00_spn_modifiers.txt.
+		has_character_flag = POD_bald_look_flag
+		has_character_modifier = POD_werewolf_form_lupus_modifier
+		has_character_modifier = POD_werewolf_form_glabro_modifier
+	}
+}
+
+spn_former_werewolf_effect = {
+	has_trait = supernatural_hybrid
+}
+
+has_st_satiate_thirst_intent_trigger = {
+	OR = {
+		AND = {
+			is_ai = no
+			has_activity_intent = satiate_thirst_intent
+		}
+		AND = {
+			is_ai = yes
+			has_character_flag = st_intent_secrecy
+		}
+	}
+}
+has_st_strengthen_the_blood_intent_trigger = {
+	OR = {
+		AND = {
+			is_ai = no
+			has_activity_intent = strengthen_the_blood_intent
+		}
+		AND = {
+			is_ai = yes
+			has_character_flag = st_intent_power
+		}
+	}
+}
+has_st_embrace_the_night_intent_trigger = {
+	OR = {
+		AND = {
+			is_ai = no
+			has_activity_intent = embrace_the_night_intent
+		}
+		AND = {
+			is_ai = yes
+			has_character_flag = st_intent_reveler
+		}
+	}
+}
+
+#Trait distribution criteria in one place
+spn_meets_dist_criteria = {
+	# 2.31c -- the game-start sweep and the yearly pulse both select through this, and the creature
+	# traits they hand out are gated four events downstream. Selecting a target that will be refused
+	# is not free: spn_initiate.0006/.1006/.3006 call add_trait_xp unconditionally beside the
+	# trigger_event, so a refused pick still writes XP for a trait nobody has. Filter the pick.
+	spn_is_valid_supernatural_target = yes
+	is_ai = yes
+	is_adult = yes
+	spn_has_supernatural_trait = no
+	NOT = { has_trait = supernatural_hunter }
+	highest_held_title_tier <= $TIER$
+	health >= 3.5
+	spn_total_skill >= 40
+}
+
+spn_char_has_physical_injury = {
+	OR = {
+		has_trait = wounded
+		has_trait = wounded_1
+		has_trait = wounded_2
+		has_trait = wounded_3
+		has_infected_or_gangrenous_wound_trigger = yes
+		has_trait = maimed
+	}
+}
+
+spn_has_lifetime_flags = {
+	OR = {
+		has_character_flag = has_refunded_perks
+		has_character_flag = declared_major_religious_war_flag
+		has_character_flag = has_created_a_faith
+		has_character_flag = converted_culture_this_lifetime
+		has_character_flag = used_lifetime_invasion
+		has_character_flag = used_lifetime_subjugation
+	}
+}
+
+spn_possible_pregnancy = {
+	NOT = { #Inheritance is off and one of the characters has a spn trait
+		has_game_rule = spn_no_trait_inheritance
+	}
+	OR = {
+		AND = { #Inheritance is on or Supernaturals Create Humans
+			OR = {
+				has_game_rule = spn_yes_trait_inheritance
+				has_game_rule = spn_human_no_immortal_trait_inheritance
+			}
+			OR = {
+				spn_has_supernatural_trait = yes
+				$FATHER$ = { spn_has_supernatural_trait = yes }
+			}
+		}
+		AND = { #Inheritance is Supernaturals Only
+			has_game_rule = spn_immortal_only_trait_inheritance
+			AND = {
+				spn_has_supernatural_trait = yes
+				$FATHER$ = { spn_has_supernatural_trait = yes }
+			}
+		}
+		AND = { #Inheritance is Only Via Humans
+			has_game_rule = spn_human_only_trait_inheritance
+			OR = {
+				AND = {
+					spn_has_supernatural_trait = yes
+					$FATHER$ = { spn_has_supernatural_trait = no }
+				}
+				AND = {
+					spn_has_supernatural_trait = no
+					$FATHER$ = { spn_has_supernatural_trait = yes }
+				}
+			}
+		}
+		AND = { #If no hybrids setting, and characters of same species
+			#has_game_rule = spn_no_hybrid_trait_inheritance
+			OR = {
+				AND = {
+					has_trait = supernatural_vampire
+					$FATHER$ = { has_trait = supernatural_vampire }
+				}
+				AND = {
+					has_trait = supernatural_werewolf
+					$FATHER$ = { has_trait = supernatural_werewolf }
+				}
+				AND = {
+					has_trait = supernatural_vampire
+					$FATHER$ = { spn_has_supernatural_trait = no }
+				}
+				AND = {
+					spn_has_supernatural_trait = no
+					$FATHER$ = { has_trait = supernatural_vampire }
+				}
+				AND = {
+					has_trait = supernatural_werewolf
+					$FATHER$ = { spn_has_supernatural_trait = no }
+				}
+				AND = {
+					spn_has_supernatural_trait = no
+					$FATHER$ = { has_trait = supernatural_werewolf }
+				}
+			}
+		}
+		AND = { #If Vampire Procreate setting
+			has_game_rule = spn_vampire_trait_inheritance
+			OR = {
+				AND = {
+					has_trait = supernatural_vampire
+					$FATHER$ = { has_trait = supernatural_vampire }
+				}
+				AND = {
+					has_trait = supernatural_vampire
+					$FATHER$ = { spn_has_supernatural_trait = no }
+				}
+				AND = {
+					spn_has_supernatural_trait = no
+					$FATHER$ = { has_trait = supernatural_vampire }
+				}
+				AND = { #Added this line and below for Werewolves in this game rule
+					has_trait = supernatural_werewolf
+					$FATHER$ = { has_trait = supernatural_werewolf }
+				}
+				AND = {
+					has_trait = supernatural_werewolf
+					$FATHER$ = { spn_has_supernatural_trait = no }
+				}
+				AND = {
+					spn_has_supernatural_trait = no
+					$FATHER$ = { has_trait = supernatural_werewolf }
+				}
+			}
+		}
+		AND = { #If Werewolf / Hybrid only setting (Normal Setting)
+			has_game_rule = spn_werewolf_trait_inheritance
+			OR = {
+				AND = {
+					has_trait = supernatural_werewolf
+					$FATHER$ = { has_trait = supernatural_werewolf }
+				}
+				AND = {
+					has_trait = supernatural_werewolf
+					$FATHER$ = { spn_has_supernatural_trait = no }
+				}
+				AND = {
+					spn_has_supernatural_trait = no
+					$FATHER$ = { has_trait = supernatural_werewolf }
+				}
+				AND = {
+					spn_has_supernatural_trait = no
+					$FATHER$ = { has_trait = supernatural_hybrid }
+				}
+				AND = {
+					has_trait = supernatural_werewolf
+					$FATHER$ = { has_trait = supernatural_hybrid }
+				}
+				AND = {
+					has_trait = supernatural_hybrid
+					$FATHER$ = { has_trait = supernatural_werewolf }
+				}
+				AND = {
+					has_trait = supernatural_hybrid
+					$FATHER$ = { spn_has_supernatural_trait = no }
+				}				
+			}
+		}
+	}
+}
+
+#Determines whether a Demon pregnancy is allowed, based on the spn_enable_demon_inheritance game rule.
+#ROOT is the mother, $FATHER$ is the biological father.
+#Demon = is_a_demon_trigger (demon1 / demon2). Human = spn_has_supernatural_trait = no.
+#This is intentionally independent of the werewolf spn_enable_trait_inheritance rule.
+spn_demon_possible_pregnancy = {
+	NOT = { has_game_rule = spn_demon_no_inheritance }
+	OR = {
+		AND = { #Demon + Demon (allowed under On and Demons Only)
+			OR = {
+				has_game_rule = spn_demon_yes_inheritance
+				has_game_rule = spn_demon_immortal_only_inheritance
+			}
+			is_a_demon_trigger = yes
+			$FATHER$ = { is_a_demon_trigger = yes }
+		}
+		AND = { #Demon + Human, either direction (allowed under On and Only Via Humans)
+			OR = {
+				has_game_rule = spn_demon_yes_inheritance
+				has_game_rule = spn_demon_human_only_inheritance
+			}
+			OR = {
+				AND = {
+					is_a_demon_trigger = yes
+					$FATHER$ = { spn_has_supernatural_trait = no }
+				}
+				AND = {
+					spn_has_supernatural_trait = no
+					$FATHER$ = { is_a_demon_trigger = yes }
+				}
+			}
+		}
+		AND = { #2.37: Demon + werewolf or hybrid, either direction (On only, and only if wolves may have children at all). The child is demon-blooded or human, never a wolf (spn_on_genetic_birth). Reported by Jean de Valois.
+			has_game_rule = spn_demon_yes_inheritance
+			NOT = { has_game_rule = spn_no_trait_inheritance }
+			OR = {
+				AND = {
+					is_a_demon_trigger = yes
+					$FATHER$ = {
+						OR = {
+							has_trait = supernatural_werewolf
+							has_trait = supernatural_hybrid
+						}
+					}
+				}
+				AND = {
+					OR = {
+						has_trait = supernatural_werewolf
+						has_trait = supernatural_hybrid
+					}
+					$FATHER$ = { is_a_demon_trigger = yes }
+				}
+			}
+		}
+	}
+}
+
+spn_gfx_not_pale_culture_group = {
+	NOR = {
+		culture = { has_cultural_pillar = heritage_akan }
+		culture = { has_cultural_pillar = heritage_central_african }
+		culture = { has_cultural_pillar = heritage_dravidian }
+		culture = { has_cultural_pillar = heritage_east_african }
+		#culture = { has_cultural_pillar = heritage_west_african_group }
+		#culture = { has_cultural_pillar = heritage_somalian_group }
+		#culture = { has_cultural_pillar = heritage_niger_delta }
+		culture = { has_cultural_pillar = heritage_sahelian }
+		culture = { has_cultural_pillar = heritage_senegambian }
+	}
+}
+
+# 2.32 -- ONE definition of "can I drink this person?", shared by every feeding site.
+# Evaluated in the CANDIDATE's scope; root is the feeder.
+#
+# The per-site filters had drifted apart. Most excluded vampires and werewolves but not
+# supernatural_hybrid and not supernatural_hunter, so your own court could hand you a
+# hybrid or a monster hunter as prey. And only supernatural_ev1.26 routed through
+# spn_is_valid_supernatural_target -- the AGOT patch's species hook -- so everywhere else,
+# with the patch loaded, you could drink from one of the walking dead.
+vf_valid_victim_trigger = {
+	is_adult = yes
+	is_alive = yes
+	is_imprisoned = no
+	NOT = { this = root }
+	NOR = {
+		has_trait = supernatural_vampire
+		has_trait = supernatural_werewolf
+		has_trait = supernatural_hybrid
+		has_trait = supernatural_hunter
+	}
+	# `always = yes` in standalone play, overridden by the AGOT patch. The dead have no blood.
+	spn_is_valid_supernatural_target = yes
+}
+
+# ============================================================================
+# 2.35 -- THE HUNT.
+# ============================================================================
+
+# Does this character know what CULPRIT is? Known trait or a held secret, any of the three creature kinds.
+# (The three per-kind triggers live in 10_spn_immortal_triggers.txt.)
+spn_hunt_knows_culprit_trigger = {
+	OR = {
+		spn_knows_about_character_being_vampire_trigger = { CHARACTER = $CULPRIT$ }
+		spn_knows_about_character_being_lycan_trigger = { CHARACTER = $CULPRIT$ }
+		spn_knows_about_character_being_hybrid_trigger = { CHARACTER = $CULPRIT$ }
+	}
+}
+
+# Is this character TRAINER's apprentice? Either the training "not yet" state (spn_train_hunter, D2) or the
+# bite-chain deferral (10_spn_bite_incubation.txt:824-833). Never a hunter already.
+spn_is_apprentice_of_trigger = {
+	NOT = { has_trait = supernatural_hunter }
+	# 2.35a -- THE SAME FLOOR, on the third and last way into the trait. Gating the two interactions is not
+	# enough on its own: the bite-chain deferral (10_spn_bite_incubation.txt) can leave a character carrying
+	# spn_hunter_training_deferred without either interaction having been used, and this trigger is what
+	# graduates an apprentice at the end of a hunt. A child who got here another way stops here.
+	age >= 13
+	OR = {
+		AND = {
+			has_character_flag = spn_hunter_apprentice
+			var:spn_hunter_trainer ?= $TRAINER$
+		}
+		AND = {
+			has_character_flag = spn_hunter_training_deferred
+			var:spn_deferred_hunter_trainer ?= $TRAINER$
+		}
+	}
+}
+
+# A vampire, werewolf, hybrid -- or, since 2.35 PART TWO, a demon. The four things a Supernatural Hunt can be
+# about. Still deliberately NOT spn_has_supernatural_trait: that also matches a witch, and a witch is hunted
+# through the Witch kind on evidence rather than tracked through the field on a body (E1).
+#
+# The two guards are borrowed verbatim from banish_demon's own exclusions (00_magic_interactions.txt:1084) --
+# an endgame-crisis demon is upstream's set piece and nobody's quarry, and a demon summoned in the last seven
+# days is still standing in the circle somebody drew for it.
+#
+# is_a_demon_trigger (magic_triggers.txt:1209) is demon1 | demon2 and is upstream's, verified, unmodified.
+# demon0 is deliberately NOT a demon here and never has been: a latent child is not a menace, and The Thing in
+# the Cradle exists precisely because it is not one yet.
+spn_hunt_is_creature_trigger = {
+	OR = {
+		has_trait = supernatural_vampire
+		has_trait = supernatural_werewolf
+		has_trait = supernatural_hybrid
+		AND = {
+			is_a_demon_trigger = yes
+			NOT = { has_character_flag = summoned_by_abdul_flag }
+			NOT = { has_character_flag = just_summoned_demon_flag }
+		}
+	}
+}
+
+# 2.35 PART TWO (§4.1) -- AND A DEMON HUNTS ALONE. Thomas: "It's not going to join a pack."
+#
+# Widening the creature trigger above would otherwise have put demons into the pack count for free, which is
+# exactly the kind of unasked-for ripple the widening was supposed to be checked for. This is the trigger the
+# pack reads instead; it is the difference between a demon and a wolf, and it is the only difference the
+# hunt's arithmetic needs.
+spn_hunt_joins_a_pack_trigger = {
+	spn_hunt_is_creature_trigger = yes
+	NOT = { is_a_demon_trigger = yes }
+}
+
+# Openly known as a creature (any kind).
+spn_hunt_is_known_creature_trigger = {
+	OR = {
+		has_trait = spn_known_vampire
+		has_trait = spn_known_werewolf
+		has_trait = spn_known_hybrid
+	}
+}
+
+# Can this hunter read the trail's KIND (§6.2 -- "the first place the hunt grows with the hunter")?
+spn_hunt_reads_the_kind_trigger = {
+	has_trait_xp = { trait = supernatural_hunter track = monster_hunting value >= 50 }
+}
+
+# 2.35 PART TWO (§4.2) -- and a demon's work is the hardest read in the field, so it costs more: 65 rather
+# than 50. Nothing about a demon's kill looks like an animal's, and a man who has only ever cut open wolves
+# has no vocabulary for a room where nothing was taken and everything was ruined. Below this the tag reads
+# "Something."
+spn_hunt_reads_demon_trigger = {
+	has_trait_xp = { trait = supernatural_hunter track = monster_hunting value >= 65 }
+}
+
+# 2.35 PART TWO (§6.2) -- the witch read runs off the OTHER track, which is the whole point of there being two.
+# A man can be the finest monster hunter alive and still walk past a hexed byre without seeing it.
+spn_hunt_reads_witch_trigger = {
+	has_trait_xp = { trait = supernatural_hunter track = witch_hunting value >= 50 }
+}
+
+# 2.35 PART TWO (§5) -- CAN THIS HUNTER EXORCISE. The bar is deliberately low (25) and deliberately on the
+# witch-hunting track, because exorcism is where the two halves of the trait finally touch: you learn it doing
+# witch work and you spend it doing monster work. It needs no magic power at all (E6) -- that is the entire
+# point of it existing beside banish_demon rather than instead of it.
+spn_hunt_can_exorcise_trigger = {
+	has_trait_xp = { trait = supernatural_hunter track = witch_hunting value >= 25 }
+}
+
+# 2.35 PART TWO (E7) -- and the one hunter in a thousand who can simply send it away. At witch_hunting 100, or
+# holding upstream's own banish spell. Refused against a Greater Demon by banish_demon's own immunity
+# (00_magic_interactions.txt:1114), which is why exorcism is the only thing that ends one (E10).
+spn_hunt_can_banish_trigger = {
+	OR = {
+		has_trait_xp = { trait = supernatural_hunter track = witch_hunting value >= 100 }
+		can_use_banish_spell = yes
+	}
+}
+
+# 2.35 PART TWO (§5.4) -- MADE, OR SUMMONED. There is a person under a made demon and there is nothing under a
+# summoned one, and this is the only question the exorcism's outcome turns on.
+#
+# PRIMARY: spn_was_mortal, one added line in upstream's make_demon_effect (§12), which every made-demon path
+# runs -- the demon0 maturation (magic_ev3.75, magic_ev2.38), the magic eruption, the Ascendancy project,
+# Abraxas's courtier. A summoned demon is created from a character template and never touches that effect.
+#
+# FALLBACK, written in beside it because a flag added this release cannot exist on a demon that was made in a
+# save started before it: not of the Hell dynasty, and has a father. Every summoned template is house_hell or
+# fatherless; a man who was turned has both a house of his own and parents.
+spn_hunt_demon_was_mortal_trigger = {
+	OR = {
+		has_character_flag = spn_was_mortal
+		AND = {
+			NOT = { dynasty ?= dynasty:hell_dynasty }
+			exists = father
+		}
+	}
+}
+
+# 2.35 PART TWO (E5) -- Lilith does not go home because a man with a crucifix asked her to. special_magic_character
+# is upstream's own marker for the named ones (00_magic_interactions.txt:7007, :12123).
+spn_hunt_demon_is_named_trigger = {
+	has_character_flag = special_magic_character
+}
+
+# ACTIVITY scope. 2.35 PART TWO -- IS THIS HUNT FOLLOWING A TRAIL?
+#
+# The tracking pool's events used to ask `has_activity_option = spn_hunt_kind_monster`, which was the right
+# question when the Monster kind was the only one that ever had a culprit. A Witch Hunt ridden to a witch
+# trail now has one too, and it runs the same spine -- so a pool event about survivors, graves, mob justice,
+# a crowded county, a compelled county or a fellow hunter should fire on it as well.
+#
+# The kind-SPECIFIC events (Two Different Animals, By the Moon, Not a Drop, Nothing Was Taken) keep their own
+# var:spn_hunt_kind gate and are excluded by that, correctly.
+spn_hunt_runs_the_trail_trigger = {
+	OR = {
+		has_activity_option = { category = special_type option = spn_hunt_kind_monster }
+		has_variable = spn_hunt_witch_trail
+	}
+}
+
+# 2.35 PART TWO (§3.4.2) -- is there room in the world for another hunt? Four at once, and only AI hunters are
+# ever told no: a player's hunt is the one he chose to go on.
+spn_hunt_running_open_trigger = {
+	OR = {
+		is_ai = no
+		NOT = { exists = global_var:spn_hunts_running }
+		global_var:spn_hunts_running < 4
+	}
+}
+
+# PROVINCE scope (the activity's location), scope:spn_culprit set. Is the culprit still within a hunt's reach?
+# The same squared-distance idiom as vf_host_distance_to_province; the reach is spn_max_hunt_distance.
+spn_hunt_culprit_in_reach_trigger = {
+	# 2.35f -- GUARDED. As siblings these threw both halves of the same mistake (error.log 9 Sep 14:16):
+	#   "squared_distance [ Expected a province or landed title scope, got 'Thomas Schwab' ]"
+	#   "squared_distance [ province (target province/barony/county) was null ]"
+	# The `exists = location` line does not gate the line under it -- CK3 evaluates every sibling of an AND
+	# -- so a culprit with no location still had its location dereferenced, and the trigger was also being
+	# reached with a CHARACTER as root instead of the activity province it documents. trigger_if gates both.
+	trigger_if = {
+		limit = {
+			exists = scope:spn_culprit
+			scope:spn_culprit = { exists = location }
+		}
+		# 2.35h -- AND THE STRING FORM WAS THE REST OF IT. Inside a raw "..." expression, `root` is the
+		# SCRIPT root -- the hunter -- not the scope this trigger was called in, so the comparison was
+		# handed a character even though the caller scopes correctly into the activity's province
+		# (zz_spn_hunt_effects.txt:254). "Expected a province or landed title scope, got 'Janyra
+		# Waynwood'", 14 times in one observer run. The block form asks the question from the scope it is
+		# standing in and needs no root at all -- vanilla's own idiom, laamp_nm_contracts.txt:29-34.
+		squared_distance = {
+			target = scope:spn_culprit.location
+			value <= spn_max_hunt_distance
+		}
+	}
+	trigger_else = { always = no }
+}

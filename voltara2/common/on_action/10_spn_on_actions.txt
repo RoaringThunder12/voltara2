@@ -1,0 +1,118 @@
+﻿#Game Start
+on_game_start_after_lobby = {
+	on_actions = {
+		# spn_assign_all_religions_immortal_doctrines moved to on_game_start (10_spn_doctrine_on_actions.txt), CK3 1.20
+		spn_show_versioninfo
+		spn_ruler_designer_check
+
+		#Hand out traits based on settings
+		spn_npc_trait_dist_all
+		spn_npc_trait_dist_kings
+		spn_npc_trait_dist_dukes
+		spn_npc_trait_dist_counts
+		spn_npc_trait_dist_barons
+		spn_npc_trait_dist_no_ruler
+	}
+}
+
+# Check Supernaturals to run chance of secret discovery
+random_yearly_everyone_pulse = {
+	on_actions = {
+		spn_supernatural_secret_check
+		spn_check_hunter_skill_traits
+		spn_recover_immortal_wounds
+		spn_recover_disfigurement
+		spn_age_trait_cleanup	#To remove incapable from vamps/hybrids v2.08
+		spn_check_for_random_embrace
+		spn_check_lifetime_flags_for_spn
+		spn_retro_disease_immunity
+		spn_transition_stuck_cleanup
+
+		# Moved here off yearly_global_pulse 21 Aug 2026 -- same job, no global walk.
+		spn_npc_trait_dist_yearly
+
+		spn_wolf_year # 2.38e: a lone wolf's invitation (zz_spn_hide_on_actions.txt)
+	}
+}
+
+#Yearly, Jan 1st, Globally
+yearly_global_pulse = {
+	on_actions = {
+		spn_show_versioninfo
+
+		# The six spn_npc_trait_dist_* walks used to run here, every 1 January, each one an
+		# every_living_character sweep -- the whole ~191,000-character population in an AGOT game,
+		# in a single tick, for the life of the campaign. They now run one character at a time off
+		# random_yearly_everyone_pulse as spn_npc_trait_dist_yearly. Same population, same annual
+		# cadence, spread across the year. The game-start sweep in 10_spn_trait_on_actions.txt is
+		# unchanged -- one complete pass at start is the right shape and stays.
+	}
+}
+
+yearly_playable_pulse = {
+	on_actions = {
+		spn_confrontations
+		spn_memory_flavour_pulse # 2.34
+	}
+}
+
+# 2.34 -- the memory-triggered flavour events (zz_spn_memory_events.txt). Player-only: the gate is cheap and
+# it keeps the any_memory walk off every AI ruler. yearly_playable_pulse, not random_yearly_everyone_pulse --
+# the smallest population that still contains every character who can receive one of these.
+spn_memory_flavour_pulse = {
+	trigger = {
+		is_ai = no
+		OR = {
+			spn_has_supernatural_trait = yes
+			spn_has_hunter_trait = yes
+			has_trait = archmage
+		}
+	}
+	events = {
+		spn_memory.0001 # hunter -- the trainer, a year dead
+		spn_memory.0002 # vampire -- a hundred years
+		spn_memory.0003 # werewolf -- the child born into it
+		spn_memory.0004 # hybrid -- two bloods
+		spn_memory.0007 # mage -- thirty years
+		# 2.35 -- THE LONG COUNT. Milestones on spn_years_as_immortal, each paying a perk point in the
+		# creature's own tree. Separate from spn_memory.0002 on purpose: that one is a flavour event whose
+		# own file forbids touching a mechanic, and this one exists to touch one.
+		spn_long_count.0001 # a hundred years
+		spn_long_count.0002 # two hundred
+		spn_long_count.0003 # three hundred
+	}
+}
+
+#Birthday Actions
+on_birthday = {
+	on_actions = {
+		spn_on_immortality_birthday
+		spn_on_demon_blood_birthday # 2.34
+	}
+}
+
+# 2.34 -- a demon-blooded child turns fourteen. The child's own event if they are the player; otherwise the
+# parent's view of it, if a parent is the player. AI-to-AI: nothing, by design.
+spn_on_demon_blood_birthday = {
+	trigger = {
+		has_trait = demon0
+		age = 14
+		NOT = { has_character_flag = spn_demon_blood_done }
+		any_memory = { has_memory_type = spn_demon_blood_memory }
+	}
+	effect = {
+		if = {
+			limit = { is_ai = no }
+			trigger_event = spn_memory.0005
+		}
+		else_if = {
+			limit = { any_parent = { is_ai = no is_alive = yes } }
+			add_character_flag = spn_demon_blood_done
+			save_scope_as = spn_demon_child
+			random_parent = {
+				limit = { is_ai = no is_alive = yes }
+				trigger_event = spn_memory.0006
+			}
+		}
+	}
+}

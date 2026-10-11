@@ -1,0 +1,333 @@
+﻿miv_bannermen_widget_init = {
+	scope = character
+
+	effect = {
+		if = {
+			limit = {
+				is_ai = no
+				has_game_rule = bannermen_mode_enabled
+				interactive_bannermen_foreign_enabled_trigger = yes
+				NOT = { miv_gui_banners_cache_valid_trigger = yes }
+			}
+			save_scope_as = liege
+			interactive_bannermen_preview_effect = yes
+			set_variable = {
+				name = miv_widget_headline_eligible_strength
+				value = interactive_bannermen_eligible_strength
+			}
+			set_variable = {
+				name = miv_widget_headline_eligible_count
+				value = interactive_bannermen_eligible_count
+			}
+			set_variable = {
+				name = miv_widget_headline_answer_strength
+				value = miv_widget_preview_answering_strength
+			}
+			set_variable = {
+				name = miv_widget_headline_answer_count
+				value = interactive_bannermen_answering_count
+			}
+			set_variable = {
+				name = miv_banners_view_answering_count
+				value = miv_banners_summary_answering_count
+			}
+			set_variable = {
+				name = miv_banners_view_answering_strength
+				value = miv_banners_summary_answering_strength
+			}
+			set_variable = {
+				name = miv_banners_view_withheld_count
+				value = miv_banners_summary_withheld_count
+			}
+			set_variable = {
+				name = miv_banners_view_withheld_strength
+				value = miv_banners_summary_withheld_strength
+			}
+			set_variable = {
+				name = miv_banners_view_betraying_count
+				value = miv_banners_summary_betraying_count
+			}
+			set_variable = {
+				name = miv_banners_view_betraying_strength
+				value = miv_banners_summary_betraying_strength
+			}
+			set_variable = {
+				name = miv_banners_view_distant_count
+				value = miv_banners_summary_distant_count
+			}
+			set_variable = {
+				name = miv_banners_view_distant_strength
+				value = miv_banners_summary_distant_strength
+			}
+			interactive_bannermen_widget_fill_effect = yes
+			add_character_flag = { flag = miv_gui_banners_ready days = 3 }
+		}
+	}
+}
+
+miv_bannermen_mode_on = {
+	scope = character
+	is_shown = {
+		has_game_rule = bannermen_mode_enabled
+		interactive_bannermen_foreign_enabled_trigger = yes
+	}
+}
+
+miv_friendly_war_participant = {
+	scope = character
+	is_shown = {
+		has_game_rule = miv_vassal_map_gfx_enabled
+		exists = scope:player
+		scope:player = {
+			is_at_war = yes
+		}
+		is_at_war = yes
+		NOT = {
+			this = scope:player
+		}
+		any_war_ally = {
+			this = scope:player
+		}
+		NOT = {
+			is_at_war_with = scope:player
+		}
+	}
+}
+
+miv_cardinal_map_icon = {
+	scope = character
+	is_shown = {
+		NOT = {
+			faith = {
+				any_clerical_elector_title = {
+					count = all
+					NOT = {
+						holder = root
+					}
+				}
+			}
+		}
+	}
+}
+
+miv_wardec_hover_init = {
+	scope = character
+	is_valid = {
+		exists = scope:miv_enemy
+	}
+	effect = {
+		miv_wardec_hover_init_effect = yes
+	}
+}
+
+
+miv_gui_character_capture = {
+	scope = character
+	is_shown = {
+		miv_gui_character_capture_needed_trigger = yes
+	}
+	is_valid = {
+		miv_gui_character_capture_needed_trigger = yes
+	}
+	effect = {
+		if = {
+			limit = {
+				miv_gui_character_capture_needed_trigger = yes
+			}
+			set_variable = {
+				name = miv_gui_strength_eligible_count
+				value = interactive_bannermen_eligible_count
+			}
+			set_variable = {
+				name = miv_gui_strength_eligible_strength
+				value = interactive_bannermen_eligible_strength
+			}
+			set_variable = {
+				name = miv_gui_strength_not_answering_count
+				value = miv_bannermen_not_answering_count
+			}
+			save_temporary_scope_value_as = {
+				name = miv_gui_not_answering_strength
+				value = miv_bannermen_not_answering_strength
+			}
+			set_variable = {
+				name = miv_gui_strength_answering_count
+				value = {
+					value = var:miv_gui_strength_eligible_count
+					subtract = var:miv_gui_strength_not_answering_count
+				}
+			}
+			set_variable = {
+				name = miv_gui_strength_answering_strength
+				value = {
+					value = var:miv_gui_strength_eligible_strength
+					subtract = scope:miv_gui_not_answering_strength
+				}
+			}
+			add_character_flag = { flag = miv_gui_character_ready days = 3 }
+		}
+	}
+}
+
+miv_gui_character_observer_needed = {
+	scope = character
+	saved_scopes = { miv_gui_subject }
+	is_shown = {
+		exists = scope:miv_gui_subject
+		scope:miv_gui_subject = {
+			miv_gui_character_capture_needed_trigger = yes
+		}
+	}
+}
+
+miv_gui_wardec_observer_needed = {
+	scope = character
+	saved_scopes = { miv_gui_subject miv_enemy }
+	is_shown = {
+		exists = scope:miv_gui_subject
+		exists = scope:miv_enemy
+		scope:miv_gui_subject = {
+			has_game_rule = bannermen_mode_enabled
+			interactive_bannermen_foreign_enabled_trigger = yes
+			NOT = { miv_gui_wardec_cache_valid_trigger = yes }
+		}
+	}
+}
+
+miv_accolade_artifact_enabled = {
+	scope = character
+	is_shown = {
+		miv_accolade_artifact_enabled_trigger = yes
+	}
+}
+
+miv_accolade_artifact_assign = {
+	scope = character
+	saved_scopes = {
+		miv_accolade_artifact_accolade
+		miv_accolade_artifact_artifact
+	}
+	is_valid = {
+		miv_accolade_artifact_assignment_allowed_trigger = yes
+	}
+	effect = {
+		if = {
+			limit = {
+				miv_accolade_artifact_assignment_allowed_trigger = yes
+			}
+			miv_accolade_artifact_assign_effect = yes
+		}
+	}
+}
+
+miv_accolade_artifact_recall_all = {
+	scope = character
+	saved_scopes = {
+		miv_accolade_artifact_accolade
+	}
+	is_valid = {
+		miv_accolade_artifact_enabled_trigger = yes
+		exists = scope:miv_accolade_artifact_accolade
+		scope:miv_accolade_artifact_accolade = {
+			accolade_owner = root
+		}
+	}
+	effect = {
+		scope:miv_accolade_artifact_accolade ?= {
+			if = {
+				limit = {
+					accolade_owner = root
+				}
+				miv_accolade_artifact_recall_weapon_effect = yes
+				miv_accolade_artifact_recall_armor_effect = yes
+			}
+		}
+	}
+}
+
+miv_accolade_artifact_weapon_candidate = {
+	scope = artifact
+	is_shown = {
+		miv_accolade_artifact_enabled_trigger = yes
+		artifact_slot_type = primary_armament
+		NOT = {
+			has_variable = miv_accolade_artifact_accolade
+		}
+		NOT = {
+			has_variable = artifact_prevent_transfer
+		}
+	}
+}
+
+miv_accolade_artifact_recall_weapon = {
+	scope = character
+	saved_scopes = {
+		miv_accolade_artifact_accolade
+	}
+	is_valid = {
+		miv_accolade_artifact_enabled_trigger = yes
+		exists = scope:miv_accolade_artifact_accolade
+		scope:miv_accolade_artifact_accolade = {
+			accolade_owner = root
+			exists = var:miv_accolade_artifact_weapon_artifact
+		}
+	}
+	effect = {
+		scope:miv_accolade_artifact_accolade ?= {
+			if = {
+				limit = {
+					miv_accolade_artifact_enabled_trigger = yes
+					accolade_owner = root
+				}
+				miv_accolade_artifact_recall_weapon_effect = yes
+			}
+		}
+	}
+}
+
+miv_accolade_artifact_armor_candidate = {
+	scope = artifact
+	is_shown = {
+		miv_accolade_artifact_enabled_trigger = yes
+		artifact_slot_type = armor
+		NOT = {
+			has_variable = miv_accolade_artifact_accolade
+		}
+		NOT = {
+			has_variable = artifact_prevent_transfer
+		}
+	}
+}
+
+miv_accolade_artifact_recall_armor = {
+	scope = character
+	saved_scopes = {
+		miv_accolade_artifact_accolade
+	}
+	is_valid = {
+		miv_accolade_artifact_enabled_trigger = yes
+		exists = scope:miv_accolade_artifact_accolade
+		scope:miv_accolade_artifact_accolade = {
+			accolade_owner = root
+			exists = var:miv_accolade_artifact_armor_artifact
+		}
+	}
+	effect = {
+		scope:miv_accolade_artifact_accolade ?= {
+			if = {
+				limit = {
+					miv_accolade_artifact_enabled_trigger = yes
+					accolade_owner = root
+				}
+				miv_accolade_artifact_recall_armor_effect = yes
+			}
+		}
+	}
+}
+
+miv_debug_mode_rule_on = {
+	is_shown = {
+		has_game_rule = miv_debug_mode_enabled
+	}
+}
+

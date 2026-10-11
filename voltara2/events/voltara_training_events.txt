@@ -1,0 +1,13 @@
+﻿namespace = voltara_training
+voltara_training.1 = { type = character_event title = voltara_training.1.t desc = voltara_training.1.desc theme = learning
+ left_portrait = root option = { name = voltara_training.1.a add_trait = voltara_threadwarrior add_stress = 15 } }
+voltara_training.2 = { type = character_event title = voltara_training.2.t desc = voltara_training.2.desc theme = learning
+ left_portrait = root option = { name = voltara_training.2.a add_trait = voltara_deep_engineer add_stress = 15 } }
+voltara_training.3 = { type = character_event title = voltara_training.3.t desc = voltara_training.3.desc theme = learning
+ left_portrait = root option = { name = voltara_training.3.a add_trait = voltara_oathwarden add_stress = 15 } }
+voltara_training.4 = {
+ type = character_event title = voltara_training.4.t desc = voltara_training.4.desc theme = learning left_portrait = root
+ option = { name = voltara_training.4.a add_stress = -15
+  if = { limit = { has_trait = supernatural_werewolf } add_trait_xp = { trait = supernatural_werewolf track = lycanthropy value = 5 } }
+ }
+}

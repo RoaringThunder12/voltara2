@@ -1,0 +1,181 @@
+﻿# MAGIC_LEGACY
+
+witchcraft_legacy_1 = { # open-minded
+	legacy = witchcraft_legacy_track
+	can_be_picked = { 
+		is_witch_trigger = yes
+	}
+	effect = {
+		#custom_label = witchcraft_legacy_1_ct
+		#custom_label = witchcraft_legacy_1_ct2
+		if = {
+			limit = {
+				is_witch_trigger = no
+				dynasty = {
+					NOT = {
+						has_dynasty_perk = witchcraft_legacy_1
+					}
+				}
+			}
+			custom_description_no_bullet = {
+				text = not_is_a_witch_effect
+			}
+		}
+		
+		custom_description_no_bullet = {
+			text = witchcraft_legacy_1_ct3_effect
+		}
+		custom_description_no_bullet = {
+			text = witchcraft_legacy_1_ct2_effect
+		}
+	}
+	
+	ai_chance = {
+		value = 8
+		if = {
+			limit = {
+				OR = {
+					has_trait = witch
+					any_secret = { type = secret_witch }
+				}
+			}
+			add = 15
+		}
+		if = {
+			limit = {
+				can_start_new_legacy_track_trigger = no
+			}
+			multiply = 0
+		}
+	}
+}
+
+witchcraft_legacy_2 = { # Theorists
+	legacy = witchcraft_legacy_track
+
+	effect = {
+		#custom_label = witchcraft_legacy_2_ct
+		custom_description_no_bullet = {
+			text = witchcraft_legacy_2_ct_effect
+		}
+		#give_magic_artifacts_claims_from_dynasty_perks_effect = yes
+	}
+	character_modifier = {
+		#magic_epic_cooldown_terrain_advantage = -5
+		mr_progress_boost_terrain_advantage = 5
+	}
+}
+
+witchcraft_legacy_3 = { # Secrets Keepers // knowledge sharing
+	legacy = witchcraft_legacy_track
+	effect = {
+		#custom_label = witchcraft_legacy_3_ct
+		custom_description_no_bullet = {
+			text = witchcraft_legacy_3_ct_expedition_effect
+		}
+		give_magic_artifacts_claims_from_dynasty_perks_effect = yes
+	}
+	character_modifier = {
+		monthly_magic_lifestyle_xp_gain_mult = 0.1
+		#alchemy_archmage_terrain_advantage = 0.5
+		mage_summit_discount_terrain_advantage = -0.5
+	}
+}
+
+
+witchcraft_legacy_4 = { # Magic Practitioners
+	legacy = witchcraft_legacy_track
+
+	effect = {
+		#custom_label = witchcraft_legacy_4_ct1
+		
+		custom_description_no_bullet = {
+			text = witchcraft_legacy_3_ct_effect
+		}
+		custom_description_no_bullet = {
+			text = witchcraft_legacy_3b_ct_effect
+		}
+		if = {
+			limit = {
+				always = no
+			}
+			custom_label = witchcraft_legacy_4_ct2	#Because the log will scream that the text is not being used...
+			custom_label = ev2.11.d
+			custom_label = ev3.6.c
+			custom_label = ev3.69.c
+			custom_description_no_bullet = {
+				text = witchcraft_legacy_4_ct1_effect
+			}
+		}
+		#give_magic_artifacts_claims_from_dynasty_perks_effect = yes
+	}
+	#character_modifier = {
+	#	blackgrimoire_demonology_terrain_advantage = 0.5
+	#}
+}
+
+witchcraft_legacy_5 = { # Enchanted Blood
+	legacy = witchcraft_legacy_track
+	#can_be_picked = { 
+	#	OR = {
+	#		has_focus = arcane_focus
+	#		has_trait = archmage
+	#	}
+	#}
+	#effect = {
+	#	if = {
+	#		limit = {
+	#			NOR = {
+	#				has_focus = arcane_focus
+	#				has_trait = archmage
+	#			}
+	#		}
+	#		custom_label = mage_trait_required
+	#	}
+	#	custom_label = witchcraft_legacy_5_ct
+	#}
+	effect = {
+		#custom_description_no_bullet = {
+		#	text = witchcraft_legacy_5a_ct_effect
+		#}
+		hidden_effect = {
+			dynasty  = {
+				every_dynasty_member = {
+					limit = {
+						has_trait = source
+					}
+					send_interface_toast = {
+						title = witchcraft_legacy_5
+						add_5_magic_potential = yes
+					}
+				}
+			}
+		}
+		#give_magic_artifacts_claims_from_dynasty_perks_effect = yes
+		hidden_effect = {
+			if = {
+				limit = {
+					is_adult = yes
+					is_ai = yes
+					# 2.31c -- every_dynasty_member, so this walks the whole house. Gated here rather than
+					# inside turn_into_mage_effect, which the summoning rituals call on characters they
+					# create themselves and which must keep working.
+					spn_is_valid_supernatural_target = yes
+					NOR = {
+						has_trait = archmage
+						has_trait = supernatural_hunter
+						has_trait = warlock # 2.38e (Supernatural): one capstone
+						has_trait = true_witch
+					}
+				}
+				turn_into_mage_effect = yes
+			}
+		}
+	}
+	character_modifier = {
+		true3_source_terrain_advantage = 5
+		genetic_trait_strengthen_chance = 0.1
+		#magic_gain_terrain_advantage = 0.5
+		#blackgrimoire_demonology_terrain_advantage = 1
+	}
+}

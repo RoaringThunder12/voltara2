@@ -1,0 +1,103 @@
+﻿msg_war_refusal = {
+	icon = "alliance"
+	title = event_message_title
+	desc = event_message_effect
+	style = neutral
+	message_filter_type = war_participation_ally
+}
+
+msg_war_loyalist = {
+	icon = "alliance"
+	title = event_message_title
+	desc = event_message_effect
+	style = neutral
+	message_filter_type = war_participation_ally
+}
+
+msg_war_oathbreaker = {
+	icon = "alliance"
+	title = event_message_title
+	desc = event_message_effect
+	style = neutral
+	message_filter_type = war_participation_ally
+}
+
+msg_war_defection = {
+	icon = "alliance"
+	title = event_message_title
+	desc = event_message_effect
+	style = neutral
+	message_filter_type = war_participation_ally
+}
+
+msg_war_indisposed = {
+	icon = "alliance"
+	title = event_message_title
+	desc = event_message_effect
+	style = neutral
+	message_filter_type = war_participation_ally
+}
+
+msg_war_neutrality = {
+	icon = "alliance"
+	title = event_message_title
+	desc = event_message_effect
+	style = neutral
+	message_filter_type = war_participation_ally
+}
+
+msg_war_answer = {
+	icon = "alliance"
+	title = event_message_title
+	desc = event_message_effect
+	style = neutral
+	message_filter_type = war_participation_ally
+}
+
+msg_war_leave = {
+	icon = "alliance"
+	title = event_message_title
+	desc = event_message_effect
+	style = neutral
+	message_filter_type = war_participation_ally
+}
+
+msg_war_ally_join = {
+	icon = "alliance"
+	title = event_message_title
+	desc = event_message_effect
+	style = good
+	message_filter_type = war_participation_ally
+}
+
+msg_war_enemy_join = {
+	icon = "alliance"
+	title = event_message_title
+	desc = event_message_effect
+	style = bad
+	message_filter_type = war_participation_enemy
+}
+
+msg_war_ally_joined = {
+	icon = "alliance"
+	style = good
+	message_filter_type = miv_suppressed
+}
+
+msg_war_ally_joined_multiple = {
+	icon = "alliance"
+	style = good
+	message_filter_type = miv_suppressed
+}
+
+msg_war_enemy_joined = {
+	icon = "alliance"
+	style = bad
+	message_filter_type = miv_suppressed
+}
+
+msg_war_enemy_joined_multiple = {
+	icon = "alliance"
+	style = bad
+	message_filter_type = miv_suppressed
+}

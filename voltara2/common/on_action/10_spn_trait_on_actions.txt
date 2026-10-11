@@ -1,0 +1,234 @@
+﻿#Randomly Assign traits on startup based on settings
+spn_npc_trait_dist_all = {
+	trigger = {
+		has_game_rule = spn_yes_npc_trait_dist
+	}
+	effect = {
+		every_living_character = {
+			limit = {
+				spn_meets_dist_criteria = { TIER = tier_empire }
+			}
+			trigger_event = spn_trait_dist.0001 
+		}
+	}
+}
+
+spn_npc_trait_dist_kings = {
+	trigger = {
+		has_game_rule = spn_kings_npc_trait_dist
+	}
+	effect = {
+		every_living_character = {
+			limit = {
+				spn_meets_dist_criteria = { TIER = tier_kingdom }
+			}
+			trigger_event = spn_trait_dist.0001 
+		}
+	}
+}
+
+spn_npc_trait_dist_dukes = {
+	trigger = {
+		has_game_rule = spn_dukes_npc_trait_dist
+	}
+	effect = {
+		every_living_character = {
+			limit = {
+				spn_meets_dist_criteria = { TIER = tier_duchy }
+			}
+			trigger_event = spn_trait_dist.0001 
+		}
+	}
+}
+
+spn_npc_trait_dist_counts = {
+	trigger = {
+		has_game_rule = spn_counts_npc_trait_dist
+	}
+	effect = {
+		every_living_character = {
+			limit = {
+				spn_meets_dist_criteria = { TIER = tier_county }
+			}
+			trigger_event = spn_trait_dist.0001 
+		}
+	}
+}
+
+spn_npc_trait_dist_barons = {
+	trigger = {
+		has_game_rule = spn_barons_npc_trait_dist
+	}
+	effect = {
+		every_living_character = {
+			limit = {
+				spn_meets_dist_criteria = { TIER = tier_barony }
+			}
+			trigger_event = spn_trait_dist.0001 
+		}
+	}
+}
+
+spn_npc_trait_dist_no_ruler = {
+	trigger = {
+		has_game_rule = spn_no_ruler_npc_trait_dist
+	}
+	effect = {
+		every_living_character = {
+			limit = {
+				spn_meets_dist_criteria = { TIER = tier_unlanded }
+			}
+			trigger_event = spn_trait_dist.0001 
+		}
+	}
+}
+
+# THE HUNTER'S YEAR. Hung on random_yearly_everyone_pulse (10_spn_on_actions.txt).
+#
+# 2.35 -- REWRITTEN. Thomas, 8 Sep 2026, after a 16-year campaign: "the 12 hunters have zero track XP.
+# Definitely over time that should get fixed."
+#
+# What was wrong was not the number, it was the shape. The old block was a pure function of TIME: weight 0
+# until the fifth quiet year, then pulses x 15 against a flat 100, and a flat 5 XP when it landed. A hunter
+# who had never seen a creature levelled at exactly the same rate as one living next door to a nest, and
+# neither of them levelled fast. It also never reset the counter, so the weight ratcheted upward forever
+# instead of being a cadence.
+#
+# Now the world feeds it, which is the whole point of 2.35: a trail in reach is something to learn from, a
+# Trailsman brings word back, and a creature whose secret you hold is a live subject. A hunter who sits in a
+# quiet realm still trains -- slowly, as he should. First grant now lands around the fourth year rather than
+# somewhere past the tenth, and a hunter with a trail on his doorstep gets there in two or three.
+spn_check_hunter_skill_traits = {		#Updated in 2.05 to set the variable, no more error.log issues
+	trigger = {
+		has_trait = supernatural_hunter
+	}
+	effect = {
+		if = {
+			limit = {
+				NOT = { has_variable = spn_yearly_pulses_since_trait_upgrade }
+			}
+			set_variable = {
+				name = spn_yearly_pulses_since_trait_upgrade
+				value = 0
+			}
+		}
+		random_list = {
+			0 = { # A year that taught him something
+				modifier = { # the quiet years add up on their own
+					var:spn_yearly_pulses_since_trait_upgrade >= 3
+					add = {
+						value = var:spn_yearly_pulses_since_trait_upgrade
+						multiply = 15
+					}
+				}
+				modifier = { # something is actually out there
+					add = 60
+					spn_hunter_has_a_trail_to_learn_from_trigger = yes
+				}
+				modifier = { # somebody whose whole job is reading the ground
+					add = 30
+					any_court_position_holder = { type = spn_trailsman_court_position }
+				}
+				modifier = { # a live subject: you know what somebody is, and you watch them
+					add = 25
+					any_known_secret = {
+						OR = {
+							secret_type = spn_secret_vampire
+							secret_type = spn_secret_werewolf
+							secret_type = spn_secret_hybrid
+						}
+					}
+				}
+				modifier = { add = 20 has_trait = diligent }
+				modifier = { add = 15 has_trait = patient }
+				modifier = { add = -25 has_trait = lazy }
+				modifier = { add = -40 is_incapable = yes }
+				add_trait_xp = {
+					trait = supernatural_hunter
+					track = monster_hunting
+					value = { 4 9 }
+				}
+				# A year spent near a real trail is worth more than a year spent at the butts.
+				if = {
+					limit = { spn_hunter_has_a_trail_to_learn_from_trigger = yes }
+					add_trait_xp = {
+						trait = supernatural_hunter
+						track = monster_hunting
+						value = { 3 7 }
+					}
+				}
+				# 2.35 -- and a smaller share to the other track, where witchcraft is actually condemned.
+				# Before this the only sources of witch_hunting were killing a witch (yearly2_on_actions.txt:887)
+				# and inheriting the calling, so a hunter who had never met one could never reach the 25 that
+				# opens the Witch Hunt kind -- you needed the hunt to earn the track that opens the hunt. A third
+				# of the monster share: slow enough that a witch hunter is still someone who chose it.
+				if = {
+					limit = { rite = { NOT = { rite_has_doctrine = doctrine_witchcraft_accepted } } }
+					add_trait_xp = {
+						trait = supernatural_hunter
+						track = witch_hunting
+						value = { 1 4 }
+					}
+				}
+				# The reset the old block never did. Without it this is a ratchet, not a cadence.
+				set_variable = {
+					name = spn_yearly_pulses_since_trait_upgrade
+					value = 0
+				}
+			}
+			100 = { #No Upgrade
+				change_variable = {
+					name = spn_yearly_pulses_since_trait_upgrade add = 1 
+				}
+			}
+		}
+	}
+}
+
+# YEARLY DISTRIBUTION -- one character at a time, added 21 Aug 2026.
+#
+# The six on_actions above are the GAME-START sweep and are correct as they are: one complete walk,
+# once, latched behind a game rule. They were ALSO hung on yearly_global_pulse, which meant a full
+# every_living_character walk every 1 January for the life of the campaign -- and in an AGOT game
+# that is the whole ~191,000-character population evaluating a seven-clause trigger in a single tick.
+#
+# random_yearly_everyone_pulse does exactly the same job for free. Vanilla's own comment on it
+# (game/common/on_action/yearly_on_actions.txt:2675): "Called from code once a year for all
+# characters, at a random point that year (individually for each character). Root is the character."
+# Same population, same once-a-year cadence per character, no global iteration, and spread across the
+# year instead of spiking on one day. Supernatural already hangs eight other checks on that pulse.
+#
+# The rule-to-tier mapping below is copied from the six blocks above and must stay in step with them.
+spn_npc_trait_dist_yearly = {
+	trigger = {
+		OR = {
+			AND = {
+				has_game_rule = spn_yes_npc_trait_dist
+				spn_meets_dist_criteria = { TIER = tier_empire }
+			}
+			AND = {
+				has_game_rule = spn_kings_npc_trait_dist
+				spn_meets_dist_criteria = { TIER = tier_kingdom }
+			}
+			AND = {
+				has_game_rule = spn_dukes_npc_trait_dist
+				spn_meets_dist_criteria = { TIER = tier_duchy }
+			}
+			AND = {
+				has_game_rule = spn_counts_npc_trait_dist
+				spn_meets_dist_criteria = { TIER = tier_county }
+			}
+			AND = {
+				has_game_rule = spn_barons_npc_trait_dist
+				spn_meets_dist_criteria = { TIER = tier_barony }
+			}
+			AND = {
+				has_game_rule = spn_no_ruler_npc_trait_dist
+				spn_meets_dist_criteria = { TIER = tier_unlanded }
+			}
+		}
+	}
+	events = {
+		spn_trait_dist.0001
+	}
+}

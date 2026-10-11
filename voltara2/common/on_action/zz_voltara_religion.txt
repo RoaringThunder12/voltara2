@@ -1,0 +1,14 @@
+﻿on_game_start_after_lobby = { on_actions = { voltara_seed_sanctuary_relics } }
+voltara_seed_sanctuary_relics = { effect = {
+voltara_enshrine_first_measure_effect = yes
+voltara_enshrine_titania_effect = yes
+voltara_enshrine_kartholos_effect = yes
+voltara_enshrine_thornfall_effect = yes
+voltara_enshrine_enderal_effect = yes
+} }
+
+yearly_playable_pulse = { on_actions = { voltara_religious_court_pulse } }
+voltara_religious_court_pulse = {
+ trigger = { is_adult = yes is_landed = yes is_imprisoned = no faith = faith:voltara_aeluinist NOT = { has_character_flag = voltara_religious_incident_cooldown } }
+ effect = { random = { chance = 12 add_character_flag = { flag = voltara_religious_incident_cooldown years = 5 } trigger_event = voltara_faith.12 } }
+}

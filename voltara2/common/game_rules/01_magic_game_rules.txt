@@ -1,0 +1,158 @@
+﻿magic_witches = {
+	categories = { WC }
+	default = nope_magic_witches
+
+	nope_magic_witches = {
+
+	}
+	
+	yep_magic_witches = {
+
+	}
+
+	yep2_magic_witches = {
+		flag = blocks_achievements
+	}
+}
+magic_schemes = {
+	categories = { WC }
+
+	default = adjusted_magic_schemes
+
+	adjusted_magic_schemes = {
+
+	}
+	
+	
+	normal_magic_schemes = {
+		
+	}
+}
+
+magic_arts = {
+	categories = { WC }
+	default = normal_magic_arts
+
+	normal_magic_arts = {
+
+	}
+	
+	
+	eu_magic_arts = {
+		
+	}
+	user_magic_arts = {
+		flag = blocks_achievements
+	}
+}
+
+magic_whunters = {
+	categories = { WC }
+	default = low_whunters
+
+	low_whunters = {
+
+	}
+	normal_whunters = {
+
+	}
+	
+	
+	high_whunters = {
+		
+	}
+}
+
+magic_bael = {
+	categories = { WC }
+	default = normal_magic_bael
+
+	normal_magic_bael = {
+
+	}
+	
+	never_magic_bael = {
+		flag = blocks_achievements
+	}
+}
+
+magic_endings = {
+	categories = { WC }
+	default = normal_magic_endings
+
+	normal_magic_endings = {
+
+	}
+	
+	never_magic_endings = {
+		
+	}
+}
+
+magic_endings_delay = {
+	categories = { WC }
+	default = no_magic_endings_delay
+
+	no_magic_endings_delay = {
+
+	}
+	
+	n50_magic_endings_delay = {
+		
+	}
+
+	n100_magic_endings_delay = {
+		
+	}
+
+	n150_magic_endings_delay = {
+		
+	}
+
+	n200_magic_endings_delay = {
+		
+	}
+
+	never_magic_endings_delay = {
+		flag = blocks_achievements
+	}
+}
+
+spells_range = {
+	categories = { WC }
+	default = limited_spells_range
+
+	limited_spells_range = {
+
+	}
+	
+	unlimited_spells_range = {
+		flag = blocks_achievements
+	}
+}
+
+num_of_mages = {
+	categories = { WC }
+
+	default = low_num_of_mages
+	min_num_of_mages = {}
+	low_num_of_mages = {}
+	normal_num_of_mages = {}
+	high_num_of_mages = {}
+	max_num_of_mages = {}
+}
+mage_arena_mode = {
+	categories = { WC }
+
+	default = no_mage_arena_mode
+	no_mage_arena_mode = {}
+	ok_mage_arena_mode = { flag = blocks_achievements }
+}
+
+demonic_aggression_mode = {
+	categories = { WC }
+	default = normal_demonic_aggression_mode
+	normal_demonic_aggression_mode = {}
+	no_demonic_aggression_mode = { flag = blocks_achievements }
+}
+#has_game_rule = no_demonic_aggression_mode

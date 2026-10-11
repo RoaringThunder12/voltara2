@@ -1,0 +1,242 @@
+﻿####################################################
+#
+#	Character Gen Effects
+#
+####################################################
+spn_create_local_vampire_effect = {
+	#Create them
+	create_character = {
+		save_temporary_scope_as = spn_created_vampire
+		location = $FROMCHAR$.capital_province
+		culture = $FROMCHAR$.culture
+		faith = $FROMCHAR$.faith
+		rite = $FROMCHAR$.rite
+		#gender = scope:spn_vampire_gender
+		template = spn_young_intrigue_vampire_template
+		# gender_female_chance = {
+		# 	if = {
+		# 		limit = { 
+		# 			$FROMCHAR$ = { 
+		# 				is_attracted_to_women = yes 
+		# 				is_attracted_to_men = no
+		# 			} 
+		# 		}
+		# 		add = 50
+		# 	}
+		# 	else_if = {
+		# 		limit = { 
+		# 			$FROMCHAR$ = { 
+		# 				is_attracted_to_women = no 
+		# 				is_attracted_to_men = yes
+		# 			} 
+		# 		}
+		# 		add = -50
+		# 	}
+		# 	else = {
+		# 		add = 0
+		# 	}
+		# }
+	}
+}
+
+# 2.35h -- capital_province IS NULL FOR ANYONE UNLANDED, and this effect is called on characters who
+# are: "Fetched null province from capital_province link", 24 times in one observer run, each of which
+# aborts the create. location is the link that always resolves -- the same correction
+# spn_find_or_make_tavern_talker_effect already carries in its own comment.
+spn_create_local_lycan_effect = {
+	if = {
+		limit = { $FROMCHAR$ = { exists = capital_province } }
+		create_character = {
+			save_temporary_scope_as = spn_created_lycan
+			location = $FROMCHAR$.capital_province
+			culture = $FROMCHAR$.culture
+			faith = $FROMCHAR$.faith
+			rite = $FROMCHAR$.rite
+			template = spn_werewolf_template
+		}
+	}
+	else_if = {
+		limit = { $FROMCHAR$ = { exists = location } }
+		create_character = {
+			save_temporary_scope_as = spn_created_lycan
+			location = $FROMCHAR$.location
+			culture = $FROMCHAR$.culture
+			faith = $FROMCHAR$.faith
+			rite = $FROMCHAR$.rite
+			template = spn_werewolf_template
+		}
+	}
+}
+
+spn_create_elder_skilled_attractive_vampire_effect = {
+	#Gender
+	random_list = {
+		0 = { #Female
+			modifier = {
+				$WHO$ = { is_attracted_to_women = yes }
+				add = 1000
+			}
+			dummy_female = { save_temporary_scope_as = spn_vampire_gender }
+		}
+		0 = { #Male
+			modifier = {
+				$WHO$ = { is_attracted_to_men = yes }
+				add = 1000
+			}
+			dummy_male = { save_temporary_scope_as = spn_vampire_gender }
+		}
+	}
+
+	#Create them
+	create_character = {
+		save_temporary_scope_as = spn_created_vampire
+		location = $WHO$.capital_province
+		culture = $WHO$.culture
+		dynasty = none
+		faith = $WHO$.faith
+		rite = $WHO$.rite
+		gender = scope:spn_vampire_gender
+		template = spn_elder_skilled_attractive_vampire_template
+	}
+}
+
+spn_create_skilled_warrior_lycan_effect = {
+		#Gender
+		random_list = {
+			0 = { #Female
+				modifier = {
+					$WHO$.rite = { rite_has_doctrine = doctrine_gender_female_dominated }
+					add = 1000
+				}
+				modifier = {
+					$WHO$.rite = { rite_has_doctrine = doctrine_gender_equal }
+					add = 1000
+				}
+				dummy_female = { save_temporary_scope_as = spn_werewolf_gender }
+			}
+			0 = { #Male
+				modifier = {
+					$WHO$.rite = { rite_has_doctrine = doctrine_gender_male_dominated }
+					add = 1000
+				}
+				modifier = {
+					$WHO$.rite = { rite_has_doctrine = doctrine_gender_equal }
+					add = 1000
+				}
+				dummy_male = { save_temporary_scope_as = spn_werewolf_gender }
+			}
+		}
+	
+		#Create them
+		create_character = {
+			save_temporary_scope_as = spn_created_lycan
+			location = $WHO$.capital_province
+			culture = $WHO$.culture
+			dynasty = none
+			faith = $WHO$.faith
+			rite = $WHO$.rite
+			gender = scope:spn_werewolf_gender
+			template = spn_skilled_warrior_lycan_template
+		}
+}
+
+spn_create_peddler_effect = {
+	#Create them
+	create_character = {
+		save_temporary_scope_as = spn_created_witch
+		location = $WHO$.capital_province
+		culture = $WHO$.culture
+		faith = $WHO$.faith
+		rite = $WHO$.rite
+		gender = female
+		template = witchy_template
+		random_traits = no
+		age = 63
+	}
+}
+
+spn_create_skilled_hunter_effect = {
+	#Create them
+	create_character = {
+		save_temporary_scope_as = spn_created_hunter
+		# 2.32 -- was `$WHO$.capital_province`, which a landless adventurer does not have, so the
+		# hunter that 4024 spawns to shoot you had nowhere to be born. The effect 15 lines below
+		# this one (spawn_monster_hunter_full_chance_effect) already branched correctly; that
+		# branch was just never applied here.
+		location = $WHO$.location
+		culture = $WHO$.culture
+		gender_female_chance = 50
+		faith = $WHO$.faith
+		rite = $WHO$.rite
+		template = spn_skilled_hunter_template
+	}
+	# spn_skilled_hunter_template already grants supernatural_hunter, so spn_initiate.3001 can never
+	# run on these characters (its trigger is NOT = { has_trait = supernatural_hunter }). Every caller
+	# fired it anyway and it was a silent no-op, so created hunters never received the social half of
+	# the trait. Do it here, once, for every caller.
+	scope:spn_created_hunter = {
+		spn_give_hunter_secret_or_trait_effect = yes
+	}
+}
+
+spawn_monster_hunter_full_chance_effect = {
+	$EMPL$ = { save_scope_as = empl }
+	hidden_effect_new_object = {
+		if = {
+			limit = {
+				scope:empl = {
+					is_landed_or_landless_administrative = yes
+				}
+			}
+			create_character = {
+				employer = scope:empl
+				template = monster_hunter_template
+				gender_female_chance = 20
+				save_scope_as = mhunter
+				after_creation = {
+					add_secret = {
+						type = spn_secret_hunter
+						target = scope:mhunter
+					}
+					add_gold = 100
+					random_living_character = {
+						limit = {
+							has_character_modifier = inq_modifier
+						}
+						add_hook = {
+							type = loyalty_hook
+							target = PREV
+						}
+					}
+				}
+			}
+		}
+		else = {
+			create_character = {
+				location = scope:empl.location
+				faith = scope:empl.location.faith
+				rite = scope:empl.location.rite
+				culture = scope:empl.location.culture
+				gender_female_chance = 20
+				template = monster_hunter_template
+				save_scope_as = mhunter
+				after_creation = {
+					add_secret = {
+						type = spn_secret_hunter
+						target = scope:mhunter
+					}
+					add_gold = 50
+					random_living_character = {
+						limit = {
+							has_character_modifier = inq_modifier
+						}
+						add_hook = {
+							type = loyalty_hook
+							target = PREV
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,285 @@
+﻿# Transfers the ownership of scope:artifact from scope:seller to scope:buyer
+# and pays ARTIFACT_PRICE or at_short_term_gold_value to scope:seller. Sends interface messages.
+at_buy_artifact_interaction_effect = {
+	save_scope_value_as = {
+		name = artifact_price
+		value = $ARTIFACT_PRICE$
+	}
+
+	scope:buyer = {
+		hidden_effect = {
+			send_interface_toast = {
+				type = event_generic_neutral
+				title = at_msg_artifact_bought
+				left_icon = scope:seller
+				right_icon = scope:artifact
+
+				show_as_tooltip = {
+					at_buy_artifact_effect = yes
+				}
+			}
+		}
+
+		# Warning tooltips
+		at_buy_artifact_warning_tooltips_effect = yes
+	}
+
+	scope:seller = {
+		send_interface_toast = {
+			type = event_generic_neutral
+			title = at_msg_artifact_sold
+			left_icon = scope:buyer
+			right_icon = scope:artifact
+
+			at_buy_artifact_effect = yes
+		}
+	}
+}
+
+# Transfers the ownership of scope:artifact from scope:seller to scope:buyer
+# and pays scope:artifact_price or at_short_term_gold_value to scope:seller.
+at_buy_artifact_effect = {
+	scope:buyer = {
+		# Pay price to seller
+		if = {
+			limit = {
+				at_short_term_gold_value >= scope:artifact_price
+			}
+			pay_short_term_gold = {
+				gold = scope:artifact_price
+				target = scope:seller
+			}
+		}
+		else = {
+			custom_tooltip = at_buyer_not_enough_gold_for_artifact_price_tooltip
+			hidden_effect = {
+				pay_short_term_gold = {
+					gold = at_short_term_gold_value
+					target = scope:seller
+				}
+			}
+		}
+
+		custom_tooltip = at_artifact_price_breakdown_tooltip
+
+		# Remove buyer claims
+		if = {
+			limit = {
+				any_personal_claimed_artifact = {
+					this = scope:artifact
+				}
+			}
+			show_as_tooltip = {
+				remove_personal_artifact_claim = scope:artifact
+			}
+		}
+		hidden_effect = {
+			house ?= {
+				if = {
+					limit = {
+						any_house_claimed_artifact = {
+							this = scope:artifact
+						}
+					}
+					remove_house_artifact_claim = scope:artifact
+				}
+			}
+		}
+	}
+
+	scope:seller = {
+		# Remove seller claims
+		if = {
+			limit = {
+				any_personal_claimed_artifact = {
+					this = scope:artifact
+				}
+			}
+			remove_personal_artifact_claim = scope:artifact
+		}
+		hidden_effect = {
+			house ?= {
+				if = {
+					limit = {
+						any_house_claimed_artifact = {
+							this = scope:artifact
+						}
+					}
+					remove_house_artifact_claim = scope:artifact
+				}
+			}
+		}
+	}
+
+	scope:artifact = {
+		set_variable = {
+			name = suppress_artifact_notifications
+			value = yes
+			days = 2
+		}
+
+		# Set buyer as new owner
+		set_owner = scope:buyer
+
+		hidden_effect = {
+			# Mark the artifact as recently bought
+			set_variable = {
+				name = at_artifact_recently_bought
+				value = yes
+				days = 730
+			}
+
+			# Equip to owner if non-ruler
+			if = {
+				limit = {
+					scope:buyer = {
+						is_ruler = no
+						can_equip_artifact = scope:artifact
+						at_artifact_better_than_equipped_trigger = yes
+					}
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+
+			# Trigger event
+			trigger_event = {
+				on_action = at_on_artifact_bought
+			}
+		}
+	}
+}
+
+# Displays warning tooltips for low durability and useless artifacts.
+at_buy_artifact_warning_tooltips_effect = {
+	# Low durability
+	if = {
+		limit = {
+			scope:artifact = {
+				artifact_durability <= define:NInventory|ARTIFACT_VERY_LOW_DURABILITY
+			}
+		}
+		custom_tooltip = artifact_gift_very_low_durability_tt
+	}
+	else_if = {
+		limit = {
+			scope:artifact = {
+				artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
+			}
+		}
+		custom_tooltip = artifact_gift_low_durability_tt
+	}
+
+	# Useless artifact
+	if = {
+		limit = {
+			scope:artifact = {
+				OR = {
+					AND = {
+						has_variable = banner_house
+						var:banner_house != scope:buyer.house
+					}
+					AND = {
+						has_variable = banner_dynasty
+						var:banner_dynasty != scope:buyer.dynasty
+					}
+				}
+			}
+		}
+		custom_tooltip = artifact_gift_useless_banner_tt
+	}
+	else_if = {
+		limit = {
+			scope:buyer = {
+				NOR = {
+					at_can_equip_artifact_trigger = { ARTIFACT = scope:artifact }
+					can_benefit_from_artifact = scope:artifact
+				}
+			}
+		}
+		custom_tooltip = at_artifact_cannot_equip_or_benefit_tt
+	}
+	else_if = {
+		limit = {
+			scope:buyer = {
+				NOT = { at_can_equip_artifact_trigger = { ARTIFACT = scope:artifact } }
+			}
+		}
+		custom_tooltip = at_artifact_cannot_equip_tt
+	}
+	else_if = {
+		limit = {
+			scope:buyer = {
+				NOT = { can_benefit_from_artifact = scope:artifact }
+			}
+		}
+		custom_tooltip = at_artifact_cannot_benefit_tt
+	}
+
+	# Unwanted or cursed artifact
+	if = {
+		limit = {
+			scope:artifact = {
+				OR = {
+					has_variable = unwanted_artifact
+					has_variable = cursed_artifact
+				}
+			}
+		}
+		custom_tooltip = at_artifact_unwanted_or_cursed_tt
+	}
+}
+
+# Destroys ARTIFACT by DESTROYER
+at_destroy_artifact_effect = {
+	$ARTIFACT$ = {
+		save_scope_as = artifact
+	}
+
+	$DESTROYER$ = {
+		# Add piety if destroying artifacts is pious
+		if = {
+			limit = {
+				rite = { rite_has_parameter = destroying_artifacts_is_pious }
+			}
+			save_scope_value_as = {
+				name = piety_value
+				value = scope:artifact.at_destroy_artifact_piety_value
+			}
+			add_piety = scope:piety_value
+		}
+
+		# Add gold
+		save_scope_value_as = {
+			name = gold_value
+			value = scope:artifact.at_destroy_artifact_gold_value
+		}
+		add_gold = scope:gold_value
+
+		# Trigger event
+		save_scope_as = destroyer
+		scope:artifact = {
+			trigger_event = {
+				on_action = at_on_artifact_destroyed
+			}
+		}
+
+		# Destroy the artifact
+		destroy_owned_artifact = scope:artifact
+	}
+}
+
+at_get_valid_buyers_or_sellers_effect = {
+	save_temporary_scope_as = party
+	every_living_character = {
+		limit = {
+			at_valid_buyer_or_seller_trigger = { PARTY = scope:party }
+			trigger_if = {
+				limit = {
+					NOT = { has_game_rule = at_interaction_range_all }
+				}
+				at_is_character_within_interaction_range_trigger = { PARTY = scope:party }
+			}
+		}
+		add_to_list = $LIST$
+	}
+}

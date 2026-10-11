@@ -1,0 +1,673 @@
+﻿darkblade = {
+	icon = "artifact_darkblade.dds"
+	# POL
+	asset = {
+		trigger = {
+			artifact_should_use_gfx_type_trigger = { TYPE = eastern_unit }
+			artifact_should_use_gfx_type_trigger = { TYPE = western_building }
+		}
+		reference = pol_west_slavic_sword_01_a_portrait_entity
+	}
+	# AFR - Placed at the top so that AFR specific assets trump generic MENA
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = berber_building } }
+		reference = afr_berber_sword_01_a_portrait_entity
+	}
+	# FP2 - Placed at the top so that fp2 specific assets trump generic MENA and Western ones
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = iberian_muslim_unit } }
+		reference = fp2_iberian_muslim_sword_01_a_portrait_entity
+	}
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = iberian_christian_unit } }
+		reference = fp2_iberian_christian_sword_01_a_portrait_entity
+	}
+	#Iranian for FP3
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = iranian_unit } }
+		reference = ep1_mena_sword_01_a_portrait_entity
+	}
+	# African
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = african_unit } }
+		reference = ep1_mena_sword_01_a_portrait_entity # In cases where we do not have a unique model, use closest visual neighbor
+	}
+	# Indian
+	asset = {
+		trigger = {
+			OR = {
+				artifact_should_use_gfx_type_trigger = { TYPE = indian_unit }
+				artifact_should_use_gfx_type_trigger = { TYPE = southeast_asian_unit }
+			}
+		}
+		reference = ep1_indian_sword_01_a_portrait_entity
+	}
+	# African
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = african_unit } }
+		reference = ep1_african_sword_01_a_portrait_entity
+	}
+	# MENA
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = mena_unit } }
+		reference = ep1_mena_sword_01_a_portrait_entity
+	}
+	# Steppe
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = mongol_unit } }
+		reference = ep1_steppe_sword_01_a_portrait_entity
+	}
+	# Byzantine
+	asset = {
+		trigger = {
+			artifact_should_use_gfx_type_trigger = { TYPE = eastern_unit }
+			artifact_should_use_gfx_type_trigger = { TYPE = mediterranean_building }
+		}
+		reference = ep1_byzantine_sword_01_a_portrait_entity
+	}
+	# Western
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = northern_unit } }
+		reference = ep1_western_sword_01_a_portrait_entity # In cases where we do not have a unique model, use closest visual neighbor
+	}
+	asset = {
+		trigger = {
+			artifact_should_use_gfx_type_trigger = { TYPE = eastern_unit }
+			NOT = { artifact_should_use_gfx_type_trigger = { TYPE = mediterranean_building } }
+		}
+		reference = ep1_western_sword_01_b_portrait_entity
+	}
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = western_unit } }
+		reference = ep1_western_sword_01_a_portrait_entity
+	}
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = western_unit } }
+		reference = ep1_western_sword_01_b_portrait_entity
+	}
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = western_unit } }
+		reference = ep1_western_sword_02_a_portrait_entity
+	}
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = western_unit } }
+		reference = ep1_western_sword_02_b_portrait_entity
+	}
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = western_unit } }
+		reference = ep1_western_sword_03_a_portrait_entity
+	}
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = western_unit } }
+		reference = ep1_western_sword_03_b_portrait_entity
+	}
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = western_unit } }
+		reference = ep1_western_sword_04_a_portrait_entity
+	}
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = western_unit } }
+		reference = ep1_western_sword_04_b_portrait_entity
+	}
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = chinese_unit } }
+		reference = tgp_chinese_sword_01_a_portrait_entity
+	}
+	asset = {
+		trigger = {
+			artifact_should_use_gfx_type_trigger = { TYPE = japanese_unit }
+			artifact_high_rarity_trigger = yes
+		}
+		reference = tgp_japanese_ceremonial_sword_01_a_portrait_entity
+	}
+	asset = {
+		trigger = { artifact_should_use_gfx_type_trigger = { TYPE = japanese_unit } }
+		reference = tgp_japanese_sword_01_a_portrait_entity
+	}
+}
+
+shadow_crown = {
+	icon = "artifact_crown_shadows.dds"
+	#ERE
+	asset = {
+		trigger = {
+			scope:owner = {
+				culture = {
+					OR = {
+						has_cultural_pillar = heritage_byzantine
+						has_cultural_pillar = heritage_caucasian
+						has_cultural_pillar = heritage_syriac
+					}
+				}
+				highest_held_title_tier = tier_empire
+			}
+		}
+		reference = male_headgear_secular_byzantine_imperial_01_artifact_entity
+	}
+	asset = {
+		trigger = {
+			scope:owner = {
+				culture = {
+					OR = {
+						has_cultural_pillar = heritage_byzantine
+						has_cultural_pillar = heritage_caucasian
+						has_cultural_pillar = heritage_syriac
+					}
+				}
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = male_headgear_secular_byzantine_royalty_01_artifact_entity
+	}
+	#Abbasid
+	asset = {
+		trigger = {
+			has_dlc = "Fashion of the Abbasid Court"
+			scope:owner = {
+				OR = {
+					culture = { has_cultural_pillar = heritage_arabic }
+					culture = { has_cultural_pillar = heritage_iranian }
+					culture = { has_cultural_pillar = heritage_turkic }
+					culture = { has_cultural_pillar = heritage_berber }
+				}
+				highest_held_title_tier = tier_empire
+			}
+		}
+		reference = male_headgear_secular_dde_abbasid_imperial_01_artifact_entity
+	}
+	asset = {
+		trigger = {
+			has_dlc = "Fashion of the Abbasid Court"
+			scope:owner = {
+				OR = {
+					culture = { has_cultural_pillar = heritage_arabic }
+					culture = { has_cultural_pillar = heritage_iranian }
+					culture = { has_cultural_pillar = heritage_turkic }
+					culture = { has_cultural_pillar = heritage_berber }
+				}
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = male_headgear_secular_dde_abbasid_royalty_01_artifact_entity
+	}
+	#HRE
+	asset = {		
+		trigger = {
+			has_dlc = "Garments of the Holy Roman Empire"
+			scope:owner = {
+				OR = {
+					culture = { has_cultural_pillar = heritage_frankish }
+					culture = { has_cultural_pillar = heritage_latin }
+					culture = { has_cultural_pillar = heritage_central_germanic }
+					culture = { has_cultural_pillar = heritage_west_germanic }
+					culture = { has_cultural_pillar = heritage_west_slavic }
+				}
+				highest_held_title_tier = tier_empire
+			}
+		}
+		reference = male_headgear_secular_dde_hre_imperial_01_artifact_entity
+	}
+	asset = {
+		trigger = {
+			has_dlc = "Garments of the Holy Roman Empire"
+			scope:owner = {
+				OR = {
+					culture = { has_cultural_pillar = heritage_frankish }
+					culture = { has_cultural_pillar = heritage_latin }
+					culture = { has_cultural_pillar = heritage_central_germanic }
+					culture = { has_cultural_pillar = heritage_west_germanic }
+					culture = { has_cultural_pillar = heritage_west_slavic }
+				}
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = male_headgear_secular_dde_hre_royalty_01_artifact_entity
+	}
+	asset = {
+		trigger = {
+			has_dlc = "Garments of the Holy Roman Empire"
+			scope:owner = {
+				OR = {
+					culture = { has_cultural_pillar = heritage_frankish }
+					culture = { has_cultural_pillar = heritage_latin }
+					culture = { has_cultural_pillar = heritage_central_germanic }
+					culture = { has_cultural_pillar = heritage_west_germanic }
+					culture = { has_cultural_pillar = heritage_west_slavic }
+				}
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = female_headgear_secular_dde_hre_royalty_01_artifact_entity
+	}
+	asset = {
+		trigger = {
+			has_dlc = "Garments of the Holy Roman Empire"
+			scope:owner = {
+				OR = {
+					culture = { has_cultural_pillar = heritage_frankish }
+					culture = { has_cultural_pillar = heritage_latin }
+					culture = { has_cultural_pillar = heritage_central_germanic }
+					culture = { has_cultural_pillar = heritage_west_germanic }
+					culture = { has_cultural_pillar = heritage_west_slavic }
+				}
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = male_headgear_secular_dde_hre_royalty_02_artifact_entity
+	}
+	# Indian
+	asset = {		
+		trigger = {
+			scope:owner = { highest_held_title_tier = tier_empire }
+			artifact_high_rarity_trigger = yes
+			OR = {
+				artifact_use_indian_building_visuals_trigger = yes #this trigger cuts out the maker
+				artifact_use_southeast_asian_building_visuals_trigger = yes #this trigger cuts out the maker
+			}
+		}
+		reference = male_headgear_secular_ep1_diamond_crown_artifact_entity
+	}
+	asset = {		
+		trigger = {
+			OR = {
+				artifact_use_indian_building_visuals_trigger = yes #this trigger cuts out the maker
+				artifact_use_southeast_asian_building_visuals_trigger = yes #this trigger cuts out the maker
+			}
+			scope:owner = {
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = male_headgear_secular_ep1_indian_royalty_01_artifact_entity
+	}
+	asset = {		
+		trigger = {
+			OR = {
+				artifact_use_indian_building_visuals_trigger = yes #this trigger cuts out the maker
+				artifact_use_southeast_asian_building_visuals_trigger = yes #this trigger cuts out the maker
+			}
+			scope:owner = {
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = female_headgear_secular_indian_royalty_01_artifact_entity
+	}
+	asset = {		
+		trigger = {
+			OR = {
+				artifact_use_indian_building_visuals_trigger = yes #this trigger cuts out the maker
+				artifact_use_southeast_asian_building_visuals_trigger = yes #this trigger cuts out the maker
+			}
+			scope:owner = {
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = male_headgear_secular_indian_royalty_01_artifact_entity
+	}
+	asset = {		
+		trigger = {
+			OR = {
+				artifact_use_indian_building_visuals_trigger = yes #this trigger cuts out the maker
+				artifact_use_southeast_asian_building_visuals_trigger = yes #this trigger cuts out the maker
+			}
+			scope:owner = {
+				highest_held_title_tier = tier_empire
+			}
+		}
+		reference = male_headgear_secular_indian_imperial_01_artifact_entity
+	}
+	#Iberia
+	asset = {		
+		trigger = {
+			artifact_use_iberian_muslim_unit_visuals_trigger = yes #this trigger cuts out the maker
+			scope:owner = {
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = male_headgear_secular_fp2_iberian_muslim_royalty_01_artifact_entity
+	}
+	asset = {		
+		trigger = {
+			artifact_use_iberian_christian_unit_visuals_trigger = yes #this trigger cuts out the maker
+			scope:owner = {
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = male_headgear_secular_fp2_iberian_christian_royalty_01_artifact_entity
+	}
+	#MENA
+	asset = {		
+		trigger = {
+			artifact_use_mena_building_visuals_trigger = yes #this trigger cuts out the maker
+			scope:owner = {
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = male_headgear_secular_ep1_mena_royalty_01_artifact_entity
+	}
+	asset = {		
+		trigger = {
+			artifact_use_mena_building_visuals_trigger = yes #this trigger cuts out the maker
+			scope:owner = {
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = male_headgear_secular_mena_royalty_01_artifact_entity
+	}
+	asset = {		
+		trigger = {
+			artifact_use_mena_building_visuals_trigger = yes #this trigger cuts out the maker
+			scope:owner = {
+				highest_held_title_tier = tier_empire
+			}
+		}
+		reference = male_headgear_secular_mena_imperial_01_artifact_entity
+	}
+	#Sassanid
+	asset = {		
+		trigger = {
+			artifact_use_mena_building_visuals_trigger = yes #this trigger cuts out the maker
+			scope:owner = {
+				culture = { has_cultural_pillar = heritage_iranian }
+			}
+		}
+		reference = male_headgear_secular_ep1_sassanid_crown_artifact_entity
+	}
+	#Western and Medi not Byz/Iberian 
+	asset = {		
+		trigger = {
+			OR = {
+				artifact_use_western_building_visuals_trigger = yes #this trigger cuts out the maker
+				artifact_use_mediterranean_building_visuals_trigger = yes #this trigger cuts out the maker
+			}
+			scope:owner = {
+				culture = {
+					NOR = {
+						has_cultural_pillar = heritage_byzantine
+						has_cultural_pillar = heritage_caucasian
+						has_cultural_pillar = heritage_syriac
+					}
+				}
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = male_headgear_secular_ep1_western_royalty_01_artifact_entity
+	}
+	asset = {		
+		trigger = {
+			OR = {
+				artifact_use_western_building_visuals_trigger = yes #this trigger cuts out the maker
+				artifact_use_mediterranean_building_visuals_trigger = yes #this trigger cuts out the maker
+			}
+			scope:owner = {
+				culture = {
+					NOR = {
+						has_cultural_pillar = heritage_byzantine
+						has_cultural_pillar = heritage_caucasian
+						has_cultural_pillar = heritage_syriac
+					}
+				}
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = male_headgear_secular_western_royalty_01_artifact_entity
+	}
+	asset = {		
+		trigger = {
+			OR = {
+				artifact_use_western_building_visuals_trigger = yes #this trigger cuts out the maker
+				artifact_use_mediterranean_building_visuals_trigger = yes #this trigger cuts out the maker
+			}
+			scope:owner = {
+				culture = {
+					NOR = {
+						has_cultural_pillar = heritage_byzantine
+						has_cultural_pillar = heritage_caucasian
+						has_cultural_pillar = heritage_syriac
+					}
+				}
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = female_headgear_secular_western_royalty_01_artifact_entity
+	}
+	asset = {		
+		trigger = {
+			OR = {
+				artifact_use_western_building_visuals_trigger = yes #this trigger cuts out the maker
+				artifact_use_mediterranean_building_visuals_trigger = yes #this trigger cuts out the maker
+			}
+			scope:owner = {
+				culture = {
+					NOR = {
+						has_cultural_pillar = heritage_byzantine
+						has_cultural_pillar = heritage_caucasian
+						has_cultural_pillar = heritage_syriac
+					}
+				}
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = male_headgear_secular_western_royalty_02_artifact_entity
+	}
+	asset = {		
+		trigger = {
+			OR = {
+				artifact_use_western_building_visuals_trigger = yes #this trigger cuts out the maker
+				artifact_use_mediterranean_building_visuals_trigger = yes #this trigger cuts out the maker
+			}
+			scope:owner = {
+				culture = {
+					NOR = {
+						has_cultural_pillar = heritage_byzantine
+						has_cultural_pillar = heritage_caucasian
+						has_cultural_pillar = heritage_syriac
+					}
+				}
+				highest_held_title_tier = tier_empire
+			}
+		}
+		reference = male_headgear_secular_western_imperial_01_artifact_entity
+	}
+	#Northern Lords
+	asset = {
+		trigger = {
+			has_dlc_feature = the_northern_lords
+			artifact_use_northern_unit_visuals_trigger = yes #this trigger cuts out the maker
+			scope:owner = {
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = male_headgear_secular_fp1_royalty_01_artifact_entity
+	}
+	asset = {
+		trigger = {
+			has_dlc_feature = the_northern_lords
+			artifact_use_northern_unit_visuals_trigger = yes #this trigger cuts out the maker
+			scope:owner = {
+				highest_held_title_tier <= tier_kingdom
+			}
+		}
+		reference = female_headgear_secular_fp1_royalty_01_artifact_entity
+	}
+	asset = {
+		trigger = {
+			has_dlc_feature = the_northern_lords
+			artifact_use_northern_unit_visuals_trigger = yes #this trigger cuts out the maker
+			scope:owner = {
+				highest_held_title_tier = tier_empire
+			}
+		}
+		reference = male_headgear_secular_fp1_imperial_01_artifact_entity
+	}
+	asset = {
+		trigger = {
+			has_dlc_feature = the_northern_lords
+			artifact_use_northern_unit_visuals_trigger = yes #this trigger cuts out the maker
+			scope:owner = {
+				highest_held_title_tier = tier_empire
+			}
+		}
+		reference = female_headgear_secular_fp1_imperial_01_artifact_entity
+	}
+	#Steppe
+	asset = {
+		trigger = {
+			artifact_use_mongol_unit_visuals_trigger = yes #this trigger cuts out the maker
+			scope:owner = { highest_held_title_tier <= tier_kingdom }
+		}
+		reference = male_headgear_secular_steppe_royalty_01_artifact_entity
+	}
+	asset = {
+		trigger = {
+			artifact_use_mongol_unit_visuals_trigger = yes #this trigger cuts out the maker
+			scope:owner = { highest_held_title_tier = tier_empire }
+		}
+		reference = male_headgear_secular_steppe_imperial_01_artifact_entity
+	}
+	#Sub_saharan
+	asset = {
+		trigger = {
+			artifact_use_african_unit_visuals_trigger = yes #this trigger cuts out the maker
+			scope:owner = { highest_held_title_tier <= tier_kingdom }
+		}
+		reference = male_headgear_secular_sub_saharan_royalty_01_artifact_entity
+	}
+	asset = {
+		trigger = {
+			artifact_use_african_unit_visuals_trigger = yes #this trigger cuts out the maker
+			scope:owner = { highest_held_title_tier = tier_empire }
+		}
+		reference = male_headgear_secular_sub_saharan_imperial_artifact_01_entity
+	}
+	asset = {
+		trigger = {
+			artifact_use_african_unit_visuals_trigger = yes  #this trigger cuts out the maker
+			scope:owner = { highest_held_title_tier = tier_empire }
+		}
+		reference = male_headgear_secular_ep1_sub_saharan_royalty_01_artifact_entity
+	}
+	# China
+	asset = {
+		trigger = {
+			OR = {
+				artifact_use_chinese_unit_visuals_trigger = yes
+				artifact_use_japanese_unit_visuals_trigger = yes
+			}
+		}
+		reference = tgp_chinese_tongtianguan_crown_entity
+	}
+}
+
+magic_catalyst = {
+	icon = "artifact_magic_catalyst.dds"
+	#ERE
+	asset = {
+		reference = male_headgear_secular_byzantine_imperial_01_artifact_entity
+	}
+}
+blackgrimoire = {
+	icon = "artifact_blackgrimoire.dds"
+	#ERE
+	asset = {
+		reference = male_headgear_secular_byzantine_imperial_01_artifact_entity
+	}
+}
+
+dragonscales = {
+	icon = "artifact_dragonscales.dds"
+	#ERE
+	asset = {
+		reference = male_headgear_secular_byzantine_imperial_01_artifact_entity
+	}
+}
+ring_of_life = {
+	icon = "artifact_magic_ring.dds"
+	#ERE
+	asset = {
+		reference = male_headgear_secular_byzantine_imperial_01_artifact_entity
+	}
+}
+ring_of_death = {
+	icon = "artifact_magic_ring2.dds"
+	#ERE
+	asset = {
+		reference = male_headgear_secular_byzantine_imperial_01_artifact_entity
+	}
+}
+ancient_singularity = {
+	icon = "artifact_singularity.dds"
+	#ERE
+	asset = {
+		reference = male_headgear_secular_byzantine_imperial_01_artifact_entity
+	}
+}
+ancient_singularity2 = {
+	icon = "artifact_magic_glove.dds"
+	#ERE
+	asset = {
+		reference = male_headgear_secular_byzantine_imperial_01_artifact_entity
+	}
+}
+witch_amulet = {
+	icon = "artifact_amulet.dds"
+	#ERE
+	asset = {
+		reference = male_headgear_secular_byzantine_imperial_01_artifact_entity
+	}
+}
+yaga_broom = {
+	icon = "artifact_broom.dds"
+	#ERE
+	asset = {
+		reference = male_headgear_secular_byzantine_imperial_01_artifact_entity
+	}
+}
+magic_orb = {
+	icon = "artifact_magic_orb.dds"
+	#ERE
+	asset = {
+		reference = male_headgear_secular_byzantine_imperial_01_artifact_entity
+	}
+}
+hell_scepter = {
+	icon = "artifact_magic_sceptre.dds"
+	#ERE
+	asset = {
+		reference = male_headgear_secular_byzantine_imperial_01_artifact_entity
+	}
+}
+wh_crossbow = {
+	icon = "artifact_wh_crossbow.dds"
+	#ERE
+	asset = {
+		reference = male_headgear_secular_byzantine_imperial_01_artifact_entity
+	}
+}
+ring_of_power = {
+	icon = "artifact_magic_ring3.dds"
+	#ERE
+	asset = {
+		reference = male_headgear_secular_byzantine_imperial_01_artifact_entity
+	}
+}
+
+merlins_wand = {
+	icon = "artifact_wand.dds"
+	# POL
+	asset = {
+		trigger = {
+			artifact_should_use_gfx_type_trigger = { TYPE = eastern_unit }
+			artifact_should_use_gfx_type_trigger = { TYPE = western_building }
+		}
+		reference = pol_west_slavic_sword_01_a_portrait_entity
+	}
+	asset = {
+		trigger = {
+			NOR = {
+				artifact_should_use_gfx_type_trigger = { TYPE = eastern_unit }
+				artifact_should_use_gfx_type_trigger = { TYPE = western_building }
+			}
+		}
+		reference = ep1_mena_sword_01_a_portrait_entity
+	}
+}

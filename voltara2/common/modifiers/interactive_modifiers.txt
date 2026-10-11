@@ -1,0 +1,6385 @@
+﻿challenging_ai = {
+	men_at_arms_recruitment_cost = -0.75
+	men_at_arms_maintenance = -0.75
+	stress_gain_mult = -0.75
+	tyranny_gain_mult = -0.75
+	title_creation_cost_mult = -0.75
+	title_creation_piety_cost_mult = -0.75
+	build_gold_cost = -0.5
+	holding_build_gold_cost = -0.5
+	domicile_build_gold_cost = -0.5
+	build_herd_cost = -0.5
+	build_prestige_cost = -0.5
+	herd_conversion = 0.1
+}
+
+ai_aggressiveness_minus_50 = {
+	ai_war_chance = -0.5
+}
+
+ai_aggressiveness_minus_100 = {
+	ai_war_chance = -1
+}
+
+ai_aggressiveness_plus_50 = {
+	ai_war_chance = 0.5
+}
+
+ai_aggressiveness_plus_100 = {
+	ai_war_chance = 1
+}
+
+ai_aggressiveness_plus_150 = {
+	ai_war_chance = 1.5
+}
+
+ai_aggressiveness_plus_200 = {
+	ai_war_chance = 2
+}
+
+ai_aggressiveness_plus_250 = {
+	ai_war_chance = 2.5
+}
+
+ai_aggressiveness_minus_150 = {
+	ai_war_chance = -1.5
+}
+
+ai_aggressiveness_minus_200 = {
+	ai_war_chance = -2
+}
+
+ai_aggressiveness_minus_250 = {
+	ai_war_chance = -2.5
+}
+
+miv_pursuit_of_power = {
+	powerful_vassal_opinion = -20
+}
+
+miv_general_opinion_1 = {
+	general_opinion = -5
+}
+
+miv_general_opinion_2 = {
+	general_opinion = -10
+}
+
+miv_general_opinion_3 = {
+	general_opinion = -15
+}
+
+miv_general_opinion_4 = {
+	general_opinion = -20
+}
+
+miv_general_opinion_5 = {
+	general_opinion = -25
+}
+
+miv_general_opinion_6 = {
+	general_opinion = -30
+}
+
+miv_general_opinion_7 = {
+	general_opinion = -35
+}
+
+miv_general_opinion_8 = {
+	general_opinion = -40
+}
+
+miv_general_opinion_9 = {
+	general_opinion = -45
+}
+
+miv_general_opinion_10 = {
+	general_opinion = -50
+}
+
+less_levies_10 = {
+	levy_size = -0.1
+}
+
+less_levies_20 = {
+	levy_size = -0.2
+}
+
+less_levies_30 = {
+	levy_size = -0.3
+}
+
+less_levies_40 = {
+	levy_size = -0.4
+}
+
+less_levies_50 = {
+	levy_size = -0.5
+}
+
+less_levies_60 = {
+	levy_size = -0.6
+}
+
+less_levies_70 = {
+	levy_size = -0.7
+}
+
+less_levies_80 = {
+	levy_size = -0.8
+}
+
+less_levies_90 = {
+	levy_size = -0.9
+}
+
+less_levies_99 = {
+	levy_size = -0.99
+}
+
+less_levies_100 = {
+	levy_size = -0.95
+}
+
+less_levies_110 = {
+	levy_size = -10
+}
+
+less_garrisons_10 = {
+	garrison_size = -0.1
+}
+
+less_garrisons_20 = {
+	garrison_size = -0.2
+}
+
+less_garrisons_30 = {
+	garrison_size = -0.3
+}
+
+less_garrisons_40 = {
+	garrison_size = -0.4
+}
+
+less_garrisons_50 = {
+	garrison_size = -0.5
+}
+
+less_garrisons_60 = {
+	garrison_size = -0.6
+}
+
+less_garrisons_70 = {
+	garrison_size = -0.7
+}
+
+less_garrisons_80 = {
+	garrison_size = -0.8
+}
+
+less_garrisons_90 = {
+	garrison_size = -0.9
+}
+
+less_garrisons_100 = {
+	garrison_size = -0.95
+}
+
+less_garrisons_110 = {
+	garrison_size = -0.99
+}
+
+slower_levies_10 = {
+	levy_reinforcement_rate = -0.1
+}
+
+slower_levies_20 = {
+	levy_reinforcement_rate = -0.2
+}
+
+slower_levies_30 = {
+	levy_reinforcement_rate = -0.3
+}
+
+slower_levies_40 = {
+	levy_reinforcement_rate = -0.4
+}
+
+slower_levies_50 = {
+	levy_reinforcement_rate = -0.5
+}
+
+slower_levies_60 = {
+	levy_reinforcement_rate = -0.6
+}
+
+slower_levies_70 = {
+	levy_reinforcement_rate = -0.7
+}
+
+slower_levies_80 = {
+	levy_reinforcement_rate = -0.8
+}
+
+slower_levies_90 = {
+	levy_reinforcement_rate = -0.9
+}
+
+slower_levies_99 = {
+	levy_reinforcement_rate = -0.99
+}
+
+slower_levies_100 = {
+	levy_reinforcement_rate = -0.95
+}
+
+less_mercs_10 = {
+	mercenary_hire_cost_mult = 0.1
+	holy_order_hire_cost_mult = 0.1
+}
+
+less_mercs_20 = {
+	mercenary_hire_cost_mult = 0.2
+	holy_order_hire_cost_mult = 0.2
+}
+
+less_mercs_30 = {
+	mercenary_hire_cost_mult = 0.3
+	holy_order_hire_cost_mult = 0.3
+}
+
+less_mercs_40 = {
+	mercenary_hire_cost_mult = 0.4
+	holy_order_hire_cost_mult = 0.4
+}
+
+less_mercs_50 = {
+	mercenary_hire_cost_mult = 0.5
+	holy_order_hire_cost_mult = 0.5
+}
+
+less_mercs_60 = {
+	mercenary_hire_cost_mult = 0.6
+	holy_order_hire_cost_mult = 0.6
+}
+
+less_mercs_70 = {
+	mercenary_hire_cost_mult = 0.7
+	holy_order_hire_cost_mult = 0.7
+}
+
+less_mercs_80 = {
+	mercenary_hire_cost_mult = 0.8
+	holy_order_hire_cost_mult = 0.8
+}
+
+less_mercs_90 = {
+	mercenary_hire_cost_mult = 0.9
+	holy_order_hire_cost_mult = 0.9
+}
+
+less_mercs_100 = {
+	mercenary_hire_cost_mult = 1
+	holy_order_hire_cost_mult = 1
+}
+
+levy_attack_25 = {
+	levy_attack = 1
+}
+
+levy_attack_50 = {
+	levy_attack = 2
+}
+
+levy_attack_75 = {
+	levy_attack = 3
+}
+
+levy_attack_100 = {
+	levy_attack = 4
+}
+
+levy_attack_125 = {
+	levy_attack = 5
+}
+
+levy_attack_150 = {
+	levy_attack = 6
+}
+
+levy_attack_175 = {
+	levy_attack = 7
+}
+
+levy_attack_200 = {
+	levy_attack = 8
+}
+
+levy_attack_225 = {
+	levy_attack = 9
+}
+
+levy_attack_250 = {
+	levy_attack = 10
+}
+
+levy_attack_375 = {
+	levy_attack = 15
+}
+
+levy_toughness_25 = {
+	levy_toughness = 1
+}
+
+levy_toughness_50 = {
+	levy_toughness = 2
+}
+
+levy_toughness_75 = {
+	levy_toughness = 3
+}
+
+levy_toughness_100 = {
+	levy_toughness = 4
+}
+
+levy_toughness_125 = {
+	levy_toughness = 5
+}
+
+levy_toughness_150 = {
+	levy_toughness = 6
+}
+
+levy_toughness_175 = {
+	levy_toughness = 7
+}
+
+levy_toughness_200 = {
+	levy_toughness = 8
+}
+
+levy_toughness_225 = {
+	levy_toughness = 9
+}
+
+levy_toughness_250 = {
+	levy_toughness = 10
+}
+
+levy_toughness_375 = {
+	levy_toughness = 15
+}
+
+reduced_lifespan_5 = {
+	life_expectancy = -5
+}
+
+reduced_lifespan_10 = {
+	life_expectancy = -10
+}
+
+reduced_lifespan_15 = {
+	life_expectancy = -15
+}
+
+reduced_lifespan_20 = {
+	life_expectancy = -20
+}
+
+maa_maintenance_10 = {
+	men_at_arms_maintenance = 0.1
+}
+
+maa_maintenance_20 = {
+	men_at_arms_maintenance = 0.2
+}
+
+maa_maintenance_30 = {
+	men_at_arms_maintenance = 0.3
+}
+
+maa_maintenance_40 = {
+	men_at_arms_maintenance = 0.4
+}
+
+maa_maintenance_50 = {
+	men_at_arms_maintenance = 0.5
+}
+
+maa_maintenance_60 = {
+	men_at_arms_maintenance = 0.6
+}
+
+maa_maintenance_70 = {
+	men_at_arms_maintenance = 0.7
+}
+
+maa_maintenance_80 = {
+	men_at_arms_maintenance = 0.8
+}
+
+maa_maintenance_90 = {
+	men_at_arms_maintenance = 0.9
+}
+
+maa_maintenance_100 = {
+	men_at_arms_maintenance = 1
+}
+
+maa_recruitment_cost_10 = {
+	men_at_arms_recruitment_cost = 0.1
+}
+
+maa_recruitment_cost_20 = {
+	men_at_arms_recruitment_cost = 0.2
+}
+
+maa_recruitment_cost_30 = {
+	men_at_arms_recruitment_cost = 0.3
+}
+
+maa_recruitment_cost_40 = {
+	men_at_arms_recruitment_cost = 0.4
+}
+
+maa_recruitment_cost_50 = {
+	men_at_arms_recruitment_cost = 0.5
+}
+
+maa_recruitment_cost_60 = {
+	men_at_arms_recruitment_cost = 0.6
+}
+
+maa_recruitment_cost_70 = {
+	men_at_arms_recruitment_cost = 0.7
+}
+
+maa_recruitment_cost_80 = {
+	men_at_arms_recruitment_cost = 0.8
+}
+
+maa_recruitment_cost_90 = {
+	men_at_arms_recruitment_cost = 0.9
+}
+
+maa_recruitment_cost_100 = {
+	men_at_arms_recruitment_cost = 1
+}
+
+levy_contribution_10r = {
+	vassal_levy_contribution_mult = -0.1
+	barons_and_minor_landholders_levy_contribution_mult = 0.1
+}
+
+levy_contribution_20r = {
+	vassal_levy_contribution_mult = -0.2
+	barons_and_minor_landholders_levy_contribution_mult = 0.2
+}
+
+levy_contribution_30r = {
+	vassal_levy_contribution_mult = -0.3
+	barons_and_minor_landholders_levy_contribution_mult = 0.3
+}
+
+levy_contribution_40r = {
+	vassal_levy_contribution_mult = -0.4
+	barons_and_minor_landholders_levy_contribution_mult = 0.4
+}
+
+levy_contribution_50r = {
+	vassal_levy_contribution_mult = -0.5
+	barons_and_minor_landholders_levy_contribution_mult = 0.5
+}
+
+levy_contribution_60r = {
+	vassal_levy_contribution_mult = -0.6
+	barons_and_minor_landholders_levy_contribution_mult = 0.6
+}
+
+levy_contribution_70r = {
+	vassal_levy_contribution_mult = -0.7
+	barons_and_minor_landholders_levy_contribution_mult = 0.7
+}
+
+levy_contribution_80r = {
+	vassal_levy_contribution_mult = -0.8
+	barons_and_minor_landholders_levy_contribution_mult = 0.8
+}
+
+levy_contribution_90r = {
+	vassal_levy_contribution_mult = -0.9
+	barons_and_minor_landholders_levy_contribution_mult = 0.9
+}
+
+levy_contribution_99r = {
+	vassal_levy_contribution_mult = -0.99
+	barons_and_minor_landholders_levy_contribution_mult = 0.99
+}
+
+levy_contribution_100r = {
+	vassal_levy_contribution_mult = -0.95
+	barons_and_minor_landholders_levy_contribution_mult = 0.95
+}
+
+knight_effectiveness_10 = {
+	knight_effectiveness_mult = -0.1
+}
+
+knight_effectiveness_20 = {
+	knight_effectiveness_mult = -0.2
+}
+
+knight_effectiveness_30 = {
+	knight_effectiveness_mult = -0.3
+}
+
+knight_effectiveness_40 = {
+	knight_effectiveness_mult = -0.4
+}
+
+knight_effectiveness_50 = {
+	knight_effectiveness_mult = -0.5
+}
+
+knight_effectiveness_60 = {
+	knight_effectiveness_mult = -0.6
+}
+
+knight_effectiveness_70 = {
+	knight_effectiveness_mult = -0.7
+}
+
+knight_effectiveness_80 = {
+	knight_effectiveness_mult = -0.8
+}
+
+knight_effectiveness_90 = {
+	knight_effectiveness_mult = -0.9
+}
+
+knight_effectiveness_99 = {
+	knight_effectiveness_mult = -0.99
+}
+
+knight_effectiveness_100 = {
+	knight_effectiveness_mult = -0.95
+}
+
+domain_tax_10 = {
+	domain_tax_mult = -0.1
+}
+
+domain_tax_20 = {
+	domain_tax_mult = -0.2
+}
+
+domain_tax_30 = {
+	domain_tax_mult = -0.3
+}
+
+domain_tax_40 = {
+	domain_tax_mult = -0.4
+}
+
+domain_tax_50 = {
+	domain_tax_mult = -0.5
+}
+
+domain_tax_60 = {
+	domain_tax_mult = -0.6
+}
+
+domain_tax_70 = {
+	domain_tax_mult = -0.7
+}
+
+domain_tax_80 = {
+	domain_tax_mult = -0.8
+}
+
+domain_tax_90 = {
+	domain_tax_mult = -0.9
+}
+
+domain_tax_99 = {
+	domain_tax_mult = -0.99
+}
+
+domain_tax_100 = {
+	domain_tax_mult = -0.95
+}
+
+maa_size_10 = {
+	men_at_arms_limit = 1
+}
+
+maa_size_20 = {
+	men_at_arms_limit = 2
+}
+
+maa_size_30 = {
+	men_at_arms_limit = 3
+}
+
+maa_size_40 = {
+	men_at_arms_limit = 4
+}
+
+maa_size_50 = {
+	men_at_arms_limit = 5
+}
+
+maa_size_60 = {
+	men_at_arms_limit = 6
+}
+
+maa_size_70 = {
+	men_at_arms_limit = 7
+}
+
+maa_size_80 = {
+	men_at_arms_limit = 8
+}
+
+maa_size_90 = {
+	men_at_arms_limit = 9
+}
+
+maa_size_100 = {
+	men_at_arms_limit = 10
+}
+
+maa_limit_10 = {
+	men_at_arms_cap = 1
+}
+
+maa_limit_20 = {
+	men_at_arms_cap = 2
+}
+
+maa_limit_30 = {
+	men_at_arms_cap = 3
+}
+
+maa_limit_40 = {
+	men_at_arms_cap = 4
+}
+
+maa_limit_50 = {
+	men_at_arms_cap = 5
+}
+
+maa_limit_60 = {
+	men_at_arms_cap = 6
+}
+
+maa_limit_70 = {
+	men_at_arms_cap = 7
+}
+
+maa_limit_80 = {
+	men_at_arms_cap = 8
+}
+
+maa_limit_90 = {
+	men_at_arms_cap = 9
+}
+
+maa_limit_100 = {
+	men_at_arms_cap = 10
+}
+
+supply_limit_10 = {
+	supply_limit = 1000
+}
+
+supply_limit_20 = {
+	supply_limit = 2000
+}
+
+supply_limit_30 = {
+	supply_limit = 3000
+}
+
+supply_limit_40 = {
+	supply_limit = 4000
+}
+
+supply_limit_50 = {
+	supply_limit = 5000
+}
+
+supply_limit_60 = {
+	supply_limit = 6000
+}
+
+supply_limit_70 = {
+	supply_limit = 7000
+}
+
+supply_limit_80 = {
+	supply_limit = 8000
+}
+
+supply_limit_90 = {
+	supply_limit = 9000
+}
+
+supply_limit_100 = {
+	supply_limit = 10000
+}
+
+supply_duration_10 = {
+	supply_capacity_add = 50
+}
+
+supply_duration_20 = {
+	supply_capacity_add = 100
+}
+
+supply_duration_30 = {
+	supply_capacity_add = 150
+}
+
+supply_duration_40 = {
+	supply_capacity_add = 200
+}
+
+supply_duration_50 = {
+	supply_capacity_add = 250
+}
+
+supply_duration_60 = {
+	supply_capacity_add = 300
+}
+
+supply_duration_70 = {
+	supply_capacity_add = 350
+}
+
+supply_duration_80 = {
+	supply_capacity_add = 400
+}
+
+supply_duration_90 = {
+	supply_capacity_add = 450
+}
+
+supply_duration_100 = {
+	supply_capacity_add = 500
+}
+
+army_speed_10 = {
+	movement_speed = -0.1
+	winter_movement_speed = 0.1
+}
+
+army_speed_20 = {
+	movement_speed = -0.2
+	winter_movement_speed = 0.2
+}
+
+army_speed_30 = {
+	movement_speed = -0.3
+	winter_movement_speed = 0.3
+}
+
+army_speed_40 = {
+	movement_speed = -0.4
+	winter_movement_speed = 0.4
+}
+
+army_speed_50 = {
+	movement_speed = -0.5
+	winter_movement_speed = 0.5
+}
+
+army_speed_60 = {
+	movement_speed = -0.6
+	winter_movement_speed = 0.6
+}
+
+army_speed_70 = {
+	movement_speed = -0.7
+	winter_movement_speed = 0.7
+}
+
+army_speed_80 = {
+	movement_speed = -0.8
+	winter_movement_speed = 0.8
+}
+
+army_speed_90 = {
+	movement_speed = -0.9
+	winter_movement_speed = 0.9
+}
+
+army_speed_99 = {
+	movement_speed = -0.99
+	winter_movement_speed = 0.99
+}
+
+army_speed_100 = {
+	movement_speed = -0.95
+	winter_movement_speed = 0.95
+}
+
+naval_speed_10 = {
+	naval_movement_speed_mult = -0.1
+}
+
+naval_speed_20 = {
+	naval_movement_speed_mult = -0.2
+}
+
+naval_speed_30 = {
+	naval_movement_speed_mult = -0.3
+}
+
+naval_speed_40 = {
+	naval_movement_speed_mult = -0.4
+}
+
+naval_speed_50 = {
+	naval_movement_speed_mult = -0.5
+}
+
+naval_speed_60 = {
+	naval_movement_speed_mult = -0.6
+}
+
+naval_speed_70 = {
+	naval_movement_speed_mult = -0.7
+}
+
+naval_speed_80 = {
+	naval_movement_speed_mult = -0.8
+}
+
+naval_speed_90 = {
+	naval_movement_speed_mult = -0.9
+}
+
+naval_speed_99 = {
+	naval_movement_speed_mult = -0.99
+}
+
+naval_speed_100 = {
+	naval_movement_speed_mult = -0.95
+}
+
+fatal_casualties_10 = {
+	hard_casualty_modifier = 0.1
+}
+
+fatal_casualties_20 = {
+	hard_casualty_modifier = 0.2
+}
+
+fatal_casualties_30 = {
+	hard_casualty_modifier = 0.3
+}
+
+fatal_casualties_40 = {
+	hard_casualty_modifier = 0.4
+}
+
+fatal_casualties_50 = {
+	hard_casualty_modifier = 0.5
+}
+
+fatal_casualties_60 = {
+	hard_casualty_modifier = 0.6
+}
+
+fatal_casualties_70 = {
+	hard_casualty_modifier = 0.7
+}
+
+fatal_casualties_80 = {
+	hard_casualty_modifier = 0.8
+}
+
+fatal_casualties_90 = {
+	hard_casualty_modifier = 0.9
+}
+
+fatal_casualties_100 = {
+	hard_casualty_modifier = 1
+}
+
+max_combat_roll_10 = {
+	max_combat_roll = 1
+}
+
+max_combat_roll_20 = {
+	max_combat_roll = 2
+}
+
+max_combat_roll_30 = {
+	max_combat_roll = 3
+}
+
+max_combat_roll_40 = {
+	max_combat_roll = 4
+}
+
+max_combat_roll_50 = {
+	max_combat_roll = 5
+}
+
+max_combat_roll_60 = {
+	max_combat_roll = 6
+}
+
+max_combat_roll_70 = {
+	max_combat_roll = 7
+}
+
+max_combat_roll_80 = {
+	max_combat_roll = 8
+}
+
+max_combat_roll_90 = {
+	max_combat_roll = 9
+}
+
+max_combat_roll_100 = {
+	max_combat_roll = 10
+}
+
+siege_effectiveness_10 = {
+	army_siege_value_mult = 0.1
+}
+
+siege_effectiveness_20 = {
+	army_siege_value_mult = 0.2
+}
+
+siege_effectiveness_30 = {
+	army_siege_value_mult = 0.3
+}
+
+siege_effectiveness_40 = {
+	army_siege_value_mult = 0.4
+}
+
+siege_effectiveness_50 = {
+	army_siege_value_mult = 0.5
+}
+
+siege_effectiveness_60 = {
+	army_siege_value_mult = 0.6
+}
+
+siege_effectiveness_70 = {
+	army_siege_value_mult = 0.7
+}
+
+siege_effectiveness_80 = {
+	army_siege_value_mult = 0.8
+}
+
+siege_effectiveness_90 = {
+	army_siege_value_mult = 0.9
+}
+
+siege_effectiveness_100 = {
+	army_siege_value_mult = 1
+}
+
+innovation_speed_10 = {
+	cultural_head_fascination_mult = 0.1
+}
+
+innovation_speed_20 = {
+	cultural_head_fascination_mult = 0.2
+}
+
+innovation_speed_30 = {
+	cultural_head_fascination_mult = 0.3
+}
+
+innovation_speed_40 = {
+	cultural_head_fascination_mult = 0.4
+}
+
+innovation_speed_50 = {
+	cultural_head_fascination_mult = 0.5
+}
+
+innovation_speed_60 = {
+	cultural_head_fascination_mult = 0.6
+}
+
+innovation_speed_70 = {
+	cultural_head_fascination_mult = 0.7
+}
+
+innovation_speed_80 = {
+	cultural_head_fascination_mult = 0.8
+}
+
+innovation_speed_90 = {
+	cultural_head_fascination_mult = 0.9
+}
+
+innovation_speed_100 = {
+	cultural_head_fascination_mult = 1
+}
+
+cultural_acceptance_gain_minus_99 = {
+	cultural_head_acceptance_gain_mult = -0.99
+}
+
+cultural_acceptance_gain_minus_100 = {
+	cultural_head_acceptance_gain_mult = -0.95
+}
+
+cultural_acceptance_gain_minus_90 = {
+	cultural_head_acceptance_gain_mult = -0.9
+}
+
+cultural_acceptance_gain_minus_80 = {
+	cultural_head_acceptance_gain_mult = -0.8
+}
+
+cultural_acceptance_gain_minus_70 = {
+	cultural_head_acceptance_gain_mult = -0.7
+}
+
+cultural_acceptance_gain_minus_60 = {
+	cultural_head_acceptance_gain_mult = -0.6
+}
+
+cultural_acceptance_gain_minus_50 = {
+	cultural_head_acceptance_gain_mult = -0.5
+}
+
+cultural_acceptance_gain_minus_40 = {
+	cultural_head_acceptance_gain_mult = -0.4
+}
+
+cultural_acceptance_gain_minus_30 = {
+	cultural_head_acceptance_gain_mult = -0.3
+}
+
+cultural_acceptance_gain_minus_20 = {
+	cultural_head_acceptance_gain_mult = -0.2
+}
+
+cultural_acceptance_gain_minus_10 = {
+	cultural_head_acceptance_gain_mult = -0.1
+}
+
+cultural_acceptance_gain_10 = {
+	cultural_head_acceptance_gain_mult = 0.1
+}
+
+cultural_acceptance_gain_20 = {
+	cultural_head_acceptance_gain_mult = 0.2
+}
+
+cultural_acceptance_gain_30 = {
+	cultural_head_acceptance_gain_mult = 0.3
+}
+
+cultural_acceptance_gain_40 = {
+	cultural_head_acceptance_gain_mult = 0.4
+}
+
+cultural_acceptance_gain_50 = {
+	cultural_head_acceptance_gain_mult = 0.5
+}
+
+cultural_acceptance_gain_60 = {
+	cultural_head_acceptance_gain_mult = 0.6
+}
+
+cultural_acceptance_gain_70 = {
+	cultural_head_acceptance_gain_mult = 0.7
+}
+
+cultural_acceptance_gain_80 = {
+	cultural_head_acceptance_gain_mult = 0.8
+}
+
+cultural_acceptance_gain_90 = {
+	cultural_head_acceptance_gain_mult = 0.9
+}
+
+cultural_acceptance_gain_100 = {
+	cultural_head_acceptance_gain_mult = 1
+}
+
+cultural_acceptance_gain_150 = {
+	cultural_head_acceptance_gain_mult = 1.5
+}
+
+cultural_acceptance_gain_200 = {
+	cultural_head_acceptance_gain_mult = 2
+}
+
+tax_contribution_10r = {
+	vassal_tax_contribution_mult = -0.1
+	barons_and_minor_landholders_tax_contribution_mult = 0.1
+}
+
+tax_contribution_20r = {
+	vassal_tax_contribution_mult = -0.2
+	barons_and_minor_landholders_tax_contribution_mult = 0.2
+}
+
+tax_contribution_30r = {
+	vassal_tax_contribution_mult = -0.3
+	barons_and_minor_landholders_tax_contribution_mult = 0.3
+}
+
+tax_contribution_40r = {
+	vassal_tax_contribution_mult = -0.4
+	barons_and_minor_landholders_tax_contribution_mult = 0.4
+}
+
+tax_contribution_50r = {
+	vassal_tax_contribution_mult = -0.5
+	barons_and_minor_landholders_tax_contribution_mult = 0.5
+}
+
+tax_contribution_60r = {
+	vassal_tax_contribution_mult = -0.6
+	barons_and_minor_landholders_tax_contribution_mult = 0.6
+}
+
+tax_contribution_70r = {
+	vassal_tax_contribution_mult = -0.7
+	barons_and_minor_landholders_tax_contribution_mult = 0.7
+}
+
+tax_contribution_80r = {
+	vassal_tax_contribution_mult = -0.8
+	barons_and_minor_landholders_tax_contribution_mult = 0.8
+}
+
+tax_contribution_90r = {
+	vassal_tax_contribution_mult = -0.9
+	barons_and_minor_landholders_tax_contribution_mult = 0.9
+}
+
+tax_contribution_99r = {
+	vassal_tax_contribution_mult = -0.99
+	barons_and_minor_landholders_tax_contribution_mult = 0.99
+}
+
+tax_contribution_100r = {
+	vassal_tax_contribution_mult = -0.95
+	barons_and_minor_landholders_tax_contribution_mult = 0.95
+}
+
+agot_adjustments = {
+	vassal_levy_contribution_mult = -0.75
+	barons_and_minor_landholders_levy_contribution_mult = 0.75
+	ai_war_chance = -1
+}
+
+herd_reduction_10 = {
+	herd_gain_mult = -0.1
+}
+
+herd_reduction_20 = {
+	herd_gain_mult = -0.2
+}
+
+herd_reduction_30 = {
+	herd_gain_mult = -0.3
+}
+
+herd_reduction_40 = {
+	herd_gain_mult = -0.4
+}
+
+herd_reduction_50 = {
+	herd_gain_mult = -0.5
+}
+
+herd_reduction_60 = {
+	herd_gain_mult = -0.6
+}
+
+herd_reduction_70 = {
+	herd_gain_mult = -0.7
+}
+
+herd_reduction_80 = {
+	herd_gain_mult = -0.8
+}
+
+herd_reduction_90 = {
+	herd_gain_mult = -0.9
+}
+
+herd_reduction_99 = {
+	herd_gain_mult = -0.99
+}
+
+herd_reduction_100 = {
+	herd_gain_mult = -0.95
+}
+
+title_maa_size_10 = {
+	men_at_arms_title_limit = 1
+}
+
+title_maa_size_20 = {
+	men_at_arms_title_limit = 2
+}
+
+title_maa_size_30 = {
+	men_at_arms_title_limit = 3
+}
+
+title_maa_size_40 = {
+	men_at_arms_title_limit = 4
+}
+
+title_maa_size_50 = {
+	men_at_arms_title_limit = 5
+}
+
+title_maa_size_60 = {
+	men_at_arms_title_limit = 6
+}
+
+title_maa_size_70 = {
+	men_at_arms_title_limit = 7
+}
+
+title_maa_size_80 = {
+	men_at_arms_title_limit = 8
+}
+
+title_maa_size_90 = {
+	men_at_arms_title_limit = 9
+}
+
+title_maa_size_100 = {
+	men_at_arms_title_limit = 10
+}
+
+title_maa_limit_10 = {
+	men_at_arms_title_cap = 1
+}
+
+title_maa_limit_20 = {
+	men_at_arms_title_cap = 2
+}
+
+title_maa_limit_30 = {
+	men_at_arms_title_cap = 3
+}
+
+title_maa_limit_40 = {
+	men_at_arms_title_cap = 4
+}
+
+title_maa_limit_50 = {
+	men_at_arms_title_cap = 5
+}
+
+title_maa_limit_60 = {
+	men_at_arms_title_cap = 6
+}
+
+title_maa_limit_70 = {
+	men_at_arms_title_cap = 7
+}
+
+title_maa_limit_80 = {
+	men_at_arms_title_cap = 8
+}
+
+title_maa_limit_90 = {
+	men_at_arms_title_cap = 9
+}
+
+title_maa_limit_100 = {
+	men_at_arms_title_cap = 10
+}
+
+defender_advantage_10 = {
+	controlled_province_advantage = 1
+}
+
+defender_advantage_20 = {
+	controlled_province_advantage = 2
+}
+
+defender_advantage_30 = {
+	controlled_province_advantage = 3
+}
+
+defender_advantage_40 = {
+	controlled_province_advantage = 4
+}
+
+defender_advantage_50 = {
+	controlled_province_advantage = 5
+}
+
+defender_advantage_60 = {
+	controlled_province_advantage = 6
+}
+
+defender_advantage_70 = {
+	controlled_province_advantage = 7
+}
+
+defender_advantage_80 = {
+	controlled_province_advantage = 8
+}
+
+defender_advantage_90 = {
+	controlled_province_advantage = 9
+}
+
+defender_advantage_100 = {
+	controlled_province_advantage = 10
+}
+
+self_command_advantage_10 = {
+	led_by_owner_extra_advantage_add = 1
+}
+
+self_command_advantage_20 = {
+	led_by_owner_extra_advantage_add = 2
+}
+
+self_command_advantage_30 = {
+	led_by_owner_extra_advantage_add = 3
+}
+
+self_command_advantage_40 = {
+	led_by_owner_extra_advantage_add = 4
+}
+
+self_command_advantage_50 = {
+	led_by_owner_extra_advantage_add = 5
+}
+
+self_command_advantage_60 = {
+	led_by_owner_extra_advantage_add = 6
+}
+
+self_command_advantage_70 = {
+	led_by_owner_extra_advantage_add = 7
+}
+
+self_command_advantage_80 = {
+	led_by_owner_extra_advantage_add = 8
+}
+
+self_command_advantage_90 = {
+	led_by_owner_extra_advantage_add = 9
+}
+
+self_command_advantage_100 = {
+	led_by_owner_extra_advantage_add = 10
+}
+
+less_levies_plus_10 = {
+	levy_size = 0.1
+}
+
+less_levies_plus_20 = {
+	levy_size = 0.2
+}
+
+less_levies_plus_30 = {
+	levy_size = 0.3
+}
+
+less_levies_plus_40 = {
+	levy_size = 0.4
+}
+
+less_levies_plus_50 = {
+	levy_size = 0.5
+}
+
+less_levies_plus_60 = {
+	levy_size = 0.6
+}
+
+less_levies_plus_70 = {
+	levy_size = 0.7
+}
+
+less_levies_plus_80 = {
+	levy_size = 0.8
+}
+
+less_levies_plus_90 = {
+	levy_size = 0.9
+}
+
+less_levies_plus_100 = {
+	levy_size = 1
+}
+
+slower_levies_plus_10 = {
+	levy_reinforcement_rate = 0.1
+}
+
+slower_levies_plus_20 = {
+	levy_reinforcement_rate = 0.2
+}
+
+slower_levies_plus_30 = {
+	levy_reinforcement_rate = 0.3
+}
+
+slower_levies_plus_40 = {
+	levy_reinforcement_rate = 0.4
+}
+
+slower_levies_plus_50 = {
+	levy_reinforcement_rate = 0.5
+}
+
+slower_levies_plus_60 = {
+	levy_reinforcement_rate = 0.6
+}
+
+slower_levies_plus_70 = {
+	levy_reinforcement_rate = 0.7
+}
+
+slower_levies_plus_80 = {
+	levy_reinforcement_rate = 0.8
+}
+
+slower_levies_plus_90 = {
+	levy_reinforcement_rate = 0.9
+}
+
+slower_levies_plus_100 = {
+	levy_reinforcement_rate = 1
+}
+
+levy_attack_minus_25 = {
+	levy_attack = -1
+}
+
+levy_attack_minus_50 = {
+	levy_attack = -2
+}
+
+levy_attack_minus_75 = {
+	levy_attack = -3
+}
+
+levy_attack_minus_100 = {
+	levy_attack = -4
+}
+
+levy_attack_minus_125 = {
+	levy_attack = -5
+}
+
+levy_attack_minus_150 = {
+	levy_attack = -6
+}
+
+levy_attack_minus_175 = {
+	levy_attack = -7
+}
+
+levy_attack_minus_200 = {
+	levy_attack = -8
+}
+
+levy_attack_minus_225 = {
+	levy_attack = -9
+}
+
+levy_attack_minus_250 = {
+	levy_attack = -10
+}
+
+levy_toughness_minus_25 = {
+	levy_toughness = -1
+}
+
+levy_toughness_minus_50 = {
+	levy_toughness = -2
+}
+
+levy_toughness_minus_75 = {
+	levy_toughness = -3
+}
+
+levy_toughness_minus_100 = {
+	levy_toughness = -4
+}
+
+levy_toughness_minus_125 = {
+	levy_toughness = -5
+}
+
+levy_toughness_minus_150 = {
+	levy_toughness = -6
+}
+
+levy_toughness_minus_175 = {
+	levy_toughness = -7
+}
+
+levy_toughness_minus_200 = {
+	levy_toughness = -8
+}
+
+levy_toughness_minus_225 = {
+	levy_toughness = -9
+}
+
+levy_toughness_minus_250 = {
+	levy_toughness = -10
+}
+
+less_garrisons_plus_10 = {
+	garrison_size = 0.1
+}
+
+less_garrisons_plus_20 = {
+	garrison_size = 0.2
+}
+
+less_garrisons_plus_30 = {
+	garrison_size = 0.3
+}
+
+less_garrisons_plus_40 = {
+	garrison_size = 0.4
+}
+
+less_garrisons_plus_50 = {
+	garrison_size = 0.5
+}
+
+less_garrisons_plus_60 = {
+	garrison_size = 0.6
+}
+
+less_garrisons_plus_70 = {
+	garrison_size = 0.7
+}
+
+less_garrisons_plus_80 = {
+	garrison_size = 0.8
+}
+
+less_garrisons_plus_90 = {
+	garrison_size = 0.9
+}
+
+less_garrisons_plus_110 = {
+	garrison_size = 1
+}
+
+herd_reduction_plus_10 = {
+	herd_gain_mult = 0.1
+}
+
+herd_reduction_plus_20 = {
+	herd_gain_mult = 0.2
+}
+
+herd_reduction_plus_30 = {
+	herd_gain_mult = 0.3
+}
+
+herd_reduction_plus_40 = {
+	herd_gain_mult = 0.4
+}
+
+herd_reduction_plus_50 = {
+	herd_gain_mult = 0.5
+}
+
+herd_reduction_plus_60 = {
+	herd_gain_mult = 0.6
+}
+
+herd_reduction_plus_70 = {
+	herd_gain_mult = 0.7
+}
+
+herd_reduction_plus_80 = {
+	herd_gain_mult = 0.8
+}
+
+herd_reduction_plus_90 = {
+	herd_gain_mult = 0.9
+}
+
+herd_reduction_plus_100 = {
+	herd_gain_mult = 1
+}
+
+knight_effectiveness_plus_10 = {
+	knight_effectiveness_mult = 0.1
+}
+
+knight_effectiveness_plus_20 = {
+	knight_effectiveness_mult = 0.2
+}
+
+knight_effectiveness_plus_30 = {
+	knight_effectiveness_mult = 0.3
+}
+
+knight_effectiveness_plus_40 = {
+	knight_effectiveness_mult = 0.4
+}
+
+knight_effectiveness_plus_50 = {
+	knight_effectiveness_mult = 0.5
+}
+
+knight_effectiveness_plus_60 = {
+	knight_effectiveness_mult = 0.6
+}
+
+knight_effectiveness_plus_70 = {
+	knight_effectiveness_mult = 0.7
+}
+
+knight_effectiveness_plus_80 = {
+	knight_effectiveness_mult = 0.8
+}
+
+knight_effectiveness_plus_90 = {
+	knight_effectiveness_mult = 0.9
+}
+
+knight_effectiveness_plus_100 = {
+	knight_effectiveness_mult = 1
+}
+
+reduced_lifespan_plus_5 = {
+	life_expectancy = 5
+}
+
+reduced_lifespan_plus_10 = {
+	life_expectancy = 10
+}
+
+reduced_lifespan_plus_15 = {
+	life_expectancy = 15
+}
+
+reduced_lifespan_plus_20 = {
+	life_expectancy = 20
+}
+
+defender_advantage_minus_10 = {
+	controlled_province_advantage = -1
+}
+
+defender_advantage_minus_20 = {
+	controlled_province_advantage = -2
+}
+
+defender_advantage_minus_30 = {
+	controlled_province_advantage = -3
+}
+
+defender_advantage_minus_40 = {
+	controlled_province_advantage = -4
+}
+
+miv_defender_advantage_minus_50 = {
+	controlled_province_advantage = -5
+}
+
+defender_advantage_minus_60 = {
+	controlled_province_advantage = -6
+}
+
+defender_advantage_minus_70 = {
+	controlled_province_advantage = -7
+}
+
+defender_advantage_minus_80 = {
+	controlled_province_advantage = -8
+}
+
+defender_advantage_minus_90 = {
+	controlled_province_advantage = -9
+}
+
+defender_advantage_minus_100 = {
+	controlled_province_advantage = -10
+}
+
+self_command_advantage_minus_10 = {
+	led_by_owner_extra_advantage_add = -1
+}
+
+self_command_advantage_minus_20 = {
+	led_by_owner_extra_advantage_add = -2
+}
+
+self_command_advantage_minus_30 = {
+	led_by_owner_extra_advantage_add = -3
+}
+
+self_command_advantage_minus_40 = {
+	led_by_owner_extra_advantage_add = -4
+}
+
+self_command_advantage_minus_50 = {
+	led_by_owner_extra_advantage_add = -5
+}
+
+self_command_advantage_minus_60 = {
+	led_by_owner_extra_advantage_add = -6
+}
+
+self_command_advantage_minus_70 = {
+	led_by_owner_extra_advantage_add = -7
+}
+
+self_command_advantage_minus_80 = {
+	led_by_owner_extra_advantage_add = -8
+}
+
+self_command_advantage_minus_90 = {
+	led_by_owner_extra_advantage_add = -9
+}
+
+self_command_advantage_minus_100 = {
+	led_by_owner_extra_advantage_add = -10
+}
+
+max_combat_roll_minus_10 = {
+	max_combat_roll = -1
+}
+
+max_combat_roll_minus_20 = {
+	max_combat_roll = -2
+}
+
+max_combat_roll_minus_30 = {
+	max_combat_roll = -3
+}
+
+max_combat_roll_minus_40 = {
+	max_combat_roll = -4
+}
+
+max_combat_roll_minus_50 = {
+	max_combat_roll = -5
+}
+
+max_combat_roll_minus_60 = {
+	max_combat_roll = -6
+}
+
+max_combat_roll_minus_70 = {
+	max_combat_roll = -7
+}
+
+max_combat_roll_minus_80 = {
+	max_combat_roll = -8
+}
+
+max_combat_roll_minus_90 = {
+	max_combat_roll = -9
+}
+
+max_combat_roll_minus_100 = {
+	max_combat_roll = -10
+}
+
+fatal_casualties_minus_10 = {
+	hard_casualty_modifier = -0.1
+}
+
+fatal_casualties_minus_20 = {
+	hard_casualty_modifier = -0.2
+}
+
+fatal_casualties_minus_30 = {
+	hard_casualty_modifier = -0.3
+}
+
+fatal_casualties_minus_40 = {
+	hard_casualty_modifier = -0.4
+}
+
+fatal_casualties_minus_50 = {
+	hard_casualty_modifier = -0.5
+}
+
+fatal_casualties_minus_60 = {
+	hard_casualty_modifier = -0.6
+}
+
+fatal_casualties_minus_70 = {
+	hard_casualty_modifier = -0.7
+}
+
+fatal_casualties_minus_80 = {
+	hard_casualty_modifier = -0.8
+}
+
+fatal_casualties_minus_90 = {
+	hard_casualty_modifier = -0.9
+}
+
+fatal_casualties_minus_100 = {
+	hard_casualty_modifier = -0.99
+}
+
+fatal_casualties_minus_95 = {
+	hard_casualty_modifier = -0.95
+}
+
+siege_effectiveness_minus_10 = {
+	army_siege_value_mult = -0.1
+}
+
+siege_effectiveness_minus_20 = {
+	army_siege_value_mult = -0.2
+}
+
+siege_effectiveness_minus_30 = {
+	army_siege_value_mult = -0.3
+}
+
+siege_effectiveness_minus_40 = {
+	army_siege_value_mult = -0.4
+}
+
+siege_effectiveness_minus_50 = {
+	army_siege_value_mult = -0.5
+}
+
+siege_effectiveness_minus_60 = {
+	army_siege_value_mult = -0.6
+}
+
+siege_effectiveness_minus_70 = {
+	army_siege_value_mult = -0.7
+}
+
+siege_effectiveness_minus_80 = {
+	army_siege_value_mult = -0.8
+}
+
+siege_effectiveness_minus_90 = {
+	army_siege_value_mult = -0.9
+}
+
+siege_effectiveness_minus_100 = {
+	army_siege_value_mult = -0.99
+}
+
+siege_effectiveness_minus_95 = {
+	army_siege_value_mult = -0.95
+}
+
+less_mercs_minus_10 = {
+	mercenary_hire_cost_mult = -0.1
+	holy_order_hire_cost_mult = -0.1
+}
+
+less_mercs_minus_20 = {
+	mercenary_hire_cost_mult = -0.2
+	holy_order_hire_cost_mult = -0.2
+}
+
+less_mercs_minus_30 = {
+	mercenary_hire_cost_mult = -0.3
+	holy_order_hire_cost_mult = -0.3
+}
+
+less_mercs_minus_40 = {
+	mercenary_hire_cost_mult = -0.4
+	holy_order_hire_cost_mult = -0.4
+}
+
+less_mercs_minus_50 = {
+	mercenary_hire_cost_mult = -0.5
+	holy_order_hire_cost_mult = -0.5
+}
+
+less_mercs_minus_60 = {
+	mercenary_hire_cost_mult = -0.6
+	holy_order_hire_cost_mult = -0.6
+}
+
+less_mercs_minus_70 = {
+	mercenary_hire_cost_mult = -0.7
+	holy_order_hire_cost_mult = -0.7
+}
+
+less_mercs_minus_80 = {
+	mercenary_hire_cost_mult = -0.8
+	holy_order_hire_cost_mult = -0.8
+}
+
+less_mercs_minus_90 = {
+	mercenary_hire_cost_mult = -0.9
+	holy_order_hire_cost_mult = -0.9
+}
+
+less_mercs_minus_100 = {
+	mercenary_hire_cost_mult = -0.99
+	holy_order_hire_cost_mult = -0.99
+}
+
+less_mercs_minus_95 = {
+	mercenary_hire_cost_mult = -0.95
+	holy_order_hire_cost_mult = -0.95
+}
+
+domain_tax_plus_10 = {
+	domain_tax_mult = 0.1
+}
+
+domain_tax_plus_20 = {
+	domain_tax_mult = 0.2
+}
+
+domain_tax_plus_30 = {
+	domain_tax_mult = 0.3
+}
+
+domain_tax_plus_40 = {
+	domain_tax_mult = 0.4
+}
+
+domain_tax_plus_50 = {
+	domain_tax_mult = 0.5
+}
+
+domain_tax_plus_60 = {
+	domain_tax_mult = 0.6
+}
+
+domain_tax_plus_70 = {
+	domain_tax_mult = 0.7
+}
+
+domain_tax_plus_80 = {
+	domain_tax_mult = 0.8
+}
+
+domain_tax_plus_90 = {
+	domain_tax_mult = 0.9
+}
+
+domain_tax_plus_100 = {
+	domain_tax_mult = 1
+}
+
+innovation_speed_minus_10 = {
+	cultural_head_fascination_mult = -0.1
+}
+
+innovation_speed_minus_20 = {
+	cultural_head_fascination_mult = -0.2
+}
+
+innovation_speed_minus_30 = {
+	cultural_head_fascination_mult = -0.3
+}
+
+innovation_speed_minus_40 = {
+	cultural_head_fascination_mult = -0.4
+}
+
+innovation_speed_minus_50 = {
+	cultural_head_fascination_mult = -0.5
+}
+
+innovation_speed_minus_60 = {
+	cultural_head_fascination_mult = -0.6
+}
+
+innovation_speed_minus_70 = {
+	cultural_head_fascination_mult = -0.7
+}
+
+innovation_speed_minus_80 = {
+	cultural_head_fascination_mult = -0.8
+}
+
+innovation_speed_minus_90 = {
+	cultural_head_fascination_mult = -0.9
+}
+
+innovation_speed_minus_100 = {
+	cultural_head_fascination_mult = -0.99
+}
+
+innovation_speed_minus_95 = {
+	cultural_head_fascination_mult = -0.95
+}
+
+army_speed_plus_10 = {
+	movement_speed = 0.1
+}
+
+army_speed_plus_20 = {
+	movement_speed = 0.2
+}
+
+army_speed_plus_30 = {
+	movement_speed = 0.3
+}
+
+army_speed_plus_40 = {
+	movement_speed = 0.4
+}
+
+army_speed_plus_50 = {
+	movement_speed = 0.5
+}
+
+army_speed_plus_60 = {
+	movement_speed = 0.6
+}
+
+army_speed_plus_70 = {
+	movement_speed = 0.7
+}
+
+army_speed_plus_80 = {
+	movement_speed = 0.8
+}
+
+army_speed_plus_90 = {
+	movement_speed = 0.9
+}
+
+army_speed_plus_100 = {
+	movement_speed = 1
+}
+
+naval_speed_plus_10 = {
+	naval_movement_speed_mult = 0.1
+}
+
+naval_speed_plus_20 = {
+	naval_movement_speed_mult = 0.2
+}
+
+naval_speed_plus_30 = {
+	naval_movement_speed_mult = 0.3
+}
+
+naval_speed_plus_40 = {
+	naval_movement_speed_mult = 0.4
+}
+
+naval_speed_plus_50 = {
+	naval_movement_speed_mult = 0.5
+}
+
+naval_speed_plus_60 = {
+	naval_movement_speed_mult = 0.6
+}
+
+naval_speed_plus_70 = {
+	naval_movement_speed_mult = 0.7
+}
+
+naval_speed_plus_80 = {
+	naval_movement_speed_mult = 0.8
+}
+
+naval_speed_plus_90 = {
+	naval_movement_speed_mult = 0.9
+}
+
+naval_speed_plus_100 = {
+	naval_movement_speed_mult = 1
+}
+
+supply_limit_minus_10 = {
+	supply_limit = -1000
+}
+
+supply_limit_minus_20 = {
+	supply_limit = -2000
+}
+
+supply_limit_minus_30 = {
+	supply_limit = -3000
+}
+
+supply_limit_minus_40 = {
+	supply_limit = -4000
+}
+
+supply_limit_minus_50 = {
+	supply_limit = -5000
+}
+
+supply_limit_minus_60 = {
+	supply_limit = -6000
+}
+
+supply_limit_minus_70 = {
+	supply_limit = -7000
+}
+
+supply_limit_minus_80 = {
+	supply_limit = -8000
+}
+
+supply_limit_minus_90 = {
+	supply_limit = -9000
+}
+
+supply_limit_minus_100 = {
+	supply_limit = -10000
+}
+
+supply_duration_minus_10 = {
+	supply_capacity_add = -50
+}
+
+supply_duration_minus_20 = {
+	supply_capacity_add = -100
+}
+
+supply_duration_minus_30 = {
+	supply_capacity_add = -150
+}
+
+supply_duration_minus_40 = {
+	supply_capacity_add = -200
+}
+
+supply_duration_minus_50 = {
+	supply_capacity_add = -250
+}
+
+supply_duration_minus_60 = {
+	supply_capacity_add = -300
+}
+
+supply_duration_minus_70 = {
+	supply_capacity_add = -350
+}
+
+supply_duration_minus_80 = {
+	supply_capacity_add = -400
+}
+
+supply_duration_minus_90 = {
+	supply_capacity_add = -450
+}
+
+supply_duration_minus_100 = {
+	supply_capacity_add = -500
+}
+
+tax_contribution_plus_10r = {
+	vassal_tax_contribution_mult = 0.1
+	barons_and_minor_landholders_tax_contribution_mult = -0.1
+}
+
+tax_contribution_plus_20r = {
+	vassal_tax_contribution_mult = 0.2
+	barons_and_minor_landholders_tax_contribution_mult = -0.2
+}
+
+tax_contribution_plus_30r = {
+	vassal_tax_contribution_mult = 0.3
+	barons_and_minor_landholders_tax_contribution_mult = -0.3
+}
+
+tax_contribution_plus_40r = {
+	vassal_tax_contribution_mult = 0.4
+	barons_and_minor_landholders_tax_contribution_mult = -0.4
+}
+
+tax_contribution_plus_50r = {
+	vassal_tax_contribution_mult = 0.5
+	barons_and_minor_landholders_tax_contribution_mult = -0.5
+}
+
+tax_contribution_plus_60r = {
+	vassal_tax_contribution_mult = 0.6
+	barons_and_minor_landholders_tax_contribution_mult = -0.6
+}
+
+tax_contribution_plus_70r = {
+	vassal_tax_contribution_mult = 0.7
+	barons_and_minor_landholders_tax_contribution_mult = -0.7
+}
+
+tax_contribution_plus_80r = {
+	vassal_tax_contribution_mult = 0.8
+	barons_and_minor_landholders_tax_contribution_mult = -0.8
+}
+
+tax_contribution_plus_90r = {
+	vassal_tax_contribution_mult = 0.9
+	barons_and_minor_landholders_tax_contribution_mult = -0.9
+}
+
+tax_contribution_plus_100r = {
+	vassal_tax_contribution_mult = 1
+	barons_and_minor_landholders_tax_contribution_mult = -1
+}
+
+levy_contribution_plus_10r = {
+	vassal_levy_contribution_mult = 0.1
+	barons_and_minor_landholders_levy_contribution_mult = -0.1
+}
+
+levy_contribution_plus_20r = {
+	vassal_levy_contribution_mult = 0.2
+	barons_and_minor_landholders_levy_contribution_mult = -0.2
+}
+
+levy_contribution_plus_30r = {
+	vassal_levy_contribution_mult = 0.3
+	barons_and_minor_landholders_levy_contribution_mult = -0.3
+}
+
+levy_contribution_plus_40r = {
+	vassal_levy_contribution_mult = 0.4
+	barons_and_minor_landholders_levy_contribution_mult = -0.4
+}
+
+levy_contribution_plus_50r = {
+	vassal_levy_contribution_mult = 0.5
+	barons_and_minor_landholders_levy_contribution_mult = -0.5
+}
+
+levy_contribution_plus_60r = {
+	vassal_levy_contribution_mult = 0.6
+	barons_and_minor_landholders_levy_contribution_mult = -0.6
+}
+
+levy_contribution_plus_70r = {
+	vassal_levy_contribution_mult = 0.7
+	barons_and_minor_landholders_levy_contribution_mult = -0.7
+}
+
+levy_contribution_plus_80r = {
+	vassal_levy_contribution_mult = 0.8
+	barons_and_minor_landholders_levy_contribution_mult = -0.8
+}
+
+levy_contribution_plus_90r = {
+	vassal_levy_contribution_mult = 0.9
+	barons_and_minor_landholders_levy_contribution_mult = -0.9
+}
+
+levy_contribution_plus_100r = {
+	vassal_levy_contribution_mult = 1
+	barons_and_minor_landholders_levy_contribution_mult = -1
+}
+
+maa_maintenance_minus_10 = {
+	men_at_arms_maintenance = -0.1
+}
+
+maa_maintenance_minus_20 = {
+	men_at_arms_maintenance = -0.2
+}
+
+maa_maintenance_minus_30 = {
+	men_at_arms_maintenance = -0.3
+}
+
+maa_maintenance_minus_40 = {
+	men_at_arms_maintenance = -0.4
+}
+
+maa_maintenance_minus_50 = {
+	men_at_arms_maintenance = -0.5
+}
+
+maa_maintenance_minus_60 = {
+	men_at_arms_maintenance = -0.6
+}
+
+maa_maintenance_minus_70 = {
+	men_at_arms_maintenance = -0.7
+}
+
+maa_maintenance_minus_80 = {
+	men_at_arms_maintenance = -0.8
+}
+
+maa_maintenance_minus_90 = {
+	men_at_arms_maintenance = -0.9
+}
+
+maa_maintenance_minus_100 = {
+	men_at_arms_maintenance = -0.99
+}
+
+maa_maintenance_minus_95 = {
+	men_at_arms_maintenance = -0.95
+}
+
+maa_recruitment_cost_minus_10 = {
+	men_at_arms_recruitment_cost = -0.1
+}
+
+maa_recruitment_cost_minus_20 = {
+	men_at_arms_recruitment_cost = -0.2
+}
+
+maa_recruitment_cost_minus_30 = {
+	men_at_arms_recruitment_cost = -0.3
+}
+
+maa_recruitment_cost_minus_40 = {
+	men_at_arms_recruitment_cost = -0.4
+}
+
+maa_recruitment_cost_minus_50 = {
+	men_at_arms_recruitment_cost = -0.5
+}
+
+maa_recruitment_cost_minus_60 = {
+	men_at_arms_recruitment_cost = -0.6
+}
+
+maa_recruitment_cost_minus_70 = {
+	men_at_arms_recruitment_cost = -0.7
+}
+
+maa_recruitment_cost_minus_80 = {
+	men_at_arms_recruitment_cost = -0.8
+}
+
+maa_recruitment_cost_minus_90 = {
+	men_at_arms_recruitment_cost = -0.9
+}
+
+maa_recruitment_cost_minus_100 = {
+	men_at_arms_recruitment_cost = -0.99
+}
+
+maa_recruitment_cost_minus_95 = {
+	men_at_arms_recruitment_cost = -0.95
+}
+
+maa_limit_minus_10 = {
+	men_at_arms_cap = -1
+}
+
+title_maa_limit_minus_10 = {
+	men_at_arms_title_cap = -1
+}
+
+maa_limit_minus_20 = {
+	men_at_arms_cap = -2
+}
+
+title_maa_limit_minus_20 = {
+	men_at_arms_title_cap = -2
+}
+
+maa_limit_minus_30 = {
+	men_at_arms_cap = -3
+}
+
+title_maa_limit_minus_30 = {
+	men_at_arms_title_cap = -3
+}
+
+maa_limit_minus_40 = {
+	men_at_arms_cap = -4
+}
+
+title_maa_limit_minus_40 = {
+	men_at_arms_title_cap = -4
+}
+
+maa_limit_minus_50 = {
+	men_at_arms_cap = -5
+}
+
+title_maa_limit_minus_50 = {
+	men_at_arms_title_cap = -5
+}
+
+maa_limit_minus_60 = {
+	men_at_arms_cap = -6
+}
+
+title_maa_limit_minus_60 = {
+	men_at_arms_title_cap = -6
+}
+
+maa_limit_minus_70 = {
+	men_at_arms_cap = -7
+}
+
+title_maa_limit_minus_70 = {
+	men_at_arms_title_cap = -7
+}
+
+maa_limit_minus_80 = {
+	men_at_arms_cap = -8
+}
+
+title_maa_limit_minus_80 = {
+	men_at_arms_title_cap = -8
+}
+
+maa_limit_minus_90 = {
+	men_at_arms_cap = -9
+}
+
+title_maa_limit_minus_90 = {
+	men_at_arms_title_cap = -9
+}
+
+maa_limit_minus_100 = {
+	men_at_arms_cap = -10
+}
+
+title_maa_limit_minus_100 = {
+	men_at_arms_title_cap = -10
+}
+
+maa_size_minus_10 = {
+	men_at_arms_limit = -1
+}
+
+title_maa_size_minus_10 = {
+	men_at_arms_title_limit = -1
+}
+
+maa_size_minus_20 = {
+	men_at_arms_limit = -2
+}
+
+title_maa_size_minus_20 = {
+	men_at_arms_title_limit = -2
+}
+
+maa_size_minus_30 = {
+	men_at_arms_limit = -3
+}
+
+title_maa_size_minus_30 = {
+	men_at_arms_title_limit = -3
+}
+
+maa_size_minus_40 = {
+	men_at_arms_limit = -4
+}
+
+title_maa_size_minus_40 = {
+	men_at_arms_title_limit = -4
+}
+
+maa_size_minus_50 = {
+	men_at_arms_limit = -5
+}
+
+title_maa_size_minus_50 = {
+	men_at_arms_title_limit = -5
+}
+
+maa_size_minus_60 = {
+	men_at_arms_limit = -6
+}
+
+title_maa_size_minus_60 = {
+	men_at_arms_title_limit = -6
+}
+
+maa_size_minus_70 = {
+	men_at_arms_limit = -7
+}
+
+title_maa_size_minus_70 = {
+	men_at_arms_title_limit = -7
+}
+
+maa_size_minus_80 = {
+	men_at_arms_limit = -8
+}
+
+title_maa_size_minus_80 = {
+	men_at_arms_title_limit = -8
+}
+
+maa_size_minus_90 = {
+	men_at_arms_limit = -9
+}
+
+title_maa_size_minus_90 = {
+	men_at_arms_title_limit = -9
+}
+
+maa_size_minus_100 = {
+	men_at_arms_limit = -10
+}
+
+title_maa_size_minus_100 = {
+	men_at_arms_title_limit = -10
+}
+
+levy_maintenance_10 = {
+	levy_maintenance = -0.1
+}
+
+levy_maintenance_plus_10 = {
+	levy_maintenance = 0.1
+}
+
+levy_maintenance_20 = {
+	levy_maintenance = -0.2
+}
+
+levy_maintenance_plus_20 = {
+	levy_maintenance = 0.2
+}
+
+levy_maintenance_30 = {
+	levy_maintenance = -0.3
+}
+
+levy_maintenance_plus_30 = {
+	levy_maintenance = 0.3
+}
+
+levy_maintenance_40 = {
+	levy_maintenance = -0.4
+}
+
+levy_maintenance_plus_40 = {
+	levy_maintenance = 0.4
+}
+
+levy_maintenance_50 = {
+	levy_maintenance = -0.5
+}
+
+levy_maintenance_plus_50 = {
+	levy_maintenance = 0.5
+}
+
+levy_maintenance_60 = {
+	levy_maintenance = -0.6
+}
+
+levy_maintenance_plus_60 = {
+	levy_maintenance = 0.6
+}
+
+levy_maintenance_70 = {
+	levy_maintenance = -0.7
+}
+
+levy_maintenance_plus_70 = {
+	levy_maintenance = 0.7
+}
+
+levy_maintenance_80 = {
+	levy_maintenance = -0.8
+}
+
+levy_maintenance_plus_80 = {
+	levy_maintenance = 0.8
+}
+
+levy_maintenance_90 = {
+	levy_maintenance = -0.9
+}
+
+levy_maintenance_plus_90 = {
+	levy_maintenance = 0.9
+}
+
+levy_maintenance_100 = {
+	levy_maintenance = -0.99
+}
+
+levy_maintenance_95 = {
+	levy_maintenance = -0.95
+}
+
+levy_maintenance_plus_100 = {
+	levy_maintenance = 1
+}
+
+knight_limit_10 = {
+	knight_limit = -1
+}
+
+knight_limit_plus_10 = {
+	knight_limit = 1
+}
+
+knight_limit_20 = {
+	knight_limit = -2
+}
+
+knight_limit_plus_20 = {
+	knight_limit = 2
+}
+
+knight_limit_30 = {
+	knight_limit = -3
+}
+
+knight_limit_plus_30 = {
+	knight_limit = 3
+}
+
+knight_limit_40 = {
+	knight_limit = -4
+}
+
+knight_limit_plus_40 = {
+	knight_limit = 4
+}
+
+knight_limit_50 = {
+	knight_limit = -5
+}
+
+knight_limit_plus_50 = {
+	knight_limit = 5
+}
+
+knight_limit_60 = {
+	knight_limit = -6
+}
+
+knight_limit_plus_60 = {
+	knight_limit = 6
+}
+
+knight_limit_70 = {
+	knight_limit = -7
+}
+
+knight_limit_plus_70 = {
+	knight_limit = 7
+}
+
+knight_limit_80 = {
+	knight_limit = -8
+}
+
+knight_limit_plus_80 = {
+	knight_limit = 8
+}
+
+knight_limit_90 = {
+	knight_limit = -9
+}
+
+knight_limit_plus_90 = {
+	knight_limit = 9
+}
+
+knight_limit_100 = {
+	knight_limit = -10
+}
+
+knight_limit_plus_100 = {
+	knight_limit = 10
+}
+
+miv_health_1 = {
+	icon = health_negative
+	health = -0.2
+}
+
+miv_health_2 = {
+	icon = health_negative
+	health = -0.4
+}
+
+miv_health_3 = {
+	icon = health_negative
+	health = -0.6
+}
+
+miv_health_4 = {
+	icon = health_negative
+	health = -0.9
+}
+
+miv_health_5 = {
+	icon = health_negative
+	health = -2
+}
+
+miv_health_plus_1 = {
+	icon = health_positive
+	health = 0.2
+}
+
+miv_health_plus_2 = {
+	icon = health_positive
+	health = 0.4
+}
+
+miv_health_plus_3 = {
+	icon = health_positive
+	health = 0.6
+}
+
+miv_health_plus_4 = {
+	icon = health_positive
+	health = 0.9
+}
+
+miv_health_plus_5 = {
+	icon = health_positive
+	health = 1.5
+}
+
+fertility_10 = {
+	fertility = -0.1
+}
+
+fertility_plus_10 = {
+	fertility = 0.1
+}
+
+fertility_20 = {
+	fertility = -0.2
+}
+
+fertility_plus_20 = {
+	fertility = 0.2
+}
+
+fertility_30 = {
+	fertility = -0.3
+}
+
+fertility_plus_30 = {
+	fertility = 0.3
+}
+
+fertility_40 = {
+	fertility = -0.4
+}
+
+fertility_plus_40 = {
+	fertility = 0.4
+}
+
+fertility_50 = {
+	fertility = -0.5
+}
+
+fertility_plus_50 = {
+	fertility = 0.5
+}
+
+fertility_60 = {
+	fertility = -0.6
+}
+
+fertility_plus_60 = {
+	fertility = 0.6
+}
+
+fertility_70 = {
+	fertility = -0.7
+}
+
+fertility_plus_70 = {
+	fertility = 0.7
+}
+
+fertility_80 = {
+	fertility = -0.8
+}
+
+fertility_plus_80 = {
+	fertility = 0.8
+}
+
+fertility_90 = {
+	fertility = -0.9
+}
+
+fertility_plus_90 = {
+	fertility = 0.9
+}
+
+fertility_100 = {
+	fertility = -0.99
+}
+
+fertility_95 = {
+	fertility = -0.95
+}
+
+fertility_plus_100 = {
+	fertility = 1
+}
+
+years_of_fertility_1 = {
+	years_of_fertility = -1
+}
+
+years_of_fertility_plus_1 = {
+	years_of_fertility = 1
+}
+
+years_of_fertility_2 = {
+	years_of_fertility = -2
+}
+
+years_of_fertility_plus_2 = {
+	years_of_fertility = 2
+}
+
+years_of_fertility_3 = {
+	years_of_fertility = -3
+}
+
+years_of_fertility_plus_3 = {
+	years_of_fertility = 3
+}
+
+years_of_fertility_4 = {
+	years_of_fertility = -4
+}
+
+years_of_fertility_plus_4 = {
+	years_of_fertility = 4
+}
+
+years_of_fertility_5 = {
+	years_of_fertility = -5
+}
+
+years_of_fertility_plus_5 = {
+	years_of_fertility = 5
+}
+
+years_of_fertility_6 = {
+	years_of_fertility = -6
+}
+
+years_of_fertility_plus_6 = {
+	years_of_fertility = 6
+}
+
+years_of_fertility_7 = {
+	years_of_fertility = -7
+}
+
+years_of_fertility_plus_7 = {
+	years_of_fertility = 7
+}
+
+years_of_fertility_8 = {
+	years_of_fertility = -8
+}
+
+years_of_fertility_plus_8 = {
+	years_of_fertility = 8
+}
+
+years_of_fertility_9 = {
+	years_of_fertility = -9
+}
+
+years_of_fertility_plus_9 = {
+	years_of_fertility = 9
+}
+
+years_of_fertility_10 = {
+	years_of_fertility = -10
+}
+
+years_of_fertility_plus_10 = {
+	years_of_fertility = 10
+}
+
+holding_advantage_10 = {
+	defender_holding_advantage = -1
+}
+
+holding_advantage_plus_10 = {
+	defender_holding_advantage = 1
+}
+
+holding_advantage_20 = {
+	defender_holding_advantage = -2
+}
+
+holding_advantage_plus_20 = {
+	defender_holding_advantage = 2
+}
+
+holding_advantage_30 = {
+	defender_holding_advantage = -3
+}
+
+holding_advantage_plus_30 = {
+	defender_holding_advantage = 3
+}
+
+holding_advantage_40 = {
+	defender_holding_advantage = -4
+}
+
+holding_advantage_plus_40 = {
+	defender_holding_advantage = 4
+}
+
+holding_advantage_50 = {
+	defender_holding_advantage = -5
+}
+
+holding_advantage_plus_50 = {
+	defender_holding_advantage = 5
+}
+
+holding_advantage_60 = {
+	defender_holding_advantage = -6
+}
+
+holding_advantage_plus_60 = {
+	defender_holding_advantage = 6
+}
+
+holding_advantage_70 = {
+	defender_holding_advantage = -7
+}
+
+holding_advantage_plus_70 = {
+	defender_holding_advantage = 7
+}
+
+holding_advantage_80 = {
+	defender_holding_advantage = -8
+}
+
+holding_advantage_plus_80 = {
+	defender_holding_advantage = 8
+}
+
+holding_advantage_90 = {
+	defender_holding_advantage = -9
+}
+
+holding_advantage_plus_90 = {
+	defender_holding_advantage = 9
+}
+
+holding_advantage_100 = {
+	defender_holding_advantage = -10
+}
+
+holding_advantage_plus_100 = {
+	defender_holding_advantage = 10
+}
+
+development_growth_10 = {
+	development_growth_factor = -0.1
+}
+
+development_growth_plus_10 = {
+	development_growth_factor = 0.1
+}
+
+development_growth_20 = {
+	development_growth_factor = -0.2
+}
+
+development_growth_plus_20 = {
+	development_growth_factor = 0.2
+}
+
+development_growth_30 = {
+	development_growth_factor = -0.3
+}
+
+development_growth_plus_30 = {
+	development_growth_factor = 0.3
+}
+
+development_growth_40 = {
+	development_growth_factor = -0.4
+}
+
+development_growth_plus_40 = {
+	development_growth_factor = 0.4
+}
+
+development_growth_50 = {
+	development_growth_factor = -0.5
+}
+
+development_growth_plus_50 = {
+	development_growth_factor = 0.5
+}
+
+development_growth_60 = {
+	development_growth_factor = -0.6
+}
+
+development_growth_plus_60 = {
+	development_growth_factor = 0.6
+}
+
+development_growth_70 = {
+	development_growth_factor = -0.7
+}
+
+development_growth_plus_70 = {
+	development_growth_factor = 0.7
+}
+
+development_growth_80 = {
+	development_growth_factor = -0.8
+}
+
+development_growth_plus_80 = {
+	development_growth_factor = 0.8
+}
+
+development_growth_90 = {
+	development_growth_factor = -0.9
+}
+
+development_growth_plus_90 = {
+	development_growth_factor = 0.9
+}
+
+development_growth_100 = {
+	development_growth_factor = -0.99
+}
+
+development_growth_95 = {
+	development_growth_factor = -0.95
+}
+
+development_growth_plus_100 = {
+	development_growth_factor = 1
+}
+
+build_cost_10 = {
+	build_gold_cost = -0.1
+	holding_build_gold_cost = -0.1
+	domicile_build_gold_cost = -0.1
+	build_herd_cost = -0.1
+	build_prestige_cost = -0.1
+	build_piety_cost = -0.1
+	holding_build_piety_cost = -0.1
+	holding_build_prestige_cost = -0.1
+}
+
+build_cost_plus_10 = {
+	build_gold_cost = 0.1
+	holding_build_gold_cost = 0.1
+	domicile_build_gold_cost = 0.1
+	build_herd_cost = 0.1
+	build_prestige_cost = 0.1
+	build_piety_cost = 0.1
+	holding_build_piety_cost = 0.1
+	holding_build_prestige_cost = 0.1
+}
+
+build_cost_20 = {
+	build_gold_cost = -0.2
+	holding_build_gold_cost = -0.2
+	domicile_build_gold_cost = -0.2
+	build_herd_cost = -0.2
+	build_prestige_cost = -0.2
+	build_piety_cost = -0.2
+	holding_build_piety_cost = -0.2
+	holding_build_prestige_cost = -0.2
+}
+
+build_cost_plus_20 = {
+	build_gold_cost = 0.2
+	holding_build_gold_cost = 0.2
+	domicile_build_gold_cost = 0.2
+	build_herd_cost = 0.2
+	build_prestige_cost = 0.2
+	build_piety_cost = 0.2
+	holding_build_piety_cost = 0.2
+	holding_build_prestige_cost = 0.2
+}
+
+build_cost_30 = {
+	build_gold_cost = -0.3
+	holding_build_gold_cost = -0.3
+	domicile_build_gold_cost = -0.3
+	build_herd_cost = -0.3
+	build_prestige_cost = -0.3
+	build_piety_cost = -0.3
+	holding_build_piety_cost = -0.3
+	holding_build_prestige_cost = -0.3
+}
+
+build_cost_plus_30 = {
+	build_gold_cost = 0.3
+	holding_build_gold_cost = 0.3
+	domicile_build_gold_cost = 0.3
+	build_herd_cost = 0.3
+	build_prestige_cost = 0.3
+	build_piety_cost = 0.3
+	holding_build_piety_cost = 0.3
+	holding_build_prestige_cost = 0.3
+}
+
+build_cost_40 = {
+	build_gold_cost = -0.4
+	holding_build_gold_cost = -0.4
+	domicile_build_gold_cost = -0.4
+	build_herd_cost = -0.4
+	build_prestige_cost = -0.4
+	build_piety_cost = -0.4
+	holding_build_piety_cost = -0.4
+	holding_build_prestige_cost = -0.4
+}
+
+build_cost_plus_40 = {
+	build_gold_cost = 0.4
+	holding_build_gold_cost = 0.4
+	domicile_build_gold_cost = 0.4
+	build_herd_cost = 0.4
+	build_prestige_cost = 0.4
+	build_piety_cost = 0.4
+	holding_build_piety_cost = 0.4
+	holding_build_prestige_cost = 0.4
+}
+
+build_cost_50 = {
+	build_gold_cost = -0.5
+	holding_build_gold_cost = -0.5
+	domicile_build_gold_cost = -0.5
+	build_herd_cost = -0.5
+	build_prestige_cost = -0.5
+	build_piety_cost = -0.5
+	holding_build_piety_cost = -0.5
+	holding_build_prestige_cost = -0.5
+}
+
+build_cost_plus_50 = {
+	build_gold_cost = 0.5
+	holding_build_gold_cost = 0.5
+	domicile_build_gold_cost = 0.5
+	build_herd_cost = 0.5
+	build_prestige_cost = 0.5
+	build_piety_cost = 0.5
+	holding_build_piety_cost = 0.5
+	holding_build_prestige_cost = 0.5
+}
+
+build_cost_60 = {
+	build_gold_cost = -0.6
+	holding_build_gold_cost = -0.6
+	domicile_build_gold_cost = -0.6
+	build_herd_cost = -0.6
+	build_prestige_cost = -0.6
+	build_piety_cost = -0.6
+	holding_build_piety_cost = -0.6
+	holding_build_prestige_cost = -0.6
+}
+
+build_cost_plus_60 = {
+	build_gold_cost = 0.6
+	holding_build_gold_cost = 0.6
+	domicile_build_gold_cost = 0.6
+	build_herd_cost = 0.6
+	build_prestige_cost = 0.6
+	build_piety_cost = 0.6
+	holding_build_piety_cost = 0.6
+	holding_build_prestige_cost = 0.6
+}
+
+build_cost_70 = {
+	build_gold_cost = -0.7
+	holding_build_gold_cost = -0.7
+	domicile_build_gold_cost = -0.7
+	build_herd_cost = -0.7
+	build_prestige_cost = -0.7
+	build_piety_cost = -0.7
+	holding_build_piety_cost = -0.7
+	holding_build_prestige_cost = -0.7
+}
+
+build_cost_plus_70 = {
+	build_gold_cost = 0.7
+	holding_build_gold_cost = 0.7
+	domicile_build_gold_cost = 0.7
+	build_herd_cost = 0.7
+	build_prestige_cost = 0.7
+	build_piety_cost = 0.7
+	holding_build_piety_cost = 0.7
+	holding_build_prestige_cost = 0.7
+}
+
+build_cost_80 = {
+	build_gold_cost = -0.8
+	holding_build_gold_cost = -0.8
+	domicile_build_gold_cost = -0.8
+	build_herd_cost = -0.8
+	build_prestige_cost = -0.8
+	build_piety_cost = -0.8
+	holding_build_piety_cost = -0.8
+	holding_build_prestige_cost = -0.8
+}
+
+build_cost_plus_80 = {
+	build_gold_cost = 0.8
+	holding_build_gold_cost = 0.8
+	domicile_build_gold_cost = 0.8
+	build_herd_cost = 0.8
+	build_prestige_cost = 0.8
+	build_piety_cost = 0.8
+	holding_build_piety_cost = 0.8
+	holding_build_prestige_cost = 0.8
+}
+
+build_cost_90 = {
+	build_gold_cost = -0.9
+	holding_build_gold_cost = -0.9
+	domicile_build_gold_cost = -0.9
+	build_herd_cost = -0.9
+	build_prestige_cost = -0.9
+	build_piety_cost = -0.9
+	holding_build_piety_cost = -0.9
+	holding_build_prestige_cost = -0.9
+}
+
+build_cost_plus_90 = {
+	build_gold_cost = 0.9
+	holding_build_gold_cost = 0.9
+	domicile_build_gold_cost = 0.9
+	build_herd_cost = 0.9
+	build_prestige_cost = 0.9
+	build_piety_cost = 0.9
+	holding_build_piety_cost = 0.9
+	holding_build_prestige_cost = 0.9
+}
+
+build_cost_100 = {
+	build_gold_cost = -0.99
+	holding_build_gold_cost = -0.99
+	domicile_build_gold_cost = -0.99
+	build_herd_cost = -0.99
+	build_prestige_cost = -0.99
+	build_piety_cost = -0.99
+	holding_build_piety_cost = -0.99
+	holding_build_prestige_cost = -0.99
+}
+
+build_cost_95 = {
+	build_gold_cost = -0.95
+	holding_build_gold_cost = -0.95
+	domicile_build_gold_cost = -0.95
+	build_herd_cost = -0.95
+	build_prestige_cost = -0.95
+	build_piety_cost = -0.95
+	holding_build_piety_cost = -0.95
+	holding_build_prestige_cost = -0.95
+}
+
+build_cost_plus_100 = {
+	build_gold_cost = 1
+	holding_build_gold_cost = 1
+	domicile_build_gold_cost = 1
+	build_herd_cost = 1
+	build_prestige_cost = 1
+	build_piety_cost = 1
+	holding_build_piety_cost = 1
+	holding_build_prestige_cost = 1
+}
+
+build_speed_10 = {
+	build_speed = 0.1
+	holding_build_speed = 0.1
+	domicile_build_speed = 0.1
+}
+
+build_speed_plus_10 = {
+	build_speed = -0.1
+	holding_build_speed = -0.1
+	domicile_build_speed = -0.1
+}
+
+build_speed_20 = {
+	build_speed = 0.2
+	holding_build_speed = 0.2
+	domicile_build_speed = 0.2
+}
+
+build_speed_plus_20 = {
+	build_speed = -0.2
+	holding_build_speed = -0.2
+	domicile_build_speed = -0.2
+}
+
+build_speed_30 = {
+	build_speed = 0.3
+	holding_build_speed = 0.3
+	domicile_build_speed = 0.3
+}
+
+build_speed_plus_30 = {
+	build_speed = -0.3
+	holding_build_speed = -0.3
+	domicile_build_speed = -0.3
+}
+
+build_speed_40 = {
+	build_speed = 0.4
+	holding_build_speed = 0.4
+	domicile_build_speed = 0.4
+}
+
+build_speed_plus_40 = {
+	build_speed = -0.4
+	holding_build_speed = -0.4
+	domicile_build_speed = -0.4
+}
+
+build_speed_50 = {
+	build_speed = 0.5
+	holding_build_speed = 0.5
+	domicile_build_speed = 0.5
+}
+
+build_speed_plus_50 = {
+	build_speed = -0.5
+	holding_build_speed = -0.5
+	domicile_build_speed = -0.5
+}
+
+build_speed_60 = {
+	build_speed = 0.6
+	holding_build_speed = 0.6
+	domicile_build_speed = 0.6
+}
+
+build_speed_plus_60 = {
+	build_speed = -0.6
+	holding_build_speed = -0.6
+	domicile_build_speed = -0.6
+}
+
+build_speed_70 = {
+	build_speed = 0.7
+	holding_build_speed = 0.7
+	domicile_build_speed = 0.7
+}
+
+build_speed_plus_70 = {
+	build_speed = -0.7
+	holding_build_speed = -0.7
+	domicile_build_speed = -0.7
+}
+
+build_speed_80 = {
+	build_speed = 0.8
+	holding_build_speed = 0.8
+	domicile_build_speed = 0.8
+}
+
+build_speed_plus_80 = {
+	build_speed = -0.8
+	holding_build_speed = -0.8
+	domicile_build_speed = -0.8
+}
+
+build_speed_90 = {
+	build_speed = 0.9
+	holding_build_speed = 0.9
+	domicile_build_speed = 0.9
+}
+
+build_speed_plus_90 = {
+	build_speed = -0.9
+	holding_build_speed = -0.9
+	domicile_build_speed = -0.9
+}
+
+build_speed_100 = {
+	build_speed = 0.99
+	holding_build_speed = 0.99
+	domicile_build_speed = 0.99
+}
+
+build_speed_95 = {
+	build_speed = 0.95
+	holding_build_speed = 0.95
+	domicile_build_speed = 0.95
+}
+
+build_speed_plus_100 = {
+	build_speed = -1
+	holding_build_speed = -1
+	domicile_build_speed = -1
+}
+
+vassal_opinion_5 = {
+	vassal_opinion = -5
+}
+
+vassal_opinion_10 = {
+	vassal_opinion = -10
+}
+
+vassal_opinion_15 = {
+	vassal_opinion = -15
+}
+
+vassal_opinion_20 = {
+	vassal_opinion = -20
+}
+
+vassal_opinion_25 = {
+	vassal_opinion = -25
+}
+
+vassal_opinion_30 = {
+	vassal_opinion = -30
+}
+
+vassal_opinion_35 = {
+	vassal_opinion = -35
+}
+
+vassal_opinion_40 = {
+	vassal_opinion = -40
+}
+
+vassal_opinion_45 = {
+	vassal_opinion = -45
+}
+
+vassal_opinion_50 = {
+	vassal_opinion = -50
+}
+
+player_domain_tax_10 = {
+	domain_tax_mult = -0.1
+}
+
+player_domain_tax_20 = {
+	domain_tax_mult = -0.2
+}
+
+player_domain_tax_30 = {
+	domain_tax_mult = -0.3
+}
+
+player_domain_tax_40 = {
+	domain_tax_mult = -0.4
+}
+
+player_domain_tax_50 = {
+	domain_tax_mult = -0.5
+}
+
+player_domain_tax_60 = {
+	domain_tax_mult = -0.6
+}
+
+player_domain_tax_70 = {
+	domain_tax_mult = -0.7
+}
+
+player_domain_tax_80 = {
+	domain_tax_mult = -0.8
+}
+
+player_domain_tax_90 = {
+	domain_tax_mult = -0.9
+}
+
+player_domain_tax_100 = {
+	domain_tax_mult = -0.95
+}
+
+player_maa_cost_10 = {
+	men_at_arms_recruitment_cost = 0.1
+}
+
+player_maa_cost_20 = {
+	men_at_arms_recruitment_cost = 0.2
+}
+
+player_maa_cost_30 = {
+	men_at_arms_recruitment_cost = 0.3
+}
+
+player_maa_cost_40 = {
+	men_at_arms_recruitment_cost = 0.4
+}
+
+player_maa_cost_50 = {
+	men_at_arms_recruitment_cost = 0.5
+}
+
+player_maa_cost_60 = {
+	men_at_arms_recruitment_cost = 0.6
+}
+
+player_maa_cost_70 = {
+	men_at_arms_recruitment_cost = 0.7
+}
+
+player_maa_cost_80 = {
+	men_at_arms_recruitment_cost = 0.8
+}
+
+player_maa_cost_90 = {
+	men_at_arms_recruitment_cost = 0.9
+}
+
+player_maa_cost_100 = {
+	men_at_arms_recruitment_cost = 1
+}
+
+player_maa_cost_150 = {
+	men_at_arms_recruitment_cost = 1.5
+}
+
+player_maa_cost_200 = {
+	men_at_arms_recruitment_cost = 2
+}
+
+player_merc_cost_10 = {
+	mercenary_hire_cost_mult = 0.1
+	holy_order_hire_cost_mult = 0.1
+}
+
+player_merc_cost_20 = {
+	mercenary_hire_cost_mult = 0.2
+	holy_order_hire_cost_mult = 0.2
+}
+
+player_merc_cost_30 = {
+	mercenary_hire_cost_mult = 0.3
+	holy_order_hire_cost_mult = 0.3
+}
+
+player_merc_cost_40 = {
+	mercenary_hire_cost_mult = 0.4
+	holy_order_hire_cost_mult = 0.4
+}
+
+player_merc_cost_50 = {
+	mercenary_hire_cost_mult = 0.5
+	holy_order_hire_cost_mult = 0.5
+}
+
+player_merc_cost_60 = {
+	mercenary_hire_cost_mult = 0.6
+	holy_order_hire_cost_mult = 0.6
+}
+
+player_merc_cost_70 = {
+	mercenary_hire_cost_mult = 0.7
+	holy_order_hire_cost_mult = 0.7
+}
+
+player_merc_cost_80 = {
+	mercenary_hire_cost_mult = 0.8
+	holy_order_hire_cost_mult = 0.8
+}
+
+player_merc_cost_90 = {
+	mercenary_hire_cost_mult = 0.9
+	holy_order_hire_cost_mult = 0.9
+}
+
+player_merc_cost_100 = {
+	mercenary_hire_cost_mult = 1
+	holy_order_hire_cost_mult = 1
+}
+
+player_merc_cost_150 = {
+	mercenary_hire_cost_mult = 1.5
+	holy_order_hire_cost_mult = 1.5
+}
+
+player_merc_cost_200 = {
+	mercenary_hire_cost_mult = 2
+	holy_order_hire_cost_mult = 2
+}
+
+player_build_cost_10 = {
+	build_gold_cost = 0.1
+	holding_build_gold_cost = 0.1
+	domicile_build_gold_cost = 0.1
+	build_herd_cost = 0.1
+	build_prestige_cost = 0.1
+	build_piety_cost = 0.1
+	holding_build_piety_cost = 0.1
+	holding_build_prestige_cost = 0.1
+}
+
+player_build_cost_20 = {
+	build_gold_cost = 0.2
+	holding_build_gold_cost = 0.2
+	domicile_build_gold_cost = 0.2
+	build_herd_cost = 0.2
+	build_prestige_cost = 0.2
+	build_piety_cost = 0.2
+	holding_build_piety_cost = 0.2
+	holding_build_prestige_cost = 0.2
+}
+
+player_build_cost_30 = {
+	build_gold_cost = 0.3
+	holding_build_gold_cost = 0.3
+	domicile_build_gold_cost = 0.3
+	build_herd_cost = 0.3
+	build_prestige_cost = 0.3
+	build_piety_cost = 0.3
+	holding_build_piety_cost = 0.3
+	holding_build_prestige_cost = 0.3
+}
+
+player_build_cost_40 = {
+	build_gold_cost = 0.4
+	holding_build_gold_cost = 0.4
+	domicile_build_gold_cost = 0.4
+	build_herd_cost = 0.4
+	build_prestige_cost = 0.4
+	build_piety_cost = 0.4
+	holding_build_piety_cost = 0.4
+	holding_build_prestige_cost = 0.4
+}
+
+player_build_cost_50 = {
+	build_gold_cost = 0.5
+	holding_build_gold_cost = 0.5
+	domicile_build_gold_cost = 0.5
+	build_herd_cost = 0.5
+	build_prestige_cost = 0.5
+	build_piety_cost = 0.5
+	holding_build_piety_cost = 0.5
+	holding_build_prestige_cost = 0.5
+}
+
+player_build_cost_60 = {
+	build_gold_cost = 0.6
+	holding_build_gold_cost = 0.6
+	domicile_build_gold_cost = 0.6
+	build_herd_cost = 0.6
+	build_prestige_cost = 0.6
+	build_piety_cost = 0.6
+	holding_build_piety_cost = 0.6
+	holding_build_prestige_cost = 0.6
+}
+
+player_build_cost_70 = {
+	build_gold_cost = 0.7
+	holding_build_gold_cost = 0.7
+	domicile_build_gold_cost = 0.7
+	build_herd_cost = 0.7
+	build_prestige_cost = 0.7
+	build_piety_cost = 0.7
+	holding_build_piety_cost = 0.7
+	holding_build_prestige_cost = 0.7
+}
+
+player_build_cost_80 = {
+	build_gold_cost = 0.8
+	holding_build_gold_cost = 0.8
+	domicile_build_gold_cost = 0.8
+	build_herd_cost = 0.8
+	build_prestige_cost = 0.8
+	build_piety_cost = 0.8
+	holding_build_piety_cost = 0.8
+	holding_build_prestige_cost = 0.8
+}
+
+player_build_cost_90 = {
+	build_gold_cost = 0.9
+	holding_build_gold_cost = 0.9
+	domicile_build_gold_cost = 0.9
+	build_herd_cost = 0.9
+	build_prestige_cost = 0.9
+	build_piety_cost = 0.9
+	holding_build_piety_cost = 0.9
+	holding_build_prestige_cost = 0.9
+}
+
+player_build_cost_100 = {
+	build_gold_cost = 1
+	holding_build_gold_cost = 1
+	domicile_build_gold_cost = 1
+	build_herd_cost = 1
+	build_prestige_cost = 1
+	build_piety_cost = 1
+	holding_build_piety_cost = 1
+	holding_build_prestige_cost = 1
+}
+
+player_build_cost_150 = {
+	build_gold_cost = 1.5
+	holding_build_gold_cost = 1.5
+	domicile_build_gold_cost = 1.5
+	build_herd_cost = 1.5
+	build_prestige_cost = 1.5
+	build_piety_cost = 1.5
+	holding_build_piety_cost = 1.5
+	holding_build_prestige_cost = 1.5
+}
+
+player_build_cost_200 = {
+	build_gold_cost = 2
+	holding_build_gold_cost = 2
+	domicile_build_gold_cost = 2
+	build_herd_cost = 2
+	build_prestige_cost = 2
+	build_piety_cost = 2
+	holding_build_piety_cost = 2
+	holding_build_prestige_cost = 2
+}
+
+player_stress_gain_10 = {
+	stress_gain_mult = 0.1
+}
+
+player_stress_gain_20 = {
+	stress_gain_mult = 0.2
+}
+
+player_stress_gain_30 = {
+	stress_gain_mult = 0.3
+}
+
+player_stress_gain_40 = {
+	stress_gain_mult = 0.4
+}
+
+player_stress_gain_50 = {
+	stress_gain_mult = 0.5
+}
+
+player_stress_gain_60 = {
+	stress_gain_mult = 0.6
+}
+
+player_stress_gain_70 = {
+	stress_gain_mult = 0.7
+}
+
+player_stress_gain_80 = {
+	stress_gain_mult = 0.8
+}
+
+player_stress_gain_90 = {
+	stress_gain_mult = 0.9
+}
+
+player_stress_gain_100 = {
+	stress_gain_mult = 1
+}
+
+player_stress_gain_150 = {
+	stress_gain_mult = 1.5
+}
+
+player_stress_gain_200 = {
+	stress_gain_mult = 2
+}
+
+player_maa_maintenance_10 = {
+	men_at_arms_maintenance = 0.1
+}
+
+player_maa_maintenance_20 = {
+	men_at_arms_maintenance = 0.2
+}
+
+player_maa_maintenance_30 = {
+	men_at_arms_maintenance = 0.3
+}
+
+player_maa_maintenance_40 = {
+	men_at_arms_maintenance = 0.4
+}
+
+player_maa_maintenance_50 = {
+	men_at_arms_maintenance = 0.5
+}
+
+player_maa_maintenance_60 = {
+	men_at_arms_maintenance = 0.6
+}
+
+player_maa_maintenance_70 = {
+	men_at_arms_maintenance = 0.7
+}
+
+player_maa_maintenance_80 = {
+	men_at_arms_maintenance = 0.8
+}
+
+player_maa_maintenance_90 = {
+	men_at_arms_maintenance = 0.9
+}
+
+player_maa_maintenance_100 = {
+	men_at_arms_maintenance = 1
+}
+
+player_maa_maintenance_150 = {
+	men_at_arms_maintenance = 1.5
+}
+
+player_maa_maintenance_200 = {
+	men_at_arms_maintenance = 2
+}
+
+player_lifestyle_xp_10 = {
+	monthly_lifestyle_xp_gain_mult = -0.1
+}
+
+player_lifestyle_xp_20 = {
+	monthly_lifestyle_xp_gain_mult = -0.2
+}
+
+player_lifestyle_xp_30 = {
+	monthly_lifestyle_xp_gain_mult = -0.3
+}
+
+player_lifestyle_xp_40 = {
+	monthly_lifestyle_xp_gain_mult = -0.4
+}
+
+player_lifestyle_xp_50 = {
+	monthly_lifestyle_xp_gain_mult = -0.5
+}
+
+player_lifestyle_xp_60 = {
+	monthly_lifestyle_xp_gain_mult = -0.6
+}
+
+player_lifestyle_xp_70 = {
+	monthly_lifestyle_xp_gain_mult = -0.7
+}
+
+player_lifestyle_xp_80 = {
+	monthly_lifestyle_xp_gain_mult = -0.8
+}
+
+player_lifestyle_xp_90 = {
+	monthly_lifestyle_xp_gain_mult = -0.9
+}
+
+player_lifestyle_xp_100 = {
+	monthly_lifestyle_xp_gain_mult = -0.95
+}
+
+miv_accolade_glory_99 = {
+	accolade_glory_gain_mult = -0.99
+}
+
+miv_accolade_glory_100 = {
+	accolade_glory_gain_mult = -0.95
+}
+
+miv_accolade_glory_90 = {
+	accolade_glory_gain_mult = -0.9
+}
+
+miv_accolade_glory_80 = {
+	accolade_glory_gain_mult = -0.8
+}
+
+miv_accolade_glory_70 = {
+	accolade_glory_gain_mult = -0.7
+}
+
+miv_accolade_glory_60 = {
+	accolade_glory_gain_mult = -0.6
+}
+
+miv_accolade_glory_50 = {
+	accolade_glory_gain_mult = -0.5
+}
+
+miv_accolade_glory_40 = {
+	accolade_glory_gain_mult = -0.4
+}
+
+miv_accolade_glory_30 = {
+	accolade_glory_gain_mult = -0.3
+}
+
+miv_accolade_glory_20 = {
+	accolade_glory_gain_mult = -0.2
+}
+
+miv_accolade_glory_10 = {
+	accolade_glory_gain_mult = -0.1
+}
+
+miv_accolade_glory_plus_10 = {
+	accolade_glory_gain_mult = 0.1
+}
+
+miv_accolade_glory_plus_20 = {
+	accolade_glory_gain_mult = 0.2
+}
+
+miv_accolade_glory_plus_30 = {
+	accolade_glory_gain_mult = 0.3
+}
+
+miv_accolade_glory_plus_40 = {
+	accolade_glory_gain_mult = 0.4
+}
+
+miv_accolade_glory_plus_50 = {
+	accolade_glory_gain_mult = 0.5
+}
+
+miv_accolade_glory_plus_60 = {
+	accolade_glory_gain_mult = 0.6
+}
+
+miv_accolade_glory_plus_70 = {
+	accolade_glory_gain_mult = 0.7
+}
+
+miv_accolade_glory_plus_80 = {
+	accolade_glory_gain_mult = 0.8
+}
+
+miv_accolade_glory_plus_90 = {
+	accolade_glory_gain_mult = 0.9
+}
+
+miv_accolade_glory_plus_100 = {
+	accolade_glory_gain_mult = 1
+}
+
+miv_max_accolades_minus_5 = {
+	accolades = -5
+}
+
+miv_max_accolades_minus_4 = {
+	accolades = -4
+}
+
+miv_max_accolades_minus_3 = {
+	accolades = -3
+}
+
+miv_max_accolades_minus_2 = {
+	accolades = -2
+}
+
+miv_max_accolades_minus_1 = {
+	accolades = -1
+}
+
+miv_max_accolades_plus_1 = {
+	accolades = 1
+}
+
+miv_max_accolades_plus_2 = {
+	accolades = 2
+}
+
+miv_max_accolades_plus_3 = {
+	accolades = 3
+}
+
+miv_max_accolades_plus_4 = {
+	accolades = 4
+}
+
+miv_max_accolades_plus_5 = {
+	accolades = 5
+}
+
+miv_rite_cost_minus_100 = {
+	rite_creation_piety_cost_mult = -1
+}
+
+miv_rite_cost_minus_99 = {
+	rite_creation_piety_cost_mult = -0.99
+}
+
+miv_rite_cost_minus_95 = {
+	rite_creation_piety_cost_mult = -0.95
+}
+
+miv_rite_cost_minus_90 = {
+	rite_creation_piety_cost_mult = -0.9
+}
+
+miv_rite_cost_minus_80 = {
+	rite_creation_piety_cost_mult = -0.8
+}
+
+miv_rite_cost_minus_70 = {
+	rite_creation_piety_cost_mult = -0.7
+}
+
+miv_rite_cost_minus_60 = {
+	rite_creation_piety_cost_mult = -0.6
+}
+
+miv_rite_cost_minus_50 = {
+	rite_creation_piety_cost_mult = -0.5
+}
+
+miv_rite_cost_minus_40 = {
+	rite_creation_piety_cost_mult = -0.4
+}
+
+miv_rite_cost_minus_30 = {
+	rite_creation_piety_cost_mult = -0.3
+}
+
+miv_rite_cost_minus_20 = {
+	rite_creation_piety_cost_mult = -0.2
+}
+
+miv_rite_cost_minus_10 = {
+	rite_creation_piety_cost_mult = -0.1
+}
+
+miv_rite_cost_plus_10 = {
+	rite_creation_piety_cost_mult = 0.1
+}
+
+miv_rite_cost_plus_20 = {
+	rite_creation_piety_cost_mult = 0.2
+}
+
+miv_rite_cost_plus_30 = {
+	rite_creation_piety_cost_mult = 0.3
+}
+
+miv_rite_cost_plus_40 = {
+	rite_creation_piety_cost_mult = 0.4
+}
+
+miv_rite_cost_plus_50 = {
+	rite_creation_piety_cost_mult = 0.5
+}
+
+miv_rite_cost_plus_60 = {
+	rite_creation_piety_cost_mult = 0.6
+}
+
+miv_rite_cost_plus_70 = {
+	rite_creation_piety_cost_mult = 0.7
+}
+
+miv_rite_cost_plus_80 = {
+	rite_creation_piety_cost_mult = 0.8
+}
+
+miv_rite_cost_plus_90 = {
+	rite_creation_piety_cost_mult = 0.9
+}
+
+miv_rite_cost_plus_100 = {
+	rite_creation_piety_cost_mult = 1
+}
+
+miv_rite_cost_plus_150 = {
+	rite_creation_piety_cost_mult = 1.5
+}
+
+miv_rite_cost_plus_200 = {
+	rite_creation_piety_cost_mult = 2
+}
+
+miv_personal_tenets_minus_5 = {
+	personal_tenet_slot_add = -5
+}
+
+miv_personal_tenets_minus_4 = {
+	personal_tenet_slot_add = -4
+}
+
+miv_personal_tenets_minus_3 = {
+	personal_tenet_slot_add = -3
+}
+
+miv_personal_tenets_minus_2 = {
+	personal_tenet_slot_add = -2
+}
+
+miv_personal_tenets_minus_1 = {
+	personal_tenet_slot_add = -1
+}
+
+miv_personal_tenets_plus_1 = {
+	personal_tenet_slot_add = 1
+}
+
+miv_personal_tenets_plus_2 = {
+	personal_tenet_slot_add = 2
+}
+
+miv_personal_tenets_plus_3 = {
+	personal_tenet_slot_add = 3
+}
+
+miv_personal_tenets_plus_4 = {
+	personal_tenet_slot_add = 4
+}
+
+miv_personal_tenets_plus_5 = {
+	personal_tenet_slot_add = 5
+}
+
+miv_raid_speed_99 = {
+	raid_speed = -0.99
+}
+
+miv_raid_speed_100 = {
+	raid_speed = -0.95
+}
+
+miv_raid_speed_90 = {
+	raid_speed = -0.9
+}
+
+miv_raid_speed_80 = {
+	raid_speed = -0.8
+}
+
+miv_raid_speed_70 = {
+	raid_speed = -0.7
+}
+
+miv_raid_speed_60 = {
+	raid_speed = -0.6
+}
+
+miv_raid_speed_50 = {
+	raid_speed = -0.5
+}
+
+miv_raid_speed_40 = {
+	raid_speed = -0.4
+}
+
+miv_raid_speed_30 = {
+	raid_speed = -0.3
+}
+
+miv_raid_speed_20 = {
+	raid_speed = -0.2
+}
+
+miv_raid_speed_10 = {
+	raid_speed = -0.1
+}
+
+miv_raid_speed_plus_10 = {
+	raid_speed = 0.1
+}
+
+miv_raid_speed_plus_20 = {
+	raid_speed = 0.2
+}
+
+miv_raid_speed_plus_30 = {
+	raid_speed = 0.3
+}
+
+miv_raid_speed_plus_40 = {
+	raid_speed = 0.4
+}
+
+miv_raid_speed_plus_50 = {
+	raid_speed = 0.5
+}
+
+miv_raid_speed_plus_60 = {
+	raid_speed = 0.6
+}
+
+miv_raid_speed_plus_70 = {
+	raid_speed = 0.7
+}
+
+miv_raid_speed_plus_80 = {
+	raid_speed = 0.8
+}
+
+miv_raid_speed_plus_90 = {
+	raid_speed = 0.9
+}
+
+miv_raid_speed_plus_100 = {
+	raid_speed = 1
+}
+
+miv_travel_speed_99 = {
+	character_travel_speed_mult = -0.99
+}
+
+miv_travel_speed_100 = {
+	character_travel_speed_mult = -0.95
+}
+
+miv_travel_speed_90 = {
+	character_travel_speed_mult = -0.9
+}
+
+miv_travel_speed_80 = {
+	character_travel_speed_mult = -0.8
+}
+
+miv_travel_speed_70 = {
+	character_travel_speed_mult = -0.7
+}
+
+miv_travel_speed_60 = {
+	character_travel_speed_mult = -0.6
+}
+
+miv_travel_speed_50 = {
+	character_travel_speed_mult = -0.5
+}
+
+miv_travel_speed_40 = {
+	character_travel_speed_mult = -0.4
+}
+
+miv_travel_speed_30 = {
+	character_travel_speed_mult = -0.3
+}
+
+miv_travel_speed_20 = {
+	character_travel_speed_mult = -0.2
+}
+
+miv_travel_speed_10 = {
+	character_travel_speed_mult = -0.1
+}
+
+miv_travel_speed_plus_10 = {
+	character_travel_speed_mult = 0.1
+}
+
+miv_travel_speed_plus_20 = {
+	character_travel_speed_mult = 0.2
+}
+
+miv_travel_speed_plus_30 = {
+	character_travel_speed_mult = 0.3
+}
+
+miv_travel_speed_plus_40 = {
+	character_travel_speed_mult = 0.4
+}
+
+miv_travel_speed_plus_50 = {
+	character_travel_speed_mult = 0.5
+}
+
+miv_travel_speed_plus_60 = {
+	character_travel_speed_mult = 0.6
+}
+
+miv_travel_speed_plus_70 = {
+	character_travel_speed_mult = 0.7
+}
+
+miv_travel_speed_plus_80 = {
+	character_travel_speed_mult = 0.8
+}
+
+miv_travel_speed_plus_90 = {
+	character_travel_speed_mult = 0.9
+}
+
+miv_travel_speed_plus_100 = {
+	character_travel_speed_mult = 1
+}
+
+miv_travel_danger_100 = {
+	travel_danger = -50
+}
+
+miv_travel_danger_90 = {
+	travel_danger = -45
+}
+
+miv_travel_danger_80 = {
+	travel_danger = -40
+}
+
+miv_travel_danger_70 = {
+	travel_danger = -35
+}
+
+miv_travel_danger_60 = {
+	travel_danger = -30
+}
+
+miv_travel_danger_50 = {
+	travel_danger = -25
+}
+
+miv_travel_danger_40 = {
+	travel_danger = -20
+}
+
+miv_travel_danger_30 = {
+	travel_danger = -15
+}
+
+miv_travel_danger_20 = {
+	travel_danger = -10
+}
+
+miv_travel_danger_10 = {
+	travel_danger = -5
+}
+
+miv_travel_danger_plus_10 = {
+	travel_danger = 5
+}
+
+miv_travel_danger_plus_20 = {
+	travel_danger = 10
+}
+
+miv_travel_danger_plus_30 = {
+	travel_danger = 15
+}
+
+miv_travel_danger_plus_40 = {
+	travel_danger = 20
+}
+
+miv_travel_danger_plus_50 = {
+	travel_danger = 25
+}
+
+miv_travel_danger_plus_60 = {
+	travel_danger = 30
+}
+
+miv_travel_danger_plus_70 = {
+	travel_danger = 35
+}
+
+miv_travel_danger_plus_80 = {
+	travel_danger = 40
+}
+
+miv_travel_danger_plus_90 = {
+	travel_danger = 45
+}
+
+miv_travel_danger_plus_100 = {
+	travel_danger = 50
+}
+
+miv_diplomatic_range_99 = {
+	diplomatic_range_mult = -0.99
+}
+
+miv_diplomatic_range_100 = {
+	diplomatic_range_mult = -0.95
+}
+
+miv_diplomatic_range_90 = {
+	diplomatic_range_mult = -0.9
+}
+
+miv_diplomatic_range_80 = {
+	diplomatic_range_mult = -0.8
+}
+
+miv_diplomatic_range_70 = {
+	diplomatic_range_mult = -0.7
+}
+
+miv_diplomatic_range_60 = {
+	diplomatic_range_mult = -0.6
+}
+
+miv_diplomatic_range_50 = {
+	diplomatic_range_mult = -0.5
+}
+
+miv_diplomatic_range_40 = {
+	diplomatic_range_mult = -0.4
+}
+
+miv_diplomatic_range_30 = {
+	diplomatic_range_mult = -0.3
+}
+
+miv_diplomatic_range_20 = {
+	diplomatic_range_mult = -0.2
+}
+
+miv_diplomatic_range_10 = {
+	diplomatic_range_mult = -0.1
+}
+
+miv_diplomatic_range_plus_10 = {
+	diplomatic_range_mult = 0.1
+}
+
+miv_diplomatic_range_plus_20 = {
+	diplomatic_range_mult = 0.2
+}
+
+miv_diplomatic_range_plus_30 = {
+	diplomatic_range_mult = 0.3
+}
+
+miv_diplomatic_range_plus_40 = {
+	diplomatic_range_mult = 0.4
+}
+
+miv_diplomatic_range_plus_50 = {
+	diplomatic_range_mult = 0.5
+}
+
+miv_diplomatic_range_plus_60 = {
+	diplomatic_range_mult = 0.6
+}
+
+miv_diplomatic_range_plus_70 = {
+	diplomatic_range_mult = 0.7
+}
+
+miv_diplomatic_range_plus_80 = {
+	diplomatic_range_mult = 0.8
+}
+
+miv_diplomatic_range_plus_90 = {
+	diplomatic_range_mult = 0.9
+}
+
+miv_diplomatic_range_plus_100 = {
+	diplomatic_range_mult = 1
+}
+
+miv_influence_99 = {
+	monthly_influence_mult = -0.99
+}
+
+miv_influence_100 = {
+	monthly_influence_mult = -0.95
+}
+
+miv_influence_90 = {
+	monthly_influence_mult = -0.9
+}
+
+miv_influence_80 = {
+	monthly_influence_mult = -0.8
+}
+
+miv_influence_70 = {
+	monthly_influence_mult = -0.7
+}
+
+miv_influence_60 = {
+	monthly_influence_mult = -0.6
+}
+
+miv_influence_50 = {
+	monthly_influence_mult = -0.5
+}
+
+miv_influence_40 = {
+	monthly_influence_mult = -0.4
+}
+
+miv_influence_30 = {
+	monthly_influence_mult = -0.3
+}
+
+miv_influence_20 = {
+	monthly_influence_mult = -0.2
+}
+
+miv_influence_10 = {
+	monthly_influence_mult = -0.1
+}
+
+miv_influence_plus_10 = {
+	monthly_influence_mult = 0.1
+}
+
+miv_influence_plus_20 = {
+	monthly_influence_mult = 0.2
+}
+
+miv_influence_plus_30 = {
+	monthly_influence_mult = 0.3
+}
+
+miv_influence_plus_40 = {
+	monthly_influence_mult = 0.4
+}
+
+miv_influence_plus_50 = {
+	monthly_influence_mult = 0.5
+}
+
+miv_influence_plus_60 = {
+	monthly_influence_mult = 0.6
+}
+
+miv_influence_plus_70 = {
+	monthly_influence_mult = 0.7
+}
+
+miv_influence_plus_80 = {
+	monthly_influence_mult = 0.8
+}
+
+miv_influence_plus_90 = {
+	monthly_influence_mult = 0.9
+}
+
+miv_influence_plus_100 = {
+	monthly_influence_mult = 1
+}
+
+miv_prestige_99 = {
+	monthly_prestige_gain_mult = -0.99
+}
+
+miv_prestige_100 = {
+	monthly_prestige_gain_mult = -0.95
+}
+
+miv_prestige_90 = {
+	monthly_prestige_gain_mult = -0.9
+}
+
+miv_prestige_80 = {
+	monthly_prestige_gain_mult = -0.8
+}
+
+miv_prestige_70 = {
+	monthly_prestige_gain_mult = -0.7
+}
+
+miv_prestige_60 = {
+	monthly_prestige_gain_mult = -0.6
+}
+
+miv_prestige_50 = {
+	monthly_prestige_gain_mult = -0.5
+}
+
+miv_prestige_40 = {
+	monthly_prestige_gain_mult = -0.4
+}
+
+miv_prestige_30 = {
+	monthly_prestige_gain_mult = -0.3
+}
+
+miv_prestige_20 = {
+	monthly_prestige_gain_mult = -0.2
+}
+
+miv_prestige_10 = {
+	monthly_prestige_gain_mult = -0.1
+}
+
+miv_prestige_plus_10 = {
+	monthly_prestige_gain_mult = 0.1
+}
+
+miv_prestige_plus_20 = {
+	monthly_prestige_gain_mult = 0.2
+}
+
+miv_prestige_plus_30 = {
+	monthly_prestige_gain_mult = 0.3
+}
+
+miv_prestige_plus_40 = {
+	monthly_prestige_gain_mult = 0.4
+}
+
+miv_prestige_plus_50 = {
+	monthly_prestige_gain_mult = 0.5
+}
+
+miv_prestige_plus_60 = {
+	monthly_prestige_gain_mult = 0.6
+}
+
+miv_prestige_plus_70 = {
+	monthly_prestige_gain_mult = 0.7
+}
+
+miv_prestige_plus_80 = {
+	monthly_prestige_gain_mult = 0.8
+}
+
+miv_prestige_plus_90 = {
+	monthly_prestige_gain_mult = 0.9
+}
+
+miv_prestige_plus_100 = {
+	monthly_prestige_gain_mult = 1
+}
+
+miv_renown_99 = {
+	monthly_dynasty_prestige_mult = -0.99
+}
+
+miv_renown_100 = {
+	monthly_dynasty_prestige_mult = -0.95
+}
+
+miv_renown_90 = {
+	monthly_dynasty_prestige_mult = -0.9
+}
+
+miv_renown_80 = {
+	monthly_dynasty_prestige_mult = -0.8
+}
+
+miv_renown_70 = {
+	monthly_dynasty_prestige_mult = -0.7
+}
+
+miv_renown_60 = {
+	monthly_dynasty_prestige_mult = -0.6
+}
+
+miv_renown_50 = {
+	monthly_dynasty_prestige_mult = -0.5
+}
+
+miv_renown_40 = {
+	monthly_dynasty_prestige_mult = -0.4
+}
+
+miv_renown_30 = {
+	monthly_dynasty_prestige_mult = -0.3
+}
+
+miv_renown_20 = {
+	monthly_dynasty_prestige_mult = -0.2
+}
+
+miv_renown_10 = {
+	monthly_dynasty_prestige_mult = -0.1
+}
+
+miv_renown_plus_10 = {
+	monthly_dynasty_prestige_mult = 0.1
+}
+
+miv_renown_plus_20 = {
+	monthly_dynasty_prestige_mult = 0.2
+}
+
+miv_renown_plus_30 = {
+	monthly_dynasty_prestige_mult = 0.3
+}
+
+miv_renown_plus_40 = {
+	monthly_dynasty_prestige_mult = 0.4
+}
+
+miv_renown_plus_50 = {
+	monthly_dynasty_prestige_mult = 0.5
+}
+
+miv_renown_plus_60 = {
+	monthly_dynasty_prestige_mult = 0.6
+}
+
+miv_renown_plus_70 = {
+	monthly_dynasty_prestige_mult = 0.7
+}
+
+miv_renown_plus_80 = {
+	monthly_dynasty_prestige_mult = 0.8
+}
+
+miv_renown_plus_90 = {
+	monthly_dynasty_prestige_mult = 0.9
+}
+
+miv_renown_plus_100 = {
+	monthly_dynasty_prestige_mult = 1
+}
+
+miv_piety_99 = {
+	monthly_piety_gain_mult = -0.99
+}
+
+miv_piety_100 = {
+	monthly_piety_gain_mult = -0.95
+}
+
+miv_piety_90 = {
+	monthly_piety_gain_mult = -0.9
+}
+
+miv_piety_80 = {
+	monthly_piety_gain_mult = -0.8
+}
+
+miv_piety_70 = {
+	monthly_piety_gain_mult = -0.7
+}
+
+miv_piety_60 = {
+	monthly_piety_gain_mult = -0.6
+}
+
+miv_piety_50 = {
+	monthly_piety_gain_mult = -0.5
+}
+
+miv_piety_40 = {
+	monthly_piety_gain_mult = -0.4
+}
+
+miv_piety_30 = {
+	monthly_piety_gain_mult = -0.3
+}
+
+miv_piety_20 = {
+	monthly_piety_gain_mult = -0.2
+}
+
+miv_piety_10 = {
+	monthly_piety_gain_mult = -0.1
+}
+
+miv_piety_plus_10 = {
+	monthly_piety_gain_mult = 0.1
+}
+
+miv_piety_plus_20 = {
+	monthly_piety_gain_mult = 0.2
+}
+
+miv_piety_plus_30 = {
+	monthly_piety_gain_mult = 0.3
+}
+
+miv_piety_plus_40 = {
+	monthly_piety_gain_mult = 0.4
+}
+
+miv_piety_plus_50 = {
+	monthly_piety_gain_mult = 0.5
+}
+
+miv_piety_plus_60 = {
+	monthly_piety_gain_mult = 0.6
+}
+
+miv_piety_plus_70 = {
+	monthly_piety_gain_mult = 0.7
+}
+
+miv_piety_plus_80 = {
+	monthly_piety_gain_mult = 0.8
+}
+
+miv_piety_plus_90 = {
+	monthly_piety_gain_mult = 0.9
+}
+
+miv_piety_plus_100 = {
+	monthly_piety_gain_mult = 1
+}
+
+miv_vassal_limit_minus_10 = {
+	vassal_limit = -10
+}
+
+miv_vassal_limit_minus_5 = {
+	vassal_limit = -5
+}
+
+miv_vassal_limit_plus_5 = {
+	vassal_limit = 5
+}
+
+miv_vassal_limit_plus_10 = {
+	vassal_limit = 10
+}
+
+miv_legitimacy_99 = {
+	legitimacy_gain_mult = -0.99
+}
+
+miv_legitimacy_100 = {
+	legitimacy_gain_mult = -0.95
+}
+
+miv_legitimacy_90 = {
+	legitimacy_gain_mult = -0.9
+}
+
+miv_legitimacy_80 = {
+	legitimacy_gain_mult = -0.8
+}
+
+miv_legitimacy_70 = {
+	legitimacy_gain_mult = -0.7
+}
+
+miv_legitimacy_60 = {
+	legitimacy_gain_mult = -0.6
+}
+
+miv_legitimacy_50 = {
+	legitimacy_gain_mult = -0.5
+}
+
+miv_legitimacy_40 = {
+	legitimacy_gain_mult = -0.4
+}
+
+miv_legitimacy_30 = {
+	legitimacy_gain_mult = -0.3
+}
+
+miv_legitimacy_20 = {
+	legitimacy_gain_mult = -0.2
+}
+
+miv_legitimacy_10 = {
+	legitimacy_gain_mult = -0.1
+}
+
+miv_legitimacy_plus_10 = {
+	legitimacy_gain_mult = 0.1
+}
+
+miv_legitimacy_plus_20 = {
+	legitimacy_gain_mult = 0.2
+}
+
+miv_legitimacy_plus_30 = {
+	legitimacy_gain_mult = 0.3
+}
+
+miv_legitimacy_plus_40 = {
+	legitimacy_gain_mult = 0.4
+}
+
+miv_legitimacy_plus_50 = {
+	legitimacy_gain_mult = 0.5
+}
+
+miv_legitimacy_plus_60 = {
+	legitimacy_gain_mult = 0.6
+}
+
+miv_legitimacy_plus_70 = {
+	legitimacy_gain_mult = 0.7
+}
+
+miv_legitimacy_plus_80 = {
+	legitimacy_gain_mult = 0.8
+}
+
+miv_legitimacy_plus_90 = {
+	legitimacy_gain_mult = 0.9
+}
+
+miv_legitimacy_plus_100 = {
+	legitimacy_gain_mult = 1
+}
+
+miv_provisions_99 = {
+	provisions_gain_mult = -0.99
+}
+
+miv_provisions_100 = {
+	provisions_gain_mult = -0.95
+}
+
+miv_provisions_90 = {
+	provisions_gain_mult = -0.9
+}
+
+miv_provisions_80 = {
+	provisions_gain_mult = -0.8
+}
+
+miv_provisions_70 = {
+	provisions_gain_mult = -0.7
+}
+
+miv_provisions_60 = {
+	provisions_gain_mult = -0.6
+}
+
+miv_provisions_50 = {
+	provisions_gain_mult = -0.5
+}
+
+miv_provisions_40 = {
+	provisions_gain_mult = -0.4
+}
+
+miv_provisions_30 = {
+	provisions_gain_mult = -0.3
+}
+
+miv_provisions_20 = {
+	provisions_gain_mult = -0.2
+}
+
+miv_provisions_10 = {
+	provisions_gain_mult = -0.1
+}
+
+miv_provisions_plus_10 = {
+	provisions_gain_mult = 0.1
+}
+
+miv_provisions_plus_20 = {
+	provisions_gain_mult = 0.2
+}
+
+miv_provisions_plus_30 = {
+	provisions_gain_mult = 0.3
+}
+
+miv_provisions_plus_40 = {
+	provisions_gain_mult = 0.4
+}
+
+miv_provisions_plus_50 = {
+	provisions_gain_mult = 0.5
+}
+
+miv_provisions_plus_60 = {
+	provisions_gain_mult = 0.6
+}
+
+miv_provisions_plus_70 = {
+	provisions_gain_mult = 0.7
+}
+
+miv_provisions_plus_80 = {
+	provisions_gain_mult = 0.8
+}
+
+miv_provisions_plus_90 = {
+	provisions_gain_mult = 0.9
+}
+
+miv_provisions_plus_100 = {
+	provisions_gain_mult = 1
+}
+
+miv_tributary_tax_99 = {
+	tributary_tax_mult = -0.99
+}
+
+miv_tributary_tax_95 = {
+	tributary_tax_mult = -0.95
+}
+
+miv_tributary_tax_90 = {
+	tributary_tax_mult = -0.9
+}
+
+miv_tributary_tax_80 = {
+	tributary_tax_mult = -0.8
+}
+
+miv_tributary_tax_70 = {
+	tributary_tax_mult = -0.7
+}
+
+miv_tributary_tax_60 = {
+	tributary_tax_mult = -0.6
+}
+
+miv_tributary_tax_50 = {
+	tributary_tax_mult = -0.5
+}
+
+miv_tributary_tax_40 = {
+	tributary_tax_mult = -0.4
+}
+
+miv_tributary_tax_30 = {
+	tributary_tax_mult = -0.3
+}
+
+miv_tributary_tax_20 = {
+	tributary_tax_mult = -0.2
+}
+
+miv_tributary_tax_10 = {
+	tributary_tax_mult = -0.1
+}
+
+miv_tributary_tax_plus_10 = {
+	tributary_tax_mult = 0.1
+}
+
+miv_tributary_tax_plus_20 = {
+	tributary_tax_mult = 0.2
+}
+
+miv_tributary_tax_plus_30 = {
+	tributary_tax_mult = 0.3
+}
+
+miv_tributary_tax_plus_40 = {
+	tributary_tax_mult = 0.4
+}
+
+miv_tributary_tax_plus_50 = {
+	tributary_tax_mult = 0.5
+}
+
+miv_tributary_tax_plus_60 = {
+	tributary_tax_mult = 0.6
+}
+
+miv_tributary_tax_plus_70 = {
+	tributary_tax_mult = 0.7
+}
+
+miv_tributary_tax_plus_80 = {
+	tributary_tax_mult = 0.8
+}
+
+miv_tributary_tax_plus_90 = {
+	tributary_tax_mult = 0.9
+}
+
+miv_tributary_tax_plus_100 = {
+	tributary_tax_mult = 1
+}
+
+miv_battle_duration_99 = {
+	army_toughness_mult = -0.99
+}
+
+miv_battle_duration_95 = {
+	army_toughness_mult = -0.95
+}
+
+miv_battle_duration_90 = {
+	army_toughness_mult = -0.9
+}
+
+miv_battle_duration_80 = {
+	army_toughness_mult = -0.8
+}
+
+miv_battle_duration_70 = {
+	army_toughness_mult = -0.7
+}
+
+miv_battle_duration_60 = {
+	army_toughness_mult = -0.6
+}
+
+miv_battle_duration_50 = {
+	army_toughness_mult = -0.5
+}
+
+miv_battle_duration_40 = {
+	army_toughness_mult = -0.4
+}
+
+miv_battle_duration_30 = {
+	army_toughness_mult = -0.3
+}
+
+miv_battle_duration_20 = {
+	army_toughness_mult = -0.2
+}
+
+miv_battle_duration_10 = {
+	army_toughness_mult = -0.1
+}
+
+miv_battle_duration_plus_10 = {
+	army_toughness_mult = 0.1
+}
+
+miv_battle_duration_plus_20 = {
+	army_toughness_mult = 0.2
+}
+
+miv_battle_duration_plus_30 = {
+	army_toughness_mult = 0.3
+}
+
+miv_battle_duration_plus_40 = {
+	army_toughness_mult = 0.4
+}
+
+miv_battle_duration_plus_50 = {
+	army_toughness_mult = 0.5
+}
+
+miv_battle_duration_plus_60 = {
+	army_toughness_mult = 0.6
+}
+
+miv_battle_duration_plus_70 = {
+	army_toughness_mult = 0.7
+}
+
+miv_battle_duration_plus_80 = {
+	army_toughness_mult = 0.8
+}
+
+miv_battle_duration_plus_90 = {
+	army_toughness_mult = 0.9
+}
+
+miv_battle_duration_plus_100 = {
+	army_toughness_mult = 1
+}
+
+miv_counter_efficiency_99 = {
+	counter_efficiency = -0.99
+}
+
+miv_counter_efficiency_95 = {
+	counter_efficiency = -0.95
+}
+
+miv_counter_efficiency_90 = {
+	counter_efficiency = -0.9
+}
+
+miv_counter_efficiency_80 = {
+	counter_efficiency = -0.8
+}
+
+miv_counter_efficiency_70 = {
+	counter_efficiency = -0.7
+}
+
+miv_counter_efficiency_60 = {
+	counter_efficiency = -0.6
+}
+
+miv_counter_efficiency_50 = {
+	counter_efficiency = -0.5
+}
+
+miv_counter_efficiency_40 = {
+	counter_efficiency = -0.4
+}
+
+miv_counter_efficiency_30 = {
+	counter_efficiency = -0.3
+}
+
+miv_counter_efficiency_20 = {
+	counter_efficiency = -0.2
+}
+
+miv_counter_efficiency_10 = {
+	counter_efficiency = -0.1
+}
+
+miv_counter_efficiency_plus_10 = {
+	counter_efficiency = 0.1
+}
+
+miv_counter_efficiency_plus_20 = {
+	counter_efficiency = 0.2
+}
+
+miv_counter_efficiency_plus_30 = {
+	counter_efficiency = 0.3
+}
+
+miv_counter_efficiency_plus_40 = {
+	counter_efficiency = 0.4
+}
+
+miv_counter_efficiency_plus_50 = {
+	counter_efficiency = 0.5
+}
+
+miv_counter_efficiency_plus_60 = {
+	counter_efficiency = 0.6
+}
+
+miv_counter_efficiency_plus_70 = {
+	counter_efficiency = 0.7
+}
+
+miv_counter_efficiency_plus_80 = {
+	counter_efficiency = 0.8
+}
+
+miv_counter_efficiency_plus_90 = {
+	counter_efficiency = 0.9
+}
+
+miv_counter_efficiency_plus_100 = {
+	counter_efficiency = 1
+}
+
+miv_counter_resistance_99 = {
+	counter_resistance = -0.99
+}
+
+miv_counter_resistance_95 = {
+	counter_resistance = -0.95
+}
+
+miv_counter_resistance_90 = {
+	counter_resistance = -0.9
+}
+
+miv_counter_resistance_80 = {
+	counter_resistance = -0.8
+}
+
+miv_counter_resistance_70 = {
+	counter_resistance = -0.7
+}
+
+miv_counter_resistance_60 = {
+	counter_resistance = -0.6
+}
+
+miv_counter_resistance_50 = {
+	counter_resistance = -0.5
+}
+
+miv_counter_resistance_40 = {
+	counter_resistance = -0.4
+}
+
+miv_counter_resistance_30 = {
+	counter_resistance = -0.3
+}
+
+miv_counter_resistance_20 = {
+	counter_resistance = -0.2
+}
+
+miv_counter_resistance_10 = {
+	counter_resistance = -0.1
+}
+
+miv_counter_resistance_plus_10 = {
+	counter_resistance = 0.1
+}
+
+miv_counter_resistance_plus_20 = {
+	counter_resistance = 0.2
+}
+
+miv_counter_resistance_plus_30 = {
+	counter_resistance = 0.3
+}
+
+miv_counter_resistance_plus_40 = {
+	counter_resistance = 0.4
+}
+
+miv_counter_resistance_plus_50 = {
+	counter_resistance = 0.5
+}
+
+miv_counter_resistance_plus_60 = {
+	counter_resistance = 0.6
+}
+
+miv_counter_resistance_plus_70 = {
+	counter_resistance = 0.7
+}
+
+miv_counter_resistance_plus_80 = {
+	counter_resistance = 0.8
+}
+
+miv_counter_resistance_plus_90 = {
+	counter_resistance = 0.9
+}
+
+miv_counter_resistance_plus_100 = {
+	counter_resistance = 1
+}
+
+knight_limit_200 = {
+	knight_limit = -20
+}
+
+knight_limit_150 = {
+	knight_limit = -15
+}
+
+knight_limit_plus_200 = {
+	knight_limit = 20
+}
+
+knight_limit_plus_150 = {
+	knight_limit = 15
+}
+
+maa_limit_minus_200 = {
+	men_at_arms_cap = -20
+}
+
+title_maa_limit_minus_200 = {
+	men_at_arms_title_cap = -20
+}
+
+maa_limit_minus_150 = {
+	men_at_arms_cap = -15
+}
+
+title_maa_limit_minus_150 = {
+	men_at_arms_title_cap = -15
+}
+
+maa_limit_200 = {
+	men_at_arms_cap = 20
+}
+
+title_maa_limit_200 = {
+	men_at_arms_title_cap = 20
+}
+
+maa_limit_150 = {
+	men_at_arms_cap = 15
+}
+
+title_maa_limit_150 = {
+	men_at_arms_title_cap = 15
+}
+
+maa_size_minus_200 = {
+	men_at_arms_limit = -20
+}
+
+title_maa_size_minus_200 = {
+	men_at_arms_title_limit = -20
+}
+
+maa_size_minus_150 = {
+	men_at_arms_limit = -15
+}
+
+title_maa_size_minus_150 = {
+	men_at_arms_title_limit = -15
+}
+
+maa_size_200 = {
+	men_at_arms_limit = 20
+}
+
+title_maa_size_200 = {
+	men_at_arms_title_limit = 20
+}
+
+maa_size_150 = {
+	men_at_arms_limit = 15
+}
+
+title_maa_size_150 = {
+	men_at_arms_title_limit = 15
+}
+
+max_combat_roll_200 = {
+	max_combat_roll = 20
+}
+
+max_combat_roll_150 = {
+	max_combat_roll = 15
+}
+
+self_command_advantage_minus_200 = {
+	led_by_owner_extra_advantage_add = -20
+}
+
+self_command_advantage_minus_150 = {
+	led_by_owner_extra_advantage_add = -15
+}
+
+self_command_advantage_200 = {
+	led_by_owner_extra_advantage_add = 20
+}
+
+self_command_advantage_150 = {
+	led_by_owner_extra_advantage_add = 15
+}
+
+defender_advantage_minus_200 = {
+	controlled_province_advantage = -20
+}
+
+defender_advantage_minus_150 = {
+	controlled_province_advantage = -15
+}
+
+defender_advantage_200 = {
+	controlled_province_advantage = 20
+}
+
+defender_advantage_150 = {
+	controlled_province_advantage = 15
+}
+
+holding_advantage_200 = {
+	defender_holding_advantage = -20
+}
+
+holding_advantage_150 = {
+	defender_holding_advantage = -15
+}
+
+holding_advantage_plus_200 = {
+	defender_holding_advantage = 20
+}
+
+holding_advantage_plus_150 = {
+	defender_holding_advantage = 15
+}
+
+years_of_fertility_20 = {
+	years_of_fertility = -20
+}
+
+years_of_fertility_15 = {
+	years_of_fertility = -15
+}
+
+years_of_fertility_plus_20 = {
+	years_of_fertility = 20
+}
+
+years_of_fertility_plus_15 = {
+	years_of_fertility = 15
+}
+
+levy_attack_500 = {
+	levy_attack = 20
+}
+
+levy_toughness_500 = {
+	levy_toughness = 20
+}
+
+miv_tributary_tax_plus_150 = {
+	tributary_tax_mult = 1.5
+}
+
+miv_tributary_tax_plus_200 = {
+	tributary_tax_mult = 2
+}
+
+miv_battle_duration_plus_150 = {
+	army_toughness_mult = 1.5
+}
+
+miv_battle_duration_plus_200 = {
+	army_toughness_mult = 2
+}
+
+miv_counter_efficiency_plus_150 = {
+	counter_efficiency = 1.5
+}
+
+miv_counter_efficiency_plus_200 = {
+	counter_efficiency = 2
+}
+
+miv_counter_resistance_plus_150 = {
+	counter_resistance = 1.5
+}
+
+miv_counter_resistance_plus_200 = {
+	counter_resistance = 2
+}
+
+knight_effectiveness_plus_150 = {
+	knight_effectiveness_mult = 1.5
+}
+
+knight_effectiveness_plus_200 = {
+	knight_effectiveness_mult = 2
+}
+
+miv_accolade_glory_plus_150 = {
+	accolade_glory_gain_mult = 1.5
+}
+
+miv_accolade_glory_plus_200 = {
+	accolade_glory_gain_mult = 2
+}
+
+levy_contribution_plus_150r = {
+	vassal_levy_contribution_mult = 1.5
+	barons_and_minor_landholders_levy_contribution_mult = -1.5
+}
+
+levy_contribution_plus_200r = {
+	vassal_levy_contribution_mult = 2
+	barons_and_minor_landholders_levy_contribution_mult = -2
+}
+
+tax_contribution_plus_150r = {
+	vassal_tax_contribution_mult = 1.5
+	barons_and_minor_landholders_tax_contribution_mult = -1.5
+}
+
+tax_contribution_plus_200r = {
+	vassal_tax_contribution_mult = 2
+	barons_and_minor_landholders_tax_contribution_mult = -2
+}
+
+less_levies_plus_150 = {
+	levy_size = 1.5
+}
+
+less_levies_plus_200 = {
+	levy_size = 2
+}
+
+less_garrisons_plus_150 = {
+	garrison_size = 1.5
+}
+
+less_garrisons_plus_200 = {
+	garrison_size = 2
+}
+
+slower_levies_plus_150 = {
+	levy_reinforcement_rate = 1.5
+}
+
+slower_levies_plus_200 = {
+	levy_reinforcement_rate = 2
+}
+
+levy_maintenance_plus_150 = {
+	levy_maintenance = 1.5
+}
+
+levy_maintenance_plus_200 = {
+	levy_maintenance = 2
+}
+
+maa_recruitment_cost_150 = {
+	men_at_arms_recruitment_cost = 1.5
+}
+
+maa_recruitment_cost_200 = {
+	men_at_arms_recruitment_cost = 2
+}
+
+maa_maintenance_150 = {
+	men_at_arms_maintenance = 1.5
+}
+
+maa_maintenance_200 = {
+	men_at_arms_maintenance = 2
+}
+
+fatal_casualties_150 = {
+	hard_casualty_modifier = 1.5
+}
+
+fatal_casualties_200 = {
+	hard_casualty_modifier = 2
+}
+
+siege_effectiveness_150 = {
+	army_siege_value_mult = 1.5
+}
+
+siege_effectiveness_200 = {
+	army_siege_value_mult = 2
+}
+
+army_speed_plus_150 = {
+	movement_speed = 1.5
+}
+
+army_speed_plus_200 = {
+	movement_speed = 2
+}
+
+naval_speed_plus_150 = {
+	naval_movement_speed_mult = 1.5
+}
+
+naval_speed_plus_200 = {
+	naval_movement_speed_mult = 2
+}
+
+miv_raid_speed_plus_150 = {
+	raid_speed = 1.5
+}
+
+miv_raid_speed_plus_200 = {
+	raid_speed = 2
+}
+
+less_mercs_150 = {
+	mercenary_hire_cost_mult = 1.5
+	holy_order_hire_cost_mult = 1.5
+}
+
+less_mercs_200 = {
+	mercenary_hire_cost_mult = 2
+	holy_order_hire_cost_mult = 2
+}
+
+miv_diplomatic_range_plus_150 = {
+	diplomatic_range_mult = 1.5
+}
+
+miv_diplomatic_range_plus_200 = {
+	diplomatic_range_mult = 2
+}
+
+domain_tax_plus_150 = {
+	domain_tax_mult = 1.5
+}
+
+domain_tax_plus_200 = {
+	domain_tax_mult = 2
+}
+
+development_growth_plus_150 = {
+	development_growth_factor = 1.5
+}
+
+development_growth_plus_200 = {
+	development_growth_factor = 2
+}
+
+innovation_speed_150 = {
+	cultural_head_fascination_mult = 1.5
+}
+
+innovation_speed_200 = {
+	cultural_head_fascination_mult = 2
+}
+
+build_cost_plus_150 = {
+	build_gold_cost = 1.5
+	holding_build_gold_cost = 1.5
+	domicile_build_gold_cost = 1.5
+	build_herd_cost = 1.5
+	build_prestige_cost = 1.5
+	build_piety_cost = 1.5
+	holding_build_piety_cost = 1.5
+	holding_build_prestige_cost = 1.5
+}
+
+build_cost_plus_200 = {
+	build_gold_cost = 2
+	holding_build_gold_cost = 2
+	domicile_build_gold_cost = 2
+	build_herd_cost = 2
+	build_prestige_cost = 2
+	build_piety_cost = 2
+	holding_build_piety_cost = 2
+	holding_build_prestige_cost = 2
+}
+
+miv_travel_speed_plus_150 = {
+	character_travel_speed_mult = 1.5
+}
+
+miv_travel_speed_plus_200 = {
+	character_travel_speed_mult = 2
+}
+
+miv_provisions_plus_150 = {
+	provisions_gain_mult = 1.5
+}
+
+miv_provisions_plus_200 = {
+	provisions_gain_mult = 2
+}
+
+herd_reduction_plus_150 = {
+	herd_gain_mult = 1.5
+}
+
+herd_reduction_plus_200 = {
+	herd_gain_mult = 2
+}
+
+miv_legitimacy_plus_150 = {
+	legitimacy_gain_mult = 1.5
+}
+
+miv_legitimacy_plus_200 = {
+	legitimacy_gain_mult = 2
+}
+
+miv_renown_plus_150 = {
+	monthly_dynasty_prestige_mult = 1.5
+}
+
+miv_renown_plus_200 = {
+	monthly_dynasty_prestige_mult = 2
+}
+
+miv_prestige_plus_150 = {
+	monthly_prestige_gain_mult = 1.5
+}
+
+miv_prestige_plus_200 = {
+	monthly_prestige_gain_mult = 2
+}
+
+miv_piety_plus_150 = {
+	monthly_piety_gain_mult = 1.5
+}
+
+miv_piety_plus_200 = {
+	monthly_piety_gain_mult = 2
+}
+
+miv_influence_plus_150 = {
+	monthly_influence_mult = 1.5
+}
+
+miv_influence_plus_200 = {
+	monthly_influence_mult = 2
+}
+
+fertility_plus_150 = {
+	fertility = 1.5
+}
+
+fertility_plus_200 = {
+	fertility = 2
+}
+
+ai_aggressiveness_minus_500 = {
+	ai_war_chance = -5
+}
+
+ai_aggressiveness_plus_500 = {
+	ai_war_chance = 5
+}
+
+player_dread_gain_10 = {
+	dread_gain_mult = -0.1
+}
+
+player_dread_gain_20 = {
+	dread_gain_mult = -0.2
+}
+
+player_dread_gain_30 = {
+	dread_gain_mult = -0.3
+}
+
+player_dread_gain_40 = {
+	dread_gain_mult = -0.4
+}
+
+player_dread_gain_50 = {
+	dread_gain_mult = -0.5
+}
+
+player_dread_gain_60 = {
+	dread_gain_mult = -0.6
+}
+
+player_dread_gain_70 = {
+	dread_gain_mult = -0.7
+}
+
+player_dread_gain_80 = {
+	dread_gain_mult = -0.8
+}
+
+player_dread_gain_90 = {
+	dread_gain_mult = -0.9
+}
+
+player_dread_gain_100 = {
+	dread_gain_mult = -0.95
+}
+
+player_resource_gain_10 = {
+	monthly_prestige_gain_mult = -0.1
+	monthly_piety_gain_mult = -0.1
+	monthly_influence_mult = -0.1
+}
+
+player_resource_gain_20 = {
+	monthly_prestige_gain_mult = -0.2
+	monthly_piety_gain_mult = -0.2
+	monthly_influence_mult = -0.2
+}
+
+player_resource_gain_30 = {
+	monthly_prestige_gain_mult = -0.3
+	monthly_piety_gain_mult = -0.3
+	monthly_influence_mult = -0.3
+}
+
+player_resource_gain_40 = {
+	monthly_prestige_gain_mult = -0.4
+	monthly_piety_gain_mult = -0.4
+	monthly_influence_mult = -0.4
+}
+
+player_resource_gain_50 = {
+	monthly_prestige_gain_mult = -0.5
+	monthly_piety_gain_mult = -0.5
+	monthly_influence_mult = -0.5
+}
+
+player_resource_gain_60 = {
+	monthly_prestige_gain_mult = -0.6
+	monthly_piety_gain_mult = -0.6
+	monthly_influence_mult = -0.6
+}
+
+player_resource_gain_70 = {
+	monthly_prestige_gain_mult = -0.7
+	monthly_piety_gain_mult = -0.7
+	monthly_influence_mult = -0.7
+}
+
+player_resource_gain_80 = {
+	monthly_prestige_gain_mult = -0.8
+	monthly_piety_gain_mult = -0.8
+	monthly_influence_mult = -0.8
+}
+
+player_resource_gain_90 = {
+	monthly_prestige_gain_mult = -0.9
+	monthly_piety_gain_mult = -0.9
+	monthly_influence_mult = -0.9
+}
+
+player_resource_gain_100 = {
+	monthly_prestige_gain_mult = -0.95
+	monthly_piety_gain_mult = -0.95
+	monthly_influence_mult = -0.95
+}
+
+supply_limit_minus_200 = {
+	supply_limit = -20000
+}
+
+supply_limit_minus_150 = {
+	supply_limit = -15000
+}
+
+supply_limit_150 = {
+	supply_limit = 15000
+}
+
+supply_limit_200 = {
+	supply_limit = 20000
+}
+
+supply_duration_minus_200 = {
+	supply_capacity_add = -1000
+}
+
+supply_duration_minus_150 = {
+	supply_capacity_add = -750
+}
+
+supply_duration_150 = {
+	supply_capacity_add = 750
+}
+
+supply_duration_200 = {
+	supply_capacity_add = 1000
+}
+
+miv_vassal_limit_minus_20 = {
+	vassal_limit = -20
+}
+
+miv_vassal_limit_minus_15 = {
+	vassal_limit = -15
+}
+
+miv_vassal_limit_minus_9 = {
+	vassal_limit = -9
+}
+
+miv_vassal_limit_minus_8 = {
+	vassal_limit = -8
+}
+
+miv_vassal_limit_minus_7 = {
+	vassal_limit = -7
+}
+
+miv_vassal_limit_minus_6 = {
+	vassal_limit = -6
+}
+
+miv_vassal_limit_minus_4 = {
+	vassal_limit = -4
+}
+
+miv_vassal_limit_minus_3 = {
+	vassal_limit = -3
+}
+
+miv_vassal_limit_minus_2 = {
+	vassal_limit = -2
+}
+
+miv_vassal_limit_minus_1 = {
+	vassal_limit = -1
+}
+
+miv_vassal_limit_plus_1 = {
+	vassal_limit = 1
+}
+
+miv_vassal_limit_plus_2 = {
+	vassal_limit = 2
+}
+
+miv_vassal_limit_plus_3 = {
+	vassal_limit = 3
+}
+
+miv_vassal_limit_plus_4 = {
+	vassal_limit = 4
+}
+
+miv_vassal_limit_plus_6 = {
+	vassal_limit = 6
+}
+
+miv_vassal_limit_plus_7 = {
+	vassal_limit = 7
+}
+
+miv_vassal_limit_plus_8 = {
+	vassal_limit = 8
+}
+
+miv_vassal_limit_plus_9 = {
+	vassal_limit = 9
+}
+
+miv_vassal_limit_plus_15 = {
+	vassal_limit = 15
+}
+
+miv_vassal_limit_plus_20 = {
+	vassal_limit = 20
+}
+
+reduced_lifespan_9 = {
+	life_expectancy = -9
+}
+
+reduced_lifespan_8 = {
+	life_expectancy = -8
+}
+
+reduced_lifespan_7 = {
+	life_expectancy = -7
+}
+
+reduced_lifespan_6 = {
+	life_expectancy = -6
+}
+
+reduced_lifespan_4 = {
+	life_expectancy = -4
+}
+
+reduced_lifespan_3 = {
+	life_expectancy = -3
+}
+
+reduced_lifespan_2 = {
+	life_expectancy = -2
+}
+
+reduced_lifespan_1 = {
+	life_expectancy = -1
+}
+
+reduced_lifespan_plus_1 = {
+	life_expectancy = 1
+}
+
+reduced_lifespan_plus_2 = {
+	life_expectancy = 2
+}
+
+reduced_lifespan_plus_3 = {
+	life_expectancy = 3
+}
+
+reduced_lifespan_plus_4 = {
+	life_expectancy = 4
+}
+
+reduced_lifespan_plus_6 = {
+	life_expectancy = 6
+}
+
+reduced_lifespan_plus_7 = {
+	life_expectancy = 7
+}
+
+reduced_lifespan_plus_8 = {
+	life_expectancy = 8
+}
+
+reduced_lifespan_plus_9 = {
+	life_expectancy = 9
+}
+
+miv_base_prowess_minus_20 = {
+	prowess = -20
+}
+
+miv_base_prowess_minus_15 = {
+	prowess = -15
+}
+
+miv_base_prowess_minus_10 = {
+	prowess = -10
+}
+
+miv_base_prowess_minus_9 = {
+	prowess = -9
+}
+
+miv_base_prowess_minus_8 = {
+	prowess = -8
+}
+
+miv_base_prowess_minus_7 = {
+	prowess = -7
+}
+
+miv_base_prowess_minus_6 = {
+	prowess = -6
+}
+
+miv_base_prowess_minus_5 = {
+	prowess = -5
+}
+
+miv_base_prowess_minus_4 = {
+	prowess = -4
+}
+
+miv_base_prowess_minus_3 = {
+	prowess = -3
+}
+
+miv_base_prowess_minus_2 = {
+	prowess = -2
+}
+
+miv_base_prowess_minus_1 = {
+	prowess = -1
+}
+
+miv_base_prowess_plus_1 = {
+	prowess = 1
+}
+
+miv_base_prowess_plus_2 = {
+	prowess = 2
+}
+
+miv_base_prowess_plus_3 = {
+	prowess = 3
+}
+
+miv_base_prowess_plus_4 = {
+	prowess = 4
+}
+
+miv_base_prowess_plus_5 = {
+	prowess = 5
+}
+
+miv_base_prowess_plus_6 = {
+	prowess = 6
+}
+
+miv_base_prowess_plus_7 = {
+	prowess = 7
+}
+
+miv_base_prowess_plus_8 = {
+	prowess = 8
+}
+
+miv_base_prowess_plus_9 = {
+	prowess = 9
+}
+
+miv_base_prowess_plus_10 = {
+	prowess = 10
+}
+
+miv_base_prowess_plus_15 = {
+	prowess = 15
+}
+
+miv_base_prowess_plus_20 = {
+	prowess = 20
+}
+
+miv_max_provisions_minus_1000 = {
+	provisions_capacity_add = -1000
+}
+
+miv_max_provisions_minus_900 = {
+	provisions_capacity_add = -900
+}
+
+miv_max_provisions_minus_800 = {
+	provisions_capacity_add = -800
+}
+
+miv_max_provisions_minus_700 = {
+	provisions_capacity_add = -700
+}
+
+miv_max_provisions_minus_600 = {
+	provisions_capacity_add = -600
+}
+
+miv_max_provisions_minus_500 = {
+	provisions_capacity_add = -500
+}
+
+miv_max_provisions_minus_400 = {
+	provisions_capacity_add = -400
+}
+
+miv_max_provisions_minus_300 = {
+	provisions_capacity_add = -300
+}
+
+miv_max_provisions_minus_200 = {
+	provisions_capacity_add = -200
+}
+
+miv_max_provisions_minus_100 = {
+	provisions_capacity_add = -100
+}
+
+miv_max_provisions_plus_100 = {
+	provisions_capacity_add = 100
+}
+
+miv_max_provisions_plus_200 = {
+	provisions_capacity_add = 200
+}
+
+miv_max_provisions_plus_300 = {
+	provisions_capacity_add = 300
+}
+
+miv_max_provisions_plus_400 = {
+	provisions_capacity_add = 400
+}
+
+miv_max_provisions_plus_500 = {
+	provisions_capacity_add = 500
+}
+
+miv_max_provisions_plus_600 = {
+	provisions_capacity_add = 600
+}
+
+miv_max_provisions_plus_700 = {
+	provisions_capacity_add = 700
+}
+
+miv_max_provisions_plus_800 = {
+	provisions_capacity_add = 800
+}
+
+miv_max_provisions_plus_900 = {
+	provisions_capacity_add = 900
+}
+
+miv_max_provisions_plus_1000 = {
+	provisions_capacity_add = 1000
+}
+
+miv_house_relation_minus_99 = {
+	house_relation_change_mult = -0.99
+}
+
+miv_house_relation_minus_95 = {
+	house_relation_change_mult = -0.95
+}
+
+miv_house_relation_minus_90 = {
+	house_relation_change_mult = -0.9
+}
+
+miv_house_relation_minus_80 = {
+	house_relation_change_mult = -0.8
+}
+
+miv_house_relation_minus_70 = {
+	house_relation_change_mult = -0.7
+}
+
+miv_house_relation_minus_60 = {
+	house_relation_change_mult = -0.6
+}
+
+miv_house_relation_minus_50 = {
+	house_relation_change_mult = -0.5
+}
+
+miv_house_relation_minus_40 = {
+	house_relation_change_mult = -0.4
+}
+
+miv_house_relation_minus_30 = {
+	house_relation_change_mult = -0.3
+}
+
+miv_house_relation_minus_20 = {
+	house_relation_change_mult = -0.2
+}
+
+miv_house_relation_minus_10 = {
+	house_relation_change_mult = -0.1
+}
+
+miv_house_relation_plus_10 = {
+	house_relation_change_mult = 0.1
+}
+
+miv_house_relation_plus_20 = {
+	house_relation_change_mult = 0.2
+}
+
+miv_house_relation_plus_30 = {
+	house_relation_change_mult = 0.3
+}
+
+miv_house_relation_plus_40 = {
+	house_relation_change_mult = 0.4
+}
+
+miv_house_relation_plus_50 = {
+	house_relation_change_mult = 0.5
+}
+
+miv_house_relation_plus_60 = {
+	house_relation_change_mult = 0.6
+}
+
+miv_house_relation_plus_70 = {
+	house_relation_change_mult = 0.7
+}
+
+miv_house_relation_plus_80 = {
+	house_relation_change_mult = 0.8
+}
+
+miv_house_relation_plus_90 = {
+	house_relation_change_mult = 0.9
+}
+
+miv_house_relation_plus_100 = {
+	house_relation_change_mult = 1
+}
+
+miv_house_relation_plus_150 = {
+	house_relation_change_mult = 1.5
+}
+
+miv_house_relation_plus_200 = {
+	house_relation_change_mult = 2
+}
+
+player_knight_effectiveness_10 = {
+	knight_effectiveness_mult = -0.1
+}
+
+player_knight_effectiveness_20 = {
+	knight_effectiveness_mult = -0.2
+}
+
+player_knight_effectiveness_30 = {
+	knight_effectiveness_mult = -0.3
+}
+
+player_knight_effectiveness_40 = {
+	knight_effectiveness_mult = -0.4
+}
+
+player_knight_effectiveness_50 = {
+	knight_effectiveness_mult = -0.5
+}
+
+player_knight_effectiveness_60 = {
+	knight_effectiveness_mult = -0.6
+}
+
+player_knight_effectiveness_70 = {
+	knight_effectiveness_mult = -0.7
+}
+
+player_knight_effectiveness_80 = {
+	knight_effectiveness_mult = -0.8
+}
+
+player_knight_effectiveness_90 = {
+	knight_effectiveness_mult = -0.9
+}
+
+player_knight_effectiveness_95 = {
+	knight_effectiveness_mult = -0.95
+}

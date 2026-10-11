@@ -1,0 +1,96 @@
+﻿### CHOOSE LIFESTYLE
+action_can_spend_perk_point = {
+	type = alert
+	check_create_action = {
+		if = {
+			limit = { # Future-proofing
+				has_any_focus = yes
+				NOR = {
+					has_focus_intrigue = yes
+					has_focus_diplomacy = yes
+					has_focus_learning = yes
+					has_focus_martial = yes
+					has_focus_stewardship = yes
+					has_focus_wanderer = yes
+					has_focus = witch_focus
+					has_focus = arcane_focus
+					has_focus = manipulation_focus
+					has_focus = destruction_focus
+				}
+				perk_points > 0
+				is_adult = yes
+			}
+			try_create_important_action = {
+				important_action_type = action_can_spend_perk_point
+				actor = root
+			}
+		}
+	}
+
+	effect = {
+		scope:actor = {
+			open_view_data = {
+				view = lifestyle
+			}
+		}
+	}
+}
+
+action_lifestyle_magic = {
+	type = alert
+	check_create_action = {
+		
+		if = {
+			limit = {
+				OR = {
+					has_focus = witch_focus
+					has_focus = arcane_focus
+				}
+				perk_points > 0
+				is_adult = yes
+			}
+			try_create_important_action = {
+				important_action_type = action_lifestyle_magic
+				actor = root
+			}
+		}
+		
+	}
+
+	effect = {
+		scope:actor = {
+			open_view_data = {
+				view = lifestyle
+			}
+		}
+	}
+}
+action_lifestyle_demonic = {
+	type = alert
+	check_create_action = {
+		
+		if = {
+			limit = {
+				OR = {
+					has_focus = manipulation_focus
+					has_focus = destruction_focus
+				}
+				perk_points > 0
+				is_adult = yes
+			}
+			try_create_important_action = {
+				important_action_type = action_lifestyle_demonic
+				actor = root
+			}
+		}
+		
+	}
+
+	effect = {
+		scope:actor = {
+			open_view_data = {
+				view = lifestyle
+			}
+		}
+	}
+}

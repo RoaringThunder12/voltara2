@@ -1,0 +1,156 @@
+﻿# 2.35 (D1) -- the four creature-kill reasons are no longer public_knowledge. Vanilla defines that flag as
+# "everybody knows the killer" (_death_reasons.info:2), which was printing the vampire's name on every drained
+# courtier's death tooltip. The lord's investigation (spn_hunt.0002/.0003) is what reveals the killer now.
+# Hunter-kill reasons stay public: a hunter's work is meant to be known.
+spn_death_throat_ripped_out = {
+	public_knowledge = no
+	icon = "death_murder.dds"
+}
+
+spn_death_drained = {
+	public_knowledge = no
+	icon = "death_murder.dds"
+}
+
+spn_death_drained_killer = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+spn_death_clawed = {
+	public_knowledge = no
+	icon = "death_murder.dds"
+}
+
+spn_death_attacking = {
+	public_knowledge = no
+	icon = "death_murder.dds"
+}
+
+spn_death_during_confer = {
+	public_knowledge = yes
+	icon = "death_disease.dds"
+}
+
+spn_death_intestines_spilled = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+spn_death_skull_crushed = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+spn_death_during_hunter_training = {
+	public_knowledge = yes
+	icon = "death_disease.dds"
+}
+
+spn_death_dragged_out_from_hiding = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+spn_death_chased_down_and_devoured = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+spn_death_devoured_in_bed = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+spn_death_attacking_raging_beast = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+spn_death_killed_by_hunter = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+spn_death_staked_by_hunter_as_vampire = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+spn_death_beheaded_as_hybrid = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+spn_death_silver_arrow_by_hunter_as_werewolf = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+spn_death_by_powerful_curse = {
+	public_knowledge = yes
+	icon = death_disease.dds
+}
+
+spn_broken_neck = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+spn_death_experimental_vampirism = {
+    public_knowledge = no
+    icon = "death_natural.dds"  # Choose the best-fitting icon
+}
+
+# 2.33 -- you fell with vampire blood in you, woke neither living nor dead, and would not feed.
+# The lore's own ending for a refused transition, and it needs to be distinguishable from the
+# battle death it replaced -- a lord whose heir reads this in the chronicle learned something.
+spn_death_transition_refused = {
+	public_knowledge = no
+	icon = death_disease.dds
+}
+
+
+# 2.35 PART TWO (§5.5) -- EXORCISED. The smoke went home and the body it was wearing could not stand up.
+#
+# Only ever reached by a successful exorcism on a SUMMONED demon -- one that was never a person. A demon that
+# was made out of somebody (spn_was_mortal) does not die here; the person comes back instead (§5.4).
+#
+# public_knowledge = no, consistent with the part-one D1 rule on the creature-kill reasons: a county that
+# watched a man fall down in a church does not thereby know what a hunter did or who he was.
+spn_death_exorcised = {
+	public_knowledge = no
+	icon = "death_disease.dds"
+}
+
+# 2.37 -- a champion's kill on the field (§12.3). Public: a death in front of an army is not hidden, unlike the
+# clawed murder above.
+spn_death_torn_in_battle = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+# 2.38 -- the Vade Maecum Infernal (§12.6, §12.7). The book took him: a failed Contract, a binder who lost it, the
+# Unmaking. Public: the court finds him.
+spn_death_book_took_him = {
+	public_knowledge = yes
+	icon = "death_disease.dds"
+}
+
+# 2.38 -- the Last Price (§12.6): the binder's son. Hidden: a son who dies in his father's house is not a public matter.
+spn_death_last_price = {
+	public_knowledge = no
+	icon = "death_murder.dds"
+}
+
+# 2.38 -- Bind Our Fates (§9.3): the partner of one who was killed dies a day later. Public.
+spn_death_fates_bound = {
+	public_knowledge = yes
+	icon = "death_neutral.dds"
+}
+
+# 2.38 -- Tear the Hide Away (§12.5): a champion already badly hurt, torn from his hide. Public.
+spn_death_hide_torn_away = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}

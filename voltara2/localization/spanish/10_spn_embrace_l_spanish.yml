@@ -1,0 +1,221 @@
+﻿l_spanish:
+#-------------------------------------------------------------------------- 
+# Peddler Event Chain
+#-------------------------------------------------------------------------- 
+#Peddler Event
+spn_embrace.0001.t:0 "Día de mercado"
+spn_embrace.0001.desc:0 "Un día, mientras paseas por el mercado, te topas con una vendedora extraña a la que no habías visto nunca. Es una anciana que ofrece sus mercancías: adornos, baratijas y hasta la oreja de algún animal raro. Un auténtico muestrario de rarezas.\n\nCuando, tras examinar aquel surtido tan singular, te dispones a marcharte, la buhonera te detiene.\n\n«Mi [ROOT.Char.GetLadyLord], tengo algo especial por aquí. Un elixir que promete la eternidad... aunque no sin un coste.»\n\nLa vendedora se inclina hacia ti y baja la voz.\n\n«El verdadero precio es distinto para cada persona, mi [ROOT.Char.GetLadyLord]. Mi tarifa, por supuesto, son 25 monedas de oro.»"
+spn_embrace.0001.a:0 "Me lo quedo."
+spn_embrace.0001.a.tt:0 "Aceptas el elixir de manos de una completa desconocida sin hacer demasiadas preguntas."
+spn_embrace.0001.b:0 "¿Qué clase de timo intentas colarme?"
+spn_embrace.0001.b.tt:0 "Abandonas el mercado."
+#Peddler Event, Part 2, Lycan
+spn_embrace.0002.t:0 "Luna pálida"
+spn_embrace.0002.desc:0 "Tras comprar el elixir, regresas a casa. Esa noche bebes el líquido acre y te acuestas.\n\nTe despiertas en mitad de la noche con un dolor insoportable. La luna llena brilla al otro lado de la ventana. Sientes como si todos los huesos del cuerpo se rompieran mientras tus extremidades empiezan a deformarse.\n\nLo siguiente que recuerdas es despertar en un lugar aislado, lejos del castillo. Tu cuerpo desnudo está cubierto de sangre."
+spn_embrace.0002.a:0 "¿En qué me he convertido?"
+spn_embrace.0002.a.tt:0 "Abrazas la inmortalidad."
+#Peddler Event, Part 2, Vampire
+spn_embrace.0003.t:0 "Noche carmesí"
+spn_embrace.0003.desc:0 "Tras comprar el elixir, regresas a casa. Esa noche bebes el líquido acre y te acuestas.\n\nTe despiertas en mitad de la noche con una sed abrasadora. Antes de comprender del todo lo que ocurre, ya estás fuera de tus aposentos. Poco después, te abres paso hasta las dependencias de los sirvientes. Oyes el latido del corazón de una criada y el rumor de la sangre corriendo por sus venas.\n\nCuando recuperas la conciencia, ella yace sin vida, con el cuello desgarrado y empapada en sangre. Miras un pequeño espejo de sus aposentos y descubres tu rostro, tu cuello y tu torso cubiertos de rojo."
+spn_embrace.0003.a:0 "¿En qué me he convertido?"
+spn_embrace.0003.a.tt:0 "Abrazas la inmortalidad."
+
+#-------------------------------------------------------------------------- 
+# Vampire Event 1, A Night Amongst the Nobles
+#-------------------------------------------------------------------------- 
+#Vamp Event 1, Part 1
+spn_embrace.1001.t:0 "Una noche entre nobles"
+spn_embrace.1001.desc:0 "Durante una noche de excesos con la nobleza, empiezas a cansarte de los festejos. Tras cierto esfuerzo por librarte de la presencia de unos invitados bastante tediosos, por fin encuentras la oportunidad de escabullirte de la reunión."
+spn_embrace.1001.a:0 "Tomar prestado el atuendo de un sirviente y escapar por la cocina"
+spn_embrace.1001.a.tt:0 "Continúas la búsqueda del rasgo de vampiro."
+spn_embrace.1001.b:0 "Pensándolo mejor, quizá debería quedarme"
+spn_embrace.1001.b.tt:0 "Abandonas la búsqueda del rasgo de vampiro."
+#Vamp Event 1, Part 2
+spn_embrace.1002.t:0 "La cocina"
+spn_embrace.1002.desc:0 "Mientras avanzas por la cocina, doblas una esquina y te encuentras con uno de los sirvientes cubierto de sangre. Vuestras miradas se cruzan y ves cómo el último destello de vida se apaga en sus ojos mientras tú lo observas, conmocionado.\n\nA su lado está un cortesano al que no recuerdas haber visto antes por la corte, con la boca manchada de sangre. Mientras se limpia con un paño de lino de la cocina, [spn_new_created_vampire.GetSheHe] alza la vista y repara en ti.\n\n«No esperaba que nadie encontrase esto hasta mucho más tarde. Y mucho menos alguien de vuestra categoría.»\n\nTras meter el lino ensangrentado en el bolsillo del sirviente desangrado, [spn_new_created_vampire.GetSheHe] se acerca a ti."
+spn_embrace.1002.surv.tt:0 "Probabilidad de supervivencia"
+spn_embrace.1002.a:0 "¡Morirás por esto, monstruo!"
+spn_embrace.1002.a.tt:0 "Atacas al cortesano."
+spn_embrace.1002.b:0 "Espera, seguro que podemos llegar a un acuerdo."
+spn_embrace.1002.b.tt:0 "Intentas negociar."
+spn_embrace.1002.c:0 "Lo siento, ¡yo me marcho!"
+spn_embrace.1002.c.tt:0 "Intentas huir... gritando."
+spn_embrace.1002.d:0 "Sigues tan conmocionado que las piernas no te responden."
+spn_embrace.1002.d.tt:0 "Estás conmocionado y no puedes moverte."
+#Vamp Event 1, Part 3, Option A from Vamp Event 2
+spn_embrace.1003.t:0 "La lucha"
+spn_embrace.1003.desc:0 "Tras una lucha brutal, por fin logras abatir a la vil criatura que había masacrado al personal de tu cocina. Pero la victoria llega a un precio muy alto. En pleno combate, el vampiro hundió sus colmillos en tu cuello. En medio del caos, parte de su sangre cayó en tu boca; un detalle al que apenas diste importancia en aquel momento.\n\nMás tarde, mientras el médico de la corte atiende tus heridas, un dolor de cabeza feroz se apodera de ti y empieza a subirte la fiebre. La noche se alarga entre dolores insoportables. Cuando despiertas al amanecer, tus heridas han sanado de forma misteriosa, pero una sed insaciable te roe por dentro: una sed como nunca habías sentido."
+spn_embrace.1003.a:0 "Comienza tu nueva vida como vampiro"
+spn_embrace.1003.a.tt:0 "Te conviertes en un [GetTrait('supernatural_vampire').GetName( THIS.Char )]."
+#Vamp Event 1, Part 3, Option B from Vamp Event 2
+spn_embrace.1004.t:0 "La negociación"
+spn_embrace.1004.desc:0 "Tras mucho debatir, de algún modo logras convencer a [spn_new_created_vampire.GetTitledFirstName] de que no contarás a nadie lo que [spn_new_created_vampire.GetSheHe] ha hecho. [spn_new_created_vampire.GetSheHe|U] acepta perdonarte la vida con una condición: [spn_new_created_vampire.GetSheHe] te convertirá. Si eres como [spn_new_created_vampire.GetHerHim], delatar a [spn_new_created_vampire.GetHerHim] también te pondría en peligro. A regañadientes, aceptas el precio, aunque aún no entiendes cuánto acabas de pagar en realidad.\n\nCuando termina la conversación, [spn_new_created_vampire.GetTitledFirstName] te sujeta y hunde sus colmillos en tu cuello. Lo siguiente que sabes es que [spn_new_created_vampire.GetSheHe] ha desaparecido, la cabeza empieza a martillearte y la fiebre se adueña de ti. Tras lo que parece una noche eterna de sufrimiento, despiertas con las primeras luces del alba y descubres que tus heridas han sanado. Sin embargo, queda una sed extraña, distinta a todo cuanto habías sentido antes."
+#Vamp Event 1, Part 3, Option C from Vamp Event 2
+spn_embrace.1005.t:0 "La huida"
+spn_embrace.1005.desc:0 "Corres tan rápido como te permiten tus cobardes piernas. Pero no sirve de nada: el asaltante te alcanza a una velocidad increíble. [spn_new_created_vampire.GetSheHe|U] te desgarra el cuello y se aferra con fuerza mientras forcejeas para liberarte. De algún modo consigues apartar a [spn_new_created_vampire.GetHerHim] de una patada y escapar de la cocina. Enseguida encuentras unos guardias y los envías tras el intruso. Registran la fortaleza, pero no hallan ni rastro del cortesano. Ahora no puedes dejar de preguntarte si [spn_new_created_vampire.GetSheHe] volverá para rematarte... y cuándo.\n\nMientras el médico de la corte venda tu cuello, la cabeza empieza a martillearte y te sube la fiebre. Tras lo que parece una noche eterna de sufrimiento, despiertas con el alba y descubres que tus heridas han sanado. Sin embargo, queda una sed extraña, distinta a todo cuanto habías sentido antes."
+#Vamp Event 1, Part 3, Option D from Vamp Event 2
+spn_embrace.1006.t:0 "Supervivencia"
+spn_embrace.1006.desc:0 "Paralizado e incapaz de moverte, permites que [spn_new_created_vampire.GetHerHim] se acerque. Antes de darte cuenta, ya está encima de ti y te ha clavado los dientes en el cuello. Te deja por muerto, y lo último que ves antes de perder el conocimiento es a [spn_new_created_vampire.GetHerHim] abandonando la cocina. Un tiempo después, tus guardias te encuentran y te llevan ante el médico de la corte.\n\nMientras el médico venda tu cuello, la cabeza empieza a martillearte y te sube la fiebre. Tras lo que parece una noche eterna de sufrimiento, despiertas con el alba y descubres que tus heridas han sanado. Sin embargo, queda una sed extraña, distinta a todo cuanto habías sentido antes."
+
+#-------------------------------------------------------------------------- 
+# Vampire Event 2, A Unique Visit
+#-------------------------------------------------------------------------- 
+#Vamp Event 2, Part 1
+spn_embrace.1011.t:0 "Una visita singular"
+spn_embrace.1011.desc:0 "Era un día como cualquier otro en mi corte, pero, en cuanto [spn_new_created_vampire.GetSheHe] entró, sentí como si hubiese caído bajo su hechizo. Una figura [spn_new_created_vampire.GetWomanMan] vestida con una decadencia exquisita y de porte impecable. Tuve que luchar contra todos mis impulsos e intenté comportarme como exige mi posición. [spn_new_created_vampire.GetSheHe|U] hace una reverencia y declara que tiene asuntos importantes que tratar, pero solo en privado. [spn_new_created_vampire.GetSheHe|U] me asegura que lo que tiene que decir me interesará mucho."
+spn_embrace.1011.a:0 "¡Dejadnos!"
+spn_embrace.1011.a.tt:0 "Ordenas a la corte que os deje a solas con la persona desconocida."
+spn_embrace.1011.b:0 "Tus palabras no me interesan."
+spn_embrace.1011.b.tt:0 "Despides a la persona desconocida."
+#Vamp Event 2, Part 2
+spn_embrace.1012.t:0 "Una propuesta"
+spn_embrace.1012.desc:0 "«He oído que la herencia de vuestro reino os inquieta, mi [ROOT.Char.GetLadyLord]», dice [spn_new_created_vampire.GetSheHe]. Por un momento pienso que está insinuando algo de naturaleza siniestra.\n\n«Puedo hacer que nunca tengáis que preocuparos por perder vuestro reino. Por un pequeño precio, claro...» [spn_new_created_vampire.GetSheHe|U] habla de criaturas de poder indomable que se liberaron de las cadenas del tiempo. Me quedo allí, incrédulo, incapaz de creer sus historias. Su aura misteriosa da peso a sus palabras, pero ¿puedo confiar de verdad en que lo que dice sea cierto?"
+spn_embrace.1012.a:0 "Me interesa tu propuesta. ¿Qué pides a cambio?"
+spn_embrace.1012.a.tt:0 "[spn_new_created_vampire.GetTitledFirstName] se convierte en tu Espía mayor."
+spn_embrace.1012.b:0 "Me niego a dar crédito a esas palabras de otro mundo."
+spn_embrace.1012.b.tt:0 "Despides al extraño visitante."
+spn_embrace.1012.c:0 "¡Guardias! ¡A las mazmorras con [spn_new_created_vampire.GetHerHim]!"
+spn_embrace.1012.c.tt:0 "Intentas apresar al extraño visitante."
+#Vamp Event 2, Part 3, Option C Death
+spn_embrace.1013.t:0 "Un error"
+spn_embrace.1013.desc:0 "A [spn_new_created_vampire.GetHerHim] le basta un segundo para incapacitar a todos mis guardias personales. ¡Mis planes para capturar a [spn_new_created_vampire.GetHerHim] se han vuelto contra mí! [spn_new_created_vampire.GetSheHe|U], con una velocidad inexplicable, corre hasta el trono en el que estoy sentado y me muerde el cuello. Siento una calidez extraña mientras la sangre me resbala por la piel."
+spn_embrace.1013.a:0 "Ugh… yo… n..."
+spn_embrace.1013.a.tt:0 "Quizá te vaya mejor en tu vida después de la muerte."
+#Vamp Event 2, Part 3, Option A Turned
+spn_embrace.1014.t:0 "La sed"
+spn_embrace.1014.desc:0 "Impulsado por mi ansia de poder y quizá también por mi deseo hacia [spn_new_created_vampire.GetHerHim], decido adentrarme en su sombrío mundo. Aunque la duda crece con fuerza dentro de mí, apenas opongo resistencia a sus instrucciones. Debo elegir entre beber su sangre o permitir que [spn_new_created_vampire.GetHerHim] me muerda. Con el poco juicio que me queda, elijo lo primero.\n\nEn un instante estoy dejando la copa vacía sobre la mesa; al siguiente, estoy de pie sobre los restos ensangrentados de mi doncella. ¿En qué me he convertido?"
+spn_embrace.1014.a:0 "¡La sed!"
+spn_embrace.1014.a.tt:0 "Abrazas el vampirismo."
+
+#-------------------------------------------------------------------------- 
+# Werewolf Event 1, Just Another Hunt
+#-------------------------------------------------------------------------- 
+#Werewolf Event 1, Part 1
+spn_embrace.2001.t:0 "El cazador"
+spn_embrace.2001.desc:0 "Durante una de tus cacerías mensuales, encuentras un alce espléndido, con una cornamenta como las de los viejos mitos. Sientes el impulso de colgar su cabeza en la sala del trono como trofeo. Sigues a la pieza con atención, pero no adviertes que te has separado por accidente de tu partida de caza. Cuando estás a punto de asestar el golpe mortal, oyes un gruñido profundo y atronador, y ves cómo el alce es partido en dos."
+spn_embrace.2001.a:0 "¡Corre!"
+spn_embrace.2001.a.tt:0 "Haces un intento desesperado por escapar."
+spn_embrace.2001.a.surv.tt:0 "Probabilidad de muerte"
+spn_embrace.2001.b:0 "Intentar esconderse y permanecer en silencio."
+spn_embrace.2001.b.tt:0 "Haces todo lo posible por guardar silencio y no ser oído."
+#Werewolf Event 1, Part 2, Option A Death
+spn_embrace.2002.t:0 "Se convierte en presa"
+spn_embrace.2002.desc.a:0 "Incapaz de pensar con claridad, tus instintos de supervivencia toman el control de tu cuerpo y echas a correr por el bosque. No intentas mirar atrás, porque aún no sabes con certeza qué acabas de ver.\n\nSigues corriendo, pero te detienes de golpe con violencia. Dolorido, bajas la vista y ves una bestia enorme, de dientes inimaginablemente afilados, atravesándote el abdomen. Una oleada de náuseas empieza a invadirte."
+spn_embrace.2002.a:0 "¡La agonía!"
+spn_embrace.2002.a.tt:0 "Mueres."
+#Werewolf Event 1, Part 2, Option A Survive with a Broken Mind
+spn_embrace.2003.t:0 "Se convierte en presa"
+spn_embrace.2003.desc.a:0 "Incapaz de pensar con claridad, tus instintos de supervivencia toman el control de tu cuerpo y echas a correr por el bosque. No intentas mirar atrás, porque aún no sabes con certeza qué acabas de ver.\n\nPor algún milagro, consigues reunirte de nuevo con tu partida de caza, pero tus ropajes reales están hechos jirones, te falta el aliento y pareces a punto de romper a llorar o echarte a reír por el horror indescriptible que acabas de vivir."
+spn_embrace.2003.a:0 "¡JA!"
+spn_embrace.2003.a.tt:0 "Tu cordura te ha abandonado."
+#Werewolf Event 1, Part 2, Option B Death
+spn_embrace.2004.t:0 "Se convierte en presa"
+spn_embrace.2004.desc.a:0 "Te quedas paralizado, contemplando cómo aquella criatura gigantesca devora lo que hace apenas unos instantes era un animal majestuoso. Se asemeja a un lobo, pero se alza muy por encima de ti cuando se yergue sobre las patas traseras. Se detiene y olfatea en tu dirección. La certeza de que te ha descubierto cae sobre ti como una ola inmensa.\n\nPermaneces allí, atónito y presa del terror, mientras la bestia se abalanza sobre ti y te arranca un pedazo del cráneo."
+spn_embrace.2004.a:0 "¡Agh!"
+spn_embrace.2004.a.tt:0 "Mueres."
+#Werewolf Event 1, Part 2, Option B Turn
+spn_embrace.2005.t:0 "Se convierte en presa"
+spn_embrace.2005.desc.a:0 "Te quedas paralizado, contemplando cómo aquella bestia gigantesca devora lo que hace apenas unos instantes era un animal majestuoso. Se asemeja a un lobo, pero se alza muy por encima de ti cuando se yergue sobre las patas traseras. Se detiene y olfatea en tu dirección. La certeza de que te ha descubierto cae sobre ti como una ola inmensa.\n\nLa criatura se acerca lentamente mientras tú no haces ademán de huir. El pavor crece a cada paso que da. Por algún milagro, tus compañeros cazadores consiguen localizarte y disparan flechas contra la bestia; la criatura mata a varios de ellos, pero resulta herida en la refriega, y tú pierdes el conocimiento.\n\nDespiertas en tu cama, cubierto de vendajes. No sientes dolor alguno y parece que te has curado por completo. Tu canciller entra en la estancia y te explica que os atacó un lobo enorme y que tu séquito logró salvarte. Nadie reparó en que caminaba como un ser humano y, debido a la espesa niebla, decides darle vueltas al asunto cuando te encuentres mejor.\n\nLa noche no te trae alivio. Un dolor que creías imposible te impide dormir. Sientes como si todo el cuerpo se desgarrase desde dentro. Gritas y empiezas a destrozarlo todo en tus aposentos. La mente se te apaga. Al instante siguiente estás en una colina cercana al castillo, aullando a la noche. Te has convertido en la bestia de tus pesadillas."
+spn_embrace.2005.a:0 "¡AUUU-UUUU-UUUUU!"
+spn_embrace.2005.a.tt:0 "Te transformas en hombre lobo."
+
+#-------------------------------------------------------------------------- 
+# Werewolf Event 2, Carriage Ambush
+#-------------------------------------------------------------------------- 
+#Werewolf Event 2, Part 1
+spn_embrace.2011.t:0 "¡Es una emboscada!"
+spn_embrace.2011.desc:0 "Iba de camino a visitar a uno de mis vasallos para asistir a un festín preparado en mi honor. Todo parecía ir bien hasta que empezaron a dispararnos virotes de ballesta desde el bosque. ¡Era una emboscada! Mis guardias lucharon con valentía para proteger a su señor, pero nos superaban en número y nos habían pillado por sorpresa. No quedamos muchos; quizá debería unirme a la refriega."
+spn_embrace.2011.a:0 "¡Salid y luchad, cobardes!"
+spn_embrace.2011.a.tt:0 "¡Mantén la posición!"
+spn_embrace.2011.b:0 "¡Debo escapar!"
+spn_embrace.2011.b.tt:0 "Haces un intento desesperado por escapar."
+#Werewolf Event 2, Part 2, Option A 
+spn_embrace.2012.t:0 "Por honor y supervivencia"
+spn_embrace.2012.desc.a:0 "Después de lo que parecen horas, aunque en realidad no debían de haber sido más que minutos, solo quedamos en pie un guardia y yo. Ensangrentados y malheridos, nuestras posibilidades son escasas. Recuerdo a este guardia en particular: [spn_new_created_lycan.GetSheHe] nunca hablaba mucho. No sabía que [spn_new_created_lycan.GetSheHe] fuese tan capaz luchando. Debería haber prestado más atención. Debería haber hecho muchas cosas de otra manera, ahora que lo pienso.\n\nEl aterrador grito de guerra de mi compañero me devuelve a la realidad. Los emboscadores vacilan, y aprovechamos ese instante para cargar."
+spn_embrace.2012.a:0 "¡Un último esfuerzo desesperado!"
+spn_embrace.2012.a.tt:0 "Cargas contra el enemigo."
+#Werewolf Event 2, Part 2, Option A Second
+spn_embrace.2013.t:0 "Más valioso que el oro"
+spn_embrace.2013.desc.a:0 "Ahora ambos yacemos en el suelo. El hedor de la muerte impregna el aire. Es mediodía, pero siento frío por toda la sangre que he perdido. El valiente protector expresa sus pensamientos por primera vez en mi presencia. «Ha sido un honor luchar a vuestro lado, mi [spn_new_created_lycan.GetLadyLord]. Puedo descansar en paz sabiendo que he dado la vida por un señor digno como vos.» [spn_new_created_lycan.GetSheHe|U] me agarra la pierna y me muerde. Ya no puedo soportar el dolor y me desmayo.\n\nEl dolor me despierta, y la luna llena parece terriblemente cercana. Mis huesos se rompen y se desplazan, y un hambre feroz se apodera de mí. Sin pensarlo demasiado, empiezo a devorar los cadáveres de nuestros emboscadores. ¿En qué me he convertido?"
+spn_embrace.2013.a:0 "¡AAAAAAHHHHHH!"
+spn_embrace.2013.a.tt:0 "Te transformas en hombre lobo."
+#Werewolf Event 2, Part 2, Option A Death
+spn_embrace.2014.t:0 "Matanza"
+spn_embrace.2014.desc.a:0 "Tú y tus compañeros realizáis un esfuerzo heroico. Al final no basta, y acabas pasado a cuchillo."
+spn_embrace.2014.a:0 "¡No!"
+#Werewolf Event 2, Part 2, Option B Run
+spn_embrace.2015.t:0 "Huida"
+spn_embrace.2015.desc.a:0 "Corres tan rápido como puedes, zigzagueando entre los árboles, y de algún modo logras evitar que te capturen. Incluso después de regresar a casa, te descubres registrando cada rincón y cada grieta, temiendo el próximo ataque."
+spn_embrace.2015.a:0 "¡Uf!"
+spn_embrace.2015.a.tt:0 "De algún modo consigues escapar de la captura, aunque no sin consecuencias."
+#Werewolf Event 2, Part 2, Option B Death
+spn_embrace.2016.t:0 "Huida"
+spn_embrace.2016.desc.a:0 "Corres tan rápido como puedes, zigzagueando entre los árboles, y acabas con un virote de ballesta clavado en la espalda."
+spn_embrace.2016.a:0 "¡Ahhh!"
+
+#-------------------------------------------------------------------------- 
+# Hunter Event 1, A Bump In The Night
+#-------------------------------------------------------------------------- 
+#Hunter Event 1, Part 1
+spn_embrace.3001.t:0 "Un sobresalto en la noche"
+spn_embrace.3001.desc:0 "Un grito te despierta en plena noche. Te tomas un momento para encender una vela y coger un cuchillo. Abres la puerta de tus aposentos y miras al pasillo. A la tenue luz de la llama distingues a tu guardia tendido en el suelo. Hay sangre y vísceras esparcidas por todo el corredor.\n\nOyes a tus guardias gritar frenéticamente por toda la fortaleza. Un instante después, un gruñido te hiela la sangre. De pronto, el brillo de dos enormes ojos refleja la luz de tu vela. La monstruosidad, parecida a un lobo, avanza hasta quedar iluminada y suelta un aullido profundo y retumbante."
+spn_embrace.3001.a:0 "Cerrar la puerta deprisa y esconderte bajo la cama."
+spn_embrace.3001.a.tt:0 "Si me escondo, ¡seguro que se irá!"
+spn_embrace.3001.b:0 "Correr por el pasillo contrario e intentar encontrar ayuda."
+spn_embrace.3001.b.tt:0 "¡Mi única esperanza es conseguir ayuda!"
+spn_embrace.3001.c:0 "Cerrar la puerta en silencio y volver a la cama."
+spn_embrace.3001.c.tt:0 "Ahí fuera no había nada. En cualquier momento despertaré de este sueño."
+spn_embrace.3001.d:0 "Soltar un grito de guerra y cargar contra la bestia."
+spn_embrace.3001.d.tt:0 "Si voy a caer, caeré luchando."
+#Hunter Event 1, Part 2 What An Ordeal
+spn_embrace.3002.t:0 "Menuda odisea"
+spn_embrace.3002.desc:0 "La bestia enfurecida irrumpe por la puerta y destroza tus aposentos. Se detiene y empieza a husmear como un perro de caza. Permanece un instante al pie de la cama y luego se lanza debajo de ella, con colmillos y garras intentando alcanzarte.\n\nTus gritos agudos atraen a media docena de guardias a la habitación. Con feroces alaridos de combate, atacan. Chillando de dolor, la criatura retrocede desde debajo de la cama y se estrella contra una ventana de tus aposentos, saliendo por ella. Tus guardias te ayudan a salir de tu escondite, sacudiendo la cabeza con incredulidad."
+spn_embrace.3002.a:0 "Eso ha estado cerca."
+#Hunter Event 1, Part 2 Time of Need
+spn_embrace.3003.t:0 "Momento de necesidad"
+spn_embrace.3003.desc:0 "Mientras corres por los pasillos, oyes a la criatura detrás de ti. Al avanzar a toda prisa, encuentras a otros que se toparon con la bestia antes que tú: lo que queda de ellos está esparcido por todas partes. Ves una puerta que conduce al patio y la atraviesas tan rápido como puedes, cerrándola de un portazo tras de ti. Sin esperar a comprobar si aguanta, echas a correr por el patio. Un estruendo a tu espalda te confirma que la puerta no ha resistido.\n\nCuando la bestia está a punto de alcanzarte, un guerrero encapuchado se precipita para hacerle frente. Mientras ambos luchan, aprovechas un momento para recomponerte y recuperar el aliento. Ves una lanza en el suelo, la recoges y se la arrojas a la criatura. La distracción basta para que el desconocido decapite a la bestia de un solo tajo.\n\n«¿Qué era eso?», preguntas al desconocido.\nAl retirarse la capucha, responde: «Un licántropo... esas bestias, y otras criaturas inmundas de este mundo, son cada vez más numerosas. Soy [spn_new_created_hunter.GetTitledFirstName].»\n\n«¿Qué se puede hacer?», preguntas.\n«Puedo enseñaros a combatir a las bestias, pero el camino no será fácil. Solo el entrenamiento podría mataros antes de que lo hagan ellas», dice [spn_new_created_hunter.GetSheHe]."
+spn_embrace.3003.a:0 "Haré todo lo posible por aprender."
+spn_embrace.3003.a.tt:0 "Sigues la senda del cazador. Este entrenamiento durará unas dos semanas."
+spn_embrace.3003.b:0 "No necesito tales habilidades."
+spn_embrace.3003.b.tt:0 "Decides no seguir la senda del cazador."
+#Hunter Event 1, Part 3 Training Complete
+spn_embrace.3004.t:0 "Entrenamiento completado"
+spn_embrace.3004.desc:0 "Tras semanas de entrenamiento riguroso, [spn_new_created_hunter.GetTitledFirstName] cree que ya has aprendido lo suficiente para llamarte cazador. Aunque aún queda mucho por aprender, has dado tus primeros pasos en la senda."
+spn_embrace.3004.a:0 "¡Hora de buscar y destruir a estos monstruos!"
+#Hunter Event 1, Part 2 Creature Left You Alone
+spn_embrace.3005.t:0 "Sobrevivir a la noche"
+spn_embrace.3005.desc:0 "Convenciéndote de que todo ha sido una pesadilla, vuelves a quedarte dormido. Te despierta bruscamente un séquito de guardias y sirvientes. Al parecer, no fue ningún sueño. Ya sea por pura suerte o por la piedad de la bestia, has sobrevivido a la noche."
+spn_embrace.3005.a:0 "No sé muy bien cómo sentirme ante esto."
+#Hunter Event 1, Part 2 Attack the Creature
+spn_embrace.3006.t:0 "Lucha brutal"
+spn_embrace.3006.desc:0 "Entrando y saliendo de la consciencia, cubierto de sangre, recuerdas vagamente haber luchado contra la criatura que ahora yace desparramada en el suelo a tu lado. Un desconocido se arrodilla junto a ti e inspecciona tus heridas.\n\n«El cabrón te ha mordido... qué lástima... por lo que veo, habrías sido útil en la lucha.»\n\nEl desconocido desenvaina su espada.\n\n«No te preocupes, te considerarán un héroe por haber luchado con tanta valentía contra esta criatura», dice mientras alza la hoja sobre tu pecho."
+spn_embrace.3006.a:0 "¡Espera! ¡Aún puedo luchar contra estos monstruos!"
+spn_embrace.3006.a.tt:0 "Intentas negociar para salvar la vida."
+#Hunter Event 1, Part 2 Attack the Creature
+ #spn_embrace.3006.t:0 "Lucha brutal" #comentado en 1.22 porque la actualización 1.9 indicaba que estaba duplicado en error.log; lo mismo se aplica a la línea siguiente
+ #spn_embrace.3006.desc:0 "Entrando y saliendo de la consciencia, cubierto de sangre, recuerdas vagamente haber luchado contra la criatura que ahora yace desparramada en el suelo a tu lado. Un desconocido se arrodilla junto a ti e inspecciona tus heridas.\n\n«El cabrón te ha mordido... qué lástima... por lo que veo, habrías sido útil en la lucha.»\n\nEl desconocido desenvaina su espada.\n\n«No te preocupes, te considerarán un héroe por haber luchado con tanta valentía contra esta criatura», dice mientras alza la hoja sobre tu pecho."
+ #spn_embrace.3006.a:0 "¡Espera! ¡Aún puedo luchar contra estos monstruos!"
+ #spn_embrace.3006.a.tt:0 "Intentas negociar para salvar la vida y entrenarte como cazador."
+#Hunter Event 1, Part 3 Training Complete And Transformation
+spn_embrace.3007.t:0 "Viaje difícil"
+spn_embrace.3007.desc:0 "Tras semanas de entrenamiento riguroso, [spn_new_created_hunter.GetTitledFirstName] cree que ya has aprendido lo suficiente para llamarte cazador. Aunque aún queda mucho por aprender, has dado tus primeros pasos en la senda."
+spn_embrace.3007.a:0 "¡Hora de buscar y destruir a estos monstruos!"
+
+
+### added by sync_localizations.py -- untranslated, 16 keys
+ spn_embrace.0001.a.live.tt:0 "The vial does what she promised. What that turns out to mean is between you and the night."
+ spn_embrace.0001.a.nothing.tt:0 "Some vials are just vials."
+ spn_embrace.0001.a.die.tt:0 "For some, the price is everything."
+ spn_embrace.0005.t:0 "Twenty-Five Gold"
+ spn_embrace.0005.desc:0 "You drink it at your own hearth, alone, the way you would take medicine. It tastes of iron and wet leaves and it is worse going down than you expect.\n\nThen you go to bed. And you sleep — soundly, and without incident — and you wake at the usual hour feeling exactly as old as you did the day before. You feel it again the day after that.\n\nYou go back to the market within the week. There is a fishmonger where the stall was. He has had that spot, he says, for eleven years."
+ spn_embrace.0005.a:0 "Twenty-five gold."
+ spn_embrace.3008.t:0 "What He Left You"
+ spn_embrace.3008.desc:0 "The blade does not come down.\n\n[spn_new_created_hunter.GetTitledFirstName] studies you a long moment — longer than is comfortable — then pulls the cloth away from the bite. Whatever [spn_new_created_hunter.GetSheHe] sees there settles it.\n\n"Not today," [spn_new_created_hunter.GetSheHe] says. "But I've seen this before and I know how it ends. A year. Maybe three. You'll feel it long before anyone else does."\n\n[spn_new_created_hunter.GetSheHe|U] presses a knife into your hand and folds your fingers shut around it. "If you're still yourself when it's over, find me and I'll finish what I started teaching you. If you're not" — [spn_new_created_hunter.GetSheHe] nods at the blade — "do it yourself, and spare us both the journey.""
+ spn_embrace.3008.a:0 "I'll be myself when it's over."
+ spn_embrace.3008.a.tt:0 "The wound begins to fester. The Hunter's offer waits on what it decides."
+ spn_embrace.3009.t:0 "The Offer Still Stands"
+ spn_embrace.3009.desc:0 "[spn_new_created_hunter.GetTitledFirstName] is waiting in the yard when you come down, as though someone had told [spn_new_created_hunter.GetHerHis] the day.\n\n[spn_new_created_hunter.GetSheHe|U] looks at the scar, then at your eyes, and something in [spn_new_created_hunter.GetHerHis] shoulders comes down half an inch.\n\n"Most don't," [spn_new_created_hunter.GetSheHe] says. "I've buried the ones who died of it and hunted the ones who didn't. You're the third I've ever met who just — held."\n\n[spn_new_created_hunter.GetSheHe|U] holds out a hand for the knife, then thinks better of it. "Keep it. You'll want your own soon enough. So — do you still mean to learn, or have you had your fill of monsters?""
+ spn_embrace.3009.a:0 "Teach me. I've earned it twice over."
+ spn_embrace.3009.a.tt:0 "You take up the Hunter's path where the fever interrupted it."
+ spn_embrace.3009.b:0 "I've had my fill of monsters."
+ spn_embrace.3009.b.tt:0 "You send the Hunter on their way. The offer does not come again."

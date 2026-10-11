@@ -1,0 +1,401 @@
+﻿at_artifact_slot_type_value = {
+	if = {
+		limit = { artifact_slot_type = helmet }
+		value = 1
+	}
+	else_if = {
+		limit = { artifact_slot_type = regalia }
+		value = 2
+	}
+	else_if = {
+		limit = { artifact_slot_type = armor }
+		value = 3
+	}
+	else_if = {
+		limit = { artifact_slot_type = primary_armament }
+		value = 4
+	}
+	else_if = {
+		limit = { artifact_slot_type = miscellaneous }
+		value = 5
+	}
+	else_if = {
+		limit = { artifact_slot_type = journal }
+		value = 6
+	}
+	else_if = {
+		limit = { artifact_slot_type = sculpture }
+		value = 7
+	}
+	else_if = {
+		limit = { artifact_slot_type = pedestal }
+		value = 8
+	}
+	else_if = {
+		limit = { artifact_slot_type = wall_big }
+		value = 9
+	}
+	else_if = {
+		limit = { artifact_slot_type = wall_small }
+		value = 10
+	}
+	else_if = {
+		limit = { artifact_slot_type = throne }
+		value = 11
+	}
+	else_if = {
+		limit = { artifact_slot_type = book }
+		value = 12
+	}
+	else = {
+		value = 13
+	}
+}
+
+at_artifact_type_value = {
+	# Crown
+	if = {
+		limit = { artifact_type = helmet }
+		value = 100
+	}
+	else_if = {
+		limit = { artifact_type = helmet_simple }
+		value = 101
+	}
+	# Regalia
+	else_if = {
+		limit = { artifact_type = regalia }
+		value = 200
+	}
+	else_if = {
+		limit = { artifact_type = regalia_simple }
+		value = 201
+	}
+	else_if = {
+		limit = { artifact_type = seal_of_investiture }
+		value = 202
+	}
+	# Armor
+	else_if = {
+		limit = { artifact_type = armor_mail }
+		value = 300
+	}
+	else_if = {
+		limit = { artifact_type = armor_plate }
+		value = 301
+	}
+	else_if = {
+		limit = { artifact_type = armor_scale }
+		value = 302
+	}
+	else_if = {
+		limit = { artifact_type = armor_lamellar }
+		value = 303
+	}
+	else_if = {
+		limit = { artifact_type = armor_laminar }
+		value = 304
+	}
+	else_if = {
+		limit = { artifact_type = armor_brigandine }
+		value = 305
+	}
+	# Weapons
+	else_if = {
+		limit = { artifact_type = axe }
+		value = 400
+	}
+	else_if = {
+		limit = { artifact_type = hammer }
+		value = 401
+	}
+	else_if = {
+		limit = { artifact_type = mace }
+		value = 402
+	}
+	else_if = {
+		limit = { artifact_type = spear }
+		value = 403
+	}
+	else_if = {
+		limit = { artifact_type = sword }
+		value = 404
+	}
+	else_if = {
+		limit = { artifact_type = dagger }
+		value = 405
+	}
+	else_if = {
+		limit = { artifact_type = longbow }
+		value = 406
+	}
+	else_if = {
+		limit = { artifact_type = composite }
+		value = 407
+	}
+	else_if = {
+		limit = { artifact_type = bow }
+		value = 408
+	}
+	else_if = {
+		limit = { artifact_type = crossbow }
+		value = 409
+	}
+	# Trinkets
+	else_if = {
+		limit = { artifact_type = miscellaneous }
+		value = 500
+	}
+	else_if = {
+		limit = { artifact_type = miscellaneous_when_not_court }
+		value = 501
+	}
+	else_if = {
+		limit = { artifact_type = brooch }
+		value = 502
+	}
+	else_if = {
+		limit = { artifact_type = badge }
+		value = 503
+	}
+	else_if = {
+		limit = { artifact_type = necklace }
+		value = 504
+	}
+	else_if = {
+		limit = { artifact_type = ring }
+		value = 505
+	}
+	else_if = {
+		limit = { artifact_type = animal_trinket }
+		value = 506
+	}
+	else_if = {
+		limit = { artifact_type = bird_feather }
+		value = 507
+	}
+	else_if = {
+		limit = { artifact_type = pas_darmes_token }
+		value = 508
+	}
+	else_if = {
+		limit = { artifact_type = pas_darmes_spurs }
+		value = 509
+	}
+	else_if = {
+		limit = { artifact_type = tournament_favor }
+		value = 510
+	}
+	# Journals
+	else_if = {
+		limit = { artifact_type = journal }
+		value = 600
+	}
+	# Sculptures
+	else_if = {
+		limit = { artifact_type = sculpture }
+		value = 700
+	}
+	else_if = {
+		limit = { artifact_type = chest }
+		value = 701
+	}
+	else_if = {
+		limit = { artifact_type = cabinet }
+		value = 702
+	}
+	else_if = {
+		limit = { artifact_type = scientific_apparatus }
+		value = 703
+	}
+	else_if = {
+		limit = { artifact_type = tun_barrel }
+		value = 704
+	}
+	# Pedestal items, including alchemy
+	else_if = {
+		limit = { artifact_type = box }
+		value = 800
+	}
+	else_if = {
+		limit = { artifact_type = goblet }
+		value = 801
+	}
+	else_if = {
+		limit = { artifact_type = jug }
+		value = 802
+	}
+	else_if = {
+		limit = { artifact_type = brooch_pedestal }
+		value = 803
+	}
+	else_if = {
+		limit = { artifact_type = necklace_pedestal }
+		value = 804
+	}
+	else_if = {
+		limit = { artifact_type = bowl }
+		value = 805
+	}
+	else_if = {
+		limit = { artifact_type = plate }
+		value = 806
+	}
+	else_if = {
+		limit = { artifact_type = urn }
+		value = 807
+	}
+	else_if = {
+		limit = { artifact_type = scepter_pedestal }
+		value = 808
+	}
+	else_if = {
+		limit = { artifact_type = pedestal }
+		value = 809
+	}
+	else_if = {
+		limit = { artifact_type = elixir }
+		value = 810
+	}
+	else_if = {
+		limit = { artifact_type = panacea }
+		value = 811
+	}
+	else_if = {
+		limit = { artifact_type = philosophers_stone }
+		value = 812
+	}
+	else_if = {
+		limit = { artifact_type = seal_of_investiture_court }
+		value = 813
+	}
+	# Large wall ornaments
+	else_if = {
+		limit = { artifact_type = tapestry }
+		value = 900
+	}
+	else_if = {
+		limit = { artifact_type = animal_hide_big }
+		value = 901
+	}
+	else_if = {
+		limit = { artifact_type = wall_big }
+		value = 902
+	}
+	else_if = {
+		limit = { artifact_type = wall_shield_special }
+		value = 903
+	}
+	else_if = {
+		limit = { artifact_type = wall_icon_court_large }
+		value = 904
+	}
+	# Small wall ornaments
+	else_if = {
+		limit = { artifact_type = animal_skull }
+		value = 1000
+	}
+	else_if = {
+		limit = { artifact_type = animal_hide }
+		value = 1001
+	}
+	else_if = {
+		limit = { artifact_type = wall_small }
+		value = 1002
+	}
+	else_if = {
+		limit = { artifact_type = wall_shield }
+		value = 1003
+	}
+	else_if = {
+		limit = { artifact_type = wall_icon_court_small }
+		value = 1004
+	}
+	# Thrones
+	else_if = {
+		limit = { artifact_type = throne }
+		value = 1100
+	}
+	else_if = {
+		limit = { artifact_type = throne_special }
+		value = 1101
+	}
+	# Books
+	else_if = {
+		limit = { artifact_type = book }
+		value = 1200
+	}
+	else_if = {
+		limit = { artifact_type = chronicle }
+		value = 1201
+	}
+	# Unknown
+	else = {
+		value = at_artifact_slot_type_value
+		multiply = 100
+		add = 99
+	}
+}
+
+at_artifacts_window_max_count_value = {
+	if = {
+		limit = { var:at_artifacts_window_selected_max_count_option = flag:_100 }
+		value = 100
+	}
+	else_if = {
+		limit = { var:at_artifacts_window_selected_max_count_option = flag:_200 }
+		value = 200
+	}
+	else_if = {
+		limit = { var:at_artifacts_window_selected_max_count_option = flag:_500 }
+		value = 500
+	}
+	else_if = {
+		limit = { var:at_artifacts_window_selected_max_count_option = flag:_1000 }
+		value = 1000
+	}
+	else_if = {
+		limit = { var:at_artifacts_window_selected_max_count_option = flag:_2000 }
+		value = 2000
+	}
+	else_if = {
+		limit = { var:at_artifacts_window_selected_max_count_option = flag:_5000 }
+		value = 5000
+	}
+	else_if = {
+		limit = { var:at_artifacts_window_selected_max_count_option = flag:_10000 }
+		value = 10000
+	}
+	else_if = {
+		limit = { var:at_artifacts_window_selected_max_count_option = flag:_20000 }
+		value = 20000
+	}
+	else = {
+		limit = { var:at_artifacts_window_selected_max_count_option = flag:_50000 }
+		value = 50000
+	}
+}
+
+at_artifacts_window_artifacts_count_value = {
+	value = 0
+	every_in_list = {
+		variable = at_artifacts_window_artifacts
+		add = 1
+	}
+}
+
+at_artifacts_window_filtered_artifacts_count_value = {
+	value = 0
+	every_in_list = {
+		variable = at_artifacts_window_filtered_artifacts
+		add = 1
+	}
+}
+
+at_artifacts_window_all_artifacts_count_value = {
+	value = 0
+	every_in_list = {
+		variable = at_artifacts_window_all_artifacts
+		add = 1
+	}
+}

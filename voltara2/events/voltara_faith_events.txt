@@ -1,0 +1,47 @@
+﻿namespace = voltara_faith
+
+voltara_faith.1 = { type = character_event title = voltara_faith.1.t desc = voltara_faith.1.desc theme = learning override_background = { reference = study }
+option = { name = voltara_faith.1.o0 trigger_event = voltara_faith.2 }
+option = { name = voltara_faith.1.o1 trigger_event = voltara_faith.3 }
+option = { name = voltara_faith.1.o2 trigger_event = voltara_faith.4 }
+option = { name = voltara_faith.1.o3  }
+}
+
+voltara_faith.2 = { type = character_event title = voltara_faith.2.t desc = voltara_faith.2.desc theme = learning override_background = { reference = study }
+option = { name = voltara_faith.2.o0 trigger_event = voltara_faith.1 }
+}
+
+voltara_faith.3 = { type = character_event title = voltara_faith.3.t desc = voltara_faith.3.desc theme = learning override_background = { reference = study }
+option = { name = voltara_faith.3.o0 trigger_event = voltara_faith.1 }
+}
+
+voltara_faith.4 = { type = character_event title = voltara_faith.4.t desc = voltara_faith.4.desc theme = learning override_background = { reference = study }
+option = { name = voltara_faith.4.o0 trigger_event = voltara_faith.1 }
+}
+
+voltara_faith.10 = { type = character_event title = voltara_faith.10.t desc = voltara_faith.10.desc theme = learning override_background = { reference = study }
+option = { name = voltara_faith.10.o0 add_piety = 100 add_character_modifier = { modifier = voltara_public_judgment years = 5 } }
+option = { name = voltara_faith.10.o1 add_piety = 75 add_character_modifier = { modifier = voltara_reconciler years = 5 } }
+option = { name = voltara_faith.10.o2 add_prestige = 100 add_character_modifier = { modifier = voltara_clerical_authority years = 5 } }
+}
+
+voltara_faith.11 = { type = character_event title = voltara_faith.11.t desc = voltara_faith.11.desc theme = learning override_background = { reference = study }
+option = { name = voltara_faith.11.o0 add_piety = 100 capital_county = { add_county_modifier = { modifier = voltara_temple_relief years = 3 } } }
+option = { name = voltara_faith.11.o1 add_piety = 50 add_character_modifier = { modifier = voltara_hospitable_patron years = 5 } }
+}
+
+voltara_faith.12 = { type = character_event title = voltara_faith.12.t desc = voltara_faith.12.desc theme = learning override_background = { reference = study }
+option = { name = voltara_faith.12.o0 add_learning_lifestyle_xp = 150 add_character_modifier = { modifier = voltara_relic_scholar years = 5 } }
+option = { name = voltara_faith.12.o1 add_piety = 75 }
+option = { name = voltara_faith.12.o2 trigger = { gold >= 30 } remove_short_term_gold = 30 add_learning_lifestyle_xp = 100 add_piety = 100 }
+}
+
+voltara_faith.20 = { type = character_event title = voltara_faith.20.t desc = voltara_faith.20.desc theme = learning override_background = { reference = study }
+option = { name = voltara_faith.20.o0 if = { limit = { NOT = { exists = rite:voltara_veiled_balance } } create_rite_from_type = { type = voltara_veiled_balance convert = yes } } set_character_rite = rite:voltara_veiled_balance add_piety = -250 add_character_flag = voltara_professed_reform }
+option = { name = voltara_faith.20.o1  }
+}
+
+voltara_faith.21 = { type = character_event title = voltara_faith.21.t desc = voltara_faith.21.desc theme = learning override_background = { reference = study }
+option = { name = voltara_faith.21.o0 if = { limit = { NOT = { exists = rite:voltara_uncrowned_light } } create_rite_from_type = { type = voltara_uncrowned_light convert = yes } } set_character_rite = rite:voltara_uncrowned_light add_piety = -250 add_character_flag = voltara_professed_reform }
+option = { name = voltara_faith.21.o1  }
+}

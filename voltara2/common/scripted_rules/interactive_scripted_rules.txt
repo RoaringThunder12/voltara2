@@ -1,0 +1,262 @@
+﻿can_be_knight = {
+	trigger_if = {
+		limit = {
+			NOT = {
+				exists = liege
+			}
+			OR = {
+				is_playable_character = no
+				root = root.court_owner
+			}
+		}
+		trigger_if = {
+			limit = {
+				NOT = {
+					has_game_rule = knight_age_disabled
+				}
+			}
+			OR = {
+				can_be_knight_trigger = {
+					ARMY_OWNER = root.court_owner
+				}
+				miv_knight_age_override_trigger = {
+					ARMY_OWNER = root.court_owner
+				}
+			}
+		}
+		trigger_else = {
+			can_be_knight_trigger = {
+				ARMY_OWNER = root.court_owner
+			}
+		}
+	}
+	trigger_else = {
+		trigger_if = {
+			limit = {
+				NOT = {
+					has_game_rule = knight_age_disabled
+				}
+			}
+			OR = {
+				can_be_knight_trigger = {
+					ARMY_OWNER = liege
+				}
+				miv_knight_age_override_trigger = {
+					ARMY_OWNER = liege
+				}
+			}
+		}
+		trigger_else = {
+			can_be_knight_trigger = {
+				ARMY_OWNER = liege
+			}
+		}
+		trigger_if = {
+			limit = {
+				has_game_rule = belligerence_miv_enabled
+			}
+			NOT = {
+				liege = {
+					has_opinion_modifier = {
+						modifier = miv_oathbreaker
+						target = prev
+					}
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				NOT = {
+					has_game_rule = knight_eligibility_vassals_disabled
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_game_rule = knight_eligibility_vassals_enabled
+				}
+				NOT = {
+					is_at_war = yes
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_game_rule = knight_eligibility_vassals_enabled_1
+				}
+				NOT = {
+					highest_held_title_tier >= tier_kingdom
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_game_rule = knight_eligibility_vassals_enabled_2
+				}
+				NOT = {
+					highest_held_title_tier >= tier_duchy
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_game_rule = knight_eligibility_vassals_enabled_3
+				}
+				NOT = {
+					highest_held_title_tier >= tier_county
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_game_rule = knight_eligibility_vassals_enabled_4
+				}
+				NOT = {
+					highest_held_title_tier >= tier_barony
+				}
+			}
+		}
+	}
+}
+
+can_command_troops = {
+	trigger_if = {
+		limit = {
+			NOT = {
+				has_game_rule = commander_age_disabled
+			}
+		}
+		OR = {
+			can_be_commander_basic_trigger = {
+				ARMY_OWNER = scope:army_owner
+			}
+			miv_commander_age_override_trigger = {
+				ARMY_OWNER = scope:army_owner
+			}
+		}
+	}
+	trigger_else = {
+		can_be_commander_basic_trigger = {
+			ARMY_OWNER = scope:army_owner
+		}
+	}
+	trigger_if = {
+		limit = {
+			NOT = {
+				has_game_rule = commander_eligibility_vassals_disabled
+			}
+		}
+		trigger_if = {
+			limit = {
+				has_game_rule = commander_eligibility_vassals_enabled_important
+			}
+			OR = {
+				this = scope:army_owner
+				AND = {
+					exists = dynasty
+					exists = scope:army_owner.dynasty
+					dynasty = scope:army_owner.dynasty
+				}
+				is_spouse_of = scope:army_owner
+				has_relation_friend = scope:army_owner
+				has_relation_best_friend = scope:army_owner
+				is_councillor_of = scope:army_owner
+				scope:army_owner = {
+					primary_title ?= {
+						is_target_in_variable_list = {
+							name = kingsguard_members
+							target = root
+						}
+					}
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				has_game_rule = commander_eligibility_vassals_enabled_0
+			}
+			OR = {
+				is_courtier_of = scope:army_owner
+				this = scope:army_owner
+				AND = {
+					exists = dynasty
+					exists = scope:army_owner.dynasty
+					dynasty = scope:army_owner.dynasty
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				has_game_rule = commander_eligibility_vassals_enabled
+			}
+			OR = {
+				dynasty = scope:army_owner.dynasty
+				this = scope:army_owner
+			}
+		}
+		trigger_if = {
+			limit = {
+				has_game_rule = commander_eligibility_vassals_enabled_2
+			}
+			OR = {
+				house = scope:army_owner.house
+				this = scope:army_owner
+			}
+		}
+		trigger_if = {
+			limit = {
+				has_game_rule = commander_eligibility_vassals_enabled_3
+			}
+			OR = {
+				is_close_or_extended_family_of = scope:army_owner
+				this = scope:army_owner
+			}
+		}
+		trigger_if = {
+			limit = {
+				has_game_rule = commander_eligibility_vassals_enabled_4
+			}
+			this = scope:army_owner
+		}
+	}
+}
+
+can_command_troops_now = {
+	trigger_if = {
+		limit = {
+			is_adult = no
+			miv_commander_age_enabled_trigger = yes
+		}
+		OR = {
+			can_be_commander_now_trigger = {
+				ARMY_OWNER = scope:army_owner
+			}
+			miv_commander_age_now_override_trigger = {
+				ARMY_OWNER = scope:army_owner
+			}
+		}
+	}
+	trigger_else = {
+		can_be_commander_now_trigger = {
+			ARMY_OWNER = scope:army_owner
+		}
+	}
+	trigger_if = {
+		limit = {
+			has_game_rule = belligerence_miv_enabled
+		}
+		custom_description = {
+			text = miv_commander_is_oathbreaker_text
+			NOT = {
+				scope:army_owner = {
+					has_opinion_modifier = {
+						modifier = miv_oathbreaker
+						target = prev
+					}
+				}
+			}
+		}
+	}
+	trigger_if = {
+		limit = {
+			exists = knight_army
+		}
+		knight_army.army_owner = scope:army_owner
+	}
+}
+

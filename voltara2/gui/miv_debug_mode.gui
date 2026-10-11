@@ -1,0 +1,66 @@
+﻿widget = {
+	name = "miv_debug_mode"
+	size = { 0 0 }
+	alwaystransparent = yes
+	visible = "[IsInGame]"
+
+	widget = {
+		size = { 0 0 }
+		alwaystransparent = yes
+		state = {
+			name = miv_debug_mode_on
+			alpha = 1
+			trigger_when = "[And( Not( InDebugMode ), GetScriptedGui('miv_debug_mode_rule_on').IsShown( GuiScope.End ) )]"
+			on_start = "[GetVariableSystem.Set( 'miv_debug_mode_set', 'yes' )]"
+			next = miv_debug_mode_on_command
+		}
+		state = {
+			name = miv_debug_mode_on_command
+			alpha = 1
+			on_start = "[ExecuteConsoleCommand('debug_mode')]"
+			next = miv_debug_mode_on_idle
+		}
+		state = {
+			name = miv_debug_mode_on_idle
+			alpha = 1
+		}
+	}
+
+	widget = {
+		size = { 0 0 }
+		alwaystransparent = yes
+		state = {
+			name = miv_debug_mode_off
+			alpha = 1
+			trigger_when = "[And( InDebugMode, And( GetVariableSystem.Exists( 'miv_debug_mode_set' ), Not( GetScriptedGui('miv_debug_mode_rule_on').IsShown( GuiScope.End ) ) ) )]"
+			on_start = "[GetVariableSystem.Clear( 'miv_debug_mode_set' )]"
+			next = miv_debug_mode_off_command
+		}
+		state = {
+			name = miv_debug_mode_off_command
+			alpha = 1
+			on_start = "[ExecuteConsoleCommand('debug_mode')]"
+			next = miv_debug_mode_off_idle
+		}
+		state = {
+			name = miv_debug_mode_off_idle
+			alpha = 1
+		}
+	}
+
+	widget = {
+		size = { 0 0 }
+		alwaystransparent = yes
+		state = {
+			name = miv_debug_mode_forget
+			alpha = 1
+			trigger_when = "[And( Not( InDebugMode ), And( GetVariableSystem.Exists( 'miv_debug_mode_set' ), Not( GetScriptedGui('miv_debug_mode_rule_on').IsShown( GuiScope.End ) ) ) )]"
+			on_start = "[GetVariableSystem.Clear( 'miv_debug_mode_set' )]"
+			next = miv_debug_mode_forget_idle
+		}
+		state = {
+			name = miv_debug_mode_forget_idle
+			alpha = 1
+		}
+	}
+}

@@ -1,0 +1,76 @@
+﻿pprogeny = {
+	# 2.32 -- was `mmaster`, which is WITCHCRAFT's relation (its pair is mminion/mmaster).
+	# Copy-paste leftover from deriving these relations from theirs. mmaker already names
+	# pprogeny as its corresponding, so the pair was asymmetric and a directly-set pprogeny
+	# would have written a back-link into the witch master/apprentice web.
+	corresponding = mmaker
+	title_grant_target = yes
+	opposites = {
+		rival
+		nemesis
+		bully
+		victim
+		potential_rival
+	}
+	opinion = 150
+}
+
+mmaker = {
+	corresponding = pprogeny
+	opposites = {
+		rival
+		nemesis
+		bully
+		victim
+		potential_rival
+		#pprogeny
+	}
+	opinion = 400
+	title_grant_target = yes
+}
+
+# Werewolf wound lineage — identifier/tracking only (NO invoke-bond). Mirrors mmaker/pprogeny.
+# Neutral opinion: sentiment comes from spn_grateful_for_gift / spn_resents_forced_gift modifiers.
+# rival/nemesis deliberately NOT in opposites, so a forced victim can be ww_clawed_by-linked AND a Rival.
+ww_clawed_by = {   # the werewolf who clawed/turned this character ("Clawed By")
+	corresponding = ww_clawed
+	title_grant_target = no
+	opinion = 0
+}
+ww_clawed = {    # a character this werewolf turned ("Clawed")
+	corresponding = ww_clawed_by
+	title_grant_target = no
+	opinion = 0
+}
+
+# 2.37 -- the Pack (§4.6). Every member and the alpha; never member to member (twenty-five members would be three hundred
+# links). Hidden: the pack story shows who runs with whom. Read as has_relation_spn_pack_mate.
+spn_pack_mate = {
+	corresponding = spn_pack_mate
+	hidden = yes
+	title_grant_target = no
+	opinion = 0
+}
+
+# 2.37 -- the Blood Pact between two alphas who are not both landed rulers (§17.6). Shown. Its +20 comes from
+# spn_blood_pact_opinion alone (20 years), so it is never doubled and it ends.
+spn_blood_pact = {
+	corresponding = spn_blood_pact
+	title_grant_target = no
+	opinion = 0
+}
+
+# 2.38 -- tutor and tutee in the Order (§4.8, §5.6). Hidden: the chapter's panel shows who teaches whom; vanilla's
+# friendship or rivalry grows on it (the tutor beat). Read as has_relation_spn_order_tutor_of.
+spn_order_tutor_of = {
+	corresponding = spn_order_tutee_of
+	hidden = yes
+	title_grant_target = no
+	opinion = 0
+}
+spn_order_tutee_of = {
+	corresponding = spn_order_tutor_of
+	hidden = yes
+	title_grant_target = no
+	opinion = 0
+}

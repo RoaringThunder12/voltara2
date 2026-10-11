@@ -2,5 +2,8 @@
 # Provisional holding layout; source culture/faith retained.
 culture = voltara_culture_43
 rite = voltara_order_rite_23
-holding = castle_holding
+holding = church_holding
+
+special_building_slot = voltara_first_measure_sanctuary_01
+special_building = voltara_first_measure_sanctuary_01
 }

@@ -1,0 +1,1930 @@
+﻿#in fact there is no connection with terrains at all
+#this definitions are introduced for trait descriptions purposes - witch hunter and grand master
+#togetger with "*_cancel_negative_supply" key-word you can construct description looks like modifiers "yes/no"
+wh_spec1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+wh_spec2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+wh_spec3_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+wh_spec_BH_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+cgm_spec_1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+cgm_spec_2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+cgm_spec_3_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+cgm_spec_4_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+magic_pen_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+magic_pro_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+magic_gain_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+immortality_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+arcane_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+teach_sorcery_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+yaga_curse_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+yaga_childs_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+yaga_childs2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+yaga_witch_house_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+demon_power_strike_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+demon_domination_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+demon_firestorm_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+demon_army_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+mage_magic_research_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+md_doom_spell_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+md_doom_spell2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+md_doom_spell3_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+md_power_clash_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+md_demon_damage_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+md_demon_pc_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+mage_house_learn_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+hells_scepter1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+hells_scepter2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+hells_scepter4_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+mind_scan_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+domination_range_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+mind_scan_range_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+source4_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+source4B_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+crown1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+crown2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+crown3_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+crown4_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+corruption_chance_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+dark_champion_train_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+dark_champion_special_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+magic_epic_cooldown_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+blackgrimoire_demonology_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+summoning_demonology_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+summoning_demonology2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+summoning_demonology3_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+mage_summit_excluded_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+immune_for_illness_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+legendary_mage_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+triangulation_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+legendary_mage2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+darkblade_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+reduce_eruption_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+source3_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+blackgrimoire_study_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+mage_summit_discount_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+mage_summit_enables_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+wh2_eso_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+true_source_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+true2_source_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+true3_source_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+metamagic_source_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+yaga_witch_house2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+cyrographer_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+#singularity_unlocks_terrain = {
+#	color = { 220 45 120 }
+#	travel_danger_color = hsv { 0.16 0.7 0.8 }
+#	travel_danger_score = drylands_danger_value
+#	
+#	province_modifier = {
+#		supply_limit_mult = 0
+#		development_growth_factor = -0.05
+#		travel_danger = drylands_danger_value
+#	}
+#	
+#	audio_parameter = 1.0
+#}
+
+magic_catalyst_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+mind_scan_cost_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+fortune_tellers_components_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+convert_to_witchcraft_scheme_chance = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+
+msscrol_additional_desc = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+use_ac_inter_mod = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+rol_special1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+rol_special2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+md_power_clash2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+mage_alchemy_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+mage_alchemy2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+mage_alchemy3_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+mage_alchemy4_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+demon0_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+alchemy_archmage_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+mage_duel_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+search_artifacts_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+
+ultimate_spell_bonus_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+e_power_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+e_fire_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+e_kinetic_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+e_necrotic_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+e_necrotic2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+e_shadow_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+e_endurance_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+combat_spells_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+custom_spell_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+singularity_duels_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+undetectable_spells_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+immunity_curse_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+immunity_curse2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+immunity_curse3_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+immunity_domination_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+immunity_mind_scan_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+immunity_banish_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+immunity_death_wish_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+immunity_antimagic_seal_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+magic_orb_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+magic_orb3_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+master_defence_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+succubus_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+demon1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+demon2a_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+demon_courtier_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+cm_task_1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+cm_task_2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+mc_archmage_special1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+mc_archmage_special2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+mc_black_mage_special1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+mc_black_mage_special2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+mc_admin_special1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+necromancer2_special1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+necromancer2_special2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+magic_inception_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+antimagic_seal_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+antimagic_seal_terrain2 = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+antimagic_seal_terrain3 = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+antimagic_seal_terrain4 = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+antimagic_seal_terrain5 = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+bloodlust_special_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+witch_special_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+mtriangulation_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+wc_allows_raiding_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+wc_free_triang_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+wc_enemy_steal_artifact_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+wh_crossbow_cover_shot_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+magic_master_defence_1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+magic_master_defence_2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+mr_progress_boost_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+spec_master_alteration_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+mr_add_option_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+mr_curse_expert_spec1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+mr_curse_expert_spec2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+valuable_magic_component_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+master_nature_spec1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+master_nature_spec2_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+master_destruction_spec1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+mage_countering_spec1_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+ultimate_spell_control_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}
+psionic_psycho_surgery_terrain = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	audio_parameter = 1.0
+}

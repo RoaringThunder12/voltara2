@@ -1,0 +1,11 @@
+﻿on_game_start_after_lobby = { on_actions = { voltara_seed_werebears } }
+voltara_seed_werebears = {
+ trigger = { NOT = { has_game_rule = spn_no_npc_trait_dist } NOT = { has_global_variable = voltara_werebears_seeded } }
+ effect = {
+  set_global_variable = { name = voltara_werebears_seeded value = yes }
+  every_living_character = {
+   limit = { culture = culture:voltara_culture_30 is_adult = yes spn_has_supernatural_trait = no spn_has_hunter_trait = no spn_is_valid_supernatural_target = yes }
+   random = { chance = 12 trigger_event = spn_initiate.1006 }
+  }
+ }
+}

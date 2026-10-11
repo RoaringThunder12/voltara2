@@ -1,0 +1,753 @@
+﻿voltara_lifespan_inheritance_effect = {
+	#>3 + >3 = 4 or 3
+	if = {
+		limit = {
+			scope:real_father = {
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_4
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_4
+					}
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_4
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_4
+					}
+				}
+			}
+		}
+		random_list = {
+			10 = { add_trait = voltara_lifespan_3 }
+			90 = { add_trait = voltara_lifespan_4 }
+		}
+	}
+
+	#3 + >3 = 4 or 3
+	if = {
+		limit = {
+			scope:real_father = {
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_3
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_3 
+					}
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_4
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_4
+					}
+				}
+			}
+		}
+		random_list = {
+			60 = { add_trait = voltara_lifespan_3 }
+			40 = { add_trait = voltara_lifespan_4 }
+		}
+	}
+
+	#>3 + 3 = 4 or 3
+	if = {
+		limit = {
+			scope:real_father = {
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_4
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_4 
+					}
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_3
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_3
+					}
+				}
+			}
+		}
+		random_list = {
+			60 = { add_trait = voltara_lifespan_3 }
+			40 = { add_trait = voltara_lifespan_4 }
+		}
+	}
+
+	#3 + 3 = 3 or 2 or 4
+	else_if = {
+		limit = {
+			scope:real_father = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_3
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_3
+					}	
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_3
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_3
+					}	
+				}
+			}
+		}
+		random_list = {
+			95 = { add_trait = voltara_lifespan_3 }
+			5 = { add_trait = voltara_lifespan_4 }
+		}
+	}
+	
+	#>2 + 2 = 2 or 3
+	else_if = {
+		limit = {
+			scope:real_father = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan 
+						NOT = { has_trait = voltara_lifespan_1 has_trait = voltara_lifespan_2 }
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						OR = {
+							has_character_flag = voltara_natural_lifespan_3
+							has_character_flag = voltara_natural_lifespan_4 
+						} 
+					}
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_2 
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_2
+					}	
+				}
+			}
+		}
+		random_list = {
+			60 = { add_trait = voltara_lifespan_2 }
+			40 = { add_trait = voltara_lifespan_3 }
+		}
+	}
+	
+	#2 + >2 = 2 or 3
+	else_if = {
+		limit = {
+			scope:real_father = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_2 
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_2
+					}	
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan 
+						NOT = { has_trait = voltara_lifespan_1 has_trait = voltara_lifespan_2 }
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						OR = {
+							has_character_flag = voltara_natural_lifespan_3
+							has_character_flag = voltara_natural_lifespan_4 
+						} 
+					}
+				}
+			}
+		}
+		random_list = {
+			60 = { add_trait = voltara_lifespan_2 }
+			40 = { add_trait = voltara_lifespan_3 }
+		}
+	}
+	
+	#>2 + 1 = 1, 2 or 3
+	else_if = {
+		limit = {
+			scope:real_father = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan 
+						NOT = { has_trait = voltara_lifespan_1 has_trait = voltara_lifespan_2 }
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						OR = {
+							has_character_flag = voltara_natural_lifespan_3
+							has_character_flag = voltara_natural_lifespan_4 
+						} 
+					}
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_1 
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_1
+					}	
+				}
+			}
+		}
+		random_list = {
+			20 = { add_trait = voltara_lifespan_1 }
+			60 = { add_trait = voltara_lifespan_2 }
+			20 = { add_trait = voltara_lifespan_3 }
+		}
+	}
+	
+	#1 + >2 = 1, 2 or 3
+	else_if = {
+		limit = {
+			scope:real_father = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_1 
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_1
+					}	
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan 
+						NOT = { has_trait = voltara_lifespan_1 has_trait = voltara_lifespan_2 }
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						OR = {
+							has_character_flag = voltara_natural_lifespan_3
+							has_character_flag = voltara_natural_lifespan_4 
+						} 
+					}
+				}
+			}
+		}
+		random_list = {
+			20 = { add_trait = voltara_lifespan_1 }
+			60 = { add_trait = voltara_lifespan_2 }
+			20 = { add_trait = voltara_lifespan_3 }
+		}
+	}
+	
+	#>2 + 0 = 0, 1, 2 or 3
+	else_if = {
+		limit = {
+			scope:real_father = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan 
+						NOT = { has_trait = voltara_lifespan_1 has_trait = voltara_lifespan_2 }
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						OR = {
+							has_character_flag = voltara_natural_lifespan_3
+							has_character_flag = voltara_natural_lifespan_4 
+						} 
+					}
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						NOT = { has_trait = voltara_lifespan }
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_0
+					}	
+				}
+			}
+		}
+		random_list = {
+			20 = { }
+			30 = { add_trait = voltara_lifespan_1 }
+			30 = { add_trait = voltara_lifespan_2 }
+			20 = { add_trait = voltara_lifespan_3 }
+		}
+	}
+	
+	#0 + >2 = 0, 1, 2 or 3
+	else_if = {
+		limit = {
+			scope:real_father = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						NOT = { has_trait = voltara_lifespan }
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_0
+					}	
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan 
+						NOT = { has_trait = voltara_lifespan_1 has_trait = voltara_lifespan_2 }
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						OR = {
+							has_character_flag = voltara_natural_lifespan_3
+							has_character_flag = voltara_natural_lifespan_4 
+						} 
+					}
+				}
+			}
+		}
+		random_list = {
+			20 = { }
+			30 = { add_trait = voltara_lifespan_1 }
+			30 = { add_trait = voltara_lifespan_2 }
+			20 = { add_trait = voltara_lifespan_3 }
+		}
+	}
+	
+	#2 + 2 = 2 or 3
+	else_if = {
+		limit = {
+			scope:real_father = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_2 
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_2
+					}	
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_2 
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_2
+					}	
+				}
+			}
+		}
+		random_list = {
+			90 = { add_trait = voltara_lifespan_2 }
+			10 = { add_trait = voltara_lifespan_3 }
+		}
+	}
+	
+	#2 + 1 = 1 or 2
+	else_if = {
+		limit = {
+			scope:real_father = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_2 
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_2
+					}	
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_1
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_1
+					}	
+				}
+			}
+		}
+		random_list = {
+			50 = { add_trait = voltara_lifespan_2 }
+			50 = { add_trait = voltara_lifespan_1 }
+		}
+	}
+	
+	#1 + 2 = 1 or 2
+	else_if = {
+		limit = {
+			scope:real_father = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_1 
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_1
+					}	
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_2 
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_2
+					}	
+				}
+			}
+		}
+		random_list = {
+			50 = { add_trait = voltara_lifespan_2 }
+			50 = { add_trait = voltara_lifespan_1 }
+		}
+	}
+	
+	#2 + 0 = 1
+	else_if = {
+		limit = {
+			scope:real_father = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_2 
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_2
+					}	
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						NOT = { has_trait = voltara_lifespan }
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_0
+					}	
+				}
+			}
+		}
+		random_list = {
+			20 = { }
+			60 = { add_trait = voltara_lifespan_1 }
+			20 = { add_trait = voltara_lifespan_2 }
+		}
+	}
+	
+	#0 + 2 = 1
+	else_if = {
+		limit = {
+			scope:real_father = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						NOT = { has_trait = voltara_lifespan }
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_0
+					}	
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_2 
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_2
+					}	
+				}
+			}
+		}
+		random_list = {
+			20 = { }
+			60 = { add_trait = voltara_lifespan_1 }
+			20 = { add_trait = voltara_lifespan_2 }
+		}
+	}
+	
+	#1 + 1 = 1 or 2
+	else_if = {
+		limit = {
+			scope:real_father = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_1 
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_1
+					}	
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_1 
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_1
+					}	
+				}
+			}
+		}
+		random_list = {
+			85 = { add_trait = voltara_lifespan_1 }
+			15 = { add_trait = voltara_lifespan_2 }
+		}
+	}
+	
+	#1 + 0 = 0 or 1
+	else_if = {
+		limit = {
+			scope:real_father = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_1 
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_1
+					}	
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						NOT = { has_trait = voltara_lifespan }
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_0
+					}	
+				}
+			}
+		}
+		random_list = {
+			50 = { add_trait = voltara_lifespan_1 }
+			50 = { }
+		}
+	}
+	
+	#0 + 1 = 0 or 1
+	else_if = {
+		limit = {
+			scope:real_father = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						NOT = { has_trait = voltara_lifespan }
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_0
+					}	
+				}
+			}
+			scope:mother = { 
+				OR = {
+					#Natural
+					AND = {
+						NOT = { has_character_flag = voltara_artificial_lifespan }
+						has_trait = voltara_lifespan_1 
+					}
+					#Artificial
+					AND = {
+						has_character_flag = voltara_artificial_lifespan
+						has_character_flag = voltara_natural_lifespan_1
+					}	
+				}
+			}
+		}
+		random_list = {
+			50 = { add_trait = voltara_lifespan_1 }
+			50 = { }
+		}
+	}
+	
+	add_character_flag = voltara_char_setup
+}
+voltara_elven_lifespan_seed_effect = {
+
+ if = {
+  limit = { NOT = { has_character_flag = voltara_char_setup } OR = { culture = culture:voltara_culture_18 culture = culture:voltara_culture_42 } }
+  add_trait = voltara_lifespan_3
+  add_character_flag = voltara_char_setup
+ }
+ voltara_elven_immortality_effect = yes
+
+voltara_stone_giant_lifespan_floor_effect = yes
+}
+voltara_elven_immortality_effect = {
+ if = {
+  limit = { is_immortal = yes NOT = { has_trait = voltara_lifespan } NOT = { has_character_flag = voltara_artificial_lifespan } }
+  add_character_flag = voltara_natural_lifespan_0
+  add_character_flag = voltara_artificial_lifespan
+ }
+
+ if = {
+  limit = { is_immortal = yes has_trait = voltara_lifespan }
+  if = { limit = { has_trait = voltara_lifespan_1 } add_character_flag = voltara_natural_lifespan_1 remove_trait = voltara_lifespan_1 }
+  if = { limit = { has_trait = voltara_lifespan_2 } add_character_flag = voltara_natural_lifespan_2 remove_trait = voltara_lifespan_2 }
+  if = { limit = { has_trait = voltara_lifespan_3 } add_character_flag = voltara_natural_lifespan_3 remove_trait = voltara_lifespan_3 }
+  if = { limit = { has_trait = voltara_lifespan_4 } add_character_flag = voltara_natural_lifespan_4 remove_trait = voltara_lifespan_4 }
+  add_character_flag = voltara_artificial_lifespan
+ }
+}
+
+voltara_stone_giant_lifespan_floor_effect = {
+ if = {
+  limit = { OR = { culture = culture:voltara_culture_23 culture = culture:voltara_culture_40 culture = culture:voltara_giants } NOT = { has_trait = voltara_lifespan } NOT = { is_immortal = yes } }
+  add_trait = voltara_lifespan_1
+ }
+}

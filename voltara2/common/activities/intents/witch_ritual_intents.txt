@@ -1,0 +1,32 @@
+﻿### Witch Ritual Intent 
+
+worship_devil_intent = {
+	icon = worship_devil_intent
+	
+	auto_complete = yes
+
+	#is_shown = {
+	#	NOT = {	is_ai = yes	}
+	#}
+
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {	has_trait = heresiarch	}
+			add = 50
+		}
+		if = {
+			limit = {	has_trait = zealous	}
+			add = 50
+		}
+	}
+
+	#ai_will_do = -1000
+	
+	on_invalidated = { trigger_event = activity_system.0090 }
+
+	scripted_animation = {
+		animation = ecstasy
+	}
+	
+}

@@ -1,0 +1,7 @@
+﻿voltara_artisan_lodge = {
+ construction_time = 730 cost_gold = 450 type_icon = "icon_building_smiths.dds"
+ can_construct_potential = { OR = { has_holding_type = castle_holding has_holding_type = city_holding } }
+ can_construct = { is_county_capital = yes }
+ province_modifier = { monthly_income = 0.3 supply_limit_mult = 0.1 }
+ county_modifier = { development_growth = 0.1 }
+}

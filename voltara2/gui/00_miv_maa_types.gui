@@ -1,0 +1,71 @@
+﻿types MivMenAtArmsTypes
+{
+	type vbox_maa_stats_numbers = vbox {
+		ignoreinvisible = yes
+		datacontext = "[GetNullProvince]"
+		datacontext = "[GetNullLandedTitle]"
+
+		vbox_maa_stats_numbers_base = {
+			layoutpolicy_horizontal = expanding
+		}
+
+		block "miv_maa_flavor"
+		{
+			hbox = {
+				visible = "[Not( EqualTo_string( MenAtArmsType.GetFlavorString, '_flavor' ) )]"
+				layoutpolicy_horizontal = expanding
+
+				text_multi = {
+					margin = { 15 5 }
+					max_width = 380
+					text = "[MenAtArmsType.GetFlavorString]"
+					autoresize = yes
+				}
+
+				expand = {}
+			}
+		}
+	}
+
+	type maa_regiment_info = widget {
+		size = { 380 410 }
+		allow_outside = yes
+
+		vbox = {
+			spacing = 5
+			ignoreinvisible = yes
+
+			vbox_maa_stats = {
+				layoutpolicy_horizontal = expanding
+			}
+
+			vbox_maa_info = {
+				layoutpolicy_horizontal = expanding
+			}
+
+			expand = {}
+
+			vbox = {
+				margin_bottom = 15
+
+				text_label_center = {
+					visible = "[IsLandlessAdventurer( GetPlayer )]"
+					text = "[MenAtArmsType.GetProvisionsCostString]"
+					max_width = 400
+				}
+
+				text_label_center = {
+					visible = "[Not(GetPlayer.GetGovernment.IsType( 'landless_adventurer_government' ))]"
+					text = "[Select_CString( MenAtArmsTypeView.GetSelectedTitle.IsValid, MenAtArmsType.GetTitleRegimentReinforcementCostString( GetPlayer ), MenAtArmsType.GetReinforcementCostString( GetPlayer ) )]"
+					max_width = 400
+				}
+
+				text_label_center = {
+					visible = "[Not(GetPlayer.GetGovernment.IsType( 'landless_adventurer_government' ))]"
+					text = "[Select_CString( MenAtArmsTypeView.GetSelectedTitle.IsValid, MenAtArmsType.GetTitleRegimentFullStrengthMaintenanceCostForPlayerString, MenAtArmsType.GetFullStrengthMaintenanceCostForPlayerString )]"
+					max_width = 400
+				}
+			}
+		}
+	}
+}

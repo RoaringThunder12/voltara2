@@ -1,0 +1,1863 @@
+﻿yearly_global_pulse = {
+	events = {
+		magic_ev.99		#artifacts
+		magic_ev2.1		#various/ending crisis
+		magic_ev2.15	#hunters
+		magic_ev2.43	#source restores PS
+		#magic_ev2.71	#sleeps singularity - disabled
+		#magic_ev5.25	#xp demon system
+		spn_xp_sys.1000 #Supernaturals gain XP for their trait tracks
+		magic_ev9.1		#cult caravan conversion
+		magic_ev2.82	#various stuff (mages population control)
+		#magic_ev.95
+		#delay = { days = { 1 36 } }
+	}
+}
+
+on_imprison = {
+	events = {
+		magic_ev2.18
+	}
+	on_actions = {
+		on_action_magic_item_intercept
+		on_action_achoris
+	}
+}
+on_action_achoris = {
+	trigger = {
+		has_character_flag = achoris
+		scope:imprisoner = {
+			any_character_artifact = {
+				has_variable = magic_ring0
+				has_artifact_modifier = artifact_ring_of_life_modifier0
+			}
+		}
+	}
+	effect = {
+		save_scope_as = achoriss
+		scope:imprisoner = {
+			trigger_event = {
+				id = magic_ev6.30
+				days = 1
+			}
+		}
+	}
+}
+on_action_magic_item_intercept = {
+	trigger = {
+		scope:imprisoner = {
+			exists = dynasty
+			dynasty = {
+				has_dynasty_perk = witchcraft_legacy_1
+			}
+		}
+		#scope:prisoner = {
+		#	any_character_artifact = {
+		#		has_variable = magic1
+		#	}
+		#}
+		any_character_artifact = {
+			OR = {
+				has_variable = magic1
+				has_variable = magic_ring
+				has_variable = singularity
+			}
+		}
+	}
+	effect = {
+		random_list = {
+			50 = {
+				trigger = {
+					is_ai = yes
+					NOT = {
+						has_character_flag = magic_art_hide_flag
+					}
+					scope:imprisoner = {
+						NOT = {
+							has_trait = witch_hunter
+						}
+						any_character_artifact = {
+							OR = {
+								has_variable = magic1
+								has_variable = magic_ring
+								has_variable = singularity
+							}
+						}
+					}
+				}
+				random_child = {
+					limit = {
+						is_imprisoned = no
+						is_ai = yes
+					}
+					add_to_list = potential_hiders
+				}
+				random_spouse = {
+					limit = {
+						is_imprisoned = no
+						is_ai = yes
+					}
+					add_to_list = potential_hiders
+				}
+				random_relation ={
+					limit = {
+						is_imprisoned = no
+						is_ai = yes
+					}
+					type = friend
+					add_to_list = potential_hiders
+				}
+				random_relation ={
+					limit = {
+						is_imprisoned = no
+						is_ai = yes
+					}
+					type = best_friend
+					add_to_list = potential_hiders
+				}
+				random_relation ={
+					limit = {
+						is_imprisoned = no
+						is_ai = yes
+					}
+					type = lover
+					add_to_list = potential_hiders
+				}
+				random_relation ={
+					limit = {
+						is_imprisoned = no
+						is_ai = yes
+					}
+					type = soulmate
+					add_to_list = potential_hiders
+				}
+				random_in_list = {
+					list = potential_hiders
+					save_scope_as = potential_hider
+				}
+				if = {
+					limit = {
+						NOT = {
+							exists = scope:potential_hider
+						}
+					}
+					random_living_character = {
+						limit = {
+							is_ai = yes
+							is_imprisoned = no
+						}
+						save_scope_as = potential_hider
+					}
+				}
+				every_character_artifact = {
+					limit = {
+						OR = {
+							has_variable = magic1
+							has_variable = magic_ring
+						}
+					}
+					save_scope_as = smitem
+					set_owner = {
+						target = scope:potential_hider
+						history = {
+							type = given
+							actor = root
+							recipient = scope:potential_hider
+							location = scope:potential_hider.location
+						}
+					}
+					if = {
+						limit = {
+							NOT = {
+								root = {
+									has_personal_artifact_claim = prev
+								}
+							}
+						}
+						root = {
+							add_personal_artifact_claim = prev
+						}
+					}
+				}
+				scope:potential_hider = {
+					add_character_flag = magic_art_hide_flag
+				}
+				scope:imprisoner = {
+					send_interface_toast = {
+						title = magic_art_hide_ct
+						left_icon = scope:imprisoner
+						right_icon = root
+						custom_tooltip = magic_art_hide_ct2
+					}
+				}
+			}
+			50 = {
+				every_character_artifact = {
+					limit = {
+						OR = {
+							has_variable = magic1
+							has_variable = magic_ring
+						}
+					}
+					save_scope_as = smitem
+					set_owner = {
+						target = scope:imprisoner
+						history = {
+							type = stolen
+							actor = root
+							recipient = scope:imprisoner
+							location = scope:imprisoner.location
+						}
+					}
+					if = {
+						limit = {
+							NOT = {
+								root = {
+									has_personal_artifact_claim = prev
+								}
+							}
+						}
+						root = {
+							add_personal_artifact_claim = prev
+						}
+					}
+				}
+				scope:imprisoner = {
+					send_interface_toast = {
+						title=smitem_intercepted
+						show_as_tooltip = {
+							scope:smitem = {
+								set_owner = {
+									target = scope:imprisoner
+									history = {
+										type = stolen
+										actor = root
+										recipient = scope:imprisoner
+										location = scope:imprisoner.location
+									}
+								}
+							}
+						}
+					}
+				}
+				root = {
+					send_interface_toast = {
+						title=smitem_intercepted
+						show_as_tooltip = {
+							scope:smitem = {
+								set_owner = {
+									target = scope:imprisoner
+									history = {
+										type = stolen
+										actor = root
+										recipient = scope:imprisoner
+										location = scope:imprisoner.location
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+	}
+}
+
+on_birth_child = {
+	on_actions = {
+		#on_action_enchanted_blood
+		on_action_source
+		on_action_demon_inherited
+		on_action_unholy
+		on_action_yagas_blood
+		#on_action_source_from_s3
+		#on_action_pandora_s3
+	}
+	events = {
+		magic_ev7.999
+	}
+}
+
+#on_action_enchanted_blood = { 
+#	trigger = {
+#		scope:child = {
+#			exists = dynasty
+#			dynasty = {
+#				has_dynasty_perk = witchcraft_legacy_5
+#			}
+#			NOR = {
+#				has_trait = source
+#				has_trait = source2
+#			}
+#		}
+#	}
+#	effect = {
+#		random = {
+#			chance = 12
+#			scope:child = {
+#				add_trait = source
+#			}
+#		}
+#	}
+#}
+
+on_action_unholy = { 
+	trigger = {
+		scope:child.mother = {
+			has_character_modifier = touched_magic_modifier
+		}
+		scope:child = {
+			NOT = {
+				has_trait = source
+			}
+		}
+	}
+	effect = {
+		scope:child = {
+			#add_source4child = yes
+			add_trait = source
+			add_trait = beauty_bad_3
+			add_trait = scaly
+			#random = {
+			#	chance = 25
+			#	trigger_event = {
+			#		id = magic_ev3.75
+			#		years = { 20 21 }
+			#	}
+			#}
+		}
+	}
+}
+
+on_action_demon_inherited = { 
+	trigger = {
+		AND = {
+			scope:mother = {
+				is_or_will_be_a_demon_trigger = yes
+			}
+			exists = scope:real_father
+			scope:real_father = {
+				is_or_will_be_a_demon_trigger = yes
+			}
+		}
+	}
+	effect = {
+		scope:child = {
+			if = {
+				limit = {
+					NOT = {
+						has_trait = source
+					}
+				}
+				if = {
+					limit = {
+						has_inactive_trait = source
+					}
+					make_trait_active = source
+					set_source4child = yes
+				}
+				else = {
+					add_source4child = yes
+				}
+			}
+			else_if = {
+				limit = {
+					has_trait_xp = {
+						trait = source
+						track = magic_potential
+						value < 3
+					}
+				}
+				set_source4child = yes
+			}
+			#add_character_flag = may_be_demon_in_the_future_flag
+			add_trait = demon0
+			trigger_event = {
+				id = magic_ev3.75
+				years = { 20 21 }
+			}
+		}
+	}
+}
+on_action_source = {
+	trigger = {
+		scope:child = {
+			OR = {
+				has_trait = source
+				has_inactive_trait = source
+			}
+		}
+	}
+	effect = {
+		scope:child = {
+			if = {
+				limit = {
+					has_inactive_trait = source
+				}
+				make_trait_active = source
+			}
+			set_source4child = yes
+		}
+	}
+}
+#on_action_source = {
+#	trigger = {
+#		scope:child = {
+#			NOR = {
+#				has_trait = source2
+#				has_trait = source3
+#				has_trait = source4
+#			}
+#		}
+#		OR = {
+#			AND = {
+#				exists = scope:mother
+#				scope:mother = {
+#					has_trait = source
+#				}
+#			}
+#			AND = {
+#				exists = scope:real_father
+#				scope:real_father = {
+#					has_trait = source
+#				}
+#			}
+#		}
+#	}
+#	effect = {
+#		if = {
+#			limit = {
+#				scope:child = {
+#					has_inactive_trait = source
+#					NOR = {
+#						has_trait = source2
+#						has_trait = source3
+#						has_trait = source4
+#					}
+#				}
+#			}
+#			if = {
+#				limit = {
+#					exists = scope:mother
+#					scope:mother = {
+#						OR = {
+#							has_trait = source
+#							has_trait = source4
+#						}
+#					}
+#					exists = scope:real_father
+#					scope:real_father = {
+#							has_trait = source
+#							has_trait = source4
+#						}
+#					}
+#				}
+#				scope:child = {
+#					make_trait_active = source
+#				}
+#				
+#			}
+#			else = {
+#				random = {
+#					chance = 50
+#					scope:child = {
+#						make_trait_active = source
+#					}
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = {
+#				scope:child = {
+#					NOR = {
+#						has_trait = source
+#						has_trait = source2
+#						has_trait = source3
+#						has_trait = source4
+#					}
+#				}
+#			}
+#			if = {
+#				limit = {
+#					exists = scope:mother
+#					scope:mother = {
+#						has_trait = source
+#					}
+#					exists = scope:real_father
+#					scope:real_father = {
+#						has_trait = source
+#					}
+#				}
+#				random = {
+#					chance = 90
+#					scope:child = {
+#						add_trait = source
+#					}
+#				}
+#			}
+#			else = {
+#				random = {
+#					chance = 40
+#					scope:child = {
+#						add_trait = source
+#					}
+#				}
+#			}
+#		}
+#	}
+#}
+
+on_action_yagas_blood = {
+	trigger = {
+		OR = {
+			AND = {
+				exists = scope:mother
+				scope:mother = {
+					has_trait = yaga
+				}
+			}
+			AND = {
+				exists = scope:real_father
+				scope:real_father = {
+					has_trait = yaga
+				}
+			}
+		}
+	}
+	effect = {
+		scope:child = {
+			if = {
+				limit = {
+					NOT = {
+						has_trait = source2
+					}
+				}
+				add_trait = source2
+			}
+		}
+	}
+}
+
+# character just about to die in root scope
+# if a killer is known, it's set as scope:killer
+on_death = {
+	on_actions = {
+		on_action_death_witch
+		on_action_death_liege_court_mage
+		on_action_death_witch_hunter
+		pandoras_protector_dies_on_action
+		#on_action_death_dark_blade
+		on_action_death_demon_killed
+		on_action_death_merlin_killed
+		on_action_death_cyro_conclusion
+		on_action_death_magic_barrier
+		on_action_death_flying_castle
+		on_action_abaddon_death
+		on_action_hell_powers_rise
+		on_action_mc_remover
+		on_action_di_supports
+		on_action_second_circle_of_hell
+	}
+	events = {
+		magic_ev4.47	#Darkblade upgrade
+		magic_ev6.34	#Mage rulership - executions restore power saturation
+		magic_ev6.75	#Al-Hazred died
+		magic_ev7.36	#DC killed the target (maybe)
+		magic_ev7.39	#DC died
+	}
+}
+on_action_di_supports = {
+	trigger = {
+		has_variable = di_supports
+	}
+	effect = {
+		if = {
+			limit = {
+				var:di_supports = {
+					is_alive = yes
+				}
+			}
+			random_living_character = {
+				limit = {
+					has_character_flag = bael_flag
+				}
+				save_scope_as = bael
+			}
+			if = {
+				limit = {
+					has_character_flag = abraxas
+				}
+				every_ruler = {
+					limit = {
+						is_ai = no
+					}
+					send_interface_toast = {
+						title = di_supports_title
+						left_icon = scope:bael
+						right_icon = ROOT
+						custom_tooltip = di_supports_ct
+						show_as_tooltip = {
+							scope:bael = {
+								remove_character_modifier = di_abraxas_support_modifier
+							}
+						}
+					}
+				}
+				scope:bael = {
+					if = {
+						limit = {
+							has_character_modifier = di_abraxas_support_modifier
+						}
+						remove_character_modifier = di_abraxas_support_modifier
+					}
+					if = {
+						limit = {
+							exists = scope:killer
+							scope:killer = {
+								NOR = {
+									has_relation_rival = scope:bael
+									has_relation_nemesis = scope:bael
+								}
+							}
+						}
+						set_relation_rival = scope:killer
+					}
+				}
+				di_reveal_astaroth = yes
+			}
+			else_if = {
+				limit = {
+					has_character_flag = mammon
+				}
+				every_ruler = {
+					limit = {
+						is_ai = no
+					}
+					send_interface_toast = {
+						title = di_supports_title
+						left_icon = scope:bael
+						right_icon = ROOT
+						custom_tooltip = di_supports_ct
+						show_as_tooltip = {
+							scope:bael = {
+								remove_character_modifier = di_mammon_support_modifier
+							}
+						}
+					}
+				}
+				scope:bael = {
+					if = {
+						limit = {
+							has_character_modifier = di_mammon_support_modifier
+						}
+						remove_character_modifier = di_mammon_support_modifier
+					}
+					if = {
+						limit = {
+							exists = scope:killer
+							scope:killer = {
+								NOR = {
+									has_relation_rival = scope:bael
+									has_relation_nemesis = scope:bael
+								}
+							}
+						}
+						set_relation_rival = scope:killer
+					}
+				}
+				di_reveal_astaroth = yes
+			}
+			else_if = {
+				limit = {
+					has_character_flag = astaroth_flag
+				}
+				every_ruler = {
+					limit = {
+						is_ai = no
+					}
+					send_interface_toast = {
+						title = di_supports_title
+						left_icon = scope:bael
+						right_icon = ROOT
+						custom_tooltip = di_supports_ct
+						show_as_tooltip = {
+							scope:bael = {
+								remove_character_modifier = di_astaroth_support_modifier
+							}
+						}
+					}
+				}
+				scope:bael = {
+					if = {
+						limit = {
+							has_character_modifier = di_astaroth_support_modifier
+						}
+						remove_character_modifier = di_astaroth_support_modifier
+					}
+					if = {
+						limit = {
+							exists = scope:killer
+							scope:killer = {
+								NOR = {
+									has_relation_rival = scope:bael
+									has_relation_nemesis = scope:bael
+								}
+							}
+						}
+						set_relation_rival = scope:killer
+					}
+				}
+			}
+		}
+	}
+}
+on_action_mc_remover = {
+	trigger = {
+		has_variable = mc_member_var
+	}
+	effect = {
+		remove_from_mc_effect = yes
+	}
+}
+on_action_death_liege_court_mage = {
+	trigger = {
+		is_ruler = yes
+		employs_court_position = mage_court_position
+	}
+	effect = {
+		court_position:mage_court_position = {
+			if = {
+				limit = {
+					has_character_flag = cm_busy_flag
+				}
+				remove_character_flag = cm_busy_flag
+			}
+			if = {
+				limit = {
+					has_character_flag = cm_yellow_card_flag
+				}
+				remove_character_flag = cm_yellow_card_flag
+			}
+			if = {
+				limit = {
+					has_character_flag = cm_poduced_5_gold_flag
+				}
+				remove_character_flag = cm_poduced_5_gold_flag
+			}
+			if = {
+				limit = {
+					has_character_flag = cm_ask_for_gold_flag
+				}
+				remove_character_flag = cm_ask_for_gold_flag
+			}
+			if = {
+				limit = {
+					has_character_flag = cm_get_to_work_flag
+				}
+				remove_character_flag = cm_get_to_work_flag
+			}
+		}
+	}
+}
+on_action_hell_powers_rise = {
+	trigger = {
+		OR = {
+			is_true_mage = yes
+			has_trait = demon2
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				exists = scope:killer
+				scope:killer = {
+					has_trait = demon2
+					has_trait_xp = {
+						trait = demon2
+						track = demon_reputation
+						value < 100
+					}
+				}
+			}
+			scope:killer = {
+				send_interface_toast = {
+					title = demonic_reputation_title
+					left_icon = this
+					right_icon = root
+					add_trait_xp = {
+						trait = demon2
+						track = demon_reputation
+						value = 10
+					}
+				}
+			}
+		}
+	}
+}
+on_action_lilith_death = {
+	trigger = {
+		has_character_flag = lilith
+	}
+	effect = {
+		every_living_character = {
+			limit = {
+				has_character_modifier = joy_with_lilith_modifier
+			}
+			remove_character_modifier = joy_with_lilith_modifier
+		}
+	}
+}
+on_action_abaddon_death = {
+	trigger = {
+		has_character_flag = demon_child
+	}
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					exists = global_var:abaddon_cooldown
+				}
+			}
+			set_global_variable = {
+				name = abaddon_cooldown
+				value = 1
+				days = 18250
+			}
+		}
+	}
+}
+on_action_death_flying_castle = {
+	trigger = {
+		has_character_flag = me_castle_project_done
+	}
+	effect = {
+		if = {
+			limit = {
+				exists = var:province_with_flying_castle
+			}
+			var:province_with_flying_castle = {
+				if = {
+					limit = {
+						has_province_modifier = flying_castle_modifier
+					}
+					remove_province_modifier = flying_castle_modifier
+				}
+			}
+		}
+	}
+}
+on_action_death_magic_barrier = {
+	trigger = {
+		exists = global_var:us_magic_barrier_var
+		has_character_flag = us_magic_barrier_flag
+	}
+	effect = {
+		remove_global_variable = us_magic_barrier_var
+	}
+}
+on_action_death_witch = {
+	trigger = {
+		OR = {
+			has_trait = witch
+			any_secret = { type = secret_witch }
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				exists = scope:killer
+				scope:killer = {
+					has_trait = witch_hunter
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_trait = archmage
+						has_trait = grandmaster_coven
+						is_a_demon_trigger = yes
+					}
+				}
+				scope:killer = {
+					send_interface_toast = {
+						title = one_less_witch_title
+						add_trait_xp = {
+							trait = supernatural_hunter
+							track = witch_hunting
+							value = 60
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_trait = true_witch
+						has_trait = source
+					}
+				}
+				scope:killer = {
+					send_interface_toast = {
+						title = one_less_witch_title
+						add_trait_xp = {
+							trait = supernatural_hunter
+							track = witch_hunting
+							value = 30
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					is_ruler = yes
+				}
+				scope:killer = {
+					send_interface_toast = {
+						title = one_less_witch_title
+						add_trait_xp = {
+							trait = supernatural_hunter
+							track = witch_hunting
+							value = 20
+						}
+					}
+				}
+			}
+			else = {
+				scope:killer = {
+					send_interface_toast = {
+						title = one_less_witch_title
+						add_trait_xp = {
+							trait = supernatural_hunter
+							track = witch_hunting
+							value = 10
+						}
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				exists = scope:killer
+				scope:killer = {
+					any_secret = {
+						type = secret_witch_hunter
+					}
+				}
+			}
+			scope:killer = {
+				add_intrigue_skill = 1
+			}
+		}
+	}
+}
+
+on_action_death_witch_hunter = {
+	trigger = {
+		has_trait = witch_hunter
+		has_trait_xp = {
+			trait = supernatural_hunter
+			track = witch_hunting
+			value > 99
+		}
+		NOT = {
+			has_character_modifier = inq_modifier
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				exists = this.player_heir
+				this.player_heir = {
+					NOR = {
+						has_trait = witch
+						any_secret = { type = secret_witch }
+					}
+				}
+			}
+			player_heir = {
+				# 2.34: the heir used to inherit witch_hunter itself -- the capstone ("True Witch Hunter") of a tree they never
+				# entered. They now inherit the calling: supernatural_hunter (spn_initiate.3001 is a no-op if they already have
+				# it or are a creature) and a head start on the witch_hunting track.
+				trigger_event = spn_initiate.3001 #Initiate Hunter
+				add_trait_xp = { trait = supernatural_hunter track = witch_hunting value = 25 }
+				if = {
+					limit = {
+						NOT = {
+							has_perk = protective_runes_perk
+						}
+					}
+					add_perk = protective_runes_perk
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_perk = magical_senses_perk
+						}
+					}
+					add_perk = magical_senses_perk
+				}
+				#add_perk = protective_runes_perk
+				#add_perk = magical_senses_perk
+				hidden_effect = {
+					random = {
+						chance = 50
+						trigger_event = {
+							id = magic_ev4.1	#aid for witch hunter player
+							years = {	6	12	}
+						}
+					}
+					#random = {
+					#	chance = 20
+					#	create_true_witch_effect = yes
+					#}
+					#random = {
+					#	chance = 50
+					#	trigger_event = {
+					#		id = magic_ev2.58	#create mage
+					#		years = {	10	15	}
+					#	}
+					#}
+				}
+			}
+		}
+	}
+}
+on_action_death_demon_killed = {
+	trigger = {
+		is_a_demon_trigger = yes
+		exists = scope:killer
+		scope:killer = {
+			has_character_flag = fund_demon_fighting_flag
+		}
+	}
+	effect = {
+		scope:killer = {
+			pay_for_demon_head_effect = yes
+		}
+	}
+}
+on_action_death_cyro_conclusion = {
+	trigger = {
+		has_character_modifier = no_soul_modifier # 2.38 (Supernatural): was has_character_flag = no_soul, which nothing sets
+		has_variable = my_soul_owner
+	}
+	effect = {
+		if = {
+			limit = {
+				var:my_soul_owner = {
+					is_alive = yes
+				}
+			}
+			if = {
+				limit = {
+					has_character_flag = cyro_is_still_not_over_flag
+				}
+				var:my_soul_owner = {
+					send_interface_toast = {
+						title = cyro_prematurly_completed_toast
+						left_icon = var:my_soul_owner
+						right_icon = root
+						show_as_tooltip = {
+							root = {
+								death = natural
+							}
+						}
+						if = {
+							limit = {
+								has_trait = demon2
+								has_trait_xp = {
+									trait = demon2
+									track = hell_powers
+									value < 100
+								}
+							}
+							add_trait_xp = {
+								trait = demon2
+								track = hell_powers
+								value = 1
+							}
+						}
+					}
+				}
+			}
+			else = {
+				var:my_soul_owner = {
+					if = {
+						limit = {
+							OR = { # 2.38 (Supernatural): a demon1 owner takes the perk point below, as ev8.19 gives it
+								AND = {
+									has_trait = demon2
+									has_trait_xp = {
+										trait = demon2
+										track = hell_powers
+										value < 100
+									}
+								}
+								has_trait = demon1
+							}
+						}
+						send_interface_toast = {
+							title = cyro_completed_toast
+							left_icon = var:my_soul_owner
+							right_icon = root
+							show_as_tooltip = {
+								root = {
+									death = natural
+								}
+							}
+							if = {
+								limit = {
+									has_trait = demon2
+								}
+								add_trait_xp = {
+									trait = demon2
+									track = hell_powers
+									value = 10
+								}
+							}
+							else_if = {
+								limit = {
+									has_trait = demon1
+								}
+								hidden_effect = {
+									add_demon_lifestyle_perk_points = 1
+								}
+								custom_tooltip = ev10.32.a_ct
+							}
+						}
+					}
+					else = {
+						random_list = {
+							1 = {
+								send_interface_toast = {
+									title = cyro_completed_toast
+									left_icon = var:my_soul_owner
+									right_icon = root
+									show_as_tooltip = {
+										root = {
+											death = natural
+										}
+									}
+									add_diplomacy_skill = 1
+								}
+							}
+							1 = {
+								send_interface_toast = {
+									title = cyro_completed_toast
+									left_icon = var:my_soul_owner
+									right_icon = root
+									show_as_tooltip = {
+										root = {
+											death = natural
+										}
+									}
+									add_martial_skill = 1
+								}
+							}
+							1 = {
+								send_interface_toast = {
+									title = cyro_completed_toast
+									left_icon = var:my_soul_owner
+									right_icon = root
+									show_as_tooltip = {
+										root = {
+											death = natural
+										}
+									}
+									add_stewardship_skill = 1
+								}
+							}
+							1 = {
+								send_interface_toast = {
+									title = cyro_completed_toast
+									left_icon = var:my_soul_owner
+									right_icon = root
+									show_as_tooltip = {
+										root = {
+											death = natural
+										}
+									}
+									add_intrigue_skill = 1
+								}
+							}
+							1 = {
+								send_interface_toast = {
+									title = cyro_completed_toast
+									left_icon = var:my_soul_owner
+									right_icon = root
+									show_as_tooltip = {
+										root = {
+											death = natural
+										}
+									}
+									add_learning_skill = 1
+								}
+							}
+							1 = {
+								send_interface_toast = {
+									title = cyro_completed_toast
+									left_icon = var:my_soul_owner
+									right_icon = root
+									show_as_tooltip = {
+										root = {
+											death = natural
+										}
+									}
+									add_prowess_skill = 1
+								}
+							}
+							1 = {
+								trigger = {
+									NOT = {
+										has_character_modifier = touched_divinity_modifier
+									}
+								}
+								send_interface_toast = {
+									title = cyro_completed_toast
+									left_icon = var:my_soul_owner
+									right_icon = root
+									show_as_tooltip = {
+										root = {
+											death = natural
+										}
+									}
+									add_character_modifier = touched_divinity_modifier
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+on_action_death_merlin_killed = {
+	trigger = {
+		has_character_flag = merlin_dude
+	}
+	effect = {
+		save_scope_value_as = {
+			name = merlin_age
+			value = age
+		}
+		save_scope_as = old_merlin
+		if = {
+			limit = {
+				NOT = {
+					exists=scope:killer
+				}
+			}
+			random_ruler = {
+				trigger_event = {
+					id = magic_ev7.86
+					days = 3
+				}
+			}
+			
+			
+		}
+		else_if = {
+			limit = {
+				scope:killer = {
+					NOR = {
+						has_trait = archmage
+						is_a_demon_trigger = yes
+					}
+				}
+			}
+			random_ruler = {
+				trigger_event = {
+					id = magic_ev7.86
+					days = 3
+				}
+			}
+		}
+	}
+}
+on_game_start_after_lobby = {
+	events = {
+		magic_ev4.50	#game rules - add witch trait/secret
+	}
+}
+
+on_game_start_after_lobby = {
+	events = {
+		#delay = { years = magic_ciris_delay_value }
+		magic_ev7.1379
+	}
+}
+
+on_travel_plan_movement = {
+	on_actions = {
+		witch_hunter_trap_on_action
+		delay = { days = 1 }
+	}
+}
+witch_hunter_trap_on_action = {
+	trigger = {
+		#is_landed_or_landless_administrative = yes
+		is_adult = yes
+		has_character_modifier = tracked_by_witch_hunter_modifier
+		NAND = {
+			has_character_flag = wh_hunter_attack_occured_flag
+			has_character_flag = met_witch_hunters_trap_flag
+		}
+		NOT = {
+			exists = global_var:witch_hunter_vacations
+		}
+		exists = location
+		location = {
+			#is_sea_province = no
+			exists = county
+		}
+	}
+	random_events = {
+		#chance_of_no_event = {
+		#	value = {
+		#		add = 100
+		#		subtract = root.current_travel_plan.current_danger_value
+		#		add = root.current_travel_plan.travel_safety
+		#	}
+		#	max = {
+		#		value = 100
+		#		subtract = define:NTravel|TRAVEL_DANGER_MINIMUM
+		#	}
+		#}
+		160 = 0
+		20 = magic_ev5.31
+		80 = magic_ev11.14
+	}
+}
+
+on_county_occupied = {
+	on_actions = {
+		pandora_capture_on_action
+		delay = { days = 1 }
+	}
+}
+
+pandora_capture_on_action = {
+	trigger = {
+		has_character_flag = pandora_stage1
+		scope:county = {
+			has_variable = pandoras_hideout
+		}
+	}
+	effect = {
+		add_character_flag = pandora_from_castle
+		scope:county = {
+			remove_variable = pandoras_hideout
+		}
+	}
+	events = {
+		magic_ev5.47
+	}
+}
+pandoras_protector_dies_on_action = {
+	trigger = {
+		has_character_flag = pandoras_protector
+		#exists = scope:killer
+		any_living_character = {
+			has_character_flag = pandora_stage1
+			#this = scope:killer
+		}
+	}
+	events = {
+		magic_ev5.48
+	}
+}
+
+on_war_started = {
+	on_actions = {
+		mage_war_on_action
+		magic_defence_pact_on_action
+		mage_war2_on_action
+		yaga_liege_war_on_action
+	}
+}
+yaga_liege_war_on_action = {
+	trigger = {
+		scope:defender = {
+			any_vassal_or_below = {
+				is_ai = yes
+				has_trait = yaga
+				is_at_war = no
+				is_imprisoned = no
+				is_landed_or_landless_administrative = yes
+			}
+			NOT = {
+				has_trait = yaga
+			}
+		}
+		scope:attacker = {
+			NOT = {
+				has_trait = yaga
+			}
+		}
+	}
+	effect = {
+		scope:war = {
+			if = {
+				limit = {
+					casus_belli = {
+						any_target_title = {
+							OR = {
+								holder ?= {
+									has_trait = yaga
+								}
+								any_de_jure_county_holder = {
+									has_trait = yaga
+								}
+							}
+						}
+					}
+				}
+				scope:defender = {
+					random_vassal_or_below = {
+						limit = {
+							is_ai = yes
+							has_trait = yaga
+							is_at_war = no
+							is_imprisoned = no
+							is_landed_or_landless_administrative = yes
+						}
+						save_scope_as = my_yaga
+					}
+				}
+				if = {
+					limit = {
+						exists = scope:my_yaga
+					}
+					add_defender = scope:my_yaga
+				}
+			}
+		}
+	}
+}
+mage_war_on_action = {
+	trigger = {
+		OR = {
+			scope:attacker = {
+				has_trait = archmage
+				is_ai = yes
+			}
+			scope:defender = {
+				has_trait = archmage
+				is_ai = yes
+			}
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				scope:attacker = {
+					has_trait = archmage
+					is_ai = yes
+					any_relation ={
+						type = mminion
+						count < 4
+					}
+				}
+			}
+			scope:attacker = {
+				if = {
+					limit = {
+						any_neighboring_and_across_water_realm_same_rank_owner = {
+							is_ai = yes
+							is_at_war = no
+							NOR = {
+								has_perk = protective_runes_perk
+								has_perk = mage_p4_perk
+								has_character_modifier = aura_boost1_modifier
+								has_character_modifier = aura_boost2_modifier
+								is_a_demon_trigger = yes
+							}
+						}
+					}
+					random_neighboring_and_across_water_realm_same_rank_owner = {
+						limit = {
+							is_ai = yes
+							is_at_war = no
+							NOR = {
+								has_perk = protective_runes_perk
+								has_perk = mage_p4_perk
+								has_character_modifier = aura_boost1_modifier
+								has_character_modifier = aura_boost2_modifier
+								is_a_demon_trigger = yes
+							}
+						}
+						save_scope_as = neig0
+					}
+					#set_relation_mminion = scope:neig0
+					#add_hook = {
+					#	type = magic_domination_hook
+					#	target = scope:neig0
+					#}
+					if = {
+						limit = {
+							NOT = {
+								has_hook = scope:neig0
+							}
+						}
+						set_relation_mminion = scope:neig0
+						add_hook = {
+							type = magic_domination_hook
+							target = scope:neig0
+						}
+					}
+					scope:war = {
+						add_attacker = scope:neig0
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				scope:defender = {
+					has_trait = archmage
+					is_ai = yes
+					any_relation ={
+						type = mminion
+						count < 4
+					}
+				}
+			}
+			scope:defender = {
+				if = {
+					limit = {
+						any_neighboring_and_across_water_realm_same_rank_owner = {
+							is_ai = yes
+							is_at_war = no
+							NOR = {
+								has_perk = protective_runes_perk
+								has_perk = mage_p4_perk
+								has_character_modifier = aura_boost1_modifier
+								has_character_modifier = aura_boost2_modifier
+								is_a_demon_trigger = yes
+							}
+						}
+					}
+					random_neighboring_and_across_water_realm_same_rank_owner = {
+						limit = {
+							is_ai = yes
+							is_at_war = no
+							NOR = {
+								has_perk = protective_runes_perk
+								has_perk = mage_p4_perk
+								has_character_modifier = aura_boost1_modifier
+								has_character_modifier = aura_boost2_modifier
+								is_a_demon_trigger = yes
+							}
+						}
+						save_scope_as = neig0
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_hook = scope:neig0
+							}
+						}
+						set_relation_mminion = scope:neig0
+						add_hook = {
+							type = magic_domination_hook
+							target = scope:neig0
+						}
+					}
+					scope:war = {
+						add_defender = scope:neig0
+					}
+				}
+			}
+		}
+	}
+}
+mage_war2_on_action = {
+	trigger = {
+		NOT = {
+			has_game_rule = low_whunters
+		}
+		scope:attacker = {
+			NOR = {
+				has_trait = witch
+				any_secret = { type = secret_witch }
+			}
+		}
+		scope:defender = {
+			has_trait = archmage
+			is_ai = no
+		}
+		any_ruler = {
+			has_character_modifier = inq_modifier
+			is_at_war = no
+			is_imprisoned = no
+			in_diplomatic_range = scope:defender
+			NOR = {
+				has_trait = craven
+				has_trait = incapable
+				has_relation_mmaster = scope:defender
+				has_relation_mminion = scope:defender
+			}
+		}
+	}
+	effect = {
+		random_ruler = {
+			limit = {
+				has_character_modifier = inq_modifier
+				is_at_war = no
+				is_imprisoned = no
+				in_diplomatic_range = scope:defender
+				NOR = {
+					has_trait = craven
+					has_trait = incapable
+					has_relation_mmaster = scope:defender
+					has_relation_mminion = scope:defender
+				}
+			}
+			save_scope_as = mwhunter
+		}
+		if = {
+			limit = {
+				scope:mwhunter = {
+					NOR = {
+						has_relation_mmaster = scope:defender
+						has_relation_mmaster = scope:defender
+						has_relation_lover = scope:defender
+						has_relation_friend = scope:defender
+						has_relation_best_friend = scope:defender
+						has_relation_soulmate = scope:defender
+					}
+				}
+				scope:defender = {
+					NOT = {
+						has_hook = scope:mwhunter
+					}
+				}
+			}
+			random = {
+				chance = 30
+				scope:war = {
+					add_attacker = scope:mwhunter
+				}
+			}
+		}
+	}
+}
+
+magic_defence_pact_on_action = {
+	trigger = {
+		scope:attacker = {
+			NOT = {
+				has_character_flag = ms_defence_pact_flag
+			}
+		}
+		scope:defender = {
+			has_character_flag = ms_defence_pact_flag
+		}
+	}
+	events = {
+		magic_ev7.108
+	}
+}
+
+on_travel_plan_movement = {
+	on_actions = {
+		on_action_visited_place_of_power
+	}
+}
+on_action_visited_place_of_power = {
+	trigger = {
+		is_ai = no
+		OR = {
+			has_focus = witch_focus
+			has_focus = arcane_focus
+			has_trait = true_witch
+			has_trait = archmage
+		}
+		NAND = {
+			has_character_flag = visited_witch_house_flag
+			has_character_flag = visited_horned_god_house_flag
+			has_character_flag = visited_mage_house_flag
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				exists = location
+				location = {
+					OR = {
+						has_building_or_higher = witch_house
+						has_building_or_higher = horned_god_house
+						has_building_or_higher = mage_house
+					}
+				}
+			}
+			if = {
+				limit = {
+					location = {
+						has_building_or_higher = witch_house
+					}
+					NOT = {
+						has_character_flag = visited_witch_house_flag
+					}
+				}
+				vistited_place_of_power_effect = yes
+				add_character_flag = visited_witch_house_flag
+			}
+			else_if = {
+				limit = {
+					location = {
+						has_building_or_higher = horned_god_house
+					}
+					NOT = {
+						has_character_flag = visited_horned_god_house_flag
+					}
+				}
+				vistited_place_of_power_effect = yes
+				add_character_flag = visited_horned_god_house_flag
+			}
+			else_if = {
+				limit = {
+					location = {
+						has_building_or_higher = mage_house
+					}
+					NOT = {
+						has_character_flag = visited_mage_house_flag
+					}
+				}
+				vistited_place_of_power_effect = yes
+				add_character_flag = visited_mage_house_flag
+			}
+		}
+	}
+}
+
+on_combat_end_winner = {
+	events = {
+		magic_ev10.102	#Bloodlust
+	}
+}
+
+on_action_second_circle_of_hell = {
+	trigger = {
+		is_ruler = yes
+		any_held_title = {
+			has_variable = destroy_when_owner_dies
+		}
+	}
+	effect = {
+		every_held_title = {
+			limit = {
+				has_variable = destroy_when_owner_dies
+			}
+			root = { destroy_title = PREV }
+		}
+	}
+}
+
+on_combat_end_winner = {
+	on_actions = {
+		on_action_singularity_check
+	}
+}
+on_action_singularity_check = {
+	trigger = {
+		exists = side_commander
+		side_commander = {
+			is_imprisoned = no
+			is_ai = no
+			any_character_artifact = {
+				has_artifact_modifier = singularity_modifier5
+			}
+			NOT = {
+				has_character_flag = sing_malfunction_flag
+			}
+			NOT = {
+				has_character_flag = me_sing_project_progress
+			}
+		}
+	}
+	effect = {
+		side_commander = {
+			random = {
+				chance = 3
+				trigger_event = {
+					id = magic_ev10.161
+					days = 7
+				}
+			}
+			if = {
+				limit = {
+					any_secret = {
+						type = secret_witch
+					}
+				}
+				expose_your_witch_secret = yes
+			}
+		}
+	}
+}
+on_artifact_changed_owner = {
+	on_actions = {
+		on_magic_artifact_change_owner
+	}
+}
+on_magic_artifact_change_owner = {
+	trigger = {
+		has_variable = magic1
+		exists = scope:owner
+		scope:owner = {
+			is_ai = yes
+			is_witch_trigger = yes
+			is_a_demon_trigger = no
+			NOR = {
+				has_character_flag = special_magic_character
+				has_perk = magical_experiments_p1_perk
+				has_perk = mage_tower_p2_perk
+				has_focus = arcane_focus
+			}
+		}
+	}
+	effect = {
+		scope:owner = {
+			if = {
+				limit = {
+					is_ruler = yes
+				}
+				set_focus = arcane_focus
+			}
+			else = {
+				trigger_event = {
+					id = magic_ev7.131
+					years = 1
+				}
+			}
+		}
+	}
+}
+on_travel_plan_start = {
+	on_actions = {
+		on_magic_teleportation_travel_plan_start
+	}
+}
+on_magic_teleportation_travel_plan_start = {
+	trigger = {
+		is_ai = yes
+		has_character_flag = teleportation_spell_flag
+		can_spend_standard_ps_trigger = yes
+		is_imprisoned = no
+		NOR = {
+			has_trait = incapable
+			has_variable = pclash
+		}
+		is_antimagic_trigger = no
+		exists = involved_activity
+		exists = current_travel_plan
+		current_travel_plan = {
+			is_paused = no
+		}
+	}
+	effect = {
+		magic_teleportation_effect = yes
+	}
+}

@@ -1,0 +1,131 @@
+﻿interactive_bribe_to_leave_war_tooltip_text = {
+	global = interactive_bribe_to_leave_war_tooltip
+	first = interactive_bribe_to_leave_war_tooltip
+	third = interactive_bribe_to_leave_war_tooltip
+}
+
+interactive_bannermen_tooltip_intro_text = {
+	global = interactive_bannermen_tooltip_intro
+	first = interactive_bannermen_tooltip_intro
+	third = interactive_bannermen_tooltip_intro
+}
+
+
+
+
+
+
+
+
+
+
+
+
+interactive_bannermen_summary_answer_text = {
+	global = interactive_bannermen_summary_answer
+	first = interactive_bannermen_summary_answer
+	third = interactive_bannermen_summary_answer
+}
+
+interactive_bannermen_summary_answer_strength_text = {
+	global = interactive_bannermen_summary_answer_strength
+	first = interactive_bannermen_summary_answer_strength
+	third = interactive_bannermen_summary_answer_strength
+}
+
+interactive_bannermen_summary_refuse_text = {
+	global = interactive_bannermen_summary_refuse
+	first = interactive_bannermen_summary_refuse
+	third = interactive_bannermen_summary_refuse
+}
+
+interactive_bannermen_summary_distant_text = {
+	global = interactive_bannermen_summary_distant
+	first = interactive_bannermen_summary_distant
+	third = interactive_bannermen_summary_distant
+}
+
+interactive_bannermen_summary_distant_strength_text = {
+	global = interactive_bannermen_summary_distant_strength
+	first = interactive_bannermen_summary_distant_strength
+	third = interactive_bannermen_summary_distant_strength
+}
+
+interactive_bannermen_wardec_refuse_strength_text = {
+	global = interactive_bannermen_wardec_refuse_strength
+	first = interactive_bannermen_wardec_refuse_strength
+	third = interactive_bannermen_wardec_refuse_strength
+}
+
+interactive_bannermen_summons_betray_text = {
+	global = interactive_bannermen_summons_betray
+	first = interactive_bannermen_summons_betray
+	third = interactive_bannermen_summons_betray
+}
+
+interactive_bannermen_summons_betray_strength_text = {
+	global = interactive_bannermen_summons_betray_strength
+	first = interactive_bannermen_summons_betray_strength
+	third = interactive_bannermen_summons_betray_strength
+}
+
+interactive_bannermen_recipient_rebellion_text = {
+	global = interactive_bannermen_recipient_rebellion
+	first = interactive_bannermen_recipient_rebellion
+	third = interactive_bannermen_recipient_rebellion
+}
+
+interactive_bannermen_recipient_indisposed_text = {
+	global = interactive_bannermen_recipient_indisposed
+	first = interactive_bannermen_recipient_indisposed
+	third = interactive_bannermen_recipient_indisposed
+}
+
+interactive_bannermen_already_called_text = {
+	global = interactive_bannermen_already_called
+	first = interactive_bannermen_already_called
+	third = interactive_bannermen_already_called
+}
+
+interactive_cannot_call_same_character_text = {
+	global = interactive_cannot_call_same_character
+	first = interactive_cannot_call_same_character
+	third = interactive_cannot_call_same_character
+}
+
+ASK_STOP_VASSAL_WAR_TEXT = {
+	global = ASK_STOP_VASSAL_WAR
+	first = ASK_STOP_VASSAL_WAR
+	third = ASK_STOP_VASSAL_WAR
+}
+
+ASK_SUPPORT_CANNOT_AFFORD_INFLUENCE_TEXT = {
+	global = ASK_SUPPORT_CANNOT_AFFORD_INFLUENCE
+	first = ASK_SUPPORT_CANNOT_AFFORD_INFLUENCE
+	third = ASK_SUPPORT_CANNOT_AFFORD_INFLUENCE
+}
+
+interactive_governor_support_mobilization = {
+	global = interactive_governor_support_mobilization
+	first = interactive_governor_support_mobilization
+	third = interactive_governor_support_mobilization
+}
+
+ASK_SUPPORT_CANNOT_AFFORD_PRESTIGE_TEXT = {
+	global = ASK_SUPPORT_CANNOT_AFFORD_PRESTIGE
+	first = ASK_SUPPORT_CANNOT_AFFORD_PRESTIGE
+	third = ASK_SUPPORT_CANNOT_AFFORD_PRESTIGE
+}
+
+ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR_TEXT = {
+	global = ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR
+	first = ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR
+	third = ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR
+}
+
+ASK_VASSAL_MILITARY_SUPPORT_NOT_VALID_TEXT = {
+	global = ASK_VASSAL_MILITARY_SUPPORT_NOT_VALID
+	first = ASK_VASSAL_MILITARY_SUPPORT_NOT_VALID
+	third = ASK_VASSAL_MILITARY_SUPPORT_NOT_VALID
+}
+

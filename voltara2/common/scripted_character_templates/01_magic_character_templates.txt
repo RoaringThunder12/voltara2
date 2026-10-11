@@ -1,0 +1,1097 @@
+﻿
+generic_demon_character = {
+	age = { 30 35 }
+
+	random_traits_list = {
+		count = 1
+		education_martial_3 = {}
+		education_intrigue_3 = {}
+		education_diplomacy_3 = {}
+		education_stewardship_3 = {}
+	}
+
+	random_traits_list = {
+		count = { 3 4 }
+		scaly = {}
+		beauty_bad_3 = {}
+		lovers_pox = {}
+		leper = {}
+	}
+
+	random_traits_list = {
+		count = 4
+		torturer = {}
+		lifestyle_blademaster = {}
+		lifestyle_hunter = {}
+		athletic = {}
+		rakish = {}
+		lunatic_1 = {}
+		deviant = {}
+	}
+	random_traits_list = {
+		count = 2
+		lustful = {}
+		wrathful = {}
+		arrogant = {}
+		impatient  = {}
+		cynical = {}
+		vengeful = {}
+		deceitful = {}
+	}
+	random_traits_list = {
+		count = 1
+		ambitious = {}
+		gluttonous = {}
+		arbitrary = {}
+	}
+	trait = sadistic
+	trait = demon1
+	trait = source
+	#trait = gallivanter
+	diplomacy = 7
+	martial = 6
+	prowess = 12
+	intrigue = 15
+	stewardship = 5
+	learning = 4
+	random_traits = no
+	#faith = faith:slavic_pagan
+	#culture = culture:sephardi
+	dynasty_house = house:house_hell
+}
+
+bael_demon_character = {
+	age = { 35 40 }
+	gender = male
+
+	random_traits_list = {
+		count = 3
+		wrathful = {}
+		arrogant = {}
+		sadistic = {}
+		vengeful = {}
+		arbitrary = {}
+		callous = {}
+	}
+	random_traits_list = {
+		count = 2
+		logistician = {}
+		aggressive_attacker = {}
+		unyielding_defender = {}
+		rough_terrain_expert = {}
+		cautious_leader = {}
+		military_engineer = {}
+		flexible_leader = {}
+		organizer = {}
+		reaver = {}
+		open_terrain_expert = {}
+	}
+	trait = ambitious
+	trait = beauty_bad_3
+	trait = lovers_pox
+	trait = leper
+	trait = lifestyle_mystic
+	martial = 20
+	prowess = 20
+	intrigue = 14
+	stewardship = 20
+	learning = 10
+	trait = scaly
+	trait = intellect_good_3
+	trait = physique_good_3
+	trait = education_intrigue_4
+	trait = demon1
+	trait = source
+	trait = strategist
+	trait = strong
+	trait = overseer
+
+	trait = pure_blooded
+	random_traits = no
+	faith = faith:slavic_pagan
+	#dynasty = none
+	dynasty_house = house:house_hell
+}
+
+samael_demon_character = {
+	age = 12
+	gender = male
+
+	random_traits_list = {
+		count = 4
+		arrogant = {}
+		sadistic = {}
+		vengeful = {}
+		#arbitrary = {}
+		callous = {}
+		lustful = {}
+		patient = {}
+	}
+	random_traits_list = {
+		count = 2
+		logistician = {}
+		aggressive_attacker = {}
+		unyielding_defender = {}
+		rough_terrain_expert = {}
+		cautious_leader = {}
+		military_engineer = {}
+		flexible_leader = {}
+		organizer = {}
+		reaver = {}
+		open_terrain_expert = {}
+	}
+
+	#trait = beauty_bad_3
+	#trait = mystic_3
+	diplomacy = 10
+	martial = 10
+	prowess = 20
+	intrigue = 14
+	stewardship = 10
+	learning = 10
+	#trait = scaly
+
+	trait = intellect_good_2
+	trait = physique_good_1
+	#trait = education_martial_4
+	trait = demon1
+	trait = source
+	trait = bossy
+
+	trait = lifestyle_blademaster
+
+	trait = pure_blooded
+	random_traits = no
+	faith = faith:slavic_pagan
+	#dynasty = none
+	dynasty_house = house:house_hell
+}
+
+nyx_demon_character = {
+	age = 25
+	gender = female
+
+	random_traits_list = {
+		count = 4
+		calm = {}
+		sadistic = {}
+		vengeful = {}
+		#arbitrary = {}
+		callous = {}
+		lustful = {}
+		patient = {}
+		eccentric = {}
+	}
+
+	#trait = beauty_bad_3
+	#trait = mystic_3
+	diplomacy = 15
+	martial = 5
+	prowess = 5
+	intrigue = 20
+	stewardship = 5
+	learning = 15
+	#trait = scaly
+	trait = albino
+
+	trait = intellect_good_2
+	trait = education_intrigue_5
+	trait = beauty_good_2
+	trait = demon1
+	trait = source
+	trait = gallivanter
+
+	trait = lifestyle_mystic
+
+	trait = pure_blooded
+	random_traits = no
+	faith = faith:slavic_pagan
+	#dynasty = none
+	dynasty_house = house:house_hell
+}
+
+moloch_demon_character = {
+	age = 45
+	gender = male
+
+	random_traits_list = {
+		count = 4
+		wrathful = {}
+		sadistic = {}
+		vengeful = {}
+		#arbitrary = {}
+		callous = {}
+	}
+	random_traits_list = {
+		count = 1
+		logistician = {}
+		aggressive_attacker = {}
+		unyielding_defender = {}
+		rough_terrain_expert = {}
+		cautious_leader = {}
+		military_engineer = {}
+		flexible_leader = {}
+		organizer = {}
+		reaver = {}
+		open_terrain_expert = {}
+	}
+
+	#trait = beauty_bad_3
+	#trait = mystic_3
+
+	martial = 10
+	prowess = 30
+	intrigue = 5
+	trait = scaly
+	trait = giant
+	trait = physique_good_3
+	trait = beauty_bad_3
+	trait = lunatic_genetic
+	trait = lovers_pox
+	trait = leper
+	trait = education_martial_1
+	trait = demon1
+	trait = source
+	trait = cannibal
+	trait = irritable
+	trait = great_pox
+	trait = gallivanter
+
+	trait = strong
+	trait = lifestyle_blademaster
+
+	trait = pure_blooded
+	random_traits = no
+	faith = faith:slavic_pagan
+	#dynasty = none
+	dynasty_house = house:house_hell
+}
+
+astaroth_demon_character = {
+	age = { 35 40 }
+	gender = male
+
+	random_traits_list = {
+		count = 2
+		wrathful = {}
+		patient = {}
+		sadistic = {}
+		vengeful = {}
+	}
+	random_traits_list = {
+		count = 2
+		logistician = {}
+		aggressive_attacker = {}
+		unyielding_defender = {}
+		rough_terrain_expert = {}
+		cautious_leader = {}
+		military_engineer = {}
+		flexible_leader = {}
+		organizer = {}
+		reaver = {}
+		open_terrain_expert = {}
+	}
+	random_traits_list = {
+		count = 1
+		education_intrigue_4 = {}
+		education_intrigue_5 = {}
+	}
+	trait = callous
+	trait = lifestyle_mystic
+	martial = 15
+	prowess = 15
+	intrigue = 20
+	stewardship = 20
+	diplomacy = 15
+	learning = 15
+	trait = giant
+	trait = supernatural_hunter
+	trait = witch_hunter
+	trait = intellect_good_3
+	trait = lifestyle_blademaster
+	trait = education_intrigue_4
+	trait = demon1
+	trait = source
+	trait = strategist
+	trait = strong
+	trait = overseer
+	trait = shrewd
+
+	trait = pure_blooded
+	random_traits = no
+	#faith = faith:slavic_pagan
+	#dynasty = none
+	dynasty_house = house:house_hell
+}
+
+belial_demon_character = {
+	age = { 35 40 }
+	gender = male
+
+	random_traits_list = {
+		count = 4
+		wrathful = {}
+		arrogant = {}
+		ambitious = {}
+		sadistic = {}
+		vengeful = {}
+		arbitrary = {}
+		callous = {}
+	}
+	random_traits_list = {
+		count = 6
+		logistician = {}
+		aggressive_attacker = {}
+		unyielding_defender = {}
+		rough_terrain_expert = {}
+		cautious_leader = {}
+		military_engineer = {}
+		flexible_leader = {}
+		organizer = {}
+		reaver = {}
+		open_terrain_expert = {}
+	}
+	martial = 10
+	prowess = 10
+	learning = 8
+	trait = scarred
+	trait = athletic
+	trait = lifestyle_blademaster
+	trait = scaly
+	trait = giant
+	trait = education_martial_5
+	trait = demon1
+	trait = source
+	trait = strategist
+	trait = strong
+	trait = physique_good_3
+	trait = overseer
+	trait = pure_blooded
+	random_traits = no
+	faith = faith:slavic_pagan
+	#dynasty = none
+	dynasty_house = house:house_hell
+}
+asmodeus_demon_character = {
+	age = { 35 40 }
+	gender = male
+
+	random_traits_list = {
+		count = 4
+		wrathful = {}
+		arrogant = {}
+		ambitious = {}
+		sadistic = {}
+		vengeful = {}
+		callous = {}
+	}
+	random_traits_list = {
+		count = 2
+		logistician = {}
+		aggressive_attacker = {}
+		unyielding_defender = {}
+		rough_terrain_expert = {}
+		cautious_leader = {}
+		military_engineer = {}
+		flexible_leader = {}
+		organizer = {}
+		reaver = {}
+		open_terrain_expert = {}
+	}
+	martial = 20
+	prowess = 20
+	learning = 20
+	diplomacy = 20
+	stewardship = 20
+	intrigue = 20
+	trait = scaly
+	trait = giant
+	trait = education_martial_5
+	trait = demon1
+	trait = source
+	trait = strong
+	trait = physique_good_3
+	trait = beauty_good_3
+	trait = intellect_good_3
+	trait = overseer
+	trait = august
+	trait = pure_blooded
+	random_traits = no
+	faith = faith:slavic_pagan
+	#dynasty = none
+	dynasty_house = house:house_hell
+}
+
+abraxas_demon_character = {
+	age = { 35 50 }
+	gender = male
+
+	random_traits_list = {
+		count = 2
+		wrathful = {}
+		arrogant = {}
+		vengeful = {}
+		arbitrary = {}
+	}
+	random_traits_list = {
+		count = 6
+		logistician = {}
+		aggressive_attacker = {}
+		unyielding_defender = {}
+		rough_terrain_expert = {}
+		cautious_leader = {}
+		military_engineer = {}
+		flexible_leader = {}
+		organizer = {}
+		reaver = {}
+		open_terrain_expert = {}
+	}
+	trait = ambitious
+	trait = sadistic
+	martial = 20
+	prowess = 10
+	learning = 15
+	trait = scarred
+	trait = athletic
+	trait = lifestyle_blademaster
+	trait = scaly
+	trait = giant
+	trait = education_martial_5
+	trait = demon1
+	trait = source
+	trait = strategist
+	trait = strong
+	trait = physique_good_3
+	trait = berserker
+	trait = leper
+	trait = great_pox
+	random_traits = no
+	faith = faith:slavic_pagan
+	#dynasty = none
+	dynasty_house = house:house_hell
+}
+
+mammon_demon_character = {
+	age = { 30 40 }
+	gender = male
+
+	random_traits_list = {
+		count = 3
+		arrogant = {}
+		gluttonous = {}
+		cynical = {}
+		lustful = {}
+		deceitful = {}
+		arbitrary = {}
+	}
+
+	stewardship = 10
+	learning = 10
+	trait = intellect_good_2
+
+	trait = education_stewardship_4
+	trait = demon1
+	trait = source
+
+	trait = beauty_good_2
+	trait = shrewd
+	trait = pure_blooded
+	trait = lifestyle_mystic
+	trait = gallivanter
+
+	random_traits = no
+	faith = faith:slavic_pagan
+	#dynasty = none
+	dynasty_house = house:house_hell
+}
+
+harmonius_demon_character = {
+	age = { 20 40 }
+	gender = male
+
+	random_traits_list = {
+		count = 1
+		gluttonous = {}
+		cynical = {}
+		lustful = {}
+		deceitful = {}
+		arbitrary = {}
+	}
+	trait = lifestyle_poet
+	trait = gregarious
+	trait = lifestyle_reveler
+
+	diplomacy = 20
+
+	trait = education_diplomacy_4
+	trait = demon1
+	trait = source
+	trait = scaly
+
+	trait = beauty_good_1
+	trait = gallivanter
+
+	random_traits = no
+	faith = faith:slavic_pagan
+	#dynasty = none
+	dynasty_house = house:house_hell
+}
+
+mefisto_demon_character = {
+	age = { 20 40 }
+	gender = male
+
+	random_traits_list = {
+		count = 4
+		gregarious = {}
+		eccentric = {}
+		deceitful = {}
+		just = {}
+	}
+
+	diplomacy = 12
+	stewardship = 12
+	learning = 15
+	intrigue = 18
+	prowess = 15
+	trait = shrewd
+
+	trait = education_intrigue_5
+	trait = demon1
+	trait = source
+	trait = scaly
+
+	trait = lovers_pox
+
+	#trait = cyrographer
+	#trait = lifestyle_mystic
+
+	trait = reaver
+
+	random_traits = no
+	#faith = faith:slavic_pagan
+	#dynasty = none
+	dynasty_house = house:house_hell
+}
+
+lilith_demon_character = {
+	age = 18
+	#gender = female
+
+	diplomacy = 15
+	intrigue = 20
+	trait = intellect_good_1
+
+	trait = education_intrigue_4
+
+	trait = fickle
+	trait = gluttonous
+	trait = deceitful
+	trait = demon1
+	trait = source
+	trait = lustful
+
+	trait = gallivanter
+	
+	trait = beauty_good_3
+	trait = shrewd
+	#trait = seducer
+	#trait = schemer
+	#trait = mystic_3
+	#trait = witch
+	trait = pure_blooded
+	trait = intrigue_court_2
+
+	random_traits = no
+	faith = faith:slavic_pagan
+	#culture = culture:marathi
+	
+	#dynasty = none
+	dynasty_house = house:house_hell
+}
+
+pandora_demon_character = {
+	age = 20
+	#gender = female
+
+	diplomacy = 12
+	stewardship = 13
+	learning = 12
+	trait = shrewd
+
+	trait = education_diplomacy_4
+
+	trait = compassionate
+	trait = forgiving
+	trait = trusting
+	trait = shy
+
+	trait = demon1
+	trait = source
+	trait = gallivanter
+	
+	trait = beauty_good_3
+
+	random_traits = no
+	dynasty_house = house:house_hell
+}
+
+hecate_demon_character = {
+	age = 117
+	#gender = female
+
+	trait = lifestyle_mystic
+	martial = 15
+	prowess = 12
+	intrigue = 16
+	stewardship = 20
+	diplomacy = 18
+	learning = 25
+	trait = intellect_good_2
+	trait = beauty_bad_3
+
+	trait = education_learning_5
+
+	trait = giant
+
+	trait = sadistic
+	trait = patient
+	trait = diligent
+
+	trait = demon1
+	trait = source
+	trait = scaly
+	trait = cyrographer
+	
+	trait = overseer
+	trait = erudite
+
+	trait = shrewd
+ 
+	trait = pure_blooded
+
+	random_traits = no
+	#faith = faith:slavic_pagan
+	#culture = culture:marathi
+	
+	#dynasty = none
+	dynasty_house = house:house_hell
+}
+
+yaga_character = {
+	age = 121
+	#gender = female
+	diplomacy = 18
+	learning = 25
+	intrigue = 20
+	prowess = 40
+	trait = intellect_good_1
+
+	trait = education_learning_4
+
+	trait = content
+	trait = gluttonous
+	trait = deceitful
+
+	trait = yaga
+
+	random_traits_list = {
+		count = 1
+		sadistic = {}
+		vengeful = {}
+		arbitrary = {}
+		callous = {}
+		calm = {}
+		patient = {}
+	}
+
+	trait = source
+
+	trait = lifestyle_herbalist
+	trait = beauty_bad_3
+	trait = shrewd
+
+	#trait = pure_blooded
+
+	random_traits = no
+	#dynasty_house = house:house_hell
+}
+
+yaga_d_character = {
+	age = 16
+	martial = { 2 15 }
+	prowess = { 0 12 }
+	intrigue = { 2 22 }
+	stewardship = { 5 18 }
+	diplomacy = { 6 20 }
+	learning = { 5 16 }
+
+	random_traits_list = {
+		count = 1
+		beauty_good_1 = {}
+		beauty_good_2 = {}
+		beauty_good_3 = {}
+	}
+
+	random_traits_list = {
+		count = 1
+		sadistic = {}
+		deceitful = {}
+		lustful = {}
+		compassionate = {}
+	}
+
+	#trait = source
+	#trait = pure_blooded
+	trait = twin
+	trait = source2
+	random_traits = yes
+	#dynasty_house = house:house_hell
+}
+
+witch_hunter_character = {
+	age = { 25 40 }
+	gender_female_chance = 35
+
+	random_traits_list = {
+		count = 1
+		education_martial_3 = {}
+		education_intrigue_3 = {}
+		education_learning_3 = {}
+	}
+	trait = supernatural_hunter
+	#trait = witch_hunter
+	trait = zealous
+	random_traits_list = {
+		count = { 0 1 }
+		shrewd = {}
+		strong = {}
+		athletic = {}
+	}
+
+	random_traits = yes
+}
+
+witch_hunter_knight_character = {
+	age = { 20 40 }
+
+	random_traits_list = {
+		count = 1
+		education_martial_3 = {}
+		education_martial_4 = {}
+	}
+	trait = witch_hunter
+	trait = zealous
+	trait = brave
+	trait = holy_warrior
+	trait = supernatural_hunter
+	trait = lifestyle_blademaster
+	random_traits_list = {
+		count = { 0 1 }
+		shrewd = {}
+		strong = {}
+		athletic = {}
+	}
+
+	random_traits_list = {
+		count = 1
+		physique_good_1 = {}
+		physique_good_2 = {}
+	}
+	#random_traits_list = {
+	#	count = 1
+	#	blademaster_1 = {}
+	#	blademaster_2 = {}
+	#	blademaster_3 = {}
+	#}
+
+	random_traits = yes
+}
+golem_character = {
+	age = 20
+	trait = calm
+	trait = golem
+	trait = physique_good_3
+	trait = athletic
+	trait = beauty_good_3
+	trait = intellect_bad_3
+	trait = loyal
+	random_traits = no
+	prowess = 30
+}
+merlin_character = {
+	age = { 75 85 }
+	gender = male
+
+	random_traits_list = {
+		count = 2
+		logistician = {}
+		aggressive_attacker = {}
+		unyielding_defender = {}
+		rough_terrain_expert = {}
+		cautious_leader = {}
+		military_engineer = {}
+		flexible_leader = {}
+		organizer = {}
+		reaver = {}
+		open_terrain_expert = {}
+	}
+	trait = calm
+	trait = patient
+	trait = diligent
+	trait = lifestyle_mystic
+	martial = 6
+	diplomacy = 8
+	prowess = 3
+	intrigue = 7
+	stewardship = 10
+	learning = 30
+	trait = intellect_good_2
+	trait = source
+	trait = erudite
+	trait = education_learning_5
+	random_traits = no
+}
+wandering_mage_character = {
+	age = { 35 65 }
+	gender = male
+
+	random_traits_list = {
+		count = 1
+		logistician = {}
+		aggressive_attacker = {}
+		unyielding_defender = {}
+		rough_terrain_expert = {}
+		cautious_leader = {}
+		military_engineer = {}
+		flexible_leader = {}
+		organizer = {}
+		reaver = {}
+		open_terrain_expert = {}
+	}
+	random_traits_list = {
+		count = 1
+		education_learning_2 = {}
+		education_learning_3 = {}
+		education_learning_4 = {}
+		education_diplomacy_3 = {}
+		education_diplomacy_4 = {}
+		education_intrigue_4 = {}
+	}
+	random_traits_list = {
+		count = 1
+		lifestyle_mystic = {}
+		lifestyle_herbalist = {}
+	}
+	#trait = adventurer
+	trait = lifestyle_traveler
+	martial = 10
+	diplomacy = 10
+	prowess = 10
+	intrigue = 10
+	stewardship = 10
+	learning = 15
+	random_traits = yes
+}
+student_mage_character = {
+	age = { 20 24 }
+	random_traits_list = {
+		count = 1
+		education_learning_2 = {}
+		education_learning_3 = {}
+		education_learning_4 = {}
+		education_diplomacy_4 = {}
+		education_intrigue_4 = {}
+	}
+	random_traits_list = {
+		count = 1
+		lifestyle_mystic = {}
+		lifestyle_herbalist = {}
+	}
+	diplomacy = 5
+	intrigue = 6
+	stewardship = 7
+	learning = 12
+	random_traits = yes
+}
+abdul_alhazred_character = {
+	age = 421
+	gender = male
+
+	random_traits_list = {
+		count = 2
+		logistician = {}
+		aggressive_attacker = {}
+		unyielding_defender = {}
+		rough_terrain_expert = {}
+		cautious_leader = {}
+		military_engineer = {}
+		flexible_leader = {}
+		organizer = {}
+		reaver = {}
+		open_terrain_expert = {}
+	}
+	trait = ambitious
+	#trait = deceitful
+	trait = eccentric
+	trait = vengeful
+	trait = arrogant
+	trait = lifestyle_mystic
+	martial = 30
+	diplomacy = 30
+	prowess = 80
+	intrigue = 40
+	stewardship = 30
+	learning = 60
+	trait = intellect_good_3
+	trait = physique_good_1
+	trait = source
+	trait = lunatic_genetic
+	
+	trait = education_intrigue_5
+	dynasty_house = house:house_alhazred
+	random_traits = no
+}
+witchy_template2 = {
+	age = { 16 43 }
+	gender_female_chance = 50
+	culture = scope:recipient.culture
+	faith = scope:recipient.faith
+	rite = scope:recipient.rite
+	dynasty = none
+	random_traits = no
+
+	#Education
+	random_traits_list = {
+		count = 1
+		education_intrigue_1  = {}
+		education_intrigue_2  = {}
+		education_intrigue_3  = {}
+		education_intrigue_4  = {}
+		education_diplomacy_4  = {}
+	}
+	#Personality trait 1 (main)
+	random_traits_list = {
+		count = 1
+		lustful = {}
+		deceitful = {}
+		brave = {}
+		gregarious = {}
+		ambitious = {}
+		vengeful = {}
+	}
+	#Personality trait 2-3
+	random_traits_list = {
+		count = 2
+		lustful = {}
+		deceitful = {}
+		brave = {}
+		gregarious = {}
+		ambitious = {}
+		vengeful = {}
+		gluttonous = {}
+		temperate  = {}
+		greedy = {}
+		generous = {}
+		lazy = {}
+		diligent = {}
+		wrathful = {}
+		calm = {}
+		patient = {}
+		impatient = {}
+		arrogant = {}
+		honest = {}
+		arbitrary = {}
+		just = {}
+		paranoid = {}
+		trusting = {}
+		compassionate = {}
+		callous = {}
+		sadistic = {}
+		stubborn = {}
+		fickle = {}
+		forgiving = {}
+	}
+	random_traits_list = {
+		count = 1
+		beauty_good_1 = {}
+		beauty_good_2 = {}
+		beauty_good_3 = {}
+		intellect_good_1 = {}
+		intellect_good_2 = {}
+		intellect_good_3 = {}
+		shrewd  = {}
+		fecund = {}
+		dwarf = {}
+		giant = {}
+		albino = {}
+		bleeder = {}
+		lunatic_1 = {}
+		possessed_1 = {}
+	}
+	random_traits_list = {
+		count = 1
+		lifestyle_herbalist = {}
+		schemer = {}
+		seducer = {}
+		torturer = {}
+		whole_of_body = {}
+		erudite = {}
+	}
+}
+blob_demon_character = {
+	age = 25
+
+	trait = education_diplomacy_1
+
+	trait = beauty_bad_3
+	trait = dwarf
+	trait = patient
+	trait = craven
+	trait = diligent
+	trait = scaly
+	trait = leper
+
+	trait = demon1
+	trait = shrewd
+
+	trait = depressed_1
+
+	diplomacy = 1
+	martial = 1
+	prowess = 1
+	intrigue = 1
+	stewardship = 1
+	learning = 1
+	random_traits = no
+	#faith = faith:slavic_pagan
+	#culture = culture:sephardi
+	dynasty_house = house:house_hell
+}
+monkey_demon_character = {
+	age = { 40 45 }
+
+	trait = education_intrigue_5
+	trait = deceitful
+	trait = sadistic
+	trait = cynical
+	trait = source
+	#trait = devoted
+	trait = shrewd
+	#trait = gallivanter
+	diplomacy = 20
+	martial = 20
+	prowess = 42
+	intrigue = 40
+	stewardship = 30
+	learning = 30
+	random_traits = no
+	#faith = faith:slavic_pagan
+	#culture = culture:sephardi
+	
+	#faith = faith:theravada
+	#faith = faith:west_african_bori_pagan
+	#culture = culture:kanuri
+	
+	dynasty_house = house:house_maledictio
+}

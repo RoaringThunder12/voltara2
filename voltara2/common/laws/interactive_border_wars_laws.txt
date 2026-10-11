@@ -1,0 +1,119 @@
+﻿top_liege_redirected_to_border_wars_law = {
+	law_group_type = border_wars_laws
+	index = 0
+
+	flag = top_liege_redirected_to_border_wars_law
+
+	can_keep = {
+		is_landed = yes
+		highest_held_title_tier >= tier_duchy
+		trigger_if = {
+			limit = {
+				NOT = {
+					has_game_rule = border_wars_miv_force_off
+				}
+			}
+			highest_held_title_tier < tier_hegemony
+			sub_realm_size < border_war_sized_realm_value
+			house ?= {
+				NOT = {
+					has_house_unity_stage = antagonistic
+				}
+			}
+			NOT = {
+				any_character_war = {
+					primary_defender = root
+					using_civil_war_cb_trigger = yes
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				has_game_rule = border_wars_miv_force_on
+			}
+			is_independent_ruler = no
+		}
+	}
+
+	modifier = {
+		can_vassals_be_attacked = no
+	}
+
+	ai_will_do = {
+		value = 0
+	}
+}
+
+top_liege_not_redirected_to_border_wars_law = {
+	law_group_type = border_wars_laws
+	index = 1
+
+	flag = top_liege_not_redirected_to_border_wars_law
+
+	can_keep = {
+		is_independent_ruler = yes
+		is_landed = yes
+		highest_held_title_tier >= tier_duchy
+		NOT = {
+			has_game_rule = border_wars_miv_force_off
+		}
+		trigger_if = {
+			limit = {
+				NOT = {
+					has_game_rule = border_wars_miv_force_on
+				}
+			}
+			custom_description = {
+				text = border_wars_laws_triggers
+				value = sub_realm_size
+				OR = {
+				highest_held_title_tier >= tier_hegemony
+				sub_realm_size >= border_war_sized_realm_value
+				house ?= {
+					has_house_unity_stage = antagonistic
+				}
+				any_character_war = {
+					primary_defender = root
+					using_civil_war_cb_trigger = yes
+				}
+				}
+			}
+		}
+	}
+
+	should_start_with = {
+		trigger_if = {
+			limit = {
+				has_game_rule = border_wars_miv_force_on
+			}
+			always = yes
+		}
+		trigger_else_if = {
+			limit = {
+				has_game_rule = border_wars_miv_force_off
+			}
+			always = no
+		}
+		trigger_else = {
+			OR = {
+				highest_held_title_tier >= tier_hegemony
+				sub_realm_size >= border_war_sized_realm_value
+				house ?= {
+					has_house_unity_stage = antagonistic
+				}
+				any_character_war = {
+					primary_defender = root
+					using_civil_war_cb_trigger = yes
+				}
+			}
+		}
+	}
+
+	modifier = {
+		can_vassals_be_attacked = yes
+	}
+
+	ai_will_do = {
+		value = 0
+	}
+}

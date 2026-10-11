@@ -1,0 +1,3087 @@
+﻿namespace = interactive
+interactive.0013 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				exists = var:miv_defect_enemy_spokesman
+				exists = var:miv_defect_enemy_batchwar
+				exists = var:miv_defect_enemy_batchside
+			}
+			var:miv_defect_enemy_batchwar = {
+				save_scope_as = miv_batch_war
+			}
+			var:miv_defect_enemy_batchside = {
+				save_scope_as = miv_batch_side
+			}
+			var:miv_defect_enemy_spokesman = {
+				save_scope_as = miv_flush_vassal
+			}
+			if = {
+				limit = {
+					scope:miv_flush_vassal = {
+						exists = var:miv_defect_enemy_fellows
+						var:miv_defect_enemy_fellows >= 1
+					}
+				}
+				save_temporary_scope_value_as = {
+					name = miv_toast_grouped
+					value = yes
+				}
+				interactive_bannermen_toast_side_viewer_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_oathbreaker
+					TITLE = miv_toast_defect_enemy_many
+					TOOLTIP = miv_toast_defect_enemy_many_desc
+				}
+				scope:miv_flush_vassal = {
+					remove_variable = miv_defect_enemy_fellows
+				}
+			}
+			else = {
+				interactive_bannermen_toast_side_viewer_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_oathbreaker
+					TITLE = miv_toast_defect_enemy_one
+					TOOLTIP = miv_toast_defect_enemy_one_desc
+				}
+			}
+		}
+		remove_variable = miv_defect_enemy_spokesman
+		remove_variable = miv_defect_enemy_pending
+		remove_variable = miv_defect_enemy_batchwar
+		remove_variable = miv_defect_enemy_batchside
+		if = {
+			limit = {
+				has_variable_list = miv_defect_enemy_overflow
+			}
+			every_in_list = {
+				variable = miv_defect_enemy_overflow
+				add_to_temporary_list = miv_defect_enemy_replay
+			}
+			clear_variable_list = miv_defect_enemy_overflow
+			every_in_list = {
+				list = miv_defect_enemy_replay
+				save_temporary_scope_as = miv_replay_vassal
+				if = {
+					limit = {
+						is_alive = yes
+						exists = var:miv_defect_enemy_overflow_war
+						exists = var:miv_defect_enemy_overflow_side
+					}
+					var:miv_defect_enemy_overflow_war = {
+						save_temporary_scope_as = miv_replay_war
+					}
+					var:miv_defect_enemy_overflow_side = {
+						save_temporary_scope_as = miv_replay_side
+					}
+					remove_variable = miv_defect_enemy_overflow_war
+					remove_variable = miv_defect_enemy_overflow_side
+					root = {
+						interactive_bannermen_batch_toast_effect = {
+							KEY = defect_enemy
+							EVENT = 0013
+							HOLDER = root
+							WAR = scope:miv_replay_war
+							SIDE_OF = scope:miv_replay_side
+							VASSAL = scope:miv_replay_vassal
+						}
+					}
+				}
+				else = {
+					remove_variable = miv_defect_enemy_overflow_war
+					remove_variable = miv_defect_enemy_overflow_side
+				}
+			}
+		}
+	}
+}
+
+interactive.0019 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				exists = var:miv_defect_us_spokesman
+				exists = var:miv_defect_us_batchwar
+				exists = var:miv_defect_us_batchside
+			}
+			var:miv_defect_us_batchwar = {
+				save_scope_as = miv_batch_war
+			}
+			var:miv_defect_us_batchside = {
+				save_scope_as = miv_batch_side
+			}
+			var:miv_defect_us_spokesman = {
+				save_scope_as = miv_flush_vassal
+			}
+			if = {
+				limit = {
+					scope:miv_flush_vassal = {
+						exists = var:miv_defect_us_fellows
+						var:miv_defect_us_fellows >= 1
+					}
+				}
+				save_temporary_scope_value_as = {
+					name = miv_toast_grouped
+					value = yes
+				}
+				interactive_bannermen_toast_side_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_flush_vassal
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_defection
+					TITLE = miv_toast_defect_us_many
+					TOOLTIP = miv_toast_defect_us_many_desc
+				}
+				scope:miv_flush_vassal = {
+					remove_variable = miv_defect_us_fellows
+				}
+			}
+			else = {
+				interactive_bannermen_toast_side_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_flush_vassal
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_defection
+					TITLE = miv_toast_defect_us_one
+					TOOLTIP = miv_toast_defect_us_one_desc
+				}
+			}
+		}
+		remove_variable = miv_defect_us_spokesman
+		remove_variable = miv_defect_us_pending
+		remove_variable = miv_defect_us_batchwar
+		remove_variable = miv_defect_us_batchside
+		if = {
+			limit = {
+				has_variable_list = miv_defect_us_overflow
+			}
+			every_in_list = {
+				variable = miv_defect_us_overflow
+				add_to_temporary_list = miv_defect_us_replay
+			}
+			clear_variable_list = miv_defect_us_overflow
+			every_in_list = {
+				list = miv_defect_us_replay
+				save_temporary_scope_as = miv_replay_vassal
+				if = {
+					limit = {
+						is_alive = yes
+						exists = var:miv_defect_us_overflow_war
+						exists = var:miv_defect_us_overflow_side
+					}
+					var:miv_defect_us_overflow_war = {
+						save_temporary_scope_as = miv_replay_war
+					}
+					var:miv_defect_us_overflow_side = {
+						save_temporary_scope_as = miv_replay_side
+					}
+					remove_variable = miv_defect_us_overflow_war
+					remove_variable = miv_defect_us_overflow_side
+					root = {
+						interactive_bannermen_batch_toast_effect = {
+							KEY = defect_us
+							EVENT = 0019
+							HOLDER = root
+							WAR = scope:miv_replay_war
+							SIDE_OF = scope:miv_replay_side
+							VASSAL = scope:miv_replay_vassal
+						}
+					}
+				}
+				else = {
+					remove_variable = miv_defect_us_overflow_war
+					remove_variable = miv_defect_us_overflow_side
+				}
+			}
+		}
+	}
+}
+
+interactive.0014 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				exists = var:miv_refuse_spokesman
+				exists = var:miv_refuse_batchwar
+				exists = var:miv_refuse_batchside
+			}
+			var:miv_refuse_batchwar = {
+				save_scope_as = miv_batch_war
+			}
+			var:miv_refuse_batchside = {
+				save_scope_as = miv_batch_side
+			}
+			var:miv_refuse_spokesman = {
+				save_scope_as = miv_flush_vassal
+			}
+			if = {
+				limit = {
+					scope:miv_flush_vassal = {
+						exists = var:miv_refuse_fellows
+						var:miv_refuse_fellows >= 1
+					}
+				}
+				save_temporary_scope_value_as = {
+					name = miv_toast_grouped
+					value = yes
+				}
+				interactive_bannermen_toast_realm_viewer_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_refusal
+					TITLE = miv_toast_refuse_many
+					TOOLTIP = miv_toast_refuse_many_desc
+				}
+				scope:miv_flush_vassal = {
+					remove_variable = miv_refuse_fellows
+				}
+			}
+			else = {
+				interactive_bannermen_toast_realm_viewer_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_refusal
+					TITLE = miv_toast_refuse_one
+					TOOLTIP = miv_toast_refuse_one_desc
+				}
+			}
+		}
+		remove_variable = miv_refuse_spokesman
+		remove_variable = miv_refuse_pending
+		remove_variable = miv_refuse_batchwar
+		remove_variable = miv_refuse_batchside
+		if = {
+			limit = {
+				has_variable_list = miv_refuse_overflow
+			}
+			every_in_list = {
+				variable = miv_refuse_overflow
+				add_to_temporary_list = miv_refuse_replay
+			}
+			clear_variable_list = miv_refuse_overflow
+			every_in_list = {
+				list = miv_refuse_replay
+				save_temporary_scope_as = miv_replay_vassal
+				if = {
+					limit = {
+						is_alive = yes
+						exists = var:miv_refuse_overflow_war
+						exists = var:miv_refuse_overflow_side
+					}
+					var:miv_refuse_overflow_war = {
+						save_temporary_scope_as = miv_replay_war
+					}
+					var:miv_refuse_overflow_side = {
+						save_temporary_scope_as = miv_replay_side
+					}
+					remove_variable = miv_refuse_overflow_war
+					remove_variable = miv_refuse_overflow_side
+					root = {
+						interactive_bannermen_batch_toast_effect = {
+							KEY = refuse
+							EVENT = 0014
+							HOLDER = root
+							WAR = scope:miv_replay_war
+							SIDE_OF = scope:miv_replay_side
+							VASSAL = scope:miv_replay_vassal
+						}
+					}
+				}
+				else = {
+					remove_variable = miv_refuse_overflow_war
+					remove_variable = miv_refuse_overflow_side
+				}
+			}
+		}
+	}
+}
+
+interactive.0016 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				exists = var:miv_unfit_spokesman
+				exists = var:miv_unfit_batchwar
+				exists = var:miv_unfit_batchside
+			}
+			var:miv_unfit_batchwar = {
+				save_scope_as = miv_batch_war
+			}
+			var:miv_unfit_batchside = {
+				save_scope_as = miv_batch_side
+			}
+			var:miv_unfit_spokesman = {
+				save_scope_as = miv_flush_vassal
+			}
+			if = {
+				limit = {
+					scope:miv_flush_vassal = {
+						exists = var:miv_unfit_fellows
+						var:miv_unfit_fellows >= 1
+					}
+				}
+				save_temporary_scope_value_as = {
+					name = miv_toast_grouped
+					value = yes
+				}
+				interactive_bannermen_toast_realm_viewer_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_indisposed
+					TITLE = miv_toast_unfit_many
+					TOOLTIP = miv_toast_unfit_many_desc
+				}
+				scope:miv_flush_vassal = {
+					remove_variable = miv_unfit_fellows
+				}
+			}
+			else = {
+				interactive_bannermen_toast_realm_viewer_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_indisposed
+					TITLE = miv_toast_unfit_one
+					TOOLTIP = miv_toast_unfit_one_desc
+				}
+			}
+		}
+		remove_variable = miv_unfit_spokesman
+		remove_variable = miv_unfit_pending
+		remove_variable = miv_unfit_batchwar
+		remove_variable = miv_unfit_batchside
+		if = {
+			limit = {
+				has_variable_list = miv_unfit_overflow
+			}
+			every_in_list = {
+				variable = miv_unfit_overflow
+				add_to_temporary_list = miv_unfit_replay
+			}
+			clear_variable_list = miv_unfit_overflow
+			every_in_list = {
+				list = miv_unfit_replay
+				save_temporary_scope_as = miv_replay_vassal
+				if = {
+					limit = {
+						is_alive = yes
+						exists = var:miv_unfit_overflow_war
+						exists = var:miv_unfit_overflow_side
+					}
+					var:miv_unfit_overflow_war = {
+						save_temporary_scope_as = miv_replay_war
+					}
+					var:miv_unfit_overflow_side = {
+						save_temporary_scope_as = miv_replay_side
+					}
+					remove_variable = miv_unfit_overflow_war
+					remove_variable = miv_unfit_overflow_side
+					root = {
+						interactive_bannermen_batch_toast_effect = {
+							KEY = unfit
+							EVENT = 0016
+							HOLDER = root
+							WAR = scope:miv_replay_war
+							SIDE_OF = scope:miv_replay_side
+							VASSAL = scope:miv_replay_vassal
+						}
+					}
+				}
+				else = {
+					remove_variable = miv_unfit_overflow_war
+					remove_variable = miv_unfit_overflow_side
+				}
+			}
+		}
+	}
+}
+
+interactive.0017 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				exists = var:miv_loyal_spokesman
+				exists = var:miv_loyal_batchwar
+				exists = var:miv_loyal_batchside
+			}
+			var:miv_loyal_batchwar = {
+				save_scope_as = miv_batch_war
+			}
+			var:miv_loyal_batchside = {
+				save_scope_as = miv_batch_side
+			}
+			var:miv_loyal_spokesman = {
+				save_scope_as = miv_flush_vassal
+			}
+			if = {
+				limit = {
+					scope:miv_flush_vassal = {
+						exists = var:miv_loyal_fellows
+						var:miv_loyal_fellows >= 1
+					}
+				}
+				save_temporary_scope_value_as = {
+					name = miv_toast_grouped
+					value = yes
+				}
+				interactive_bannermen_toast_war_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_loyalist
+					TITLE = miv_toast_loyal_many
+					TOOLTIP = miv_toast_loyal_many_desc
+				}
+				scope:miv_flush_vassal = {
+					remove_variable = miv_loyal_fellows
+				}
+			}
+			else = {
+				interactive_bannermen_toast_war_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_loyalist
+					TITLE = miv_toast_loyal_one
+					TOOLTIP = miv_toast_loyal_one_desc
+				}
+			}
+		}
+		remove_variable = miv_loyal_spokesman
+		remove_variable = miv_loyal_pending
+		remove_variable = miv_loyal_batchwar
+		remove_variable = miv_loyal_batchside
+		if = {
+			limit = {
+				has_variable_list = miv_loyal_overflow
+			}
+			every_in_list = {
+				variable = miv_loyal_overflow
+				add_to_temporary_list = miv_loyal_replay
+			}
+			clear_variable_list = miv_loyal_overflow
+			every_in_list = {
+				list = miv_loyal_replay
+				save_temporary_scope_as = miv_replay_vassal
+				if = {
+					limit = {
+						is_alive = yes
+						exists = var:miv_loyal_overflow_war
+						exists = var:miv_loyal_overflow_side
+					}
+					var:miv_loyal_overflow_war = {
+						save_temporary_scope_as = miv_replay_war
+					}
+					var:miv_loyal_overflow_side = {
+						save_temporary_scope_as = miv_replay_side
+					}
+					remove_variable = miv_loyal_overflow_war
+					remove_variable = miv_loyal_overflow_side
+					root = {
+						interactive_bannermen_batch_toast_effect = {
+							KEY = loyal
+							EVENT = 0017
+							HOLDER = root
+							WAR = scope:miv_replay_war
+							SIDE_OF = scope:miv_replay_side
+							VASSAL = scope:miv_replay_vassal
+						}
+					}
+				}
+				else = {
+					remove_variable = miv_loyal_overflow_war
+					remove_variable = miv_loyal_overflow_side
+				}
+			}
+		}
+	}
+}
+
+interactive.0018 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				exists = var:miv_neutral_spokesman
+				exists = var:miv_neutral_batchwar
+				exists = var:miv_neutral_batchside
+			}
+			var:miv_neutral_batchwar = {
+				save_scope_as = miv_batch_war
+			}
+			var:miv_neutral_batchside = {
+				save_scope_as = miv_batch_side
+			}
+			var:miv_neutral_spokesman = {
+				save_scope_as = miv_flush_vassal
+			}
+			if = {
+				limit = {
+					scope:miv_flush_vassal = {
+						exists = var:miv_neutral_fellows
+						var:miv_neutral_fellows >= 1
+					}
+				}
+				save_temporary_scope_value_as = {
+					name = miv_toast_grouped
+					value = yes
+				}
+				interactive_bannermen_toast_war_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_neutrality
+					TITLE = miv_toast_neutral_many
+					TOOLTIP = miv_toast_neutral_many_desc
+				}
+				scope:miv_flush_vassal = {
+					remove_variable = miv_neutral_fellows
+				}
+			}
+			else = {
+				interactive_bannermen_toast_war_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_neutrality
+					TITLE = miv_toast_neutral_one
+					TOOLTIP = miv_toast_neutral_one_desc
+				}
+			}
+		}
+		remove_variable = miv_neutral_spokesman
+		remove_variable = miv_neutral_pending
+		remove_variable = miv_neutral_batchwar
+		remove_variable = miv_neutral_batchside
+		if = {
+			limit = {
+				has_variable_list = miv_neutral_overflow
+			}
+			every_in_list = {
+				variable = miv_neutral_overflow
+				add_to_temporary_list = miv_neutral_replay
+			}
+			clear_variable_list = miv_neutral_overflow
+			every_in_list = {
+				list = miv_neutral_replay
+				save_temporary_scope_as = miv_replay_vassal
+				if = {
+					limit = {
+						is_alive = yes
+						exists = var:miv_neutral_overflow_war
+						exists = var:miv_neutral_overflow_side
+					}
+					var:miv_neutral_overflow_war = {
+						save_temporary_scope_as = miv_replay_war
+					}
+					var:miv_neutral_overflow_side = {
+						save_temporary_scope_as = miv_replay_side
+					}
+					remove_variable = miv_neutral_overflow_war
+					remove_variable = miv_neutral_overflow_side
+					root = {
+						interactive_bannermen_batch_toast_effect = {
+							KEY = neutral
+							EVENT = 0018
+							HOLDER = root
+							WAR = scope:miv_replay_war
+							SIDE_OF = scope:miv_replay_side
+							VASSAL = scope:miv_replay_vassal
+						}
+					}
+				}
+				else = {
+					remove_variable = miv_neutral_overflow_war
+					remove_variable = miv_neutral_overflow_side
+				}
+			}
+		}
+	}
+}
+
+interactive.0001 = {
+	title = interactive.0001.title
+	desc = interactive.0001.desc
+	theme = war
+	left_portrait = scope:defender
+	right_portrait = scope:attacker
+	option = {
+		name = interactive.0001.a
+		save_scope_as = recipient
+		if = {
+			limit = {
+				is_vassal_or_below_of = scope:attacker
+			}
+			scope:war = {
+				hidden_effect = {
+					set_called_to = scope:recipient
+				}
+				add_attacker = prev
+			}
+			scope:attacker = {
+				add_opinion = {
+					modifier = grateful_opinion
+					target = scope:recipient
+					opinion = 10
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				is_vassal_or_below_of = scope:defender
+			}
+			scope:war = {
+				hidden_effect = {
+					set_called_to = scope:recipient
+				}
+				add_defender = prev
+			}
+			scope:defender = {
+				add_opinion = {
+					modifier = grateful_opinion
+					target = scope:recipient
+					opinion = 10
+				}
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+				scope:recipient.liege ?= {
+					government_has_flag = government_has_influence
+				}
+				OR = {
+					is_vassal_or_below_of = scope:attacker
+					is_vassal_or_below_of = scope:defender
+				}
+			}
+			change_influence = minor_influence_gain
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_game_rule = bannermen_mode_enabled
+					exists = scope:recipient.liege
+					scope:attacker = {
+						interactive_bannermen_is_rebel_trigger = {
+							LIEGE = scope:defender
+						}
+					}
+				}
+				if = {
+					limit = {
+						is_attacker_in_war = scope:war
+					}
+					interactive_bannermen_civilwar_rebel_toast_effect = {
+						LIEGE = scope:recipient.liege
+						VASSAL = scope:recipient
+						WAR = scope:war
+					}
+				}
+				else_if = {
+					limit = {
+						is_defender_in_war = scope:war
+					}
+					interactive_bannermen_batch_toast_effect = {
+						KEY = loyal
+						EVENT = 0017
+						HOLDER = scope:recipient.liege
+						WAR = scope:war
+						SIDE_OF = scope:recipient.liege
+						VASSAL = scope:recipient
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_game_rule = bannermen_mode_enabled
+					is_attacker_in_war = scope:war
+				}
+				interactive_bannermen_batch_toast_effect = {
+					KEY = answer
+					EVENT = 0023
+					HOLDER = scope:attacker
+					WAR = scope:war
+					SIDE_OF = scope:attacker
+					VASSAL = scope:recipient
+				}
+			}
+			else_if = {
+				limit = {
+					has_game_rule = bannermen_mode_enabled
+					is_defender_in_war = scope:war
+				}
+				interactive_bannermen_batch_toast_effect = {
+					KEY = answer
+					EVENT = 0023
+					HOLDER = scope:defender
+					WAR = scope:war
+					SIDE_OF = scope:defender
+					VASSAL = scope:recipient
+				}
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_game_rule = bannermen_mode_enabled
+					has_game_rule = civil_war_indirect_vassals_enabled
+					scope:war = {
+						any_war_participant = {
+							this = scope:recipient
+						}
+					}
+				}
+				scope:war = {
+					save_scope_as = miv_cw_war
+				}
+				interactive_bannermen_civilwar_core_cascade_effect = yes
+			}
+		}
+	}
+	option = {
+		name = interactive.0001.b
+		save_scope_as = recipient
+		if = {
+			limit = {
+				has_game_rule = bannermen_mode_enabled
+				exists = scope:recipient.liege
+				scope:attacker = {
+					interactive_bannermen_is_rebel_trigger = {
+						LIEGE = scope:defender
+					}
+				}
+			}
+			hidden_effect = {
+				interactive_bannermen_batch_toast_effect = {
+					KEY = neutral
+					EVENT = 0018
+					HOLDER = scope:recipient.liege
+					WAR = scope:war
+					SIDE_OF = scope:recipient.liege
+					VASSAL = scope:recipient
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_game_rule = bannermen_mode_enabled
+				is_vassal_or_below_of = scope:attacker
+			}
+			hidden_effect = {
+				interactive_bannermen_batch_toast_effect = {
+					KEY = refuse
+					EVENT = 0014
+					HOLDER = scope:attacker
+					WAR = scope:war
+					SIDE_OF = scope:attacker
+					VASSAL = scope:recipient
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_game_rule = bannermen_mode_enabled
+				is_vassal_or_below_of = scope:defender
+			}
+			hidden_effect = {
+				interactive_bannermen_batch_toast_effect = {
+					KEY = refuse
+					EVENT = 0014
+					HOLDER = scope:defender
+					WAR = scope:war
+					SIDE_OF = scope:defender
+					VASSAL = scope:recipient
+				}
+			}
+		}
+	}
+	option = {
+		name = interactive.0001.c
+		save_scope_as = recipient
+		if = {
+			limit = {
+				is_vassal_or_below_of = scope:attacker
+			}
+			scope:war = {
+				hidden_effect = {
+					set_called_to = scope:recipient
+				}
+				add_defender = prev
+			}
+			if = {
+				limit = {
+					has_game_rule = miv_oathbreakers_enabled
+					NOT = {
+						scope:recipient.liege = {
+							is_defender_in_war = scope:war
+						}
+					}
+				}
+				interactive_bannermen_brand_oathbreaker_effect = {
+					LIEGE = scope:recipient.liege
+					VASSAL = scope:recipient
+				}
+				hidden_effect = {
+					scope:recipient = {
+						save_scope_as = VASSAL
+					}
+					interactive_bannermen_batch_toast_effect = {
+						KEY = defect_enemy
+						EVENT = 0013
+						HOLDER = scope:attacker
+						WAR = scope:war
+						SIDE_OF = scope:attacker
+						VASSAL = scope:recipient
+					}
+					interactive_bannermen_batch_toast_effect = {
+						KEY = defect_us
+						EVENT = 0019
+						HOLDER = scope:attacker
+						WAR = scope:war
+						SIDE_OF = scope:recipient
+						VASSAL = scope:recipient
+					}
+				}
+			}
+			scope:defender = {
+				add_opinion = {
+					modifier = grateful_opinion
+					target = scope:recipient
+					opinion = 50
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				is_vassal_or_below_of = scope:defender
+			}
+			scope:war = {
+				hidden_effect = {
+					set_called_to = scope:recipient
+				}
+				add_attacker = prev
+			}
+			if = {
+				limit = {
+					has_game_rule = miv_oathbreakers_enabled
+					NOT = {
+						scope:recipient.liege = {
+							is_attacker_in_war = scope:war
+						}
+					}
+				}
+				interactive_bannermen_brand_oathbreaker_effect = {
+					LIEGE = scope:recipient.liege
+					VASSAL = scope:recipient
+				}
+				hidden_effect = {
+					scope:recipient = {
+						save_scope_as = VASSAL
+					}
+					interactive_bannermen_batch_toast_effect = {
+						KEY = defect_enemy
+						EVENT = 0013
+						HOLDER = scope:defender
+						WAR = scope:war
+						SIDE_OF = scope:defender
+						VASSAL = scope:recipient
+					}
+					interactive_bannermen_batch_toast_effect = {
+						KEY = defect_us
+						EVENT = 0019
+						HOLDER = scope:defender
+						WAR = scope:war
+						SIDE_OF = scope:recipient
+						VASSAL = scope:recipient
+					}
+				}
+			}
+			scope:attacker = {
+				add_opinion = {
+					modifier = grateful_opinion
+					target = scope:recipient
+					opinion = 50
+				}
+			}
+			if = {
+				limit = {
+					exists = scope:attacker.joined_faction
+					scope:attacker = {
+						interactive_bannermen_is_rebel_trigger = {
+							LIEGE = scope:defender
+						}
+					}
+				}
+				join_faction_skip_check = scope:attacker.joined_faction
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_game_rule = bannermen_mode_enabled
+					has_game_rule = civil_war_indirect_vassals_enabled
+					scope:war = {
+						any_war_participant = {
+							this = scope:recipient
+						}
+					}
+				}
+				scope:war = {
+					save_scope_as = miv_cw_war
+				}
+				interactive_bannermen_civilwar_core_cascade_effect = yes
+			}
+		}
+	}
+}
+
+interactive.0003 = {
+	type = letter_event
+	sender = scope:actor
+	opening = vassal_interaction.0001.opening
+	desc = vassal_interaction.0001.desc
+	immediate = {
+		scope:target = {
+			primary_defender = {
+				save_scope_as = defender
+			}
+		}
+		save_scope_value_as = {
+			name = response
+			value = flag:gold
+		}
+	}
+	option = {
+		name = vassal_interaction.0001.a
+		show_as_tooltip = {
+			scope:target = {
+				end_war = white_peace
+			}
+			scope:actor = {
+				add_opinion = {
+					target = root
+					modifier = pleased_opinion
+					opinion = low_positive_opinion
+				}
+			}
+		}
+		scope:actor = {
+			trigger_event = {
+				id = vassal_interaction.0002
+				days = { 2 5 }
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				scope:response = flag:accept
+			}
+		}
+	}
+	option = {
+		name = vassal_interaction.0001.b
+		trigger = {
+			can_add_hook = {
+				target = scope:actor
+				type = favor_hook
+			}
+		}
+		custom_tooltip = vassal_interaction.0001.request_favor_tt
+		show_as_tooltip = {
+			random_list = {
+				1 = {
+					desc = vassal_interaction.0001.accept
+					show_chance = no
+					scope:target = {
+						end_war = white_peace
+					}
+					add_hook = {
+						target = scope:actor
+						type = favor_hook
+					}
+				}
+				1 = {
+					desc = vassal_interaction.0001.decline
+					show_chance = no
+					add_prestige = medium_prestige_loss
+				}
+			}
+		}
+		scope:actor = {
+			trigger_event = {
+				id = vassal_interaction.0003
+				days = { 2 5 }
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				scope:response = flag:favor
+			}
+		}
+	}
+	option = {
+		name = vassal_interaction.0001.c
+		custom_tooltip = vassal_interaction.0001.request_gold_tt
+		show_as_tooltip = {
+			random_list = {
+				1 = {
+					desc = vassal_interaction.0001.accept
+					show_chance = no
+					scope:target = {
+						end_war = white_peace
+					}
+					scope:actor = {
+						pay_short_term_gold = {
+							target = root
+							gold = scope:recipient.stop_war_attacker_bribe_size
+						}
+					}
+				}
+				1 = {
+					desc = vassal_interaction.0001.decline
+					show_chance = no
+					add_prestige = medium_prestige_loss
+				}
+			}
+		}
+		scope:actor = {
+			trigger_event = {
+				id = vassal_interaction.0004
+				days = { 2 5 }
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				scope:response = flag:gold
+			}
+		}
+	}
+	option = {
+		name = vassal_interaction.0001.d
+		trigger = {
+			NOT = {
+				has_usable_hook = scope:actor
+			}
+		}
+		show_as_tooltip = {
+			scope:actor = {
+				add_opinion = {
+					target = root
+					modifier = refusal_opinion
+					opinion = low_negative_opinion
+				}
+			}
+		}
+		scope:actor = {
+			trigger_event = {
+				id = vassal_interaction.0005
+				days = { 2 5 }
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				scope:response = flag:refuse
+			}
+		}
+	}
+	option = {
+		name = vassal_interaction.0001.e
+		trigger = {
+			has_usable_hook = scope:actor
+		}
+		show_as_tooltip = {
+			use_hook = scope:actor
+		}
+		save_scope_value_as = {
+			name = vassal_used_hook
+			value = yes
+		}
+		scope:actor = {
+			trigger_event = {
+				id = vassal_interaction.0005
+				days = { 2 5 }
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				scope:response = flag:refuse
+			}
+		}
+	}
+}
+
+interactive.0004 = {
+	hidden = yes
+	immediate = {
+		save_temporary_scope_as = vassal
+		scope:miv_bannermen_liege ?= {
+			if = {
+				limit = {
+					NOT = {
+						this = scope:vassal
+					}
+					is_alive = yes
+					scope:vassal = {
+						is_alive = yes
+					}
+				}
+				save_temporary_scope_as = liege_to_join
+				every_character_war = {
+					save_temporary_scope_as = war
+					if = {
+						limit = {
+							scope:war = {
+								any_war_attacker = {
+									this = scope:liege_to_join
+								}
+							}
+							scope:war = {
+								interactive_bannermen_callable_war_trigger = {
+									LIEGE = scope:liege_to_join
+								}
+							}
+							scope:war = {
+								is_target_in_variable_list = {
+									name = miv_bannermen_called
+									target = scope:liege_to_join
+								}
+							}
+							OR = {
+								scope:war = {
+									interactive_agot_megawar_trigger = yes
+								}
+								miv_bannermen_distance_war_trigger = {
+									VASSAL = scope:vassal
+									ENEMY = scope:war.primary_defender
+								}
+							}
+							OR = {
+								scope:war = {
+									primary_attacker = scope:liege_to_join
+								}
+								scope:liege_to_join = {
+									is_ai = no
+								}
+								AND = {
+									has_game_rule = bannermen_extended_mode_1_enabled
+									scope:liege_to_join = {
+										highest_held_title_tier >= tier_empire
+									}
+								}
+								AND = {
+									has_game_rule = bannermen_extended_mode_2_enabled
+									scope:liege_to_join = {
+										highest_held_title_tier >= tier_kingdom
+									}
+								}
+								AND = {
+									has_game_rule = bannermen_extended_mode_3_enabled
+									scope:liege_to_join = {
+										highest_held_title_tier >= tier_duchy
+									}
+								}
+								scope:war = {
+									interactive_agot_megawar_empire_override_trigger = {
+										LIEGE = scope:liege_to_join
+									}
+								}
+							}
+						}
+						save_scope_as = miv_muster_war
+						scope:war = {
+							if = {
+								limit = {
+									NOR = {
+										any_war_attacker = {
+											this = scope:vassal
+										}
+										any_war_defender = {
+											this = scope:vassal
+										}
+									}
+									scope:vassal = {
+										NOT = {
+											any_war_enemy = {
+												is_defender_in_war = scope:war
+											}
+										}
+									}
+									scope:war = {
+										NOT = {
+											any_war_defender = {
+												is_at_war_with = scope:vassal
+											}
+										}
+									}
+								}
+								add_attacker = scope:vassal
+								save_scope_as = miv_answer_war
+								scope:vassal = {
+									interactive_bannermen_toll_pay_effect = {
+										LIEGE = scope:liege_to_join
+										WAR = scope:war
+									}
+								}
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							scope:war = {
+								any_war_defender = {
+									this = scope:liege_to_join
+								}
+							}
+							scope:war = {
+								interactive_bannermen_callable_war_trigger = {
+									LIEGE = scope:liege_to_join
+								}
+							}
+							scope:war = {
+								is_target_in_variable_list = {
+									name = miv_bannermen_called
+									target = scope:liege_to_join
+								}
+							}
+							OR = {
+								scope:war = {
+									interactive_agot_megawar_trigger = yes
+								}
+								miv_bannermen_distance_war_trigger = {
+									VASSAL = scope:vassal
+									ENEMY = scope:war.primary_attacker
+								}
+							}
+							OR = {
+								scope:war = {
+									primary_defender = scope:liege_to_join
+								}
+								scope:liege_to_join = {
+									is_ai = no
+								}
+								AND = {
+									has_game_rule = bannermen_extended_mode_1_enabled
+									scope:liege_to_join = {
+										highest_held_title_tier >= tier_empire
+									}
+								}
+								AND = {
+									has_game_rule = bannermen_extended_mode_2_enabled
+									scope:liege_to_join = {
+										highest_held_title_tier >= tier_kingdom
+									}
+								}
+								AND = {
+									has_game_rule = bannermen_extended_mode_3_enabled
+									scope:liege_to_join = {
+										highest_held_title_tier >= tier_duchy
+									}
+								}
+								scope:war = {
+									interactive_agot_megawar_empire_override_trigger = {
+										LIEGE = scope:liege_to_join
+									}
+								}
+							}
+						}
+						save_scope_as = miv_muster_war
+						scope:war = {
+							if = {
+								limit = {
+									NOR = {
+										any_war_attacker = {
+											this = scope:vassal
+										}
+										any_war_defender = {
+											this = scope:vassal
+										}
+									}
+									scope:vassal = {
+										NOT = {
+											any_war_enemy = {
+												is_attacker_in_war = scope:war
+											}
+										}
+									}
+									scope:war = {
+										NOT = {
+											any_war_attacker = {
+												is_at_war_with = scope:vassal
+											}
+										}
+									}
+								}
+								add_defender = scope:vassal
+								save_scope_as = miv_answer_war
+								scope:vassal = {
+									interactive_bannermen_toll_pay_effect = {
+										LIEGE = scope:liege_to_join
+										WAR = scope:war
+									}
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						any_character_war = {
+							interactive_bannermen_foreign_war_trigger = yes
+							interactive_bannermen_callable_war_trigger = {
+								LIEGE = scope:liege_to_join
+							}
+						}
+						NOT = {
+							any_character_war = {
+								interactive_bannermen_foreign_war_trigger = yes
+								interactive_bannermen_callable_war_trigger = {
+									LIEGE = scope:liege_to_join
+								}
+								any_war_participant = {
+									this = scope:vassal
+								}
+							}
+						}
+						exists = scope:miv_muster_war
+					}
+					if = {
+						limit = {
+							OR = {
+								scope:liege_to_join = {
+									is_ai = no
+								}
+								scope:vassal = {
+									is_ai = no
+								}
+							}
+						}
+						interactive_bannermen_batch_toast_effect = {
+							KEY = unfit
+							EVENT = 0016
+							HOLDER = scope:liege_to_join
+							WAR = scope:miv_muster_war
+							SIDE_OF = scope:liege_to_join
+							VASSAL = scope:vassal
+						}
+					}
+				}
+				if = {
+					limit = {
+						exists = scope:miv_answer_war
+					}
+					if = {
+						limit = {
+							OR = {
+								scope:liege_to_join = {
+									is_ai = no
+								}
+								scope:vassal = {
+									is_ai = no
+								}
+							}
+						}
+						interactive_bannermen_batch_toast_effect = {
+							KEY = answer
+							EVENT = 0023
+							HOLDER = scope:liege_to_join
+							WAR = scope:miv_answer_war
+							SIDE_OF = scope:liege_to_join
+							VASSAL = scope:vassal
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+interactive.0007 = {
+	hidden = yes
+	immediate = {
+		save_temporary_scope_as = vassal
+		scope:vassal.liege ?= {
+			if = {
+				limit = {
+					NOT = {
+						this = scope:vassal
+					}
+				}
+				save_temporary_scope_as = liege_to_join
+				every_character_war = {
+					limit = {
+						primary_attacker = {
+							interactive_bannermen_is_rebel_trigger = {
+								LIEGE = scope:liege_to_join
+							}
+							is_landed = yes
+						}
+						NOT = {
+							any_war_participant = {
+								this = scope:vassal
+							}
+						}
+					}
+					save_temporary_scope_as = war_to_join
+					if = {
+						limit = {
+							has_game_rule = bannermen_mode_enabled
+						}
+						interactive_bannermen_civilwar_effect = yes
+					}
+					else_if = {
+						limit = {
+							scope:vassal = {
+								is_capable_adult = yes
+								is_imprisoned = no
+								NOT = {
+									AND = {
+										exists = joined_faction
+										NOT = {
+											joined_faction = {
+												OR = {
+													faction_is_type = crown_loyalist_faction
+													miv_agot_loyalist_faction_trigger = yes
+												}
+											}
+										}
+									}
+								}
+								NOT = {
+									scope:liege_to_join = {
+										has_opinion_modifier = {
+											modifier = miv_oathbreaker
+											target = scope:vassal
+										}
+									}
+								}
+								NOT = {
+									opinion = {
+										target = scope:liege_to_join
+										value <= -80
+									}
+								}
+								NOT = {
+									is_allied_to = scope:war_to_join.primary_attacker
+								}
+								OR = {
+									has_relation_friend = scope:liege_to_join
+									has_relation_best_friend = scope:liege_to_join
+									has_relation_blood_brother = scope:liege_to_join
+									has_relation_lover = scope:liege_to_join
+									has_relation_soulmate = scope:liege_to_join
+									has_relation_rival = scope:war_to_join.primary_attacker
+									has_relation_nemesis = scope:war_to_join.primary_attacker
+									opinion = {
+										target = scope:liege_to_join
+										value >= 40
+									}
+									opinion = {
+										target = scope:war_to_join.primary_attacker
+										value <= -50
+									}
+									is_allied_to = scope:liege_to_join
+									ai_honor >= medium_positive_ai_value
+									AND = {
+										exists = joined_faction
+										joined_faction = {
+											OR = {
+												faction_is_type = crown_loyalist_faction
+												miv_agot_loyalist_faction_trigger = yes
+											}
+										}
+									}
+									is_heir_of = scope:liege_to_join
+									has_trait = loyal
+									scope:liege_to_join = {
+										has_strong_hook = scope:vassal
+									}
+								}
+							}
+						}
+						scope:war_to_join = {
+							add_defender = scope:vassal
+						}
+						if = {
+							limit = {
+								has_game_rule = civil_war_indirect_vassals_enabled
+							}
+							scope:vassal = {
+								save_temporary_scope_as = vassal_liege_to_join
+								every_vassal = {
+									limit = {
+										max_military_strength > interactive_minimum_vassal_strength
+										interactive_vassal_government_eligibility_trigger = yes
+										highest_held_title_tier >= tier_county
+										is_landed = yes
+										is_ai = yes
+									}
+									save_temporary_scope_as = vassals_vassal
+									if = {
+										limit = {
+											scope:vassals_vassal = {
+												is_capable_adult = yes
+												is_imprisoned = no
+												NOT = {
+													scope:vassal_liege_to_join = {
+														has_opinion_modifier = {
+															modifier = miv_oathbreaker
+															target = scope:vassals_vassal
+														}
+													}
+												}
+												OR = {
+													has_relation_friend = scope:vassal_liege_to_join
+													has_relation_best_friend = scope:vassal_liege_to_join
+													has_relation_blood_brother = scope:vassal_liege_to_join
+													has_relation_lover = scope:vassal_liege_to_join
+													has_relation_soulmate = scope:vassal_liege_to_join
+													has_relation_rival = scope:war_to_join.primary_attacker
+													has_relation_nemesis = scope:war_to_join.primary_attacker
+													opinion = {
+														target = scope:vassal_liege_to_join
+														value >= 40
+													}
+													opinion = {
+														target = scope:war_to_join.primary_attacker
+														value <= -50
+													}
+													is_allied_to = scope:vassal_liege_to_join
+													ai_honor >= medium_positive_ai_value
+													AND = {
+														exists = joined_faction
+														joined_faction = {
+															OR = {
+																faction_is_type = crown_loyalist_faction
+																miv_agot_loyalist_faction_trigger = yes
+															}
+														}
+													}
+													is_heir_of = scope:vassal_liege_to_join
+													has_trait = loyal
+													scope:vassal_liege_to_join = {
+														has_strong_hook = scope:vassals_vassal
+													}
+												}
+											}
+										}
+										scope:war_to_join = {
+											if = {
+												limit = {
+													NOT = {
+														any_war_participant = {
+															this = scope:vassals_vassal
+														}
+													}
+												}
+												add_defender = scope:vassals_vassal
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							scope:vassal = {
+								is_capable_adult = yes
+								is_imprisoned = no
+								OR = {
+									NOT = {
+										has_dread_level_towards = {
+											target = scope:liege_to_join
+											level = 2
+										}
+									}
+									AND = {
+										exists = joined_faction
+										NOT = {
+											joined_faction = {
+												OR = {
+													faction_is_type = crown_loyalist_faction
+													miv_agot_loyalist_faction_trigger = yes
+												}
+											}
+										}
+									}
+									is_allied_to = scope:war_to_join.primary_attacker
+								}
+								NOT = {
+									opinion = {
+										target = scope:war_to_join.primary_attacker
+										value <= -80
+									}
+								}
+								NOT = {
+									is_allied_to = scope:liege_to_join
+								}
+								OR = {
+									has_relation_friend = scope:war_to_join.primary_attacker
+									has_relation_best_friend = scope:war_to_join.primary_attacker
+									has_relation_blood_brother = scope:war_to_join.primary_attacker
+									has_relation_lover = scope:war_to_join.primary_attacker
+									has_relation_soulmate = scope:war_to_join.primary_attacker
+									has_relation_rival = scope:liege_to_join
+									has_relation_nemesis = scope:liege_to_join
+									opinion = {
+										target = scope:war_to_join.primary_attacker
+										value >= 40
+									}
+									opinion = {
+										target = scope:liege_to_join
+										value <= -50
+									}
+									is_allied_to = scope:war_to_join.primary_attacker
+									ai_honor <= medium_negative_ai_value
+									AND = {
+										exists = joined_faction
+										NOT = {
+											joined_faction = {
+												OR = {
+													faction_is_type = crown_loyalist_faction
+													miv_agot_loyalist_faction_trigger = yes
+												}
+											}
+										}
+									}
+									is_heir_of = scope:war_to_join.primary_attacker
+									has_trait = disloyal
+									scope:war_to_join.primary_attacker = {
+										has_strong_hook = scope:vassal
+									}
+									scope:liege_to_join = {
+										has_opinion_modifier = {
+											modifier = miv_oathbreaker
+											target = scope:vassal
+										}
+									}
+								}
+							}
+						}
+						scope:war_to_join = {
+							add_attacker = scope:vassal
+						}
+						if = {
+							limit = {
+								exists = scope:war_to_join.primary_attacker.joined_faction
+							}
+							scope:vassal = {
+								if = {
+									limit = {
+										exists = joined_faction
+										NOT = {
+											joined_faction = scope:war_to_join.primary_attacker.joined_faction
+										}
+									}
+									leave_faction = joined_faction
+								}
+								join_faction_skip_check = scope:war_to_join.primary_attacker.joined_faction
+							}
+						}
+						if = {
+							limit = {
+								has_game_rule = civil_war_indirect_vassals_enabled
+							}
+							scope:vassal = {
+								save_temporary_scope_as = vassal_liege_to_join
+								every_vassal = {
+									limit = {
+										max_military_strength > interactive_minimum_vassal_strength
+										interactive_vassal_government_eligibility_trigger = yes
+										highest_held_title_tier >= tier_county
+										is_landed = yes
+										is_ai = yes
+									}
+									save_temporary_scope_as = vassals_vassal
+									if = {
+										limit = {
+											scope:vassals_vassal = {
+												is_capable_adult = yes
+												is_imprisoned = no
+												NOT = {
+													scope:vassal_liege_to_join = {
+														has_opinion_modifier = {
+															modifier = miv_oathbreaker
+															target = scope:vassals_vassal
+														}
+													}
+												}
+												OR = {
+													has_relation_friend = scope:vassal_liege_to_join
+													has_relation_best_friend = scope:vassal_liege_to_join
+													has_relation_blood_brother = scope:vassal_liege_to_join
+													has_relation_lover = scope:vassal_liege_to_join
+													has_relation_soulmate = scope:vassal_liege_to_join
+													has_relation_rival = scope:war_to_join.primary_defender
+													has_relation_nemesis = scope:war_to_join.primary_defender
+													opinion = {
+														target = scope:vassal_liege_to_join
+														value >= 40
+													}
+													opinion = {
+														target = scope:war_to_join.primary_defender
+														value <= -50
+													}
+													is_allied_to = scope:vassal_liege_to_join
+													ai_honor >= medium_positive_ai_value
+													AND = {
+														exists = joined_faction
+														joined_faction = {
+															OR = {
+																faction_is_type = crown_loyalist_faction
+																miv_agot_loyalist_faction_trigger = yes
+															}
+														}
+													}
+													is_heir_of = scope:vassal_liege_to_join
+													has_trait = loyal
+													scope:vassal_liege_to_join = {
+														has_strong_hook = scope:vassals_vassal
+													}
+												}
+											}
+										}
+										scope:war_to_join = {
+											if = {
+												limit = {
+													NOT = {
+														any_war_participant = {
+															this = scope:vassals_vassal
+														}
+													}
+												}
+												add_attacker = scope:vassals_vassal
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								OR = {
+									scope:liege_to_join = {
+										is_ai = no
+									}
+									scope:vassal = {
+										is_ai = no
+									}
+								}
+							}
+							interactive_bannermen_batch_toast_effect = {
+								KEY = refuse
+								EVENT = 0014
+								HOLDER = scope:liege_to_join
+								WAR = scope:war_to_join
+								SIDE_OF = scope:liege_to_join
+								VASSAL = scope:vassal
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+interactive.0008 = {
+	hidden = yes
+	immediate = {
+		save_scope_as = VASSAL
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				exists = scope:miv_bannermen_liege
+				is_target_in_variable_list = {
+					name = miv_betrayal_pending_lieges
+					target = scope:miv_bannermen_liege
+				}
+			}
+			remove_list_variable = {
+				name = miv_betrayal_pending_lieges
+				target = scope:miv_bannermen_liege
+			}
+		}
+		set_variable = {
+			name = miv_betrayed
+			value = yes
+			days = 1
+		}
+		scope:miv_bannermen_liege ?= {
+			if = {
+				limit = {
+					NOT = {
+						this = scope:vassal
+					}
+					is_alive = yes
+					scope:vassal = {
+						is_alive = yes
+						NOT = {
+							is_at_war_with = scope:miv_bannermen_liege
+						}
+					}
+				}
+				save_temporary_scope_as = betrayed_liege
+				every_character_war = {
+					save_temporary_scope_as = miv_defect_war
+					if = {
+						limit = {
+							scope:miv_defect_war = {
+								interactive_bannermen_foreign_war_trigger = yes
+								any_war_attacker = {
+									this = scope:betrayed_liege
+								}
+								NOR = {
+									any_war_attacker = {
+										this = scope:vassal
+									}
+									any_war_defender = {
+										this = scope:vassal
+									}
+								}
+							}
+							scope:vassal = {
+								NOT = {
+									any_war_enemy = {
+										is_attacker_in_war = scope:miv_defect_war
+									}
+								}
+							}
+							scope:miv_defect_war = {
+								NOT = {
+									any_war_attacker = {
+										is_at_war_with = scope:vassal
+									}
+								}
+							}
+						}
+						if = {
+							limit = {
+								scope:vassal = {
+									has_variable = miv_betrayed
+								}
+							}
+							save_scope_as = miv_betrayal_war
+						}
+						scope:miv_defect_war = {
+							add_defender = scope:vassal
+							scope:vassal = {
+								remove_variable = miv_betrayed
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							scope:miv_defect_war = {
+								interactive_bannermen_foreign_war_trigger = yes
+								any_war_defender = {
+									this = scope:betrayed_liege
+								}
+								NOR = {
+									any_war_attacker = {
+										this = scope:vassal
+									}
+									any_war_defender = {
+										this = scope:vassal
+									}
+								}
+							}
+							scope:vassal = {
+								NOT = {
+									any_war_enemy = {
+										is_defender_in_war = scope:miv_defect_war
+									}
+								}
+							}
+							scope:miv_defect_war = {
+								NOT = {
+									any_war_defender = {
+										is_at_war_with = scope:vassal
+									}
+								}
+							}
+						}
+						if = {
+							limit = {
+								scope:vassal = {
+									has_variable = miv_betrayed
+								}
+							}
+							save_scope_as = miv_betrayal_war
+						}
+						scope:miv_defect_war = {
+							add_attacker = scope:vassal
+							scope:vassal = {
+								remove_variable = miv_betrayed
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						scope:vassal = {
+							NOT = {
+								has_variable = miv_betrayed
+							}
+						}
+						exists = scope:miv_betrayal_war
+					}
+					interactive_bannermen_batch_toast_effect = {
+						KEY = defect_enemy
+						EVENT = 0013
+						HOLDER = scope:betrayed_liege
+						WAR = scope:miv_betrayal_war
+						SIDE_OF = scope:betrayed_liege
+						VASSAL = scope:vassal
+					}
+					interactive_bannermen_batch_toast_effect = {
+						KEY = defect_us
+						EVENT = 0019
+						HOLDER = scope:betrayed_liege
+						WAR = scope:miv_betrayal_war
+						SIDE_OF = scope:vassal
+						VASSAL = scope:vassal
+					}
+					add_opinion = {
+						target = scope:vassal
+						modifier = miv_oathbreaker
+					}
+				}
+			}
+		}
+	}
+}
+
+interactive.0009 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				exists = scope:miv_support_war
+				exists = scope:miv_support_liege
+				exists = scope:miv_support_vassal
+				scope:miv_support_liege = {
+					is_alive = yes
+				}
+				scope:miv_support_vassal = {
+					is_alive = yes
+				}
+				scope:miv_support_vassal = {
+					NOT = {
+						is_at_war_with = scope:miv_support_liege
+					}
+				}
+				scope:miv_support_war = {
+					NOR = {
+						any_war_attacker = {
+							this = scope:miv_support_vassal
+						}
+						any_war_defender = {
+							this = scope:miv_support_vassal
+						}
+					}
+					OR = {
+						any_war_attacker = {
+							this = scope:miv_support_liege
+						}
+						any_war_defender = {
+							this = scope:miv_support_liege
+						}
+					}
+				}
+			}
+			scope:miv_support_war = {
+				if = {
+					limit = {
+						is_attacker = scope:miv_support_liege
+					}
+					add_attacker = scope:miv_support_vassal
+					scope:miv_support_vassal = {
+						interactive_bannermen_toll_pay_effect = {
+							LIEGE = scope:miv_support_liege
+							WAR = scope:miv_support_war
+						}
+					}
+				}
+				else = {
+					add_defender = scope:miv_support_vassal
+					scope:miv_support_vassal = {
+						interactive_bannermen_toll_pay_effect = {
+							LIEGE = scope:miv_support_liege
+							WAR = scope:miv_support_war
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:miv_support_war
+				exists = scope:miv_support_liege
+				exists = scope:miv_support_vassal
+				scope:miv_support_liege = {
+					is_alive = yes
+				}
+				scope:miv_support_vassal = {
+					is_alive = yes
+				}
+				scope:miv_support_war = {
+					interactive_bannermen_foreign_war_trigger = yes
+					NOT = {
+						any_war_participant = {
+							this = scope:miv_support_vassal
+						}
+					}
+				}
+			}
+			scope:miv_support_liege = {
+				if = {
+					limit = {
+						OR = {
+							scope:miv_support_liege = {
+								is_ai = no
+							}
+							scope:miv_support_vassal = {
+								is_ai = no
+							}
+						}
+					}
+					interactive_bannermen_batch_toast_effect = {
+						KEY = unfit
+						EVENT = 0016
+						HOLDER = scope:miv_support_liege
+						WAR = scope:miv_support_war
+						SIDE_OF = scope:miv_support_liege
+						VASSAL = scope:miv_support_vassal
+					}
+				}
+			}
+		}
+	}
+}
+
+interactive.0010 = {
+	hidden = yes
+	immediate = {
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				exists = scope:miv_cw_war
+				exists = liege
+				NOT = {
+					liege = scope:vassal
+				}
+				scope:miv_cw_war = {
+					NOR = {
+						any_war_attacker = {
+							this = scope:vassal
+						}
+						any_war_defender = {
+							this = scope:vassal
+						}
+					}
+				}
+			}
+			liege = {
+				save_temporary_scope_as = liege
+			}
+			interactive_bannermen_civilwar_commit_effect = yes
+			if = {
+				limit = {
+					NOT = {
+						interactive_bannermen_fit_trigger = yes
+					}
+				}
+				interactive_bannermen_batch_toast_effect = {
+					KEY = neutral
+					EVENT = 0018
+					HOLDER = scope:liege
+					WAR = scope:miv_cw_war
+					SIDE_OF = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			else_if = {
+				limit = {
+					scope:miv_cw_war = {
+						OR = {
+							any_war_attacker = {
+								this = scope:liege
+							}
+							any_war_defender = {
+								this = scope:liege
+							}
+						}
+					}
+					interactive_bannermen_civilwar_loyal_trigger = yes
+				}
+				scope:miv_cw_war = {
+					if = {
+						limit = {
+							is_attacker = scope:liege
+						}
+						if = {
+							limit = {
+								scope:vassal = {
+									NOT = {
+										any_war_enemy = {
+											is_defender_in_war = scope:miv_cw_war
+										}
+									}
+								}
+								scope:miv_cw_war = {
+									NOT = {
+										any_war_defender = {
+											is_at_war_with = scope:vassal
+										}
+									}
+								}
+							}
+							add_attacker = scope:vassal
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								scope:vassal = {
+									NOT = {
+										any_war_enemy = {
+											is_attacker_in_war = scope:miv_cw_war
+										}
+									}
+								}
+								scope:miv_cw_war = {
+									NOT = {
+										any_war_attacker = {
+											is_at_war_with = scope:vassal
+										}
+									}
+								}
+							}
+							add_defender = scope:vassal
+						}
+					}
+				}
+				if = {
+					limit = {
+						interactive_bannermen_hostile_faction_trigger = {
+							LIEGE = scope:liege
+						}
+					}
+					leave_faction = joined_faction
+				}
+				if = {
+					limit = {
+						scope:miv_cw_war = {
+							is_attacker = scope:liege
+						}
+					}
+					interactive_bannermen_civilwar_rebel_toast_effect = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+						WAR = scope:miv_cw_war
+					}
+				}
+				else = {
+					interactive_bannermen_batch_toast_effect = {
+						KEY = loyal
+						EVENT = 0017
+						HOLDER = scope:liege
+						WAR = scope:miv_cw_war
+						SIDE_OF = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+				if = {
+					limit = {
+						has_game_rule = civil_war_indirect_vassals_enabled
+						exists = var:miv_cw_depth
+						var:miv_cw_depth < 2
+					}
+					save_temporary_scope_as = liege
+					interactive_bannermen_civilwar_far_effect = {
+						LIEGE = scope:liege
+						LEADER = scope:miv_cw_war.primary_attacker
+						WAR = scope:miv_cw_war
+					}
+					every_vassal = {
+						limit = {
+							interactive_bannermen_civilwar_eligible_trigger = {
+								LIEGE = scope:liege
+								LEADER = scope:miv_cw_war.primary_attacker
+							}
+						}
+						save_temporary_scope_as = vassal
+						interactive_bannermen_civilwar_cascade_effect = yes
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					scope:miv_cw_war = {
+						OR = {
+							any_war_attacker = {
+								this = scope:liege
+							}
+							any_war_defender = {
+								this = scope:liege
+							}
+						}
+					}
+					interactive_bannermen_civilwar_neutral_trigger = yes
+				}
+				interactive_bannermen_batch_toast_effect = {
+					KEY = neutral
+					EVENT = 0018
+					HOLDER = scope:liege
+					WAR = scope:miv_cw_war
+					SIDE_OF = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			else_if = {
+				limit = {
+					scope:miv_cw_war = {
+						OR = {
+							any_war_attacker = {
+								this = scope:liege
+							}
+							any_war_defender = {
+								this = scope:liege
+							}
+						}
+					}
+				}
+				scope:miv_cw_war = {
+					if = {
+						limit = {
+							is_attacker = scope:liege
+						}
+						if = {
+							limit = {
+								scope:vassal = {
+									NOT = {
+										any_war_enemy = {
+											is_attacker_in_war = scope:miv_cw_war
+										}
+									}
+								}
+								scope:miv_cw_war = {
+									NOT = {
+										any_war_attacker = {
+											is_at_war_with = scope:vassal
+										}
+									}
+								}
+							}
+							add_defender = scope:vassal
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								scope:vassal = {
+									NOT = {
+										any_war_enemy = {
+											is_defender_in_war = scope:miv_cw_war
+										}
+									}
+								}
+								scope:miv_cw_war = {
+									NOT = {
+										any_war_defender = {
+											is_at_war_with = scope:vassal
+										}
+									}
+								}
+							}
+							add_attacker = scope:vassal
+						}
+					}
+				}
+				scope:liege = {
+					if = {
+						limit = {
+							NOT = {
+								has_opinion_modifier = {
+									modifier = miv_oathbreaker
+									target = scope:vassal
+								}
+							}
+						}
+						if = {
+							limit = {
+								scope:miv_cw_war = {
+									is_attacker = scope:liege
+								}
+							}
+							interactive_bannermen_batch_toast_effect = {
+								KEY = loyal
+								EVENT = 0017
+								HOLDER = scope:liege
+								WAR = scope:miv_cw_war
+								SIDE_OF = scope:liege
+								VASSAL = scope:vassal
+							}
+						}
+						else = {
+							interactive_bannermen_civilwar_rebel_toast_effect = {
+								LIEGE = scope:liege
+								VASSAL = scope:vassal
+								WAR = scope:miv_cw_war
+							}
+						}
+					}
+					add_opinion = {
+						target = scope:vassal
+						modifier = miv_oathbreaker
+					}
+				}
+				if = {
+					limit = {
+						exists = scope:miv_cw_war.primary_attacker.joined_faction
+						is_vassal_of = scope:miv_cw_war.primary_defender
+					}
+					if = {
+						limit = {
+							exists = joined_faction
+							NOT = {
+								joined_faction = scope:miv_cw_war.primary_attacker.joined_faction
+							}
+						}
+						leave_faction = joined_faction
+					}
+					join_faction_skip_check = scope:miv_cw_war.primary_attacker.joined_faction
+				}
+				if = {
+					limit = {
+						has_game_rule = civil_war_indirect_vassals_enabled
+						exists = var:miv_cw_depth
+						var:miv_cw_depth < 2
+					}
+					save_temporary_scope_as = liege
+					interactive_bannermen_civilwar_far_effect = {
+						LIEGE = scope:liege
+						LEADER = scope:miv_cw_war.primary_attacker
+						WAR = scope:miv_cw_war
+					}
+					every_vassal = {
+						limit = {
+							interactive_bannermen_civilwar_eligible_trigger = {
+								LIEGE = scope:liege
+								LEADER = scope:miv_cw_war.primary_attacker
+							}
+						}
+						save_temporary_scope_as = vassal
+						interactive_bannermen_civilwar_cascade_effect = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+interactive.0011 = {
+	hidden = yes
+	immediate = {
+		save_temporary_scope_as = vassal
+		scope:miv_bannermen_liege ?= {
+			if = {
+				limit = {
+					NOT = {
+						this = scope:vassal
+					}
+					is_alive = yes
+					exists = scope:miv_bannermen_war
+					scope:vassal = {
+						is_alive = yes
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							scope:miv_bannermen_liege = {
+								is_ai = no
+							}
+							scope:vassal = {
+								is_ai = no
+							}
+						}
+					}
+					interactive_bannermen_batch_toast_effect = {
+						KEY = unfit
+						EVENT = 0016
+						HOLDER = scope:miv_bannermen_liege
+						WAR = scope:miv_bannermen_war
+						SIDE_OF = scope:miv_bannermen_liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+		}
+	}
+}
+
+interactive.0020 = {
+	hidden = yes
+	immediate = {
+		save_temporary_scope_as = vassal
+		scope:miv_bannermen_liege ?= {
+			if = {
+				limit = {
+					NOT = {
+						this = scope:vassal
+					}
+					is_alive = yes
+					exists = scope:miv_bannermen_war
+					scope:vassal = {
+						is_alive = yes
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							scope:miv_bannermen_liege = {
+								is_ai = no
+							}
+							scope:vassal = {
+								is_ai = no
+							}
+						}
+					}
+					interactive_bannermen_batch_toast_effect = {
+						KEY = refuse
+						EVENT = 0014
+						HOLDER = scope:miv_bannermen_liege
+						WAR = scope:miv_bannermen_war
+						SIDE_OF = scope:miv_bannermen_liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+		}
+	}
+}
+
+interactive.0012 = {
+	hidden = yes
+	immediate = {
+		save_scope_as = liege
+		if = {
+			limit = {
+				exists = var:miv_cw_betrayer
+				exists = var:miv_cw_betrayal_war
+			}
+			var:miv_cw_betrayal_war = {
+				save_scope_as = miv_cw_war
+			}
+			var:miv_cw_betrayer = {
+				save_scope_as = VASSAL
+			}
+			if = {
+				limit = {
+					scope:VASSAL = {
+						exists = var:miv_fellow_rebels
+						var:miv_fellow_rebels >= 1
+					}
+				}
+				save_temporary_scope_value_as = {
+					name = miv_toast_grouped
+					value = yes
+				}
+				interactive_bannermen_toast_war_effect = {
+					WAR = scope:miv_cw_war
+					SIDE_OF = scope:liege
+					VASSAL = scope:VASSAL
+					TYPE = msg_war_oathbreaker
+					TITLE = miv_toast_rebel_many
+					TOOLTIP = miv_toast_rebel_many_desc
+				}
+				scope:VASSAL = {
+					remove_variable = miv_fellow_rebels
+				}
+			}
+			else = {
+				interactive_bannermen_toast_war_effect = {
+					WAR = scope:miv_cw_war
+					SIDE_OF = scope:liege
+					VASSAL = scope:VASSAL
+					TYPE = msg_war_oathbreaker
+					TITLE = miv_toast_rebel_one
+					TOOLTIP = miv_toast_rebel_one_desc
+				}
+			}
+		}
+		remove_variable = miv_cw_betrayal_pending
+		remove_variable = miv_cw_betrayer
+		remove_variable = miv_cw_betrayal_war
+	}
+}
+
+interactive.0021 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				exists = var:miv_ally_join_spokesman
+				exists = var:miv_ally_join_batchwar
+				exists = var:miv_ally_join_batchside
+			}
+			var:miv_ally_join_batchwar = {
+				save_scope_as = miv_batch_war
+			}
+			var:miv_ally_join_batchside = {
+				save_scope_as = miv_batch_side
+			}
+			var:miv_ally_join_spokesman = {
+				save_scope_as = miv_flush_vassal
+			}
+			if = {
+				limit = {
+					scope:miv_flush_vassal = {
+						exists = var:miv_ally_join_fellows
+						var:miv_ally_join_fellows >= 1
+					}
+				}
+				save_temporary_scope_value_as = {
+					name = miv_toast_grouped
+					value = yes
+				}
+				interactive_bannermen_toast_side_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_ally_join
+					TITLE = miv_toast_ally_join_many
+					TOOLTIP = miv_toast_ally_join_many_desc
+				}
+				scope:miv_flush_vassal = {
+					remove_variable = miv_ally_join_fellows
+				}
+			}
+			else = {
+				interactive_bannermen_toast_side_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_ally_join
+					TITLE = miv_toast_ally_join_one
+					TOOLTIP = miv_toast_ally_join_one_desc
+				}
+			}
+		}
+		remove_variable = miv_ally_join_spokesman
+		remove_variable = miv_ally_join_pending
+		remove_variable = miv_ally_join_batchwar
+		remove_variable = miv_ally_join_batchside
+		if = {
+			limit = {
+				has_variable_list = miv_ally_join_overflow
+			}
+			every_in_list = {
+				variable = miv_ally_join_overflow
+				add_to_temporary_list = miv_ally_join_replay
+			}
+			clear_variable_list = miv_ally_join_overflow
+			every_in_list = {
+				list = miv_ally_join_replay
+				save_temporary_scope_as = miv_replay_vassal
+				if = {
+					limit = {
+						is_alive = yes
+						exists = var:miv_ally_join_overflow_war
+						exists = var:miv_ally_join_overflow_side
+					}
+					var:miv_ally_join_overflow_war = {
+						save_temporary_scope_as = miv_replay_war
+					}
+					var:miv_ally_join_overflow_side = {
+						save_temporary_scope_as = miv_replay_side
+					}
+					remove_variable = miv_ally_join_overflow_war
+					remove_variable = miv_ally_join_overflow_side
+					root = {
+						interactive_bannermen_batch_toast_effect = {
+							KEY = ally_join
+							EVENT = 0021
+							HOLDER = root
+							WAR = scope:miv_replay_war
+							SIDE_OF = scope:miv_replay_side
+							VASSAL = scope:miv_replay_vassal
+						}
+					}
+				}
+				else = {
+					remove_variable = miv_ally_join_overflow_war
+					remove_variable = miv_ally_join_overflow_side
+				}
+			}
+		}
+	}
+}
+
+interactive.0022 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				exists = var:miv_enemy_join_spokesman
+				exists = var:miv_enemy_join_batchwar
+				exists = var:miv_enemy_join_batchside
+			}
+			var:miv_enemy_join_batchwar = {
+				save_scope_as = miv_batch_war
+			}
+			var:miv_enemy_join_batchside = {
+				save_scope_as = miv_batch_side
+			}
+			var:miv_enemy_join_spokesman = {
+				save_scope_as = miv_flush_vassal
+			}
+			if = {
+				limit = {
+					scope:miv_flush_vassal = {
+						exists = var:miv_enemy_join_fellows
+						var:miv_enemy_join_fellows >= 1
+					}
+				}
+				save_temporary_scope_value_as = {
+					name = miv_toast_grouped
+					value = yes
+				}
+				interactive_bannermen_toast_side_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_enemy_join
+					TITLE = miv_toast_enemy_join_many
+					TOOLTIP = miv_toast_enemy_join_many_desc
+				}
+				scope:miv_flush_vassal = {
+					remove_variable = miv_enemy_join_fellows
+				}
+			}
+			else = {
+				interactive_bannermen_toast_side_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_enemy_join
+					TITLE = miv_toast_enemy_join_one
+					TOOLTIP = miv_toast_enemy_join_one_desc
+				}
+			}
+		}
+		remove_variable = miv_enemy_join_spokesman
+		remove_variable = miv_enemy_join_pending
+		remove_variable = miv_enemy_join_batchwar
+		remove_variable = miv_enemy_join_batchside
+		if = {
+			limit = {
+				has_variable_list = miv_enemy_join_overflow
+			}
+			every_in_list = {
+				variable = miv_enemy_join_overflow
+				add_to_temporary_list = miv_enemy_join_replay
+			}
+			clear_variable_list = miv_enemy_join_overflow
+			every_in_list = {
+				list = miv_enemy_join_replay
+				save_temporary_scope_as = miv_replay_vassal
+				if = {
+					limit = {
+						is_alive = yes
+						exists = var:miv_enemy_join_overflow_war
+						exists = var:miv_enemy_join_overflow_side
+					}
+					var:miv_enemy_join_overflow_war = {
+						save_temporary_scope_as = miv_replay_war
+					}
+					var:miv_enemy_join_overflow_side = {
+						save_temporary_scope_as = miv_replay_side
+					}
+					remove_variable = miv_enemy_join_overflow_war
+					remove_variable = miv_enemy_join_overflow_side
+					root = {
+						interactive_bannermen_batch_toast_effect = {
+							KEY = enemy_join
+							EVENT = 0022
+							HOLDER = root
+							WAR = scope:miv_replay_war
+							SIDE_OF = scope:miv_replay_side
+							VASSAL = scope:miv_replay_vassal
+						}
+					}
+				}
+				else = {
+					remove_variable = miv_enemy_join_overflow_war
+					remove_variable = miv_enemy_join_overflow_side
+				}
+			}
+		}
+	}
+}
+
+interactive.0023 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				exists = var:miv_answer_spokesman
+				exists = var:miv_answer_batchwar
+				exists = var:miv_answer_batchside
+			}
+			var:miv_answer_batchwar = {
+				save_scope_as = miv_batch_war
+			}
+			var:miv_answer_batchside = {
+				save_scope_as = miv_batch_side
+			}
+			var:miv_answer_spokesman = {
+				save_scope_as = miv_flush_vassal
+			}
+			if = {
+				limit = {
+					scope:miv_flush_vassal = {
+						exists = var:miv_answer_fellows
+						var:miv_answer_fellows >= 1
+					}
+				}
+				save_temporary_scope_value_as = {
+					name = miv_toast_grouped
+					value = yes
+				}
+				interactive_bannermen_toast_realm_viewer_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_answer
+					TITLE = miv_toast_answer_many
+					TOOLTIP = miv_toast_answer_many_desc
+				}
+				scope:miv_flush_vassal = {
+					remove_variable = miv_answer_fellows
+				}
+			}
+			else = {
+				interactive_bannermen_toast_realm_viewer_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_answer
+					TITLE = miv_toast_answer_one
+					TOOLTIP = miv_toast_answer_one_desc
+				}
+			}
+		}
+		remove_variable = miv_answer_spokesman
+		remove_variable = miv_answer_pending
+		remove_variable = miv_answer_batchwar
+		remove_variable = miv_answer_batchside
+		if = {
+			limit = {
+				has_variable_list = miv_answer_overflow
+			}
+			every_in_list = {
+				variable = miv_answer_overflow
+				add_to_temporary_list = miv_answer_replay
+			}
+			clear_variable_list = miv_answer_overflow
+			every_in_list = {
+				list = miv_answer_replay
+				save_temporary_scope_as = miv_replay_vassal
+				if = {
+					limit = {
+						is_alive = yes
+						exists = var:miv_answer_overflow_war
+						exists = var:miv_answer_overflow_side
+					}
+					var:miv_answer_overflow_war = {
+						save_temporary_scope_as = miv_replay_war
+					}
+					var:miv_answer_overflow_side = {
+						save_temporary_scope_as = miv_replay_side
+					}
+					remove_variable = miv_answer_overflow_war
+					remove_variable = miv_answer_overflow_side
+					root = {
+						interactive_bannermen_batch_toast_effect = {
+							KEY = answer
+							EVENT = 0023
+							HOLDER = root
+							WAR = scope:miv_replay_war
+							SIDE_OF = scope:miv_replay_side
+							VASSAL = scope:miv_replay_vassal
+						}
+					}
+				}
+				else = {
+					remove_variable = miv_answer_overflow_war
+					remove_variable = miv_answer_overflow_side
+				}
+			}
+		}
+	}
+}
+
+interactive.0024 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				exists = var:miv_leave_spokesman
+				exists = var:miv_leave_batchwar
+				exists = var:miv_leave_batchside
+			}
+			var:miv_leave_batchwar = {
+				save_scope_as = miv_batch_war
+			}
+			var:miv_leave_batchside = {
+				save_scope_as = miv_batch_side
+			}
+			var:miv_leave_spokesman = {
+				save_scope_as = miv_flush_vassal
+			}
+			if = {
+				limit = {
+					scope:miv_flush_vassal = {
+						exists = var:miv_leave_fellows
+						var:miv_leave_fellows >= 1
+					}
+				}
+				save_temporary_scope_value_as = {
+					name = miv_toast_grouped
+					value = yes
+				}
+				interactive_bannermen_toast_leave_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_leave
+					TITLE = miv_toast_leave_many
+					TOOLTIP = miv_toast_leave_many_desc
+				}
+				scope:miv_flush_vassal = {
+					remove_variable = miv_leave_fellows
+				}
+			}
+			else = {
+				interactive_bannermen_toast_leave_effect = {
+					WAR = scope:miv_batch_war
+					SIDE_OF = scope:miv_batch_side
+					VASSAL = scope:miv_flush_vassal
+					TYPE = msg_war_leave
+					TITLE = miv_toast_leave_one
+					TOOLTIP = miv_toast_leave_one_desc
+				}
+			}
+		}
+		remove_variable = miv_leave_spokesman
+		remove_variable = miv_leave_pending
+		remove_variable = miv_leave_batchwar
+		remove_variable = miv_leave_batchside
+		if = {
+			limit = {
+				has_variable_list = miv_leave_overflow
+			}
+			every_in_list = {
+				variable = miv_leave_overflow
+				add_to_temporary_list = miv_leave_replay
+			}
+			clear_variable_list = miv_leave_overflow
+			every_in_list = {
+				list = miv_leave_replay
+				save_temporary_scope_as = miv_replay_vassal
+				if = {
+					limit = {
+						is_alive = yes
+						exists = var:miv_leave_overflow_war
+						exists = var:miv_leave_overflow_side
+					}
+					var:miv_leave_overflow_war = {
+						save_temporary_scope_as = miv_replay_war
+					}
+					var:miv_leave_overflow_side = {
+						save_temporary_scope_as = miv_replay_side
+					}
+					remove_variable = miv_leave_overflow_war
+					remove_variable = miv_leave_overflow_side
+					root = {
+						interactive_bannermen_batch_toast_effect = {
+							KEY = leave
+							EVENT = 0024
+							HOLDER = root
+							WAR = scope:miv_replay_war
+							SIDE_OF = scope:miv_replay_side
+							VASSAL = scope:miv_replay_vassal
+						}
+					}
+				}
+				else = {
+					remove_variable = miv_leave_overflow_war
+					remove_variable = miv_leave_overflow_side
+				}
+			}
+		}
+	}
+}
+
+interactive.0025 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				exists = var:miv_ally_suitor
+			}
+			save_scope_as = recipient
+			var:miv_ally_suitor = {
+				save_scope_as = actor
+			}
+			if = {
+				limit = {
+					is_ai = yes
+					exists = liege
+					scope:actor = {
+						is_alive = yes
+						is_ai = yes
+						is_allied_to = scope:recipient
+						any_character_war = {
+							miv_leave_war_valid_war_trigger = {
+								ACTOR = scope:actor
+								RECIPIENT = scope:recipient
+							}
+						}
+					}
+					miv_leave_war_ai_score > 0
+				}
+				scope:actor = {
+					every_character_war = {
+						limit = {
+							miv_leave_war_valid_war_trigger = {
+								ACTOR = scope:actor
+								RECIPIENT = scope:recipient
+							}
+						}
+						miv_leave_war_withdraw_effect = yes
+					}
+				}
+			}
+		}
+		remove_variable = miv_ally_suitor
+	}
+}
+
+interactive.0026 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				exists = var:miv_cw_far_war
+				exists = liege
+				NOR = {
+					is_attacker_in_war = var:miv_cw_far_war
+					is_defender_in_war = var:miv_cw_far_war
+				}
+			}
+			save_temporary_scope_as = miv_cw_far_vassal
+			var:miv_cw_far_war = {
+				save_temporary_scope_as = miv_cw_far_war
+			}
+			liege = {
+				save_temporary_scope_as = miv_cw_far_liege
+			}
+			interactive_bannermen_batch_toast_effect = {
+				KEY = neutral
+				EVENT = 0018
+				HOLDER = scope:miv_cw_far_liege
+				WAR = scope:miv_cw_far_war
+				SIDE_OF = scope:miv_cw_far_liege
+				VASSAL = scope:miv_cw_far_vassal
+			}
+		}
+		remove_variable = miv_cw_far_war
+	}
+}
+
+interactive.0027 = {
+	type = character_event
+	hidden = yes
+	immediate = {
+		clear_saved_scope = miv_accolade_artifact_next_patron
+		clear_saved_scope = miv_accolade_artifact_next_knight
+		scope:miv_accolade_artifact_changed_artifact ?= {
+			if = {
+				limit = {
+					has_variable = miv_accolade_artifact_accolade
+				}
+				miv_accolade_artifact_sync_item_effect = yes
+			}
+		}
+	}
+}
+
+interactive.0028 = {
+	scope = artifact
+	hidden = yes
+	trigger = {
+		has_variable = miv_accolade_artifact_accolade
+	}
+	immediate = {
+		clear_saved_scope = miv_accolade_artifact_next_patron
+		clear_saved_scope = miv_accolade_artifact_next_knight
+		if = {
+			limit = {
+				exists = scope:old_owner
+				var:miv_accolade_artifact_patron = scope:old_owner
+				exists = scope:owner
+				NOT = {
+					exists = var:miv_accolade_artifact_accolade.accolade_owner
+					var:miv_accolade_artifact_accolade.accolade_owner ?= {
+						is_alive = yes
+						NOT = {
+							this = scope:old_owner
+						}
+					}
+				}
+			}
+			set_variable = {
+				name = miv_accolade_artifact_patron
+				value = scope:owner
+			}
+			scope:owner = {
+				save_scope_as = miv_accolade_artifact_next_patron
+			}
+		}
+		miv_accolade_artifact_sync_item_effect = yes
+		if = {
+			limit = {
+				has_variable = miv_accolade_artifact_accolade
+			}
+			miv_accolade_artifact_queue_repair_effect = yes
+		}
+	}
+}

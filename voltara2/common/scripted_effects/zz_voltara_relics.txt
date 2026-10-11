@@ -1,0 +1,35 @@
+﻿voltara_enshrine_first_measure_effect = {
+ if = { limit = { NOT = { has_global_variable = voltara_relic_first_measure_seeded } exists = title:c_voltara_4509.holder holy_site:voltara_first_measure = { holy_site_artifact_count < 3 } }
+ title:c_voltara_4509.holder = { create_artifact = { name = voltara_relic_first_measure description = voltara_relic_first_measure_desc type = pedestal template = branch_general_template visuals = reliquary wealth = 30 quality = 60 history = { type = created_before_history } modifier = voltara_sanctuary_relic_modifier save_scope_as = voltara_new_relic } }
+ scope:voltara_new_relic = { set_variable = { name = relic_religion value = religion:voltara_religion } set_holy_site_owner = { target = holy_site:voltara_first_measure generate_history = no } equip_artifact_to_owner = yes }
+ set_global_variable = { name = voltara_relic_first_measure_seeded value = yes }
+ }
+}
+voltara_enshrine_titania_effect = {
+ if = { limit = { NOT = { has_global_variable = voltara_relic_titania_seeded } exists = title:c_voltara_323.holder holy_site:voltara_titania = { holy_site_artifact_count < 3 } }
+ title:c_voltara_323.holder = { create_artifact = { name = voltara_relic_titania description = voltara_relic_titania_desc type = pedestal template = branch_general_template visuals = reliquary wealth = 30 quality = 60 history = { type = created_before_history } modifier = voltara_sanctuary_relic_modifier save_scope_as = voltara_new_relic } }
+ scope:voltara_new_relic = { set_variable = { name = relic_religion value = religion:voltara_religion } set_holy_site_owner = { target = holy_site:voltara_titania generate_history = no } equip_artifact_to_owner = yes }
+ set_global_variable = { name = voltara_relic_titania_seeded value = yes }
+ }
+}
+voltara_enshrine_kartholos_effect = {
+ if = { limit = { NOT = { has_global_variable = voltara_relic_kartholos_seeded } exists = title:c_voltara_471.holder holy_site:voltara_kartholos = { holy_site_artifact_count < 3 } }
+ title:c_voltara_471.holder = { create_artifact = { name = voltara_relic_kartholos description = voltara_relic_kartholos_desc type = pedestal template = branch_general_template visuals = reliquary wealth = 30 quality = 60 history = { type = created_before_history } modifier = voltara_sanctuary_relic_modifier save_scope_as = voltara_new_relic } }
+ scope:voltara_new_relic = { set_variable = { name = relic_religion value = religion:voltara_religion } set_holy_site_owner = { target = holy_site:voltara_kartholos generate_history = no } equip_artifact_to_owner = yes }
+ set_global_variable = { name = voltara_relic_kartholos_seeded value = yes }
+ }
+}
+voltara_enshrine_thornfall_effect = {
+ if = { limit = { NOT = { has_global_variable = voltara_relic_thornfall_seeded } exists = title:c_voltara_226.holder holy_site:voltara_thornfall = { holy_site_artifact_count < 3 } }
+ title:c_voltara_226.holder = { create_artifact = { name = voltara_relic_thornfall description = voltara_relic_thornfall_desc type = pedestal template = branch_general_template visuals = reliquary wealth = 30 quality = 60 history = { type = created_before_history } modifier = voltara_sanctuary_relic_modifier save_scope_as = voltara_new_relic } }
+ scope:voltara_new_relic = { set_variable = { name = relic_religion value = religion:voltara_religion } set_holy_site_owner = { target = holy_site:voltara_thornfall generate_history = no } equip_artifact_to_owner = yes }
+ set_global_variable = { name = voltara_relic_thornfall_seeded value = yes }
+ }
+}
+voltara_enshrine_enderal_effect = {
+ if = { limit = { NOT = { has_global_variable = voltara_relic_enderal_seeded } exists = title:c_voltara_267.holder holy_site:voltara_enderal = { holy_site_artifact_count < 3 } }
+ title:c_voltara_267.holder = { create_artifact = { name = voltara_relic_enderal description = voltara_relic_enderal_desc type = pedestal template = branch_general_template visuals = reliquary wealth = 30 quality = 60 history = { type = created_before_history } modifier = voltara_sanctuary_relic_modifier save_scope_as = voltara_new_relic } }
+ scope:voltara_new_relic = { set_variable = { name = relic_religion value = religion:voltara_religion } set_holy_site_owner = { target = holy_site:voltara_enderal generate_history = no } equip_artifact_to_owner = yes }
+ set_global_variable = { name = voltara_relic_enderal_seeded value = yes }
+ }
+}

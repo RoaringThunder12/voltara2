@@ -1,0 +1,10948 @@
+﻿interactive_minimum_vassal_strength = 100
+interactive_minimum_landless_vassal_strength = 1000
+interactive_map_generation_minimum_strength = 5
+interactive_divided_china_empire_size = 20
+interactive_divided_china_kingdom_size = 10
+miv_toast_batch_window = 5
+miv_toast_batch_lifetime = {
+	value = miv_toast_batch_window
+	add = 10
+}
+
+interactive_start_date = {
+	value = game_start_date
+}
+
+interactive_tooltip_vassal_strength = {
+	value = 0
+	add = {
+		value = scope:vassal.max_military_strength
+	}
+}
+
+miv_liege_double_strength = {
+	value = scope:liege.max_military_strength
+	multiply = 2
+}
+
+interactive_admin_governor_support_cost = {
+	value = 0
+	scope:recipient = {
+		add = max_military_strength
+		divide = 5
+	}
+	round_to = 5
+	min = 50
+}
+
+interactive_admin_governor_military_strength = {
+	value = interactive_admin_governor_support_cost
+	divide = 2
+	round_to = 5
+}
+
+interactive_admin_governor_military_strength_negative = {
+	value = interactive_admin_governor_support_cost
+	multiply = -1
+}
+
+interactive_request_vassal_support_military_strength_negative = {
+	value = 0
+	scope:recipient = {
+		add = max_military_strength
+		divide = 20
+	}
+	add = 100
+	multiply = 0.5
+	multiply = -1
+}
+
+create_title_counties_percentage = {
+	scope:title = {
+		if = {
+			limit = {
+				has_game_rule = miv_title_creation_miv_enabled_empires
+				OR = {
+					tier = tier_empire
+					tier = tier_hegemony
+				}
+			}
+			add = {
+				value = 10
+				desc = interactive_title_creation_desc
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = miv_title_creation_miv_enabled_kingdoms
+				OR = {
+					tier = tier_empire
+					tier = tier_hegemony
+					tier = tier_kingdom
+				}
+			}
+			add = {
+				value = 10
+				desc = interactive_title_creation_desc
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					tier = tier_duchy
+					tier = tier_kingdom
+				}
+			}
+			add = {
+				value = 0.5
+				desc = CREATE_TITLE_PERCENTAGE_BASE_DUCHY_KINGDOM
+			}
+			if = {
+				limit = {
+					exists = root
+				}
+				root = {
+					if = {
+						limit = {
+							has_legitimacy = yes
+						}
+						if = {
+							limit = {
+								has_legitimacy_flag = reduced_title_creation_cost
+							}
+							add = {
+								value = -0.15
+								desc = CREATE_TITLE_PERCENTAGE_LEGITIMACY_DISCOUNT_REDUCED
+							}
+						}
+						else_if = {
+							limit = {
+								has_legitimacy_flag = very_reduced_title_creation_cost
+							}
+							add = {
+								value = -0.2
+								desc = CREATE_TITLE_PERCENTAGE_LEGITIMACY_DISCOUNT_VERY_REDUCED
+							}
+						}
+						else_if = {
+							limit = {
+								has_legitimacy_flag = extra_reduced_title_creation_cost
+							}
+							add = {
+								value = -0.25
+								desc = CREATE_TITLE_PERCENTAGE_LEGITIMACY_DISCOUNT_EXTRA_REDUCED
+							}
+						}
+						else = {
+							add = {
+								value = 0
+								desc = CREATE_TITLE_PERCENTAGE_LEGITIMACY_DISCOUNT_NONE
+							}
+						}
+					}
+					else = {
+						add = {
+							value = 0
+							desc = CREATE_TITLE_PERCENTAGE_LEGITIMACY_DISCOUNT_NONE
+						}
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				tier >= tier_empire
+			}
+			add = {
+				value = 0.8
+				desc = CREATE_TITLE_PERCENTAGE_BASE_EMPIRE
+			}
+			if = {
+				limit = {
+					exists = root
+				}
+				root = {
+					if = {
+						limit = {
+							has_legitimacy = yes
+						}
+						if = {
+							limit = {
+								has_legitimacy_flag = reduced_title_creation_cost
+							}
+							add = {
+								value = -0.05
+								desc = CREATE_TITLE_PERCENTAGE_LEGITIMACY_DISCOUNT_REDUCED
+							}
+						}
+						else_if = {
+							limit = {
+								has_legitimacy_flag = very_reduced_title_creation_cost
+							}
+							add = {
+								value = -0.1
+								desc = CREATE_TITLE_PERCENTAGE_LEGITIMACY_DISCOUNT_VERY_REDUCED
+							}
+						}
+						else_if = {
+							limit = {
+								has_legitimacy_flag = extra_reduced_title_creation_cost
+							}
+							add = {
+								value = -0.15
+								desc = CREATE_TITLE_PERCENTAGE_LEGITIMACY_DISCOUNT_EXTRA_REDUCED
+							}
+						}
+						else = {
+							add = {
+								value = 0
+								desc = CREATE_TITLE_PERCENTAGE_LEGITIMACY_DISCOUNT_NONE
+							}
+						}
+					}
+					else = {
+						add = {
+							value = 0
+							desc = CREATE_TITLE_PERCENTAGE_LEGITIMACY_DISCOUNT_NONE
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+total_county_levies = {
+	value = 0
+	every_in_de_jure_hierarchy = {
+		limit = {
+			tier = tier_barony
+		}
+		title_province = {
+			add = building_levies
+			add = combined_building_level
+		}
+	}
+	multiply = {
+		value = 1
+		if = {
+			limit = {
+				has_game_rule = less_levies_10
+			}
+			add = {
+				add = 0.1
+				multiply = -1
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = less_levies_20
+			}
+			add = {
+				add = 0.2
+				multiply = -1
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = less_levies_30
+			}
+			add = {
+				add = 0.3
+				multiply = -1
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = less_levies_40
+			}
+			add = {
+				add = 0.4
+				multiply = -1
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = less_levies_50
+			}
+			add = {
+				add = 0.5
+				multiply = -1
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = less_levies_60
+			}
+			add = {
+				add = 0.6
+				multiply = -1
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = less_levies_70
+			}
+			add = {
+				add = 0.7
+				multiply = -1
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = less_levies_80
+			}
+			add = {
+				add = 0.8
+				multiply = -1
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = less_levies_90
+			}
+			add = {
+				add = 0.9
+				multiply = -1
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = less_levies_100
+			}
+			add = {
+				add = 0.95
+				multiply = -1
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = less_levies_99
+			}
+			add = {
+				add = 0.99
+				multiply = -1
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = miv_no_levies_enabled
+			}
+			add = {
+				add = 0.99
+				multiply = -1
+			}
+		}
+		add = {
+			add = development_level
+			multiply = 0.01
+		}
+		if = {
+			limit = {
+				culture = {
+					has_innovation = innovation_bannus
+				}
+			}
+			add = 0.1
+		}
+	}
+}
+
+miv_peasant_strength_value = {
+	value = 1
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_minus_100
+		}
+		value = 0.01
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_minus_95
+		}
+		value = 0.05
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_minus_90
+		}
+		value = 0.1
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_minus_80
+		}
+		value = 0.2
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_minus_70
+		}
+		value = 0.3
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_minus_60
+		}
+		value = 0.4
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_minus_50
+		}
+		value = 0.5
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_minus_40
+		}
+		value = 0.6
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_minus_30
+		}
+		value = 0.7
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_minus_20
+		}
+		value = 0.8
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_minus_10
+		}
+		value = 0.9
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_plus_10
+		}
+		value = 1.1
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_plus_20
+		}
+		value = 1.2
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_plus_30
+		}
+		value = 1.3
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_plus_40
+		}
+		value = 1.4
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_plus_50
+		}
+		value = 1.5
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_plus_60
+		}
+		value = 1.6
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_plus_70
+		}
+		value = 1.7
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_plus_80
+		}
+		value = 1.8
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_plus_90
+		}
+		value = 1.9
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_plus_100
+		}
+		value = 2
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_plus_150
+		}
+		value = 2.5
+	}
+	if = {
+		limit = {
+			has_game_rule = miv_peasant_strength_plus_200
+		}
+		value = 3
+	}
+}
+
+county_levies_to_raise = {
+	value = total_county_levies
+	multiply = {
+		value = county_opinion
+		multiply = -0.01
+		add = 0.5
+	}
+	if = {
+		limit = {
+			culture != holder.culture
+			culture = {
+				has_cultural_parameter = county_peasant_and_populist_factions_more_common
+			}
+		}
+		multiply = 1.5
+	}
+	min = {
+		value = building_max_garrison
+		multiply = 1.2
+	}
+	multiply = miv_peasant_strength_value
+}
+
+miv_knight_minimum_age = {
+	value = 0
+	if = {
+		limit = {
+			has_game_rule = knight_age_15
+		}
+		add = 15
+	}
+	if = {
+		limit = {
+			has_game_rule = knight_age_14
+		}
+		add = 14
+	}
+	if = {
+		limit = {
+			has_game_rule = knight_age_13
+		}
+		add = 13
+	}
+	if = {
+		limit = {
+			has_game_rule = knight_age_12
+		}
+		add = 12
+	}
+	if = {
+		limit = {
+			has_game_rule = knight_age_11
+		}
+		add = 11
+	}
+	if = {
+		limit = {
+			has_game_rule = knight_age_10
+		}
+		add = 10
+	}
+	if = {
+		limit = {
+			has_game_rule = knight_age_disabled
+		}
+		add = 1000
+	}
+}
+
+miv_commander_minimum_age = {
+	value = 0
+	if = {
+		limit = {
+			has_game_rule = commander_age_15
+		}
+		add = 15
+	}
+	if = {
+		limit = {
+			has_game_rule = commander_age_14
+		}
+		add = 14
+	}
+	if = {
+		limit = {
+			has_game_rule = commander_age_13
+		}
+		add = 13
+	}
+	if = {
+		limit = {
+			has_game_rule = commander_age_12
+		}
+		add = 12
+	}
+	if = {
+		limit = {
+			has_game_rule = commander_age_11
+		}
+		add = 11
+	}
+	if = {
+		limit = {
+			has_game_rule = commander_age_10
+		}
+		add = 10
+	}
+	if = {
+		limit = {
+			has_game_rule = commander_age_disabled
+		}
+		add = 1000
+	}
+}
+
+miv_gov_prestige_gap = {
+	value = prestige_level
+	subtract = scope:liege.prestige_level
+}
+
+miv_gov_influence_gap = {
+	value = influence_level
+	subtract = scope:liege.influence_level
+}
+
+miv_gov_devotion_gap = {
+	value = piety_level
+	subtract = scope:liege.piety_level
+}
+
+miv_gov_splendor_gap = {
+	value = dynasty.dynasty_prestige_level
+	subtract = scope:liege.dynasty.dynasty_prestige_level
+}
+
+interactive_bannermen_prompt_threshold = 200
+interactive_bannermen_reluctant_threshold = 100
+interactive_bannermen_answer_threshold = 0
+interactive_bannermen_betrayal_threshold = -200
+miv_bannermen_civilwar_verdict = {
+	value = 7
+	if = {
+		limit = {
+			scope:miv_score >= interactive_bannermen_prompt_threshold
+		}
+		value = 1
+	}
+	else_if = {
+		limit = {
+			scope:miv_score >= interactive_bannermen_reluctant_threshold
+		}
+		value = 3
+	}
+	else_if = {
+		limit = {
+			scope:miv_score >= interactive_bannermen_answer_threshold
+		}
+		value = 5
+	}
+	else_if = {
+		limit = {
+			scope:miv_score >= interactive_bannermen_betrayal_threshold
+		}
+		value = 6
+	}
+	else = {
+		value = 7
+	}
+}
+
+miv_bannermen_rung_display = {
+	value = 4
+	if = {
+		limit = {
+			NOT = {
+				interactive_bannermen_available_trigger = {
+					LIEGE = scope:liege
+				}
+			}
+		}
+		value = 6
+	}
+	else_if = {
+		limit = {
+			save_temporary_scope_value_as = {
+				name = miv_rung_val
+				value = interactive_bannermen_muster_score
+			}
+			scope:miv_rung_val >= interactive_bannermen_prompt_threshold
+		}
+		value = 1
+	}
+	else_if = {
+		limit = {
+			save_temporary_scope_value_as = {
+				name = miv_rung_val
+				value = interactive_bannermen_muster_score
+			}
+			scope:miv_rung_val >= interactive_bannermen_reluctant_threshold
+		}
+		value = 2
+	}
+	else_if = {
+		limit = {
+			save_temporary_scope_value_as = {
+				name = miv_rung_val
+				value = interactive_bannermen_muster_score
+			}
+			scope:miv_rung_val >= interactive_bannermen_answer_threshold
+		}
+		value = 3
+	}
+	else_if = {
+		limit = {
+			save_temporary_scope_value_as = {
+				name = miv_rung_val
+				value = interactive_bannermen_muster_score
+			}
+			NOT = {
+				scope:miv_rung_val >= interactive_bannermen_betrayal_threshold
+			}
+		}
+		value = 5
+	}
+	else = {
+		value = 4
+	}
+}
+
+interactive_bannermen_minimum_enemy_strength = 500
+interactive_bannermen_side_advantage_ratio = 150
+interactive_bannermen_prompt_count = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_prompt
+		add = 1
+	}
+}
+
+interactive_bannermen_reluctant_count = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_reluctant
+		add = 1
+	}
+}
+
+interactive_bannermen_grudging_count = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_grudging
+		add = 1
+	}
+}
+
+interactive_bannermen_refuse_count = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_refuse
+		add = 1
+	}
+}
+
+interactive_bannermen_betray_count = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_betray
+		add = 1
+	}
+}
+
+interactive_bannermen_answering_count = {
+	value = interactive_bannermen_prompt_count
+	add = interactive_bannermen_reluctant_count
+	add = interactive_bannermen_grudging_count
+}
+
+interactive_bannermen_not_answering_count = {
+	value = interactive_bannermen_refuse_count
+	add = interactive_bannermen_betray_count
+	add = interactive_bannermen_unavailable_count
+	add = interactive_bannermen_rebellion_count
+}
+
+interactive_bannermen_eligible_strength = {
+	value = 0
+	every_vassal = {
+		limit = {
+			interactive_bannermen_scope_trigger = {
+				LIEGE = liege
+			}
+		}
+		add = max_military_strength
+	}
+}
+
+interactive_bannermen_eligible_count = {
+	value = 0
+	every_vassal = {
+		limit = {
+			interactive_bannermen_scope_trigger = {
+				LIEGE = liege
+			}
+		}
+		add = 1
+	}
+}
+
+miv_wardec_eligible_count = {
+	value = 0
+	every_vassal = {
+		limit = {
+			interactive_bannermen_scope_trigger = {
+				LIEGE = liege
+			}
+		}
+		liege = {
+			save_temporary_scope_as = liege
+		}
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+miv_wardec_eligible_strength = {
+	value = 0
+	every_vassal = {
+		limit = {
+			interactive_bannermen_scope_trigger = {
+				LIEGE = liege
+			}
+		}
+		liege = {
+			save_temporary_scope_as = liege
+		}
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			add = max_military_strength
+		}
+	}
+}
+
+interactive_bannermen_serving_count = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_serving
+		add = 1
+	}
+}
+
+interactive_bannermen_serving_strength = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_serving
+		save_temporary_scope_as = vassal
+		add = {
+			value = scope:vassal.max_military_strength
+		}
+	}
+}
+
+interactive_bannermen_interaction_score = {
+	value = 0
+	scope:actor = {
+		save_temporary_scope_as = liege
+	}
+	scope:recipient = {
+		save_temporary_scope_as = vassal
+	}
+	scope:recipient = {
+		add = interactive_bannermen_muster_score
+	}
+}
+
+miv_bannermen_accept_value = {
+	value = 0
+	if = {
+		limit = {
+			save_temporary_scope_value_as = {
+				name = miv_accept_score
+				value = interactive_bannermen_interaction_score
+			}
+			scope:miv_accept_score >= interactive_bannermen_prompt_threshold
+		}
+		value = 100
+	}
+	else_if = {
+		limit = {
+			scope:miv_accept_score >= interactive_bannermen_reluctant_threshold
+		}
+		value = 70
+	}
+	else_if = {
+		limit = {
+			scope:miv_accept_score >= interactive_bannermen_answer_threshold
+		}
+		value = 45
+	}
+	else_if = {
+		limit = {
+			scope:miv_accept_score >= interactive_bannermen_betrayal_threshold
+		}
+		value = -20
+	}
+	else = {
+		value = -60
+	}
+}
+
+interactive_bannermen_unavailable_count = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_unavailable
+		add = 1
+	}
+}
+
+interactive_bannermen_rebellion_count = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_rebellion
+		add = 1
+	}
+}
+
+miv_widget_row_score = {
+	if = {
+		limit = {
+			exists = var:miv_widget_row_score
+			exists = var:miv_widget_row_liege
+		}
+		if = {
+			limit = {
+				var:miv_widget_row_liege = scope:liege
+			}
+			value = var:miv_widget_row_score
+		}
+		else = {
+			value = interactive_bannermen_muster_score
+		}
+	}
+	else = {
+		value = interactive_bannermen_muster_score
+	}
+}
+
+miv_widget_preview_answering_strength = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_prompt
+		add = max_military_strength
+	}
+	every_in_list = {
+		list = interactive_bannermen_reluctant
+		add = max_military_strength
+	}
+	every_in_list = {
+		list = interactive_bannermen_grudging
+		add = max_military_strength
+	}
+}
+
+miv_widget_eligible_strength = {
+	if = {
+		limit = {
+			exists = var:miv_widget_headline_eligible_strength
+		}
+		value = var:miv_widget_headline_eligible_strength
+	}
+	else = {
+		value = interactive_bannermen_eligible_strength
+	}
+}
+
+miv_widget_eligible_count = {
+	if = {
+		limit = {
+			exists = var:miv_widget_headline_eligible_count
+		}
+		value = var:miv_widget_headline_eligible_count
+	}
+	else = {
+		value = interactive_bannermen_eligible_count
+	}
+}
+
+miv_widget_answering_count = {
+	if = {
+		limit = {
+			exists = var:miv_widget_headline_answer_count
+		}
+		value = var:miv_widget_headline_answer_count
+	}
+	else = {
+		value = miv_bannermen_answering_count
+	}
+}
+
+miv_widget_total_strength = {
+	if = {
+		limit = {
+			exists = var:miv_widget_headline_answer_strength
+		}
+		value = var:miv_widget_headline_answer_strength
+	}
+	else = {
+		value = miv_bannermen_answering_strength
+	}
+}
+
+miv_widget_serving_count = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_serving
+		add = 1
+	}
+}
+
+miv_widget_serving_strength = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_serving
+		add = max_military_strength
+	}
+}
+
+miv_widget_prompt_count = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_prompt
+		add = 1
+	}
+}
+
+miv_widget_prompt_strength = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_prompt
+		add = max_military_strength
+	}
+}
+
+miv_widget_reluctant_count = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_reluctant
+		add = 1
+	}
+}
+
+miv_widget_reluctant_strength = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_reluctant
+		add = max_military_strength
+	}
+}
+
+miv_widget_grudging_count = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_grudging
+		add = 1
+	}
+}
+
+miv_widget_grudging_strength = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_grudging
+		add = max_military_strength
+	}
+}
+
+miv_widget_refuse_count = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_refuse
+		add = 1
+	}
+}
+
+miv_widget_refuse_strength = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_refuse
+		add = max_military_strength
+	}
+}
+
+miv_widget_betray_count = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_betray
+		add = 1
+	}
+}
+
+miv_widget_betray_strength = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_betray
+		add = max_military_strength
+	}
+}
+
+miv_widget_rebellion_count = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_rebellion
+		add = 1
+	}
+}
+
+miv_widget_rebellion_strength = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_rebellion
+		add = max_military_strength
+	}
+}
+
+miv_widget_unavailable_count = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_unavailable
+		add = 1
+	}
+}
+
+miv_widget_unavailable_strength = {
+	value = 0
+	every_in_list = {
+		variable = miv_widget_unavailable
+		add = max_military_strength
+	}
+}
+
+miv_widget_not_answering_count = {
+	if = {
+		limit = {
+			exists = var:miv_widget_headline_eligible_count
+			exists = var:miv_widget_headline_answer_count
+		}
+		value = var:miv_widget_headline_eligible_count
+		subtract = var:miv_widget_headline_answer_count
+	}
+	else = {
+		value = miv_bannermen_not_answering_count
+	}
+}
+
+miv_widget_cost_rule = {
+	value = 0
+	if = {
+		limit = {
+			NOT = {
+				has_game_rule = war_exhaustion_miv_disabled
+			}
+		}
+		add = 1
+	}
+}
+
+miv_banners_summary_answering_count = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_prompt
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			add = 1
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_reluctant
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			add = 1
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_grudging
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+miv_banners_summary_answering_strength = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_prompt
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			add = max_military_strength
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_reluctant
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			add = max_military_strength
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_grudging
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			add = max_military_strength
+		}
+	}
+}
+
+miv_banners_summary_withheld_count = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_refuse
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			add = 1
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_unavailable
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+miv_banners_summary_withheld_strength = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_refuse
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			add = max_military_strength
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_unavailable
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			add = max_military_strength
+		}
+	}
+}
+
+miv_banners_summary_betraying_count = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_rebellion
+		add = 1
+	}
+	every_in_list = {
+		list = interactive_bannermen_betray
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+miv_banners_summary_betraying_strength = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_rebellion
+		add = max_military_strength
+	}
+	every_in_list = {
+		list = interactive_bannermen_betray
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+			}
+			add = max_military_strength
+		}
+	}
+}
+
+miv_banners_summary_distant_count = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_prompt
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				NOT = {
+					miv_bannermen_distance_trigger = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+			add = 1
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_reluctant
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				NOT = {
+					miv_bannermen_distance_trigger = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+			add = 1
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_grudging
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				NOT = {
+					miv_bannermen_distance_trigger = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+			add = 1
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_refuse
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				NOT = {
+					miv_bannermen_distance_trigger = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+			add = 1
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_betray
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				NOT = {
+					miv_bannermen_distance_trigger = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+			add = 1
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_unavailable
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				NOT = {
+					miv_bannermen_distance_trigger = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+miv_banners_summary_distant_strength = {
+	value = 0
+	every_in_list = {
+		list = interactive_bannermen_prompt
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				NOT = {
+					miv_bannermen_distance_trigger = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+			add = max_military_strength
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_reluctant
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				NOT = {
+					miv_bannermen_distance_trigger = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+			add = max_military_strength
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_grudging
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				NOT = {
+					miv_bannermen_distance_trigger = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+			add = max_military_strength
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_refuse
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				NOT = {
+					miv_bannermen_distance_trigger = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+			add = max_military_strength
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_betray
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				NOT = {
+					miv_bannermen_distance_trigger = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+			add = max_military_strength
+		}
+	}
+	every_in_list = {
+		list = interactive_bannermen_unavailable
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				NOT = {
+					miv_bannermen_distance_trigger = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+			add = max_military_strength
+		}
+	}
+}
+
+miv_wardec_distant_count = {
+	value = 0
+	every_vassal = {
+		limit = {
+			interactive_bannermen_scope_trigger = {
+				LIEGE = liege
+			}
+		}
+		liege = {
+			save_temporary_scope_as = liege
+		}
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				NOT = {
+					interactive_bannermen_rebellion_trigger = {
+						LIEGE = scope:liege
+					}
+				}
+				NOT = {
+					miv_bannermen_distance_trigger = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+miv_wardec_distant_strength = {
+	value = 0
+	every_vassal = {
+		limit = {
+			interactive_bannermen_scope_trigger = {
+				LIEGE = liege
+			}
+		}
+		liege = {
+			save_temporary_scope_as = liege
+		}
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				NOT = {
+					interactive_bannermen_rebellion_trigger = {
+						LIEGE = scope:liege
+					}
+				}
+				NOT = {
+					miv_bannermen_distance_trigger = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+			}
+			add = max_military_strength
+		}
+	}
+}
+
+miv_wardec_answering_count = {
+	value = 0
+	every_vassal = {
+		limit = {
+			interactive_bannermen_scope_trigger = {
+				LIEGE = liege
+			}
+		}
+		liege = {
+			save_temporary_scope_as = liege
+		}
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				interactive_bannermen_available_trigger = {
+					LIEGE = scope:liege
+				}
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+				interactive_bannermen_muster_score >= interactive_bannermen_answer_threshold
+			}
+			add = 1
+		}
+	}
+}
+
+miv_wardec_answering_strength = {
+	value = 0
+	every_vassal = {
+		limit = {
+			interactive_bannermen_scope_trigger = {
+				LIEGE = liege
+			}
+		}
+		liege = {
+			save_temporary_scope_as = liege
+		}
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				interactive_bannermen_available_trigger = {
+					LIEGE = scope:liege
+				}
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+				interactive_bannermen_muster_score >= interactive_bannermen_answer_threshold
+			}
+			add = max_military_strength
+		}
+	}
+}
+
+miv_wardec_withheld_count = {
+	value = 0
+	every_vassal = {
+		limit = {
+			interactive_bannermen_scope_trigger = {
+				LIEGE = liege
+			}
+		}
+		liege = {
+			save_temporary_scope_as = liege
+		}
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+				save_temporary_scope_value_as = {
+					name = miv_wardec_val
+					value = interactive_bannermen_muster_score
+				}
+				OR = {
+					AND = {
+						NOT = {
+							interactive_bannermen_rebellion_trigger = {
+								LIEGE = scope:liege
+							}
+						}
+						NOT = {
+							interactive_bannermen_available_trigger = {
+								LIEGE = scope:liege
+							}
+						}
+					}
+					AND = {
+						interactive_bannermen_available_trigger = {
+							LIEGE = scope:liege
+						}
+						scope:miv_wardec_val < interactive_bannermen_answer_threshold
+						scope:miv_wardec_val >= interactive_bannermen_betrayal_threshold
+					}
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+miv_wardec_withheld_strength = {
+	value = 0
+	every_vassal = {
+		limit = {
+			interactive_bannermen_scope_trigger = {
+				LIEGE = liege
+			}
+		}
+		liege = {
+			save_temporary_scope_as = liege
+		}
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				miv_bannermen_distance_trigger = {
+					LIEGE = scope:liege
+					VASSAL = scope:vassal
+				}
+				save_temporary_scope_value_as = {
+					name = miv_wardec_val
+					value = interactive_bannermen_muster_score
+				}
+				OR = {
+					AND = {
+						NOT = {
+							interactive_bannermen_rebellion_trigger = {
+								LIEGE = scope:liege
+							}
+						}
+						NOT = {
+							interactive_bannermen_available_trigger = {
+								LIEGE = scope:liege
+							}
+						}
+					}
+					AND = {
+						interactive_bannermen_available_trigger = {
+							LIEGE = scope:liege
+						}
+						scope:miv_wardec_val < interactive_bannermen_answer_threshold
+						scope:miv_wardec_val >= interactive_bannermen_betrayal_threshold
+					}
+				}
+			}
+			add = max_military_strength
+		}
+	}
+}
+
+miv_wardec_betraying_count = {
+	value = 0
+	every_vassal = {
+		limit = {
+			interactive_bannermen_scope_trigger = {
+				LIEGE = liege
+			}
+		}
+		liege = {
+			save_temporary_scope_as = liege
+		}
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				OR = {
+					interactive_bannermen_rebellion_trigger = {
+						LIEGE = scope:liege
+					}
+					AND = {
+						interactive_bannermen_available_trigger = {
+							LIEGE = scope:liege
+						}
+						miv_bannermen_distance_trigger = {
+							LIEGE = scope:liege
+							VASSAL = scope:vassal
+						}
+						interactive_bannermen_muster_score < interactive_bannermen_betrayal_threshold
+					}
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+miv_wardec_betraying_strength = {
+	value = 0
+	every_vassal = {
+		limit = {
+			interactive_bannermen_scope_trigger = {
+				LIEGE = liege
+			}
+		}
+		liege = {
+			save_temporary_scope_as = liege
+		}
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				OR = {
+					interactive_bannermen_rebellion_trigger = {
+						LIEGE = scope:liege
+					}
+					AND = {
+						interactive_bannermen_available_trigger = {
+							LIEGE = scope:liege
+						}
+						miv_bannermen_distance_trigger = {
+							LIEGE = scope:liege
+							VASSAL = scope:vassal
+						}
+						interactive_bannermen_muster_score < interactive_bannermen_betrayal_threshold
+					}
+				}
+			}
+			add = max_military_strength
+		}
+	}
+}
+
+interactive_bannermen_muster_score = {
+	value = 0
+	if = {
+		limit = {
+			interactive_bannermen_rebellion_trigger = {
+				LIEGE = scope:liege
+			}
+		}
+		add = {
+			value = -50
+			desc = interactive_bannermen_desc_state_rebellion
+		}
+	}
+	if = {
+		limit = {
+			is_imprisoned = yes
+		}
+		add = {
+			value = -25
+			desc = interactive_bannermen_desc_state_prison
+		}
+	}
+	if = {
+		limit = {
+			is_incapable = yes
+		}
+		add = {
+			value = -25
+			desc = interactive_bannermen_desc_state_incapable
+		}
+	}
+	if = {
+		limit = {
+			is_adult = no
+		}
+		add = {
+			value = -25
+			desc = interactive_bannermen_desc_state_child
+		}
+	}
+	if = {
+		limit = {
+			any_character_war = {
+				primary_defender = scope:vassal
+				primary_attacker = {
+					interactive_bannermen_is_rebel_trigger = {
+						LIEGE = scope:vassal
+					}
+				}
+			}
+		}
+		add = {
+			value = -25
+			desc = interactive_bannermen_desc_state_civilwar
+		}
+	}
+	if = {
+		limit = {
+			any_character_war = {
+				OR = {
+					primary_attacker = scope:vassal
+					primary_defender = scope:vassal
+				}
+				NOT = {
+					is_participant = scope:liege
+				}
+				NOT = {
+					AND = {
+						primary_defender = scope:vassal
+						primary_attacker = {
+							interactive_bannermen_is_rebel_trigger = {
+								LIEGE = scope:vassal
+							}
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -25
+			desc = interactive_bannermen_desc_own_war
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				interactive_bannermen_civil_war_trigger = {
+					LIEGE = scope:liege
+				}
+			}
+			NOT = {
+				AND = {
+					has_global_variable = AGOT_is_loaded
+					scope:liege = {
+						any_character_war = {
+							interactive_agot_megawar_trigger = yes
+						}
+					}
+				}
+			}
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					is_rightful_liege_of = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_enemy_rightful_liege
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				AND = {
+					has_global_variable = AGOT_is_loaded
+					scope:liege = {
+						any_character_war = {
+							interactive_agot_megawar_trigger = yes
+						}
+					}
+				}
+			}
+			scope:liege = {
+				OR = {
+					any_primary_war_enemy = {
+						NOT = {
+							this = scope:vassal
+						}
+						scope:vassal = {
+							was_preferred_heir = prev
+						}
+					}
+					any_character_war = {
+						claimant ?= {
+							NOT = {
+								this = scope:vassal
+							}
+							NOT = {
+								this = scope:liege
+							}
+							scope:vassal = {
+								was_preferred_heir = prev
+							}
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -25
+			desc = interactive_bannermen_desc_enemy_preferred_heir
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					faith = scope:vassal.faith
+					NOT = {
+						this.rite ?= {
+							rite_hostility_level = {
+								target = scope:vassal.rite
+								value >= faith_astray_level
+							}
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -25
+			desc = interactive_bannermen_desc_enemy_same_faith
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					this.rite ?= {
+						rite_hostility_level = {
+							target = scope:vassal.rite
+							value >= faith_evil_level
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = 50
+			desc = interactive_bannermen_desc_enemy_faith_evil
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					this.rite ?= {
+						rite_hostility_level = {
+							target = scope:vassal.rite
+							value >= faith_hostile_level
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_enemy_faith_hostile
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					this.rite ?= {
+						rite_hostility_level = {
+							target = scope:vassal.rite
+							value >= faith_astray_level
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = 15
+			desc = interactive_bannermen_desc_enemy_faith_astray
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					culture = scope:vassal.culture
+				}
+			}
+		}
+		add = {
+			value = -25
+			desc = interactive_bannermen_desc_enemy_same_culture
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					this.culture ?= {
+						has_same_culture_heritage = scope:vassal.culture
+					}
+				}
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_enemy_culture
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					has_trait = conqueror
+					has_character_modifier = ai_extreme_conqueror_modifier
+				}
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_enemy_scourge
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					has_trait = conqueror
+				}
+			}
+		}
+		add = {
+			value = 50
+			desc = interactive_bannermen_desc_enemy_conqueror
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					scope:vassal = {
+						has_dread_level_towards = {
+							target = prev
+							level >= 2
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_enemy_dread_terrified
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					scope:vassal = {
+						has_dread_level_towards = {
+							target = prev
+							level = 1
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_enemy_dread_intimidated
+		}
+	}
+	if = {
+		limit = {
+			is_imprisoned_by = scope:liege
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_prisoner_self
+		}
+	}
+	if = {
+		limit = {
+			is_hostage_of = scope:liege
+		}
+		add = {
+			value = 60
+			desc = interactive_bannermen_desc_hostage_self
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_truce_holder = {
+					this = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_truce_liege
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					OR = {
+						AND = {
+							primary_attacker = scope:liege
+							primary_defender = {
+								NOT = {
+									this = scope:vassal
+								}
+								any_truce_holder = {
+									this = scope:vassal
+								}
+							}
+						}
+						AND = {
+							primary_defender = scope:liege
+							primary_attacker = {
+								NOT = {
+									this = scope:vassal
+								}
+								any_truce_holder = {
+									this = scope:vassal
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_truce_war_leader
+		}
+	}
+	if = {
+		limit = {
+			has_opinion_modifier = {
+				modifier = war_exhaustion_vassal_opinion
+				target = scope:liege
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_recent_war
+		}
+	}
+	if = {
+		limit = {
+			is_ruler = yes
+			is_vassal_of = scope:liege
+			has_vassal_stance = glory_hound
+			interactive_bannermen_civil_war_trigger = {
+				LIEGE = scope:liege
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_stance_glory_civil
+		}
+	}
+	else_if = {
+		limit = {
+			is_ruler = yes
+			is_vassal_of = scope:liege
+			has_vassal_stance = glory_hound
+			scope:liege = {
+				is_at_war = yes
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_stance_glory_external
+		}
+	}
+	else_if = {
+		limit = {
+			is_ruler = yes
+			is_vassal_of = scope:liege
+			has_vassal_stance = courtly
+			interactive_bannermen_civil_war_trigger = {
+				LIEGE = scope:liege
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_stance_courtly_civil
+		}
+	}
+	else_if = {
+		limit = {
+			is_ruler = yes
+			is_vassal_of = scope:liege
+			has_vassal_stance = courtly
+			scope:liege = {
+				is_at_war = yes
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_stance_courtly_external
+		}
+	}
+	else_if = {
+		limit = {
+			is_ruler = yes
+			is_vassal_of = scope:liege
+			has_vassal_stance = belligerent
+			scope:liege = {
+				any_character_war = {
+					primary_attacker = scope:liege
+				}
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_stance_belligerent_offensive
+		}
+	}
+	else_if = {
+		limit = {
+			is_ruler = yes
+			is_vassal_of = scope:liege
+			has_vassal_stance = belligerent
+			scope:liege = {
+				any_character_war = {
+					primary_defender = scope:liege
+				}
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_stance_belligerent_defensive
+		}
+	}
+	else_if = {
+		limit = {
+			is_ruler = yes
+			is_vassal_of = scope:liege
+			has_vassal_stance = parochial
+			scope:liege = {
+				any_character_war = {
+					primary_defender = scope:liege
+				}
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_stance_parochial_defensive
+		}
+	}
+	else_if = {
+		limit = {
+			is_ruler = yes
+			is_vassal_of = scope:liege
+			has_vassal_stance = parochial
+			scope:liege = {
+				any_character_war = {
+					primary_attacker = scope:liege
+				}
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_stance_parochial_offensive
+		}
+	}
+	else_if = {
+		limit = {
+			is_ruler = yes
+			is_vassal_of = scope:liege
+			has_vassal_stance = zealot
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					faith = scope:vassal.faith
+				}
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_stance_zealot_kin
+		}
+	}
+	else_if = {
+		limit = {
+			is_ruler = yes
+			is_vassal_of = scope:liege
+			has_vassal_stance = zealot
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					NOT = {
+						faith = scope:vassal.faith
+					}
+				}
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_stance_zealot_infidel
+		}
+	}
+	else_if = {
+		limit = {
+			is_ruler = yes
+			is_vassal_of = scope:liege
+			has_vassal_stance = minority
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					culture = scope:vassal.culture
+				}
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_stance_minority_culture
+		}
+	}
+	else_if = {
+		limit = {
+			is_ruler = yes
+			is_vassal_of = scope:liege
+			has_vassal_stance = minority
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					faith = scope:vassal.faith
+				}
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_stance_minority_faith
+		}
+	}
+	else_if = {
+		limit = {
+			is_ruler = yes
+			is_vassal_of = scope:liege
+			has_vassal_stance = minority
+			interactive_bannermen_civil_war_trigger = {
+				LIEGE = scope:liege
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_stance_minority_civil
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_opinion_modifier = {
+					modifier = pledged_loyalty_to_me_opinion
+					target = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_pledged_loyalty
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_opinion_modifier = {
+					modifier = refused_pledge_loyalty_to_liege_opinion
+					target = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_refused_pledge
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_opinion_modifier = {
+					modifier = miv_oathbreaker
+					target = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_oathbreaker
+		}
+	}
+	if = {
+		limit = {
+			exists = joined_faction
+			joined_faction = {
+				OR = {
+					faction_is_type = crown_loyalist_faction
+					miv_agot_loyalist_faction_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_faction_loyalist
+		}
+	}
+	else_if = {
+		limit = {
+			is_a_faction_leader = yes
+			exists = joined_faction
+			joined_faction = {
+				faction_target = scope:liege
+				NOR = {
+					faction_is_type = crown_loyalist_faction
+					miv_agot_loyalist_faction_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = -150
+			desc = interactive_bannermen_desc_faction_leader
+		}
+	}
+	else_if = {
+		limit = {
+			exists = joined_faction
+			joined_faction = {
+				faction_target = scope:liege
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_faction_against
+		}
+	}
+	if = {
+		limit = {
+			debt_level >= 3
+		}
+		add = {
+			value = -25
+			desc = interactive_bannermen_desc_debt_heavy
+		}
+	}
+	else_if = {
+		limit = {
+			debt_level >= 1
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_debt_any
+		}
+	}
+	if = {
+		limit = {
+			opinion = {
+				target = scope:liege
+				value >= 100
+			}
+		}
+		add = {
+			value = 60
+			desc = interactive_bannermen_desc_op_devoted
+		}
+	}
+	else_if = {
+		limit = {
+			opinion = {
+				target = scope:liege
+				value >= 90
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_op_veryhigh
+		}
+	}
+	else_if = {
+		limit = {
+			opinion = {
+				target = scope:liege
+				value >= 75
+			}
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_op_high
+		}
+	}
+	else_if = {
+		limit = {
+			opinion = {
+				target = scope:liege
+				value >= 50
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_op_good
+		}
+	}
+	else_if = {
+		limit = {
+			opinion = {
+				target = scope:liege
+				value >= 25
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_op_fair
+		}
+	}
+	else_if = {
+		limit = {
+			opinion = {
+				target = scope:liege
+				value >= 0
+			}
+		}
+		add = {
+			value = 5
+			desc = interactive_bannermen_desc_op_neutral
+		}
+	}
+	else_if = {
+		limit = {
+			opinion = {
+				target = scope:liege
+				value >= -25
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_op_poor
+		}
+	}
+	else_if = {
+		limit = {
+			opinion = {
+				target = scope:liege
+				value >= -50
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_op_low
+		}
+	}
+	else_if = {
+		limit = {
+			opinion = {
+				target = scope:liege
+				value >= -75
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_op_verylow
+		}
+	}
+	else_if = {
+		limit = {
+			opinion = {
+				target = scope:liege
+				value >= -90
+			}
+		}
+		add = {
+			value = -60
+			desc = interactive_bannermen_desc_op_hateful
+		}
+	}
+	else = {
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_op_murderous
+		}
+	}
+	if = {
+		limit = {
+			is_spouse_of = scope:liege
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_spouse
+		}
+	}
+	if = {
+		limit = {
+			is_heir_of = scope:liege
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_heir
+		}
+	}
+	else_if = {
+		limit = {
+			is_close_family_of = scope:liege
+		}
+		add = {
+			value = 50
+			desc = interactive_bannermen_desc_closekin
+		}
+	}
+	else_if = {
+		limit = {
+			is_extended_family_of = scope:liege
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_extkin
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_relation_favorite_child = scope:vassal
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_favchild
+		}
+	}
+	if = {
+		limit = {
+			exists = house
+			exists = scope:liege.house
+			house = scope:liege.house
+		}
+		add = {
+			value = 50
+			desc = interactive_bannermen_desc_house
+		}
+	}
+	else_if = {
+		limit = {
+			exists = dynasty
+			exists = scope:liege.dynasty
+			dynasty = scope:liege.dynasty
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_dynasty
+		}
+	}
+	if = {
+		limit = {
+			exists = house.house_confederation
+			exists = scope:liege.house.house_confederation
+			is_member_of_confederation = scope:liege.house.house_confederation
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_bloc_same
+		}
+	}
+	else_if = {
+		limit = {
+			exists = house.house_confederation
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					is_member_of_confederation = scope:vassal.house.house_confederation
+				}
+			}
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_bloc_enemy
+		}
+	}
+	else_if = {
+		limit = {
+			exists = house.house_confederation
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_bloc_other
+		}
+	}
+	if = {
+		limit = {
+			is_allied_to = scope:liege
+		}
+		add = {
+			value = 200
+			desc = interactive_bannermen_desc_allied
+		}
+	}
+	if = {
+		limit = {
+			has_relation_blood_brother = scope:liege
+		}
+		add = {
+			value = 150
+			desc = interactive_bannermen_desc_bloodbro
+		}
+	}
+	else_if = {
+		limit = {
+			has_relation_best_friend = scope:liege
+		}
+		add = {
+			value = 125
+			desc = interactive_bannermen_desc_rel_best_friend
+		}
+	}
+	else_if = {
+		limit = {
+			has_relation_friend = scope:liege
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_rel_friend
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				exists = primary_heir
+				primary_heir = {
+					has_relation_best_friend = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_rel_heir_best_friend
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				exists = primary_spouse
+				primary_spouse = {
+					has_relation_best_friend = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_rel_spouse_best_friend
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_close_family_member = {
+					has_relation_blood_brother = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_rel_fam_bloodbro
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				exists = primary_heir
+				primary_heir = {
+					has_relation_friend = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_rel_heir_friend
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				exists = primary_spouse
+				primary_spouse = {
+					has_relation_friend = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_rel_spouse_friend
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_close_family_member = {
+					has_relation_best_friend = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_rel_fam_best_friend
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_close_family_member = {
+					has_relation_friend = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 60
+			desc = interactive_bannermen_desc_rel_fam_friend
+		}
+	}
+	if = {
+		limit = {
+			has_relation_soulmate = scope:liege
+		}
+		add = {
+			value = 150
+			desc = interactive_bannermen_desc_rel_soulmate
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				exists = primary_heir
+				primary_heir = {
+					has_relation_soulmate = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 125
+			desc = interactive_bannermen_desc_rel_heir_soulmate
+		}
+	}
+	else_if = {
+		limit = {
+			has_relation_lover = scope:liege
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_rel_lover
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_close_family_member = {
+					has_relation_soulmate = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_rel_fam_soulmate
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				exists = primary_heir
+				primary_heir = {
+					has_relation_lover = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_rel_heir_lover
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_close_family_member = {
+					has_relation_lover = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 75
+			desc = interactive_bannermen_desc_rel_fam_lover
+		}
+	}
+	if = {
+		limit = {
+			has_relation_nemesis = scope:liege
+		}
+		add = {
+			value = -150
+			desc = interactive_bannermen_desc_rel_nemesis
+		}
+	}
+	else_if = {
+		limit = {
+			has_relation_rival = scope:liege
+		}
+		add = {
+			value = -125
+			desc = interactive_bannermen_desc_rel_rival
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				exists = primary_heir
+				primary_heir = {
+					has_relation_nemesis = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -125
+			desc = interactive_bannermen_desc_rel_heir_nemesis
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				exists = primary_spouse
+				primary_spouse = {
+					has_relation_nemesis = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -125
+			desc = interactive_bannermen_desc_rel_spouse_nemesis
+		}
+	}
+	else_if = {
+		limit = {
+			has_relation_grudge = scope:liege
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_rel_grudge
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				exists = primary_heir
+				primary_heir = {
+					has_relation_rival = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_rel_heir_rival
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				exists = primary_spouse
+				primary_spouse = {
+					has_relation_rival = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_rel_spouse_rival
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_close_family_member = {
+					has_relation_nemesis = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_rel_fam_nemesis
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				exists = primary_heir
+				primary_heir = {
+					has_relation_grudge = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_rel_heir_grudge
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				exists = primary_spouse
+				primary_spouse = {
+					has_relation_grudge = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_rel_spouse_grudge
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_close_family_member = {
+					has_relation_rival = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_rel_fam_rival
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_close_family_member = {
+					has_relation_grudge = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -75
+			desc = interactive_bannermen_desc_rel_fam_grudge
+		}
+	}
+	else_if = {
+		limit = {
+			has_relation_bully = scope:liege
+			NOT = {
+				OR = {
+					has_relation_victim = scope:liege
+					scope:liege = {
+						any_close_family_member = {
+							has_relation_bully = scope:vassal
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_rel_victim
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_close_family_member = {
+					has_relation_victim = scope:vassal
+				}
+			}
+			NOT = {
+				OR = {
+					has_relation_victim = scope:liege
+					scope:liege = {
+						any_close_family_member = {
+							has_relation_bully = scope:vassal
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -30
+			desc = interactive_bannermen_desc_rel_fam_victim
+		}
+	}
+	if = {
+		limit = {
+			has_relation_guardian = scope:liege
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_ward
+		}
+	}
+	else_if = {
+		limit = {
+			has_relation_ward = scope:liege
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_guardian
+		}
+	}
+	if = {
+		limit = {
+			has_relation_mentor = scope:liege
+		}
+		add = {
+			value = 60
+			desc = interactive_bannermen_desc_rel_student
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_close_family_member = {
+					has_relation_ward = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_rel_fam_ward
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_close_family_member = {
+					has_relation_guardian = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_rel_fam_guardian
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_close_family_member = {
+					has_relation_student = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_rel_fam_student
+		}
+	}
+	if = {
+		limit = {
+			is_diarch_of_target = scope:liege
+			diarch_loyalty >= diarch_loyalty_visibly_loyal_threshold
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_diarch_loyal
+		}
+	}
+	else_if = {
+		limit = {
+			is_diarch_of_target = scope:liege
+			diarch_loyalty <= diarch_loyalty_visibly_disloyal_threshold
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_diarch_disloyal
+		}
+	}
+	else_if = {
+		limit = {
+			is_diarch_of_target = scope:liege
+			diarch_loyalty >= 50
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_diarch_content
+		}
+	}
+	else_if = {
+		limit = {
+			is_diarch_of_target = scope:liege
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_diarch_discontent
+		}
+	}
+	if = {
+		limit = {
+			is_councillor_of = scope:liege
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_councillor
+		}
+	}
+	if = {
+		limit = {
+			any_court_position_employer = {
+				this = scope:liege
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_courtpos
+		}
+	}
+	if = {
+		limit = {
+			has_dlc_feature = accolades
+			scope:liege = {
+				any_acclaimed_knight = {
+					this = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_acclaimed
+		}
+	}
+	else_if = {
+		limit = {
+			is_knight_of = scope:liege
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_knight
+		}
+	}
+	if = {
+		limit = {
+			scope:vassal = {
+				puppeteer ?= scope:liege
+			}
+		}
+		add = {
+			value = 125
+			desc = interactive_bannermen_desc_puppet
+		}
+	}
+	if = {
+		limit = {
+			scope:vassal = {
+				has_strong_usable_hook = scope:liege
+			}
+			NOT = {
+				scope:liege = {
+					puppeteer ?= scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_their_hook_strong
+		}
+	}
+	else_if = {
+		limit = {
+			scope:vassal = {
+				has_usable_hook = scope:liege
+			}
+			NOT = {
+				scope:liege = {
+					puppeteer ?= scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -50
+			desc = interactive_bannermen_desc_their_hook_weak
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_secret = {
+					is_known_by = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -30
+			desc = interactive_bannermen_desc_secret_known
+		}
+	}
+	if = {
+		limit = {
+			exists = scope:liege.primary_title
+			has_strong_claim_on = scope:liege.primary_title
+			NOT = {
+				is_heir_of = scope:liege
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_claimant_strong
+		}
+	}
+	else_if = {
+		limit = {
+			exists = scope:liege.primary_title
+			has_weak_claim_on = scope:liege.primary_title
+			NOT = {
+				is_heir_of = scope:liege
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_claimant_weak
+		}
+	}
+	if = {
+		limit = {
+			rite = scope:liege.rite
+		}
+		add = {
+			value = 25
+			desc = interactive_bannermen_desc_same_faith
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				faith = scope:liege.faith
+			}
+			NOT = {
+				interactive_bannermen_syncretic_with_liege_trigger = yes
+			}
+			NOT = {
+				OR = {
+					this.rite ?= {
+						rite_hostility_level = {
+							target = scope:liege.rite
+							value >= faith_evil_level
+						}
+					}
+					this.rite ?= {
+						rite_hostility_level = {
+							target = scope:liege.rite
+							value >= faith_hostile_level
+						}
+					}
+					this.rite ?= {
+						rite_hostility_level = {
+							target = scope:liege.rite
+							value >= faith_astray_level
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -25
+			desc = interactive_bannermen_desc_faith_different
+		}
+	}
+	else_if = {
+		limit = {
+			always = yes
+			NOT = {
+				OR = {
+					this.rite ?= {
+						rite_hostility_level = {
+							target = scope:liege.rite
+							value >= faith_evil_level
+						}
+					}
+					this.rite ?= {
+						rite_hostility_level = {
+							target = scope:liege.rite
+							value >= faith_hostile_level
+						}
+					}
+					AND = {
+						this.rite ?= {
+							rite_hostility_level = {
+								target = scope:liege.rite
+								value >= faith_astray_level
+							}
+						}
+						NOT = {
+							interactive_bannermen_syncretic_with_liege_trigger = yes
+						}
+					}
+					interactive_bannermen_syncretic_with_liege_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_same_faith_other_rite
+		}
+	}
+	if = {
+		limit = {
+			culture = scope:liege.culture
+		}
+		add = {
+			value = 25
+			desc = interactive_bannermen_desc_same_culture
+		}
+	}
+	else_if = {
+		limit = {
+			this.culture ?= {
+				has_same_culture_heritage = scope:liege.culture
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_culture_heritage
+		}
+	}
+	else = {
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_culture_alien
+		}
+	}
+	if = {
+		limit = {
+			exists = scope:liege.culture
+			NOT = {
+				culture = scope:liege.culture
+			}
+			this.culture ?= {
+				cultural_acceptance = {
+					target = scope:liege.culture
+					value >= 75
+				}
+			}
+		}
+		add = {
+			value = 25
+			desc = interactive_bannermen_desc_culture_accepted
+		}
+	}
+	else_if = {
+		limit = {
+			exists = scope:liege.culture
+			NOT = {
+				culture = scope:liege.culture
+			}
+			this.culture ?= {
+				cultural_acceptance = {
+					target = scope:liege.culture
+					value <= 25
+				}
+			}
+		}
+		add = {
+			value = -25
+			desc = interactive_bannermen_desc_culture_unaccepted
+		}
+	}
+	if = {
+		limit = {
+			has_royal_court = yes
+			has_dlc_feature = royal_court
+			scope:liege = {
+				has_royal_court = yes
+			}
+			has_same_court_language = scope:liege
+			knows_court_language_of = scope:liege
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_court_language_spoken
+		}
+	}
+	else_if = {
+		limit = {
+			exists = scope:liege.culture
+			NOT = {
+				culture = scope:liege.culture
+			}
+			NOT = {
+				knows_language_of_culture = scope:liege.culture
+			}
+			NOT = {
+				OR = {
+					AND = {
+						has_royal_court = yes
+						has_dlc_feature = royal_court
+						scope:liege = {
+							has_royal_court = yes
+						}
+						has_same_court_language = scope:liege
+					}
+					AND = {
+						has_royal_court = yes
+						has_dlc_feature = royal_court
+						scope:liege = {
+							has_royal_court = yes
+						}
+						NOT = {
+							knows_court_language_of = scope:liege
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_language_foreign
+		}
+	}
+	if = {
+		limit = {
+			has_trait = loyal
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_trait_loyal
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = disloyal
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_trait_disloyal
+		}
+	}
+	if = {
+		limit = {
+			has_trait = content
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_trait_content
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = ambitious
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_trait_ambitious
+		}
+	}
+	if = {
+		limit = {
+			has_trait = humble
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_trait_humble
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = arrogant
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_trait_arrogant
+		}
+	}
+	if = {
+		limit = {
+			has_trait = diligent
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_trait_diligent
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = lazy
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_trait_lazy
+		}
+	}
+	if = {
+		limit = {
+			has_trait = honest
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_trait_honest
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = deceitful
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_trait_deceitful
+		}
+	}
+	if = {
+		limit = {
+			has_trait = forgiving
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_trait_forgiving
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = vengeful
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_trait_vengeful
+		}
+	}
+	if = {
+		limit = {
+			has_trait = trusting
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_trait_trusting
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = paranoid
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_trait_paranoid
+		}
+	}
+	if = {
+		limit = {
+			has_trait = just
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_trait_just
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = arbitrary
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_trait_arbitrary
+		}
+	}
+	if = {
+		limit = {
+			has_trait = brave
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_trait_brave
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = craven
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_trait_craven
+		}
+	}
+	if = {
+		limit = {
+			has_trait = calm
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_trait_calm
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = wrathful
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_trait_wrathful
+		}
+	}
+	if = {
+		limit = {
+			has_trait = zealous
+			rite = scope:liege.rite
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_trait_zealous
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = zealous
+			this.rite ?= {
+				rite_hostility_level = {
+					target = scope:liege.rite
+					value >= faith_evil_level
+				}
+			}
+		}
+		add = {
+			value = -60
+			desc = interactive_bannermen_desc_trait_zealous_evil
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = zealous
+			this.rite ?= {
+				rite_hostility_level = {
+					target = scope:liege.rite
+					value >= faith_hostile_level
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_trait_zealous_hostile
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = zealous
+			this.rite ?= {
+				rite_hostility_level = {
+					target = scope:liege.rite
+					value >= faith_astray_level
+				}
+			}
+			NOT = {
+				interactive_bannermen_syncretic_with_liege_trigger = yes
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_trait_zealous_astray
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = zealous
+			NOT = {
+				faith = scope:liege.faith
+			}
+			NOT = {
+				interactive_bannermen_syncretic_with_liege_trigger = yes
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_trait_zealous_righteous
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = zealous
+			interactive_bannermen_syncretic_with_liege_trigger = yes
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_trait_zealous_syncretic
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = zealous
+			faith = scope:liege.faith
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_trait_zealous_other_rite
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = cynical
+			rite = scope:liege.rite
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_trait_cynical
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = cynical
+			this.rite ?= {
+				rite_hostility_level = {
+					target = scope:liege.rite
+					value >= faith_evil_level
+				}
+			}
+		}
+		add = {
+			value = 60
+			desc = interactive_bannermen_desc_trait_cynical_evil
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = cynical
+			this.rite ?= {
+				rite_hostility_level = {
+					target = scope:liege.rite
+					value >= faith_hostile_level
+				}
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_trait_cynical_hostile
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = cynical
+			this.rite ?= {
+				rite_hostility_level = {
+					target = scope:liege.rite
+					value >= faith_astray_level
+				}
+			}
+			NOT = {
+				interactive_bannermen_syncretic_with_liege_trigger = yes
+			}
+		}
+		add = {
+			value = 25
+			desc = interactive_bannermen_desc_trait_cynical_astray
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = cynical
+			NOT = {
+				faith = scope:liege.faith
+			}
+			NOT = {
+				interactive_bannermen_syncretic_with_liege_trigger = yes
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_trait_cynical_righteous
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = cynical
+			interactive_bannermen_syncretic_with_liege_trigger = yes
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_trait_cynical_syncretic
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = cynical
+			faith = scope:liege.faith
+		}
+		add = {
+			value = -5
+			desc = interactive_bannermen_desc_trait_cynical_other_rite
+		}
+	}
+	if = {
+		limit = {
+			has_trait = generous
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_trait_generous
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = greedy
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_trait_greedy
+		}
+	}
+	if = {
+		limit = {
+			has_trait = compassionate
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_trait_compassionate
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = callous
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_trait_callous
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = sadistic
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_trait_sadistic
+		}
+	}
+	if = {
+		limit = {
+			has_trait = stubborn
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_trait_stubborn
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = fickle
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_trait_fickle
+		}
+	}
+	if = {
+		limit = {
+			has_trait = chaste
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_trait_chaste
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = lustful
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_trait_lustful
+		}
+	}
+	if = {
+		limit = {
+			has_trait = temperate
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_trait_temperate
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = gluttonous
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_trait_gluttonous
+		}
+	}
+	if = {
+		limit = {
+			has_trait = gregarious
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_trait_gregarious
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = shy
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_trait_shy
+		}
+	}
+	if = {
+		limit = {
+			has_trait = patient
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_trait_patient
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = impatient
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_trait_impatient
+		}
+	}
+	if = {
+		limit = {
+			has_trait = eccentric
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_trait_eccentric
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lunatic
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_trait_lunatic
+		}
+	}
+	if = {
+		limit = {
+			has_trait = possessed
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_trait_possessed
+		}
+	}
+	if = {
+		limit = {
+			has_trait = depressed
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_trait_depressed
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_same_government = scope:liege
+			}
+			NOT = {
+				government_has_flag = government_is_theocracy
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_government_different
+		}
+	}
+	if = {
+		limit = {
+			government_has_flag = government_is_clan
+			is_powerful_vassal = yes
+			is_allied_to = scope:liege
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_gov_clan_allied
+		}
+	}
+	else_if = {
+		limit = {
+			government_has_flag = government_is_clan
+			NOT = {
+				is_allied_to = scope:liege
+			}
+		}
+		add = {
+			value = -30
+			desc = interactive_bannermen_desc_gov_clan_not_allied
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				government_allows = obedience
+			}
+			is_obedient_to = scope:liege
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_gov_nomad_obedient
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				government_allows = obedience
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_gov_nomad_disobedient
+		}
+	}
+	if = {
+		limit = {
+			is_powerful_vassal = yes
+		}
+		add = {
+			value = -30
+			desc = interactive_bannermen_desc_powerful_vassal
+		}
+	}
+	else_if = {
+		limit = {
+			government_has_flag = government_has_influence
+			exists = house
+			trigger_if = {
+				limit = {
+					exists = scope:liege.house
+				}
+				NOT = {
+					house = scope:liege.house
+				}
+			}
+			house = {
+				is_powerful_family = yes
+			}
+			is_house_head = yes
+		}
+		add = {
+			value = -30
+			desc = interactive_bannermen_desc_powerful_family_head
+		}
+	}
+	else_if = {
+		limit = {
+			government_has_flag = government_has_influence
+			exists = house
+			trigger_if = {
+				limit = {
+					exists = scope:liege.house
+				}
+				NOT = {
+					house = scope:liege.house
+				}
+			}
+			house = {
+				is_powerful_family = yes
+			}
+		}
+		add = {
+			value = -15
+			desc = interactive_bannermen_desc_powerful_family_member
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				primary_title = {
+					has_title_law = princely_elective_succession_law
+					any_elector = {
+						this = scope:vassal
+					}
+				}
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_succession_prince_elector
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				primary_title = {
+					any_elector = {
+						this = scope:vassal
+					}
+				}
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_succession_elector
+		}
+	}
+	if = {
+		limit = {
+			max_military_strength > scope:liege.max_military_strength
+			max_military_strength >= miv_liege_double_strength
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_strength_much_more
+		}
+	}
+	else_if = {
+		limit = {
+			max_military_strength > scope:liege.max_military_strength
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_strength_more
+		}
+	}
+	if = {
+		limit = {
+			miv_has_tamed_dragon_trigger = yes
+			NOT = {
+				is_allied_to = scope:liege
+			}
+		}
+		add = {
+			value = -200
+			desc = interactive_bannermen_desc_dragons_tamed
+		}
+	}
+	else_if = {
+		limit = {
+			miv_has_owned_dragon_trigger = yes
+			NOT = {
+				is_allied_to = scope:liege
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_dragons_owned
+		}
+	}
+	else_if = {
+		limit = {
+			miv_has_tamed_dragon_trigger = yes
+			is_allied_to = scope:liege
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_dragons_tamed_ally
+		}
+	}
+	else_if = {
+		limit = {
+			miv_has_owned_dragon_trigger = yes
+			is_allied_to = scope:liege
+		}
+		add = {
+			value = 50
+			desc = interactive_bannermen_desc_dragons_owned_ally
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_spouse = {
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_spouse_war
+		}
+	}
+	if = {
+		limit = {
+			exists = player_heir
+			player_heir = {
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_heir_war
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_close_family_member = {
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = -60
+			desc = interactive_bannermen_desc_family_war
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_extended_family_member = {
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = -50
+			desc = interactive_bannermen_desc_extkin_war
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			exists = house
+			house = {
+				any_house_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = -75
+			desc = interactive_bannermen_desc_house_war
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			exists = dynasty
+			dynasty = {
+				any_dynasty_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = -50
+			desc = interactive_bannermen_desc_dynasty_war
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = soulmate
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = -150
+			desc = interactive_bannermen_desc_bond_war_soulmate
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = blood_brother
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = -150
+			desc = interactive_bannermen_desc_bond_war_blood_brother
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = best_friend
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = -150
+			desc = interactive_bannermen_desc_bond_war_best_friend
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = lover
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = -125
+			desc = interactive_bannermen_desc_bond_war_lover
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = friend
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_bond_war_friend
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = soulmate
+				any_close_family_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_bond_war_fam_soulmate
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = blood_brother
+				any_close_family_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_bond_war_fam_blood_brother
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = best_friend
+				any_close_family_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_bond_war_fam_best_friend
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = lover
+				any_close_family_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = -75
+			desc = interactive_bannermen_desc_bond_war_fam_lover
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = friend
+				any_close_family_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = -60
+			desc = interactive_bannermen_desc_bond_war_fam_friend
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_ally = {
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = -200
+			desc = interactive_bannermen_desc_ally_war
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = guardian
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_bond_war_guardian
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = ward
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_bond_war_ward
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = mentor
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = -50
+			desc = interactive_bannermen_desc_bond_war_mentor
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = student
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = -60
+			desc = interactive_bannermen_desc_bond_war_student
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = guardian
+				any_close_family_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_bond_war_fam_guardian
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = ward
+				any_close_family_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_bond_war_fam_ward
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = mentor
+				any_close_family_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_bond_war_fam_mentor
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = student
+				any_close_family_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_bond_war_fam_student
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = nemesis
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = 150
+			desc = interactive_bannermen_desc_enemy_war_nemesis
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = rival
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = 125
+			desc = interactive_bannermen_desc_enemy_war_rival
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = nemesis
+				any_close_family_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_enemy_war_fam_nemesis
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = rival
+				any_close_family_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_enemy_war_fam_rival
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = grudge
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_enemy_war_grudge
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = victim
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_enemy_war_victim
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = bully
+				interactive_bannermen_primary_war_enemy_trigger = yes
+			}
+		}
+		add = {
+			value = 60
+			desc = interactive_bannermen_desc_enemy_war_bully
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = grudge
+				any_close_family_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = 75
+			desc = interactive_bannermen_desc_enemy_war_fam_grudge
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = victim
+				any_close_family_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_enemy_war_fam_victim
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_relation = {
+				type = bully
+				any_close_family_member = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = 50
+			desc = interactive_bannermen_desc_enemy_war_fam_bully
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					casus_belli = {
+						any_target_title = {
+							holder ?= scope:vassal
+						}
+					}
+				}
+			}
+			NOT = {
+				scope:liege = {
+					any_character_war = {
+						claimant ?= scope:vassal
+					}
+				}
+			}
+		}
+		add = {
+			value = 200
+			desc = interactive_bannermen_desc_claim_threatened
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					casus_belli = {
+						any_target_title = {
+							holder ?= {
+								is_vassal_of = scope:vassal
+							}
+						}
+					}
+				}
+			}
+			NOT = {
+				scope:liege = {
+					any_character_war = {
+						claimant ?= scope:vassal
+					}
+				}
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_claim_vassal_threatened
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				is_heir_of = scope:liege
+			}
+			scope:liege = {
+				any_character_war = {
+					NOT = {
+						primary_attacker = scope:liege
+					}
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						is_spouse_of = scope:vassal
+					}
+				}
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_pretender_spouse
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				is_heir_of = scope:liege
+			}
+			scope:liege = {
+				any_character_war = {
+					NOT = {
+						primary_attacker = scope:liege
+					}
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						is_heir_of = scope:vassal
+					}
+				}
+			}
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_pretender_heir
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_heir_of = scope:liege
+			}
+			scope:liege = {
+				any_character_war = {
+					NOT = {
+						primary_attacker = scope:liege
+					}
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						is_close_family_of = scope:vassal
+					}
+				}
+			}
+		}
+		add = {
+			value = -60
+			desc = interactive_bannermen_desc_pretender_kin
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_heir_of = scope:liege
+			}
+			scope:liege = {
+				any_character_war = {
+					NOT = {
+						primary_attacker = scope:liege
+					}
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						exists = house
+						exists = scope:vassal.house
+						house = scope:vassal.house
+					}
+				}
+			}
+		}
+		add = {
+			value = -50
+			desc = interactive_bannermen_desc_pretender_house
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_heir_of = scope:liege
+			}
+			scope:liege = {
+				any_character_war = {
+					NOT = {
+						primary_attacker = scope:liege
+					}
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						exists = dynasty
+						exists = scope:vassal.dynasty
+						dynasty = scope:vassal.dynasty
+					}
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_pretender_dynasty
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_heir_of = scope:liege
+			}
+			scope:liege = {
+				any_character_war = {
+					NOT = {
+						primary_attacker = scope:liege
+					}
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						is_extended_family_of = scope:vassal
+					}
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_pretender_extkin
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_heir_of = scope:liege
+			}
+			scope:liege = {
+				any_character_war = {
+					NOT = {
+						primary_attacker = scope:liege
+					}
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						OR = {
+							has_relation_soulmate = scope:vassal
+							has_relation_blood_brother = scope:vassal
+							has_relation_best_friend = scope:vassal
+							has_relation_lover = scope:vassal
+							has_relation_friend = scope:vassal
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -30
+			desc = interactive_bannermen_desc_pretender_bond
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					NOT = {
+						primary_attacker = scope:liege
+					}
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						OR = {
+							has_relation_nemesis = scope:vassal
+							has_relation_rival = scope:vassal
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_pretender_foe
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_prisoner = {
+					is_spouse_of = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -60
+			desc = interactive_bannermen_desc_spouse_prisoner
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_prisoner = {
+					is_close_family_of = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_kin_prisoner
+		}
+	}
+	if = {
+		limit = {
+			any_child = {
+				is_hostage_of = scope:liege
+			}
+		}
+		add = {
+			value = 50
+			desc = interactive_bannermen_desc_hostage_child
+		}
+	}
+	else_if = {
+		limit = {
+			any_close_family_member = {
+				is_hostage_of = scope:liege
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_hostage_family
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			any_home_court_hostage = {
+				warden ?= {
+					interactive_bannermen_primary_war_enemy_trigger = yes
+				}
+			}
+		}
+		add = {
+			value = -60
+			desc = interactive_bannermen_desc_hostage_war
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_targeting_scheme = {
+					is_hostile = yes
+					is_scheme_exposed = yes
+					scheme_owner = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -50
+			desc = interactive_bannermen_desc_scheme_exposed
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					reverse_opinion = {
+						target = scope:vassal
+						value >= 50
+					}
+				}
+			}
+			opinion = {
+				target = scope:liege
+				value < 0
+			}
+		}
+		add = {
+			value = -50
+			desc = interactive_bannermen_desc_prefers_enemy_far
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				AND = {
+					scope:liege = {
+						any_primary_war_enemy = {
+							NOT = {
+								this = scope:vassal
+							}
+							reverse_opinion = {
+								target = scope:vassal
+								value >= 50
+							}
+						}
+					}
+					opinion = {
+						target = scope:liege
+						value < 50
+					}
+				}
+				AND = {
+					scope:liege = {
+						any_primary_war_enemy = {
+							NOT = {
+								this = scope:vassal
+							}
+							reverse_opinion = {
+								target = scope:vassal
+								value >= 0
+							}
+						}
+					}
+					opinion = {
+						target = scope:liege
+						value < 0
+					}
+				}
+			}
+		}
+		add = {
+			value = -25
+			desc = interactive_bannermen_desc_prefers_enemy
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_house_relation_trigger = {
+						OTHER = scope:vassal
+						LEVEL = amity
+					}
+				}
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_hre_amity
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_house_relation_trigger = {
+						OTHER = scope:vassal
+						LEVEL = friendly
+					}
+				}
+			}
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_hre_friendly
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_house_relation_trigger = {
+						OTHER = scope:vassal
+						LEVEL = cordial
+					}
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_hre_cordial
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_house_relation_trigger = {
+						OTHER = scope:vassal
+						LEVEL = quarrel
+					}
+				}
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_hre_quarrel
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_house_relation_trigger = {
+						OTHER = scope:vassal
+						LEVEL = rivalry
+					}
+				}
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_hre_rivalry
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_primary_war_enemy = {
+					NOT = {
+						this = scope:vassal
+					}
+					interactive_bannermen_house_relation_trigger = {
+						OTHER = scope:vassal
+						LEVEL = feud
+					}
+				}
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_hre_feud
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_at_war = yes
+			}
+			NOT = {
+				interactive_bannermen_civil_war_trigger = {
+					LIEGE = scope:liege
+				}
+			}
+			NOT = {
+				AND = {
+					has_global_variable = AGOT_is_loaded
+					scope:liege = {
+						any_character_war = {
+							interactive_agot_megawar_trigger = yes
+						}
+					}
+				}
+			}
+			scope:vassal = {
+				any_sub_realm_county = {
+					any_neighboring_county = {
+						holder ?= {
+							NOT = {
+								this = scope:vassal
+							}
+							interactive_bannermen_enemy_realm_trigger = {
+								LIEGE = scope:liege
+							}
+							NOT = {
+								is_vassal_or_below_of = scope:liege
+							}
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = 25
+			desc = interactive_bannermen_desc_border
+		}
+	}
+	if = {
+		limit = {
+			rite ?= {
+				rite_has_tenet = tenet_warmonger
+			}
+			scope:liege = {
+				any_character_war = {
+					primary_attacker = scope:liege
+				}
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_faith_warmonger
+		}
+	}
+	else_if = {
+		limit = {
+			rite ?= {
+				rite_has_tenet = tenet_pacifism
+			}
+			scope:liege = {
+				any_character_war = {
+					primary_attacker = scope:liege
+				}
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_faith_pacifism
+		}
+	}
+	else_if = {
+		limit = {
+			rite ?= {
+				rite_has_tenet = tenet_dharmic_pacifism
+			}
+			scope:liege = {
+				any_character_war = {
+					primary_attacker = scope:liege
+				}
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_faith_dharmic_pacifism
+		}
+	}
+	if = {
+		limit = {
+			highest_held_title_tier >= tier_empire
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_tier_empire
+		}
+	}
+	else_if = {
+		limit = {
+			highest_held_title_tier >= tier_kingdom
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_tier_kingdom
+		}
+	}
+	else_if = {
+		limit = {
+			highest_held_title_tier >= tier_duchy
+		}
+		add = {
+			value = -5
+			desc = interactive_bannermen_desc_tier_duchy
+		}
+	}
+	if = {
+		limit = {
+			sub_realm_size >= 250
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_vassal_realm_size_250
+		}
+	}
+	else_if = {
+		limit = {
+			sub_realm_size >= 225
+		}
+		add = {
+			value = -90
+			desc = interactive_bannermen_desc_vassal_realm_size_225
+		}
+	}
+	else_if = {
+		limit = {
+			sub_realm_size >= 200
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_vassal_realm_size_200
+		}
+	}
+	else_if = {
+		limit = {
+			sub_realm_size >= 175
+		}
+		add = {
+			value = -70
+			desc = interactive_bannermen_desc_vassal_realm_size_175
+		}
+	}
+	else_if = {
+		limit = {
+			sub_realm_size >= 150
+		}
+		add = {
+			value = -60
+			desc = interactive_bannermen_desc_vassal_realm_size_150
+		}
+	}
+	else_if = {
+		limit = {
+			sub_realm_size >= 125
+		}
+		add = {
+			value = -50
+			desc = interactive_bannermen_desc_vassal_realm_size_125
+		}
+	}
+	else_if = {
+		limit = {
+			sub_realm_size >= 100
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_vassal_realm_size_100
+		}
+	}
+	else_if = {
+		limit = {
+			sub_realm_size >= 75
+		}
+		add = {
+			value = -30
+			desc = interactive_bannermen_desc_vassal_realm_size_75
+		}
+	}
+	else_if = {
+		limit = {
+			sub_realm_size >= 50
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_vassal_realm_size_50
+		}
+	}
+	else_if = {
+		limit = {
+			sub_realm_size >= 25
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_vassal_realm_size_25
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_japan_feudal
+			}
+			vassal_contract_obligation_level:feudal_government_levies = feudal_levies_exempt_level
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_gov_feudal_levies_exempt
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_japan_feudal
+			}
+			vassal_contract_obligation_level:feudal_government_levies = feudal_levies_low_level
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_gov_feudal_levies_low
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_japan_feudal
+			}
+			vassal_contract_obligation_level:feudal_government_levies = feudal_levies_normal_level
+		}
+		add = {
+			value = 5
+			desc = interactive_bannermen_desc_gov_feudal_levies_normal
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_japan_feudal
+			}
+			vassal_contract_obligation_level:feudal_government_levies = feudal_levies_high_level
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_gov_feudal_levies_high
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_japan_feudal
+			}
+			vassal_contract_obligation_level:feudal_government_levies = feudal_levies_extortionate_level
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_gov_feudal_levies_extortionate
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_japan_feudal
+			}
+			vassal_contract_has_flag = has_march_contract
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_gov_feudal_march
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_japan_feudal
+			}
+			vassal_contract_has_flag = has_castellan_contract
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_gov_feudal_castellan
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_japan_feudal
+			}
+			vassal_contract_has_flag = has_palatinate_contract
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_gov_feudal_palatinate
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_japan_feudal
+			}
+			vassal_contract_has_flag = has_scutage_contract
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_gov_feudal_scutage
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_tax_collector = {
+					tax_slot ?= {
+						is_active_obligation = iqta_special_rights_tax_collector
+					}
+					any_tax_collector_vassal = {
+						this = scope:vassal
+					}
+				}
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_gov_clan_iqta
+		}
+	}
+	if = {
+		limit = {
+			government_has_flag = government_is_tribal
+			miv_gov_prestige_gap = 1
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_gov_prestige_they_exceed
+		}
+	}
+	else_if = {
+		limit = {
+			government_has_flag = government_is_tribal
+			miv_gov_prestige_gap >= 2
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_gov_prestige_they_far_exceed
+		}
+	}
+	if = {
+		limit = {
+			government_has_flag = government_has_influence
+			scope:liege = {
+				government_has_flag = government_has_influence
+			}
+			miv_gov_influence_gap = 1
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_gov_influence_they_exceed
+		}
+	}
+	else_if = {
+		limit = {
+			government_has_flag = government_has_influence
+			scope:liege = {
+				government_has_flag = government_has_influence
+			}
+			miv_gov_influence_gap >= 2
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_gov_influence_they_far_exceed
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				government_has_flag = government_is_theocracy
+				government_has_flag = government_is_mandala
+			}
+			miv_gov_devotion_gap = 1
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_gov_devotion_they_exceed
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				government_has_flag = government_is_theocracy
+				government_has_flag = government_is_mandala
+			}
+			miv_gov_devotion_gap >= 2
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_gov_devotion_they_far_exceed
+		}
+	}
+	if = {
+		limit = {
+			government_has_flag = government_is_republic
+			exists = dynasty
+			scope:liege = {
+				exists = dynasty
+			}
+			miv_gov_splendor_gap = 1
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_gov_splendor_they_exceed
+		}
+	}
+	else_if = {
+		limit = {
+			government_has_flag = government_is_republic
+			exists = dynasty
+			scope:liege = {
+				exists = dynasty
+			}
+			miv_gov_splendor_gap >= 2
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_gov_splendor_they_far_exceed
+		}
+	}
+	if = {
+		limit = {
+			this.rite ?= {
+				rite_hostility_level = {
+					target = scope:liege.rite
+					value >= faith_evil_level
+				}
+			}
+			NOT = {
+				rite = scope:liege.rite
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_faith_evil
+		}
+	}
+	else_if = {
+		limit = {
+			this.rite ?= {
+				rite_hostility_level = {
+					target = scope:liege.rite
+					value >= faith_hostile_level
+				}
+			}
+			NOT = {
+				rite = scope:liege.rite
+			}
+		}
+		add = {
+			value = -75
+			desc = interactive_bannermen_desc_faith_hostile
+		}
+	}
+	else_if = {
+		limit = {
+			this.rite ?= {
+				rite_hostility_level = {
+					target = scope:liege.rite
+					value >= faith_astray_level
+				}
+			}
+			NOT = {
+				interactive_bannermen_syncretic_with_liege_trigger = yes
+			}
+			NOT = {
+				rite = scope:liege.rite
+			}
+		}
+		add = {
+			value = -50
+			desc = interactive_bannermen_desc_faith_astray
+		}
+	}
+	else_if = {
+		limit = {
+			interactive_bannermen_syncretic_with_liege_trigger = yes
+			NOT = {
+				rite = scope:liege.rite
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_faith_syncretic
+		}
+	}
+	if = {
+		limit = {
+			has_royal_court = yes
+			has_dlc_feature = royal_court
+			scope:liege = {
+				has_royal_court = yes
+			}
+			has_same_court_language = scope:liege
+			NOT = {
+				knows_court_language_of = scope:liege
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_court_language_shared
+		}
+	}
+	else_if = {
+		limit = {
+			has_royal_court = yes
+			has_dlc_feature = royal_court
+			scope:liege = {
+				has_royal_court = yes
+			}
+			NOT = {
+				knows_court_language_of = scope:liege
+			}
+		}
+		add = {
+			value = -30
+			desc = interactive_bannermen_desc_court_language_alien
+		}
+	}
+	if = {
+		limit = {
+			exists = primary_heir
+			primary_heir = {
+				has_relation_grudge = scope:liege
+			}
+			NOT = {
+				OR = {
+					primary_heir = {
+						has_relation_nemesis = scope:liege
+					}
+					AND = {
+						exists = primary_spouse
+						primary_spouse = {
+							has_relation_nemesis = scope:liege
+						}
+					}
+					primary_heir = {
+						has_relation_rival = scope:liege
+					}
+					AND = {
+						exists = primary_spouse
+						primary_spouse = {
+							has_relation_rival = scope:liege
+						}
+					}
+					any_close_family_member = {
+						has_relation_nemesis = scope:liege
+					}
+				}
+			}
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_rel_vheir_grudge
+		}
+	}
+	else_if = {
+		limit = {
+			exists = primary_spouse
+			primary_spouse = {
+				has_relation_grudge = scope:liege
+			}
+			NOT = {
+				OR = {
+					AND = {
+						exists = primary_heir
+						primary_heir = {
+							has_relation_nemesis = scope:liege
+						}
+					}
+					primary_spouse = {
+						has_relation_nemesis = scope:liege
+					}
+					AND = {
+						exists = primary_heir
+						primary_heir = {
+							has_relation_rival = scope:liege
+						}
+					}
+					primary_spouse = {
+						has_relation_rival = scope:liege
+					}
+					any_close_family_member = {
+						has_relation_nemesis = scope:liege
+					}
+				}
+			}
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_rel_vspouse_grudge
+		}
+	}
+	else_if = {
+		limit = {
+			any_close_family_member = {
+				has_relation_grudge = scope:liege
+			}
+			NOT = {
+				OR = {
+					AND = {
+						exists = primary_heir
+						primary_heir = {
+							has_relation_nemesis = scope:liege
+						}
+					}
+					AND = {
+						exists = primary_spouse
+						primary_spouse = {
+							has_relation_nemesis = scope:liege
+						}
+					}
+					AND = {
+						exists = primary_heir
+						primary_heir = {
+							has_relation_rival = scope:liege
+						}
+					}
+					AND = {
+						exists = primary_spouse
+						primary_spouse = {
+							has_relation_rival = scope:liege
+						}
+					}
+					any_close_family_member = {
+						has_relation_nemesis = scope:liege
+					}
+					any_close_family_member = {
+						has_relation_rival = scope:liege
+					}
+				}
+			}
+		}
+		add = {
+			value = -75
+			desc = interactive_bannermen_desc_rel_vfam_grudge
+		}
+	}
+	else_if = {
+		limit = {
+			any_close_family_member = {
+				has_relation_bully = scope:liege
+			}
+			NOT = {
+				OR = {
+					AND = {
+						exists = primary_heir
+						primary_heir = {
+							has_relation_nemesis = scope:liege
+						}
+					}
+					AND = {
+						exists = primary_spouse
+						primary_spouse = {
+							has_relation_nemesis = scope:liege
+						}
+					}
+					AND = {
+						exists = primary_heir
+						primary_heir = {
+							has_relation_rival = scope:liege
+						}
+					}
+					AND = {
+						exists = primary_spouse
+						primary_spouse = {
+							has_relation_rival = scope:liege
+						}
+					}
+					any_close_family_member = {
+						has_relation_nemesis = scope:liege
+					}
+					any_close_family_member = {
+						has_relation_rival = scope:liege
+					}
+				}
+			}
+		}
+		add = {
+			value = -50
+			desc = interactive_bannermen_desc_rel_vfam_bully
+		}
+	}
+	if = {
+		limit = {
+			any_close_family_member = {
+				has_relation_mentor = scope:liege
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_rel_vfam_mentor
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				any_relation = {
+					type = friend
+					OR = {
+						has_relation_nemesis = scope:liege
+						has_relation_rival = scope:liege
+					}
+				}
+				any_relation = {
+					type = best_friend
+					OR = {
+						has_relation_nemesis = scope:liege
+						has_relation_rival = scope:liege
+					}
+				}
+			}
+		}
+		add = {
+			value = -50
+			desc = interactive_bannermen_desc_circle_bond_foe
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				any_relation = {
+					type = nemesis
+					OR = {
+						has_relation_friend = scope:liege
+						has_relation_best_friend = scope:liege
+					}
+				}
+				any_relation = {
+					type = rival
+					OR = {
+						has_relation_friend = scope:liege
+						has_relation_best_friend = scope:liege
+					}
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_circle_foe_bond
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					claimant ?= scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 200
+			desc = interactive_bannermen_desc_claim_pressed
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					primary_attacker = scope:liege
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						is_spouse_of = scope:vassal
+					}
+				}
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_claimant_spouse
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					primary_attacker = scope:liege
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						is_heir_of = scope:vassal
+					}
+				}
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_claimant_heir
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					primary_attacker = scope:liege
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						is_close_family_of = scope:vassal
+					}
+				}
+			}
+		}
+		add = {
+			value = 50
+			desc = interactive_bannermen_desc_claimant_kin
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					primary_attacker = scope:liege
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						exists = house
+						exists = scope:vassal.house
+						house = scope:vassal.house
+					}
+				}
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_claimant_house
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					primary_attacker = scope:liege
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						exists = dynasty
+						exists = scope:vassal.dynasty
+						dynasty = scope:vassal.dynasty
+					}
+				}
+			}
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_claimant_dynasty
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					primary_attacker = scope:liege
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						is_extended_family_of = scope:vassal
+					}
+				}
+			}
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_claimant_extkin
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					primary_attacker = scope:liege
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						OR = {
+							has_relation_soulmate = scope:vassal
+							has_relation_blood_brother = scope:vassal
+							has_relation_best_friend = scope:vassal
+							has_relation_lover = scope:vassal
+							has_relation_friend = scope:vassal
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_claimant_bond
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					primary_attacker = scope:liege
+					exists = claimant
+					claimant = {
+						NOT = {
+							this = scope:vassal
+						}
+						OR = {
+							has_relation_nemesis = scope:vassal
+							has_relation_rival = scope:vassal
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_claimant_foe
+		}
+	}
+	if = {
+		limit = {
+			highest_held_title_tier = tier_county
+			OR = {
+				has_opinion_modifier = {
+					modifier = received_title_barony
+					target = scope:liege
+				}
+				has_opinion_modifier = {
+					modifier = received_title_county
+					target = scope:liege
+				}
+				has_opinion_modifier = {
+					modifier = received_title_duchy
+					target = scope:liege
+				}
+				has_opinion_modifier = {
+					modifier = received_title_kingdom
+					target = scope:liege
+				}
+				has_opinion_modifier = {
+					modifier = received_title_empire
+					target = scope:liege
+				}
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_grant_landed
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_opinion_modifier = {
+					modifier = received_title_barony
+					target = scope:liege
+				}
+				has_opinion_modifier = {
+					modifier = received_title_county
+					target = scope:liege
+				}
+				has_opinion_modifier = {
+					modifier = received_title_duchy
+					target = scope:liege
+				}
+				has_opinion_modifier = {
+					modifier = received_title_kingdom
+					target = scope:liege
+				}
+				has_opinion_modifier = {
+					modifier = received_title_empire
+					target = scope:liege
+				}
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_grant_title
+		}
+	}
+	if = {
+		limit = {
+			has_opinion_modifier = {
+				modifier = granted_vassal
+				target = scope:liege
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_granted_vassal
+		}
+	}
+	if = {
+		limit = {
+			has_opinion_modifier = {
+				modifier = boosted_efficiency_opinion
+				target = scope:liege
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_op_bolstered_governance
+		}
+	}
+	if = {
+		limit = {
+			has_opinion_modifier = {
+				modifier = supported_candidacy_opinion
+				target = scope:liege
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_op_supported_candidacy
+		}
+	}
+	if = {
+		limit = {
+			has_opinion_modifier = {
+				modifier = revoked_title
+				target = scope:liege
+			}
+			NOR = {
+				has_relation_rival = scope:liege
+				has_relation_nemesis = scope:liege
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_op_revoked_title
+		}
+	}
+	if = {
+		limit = {
+			has_opinion_modifier = {
+				modifier = usurped_title
+				target = scope:liege
+			}
+			NOR = {
+				has_relation_rival = scope:liege
+				has_relation_nemesis = scope:liege
+			}
+		}
+		add = {
+			value = -30
+			desc = interactive_bannermen_desc_op_usurped_title
+		}
+	}
+	if = {
+		limit = {
+			has_opinion_modifier = {
+				modifier = forced_my_resignation_opinion
+				target = scope:liege
+			}
+			NOR = {
+				has_relation_rival = scope:liege
+				has_relation_nemesis = scope:liege
+			}
+		}
+		add = {
+			value = -30
+			desc = interactive_bannermen_desc_op_forced_resignation
+		}
+	}
+	if = {
+		limit = {
+			has_opinion_modifier = {
+				modifier = blinded_me
+				target = scope:liege
+			}
+		}
+		add = {
+			value = -30
+			desc = interactive_bannermen_desc_op_blinded
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					primary_defender = scope:liege
+					primary_attacker = {
+						NOT = {
+							this = scope:vassal
+						}
+						highest_held_title_tier = tier_hegemony
+					}
+				}
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_enemy_hegemony
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					primary_defender = scope:liege
+					primary_attacker = {
+						NOT = {
+							this = scope:vassal
+						}
+						tier_difference = {
+							target = scope:liege
+							value >= 2
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_enemy_tier_much_higher
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_character_war = {
+					primary_defender = scope:liege
+					primary_attacker = {
+						NOT = {
+							this = scope:vassal
+						}
+						tier_difference = {
+							target = scope:liege
+							value = 1
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_enemy_tier_higher
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_imprisoned = yes
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_liege_prisoner
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_incapable = yes
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_liege_incapable
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				is_adult = no
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_liege_child
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:liege = {
+					is_rightful_liege_of = scope:vassal
+				}
+			}
+			NOT = {
+				scope:liege = {
+					government_has_flag = government_is_steppe_admin
+				}
+			}
+			primary_title = {
+				NOR = {
+					AND = {
+						exists = duchy
+						duchy = {
+							exists = holder
+							holder = scope:liege
+						}
+					}
+					AND = {
+						exists = kingdom
+						kingdom = {
+							exists = holder
+							holder = scope:liege
+						}
+					}
+					AND = {
+						exists = empire
+						empire = {
+							exists = holder
+							holder = scope:liege
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_not_rightful_liege
+		}
+	}
+	if = {
+		limit = {
+			superior ?= scope:liege
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_religious_superior
+		}
+	}
+	else_if = {
+		limit = {
+			religious_head_or_challenger ?= scope:liege
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_head_of_faith
+		}
+	}
+	else_if = {
+		limit = {
+			rite.head_of_rite ?= scope:liege
+		}
+		add = {
+			value = 5
+			desc = interactive_bannermen_desc_head_of_rite
+		}
+	}
+	if = {
+		limit = {
+			is_clergy = yes
+			scope:liege = {
+				government_has_flag = government_is_theocracy
+			}
+			exists = superior
+			NOT = {
+				superior = scope:liege
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_religious_superior_not
+		}
+	}
+	if = {
+		limit = {
+			was_preferred_heir = scope:liege
+		}
+		add = {
+			value = 25
+			desc = interactive_bannermen_desc_preferred_heir
+		}
+	}
+	if = {
+		limit = {
+			exists = primary_heir
+			primary_heir = {
+				has_relation_best_friend = scope:liege
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_rel_vheir_best_friend
+		}
+	}
+	else_if = {
+		limit = {
+			exists = primary_spouse
+			primary_spouse = {
+				has_relation_best_friend = scope:liege
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_rel_vspouse_best_friend
+		}
+	}
+	else_if = {
+		limit = {
+			any_close_family_member = {
+				has_relation_blood_brother = scope:liege
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_rel_vfam_bloodbro
+		}
+	}
+	else_if = {
+		limit = {
+			exists = primary_heir
+			primary_heir = {
+				has_relation_friend = scope:liege
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_rel_vheir_friend
+		}
+	}
+	else_if = {
+		limit = {
+			exists = primary_spouse
+			primary_spouse = {
+				has_relation_friend = scope:liege
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_rel_vspouse_friend
+		}
+	}
+	else_if = {
+		limit = {
+			any_close_family_member = {
+				has_relation_best_friend = scope:liege
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_rel_vfam_best_friend
+		}
+	}
+	else_if = {
+		limit = {
+			any_close_family_member = {
+				has_relation_friend = scope:liege
+			}
+		}
+		add = {
+			value = 60
+			desc = interactive_bannermen_desc_rel_vfam_friend
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				any_relation = {
+					type = friend
+					OR = {
+						has_relation_friend = scope:liege
+						has_relation_best_friend = scope:liege
+						has_relation_blood_brother = scope:liege
+					}
+				}
+				any_relation = {
+					type = best_friend
+					OR = {
+						has_relation_friend = scope:liege
+						has_relation_best_friend = scope:liege
+						has_relation_blood_brother = scope:liege
+					}
+				}
+				any_relation = {
+					type = blood_brother
+					OR = {
+						has_relation_friend = scope:liege
+						has_relation_best_friend = scope:liege
+						has_relation_blood_brother = scope:liege
+					}
+				}
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_circle_shared_bond
+		}
+	}
+	if = {
+		limit = {
+			exists = primary_heir
+			primary_heir = {
+				has_relation_soulmate = scope:liege
+			}
+		}
+		add = {
+			value = 125
+			desc = interactive_bannermen_desc_rel_vheir_soulmate
+		}
+	}
+	else_if = {
+		limit = {
+			any_close_family_member = {
+				has_relation_soulmate = scope:liege
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_rel_vfam_soulmate
+		}
+	}
+	else_if = {
+		limit = {
+			exists = primary_heir
+			primary_heir = {
+				has_relation_lover = scope:liege
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_rel_vheir_lover
+		}
+	}
+	else_if = {
+		limit = {
+			any_close_family_member = {
+				has_relation_lover = scope:liege
+			}
+		}
+		add = {
+			value = 75
+			desc = interactive_bannermen_desc_rel_vfam_lover
+		}
+	}
+	if = {
+		limit = {
+			exists = primary_spouse
+			primary_spouse = {
+				has_relation_lover = scope:liege
+				NOT = {
+					any_secret = {
+						secret_type = secret_lover
+						secret_target = scope:liege
+						NOT = {
+							is_known_by = scope:vassal
+						}
+					}
+				}
+			}
+			scope:liege = {
+				NOT = {
+					any_secret = {
+						secret_type = secret_lover
+						secret_target = {
+							is_spouse_of = scope:vassal
+						}
+						NOT = {
+							is_known_by = scope:vassal
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_rel_vspouse_lover
+		}
+	}
+	if = {
+		limit = {
+			exists = primary_heir
+			primary_heir = {
+				has_relation_nemesis = scope:liege
+			}
+		}
+		add = {
+			value = -125
+			desc = interactive_bannermen_desc_rel_vheir_nemesis
+		}
+	}
+	else_if = {
+		limit = {
+			exists = primary_spouse
+			primary_spouse = {
+				has_relation_nemesis = scope:liege
+			}
+		}
+		add = {
+			value = -125
+			desc = interactive_bannermen_desc_rel_vspouse_nemesis
+		}
+	}
+	else_if = {
+		limit = {
+			exists = primary_heir
+			primary_heir = {
+				has_relation_rival = scope:liege
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_rel_vheir_rival
+		}
+	}
+	else_if = {
+		limit = {
+			exists = primary_spouse
+			primary_spouse = {
+				has_relation_rival = scope:liege
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_rel_vspouse_rival
+		}
+	}
+	else_if = {
+		limit = {
+			any_close_family_member = {
+				has_relation_nemesis = scope:liege
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_rel_vfam_nemesis
+		}
+	}
+	else_if = {
+		limit = {
+			any_close_family_member = {
+				has_relation_rival = scope:liege
+			}
+			NOT = {
+				OR = {
+					AND = {
+						exists = primary_heir
+						primary_heir = {
+							has_relation_grudge = scope:liege
+						}
+					}
+					AND = {
+						exists = primary_spouse
+						primary_spouse = {
+							has_relation_grudge = scope:liege
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_rel_vfam_rival
+		}
+	}
+	else_if = {
+		limit = {
+			any_close_family_member = {
+				has_relation_victim = scope:liege
+			}
+			NOT = {
+				OR = {
+					AND = {
+						exists = primary_heir
+						primary_heir = {
+							has_relation_grudge = scope:liege
+						}
+					}
+					AND = {
+						exists = primary_spouse
+						primary_spouse = {
+							has_relation_grudge = scope:liege
+						}
+					}
+					any_close_family_member = {
+						has_relation_grudge = scope:liege
+					}
+					any_close_family_member = {
+						has_relation_bully = scope:liege
+					}
+				}
+			}
+		}
+		add = {
+			value = -30
+			desc = interactive_bannermen_desc_rel_vfam_victim
+		}
+	}
+	if = {
+		limit = {
+			has_relation_victim = scope:liege
+			NOT = {
+				OR = {
+					has_relation_nemesis = scope:liege
+					has_relation_rival = scope:liege
+					scope:liege = {
+						exists = primary_heir
+						primary_heir = {
+							has_relation_nemesis = scope:vassal
+						}
+					}
+					scope:liege = {
+						exists = primary_spouse
+						primary_spouse = {
+							has_relation_nemesis = scope:vassal
+						}
+					}
+					has_relation_grudge = scope:liege
+					scope:liege = {
+						exists = primary_heir
+						primary_heir = {
+							has_relation_rival = scope:vassal
+						}
+					}
+					scope:liege = {
+						exists = primary_spouse
+						primary_spouse = {
+							has_relation_rival = scope:vassal
+						}
+					}
+					scope:liege = {
+						any_close_family_member = {
+							has_relation_nemesis = scope:vassal
+						}
+					}
+					scope:liege = {
+						exists = primary_heir
+						primary_heir = {
+							has_relation_grudge = scope:vassal
+						}
+					}
+					scope:liege = {
+						exists = primary_spouse
+						primary_spouse = {
+							has_relation_grudge = scope:vassal
+						}
+					}
+					scope:liege = {
+						any_close_family_member = {
+							has_relation_rival = scope:vassal
+						}
+					}
+					scope:liege = {
+						any_close_family_member = {
+							has_relation_grudge = scope:vassal
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -60
+			desc = interactive_bannermen_desc_rel_bully
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				any_relation = {
+					type = nemesis
+					OR = {
+						has_relation_nemesis = scope:liege
+						has_relation_rival = scope:liege
+					}
+				}
+				any_relation = {
+					type = rival
+					OR = {
+						has_relation_nemesis = scope:liege
+						has_relation_rival = scope:liege
+					}
+				}
+			}
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_circle_shared_foe
+		}
+	}
+	if = {
+		limit = {
+			has_relation_student = scope:liege
+		}
+		add = {
+			value = 50
+			desc = interactive_bannermen_desc_rel_mentor
+		}
+	}
+	if = {
+		limit = {
+			any_close_family_member = {
+				has_relation_ward = scope:liege
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_rel_vfam_ward
+		}
+	}
+	if = {
+		limit = {
+			any_close_family_member = {
+				has_relation_guardian = scope:liege
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_rel_vfam_guardian
+		}
+	}
+	if = {
+		limit = {
+			any_close_family_member = {
+				has_relation_student = scope:liege
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_rel_vfam_student
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_strong_usable_hook = scope:vassal
+			}
+			NOT = {
+				scope:vassal = {
+					puppeteer ?= scope:liege
+				}
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_hook_strong
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_usable_hook = scope:vassal
+			}
+			NOT = {
+				scope:vassal = {
+					puppeteer ?= scope:liege
+				}
+			}
+		}
+		add = {
+			value = 50
+			desc = interactive_bannermen_desc_hook_weak
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				puppeteer ?= scope:vassal
+			}
+		}
+		add = {
+			value = -125
+			desc = interactive_bannermen_desc_their_puppet
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_killed_character = {
+					is_close_family_of = scope:vassal
+				}
+			}
+			scope:liege = {
+				NOT = {
+					any_secret = {
+						secret_type = secret_murder
+						secret_target = {
+							is_close_family_of = scope:vassal
+						}
+						NOT = {
+							is_known_by = scope:vassal
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_kinkiller
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_killed_character = {
+					any_former_spouse = {
+						this = scope:vassal
+					}
+				}
+			}
+			scope:liege = {
+				NOT = {
+					any_secret = {
+						secret_type = secret_murder
+						secret_target = {
+							any_former_spouse = {
+								this = scope:vassal
+							}
+						}
+						NOT = {
+							is_known_by = scope:vassal
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_killed_spouse
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_killed_character = {
+					has_relation_soulmate = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_killed_soulmate
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_killed_character = {
+					has_relation_best_friend = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -75
+			desc = interactive_bannermen_desc_killed_best_friend
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_killed_character = {
+					has_relation_lover = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -60
+			desc = interactive_bannermen_desc_killed_lover
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_killed_character = {
+					has_relation_friend = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -50
+			desc = interactive_bannermen_desc_killed_friend
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_killed_character = {
+					has_relation_guardian = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_killed_ward
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_killed_character = {
+					has_relation_ward = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_killed_guardian
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_killed_character = {
+					has_relation_nemesis = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_killed_nemesis
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				any_killed_character = {
+					has_relation_rival = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 25
+			desc = interactive_bannermen_desc_killed_rival
+		}
+	}
+	if = {
+		limit = {
+			faith = scope:liege.faith
+			scope:liege = {
+				has_trait = excommunicated
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_excomm
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_character_trait = {
+					scope:vassal.rite ?= {
+						trait_is_sin_rite = prev
+					}
+					NOT = {
+						scope:vassal = {
+							has_trait = prev
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_liege_sin
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_character_trait = {
+					scope:vassal.rite ?= {
+						trait_is_virtue_rite = prev
+					}
+					NOT = {
+						scope:vassal = {
+							has_trait = prev
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_liege_virtue
+		}
+	}
+	if = {
+		limit = {
+			has_same_sinful_trait = scope:liege
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_same_sin
+		}
+	}
+	if = {
+		limit = {
+			has_same_virtue_trait = scope:liege
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_same_virtue
+		}
+	}
+	if = {
+		limit = {
+			any_personal_tenet = {
+				scope:liege = {
+					has_personal_tenet = prev
+				}
+				NOT = {
+					scope:vassal.rite = {
+						rite_has_tenet = prev
+					}
+				}
+				NOT = {
+					scope:vassal.rite = {
+						has_tenet_status = {
+							tenet = prev
+							status = prohibited
+						}
+					}
+				}
+				NOT = {
+					scope:liege.rite = {
+						has_tenet_status = {
+							tenet = prev
+							status = prohibited
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_same_personal_tenet
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_character_trait = {
+					any_opposite_trait = {
+						scope:vassal = {
+							has_trait = prev
+						}
+					}
+				}
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_opposite_trait
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_trait = conqueror
+				has_character_modifier = ai_extreme_conqueror_modifier
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_liege_scourge
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_trait = conqueror
+			}
+		}
+		add = {
+			value = 50
+			desc = interactive_bannermen_desc_liege_trait_conqueror
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_trait = brave
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_liege_trait_brave
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_trait = craven
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_liege_trait_craven
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_trait = just
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_liege_trait_just
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_trait = arbitrary
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_liege_trait_arbitrary
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_trait = honest
+			}
+		}
+		add = {
+			value = 5
+			desc = interactive_bannermen_desc_liege_trait_honest
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_trait = deceitful
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_liege_trait_deceitful
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_trait = compassionate
+			}
+		}
+		add = {
+			value = 5
+			desc = interactive_bannermen_desc_liege_trait_compassionate
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_trait = callous
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_liege_trait_callous
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_trait = sadistic
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_liege_trait_sadistic
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_trait = kinslayer_3
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_liege_trait_kinslayer_3
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_trait = kinslayer_2
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_liege_trait_kinslayer_2
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_trait = kinslayer_1
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_liege_trait_kinslayer_1
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_trait = murderer
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_liege_trait_murderer
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_trait = pure_blooded
+			}
+		}
+		add = {
+			value = 5
+			desc = interactive_bannermen_desc_liege_trait_pure_blooded
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				OR = {
+					num_of_bad_genetic_traits >= 1
+					has_trait = inbred
+				}
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_liege_congenital
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_trait = lunatic
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_liege_trait_lunatic
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_trait = possessed
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_liege_trait_possessed
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_trait = depressed
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_liege_trait_depressed
+		}
+	}
+	if = {
+		limit = {
+			exists = trait:herald
+			scope:liege = {
+				has_trait = herald
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_liege_trait_herald
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				miv_has_tamed_dragon_trigger = yes
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_liege_dragons_tamed
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				miv_has_owned_dragon_trigger = yes
+			}
+		}
+		add = {
+			value = 50
+			desc = interactive_bannermen_desc_liege_dragons_owned
+		}
+	}
+	if = {
+		limit = {
+			has_opinion_modifier = {
+				modifier = internal_turmoil_vassal_opinion
+				target = scope:liege
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_recent_civilwar
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_close_family_member = {
+					has_relation_bully = scope:vassal
+				}
+			}
+			NOT = {
+				OR = {
+					has_relation_nemesis = scope:liege
+					has_relation_rival = scope:liege
+					scope:liege = {
+						exists = primary_heir
+						primary_heir = {
+							has_relation_nemesis = scope:vassal
+						}
+					}
+					scope:liege = {
+						exists = primary_spouse
+						primary_spouse = {
+							has_relation_nemesis = scope:vassal
+						}
+					}
+					has_relation_grudge = scope:liege
+					scope:liege = {
+						exists = primary_heir
+						primary_heir = {
+							has_relation_rival = scope:vassal
+						}
+					}
+					scope:liege = {
+						exists = primary_spouse
+						primary_spouse = {
+							has_relation_rival = scope:vassal
+						}
+					}
+					scope:liege = {
+						any_close_family_member = {
+							has_relation_nemesis = scope:vassal
+						}
+					}
+					scope:liege = {
+						exists = primary_heir
+						primary_heir = {
+							has_relation_grudge = scope:vassal
+						}
+					}
+					scope:liege = {
+						exists = primary_spouse
+						primary_spouse = {
+							has_relation_grudge = scope:vassal
+						}
+					}
+					scope:liege = {
+						any_close_family_member = {
+							has_relation_rival = scope:vassal
+						}
+					}
+					scope:liege = {
+						any_close_family_member = {
+							has_relation_grudge = scope:vassal
+						}
+					}
+					has_relation_victim = scope:liege
+				}
+			}
+		}
+		add = {
+			value = -50
+			desc = interactive_bannermen_desc_rel_fam_bully
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				any_close_family_member = {
+					has_relation_mentor = scope:vassal
+				}
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_rel_fam_mentor
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				government_has_flag = government_is_clan
+			}
+			interactive_bannermen_house_relation_trigger = {
+				OTHER = scope:liege
+				LEVEL = amity
+			}
+		}
+		add = {
+			value = 50
+			desc = interactive_bannermen_desc_hr_amity
+		}
+	}
+	else_if = {
+		limit = {
+			interactive_bannermen_house_relation_trigger = {
+				OTHER = scope:liege
+				LEVEL = amity
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_hr_amity
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				government_has_flag = government_is_clan
+			}
+			interactive_bannermen_house_relation_trigger = {
+				OTHER = scope:liege
+				LEVEL = friendly
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_hr_friendly
+		}
+	}
+	else_if = {
+		limit = {
+			interactive_bannermen_house_relation_trigger = {
+				OTHER = scope:liege
+				LEVEL = friendly
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_hr_friendly
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				government_has_flag = government_is_clan
+			}
+			interactive_bannermen_house_relation_trigger = {
+				OTHER = scope:liege
+				LEVEL = cordial
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_hr_cordial
+		}
+	}
+	else_if = {
+		limit = {
+			interactive_bannermen_house_relation_trigger = {
+				OTHER = scope:liege
+				LEVEL = cordial
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_hr_cordial
+		}
+	}
+	else_if = {
+		limit = {
+			interactive_bannermen_house_relation_trigger = {
+				OTHER = scope:liege
+				LEVEL = quarrel
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_hr_quarrel
+		}
+	}
+	else_if = {
+		limit = {
+			interactive_bannermen_house_relation_trigger = {
+				OTHER = scope:liege
+				LEVEL = rivalry
+			}
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_hr_rivalry
+		}
+	}
+	else_if = {
+		limit = {
+			interactive_bannermen_house_relation_trigger = {
+				OTHER = scope:liege
+				LEVEL = feud
+			}
+		}
+		add = {
+			value = -100
+			desc = interactive_bannermen_desc_hr_feud
+		}
+	}
+	if = {
+		limit = {
+			exists = house
+			exists = scope:liege.house
+			OR = {
+				house = scope:liege.house
+				dynasty = scope:liege.dynasty
+			}
+			scope:liege.house = {
+				has_house_unity = yes
+				has_house_unity_stage = harmonious
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_gov_clan_unity_harmonious
+		}
+	}
+	else_if = {
+		limit = {
+			exists = house
+			exists = scope:liege.house
+			OR = {
+				house = scope:liege.house
+				dynasty = scope:liege.dynasty
+			}
+			scope:liege.house = {
+				has_house_unity = yes
+				has_house_unity_stage = friendly
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_gov_clan_unity_friendly
+		}
+	}
+	else_if = {
+		limit = {
+			exists = house
+			exists = scope:liege.house
+			OR = {
+				house = scope:liege.house
+				dynasty = scope:liege.dynasty
+			}
+			scope:liege.house = {
+				has_house_unity = yes
+				has_house_unity_stage = impassive
+			}
+		}
+		add = {
+			value = 5
+			desc = interactive_bannermen_desc_gov_clan_unity_impassive
+		}
+	}
+	else_if = {
+		limit = {
+			exists = house
+			exists = scope:liege.house
+			OR = {
+				house = scope:liege.house
+				dynasty = scope:liege.dynasty
+			}
+			scope:liege.house = {
+				has_house_unity = yes
+				has_house_unity_stage = competitive
+			}
+		}
+		add = {
+			value = -25
+			desc = interactive_bannermen_desc_gov_clan_unity_competitive
+		}
+	}
+	else_if = {
+		limit = {
+			exists = house
+			exists = scope:liege.house
+			OR = {
+				house = scope:liege.house
+				dynasty = scope:liege.dynasty
+			}
+			scope:liege.house = {
+				has_house_unity = yes
+				has_house_unity_stage = antagonistic
+			}
+		}
+		add = {
+			value = -50
+			desc = interactive_bannermen_desc_gov_clan_unity_antagonistic
+		}
+	}
+	if = {
+		limit = {
+			has_dread_level_towards = {
+				target = scope:liege
+				level >= 2
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_dread_terrified
+		}
+	}
+	else_if = {
+		limit = {
+			has_dread_level_towards = {
+				target = scope:liege
+				level = 1
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_dread_intimidated
+		}
+	}
+	if = {
+		limit = {
+			government_has_flag = government_is_tribal
+			miv_gov_prestige_gap <= -2
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_gov_prestige_you_far_exceed
+		}
+	}
+	else_if = {
+		limit = {
+			government_has_flag = government_is_tribal
+			miv_gov_prestige_gap <= -1
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_gov_prestige_you_exceed
+		}
+	}
+	if = {
+		limit = {
+			government_has_flag = government_has_influence
+			scope:liege = {
+				government_has_flag = government_has_influence
+			}
+			miv_gov_influence_gap <= -2
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_gov_influence_you_far_exceed
+		}
+	}
+	else_if = {
+		limit = {
+			government_has_flag = government_has_influence
+			scope:liege = {
+				government_has_flag = government_has_influence
+			}
+			miv_gov_influence_gap <= -1
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_gov_influence_you_exceed
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				government_has_flag = government_is_theocracy
+				government_has_flag = government_is_mandala
+			}
+			miv_gov_devotion_gap <= -2
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_gov_devotion_you_far_exceed
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				government_has_flag = government_is_theocracy
+				government_has_flag = government_is_mandala
+			}
+			miv_gov_devotion_gap <= -1
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_gov_devotion_you_exceed
+		}
+	}
+	if = {
+		limit = {
+			government_has_flag = government_is_republic
+			exists = dynasty
+			scope:liege = {
+				exists = dynasty
+			}
+			miv_gov_splendor_gap <= -2
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_gov_splendor_you_far_exceed
+		}
+	}
+	else_if = {
+		limit = {
+			government_has_flag = government_is_republic
+			exists = dynasty
+			scope:liege = {
+				exists = dynasty
+			}
+			miv_gov_splendor_gap <= -1
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_gov_splendor_you_exceed
+		}
+	}
+	if = {
+		limit = {
+			government_has_flag = government_is_theocracy
+			faith = scope:liege.faith
+			scope:liege = {
+				has_fulfillment_parameter = sp_clerical_vassals_faction_more
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_liege_doomed
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				highest_held_title_tier = tier_hegemony
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_liege_hegemony
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				highest_held_title_tier = tier_empire
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_liege_empire
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				highest_held_title_tier = tier_kingdom
+			}
+		}
+		add = {
+			value = -5
+			desc = interactive_bannermen_desc_liege_kingdom
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				miv_nights_watch_government_trigger = yes
+			}
+		}
+		add = {
+			value = 100
+			desc = interactive_bannermen_desc_liege_nights_watch
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = crown_authority_3
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_crown_absolute
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = crown_authority_2
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_crown_high
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = crown_authority_1
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_crown_limited
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = crown_authority_0
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_crown_autonomous
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = tribal_authority_3
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_authority_tribal_3
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = tribal_authority_2
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_authority_tribal_2
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = tribal_authority_1
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_authority_tribal_1
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = tribal_authority_0
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_authority_tribal_0
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = imperial_bureaucracy_3
+			}
+		}
+		add = {
+			value = -30
+			desc = interactive_bannermen_desc_authority_imperial_3
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = imperial_bureaucracy_2
+			}
+		}
+		add = {
+			value = -15
+			desc = interactive_bannermen_desc_authority_imperial_2
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = imperial_bureaucracy_1
+			}
+		}
+		add = {
+			value = 15
+			desc = interactive_bannermen_desc_authority_imperial_1
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = imperial_bureaucracy_0
+			}
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_authority_imperial_0
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = celestial_bureaucracy_3
+			}
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_authority_celestial_3
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = celestial_bureaucracy_2
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_authority_celestial_2
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = celestial_bureaucracy_1
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_authority_celestial_1
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = celestial_bureaucracy_0
+			}
+		}
+		add = {
+			value = -30
+			desc = interactive_bannermen_desc_authority_celestial_0
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = meritocratic_bureaucracy_3
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_authority_meritocratic_3
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = meritocratic_bureaucracy_2
+			}
+		}
+		add = {
+			value = 15
+			desc = interactive_bannermen_desc_authority_meritocratic_2
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = meritocratic_bureaucracy_1
+			}
+		}
+		add = {
+			value = 5
+			desc = interactive_bannermen_desc_authority_meritocratic_1
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = meritocratic_bureaucracy_0
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_authority_meritocratic_0
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = japanese_bureaucracy_3
+			}
+		}
+		add = {
+			value = -30
+			desc = interactive_bannermen_desc_authority_japanese_3
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = japanese_bureaucracy_2
+			}
+		}
+		add = {
+			value = -15
+			desc = interactive_bannermen_desc_authority_japanese_2
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = japanese_bureaucracy_1
+			}
+		}
+		add = {
+			value = 15
+			desc = interactive_bannermen_desc_authority_japanese_1
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = japanese_bureaucracy_0
+			}
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_authority_japanese_0
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = nomadic_authority_5
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_authority_nomadic_5
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = nomadic_authority_4
+			}
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_authority_nomadic_4
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = nomadic_authority_3
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_authority_nomadic_3
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = nomadic_authority_2
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_authority_nomadic_2
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = nomadic_authority_1
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_authority_nomadic_1
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = mandala_decree_expansion
+			}
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_decree_expansion
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = mandala_decree_prosperity
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_decree_prosperity
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = mandala_decree_reverence
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_decree_reverence
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = mandala_decree_none
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_decree_none
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = church_authority_3
+			}
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_authority_church_3
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = church_authority_2
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_authority_church_2
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = church_authority_1
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_authority_church_1
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_realm_law = church_authority_0
+			}
+		}
+		add = {
+			value = -20
+			desc = interactive_bannermen_desc_authority_church_0
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 500
+			}
+			is_allied_to = scope:liege
+		}
+		add = {
+			value = -50
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_allied_500
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 450
+			}
+			is_allied_to = scope:liege
+		}
+		add = {
+			value = -45
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_allied_450
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 400
+			}
+			is_allied_to = scope:liege
+		}
+		add = {
+			value = -40
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_allied_400
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 350
+			}
+			is_allied_to = scope:liege
+		}
+		add = {
+			value = -35
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_allied_350
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 300
+			}
+			is_allied_to = scope:liege
+		}
+		add = {
+			value = -30
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_allied_300
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 250
+			}
+			is_allied_to = scope:liege
+		}
+		add = {
+			value = -25
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_allied_250
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 200
+			}
+			is_allied_to = scope:liege
+		}
+		add = {
+			value = -20
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_allied_200
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 150
+			}
+			is_allied_to = scope:liege
+		}
+		add = {
+			value = -15
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_allied_150
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 100
+			}
+			is_allied_to = scope:liege
+		}
+		add = {
+			value = -10
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_allied_100
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 50
+			}
+			is_allied_to = scope:liege
+		}
+		add = {
+			value = -5
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_allied_50
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 500
+			}
+			opinion = {
+				target = scope:liege
+				value < 50
+			}
+		}
+		add = {
+			value = -100
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_size_500
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 450
+			}
+			opinion = {
+				target = scope:liege
+				value < 50
+			}
+		}
+		add = {
+			value = -90
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_size_450
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 400
+			}
+			opinion = {
+				target = scope:liege
+				value < 50
+			}
+		}
+		add = {
+			value = -80
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_size_400
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 350
+			}
+			opinion = {
+				target = scope:liege
+				value < 50
+			}
+		}
+		add = {
+			value = -70
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_size_350
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 300
+			}
+			opinion = {
+				target = scope:liege
+				value < 50
+			}
+		}
+		add = {
+			value = -60
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_size_300
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 250
+			}
+			opinion = {
+				target = scope:liege
+				value < 50
+			}
+		}
+		add = {
+			value = -50
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_size_250
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 200
+			}
+			opinion = {
+				target = scope:liege
+				value < 50
+			}
+		}
+		add = {
+			value = -40
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_size_200
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 150
+			}
+			opinion = {
+				target = scope:liege
+				value < 50
+			}
+		}
+		add = {
+			value = -30
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_size_150
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 100
+			}
+			opinion = {
+				target = scope:liege
+				value < 50
+			}
+		}
+		add = {
+			value = -20
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_size_100
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 50
+			}
+			opinion = {
+				target = scope:liege
+				value < 50
+			}
+		}
+		add = {
+			value = -10
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_size_50
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 500
+			}
+			opinion = {
+				target = scope:liege
+				value >= 50
+			}
+		}
+		add = {
+			value = -50
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_liked_500
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 450
+			}
+			opinion = {
+				target = scope:liege
+				value >= 50
+			}
+		}
+		add = {
+			value = -45
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_liked_450
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 400
+			}
+			opinion = {
+				target = scope:liege
+				value >= 50
+			}
+		}
+		add = {
+			value = -40
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_liked_400
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 350
+			}
+			opinion = {
+				target = scope:liege
+				value >= 50
+			}
+		}
+		add = {
+			value = -35
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_liked_350
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 300
+			}
+			opinion = {
+				target = scope:liege
+				value >= 50
+			}
+		}
+		add = {
+			value = -30
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_liked_300
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 250
+			}
+			opinion = {
+				target = scope:liege
+				value >= 50
+			}
+		}
+		add = {
+			value = -25
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_liked_250
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 200
+			}
+			opinion = {
+				target = scope:liege
+				value >= 50
+			}
+		}
+		add = {
+			value = -20
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_liked_200
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 150
+			}
+			opinion = {
+				target = scope:liege
+				value >= 50
+			}
+		}
+		add = {
+			value = -15
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_liked_150
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 100
+			}
+			opinion = {
+				target = scope:liege
+				value >= 50
+			}
+		}
+		add = {
+			value = -10
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_liked_100
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_allied_to = scope:liege
+			}
+			NOT = {
+				has_game_rule = miv_realm_size_disabled
+			}
+			scope:liege = {
+				sub_realm_size >= 50
+			}
+			opinion = {
+				target = scope:liege
+				value >= 50
+			}
+		}
+		add = {
+			value = -5
+			multiply = miv_realm_size_factor
+			divide = 5
+			floor = yes
+			multiply = 5
+			desc = interactive_bannermen_desc_realm_liked_50
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_legitimacy = yes
+				legitimacy_level >= 8
+			}
+		}
+		add = {
+			value = 35
+			desc = interactive_bannermen_desc_legit_eternal
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_legitimacy = yes
+				legitimacy_level >= 7
+				legitimacy_level <= 7
+			}
+		}
+		add = {
+			value = 30
+			desc = interactive_bannermen_desc_legit_cosmic
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_legitimacy = yes
+				legitimacy_level >= 6
+				legitimacy_level <= 6
+			}
+		}
+		add = {
+			value = 25
+			desc = interactive_bannermen_desc_legit_destined
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_legitimacy = yes
+				legitimacy_level >= 5
+				legitimacy_level <= 5
+			}
+		}
+		add = {
+			value = 20
+			desc = interactive_bannermen_desc_legit_ordained
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_legitimacy = yes
+				legitimacy_level >= 4
+				legitimacy_level <= 4
+			}
+		}
+		add = {
+			value = 15
+			desc = interactive_bannermen_desc_legit_true
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_legitimacy = yes
+				legitimacy_level >= 3
+				legitimacy_level <= 3
+			}
+		}
+		add = {
+			value = 10
+			desc = interactive_bannermen_desc_legit_rightful
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_legitimacy = yes
+				legitimacy_level >= 2
+				legitimacy_level <= 2
+			}
+		}
+		add = {
+			value = 5
+			desc = interactive_bannermen_desc_legit_recognized
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_legitimacy = yes
+				legitimacy_level >= 1
+				legitimacy_level <= 1
+			}
+		}
+		add = {
+			value = -5
+			desc = interactive_bannermen_desc_legit_aspiring
+		}
+	}
+	else_if = {
+		limit = {
+			scope:liege = {
+				has_legitimacy = yes
+				legitimacy_level <= 0
+			}
+		}
+		add = {
+			value = -10
+			desc = interactive_bannermen_desc_legit_illegitimate
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_game_rule = vassal_difficulty_very_hard
+				AND = {
+					has_game_rule = vassal_difficulty_very_hard_player
+					scope:liege = {
+						is_ai = no
+					}
+				}
+			}
+		}
+		add = {
+			value = -80
+			desc = interactive_bannermen_desc_difficulty_very_hard
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = vassal_difficulty_hard
+				AND = {
+					has_game_rule = vassal_difficulty_hard_player
+					scope:liege = {
+						is_ai = no
+					}
+				}
+			}
+		}
+		add = {
+			value = -40
+			desc = interactive_bannermen_desc_difficulty_hard
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = vassal_difficulty_easy
+				AND = {
+					has_game_rule = vassal_difficulty_easy_player
+					scope:liege = {
+						is_ai = no
+					}
+				}
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_difficulty_easy
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = vassal_difficulty_very_easy
+				AND = {
+					has_game_rule = vassal_difficulty_very_easy_player
+					scope:liege = {
+						is_ai = no
+					}
+				}
+			}
+		}
+		add = {
+			value = 80
+			desc = interactive_bannermen_desc_difficulty_very_easy
+		}
+	}
+	if = {
+		limit = {
+			scope:liege = {
+				has_character_flag = miv_historical_loyalty
+			}
+		}
+		add = {
+			value = 40
+			desc = interactive_bannermen_desc_liege_game_start
+		}
+	}
+}
+
+miv_hover_state = {
+	value = 0
+	if = {
+		limit = {
+			NOT = {
+				exists = scope:liege
+			}
+		}
+		value = 0
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_game_rule = bannermen_mode_enabled
+			}
+		}
+		value = 0
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				is_vassal_of = scope:liege
+			}
+		}
+		value = 0
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				interactive_bannermen_scope_trigger = {
+					LIEGE = scope:liege
+				}
+			}
+		}
+		value = 0
+	}
+	else_if = {
+		limit = {
+			interactive_bannermen_rebellion_trigger = {
+				LIEGE = scope:liege
+			}
+		}
+		value = 1
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				interactive_bannermen_available_trigger = {
+					LIEGE = scope:liege
+				}
+			}
+		}
+		value = 3
+	}
+	else = {
+		value = 4
+	}
+}
+
+miv_hover_rung = {
+	value = 0
+	if = {
+		limit = {
+			save_temporary_scope_value_as = {
+				name = miv_hover_rung_state
+				value = miv_hover_state
+			}
+			scope:miv_hover_rung_state = 1
+		}
+		value = 1
+	}
+	else_if = {
+		limit = {
+			scope:miv_hover_rung_state = 3
+		}
+		value = 3
+	}
+	else_if = {
+		limit = {
+			scope:miv_hover_rung_state = 4
+		}
+		if = {
+			limit = {
+				save_temporary_scope_value_as = {
+					name = miv_hover_val
+					value = interactive_bannermen_muster_score
+				}
+				scope:miv_hover_val >= interactive_bannermen_prompt_threshold
+			}
+			value = 5
+		}
+		else_if = {
+			limit = {
+				scope:miv_hover_val >= interactive_bannermen_reluctant_threshold
+			}
+			value = 6
+		}
+		else_if = {
+			limit = {
+				scope:miv_hover_val >= interactive_bannermen_answer_threshold
+			}
+			value = 7
+		}
+		else_if = {
+			limit = {
+				scope:miv_hover_val < interactive_bannermen_betrayal_threshold
+			}
+			value = 9
+		}
+		else = {
+			value = 8
+		}
+	}
+}
+
+miv_bannermen_strength_count = {
+	value = 0
+	if = {
+		limit = {
+			has_game_rule = bannermen_mode_enabled
+			interactive_bannermen_foreign_enabled_trigger = yes
+		}
+		value = interactive_bannermen_eligible_count
+	}
+}
+
+miv_bannermen_not_answering_count = {
+	value = 0
+	every_vassal = {
+		limit = {
+			interactive_bannermen_scope_trigger = {
+				LIEGE = liege
+			}
+		}
+		liege = {
+			save_temporary_scope_as = liege
+		}
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				OR = {
+					interactive_bannermen_rebellion_trigger = {
+						LIEGE = scope:liege
+					}
+					AND = {
+						OR = {
+							NOT = {
+								interactive_bannermen_available_trigger = {
+									LIEGE = scope:liege
+								}
+							}
+							interactive_bannermen_muster_score < interactive_bannermen_answer_threshold
+						}
+					}
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+miv_bannermen_not_answering_strength = {
+	value = 0
+	every_vassal = {
+		limit = {
+			interactive_bannermen_scope_trigger = {
+				LIEGE = liege
+			}
+		}
+		liege = {
+			save_temporary_scope_as = liege
+		}
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				OR = {
+					interactive_bannermen_rebellion_trigger = {
+						LIEGE = scope:liege
+					}
+					AND = {
+						OR = {
+							NOT = {
+								interactive_bannermen_available_trigger = {
+									LIEGE = scope:liege
+								}
+							}
+							interactive_bannermen_muster_score < interactive_bannermen_answer_threshold
+						}
+					}
+				}
+			}
+			add = max_military_strength
+		}
+	}
+}
+
+miv_bannermen_answering_strength = {
+	value = interactive_bannermen_eligible_strength
+	subtract = miv_bannermen_not_answering_strength
+}
+
+miv_bannermen_answering_count = {
+	value = interactive_bannermen_eligible_count
+	subtract = miv_bannermen_not_answering_count
+}
+
+interactive_bannermen_betraying_count = {
+	value = interactive_bannermen_betray_count
+	add = interactive_bannermen_rebellion_count
+}
+
+miv_faction_threshold_level = {
+	value = 0
+	if = {
+		limit = {
+			has_game_rule = miv_faction_threshold_10
+		}
+		value = 10
+	}
+	else_if = {
+		limit = {
+			has_game_rule = miv_faction_threshold_20
+		}
+		value = 20
+	}
+	else_if = {
+		limit = {
+			has_game_rule = miv_faction_threshold_30
+		}
+		value = 30
+	}
+	else_if = {
+		limit = {
+			has_game_rule = miv_faction_threshold_40
+		}
+		value = 40
+	}
+	else_if = {
+		limit = {
+			has_game_rule = miv_faction_threshold_50
+		}
+		value = 50
+	}
+	else_if = {
+		limit = {
+			has_game_rule = miv_faction_threshold_60
+		}
+		value = 60
+	}
+	else_if = {
+		limit = {
+			has_game_rule = miv_faction_threshold_70
+		}
+		value = 70
+	}
+	else_if = {
+		limit = {
+			has_game_rule = miv_faction_threshold_80
+		}
+		value = 80
+	}
+	else_if = {
+		limit = {
+			has_game_rule = miv_faction_threshold_90
+		}
+		value = 90
+	}
+	else_if = {
+		limit = {
+			has_game_rule = miv_faction_threshold_100
+		}
+		value = 100
+	}
+}
+
+miv_realm_size_factor = {
+	value = 1
+	if = {
+		limit = {
+			has_game_rule = miv_realm_size_easy
+		}
+		value = 1
+	}
+	else_if = {
+		limit = {
+			has_game_rule = miv_realm_size_normal
+		}
+		value = 2
+	}
+	else_if = {
+		limit = {
+			has_game_rule = miv_realm_size_hard
+		}
+		value = 3
+	}
+	else_if = {
+		limit = {
+			has_game_rule = miv_realm_size_very_hard
+		}
+		value = 4
+	}
+	if = {
+		limit = {
+			has_global_variable = AGOT_is_loaded
+		}
+		multiply = 0.5
+	}
+}
+
+miv_vassal_distance_value = {
+	value = squared_distance_major
+	if = {
+		limit = {
+			has_game_rule = vassal_distance_massive
+		}
+		value = squared_distance_massive
+	}
+	else_if = {
+		limit = {
+			has_game_rule = vassal_distance_almost_massive
+		}
+		value = squared_distance_almost_massive
+	}
+	else_if = {
+		limit = {
+			has_game_rule = vassal_distance_huge
+		}
+		value = squared_distance_huge
+	}
+	else_if = {
+		limit = {
+			has_game_rule = vassal_distance_large
+		}
+		value = squared_distance_large
+	}
+	else_if = {
+		limit = {
+			has_game_rule = vassal_distance_major
+		}
+		value = squared_distance_major
+	}
+	else_if = {
+		limit = {
+			has_game_rule = vassal_distance_medium
+		}
+		value = squared_distance_medium
+	}
+	else_if = {
+		limit = {
+			has_game_rule = vassal_distance_small
+		}
+		value = squared_distance_small
+	}
+}
+
+miv_civil_war_distance_value = {
+	value = squared_distance_major
+	if = {
+		limit = {
+			has_game_rule = civil_war_distance_massive
+		}
+		value = squared_distance_massive
+	}
+	else_if = {
+		limit = {
+			has_game_rule = civil_war_distance_almost_massive
+		}
+		value = squared_distance_almost_massive
+	}
+	else_if = {
+		limit = {
+			has_game_rule = civil_war_distance_huge
+		}
+		value = squared_distance_huge
+	}
+	else_if = {
+		limit = {
+			has_game_rule = civil_war_distance_large
+		}
+		value = squared_distance_large
+	}
+	else_if = {
+		limit = {
+			has_game_rule = civil_war_distance_major
+		}
+		value = squared_distance_major
+	}
+	else_if = {
+		limit = {
+			has_game_rule = civil_war_distance_medium
+		}
+		value = squared_distance_medium
+	}
+	else_if = {
+		limit = {
+			has_game_rule = civil_war_distance_small
+		}
+		value = squared_distance_small
+	}
+}
+
+miv_leave_war_loyalty = {
+	value = 0
+	every_vassal = {
+		limit = {
+			this = scope:recipient
+		}
+		liege = {
+			save_temporary_scope_as = liege
+		}
+		save_temporary_scope_as = vassal
+		add = interactive_bannermen_muster_score
+	}
+}
+
+miv_leave_war_for_liege = {
+	value = -25
+	if = {
+		limit = {
+			save_temporary_scope_value_as = {
+				name = miv_leave_war_score
+				value = miv_leave_war_loyalty
+			}
+		}
+	}
+	if = {
+		limit = {
+			scope:miv_leave_war_score >= interactive_bannermen_prompt_threshold
+		}
+		value = -1000
+	}
+	else_if = {
+		limit = {
+			scope:miv_leave_war_score >= interactive_bannermen_reluctant_threshold
+		}
+		value = -65
+	}
+	else_if = {
+		limit = {
+			scope:miv_leave_war_score >= interactive_bannermen_answer_threshold
+		}
+		value = -55
+	}
+	else_if = {
+		limit = {
+			scope:miv_leave_war_score >= interactive_bannermen_betrayal_threshold
+		}
+		value = -35
+	}
+}
+
+miv_leave_war_against_liege = {
+	value = -1000
+	if = {
+		limit = {
+			save_temporary_scope_value_as = {
+				name = miv_leave_war_score
+				value = miv_leave_war_loyalty
+			}
+		}
+	}
+	if = {
+		limit = {
+			scope:miv_leave_war_score >= interactive_bannermen_prompt_threshold
+		}
+		value = -25
+	}
+	else_if = {
+		limit = {
+			scope:miv_leave_war_score >= interactive_bannermen_reluctant_threshold
+		}
+		value = -35
+	}
+	else_if = {
+		limit = {
+			scope:miv_leave_war_score >= interactive_bannermen_answer_threshold
+		}
+		value = -55
+	}
+	else_if = {
+		limit = {
+			scope:miv_leave_war_score >= interactive_bannermen_betrayal_threshold
+		}
+		value = -65
+	}
+}
+
+miv_leave_war_ai_score = {
+	value = 60
+	if = {
+		limit = {
+			scope:recipient.liege = {
+				is_at_war_with = scope:recipient
+			}
+		}
+		add = scope:recipient.liege.miv_leave_war_against_liege
+	}
+	else_if = {
+		limit = {
+			scope:recipient.liege = {
+				is_at_war_with = scope:actor
+			}
+		}
+		add = scope:recipient.liege.miv_leave_war_for_liege
+	}
+	else = {
+		add = -55
+	}
+}
+
+common_cb_cost_multiplier = {
+	value = common_cb_cost_multiplier_core
+	if = {
+		limit = {
+			scope:attacker = {
+				OR = {
+					any_character_struggle = {
+						involvement = involved
+						is_struggle_parameter_active_variable_cb_target_secondary_county_trigger = {
+							PARAMETER = involved_or_interloper_wars_in_struggle_region_cheaper_costs
+						}
+					}
+					any_character_struggle = {
+						involvement = interloper
+						is_struggle_parameter_active_variable_cb_target_secondary_county_trigger = {
+							PARAMETER = involved_or_interloper_wars_in_struggle_region_cheaper_costs
+						}
+					}
+				}
+			}
+		}
+		multiply = {
+			value = 0.5
+			desc = CB_STRUGGLE_PHASE_DISCOUNT
+		}
+	}
+	if = {
+		limit = {
+			scope:attacker.confederation ?= {
+				has_cohesion_level_parameter = any_member_casus_belli_cost_reduction
+			}
+		}
+		multiply = {
+			value = 0.85
+			desc = CB_COHESION_PARAMETER_DISCOUNT
+		}
+	}
+	if = {
+		limit = {
+			miv_cb_cost_rule_active_trigger = yes
+		}
+		multiply = {
+			value = miv_cb_cost_rule_value
+			desc = miv_cb_cost_rule_desc
+		}
+	}
+}
+
+common_cb_piety_cost_multiplier = {
+	value = common_cb_piety_cost_multiplier_core
+	if = {
+		limit = {
+			scope:attacker = {
+				OR = {
+					any_character_struggle = {
+						involvement = involved
+						is_struggle_parameter_active_variable_cb_target_secondary_county_trigger = {
+							PARAMETER = involved_or_interloper_wars_in_struggle_region_cheaper_piety_costs
+						}
+					}
+					any_character_struggle = {
+						involvement = interloper
+						is_struggle_parameter_active_variable_cb_target_secondary_county_trigger = {
+							PARAMETER = involved_or_interloper_wars_in_struggle_region_cheaper_piety_costs
+						}
+					}
+				}
+			}
+		}
+		multiply = {
+			value = 0.5
+			desc = CB_STRUGGLE_PHASE_DISCOUNT
+		}
+	}
+	multiply = common_cb_cost_multiplier_core
+	if = {
+		limit = {
+			miv_cb_cost_rule_active_trigger = yes
+		}
+		multiply = {
+			value = miv_cb_cost_rule_value
+			desc = miv_cb_cost_rule_desc
+		}
+	}
+}
+
+common_cb_piety_cost_multiplier_sans_struggles = {
+	value = common_cb_piety_cost_multiplier_core
+	multiply = common_cb_cost_multiplier_core
+	if = {
+		limit = {
+			miv_cb_cost_rule_active_trigger = yes
+		}
+		multiply = {
+			value = miv_cb_cost_rule_value
+			desc = miv_cb_cost_rule_desc
+		}
+	}
+}
+
+common_cb_prestige_cost_multiplier_sans_struggles = {
+	value = common_cb_prestige_cost_multiplier_core
+	multiply = common_cb_cost_multiplier_core
+	if = {
+		limit = {
+			miv_cb_cost_rule_active_trigger = yes
+		}
+		multiply = {
+			value = miv_cb_cost_rule_value
+			desc = miv_cb_cost_rule_desc
+		}
+	}
+}
+
+miv_cb_cost_rule_value = {
+	value = 1
+	if = {
+		limit = {
+			OR = {
+				has_game_rule = miv_cb_cost_minus_100
+				has_game_rule = miv_cb_cost_minus_100_player
+			}
+		}
+		value = 0
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = miv_cb_cost_minus_50
+				has_game_rule = miv_cb_cost_minus_50_player
+			}
+		}
+		value = 0.5
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = miv_cb_cost_plus_50
+				has_game_rule = miv_cb_cost_plus_50_player
+			}
+		}
+		value = 1.5
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = miv_cb_cost_plus_100
+				has_game_rule = miv_cb_cost_plus_100_player
+			}
+		}
+		value = 2
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = miv_cb_cost_plus_150
+				has_game_rule = miv_cb_cost_plus_150_player
+			}
+		}
+		value = 2.5
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = miv_cb_cost_plus_200
+				has_game_rule = miv_cb_cost_plus_200_player
+			}
+		}
+		value = 3
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = miv_cb_cost_plus_250
+				has_game_rule = miv_cb_cost_plus_250_player
+			}
+		}
+		value = 3.5
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = miv_cb_cost_plus_300
+				has_game_rule = miv_cb_cost_plus_300_player
+			}
+		}
+		value = 4
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = miv_cb_cost_plus_350
+				has_game_rule = miv_cb_cost_plus_350_player
+			}
+		}
+		value = 4.5
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = miv_cb_cost_plus_400
+				has_game_rule = miv_cb_cost_plus_400_player
+			}
+		}
+		value = 5
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = miv_cb_cost_plus_450
+				has_game_rule = miv_cb_cost_plus_450_player
+			}
+		}
+		value = 5.5
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = miv_cb_cost_plus_500
+				has_game_rule = miv_cb_cost_plus_500_player
+			}
+		}
+		value = 6
+	}
+}
+
+artifact_war_ai_score_value = {
+	value = -10000
+}
+
+relic_artifact_war_ai_score_value = {
+	value = -10000
+}
+
+miv_ui_wardec_answering_count = {
+	if = {
+		limit = {
+			exists = scope:miv_enemy
+			exists = var:miv_wardec_hover_enemy
+			exists = var:miv_wardec_hover_answering_count
+		}
+		if = {
+			limit = {
+				var:miv_wardec_hover_enemy = scope:miv_enemy
+			}
+			value = var:miv_wardec_hover_answering_count
+		}
+		else = {
+			value = miv_wardec_answering_count
+		}
+	}
+	else = {
+		value = miv_wardec_answering_count
+	}
+}
+
+miv_ui_wardec_answering_strength = {
+	if = {
+		limit = {
+			exists = scope:miv_enemy
+			exists = var:miv_wardec_hover_enemy
+			exists = var:miv_wardec_hover_answering_strength
+		}
+		if = {
+			limit = {
+				var:miv_wardec_hover_enemy = scope:miv_enemy
+			}
+			value = var:miv_wardec_hover_answering_strength
+		}
+		else = {
+			value = miv_wardec_answering_strength
+		}
+	}
+	else = {
+		value = miv_wardec_answering_strength
+	}
+}
+
+miv_ui_wardec_withheld_count = {
+	if = {
+		limit = {
+			exists = scope:miv_enemy
+			exists = var:miv_wardec_hover_enemy
+			exists = var:miv_wardec_hover_withheld_count
+		}
+		if = {
+			limit = {
+				var:miv_wardec_hover_enemy = scope:miv_enemy
+			}
+			value = var:miv_wardec_hover_withheld_count
+		}
+		else = {
+			value = miv_wardec_withheld_count
+		}
+	}
+	else = {
+		value = miv_wardec_withheld_count
+	}
+}
+
+miv_ui_wardec_withheld_strength = {
+	if = {
+		limit = {
+			exists = scope:miv_enemy
+			exists = var:miv_wardec_hover_enemy
+			exists = var:miv_wardec_hover_withheld_strength
+		}
+		if = {
+			limit = {
+				var:miv_wardec_hover_enemy = scope:miv_enemy
+			}
+			value = var:miv_wardec_hover_withheld_strength
+		}
+		else = {
+			value = miv_wardec_withheld_strength
+		}
+	}
+	else = {
+		value = miv_wardec_withheld_strength
+	}
+}
+
+miv_ui_wardec_betraying_count = {
+	if = {
+		limit = {
+			exists = scope:miv_enemy
+			exists = var:miv_wardec_hover_enemy
+			exists = var:miv_wardec_hover_betraying_count
+		}
+		if = {
+			limit = {
+				var:miv_wardec_hover_enemy = scope:miv_enemy
+			}
+			value = var:miv_wardec_hover_betraying_count
+		}
+		else = {
+			value = miv_wardec_betraying_count
+		}
+	}
+	else = {
+		value = miv_wardec_betraying_count
+	}
+}
+
+miv_ui_wardec_betraying_strength = {
+	if = {
+		limit = {
+			exists = scope:miv_enemy
+			exists = var:miv_wardec_hover_enemy
+			exists = var:miv_wardec_hover_betraying_strength
+		}
+		if = {
+			limit = {
+				var:miv_wardec_hover_enemy = scope:miv_enemy
+			}
+			value = var:miv_wardec_hover_betraying_strength
+		}
+		else = {
+			value = miv_wardec_betraying_strength
+		}
+	}
+	else = {
+		value = miv_wardec_betraying_strength
+	}
+}
+
+miv_ui_wardec_distant_count = {
+	if = {
+		limit = {
+			exists = scope:miv_enemy
+			exists = var:miv_wardec_hover_enemy
+			exists = var:miv_wardec_hover_distant_count
+		}
+		if = {
+			limit = {
+				var:miv_wardec_hover_enemy = scope:miv_enemy
+			}
+			value = var:miv_wardec_hover_distant_count
+		}
+		else = {
+			value = miv_wardec_distant_count
+		}
+	}
+	else = {
+		value = miv_wardec_distant_count
+	}
+}
+
+miv_ui_wardec_distant_strength = {
+	if = {
+		limit = {
+			exists = scope:miv_enemy
+			exists = var:miv_wardec_hover_enemy
+			exists = var:miv_wardec_hover_distant_strength
+		}
+		if = {
+			limit = {
+				var:miv_wardec_hover_enemy = scope:miv_enemy
+			}
+			value = var:miv_wardec_hover_distant_strength
+		}
+		else = {
+			value = miv_wardec_distant_strength
+		}
+	}
+	else = {
+		value = miv_wardec_distant_strength
+	}
+}
+
+miv_ui_wardec_eligible_count = {
+	if = {
+		limit = {
+			exists = scope:miv_enemy
+			exists = var:miv_wardec_hover_enemy
+			exists = var:miv_wardec_hover_eligible_count
+		}
+		if = {
+			limit = {
+				var:miv_wardec_hover_enemy = scope:miv_enemy
+			}
+			value = var:miv_wardec_hover_eligible_count
+		}
+		else = {
+			value = interactive_bannermen_eligible_count
+		}
+	}
+	else = {
+		value = interactive_bannermen_eligible_count
+	}
+}
+
+miv_ui_wardec_window_answering_strength = {
+	if = {
+		limit = {
+			exists = scope:miv_enemy
+			exists = var:miv_wardec_window_enemy
+			exists = var:miv_wardec_window_answering_strength
+		}
+		if = {
+			limit = {
+				var:miv_wardec_window_enemy = scope:miv_enemy
+			}
+			value = var:miv_wardec_window_answering_strength
+		}
+		else = {
+			value = miv_wardec_answering_strength
+		}
+	}
+	else = {
+		value = miv_wardec_answering_strength
+	}
+}
+
+miv_ui_wardec_window_withheld_strength = {
+	if = {
+		limit = {
+			exists = scope:miv_enemy
+			exists = var:miv_wardec_window_enemy
+			exists = var:miv_wardec_window_withheld_strength
+		}
+		if = {
+			limit = {
+				var:miv_wardec_window_enemy = scope:miv_enemy
+			}
+			value = var:miv_wardec_window_withheld_strength
+		}
+		else = {
+			value = miv_wardec_withheld_strength
+		}
+	}
+	else = {
+		value = miv_wardec_withheld_strength
+	}
+}
+
+miv_ui_wardec_window_betraying_strength = {
+	if = {
+		limit = {
+			exists = scope:miv_enemy
+			exists = var:miv_wardec_window_enemy
+			exists = var:miv_wardec_window_betraying_strength
+		}
+		if = {
+			limit = {
+				var:miv_wardec_window_enemy = scope:miv_enemy
+			}
+			value = var:miv_wardec_window_betraying_strength
+		}
+		else = {
+			value = miv_wardec_betraying_strength
+		}
+	}
+	else = {
+		value = miv_wardec_betraying_strength
+	}
+}
+
+miv_ui_banners_summary_answering_count = {
+	if = {
+		limit = {
+			exists = var:miv_banners_view_answering_count
+		}
+		value = var:miv_banners_view_answering_count
+	}
+	else = {
+		value = miv_wardec_answering_count
+	}
+}
+
+miv_ui_banners_summary_answering_strength = {
+	if = {
+		limit = {
+			exists = var:miv_banners_view_answering_strength
+		}
+		value = var:miv_banners_view_answering_strength
+	}
+	else = {
+		value = miv_wardec_answering_strength
+	}
+}
+
+miv_ui_banners_summary_withheld_count = {
+	if = {
+		limit = {
+			exists = var:miv_banners_view_withheld_count
+		}
+		value = var:miv_banners_view_withheld_count
+	}
+	else = {
+		value = miv_wardec_withheld_count
+	}
+}
+
+miv_ui_banners_summary_withheld_strength = {
+	if = {
+		limit = {
+			exists = var:miv_banners_view_withheld_strength
+		}
+		value = var:miv_banners_view_withheld_strength
+	}
+	else = {
+		value = miv_wardec_withheld_strength
+	}
+}
+
+miv_ui_banners_summary_betraying_count = {
+	if = {
+		limit = {
+			exists = var:miv_banners_view_betraying_count
+		}
+		value = var:miv_banners_view_betraying_count
+	}
+	else = {
+		value = miv_wardec_betraying_count
+	}
+}
+
+miv_ui_banners_summary_betraying_strength = {
+	if = {
+		limit = {
+			exists = var:miv_banners_view_betraying_strength
+		}
+		value = var:miv_banners_view_betraying_strength
+	}
+	else = {
+		value = miv_wardec_betraying_strength
+	}
+}
+
+miv_ui_banners_summary_distant_count = {
+	if = {
+		limit = {
+			exists = var:miv_banners_view_distant_count
+		}
+		value = var:miv_banners_view_distant_count
+	}
+	else = {
+		value = miv_wardec_distant_count
+	}
+}
+
+miv_ui_banners_summary_distant_strength = {
+	if = {
+		limit = {
+			exists = var:miv_banners_view_distant_strength
+		}
+		value = var:miv_banners_view_distant_strength
+	}
+	else = {
+		value = miv_wardec_distant_strength
+	}
+}
+
+miv_gui_strength_eligible_count = {
+	if = {
+		limit = {
+			exists = var:miv_gui_strength_eligible_count
+		}
+		value = var:miv_gui_strength_eligible_count
+	}
+	else = {
+		value = interactive_bannermen_eligible_count
+	}
+}
+
+miv_gui_strength_eligible_strength = {
+	if = {
+		limit = {
+			exists = var:miv_gui_strength_eligible_strength
+		}
+		value = var:miv_gui_strength_eligible_strength
+	}
+	else = {
+		value = interactive_bannermen_eligible_strength
+	}
+}
+
+miv_gui_strength_not_answering_count = {
+	if = {
+		limit = {
+			exists = var:miv_gui_strength_not_answering_count
+		}
+		value = var:miv_gui_strength_not_answering_count
+	}
+	else = {
+		value = miv_bannermen_not_answering_count
+	}
+}
+
+miv_gui_strength_answering_count = {
+	if = {
+		limit = {
+			exists = var:miv_gui_strength_answering_count
+		}
+		value = var:miv_gui_strength_answering_count
+	}
+	else = {
+		value = miv_bannermen_answering_count
+	}
+}
+
+miv_gui_strength_answering_strength = {
+	if = {
+		limit = {
+			exists = var:miv_gui_strength_answering_strength
+		}
+		value = var:miv_gui_strength_answering_strength
+	}
+	else = {
+		value = miv_bannermen_answering_strength
+	}
+}
+
+miv_gui_strength_visible_count = {
+	value = 0
+	if = {
+		limit = {
+			has_game_rule = bannermen_mode_enabled
+			interactive_bannermen_foreign_enabled_trigger = yes
+		}
+		value = miv_gui_strength_eligible_count
+	}
+}
+
+counter_synergy_ai_weight_archers = {
+	value = 0
+	if = {
+		limit = {
+			number_maa_regiments_of_base_type = {
+				type = heavy_infantry
+				value >= 3
+			}
+			NOT = {
+				number_maa_regiments_of_base_type = {
+					type = archers
+					value >= 1
+				}
+			}
+		}
+		add = 60
+	}
+	if = {
+		limit = {
+			miv_missing_cultural_maa_trigger = yes
+			NOT = {
+				culture ?= {
+					culture_has_archer_maa = yes
+				}
+			}
+		}
+		add = -500
+	}
+}
+
+counter_synergy_ai_weight_pikemen = {
+	value = 0
+	if = {
+		limit = {
+			number_maa_regiments_of_base_type = {
+				type = archers
+				value >= 3
+			}
+			NOT = {
+				number_maa_regiments_of_base_type = {
+					type = pikemen
+					value >= 1
+				}
+			}
+		}
+		add = 60
+	}
+	if = {
+		limit = {
+			miv_missing_cultural_maa_trigger = yes
+			NOT = {
+				culture ?= {
+					culture_has_pikemen_maa = yes
+				}
+			}
+		}
+		add = -500
+	}
+}
+
+counter_synergy_ai_weight_heavy_infantry = {
+	value = 0
+	if = {
+		limit = {
+			OR = {
+				number_maa_regiments_of_base_type = {
+					type = heavy_cavalry
+					value >= 3
+				}
+				number_maa_regiments_of_base_type = {
+					type = light_cavalry
+					value >= 3
+				}
+			}
+			NOT = {
+				number_maa_regiments_of_base_type = {
+					type = heavy_infantry
+					value >= 1
+				}
+			}
+		}
+		add = 60
+	}
+	if = {
+		limit = {
+			miv_missing_cultural_maa_trigger = yes
+			NOT = {
+				culture ?= {
+					culture_has_heavy_infantry_maa = yes
+				}
+			}
+		}
+		add = -500
+	}
+}
+
+counter_synergy_ai_weight_light_cavalry = {
+	value = 0
+	if = {
+		limit = {
+			number_maa_regiments_of_base_type = {
+				type = skirmishers
+				value >= 3
+			}
+			NOT = {
+				number_maa_regiments_of_base_type = {
+					type = light_cavalry
+					value >= 1
+				}
+			}
+		}
+		add = 60
+	}
+	if = {
+		limit = {
+			miv_missing_cultural_maa_trigger = yes
+			NOT = {
+				culture ?= {
+					culture_has_light_cavalry_maa = yes
+				}
+			}
+		}
+		add = -500
+	}
+}
+
+culture_ai_weight_skirmishers = {
+	value = -10
+	if = {
+		limit = {
+			culture = {
+				OR = {
+					has_cultural_pillar = heritage_baltic
+					has_cultural_pillar = heritage_ugro_permian
+					has_cultural_pillar = heritage_balto_finnic
+				}
+			}
+		}
+		add = 20
+	}
+	if = {
+		limit = {
+			culture = {
+				OR = {
+					has_cultural_pillar = heritage_central_germanic
+					has_cultural_pillar = heritage_frankish
+					has_cultural_pillar = heritage_iberian
+					has_cultural_pillar = heritage_latin
+				}
+			}
+		}
+		add = -60
+	}
+	if = {
+		limit = {
+			culture = {
+				culture_has_skirmisher_maa = yes
+			}
+		}
+		add = -500
+	}
+	if = {
+		limit = {
+			miv_missing_cultural_maa_trigger = yes
+			NOT = {
+				culture ?= {
+					culture_has_skirmisher_maa = yes
+				}
+			}
+		}
+		add = -500
+	}
+}

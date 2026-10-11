@@ -1,0 +1,330 @@
+﻿lycanthropic_nature_perk = {
+	lifestyle = hybrid_lifestyle
+	tree = werewolf
+	position = { 0 0 }
+	icon = node_werewolf
+
+	can_be_picked = {
+		has_hybrid_trigger = yes
+	}
+	
+	auto_selection_weight = {
+		# 2.32 -- only the ROOT perk of each of the six trees carried a weight, so the AI had
+		# nothing telling it to climb toward the capstone: it entered a tree and stopped.
+		# Witchcraft's demon tree weights all sixteen of its perks and was the template.
+		# Same shape as the root -- interested characters push hard, the matching focus
+		# multiplies -- so progression stays personality-driven rather than flat.
+		value = 11
+		if = {
+			limit = {
+				has_hybrid_interest_trigger = yes
+			}
+			add = 3000
+		}
+		if = {
+			limit = {
+				has_focus = hybrid_hybrid_focus
+			}
+			multiply = 5
+		}
+		if = {
+			limit = {
+				can_start_new_lifestyle_tree_trigger = no
+				NOT = { has_perk = bloodline_perk } # 2.34: vanilla's sibling-root guard (the commented line named a trait, not the sibling root)
+			}
+			multiply = 0
+		}
+	}
+	
+	character_modifier = {
+        intrigue = 3
+        diplomacy = 2
+        stewardship = 3
+        martial = 4
+		prowess = 4
+	}
+}
+
+savage_strength_perk = {
+	lifestyle = hybrid_lifestyle
+	tree = werewolf
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = { has_hybrid_interest_trigger = yes }
+			add = 3000
+		}
+		if = {
+			limit = { has_focus = hybrid_hybrid_focus }
+			multiply = 5
+		}
+	}
+	position = { 0 1.25 }
+	icon = node_werewolf
+
+	can_be_picked = {
+		has_hybrid_trigger = yes
+	}
+	
+	parent = lycanthropic_nature_perk
+	
+	character_modifier = {
+        vassal_levy_contribution_mult = 0.15
+        knight_effectiveness_mult = 0.25
+	}
+}
+
+pack_proceeds_perk = {
+	lifestyle = hybrid_lifestyle
+	tree = werewolf
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = { has_hybrid_interest_trigger = yes }
+			add = 3000
+		}
+		if = {
+			limit = { has_focus = hybrid_hybrid_focus }
+			multiply = 5
+		}
+	}
+	position = { 0 2.5 }
+	icon = node_werewolf
+
+	can_be_picked = {
+		has_hybrid_trigger = yes
+	}
+	
+	parent = savage_strength_perk
+	
+	character_modifier = {
+        vassal_tax_contribution_mult = 0.10
+        monthly_income_per_stress_level_add = 1.50
+	}
+}
+
+hybrid_constitution_perk = {
+	lifestyle = hybrid_lifestyle
+	tree = werewolf
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = { has_hybrid_interest_trigger = yes }
+			add = 3000
+		}
+		if = {
+			limit = { has_focus = hybrid_hybrid_focus }
+			multiply = 5
+		}
+	}
+	position = { 0 3.75 }
+	icon = node_werewolf
+
+	can_be_picked = {
+		has_hybrid_trigger = yes
+	}
+	
+	parent = pack_proceeds_perk
+
+	character_modifier = {
+        stress_gain_mult = -0.10
+        martial_per_prestige_level = 2
+		health = 1
+	}	
+}
+
+bloodline_perk = {
+	lifestyle = hybrid_lifestyle
+	tree = werewolf
+	position = { 2 0 }
+	icon = node_werewolf
+
+	can_be_picked = {
+		has_hybrid_trigger = yes
+	}
+	
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				has_hybrid_trigger = yes
+			}
+			add = 1989
+		}
+		if = {
+			limit = {
+				has_focus = hybrid_hybrid_focus
+			}
+			multiply = 5
+		}
+		if = {
+			limit = {
+				can_start_new_lifestyle_tree_trigger = no
+				NOT = { has_perk = lycanthropic_nature_perk }
+			}
+			multiply = 0
+		}
+	}
+	
+	character_modifier = {
+        genetic_trait_strengthen_chance = 0.45
+        inbreeding_chance = -1
+        #random_skills_per_child = 2
+        monthly_dynasty_prestige = 1
+	}
+	
+	effect = {
+		custom_description_no_bullet = {
+			text = sound_foundations_perk_effect
+		}
+		hidden_effect = {
+			every_child = {
+				root = {
+					sound_foundations_skill_gain_effect = yes
+				}
+			}
+		}
+	}
+}
+
+master_hunt_perk = {
+	lifestyle = hybrid_lifestyle
+	tree = werewolf
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = { has_hybrid_interest_trigger = yes }
+			add = 3000
+		}
+		if = {
+			limit = { has_focus = hybrid_hybrid_focus }
+			multiply = 5
+		}
+	}
+	position = { 2 1.25 }
+	icon = node_werewolf
+
+	can_be_picked = {
+		has_hybrid_trigger = yes
+	}
+	
+	parent = bloodline_perk
+	
+	character_modifier = {
+        pursue_efficiency = 0.10
+        movement_speed = 0.05
+        attacker_advantage = 2
+	}
+}
+
+wolf_challenge_perk = {
+	lifestyle = hybrid_lifestyle
+	tree = werewolf
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = { has_hybrid_interest_trigger = yes }
+			add = 3000
+		}
+		if = {
+			limit = { has_focus = hybrid_hybrid_focus }
+			multiply = 5
+		}
+	}
+	position = { 2 2.5 }
+	icon = node_werewolf
+
+	can_be_picked = {
+		has_hybrid_trigger = yes
+	}
+	
+	parent = master_hunt_perk
+	
+	# 2.37 -- the dueling this line asked for: Challenge outside the pack (§13.5).
+	effect = {
+		custom_tooltip = spn_wolf_challenge_pack_tt
+	}
+	
+	character_modifier = {
+        prowess = 5
+		prowess_scheme_phase_duration = -15
+		maa_toughness_mult = 0.05
+		character_travel_safety = 5
+	}
+}
+
+pack_leader_perk = {
+	lifestyle = hybrid_lifestyle
+	tree = werewolf
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = { has_hybrid_interest_trigger = yes }
+			add = 3000
+		}
+		if = {
+			limit = { has_focus = hybrid_hybrid_focus }
+			multiply = 5
+		}
+	}
+	position = { 2 3.75 }
+	icon = node_werewolf
+
+	can_be_picked = {
+		has_hybrid_trigger = yes
+	}
+	
+	parent = wolf_challenge_perk
+	
+	effect = {
+		custom_tooltip = spn_pack_leader_found_tt # 2.37
+	}
+	
+	character_modifier = {
+        close_relative_opinion = 25
+        spouse_opinion = 25
+        vassal_opinion = 15
+        prisoner_opinion = 5
+	}
+}
+
+
+true_werewolf_hybrid_perk = {
+	lifestyle = hybrid_lifestyle
+	tree = werewolf
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = { has_hybrid_interest_trigger = yes }
+			add = 3000
+		}
+		if = {
+			limit = { has_focus = hybrid_hybrid_focus }
+			multiply = 5
+		}
+	}
+	position = { 1 5 }
+	icon = true_werewolf
+
+	can_be_picked = {
+		has_hybrid_trigger = yes
+	}
+	
+	parent = hybrid_constitution_perk
+	parent = pack_leader_perk
+
+	trait = spn_true_werewolf
+	
+	effect = {
+		add_trait_force_tooltip = spn_true_werewolf
+		hidden_effect = {
+			if = {
+				limit = {
+					has_perk = true_vampire_hybrid_perk
+				}
+				set_focus = no
+			}
+		}
+	}
+
+}

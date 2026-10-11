@@ -1,0 +1,722 @@
+﻿interactive_common_faction_modifiers = {
+	modifier = {
+		desc = INTERACTIVE_AI_LOYALIST_OP_DEVOTED
+		add = 600
+		opinion = {
+			target = $FACTION_TARGET$
+			value >= 100
+		}
+	}
+	modifier = {
+		desc = INTERACTIVE_AI_LOYALIST_OP_VERYHIGH
+		add = 300
+		opinion = {
+			target = $FACTION_TARGET$
+			value >= 90
+		}
+		NOT = {
+			opinion = {
+				target = $FACTION_TARGET$
+				value >= 100
+			}
+		}
+	}
+	modifier = {
+		desc = INTERACTIVE_AI_LOYALIST_OP_HIGH
+		add = 150
+		opinion = {
+			target = $FACTION_TARGET$
+			value >= 80
+		}
+		NOT = {
+			opinion = {
+				target = $FACTION_TARGET$
+				value >= 90
+			}
+		}
+	}
+	modifier = {
+		desc = INTERACTIVE_AI_LOYALIST_OP_BELOW
+		add = -1000
+		NOT = {
+			opinion = {
+				target = $FACTION_TARGET$
+				value >= 50
+			}
+		}
+	}
+	modifier = {
+		desc = INTERACTIVE_AI_LOYALIST_HONOR_VERYHIGH
+		add = 300
+		ai_honor >= very_high_positive_ai_value
+	}
+	modifier = {
+		desc = INTERACTIVE_AI_LOYALIST_HONOR_HIGH
+		add = 150
+		ai_honor >= medium_positive_ai_value
+		NOT = {
+			ai_honor >= very_high_positive_ai_value
+		}
+	}
+	modifier = {
+		desc = INTERACTIVE_AI_LOYALIST_HONOR_BELOW
+		add = -1000
+		NOT = {
+			ai_honor >= medium_positive_ai_value
+		}
+	}
+	modifier = {
+		desc = INTERACTIVE_AI_LOYALIST_FACTION_SIZE
+		add = {
+			value = 0
+			if = {
+				limit = {
+					exists = scope:faction
+				}
+				scope:faction = {
+					every_faction_member = {
+						limit = {
+							NOT = {
+								this = root
+							}
+						}
+						add = -300
+					}
+				}
+			}
+		}
+		exists = scope:faction
+	}
+	modifier = {
+		desc = INTERACTIVE_AI_LOYALIST_FREQUENCY
+		add = -150
+		has_game_rule = miv_loyalist_frequency_rare
+	}
+	modifier = {
+		desc = INTERACTIVE_AI_LOYALIST_FREQUENCY
+		add = 150
+		has_game_rule = miv_loyalist_frequency_common
+	}
+	modifier = {
+		desc = INTERACTIVE_AI_LOYALIST_FREQUENCY
+		add = 300
+		has_game_rule = miv_loyalist_frequency_very_common
+	}
+}
+
+agot_loyalist_faction_modifiers = {
+	interactive_common_faction_modifiers = {
+		FACTION_TARGET = $FACTION_TARGET$
+	}
+	modifier = {
+		desc = INTERACTIVE_AI_LOYALIST_BANNERMEN_FEALTY
+		add = 350
+		has_global_variable = AGOT_is_loaded
+	}
+	modifier = {
+		add = 0
+		opinion = {
+			target = $FACTION_TARGET$
+			value >= $MAX_OPINION$
+		}
+	}
+	modifier = {
+		add = 0
+		opinion = {
+			target = $FACTION_TARGET$
+			value >= $OPINION_MULTIPLIER$
+		}
+	}
+}
+
+dynamic_power_threshold_scripted_modifier = {
+	modifier = {
+		desc = MIV_FACTION_POWER_THRESHOLD_RULE
+		miv_faction_threshold_applies_trigger = yes
+		add = {
+			value = miv_faction_threshold_level
+			add = -80
+		}
+	}
+	modifier = {
+		add = {
+			value = 0
+			if = {
+				limit = {
+					faction_is_at_war = no
+					faction_target = {
+						any_character_war = {
+							has_variable = miv_civil_war
+							primary_defender = prev
+						}
+					}
+				}
+				add = 1000
+			}
+			if = {
+				limit = {
+					faction_target = {
+						any_targeting_faction = {
+							faction_is_type = $FACTION_TYPE1$
+							faction_is_at_war = yes
+						}
+					}
+				}
+				add = -20
+			}
+			else_if = {
+				limit = {
+					faction_target = {
+						any_targeting_faction = {
+							faction_is_type = $FACTION_TYPE1$
+							faction_is_at_war = no
+							faction_power >= faction_power_threshold
+						}
+					}
+				}
+				add = -10
+			}
+			else_if = {
+				limit = {
+					faction_target = {
+						any_targeting_faction = {
+							faction_is_type = $FACTION_TYPE1$
+							faction_is_at_war = no
+						}
+					}
+				}
+				add = -5
+			}
+			if = {
+				limit = {
+					faction_target = {
+						any_targeting_faction = {
+							faction_is_type = $FACTION_TYPE2$
+							faction_is_at_war = yes
+						}
+					}
+				}
+				add = -20
+			}
+			else_if = {
+				limit = {
+					faction_target = {
+						any_targeting_faction = {
+							faction_is_type = $FACTION_TYPE2$
+							faction_is_at_war = no
+							faction_power >= faction_power_threshold
+						}
+					}
+				}
+				add = -10
+			}
+			else_if = {
+				limit = {
+					faction_target = {
+						any_targeting_faction = {
+							faction_is_type = $FACTION_TYPE2$
+							faction_is_at_war = no
+						}
+					}
+				}
+				add = -5
+			}
+			if = {
+				limit = {
+					faction_target = {
+						any_targeting_faction = {
+							faction_is_type = $FACTION_TYPE3$
+							faction_is_at_war = yes
+						}
+					}
+				}
+				add = -20
+			}
+			else_if = {
+				limit = {
+					faction_target = {
+						any_targeting_faction = {
+							faction_is_type = $FACTION_TYPE3$
+							faction_is_at_war = no
+							faction_power >= faction_power_threshold
+						}
+					}
+				}
+				add = -10
+			}
+			else_if = {
+				limit = {
+					faction_target = {
+						any_targeting_faction = {
+							faction_is_type = $FACTION_TYPE3$
+							faction_is_at_war = no
+						}
+					}
+				}
+				add = -5
+			}
+			min = -70
+		}
+		desc = "FACTION_POWER_INTERNAL_ISSUES"
+	}
+}
+
+intimidated_from_faction_modifier = {
+	modifier = {
+		desc = "FACTION_REASON_DIFFICULTY_EASY"
+		add = 50
+		has_game_rule = easy_difficulty
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = no
+		}
+	}
+	modifier = {
+		desc = "FACTION_REASON_DIFFICULTY_VERY_EASY"
+		add = 150
+		has_game_rule = very_easy_difficulty
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = no
+		}
+	}
+	modifier = {
+		desc = "FACTION_REASON_DIFFICULTY_HARD"
+		add = 100
+		has_game_rule = hard_difficulty
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = yes
+		}
+	}
+	modifier = {
+		desc = "FACTION_REASON_DIFFICULTY_VERY_HARD"
+		add = 200
+		has_game_rule = very_hard_difficulty
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = yes
+		}
+	}
+	modifier = {
+		desc = "game_rule_base_value"
+		add = -50
+		has_game_rule = hard_difficulty
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = no
+		}
+		opinion = {
+			target = $TARGET$
+			value > 25
+		}
+	}
+	modifier = {
+		desc = "game_rule_base_value"
+		add = -75
+		has_game_rule = very_hard_difficulty
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = no
+		}
+		opinion = {
+			target = $TARGET$
+			value > 25
+		}
+	}
+	modifier = {
+		desc = "game_rule_base_value"
+		add = -100
+		has_game_rule = hard_difficulty
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = no
+		}
+		opinion = {
+			target = $TARGET$
+			value <= 25
+		}
+	}
+	modifier = {
+		desc = "game_rule_base_value"
+		add = -150
+		has_game_rule = very_hard_difficulty
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = no
+		}
+		opinion = {
+			target = $TARGET$
+			value <= 25
+		}
+	}
+	modifier = {
+		desc = MIV_FACTION_REASON_DIFFICULTY
+		add = 25
+		has_game_rule = player_realm_stability_hard
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = no
+		}
+		opinion = {
+			target = $TARGET$
+			value > 25
+		}
+	}
+	modifier = {
+		desc = MIV_FACTION_REASON_DIFFICULTY
+		add = 50
+		has_game_rule = player_realm_stability_hard
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = no
+		}
+		opinion = {
+			target = $TARGET$
+			value <= 25
+		}
+	}
+	modifier = {
+		desc = MIV_FACTION_REASON_DIFFICULTY
+		add = 50
+		has_game_rule = player_realm_stability_very_hard
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = no
+		}
+		opinion = {
+			target = $TARGET$
+			value > 25
+		}
+	}
+	modifier = {
+		desc = MIV_FACTION_REASON_DIFFICULTY
+		add = 100
+		has_game_rule = player_realm_stability_very_hard
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = no
+		}
+		opinion = {
+			target = $TARGET$
+			value <= 25
+		}
+	}
+	modifier = {
+		desc = MIV_FACTION_REASON_DIFFICULTY
+		add = 75
+		has_game_rule = player_realm_stability_extreme
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = no
+		}
+		opinion = {
+			target = $TARGET$
+			value > 25
+		}
+	}
+	modifier = {
+		desc = MIV_FACTION_REASON_DIFFICULTY
+		add = 150
+		has_game_rule = player_realm_stability_extreme
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = no
+		}
+		opinion = {
+			target = $TARGET$
+			value <= 25
+		}
+	}
+	modifier = {
+		desc = MIV_FACTION_REASON_DIFFICULTY
+		add = -50
+		has_game_rule = ai_kingdom_stability_high
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = yes
+			highest_held_title_tier < tier_empire
+		}
+	}
+	modifier = {
+		desc = MIV_FACTION_REASON_DIFFICULTY
+		add = -100
+		has_game_rule = ai_kingdom_stability_very_high
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = yes
+			highest_held_title_tier < tier_empire
+		}
+	}
+	modifier = {
+		desc = MIV_FACTION_REASON_DIFFICULTY
+		add = -150
+		has_game_rule = ai_kingdom_stability_extreme
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = yes
+			highest_held_title_tier < tier_empire
+		}
+	}
+	modifier = {
+		desc = MIV_FACTION_REASON_DIFFICULTY
+		add = -50
+		has_game_rule = ai_empire_stability_high
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = yes
+			highest_held_title_tier >= tier_empire
+		}
+	}
+	modifier = {
+		desc = MIV_FACTION_REASON_DIFFICULTY
+		add = -100
+		has_game_rule = ai_empire_stability_very_high
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = yes
+			highest_held_title_tier >= tier_empire
+		}
+	}
+	modifier = {
+		desc = MIV_FACTION_REASON_DIFFICULTY
+		add = -150
+		has_game_rule = ai_empire_stability_extreme
+		trigger_if = {
+			limit = {
+				exists = scope:faction
+			}
+			scope:faction = {
+				NOT = {
+					faction_is_type = populist_faction
+				}
+			}
+		}
+		$TARGET$ = {
+			is_ai = yes
+			highest_held_title_tier >= tier_empire
+		}
+	}
+	modifier = {
+		desc = "FACTION_REASON_INTIMIDATED"
+		add = {
+			if = {
+				limit = {
+					$POWER$ < $THRESHOLD$
+				}
+				add = -50
+			}
+		}
+		has_dread_level_towards = {
+			target = $TARGET$
+			level = 1
+		}
+	}
+	modifier = {
+		desc = "FACTION_REASON_TERRIFIED"
+		add = {
+			if = {
+				limit = {
+					$POWER$ < $THRESHOLD$
+				}
+				add = -1000
+			}
+			else = {
+				add = -100
+			}
+		}
+		has_dread_level_towards = {
+			target = $TARGET$
+			level = 2
+		}
+	}
+	modifier = {
+		desc = MIV_FACTION_REASON_OATHBREAKER
+		add = 200
+		has_game_rule = miv_oathbreakers_enabled
+		$TARGET$ = {
+			has_opinion_modifier = {
+				modifier = miv_oathbreaker
+				target = root
+			}
+		}
+	}
+	modifier = {
+		add = -10000
+		$TARGET$ = {
+			has_character_flag = miv_historical_loyalty
+		}
+		desc = "interactive_bannermen_desc_liege_game_start"
+	}
+}

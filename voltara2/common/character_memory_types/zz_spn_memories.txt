@@ -1,0 +1,758 @@
+﻿# Supernatural 2.34 -- "The Blood Remembers Who". Character memories for the turnings, the bonds, the first
+# hunter, demon blood and the mage's oath. WORK-ORDER-2.34-v3-BUILD §2.
+#
+# House rules (each earned from a verified finding, see the work order):
+#  * three perspective blocks on every type -- a missing one shows a raw key on someone else's page;
+#  * duration = { years = 1000 } on every type -- memory_default_duration is FIVE years for an unlanded AI,
+#    which would delete most of these before the maker was even dead;
+#  * icons only from gfx/interface/icons/memory_types/ (vanilla inventory, verified on disk);
+#  * participants only for real characters (maker, clawer, trainer, progeny); never for a generated
+#    confrontation hunter, who is disposed of when the story closes;
+#  * never `positive` together with martial/battle/war -- that combination makes CE1 legend material;
+#  * `private` throughout: vanilla flavour treats it as "a stranger will not retell this";
+#  * descriptions lower-case, past tense, no trailing period -- the GUI uppercases and punctuates.
+#
+# Every firing site guards with any_memory = { memory_type = ... }, never a character flag, so curing and
+# re-embracing (four reachable routes) can never write a second copy.
+#
+# Memory variables: `spn_forced` (flag:forced) is set on the new memory when the turning was compelled with a
+# hook or by force; the descriptions read it with exists = var:spn_forced (vanilla idiom, bp2_memories.txt:764).
+
+############################################################
+# TIER 1 -- IDENTITY. One known-maker type and one unknown-maker type per creature.
+############################################################
+
+# Made a vampire by someone we can name. Written at the end of spn_initiate.0001 when var:spn_conferred_sire
+# points at a real character who is not the owner. `maker` = that character.
+spn_became_vampire_memory = {
+	categories = { negative private supernatural }
+	icon = "blood_brother.dds"
+
+	description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = var:spn_forced }
+				desc = spn_became_vampire_memory_desc_forced
+			}
+			desc = spn_became_vampire_memory_desc
+		}
+	}
+	second_perspective_description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = var:spn_forced }
+				desc = spn_became_vampire_memory_desc_forced_second_perspective
+			}
+			desc = spn_became_vampire_memory_desc_second_perspective
+		}
+	}
+	third_perspective_description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = var:spn_forced }
+				desc = spn_became_vampire_memory_desc_forced_third_perspective
+			}
+			desc = spn_became_vampire_memory_desc_third_perspective
+		}
+	}
+
+	participants = { maker }
+
+	duration = { years = 1000 }
+}
+
+# Woke a vampire with no maker to name -- ruler designer, world seeding, a stranger's blood, a dead donor.
+# Deliberately vague: Thomas's brief. Three variants so a court of seeded vampires does not read identically.
+spn_woke_a_vampire_memory = {
+	categories = { negative private supernatural }
+	icon = "death_neutral.dds"
+
+	description = {
+		random_valid = {
+			desc = spn_woke_a_vampire_memory_desc_1
+			desc = spn_woke_a_vampire_memory_desc_2
+			desc = spn_woke_a_vampire_memory_desc_3
+		}
+	}
+	second_perspective_description = {
+		random_valid = {
+			desc = spn_woke_a_vampire_memory_desc_1_second_perspective
+			desc = spn_woke_a_vampire_memory_desc_2_second_perspective
+			desc = spn_woke_a_vampire_memory_desc_3_second_perspective
+		}
+	}
+	third_perspective_description = {
+		random_valid = {
+			desc = spn_woke_a_vampire_memory_desc_1_third_perspective
+			desc = spn_woke_a_vampire_memory_desc_2_third_perspective
+			desc = spn_woke_a_vampire_memory_desc_3_third_perspective
+		}
+	}
+
+	duration = { years = 1000 }
+}
+
+# Died in battle with vampire blood in the system, and rose (2.33's "the blood remembers"). Written in
+# spn_transition_completed_effect, after the maker bond and before spn_initiate.0001, which then skips its own
+# turning memory. FOUR types, not one with optional participants: the engine refuses at load a create_character_memory
+# that omits a declared participant (boot test 1, "Missing participant definition for tag"). So the writer picks the
+# type that matches what it has: maker (the blood donor, if alive) and/or feller (the enemy knight in var:spn_felled_by).
+# Anything that asks "did they rise in battle?" must OR all four (spn_rose_in_battle_any_trigger).
+spn_rose_in_battle_memory = {
+	categories = { negative private supernatural }
+	icon = "battle.dds"
+
+	description = { random_valid = { desc = spn_rose_in_battle_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_rose_in_battle_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_rose_in_battle_memory_desc_third_perspective } }
+
+	duration = { years = 1000 }
+}
+
+spn_rose_in_battle_maker_memory = {
+	categories = { negative private supernatural }
+	icon = "battle.dds"
+
+	description = { random_valid = { desc = spn_rose_in_battle_maker_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_rose_in_battle_maker_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_rose_in_battle_maker_memory_desc_third_perspective } }
+
+	participants = { maker }
+
+	duration = { years = 1000 }
+}
+
+spn_rose_in_battle_feller_memory = {
+	categories = { negative private supernatural }
+	icon = "battle.dds"
+
+	description = { random_valid = { desc = spn_rose_in_battle_feller_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_rose_in_battle_feller_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_rose_in_battle_feller_memory_desc_third_perspective } }
+
+	participants = { feller }
+
+	duration = { years = 1000 }
+}
+
+spn_rose_in_battle_both_memory = {
+	categories = { negative private supernatural }
+	icon = "battle.dds"
+
+	description = { random_valid = { desc = spn_rose_in_battle_both_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_rose_in_battle_both_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_rose_in_battle_both_memory_desc_third_perspective } }
+
+	participants = { maker feller }
+
+	duration = { years = 1000 }
+}
+
+# Clawed into it by someone we can name. Written in spn_complete_wound_turn before the incubation state is
+# cleared. `clawer` = var:spn_conferred_sire. spn_forced is set from the forced_turning flag.
+spn_became_werewolf_memory = {
+	categories = { negative private supernatural }
+	icon = "icon_wounded.dds"
+
+	description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = var:spn_forced }
+				desc = spn_became_werewolf_memory_desc_forced
+			}
+			desc = spn_became_werewolf_memory_desc
+		}
+	}
+	second_perspective_description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = var:spn_forced }
+				desc = spn_became_werewolf_memory_desc_forced_second_perspective
+			}
+			desc = spn_became_werewolf_memory_desc_second_perspective
+		}
+	}
+	third_perspective_description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = var:spn_forced }
+				desc = spn_became_werewolf_memory_desc_forced_third_perspective
+			}
+			desc = spn_became_werewolf_memory_desc_third_perspective
+		}
+	}
+
+	participants = { clawer }
+
+	duration = { years = 1000 }
+}
+
+# The wolf woke with no clawer to name -- born to it (spn_born_werewolf, a permanent flag stamped by
+# spn_initiate.1001), the ruler designer, a direct embrace. A parent is not a maker, so the born variant
+# names no one. Written in spn_initiate.1001 when no clawed memory already exists.
+spn_woke_a_werewolf_memory = {
+	categories = { negative private supernatural }
+	icon = "plague.dds"
+
+	description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { memory_owner = { has_character_flag = spn_born_werewolf } }
+				desc = spn_woke_a_werewolf_memory_desc_born
+			}
+			random_valid = {
+				desc = spn_woke_a_werewolf_memory_desc_1
+				desc = spn_woke_a_werewolf_memory_desc_2
+				desc = spn_woke_a_werewolf_memory_desc_3
+			}
+		}
+	}
+	second_perspective_description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { memory_owner = { has_character_flag = spn_born_werewolf } }
+				desc = spn_woke_a_werewolf_memory_desc_born_second_perspective
+			}
+			random_valid = {
+				desc = spn_woke_a_werewolf_memory_desc_1_second_perspective
+				desc = spn_woke_a_werewolf_memory_desc_2_second_perspective
+				desc = spn_woke_a_werewolf_memory_desc_3_second_perspective
+			}
+		}
+	}
+	third_perspective_description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { memory_owner = { has_character_flag = spn_born_werewolf } }
+				desc = spn_woke_a_werewolf_memory_desc_born_third_perspective
+			}
+			random_valid = {
+				desc = spn_woke_a_werewolf_memory_desc_1_third_perspective
+				desc = spn_woke_a_werewolf_memory_desc_2_third_perspective
+				desc = spn_woke_a_werewolf_memory_desc_3_third_perspective
+			}
+		}
+	}
+
+	duration = { years = 1000 }
+}
+
+# Made a hybrid by someone we can name. Written in spn_initiate.2001; `maker` = var:spn_conferred_sire.
+spn_became_hybrid_memory = {
+	categories = { negative private supernatural }
+	icon = "legend.dds"
+
+	description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = var:spn_forced }
+				desc = spn_became_hybrid_memory_desc_forced
+			}
+			desc = spn_became_hybrid_memory_desc
+		}
+	}
+	second_perspective_description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = var:spn_forced }
+				desc = spn_became_hybrid_memory_desc_forced_second_perspective
+			}
+			desc = spn_became_hybrid_memory_desc_second_perspective
+		}
+	}
+	third_perspective_description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = var:spn_forced }
+				desc = spn_became_hybrid_memory_desc_forced_third_perspective
+			}
+			desc = spn_became_hybrid_memory_desc_third_perspective
+		}
+	}
+
+	participants = { maker }
+
+	duration = { years = 1000 }
+}
+
+# Became a hybrid with no maker to name.
+spn_woke_a_hybrid_memory = {
+	categories = { negative private supernatural }
+	icon = "legend.dds"
+
+	description = {
+		random_valid = {
+			desc = spn_woke_a_hybrid_memory_desc_1
+			desc = spn_woke_a_hybrid_memory_desc_2
+			desc = spn_woke_a_hybrid_memory_desc_3
+		}
+	}
+	second_perspective_description = {
+		random_valid = {
+			desc = spn_woke_a_hybrid_memory_desc_1_second_perspective
+			desc = spn_woke_a_hybrid_memory_desc_2_second_perspective
+			desc = spn_woke_a_hybrid_memory_desc_3_second_perspective
+		}
+	}
+	third_perspective_description = {
+		random_valid = {
+			desc = spn_woke_a_hybrid_memory_desc_1_third_perspective
+			desc = spn_woke_a_hybrid_memory_desc_2_third_perspective
+			desc = spn_woke_a_hybrid_memory_desc_3_third_perspective
+		}
+	}
+
+	duration = { years = 1000 }
+}
+
+# Trained as a hunter by someone we can name. Written in spn_initiate.3001; `trainer` = var:spn_hunter_trainer.
+# No tone tag: a vocation, not a tragedy -- and it keeps the hunter memories off every vanilla filter.
+spn_became_hunter_memory = {
+	categories = { private supernatural }
+	icon = "martial.dds"
+
+	description = { random_valid = { desc = spn_became_hunter_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_became_hunter_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_became_hunter_memory_desc_third_perspective } }
+
+	participants = { trainer }
+
+	duration = { years = 1000 }
+}
+
+# Took up the hunt with no trainer to name.
+spn_woke_a_hunter_memory = {
+	categories = { private supernatural }
+	icon = "martial.dds"
+
+	description = {
+		random_valid = {
+			desc = spn_woke_a_hunter_memory_desc_1
+			desc = spn_woke_a_hunter_memory_desc_2
+			desc = spn_woke_a_hunter_memory_desc_3
+		}
+	}
+	second_perspective_description = {
+		random_valid = {
+			desc = spn_woke_a_hunter_memory_desc_1_second_perspective
+			desc = spn_woke_a_hunter_memory_desc_2_second_perspective
+			desc = spn_woke_a_hunter_memory_desc_3_second_perspective
+		}
+	}
+	third_perspective_description = {
+		random_valid = {
+			desc = spn_woke_a_hunter_memory_desc_1_third_perspective
+			desc = spn_woke_a_hunter_memory_desc_2_third_perspective
+			desc = spn_woke_a_hunter_memory_desc_3_third_perspective
+		}
+	}
+
+	duration = { years = 1000 }
+}
+
+############################################################
+# TIER 2 -- THE BONDS. Owned by the one who did the making.
+############################################################
+
+# The maker's side of spn_became_vampire_memory. `progeny` = the new vampire. The relationship word comes from
+# [owner.Custom2('RelationToMeShort', progeny)] -- the same call vanilla's relative_died uses -- so "my friend",
+# "my lover", "my son" stays correct for as long as the memory lives. Written in spn_initiate.0001 on the maker.
+spn_made_a_vampire_memory = {
+	categories = { private supernatural }
+	icon = "blood_brother.dds"
+
+	# The `_named` variants carry the relationship word; the plain ones only the name, so nobody is ever "my acquaintance".
+	description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { memory_owner = { spn_relation_word_exists_trigger = { OTHER = root.memory_participant:progeny } } }
+				desc = spn_made_a_vampire_memory_desc_named
+			}
+			desc = spn_made_a_vampire_memory_desc
+		}
+	}
+	second_perspective_description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { memory_owner = { spn_relation_word_exists_trigger = { OTHER = root.memory_participant:progeny } } }
+				desc = spn_made_a_vampire_memory_desc_named_second_perspective
+			}
+			desc = spn_made_a_vampire_memory_desc_second_perspective
+		}
+	}
+	third_perspective_description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { memory_owner = { spn_relation_word_exists_trigger = { OTHER = root.memory_participant:progeny } } }
+				desc = spn_made_a_vampire_memory_desc_named_third_perspective
+			}
+			desc = spn_made_a_vampire_memory_desc_third_perspective
+		}
+	}
+
+	participants = { progeny }
+
+	duration = { years = 1000 }
+}
+
+# The clawer's side of spn_became_werewolf_memory. `turned` = the new werewolf. Written in spn_complete_wound_turn.
+spn_clawed_someone_memory = {
+	categories = { private supernatural }
+	icon = "icon_wounded.dds"
+
+	description = { random_valid = { desc = spn_clawed_someone_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_clawed_someone_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_clawed_someone_memory_desc_third_perspective } }
+
+	participants = { turned }
+
+	duration = { years = 1000 }
+}
+
+# Asked to be turned -- a rare, deliberate, character-defining act. `asked` = the one who was asked. Written once
+# (any_memory guard) in the on_accept of the three ask-to-turn interactions. Offering blood is NOT recorded: an
+# offer is a promise, a memory records events.
+spn_asked_for_the_gift_memory = {
+	categories = { private supernatural }
+	icon = "intimate.dds"
+
+	description = { random_valid = { desc = spn_asked_for_the_gift_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_asked_for_the_gift_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_asked_for_the_gift_memory_desc_third_perspective } }
+
+	participants = { asked }
+
+	duration = { years = 1000 }
+}
+
+############################################################
+# TIER 3 -- THE CONFRONTATION. First occurrence only, one shared guard across all three, no participants
+# (the hunter is a generated character). Written in the 10_spn_confrontation.txt outcome immediates.
+############################################################
+
+spn_killed_the_hunter_memory = {
+	categories = { private supernatural }
+	icon = "murder.dds"
+
+	description = { random_valid = { desc = spn_killed_the_hunter_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_killed_the_hunter_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_killed_the_hunter_memory_desc_third_perspective } }
+
+	duration = { years = 1000 }
+}
+
+spn_escaped_the_hunter_memory = {
+	categories = { private supernatural }
+	icon = "intimidation.dds"
+
+	description = { random_valid = { desc = spn_escaped_the_hunter_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_escaped_the_hunter_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_escaped_the_hunter_memory_desc_third_perspective } }
+
+	duration = { years = 1000 }
+}
+
+spn_compelled_the_hunter_memory = {
+	categories = { private supernatural }
+	icon = "intrigue.dds"
+
+	description = { random_valid = { desc = spn_compelled_the_hunter_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_compelled_the_hunter_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_compelled_the_hunter_memory_desc_third_perspective } }
+
+	duration = { years = 1000 }
+}
+
+############################################################
+# TIER 4 -- THE WITCHCRAFT BRIDGE.
+############################################################
+
+# Born with demon blood (demon0, "Demonic Heritage"). Written beside add_trait = demon0 in
+# 10_spn_birthday_on_actions.txt -- Thomas's own hook, no upstream merge cost. Anchors event ⑤.
+spn_demon_blood_memory = {
+	categories = { private supernatural }
+	icon = "_default.dds"
+
+	description = { random_valid = { desc = spn_demon_blood_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_demon_blood_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_demon_blood_memory_desc_third_perspective } }
+
+	duration = { years = 1000 }
+}
+
+# Took the Mage trait (archmage) at the top of the arcane tree. Written in mage_p4_perk's effect. Anchors event ⑥.
+spn_became_a_mage_memory = {
+	categories = { private supernatural }
+	icon = "legend.dds"
+
+	description = { random_valid = { desc = spn_became_a_mage_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_became_a_mage_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_became_a_mage_memory_desc_third_perspective } }
+
+	duration = { years = 1000 }
+}
+
+############################################################
+# TIER 5 -- THE HUNT (2.35). Same house rules. Participants are real characters (the hunter, the creature, the
+# progeny) -- a Supernatural Hunt is fought between two people who both exist in the world, unlike the random
+# confrontation's generated hunter. First occurrence only, guarded in zz_spn_memory_effects.txt.
+############################################################
+
+# The hunter put down a creature on a Supernatural Hunt. `creature` = the one he killed. Written in
+# spn_hunt_hunter_won_effect, BEFORE the death (bank-before-death).
+spn_slew_the_beast_memory = {
+	categories = { private supernatural }
+	icon = "activity_hunt.dds"
+
+	description = { random_valid = { desc = spn_slew_the_beast_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_slew_the_beast_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_slew_the_beast_memory_desc_third_perspective } }
+
+	participants = { creature }
+
+	duration = { years = 1000 }
+}
+
+# The creature beat the hunter who came for it and let him crawl away. `hunter` = that hunter. Written in
+# spn_hunt_defender_won_effect.
+spn_bested_the_hunter_memory = {
+	categories = { private supernatural }
+	icon = "intimidation.dds"
+
+	description = { random_valid = { desc = spn_bested_the_hunter_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_bested_the_hunter_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_bested_the_hunter_memory_desc_third_perspective } }
+
+	participants = { hunter }
+
+	duration = { years = 1000 }
+}
+
+# The hunter was compelled and turned back (Turned Back). No participant: he does not remember who did it.
+spn_lost_the_thread_memory = {
+	categories = { negative private supernatural }
+	icon = "intrigue.dds"
+
+	description = { random_valid = { desc = spn_lost_the_thread_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_lost_the_thread_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_lost_the_thread_memory_desc_third_perspective } }
+
+	duration = { years = 1000 }
+}
+
+# A maker's progeny (or a werewolf's clawed kin) was killed by a hunter. Owned by the maker. `progeny` = the
+# slain; `hunter` = who did it. Written in spn_hunt_hunter_won_effect, before the death.
+spn_progeny_slain_by_hunter_memory = {
+	categories = { negative private supernatural }
+	icon = "murder.dds"
+
+	description = { random_valid = { desc = spn_progeny_slain_by_hunter_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_progeny_slain_by_hunter_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_progeny_slain_by_hunter_memory_desc_third_perspective } }
+
+	participants = { progeny hunter }
+
+	duration = { years = 1000 }
+}
+
+# The hunter took the creature's gold and went home (The Price of Silence). `creature` = who paid.
+spn_took_the_vampires_coin_memory = {
+	categories = { negative private supernatural }
+	icon = "intrigue.dds"
+
+	description = { random_valid = { desc = spn_took_the_vampires_coin_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_took_the_vampires_coin_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_took_the_vampires_coin_memory_desc_third_perspective } }
+
+	participants = { creature }
+
+	duration = { years = 1000 }
+}
+
+
+# ============================================================================
+# 2.35 PART TWO -- "The Bridge". All private, 1000 years, first-only, per this file's own rules.
+# ============================================================================
+
+# The hunter sent a summoned demon home and watched the body it was wearing fall down. `demon` = what it was.
+# Written in spn_exorcism_collapse_the_host_effect, before the death.
+spn_sent_it_home_memory = {
+	categories = { private supernatural }
+	icon = "religious.dds"
+
+	description = { random_valid = { desc = spn_sent_it_home_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_sent_it_home_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_sent_it_home_memory_desc_third_perspective } }
+
+	participants = { demon }
+
+	duration = { years = 1000 }
+}
+
+# The one that is not about killing anything. There was a person under it and the hunter got them back.
+# `person` = who came out. Written in spn_exorcism_restore_the_person_effect.
+spn_brought_one_back_memory = {
+	categories = { private supernatural }
+	icon = "religious.dds"
+
+	description = { random_valid = { desc = spn_brought_one_back_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_brought_one_back_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_brought_one_back_memory_desc_third_perspective } }
+
+	participants = { person }
+
+	duration = { years = 1000 }
+}
+
+# The demon's side of a failed exorcism: a man who nearly had it, and did not. `hunter` = him.
+# Written in spn_hunt_break_it_off_effect. This is the memory behind Thomas's earned rival.
+spn_remembers_the_exorcist_memory = {
+	categories = { private supernatural }
+	icon = "intimidation.dds"
+
+	description = { random_valid = { desc = spn_remembers_the_exorcist_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_remembers_the_exorcist_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_remembers_the_exorcist_memory_desc_third_perspective } }
+
+	participants = { hunter }
+
+	duration = { years = 1000 }
+}
+
+# The hunter signed. `demon` = who he signed with. Written in spn_hunt_demon_bargain_effect -- and in ten to
+# thirty years upstream's magic_ev8.18 comes to collect on it.
+spn_took_the_demons_bargain_memory = {
+	categories = { negative private supernatural }
+	icon = "intrigue.dds"
+
+	description = { random_valid = { desc = spn_took_the_demons_bargain_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_took_the_demons_bargain_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_took_the_demons_bargain_memory_desc_third_perspective } }
+
+	participants = { demon }
+
+	duration = { years = 1000 }
+}
+
+############################################################
+# 2.37 -- THE SIX HIDES. The house rules above, all three.
+############################################################
+
+# The hide chose him (The Hide Takes Hold). Written once, at the first hide.
+spn_hide_chosen_memory = {
+	categories = { private supernatural }
+	icon = "legend.dds"
+
+	description = { random_valid = { desc = spn_hide_chosen_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_hide_chosen_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_hide_chosen_memory_desc_third_perspective } }
+
+	duration = { years = 1000 }
+}
+
+# The hide left him alive (unbound, abandoned, two wolves, lost).
+spn_hide_left_me_memory = {
+	categories = { private supernatural }
+	icon = "death_neutral.dds"
+
+	description = { random_valid = { desc = spn_hide_left_me_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_hide_left_me_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_hide_left_me_memory_desc_third_perspective } }
+
+	duration = { years = 1000 }
+}
+
+# The hunter kept the hide (What Came Out of Him, "I keep it.").
+spn_hide_trophy_memory = {
+	categories = { private supernatural }
+	icon = "activity_hunt.dds"
+
+	description = { random_valid = { desc = spn_hide_trophy_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_hide_trophy_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_hide_trophy_memory_desc_third_perspective } }
+
+	duration = { years = 1000 }
+}
+
+############################################################
+# 2.38 -- The Blue Rose (§4.13). Private, 1000 years, three perspectives; written once (any_memory guard).
+############################################################
+spn_order_initiated_memory = {
+	categories = { private supernatural }
+	icon = "legend.dds"
+
+	description = { random_valid = { desc = spn_order_initiated_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_order_initiated_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_order_initiated_memory_desc_third_perspective } }
+
+	duration = { years = 1000 }
+}
+
+spn_order_forgotten_memory = {
+	categories = { private supernatural }
+	icon = "_default.dds"
+
+	description = { random_valid = { desc = spn_order_forgotten_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_order_forgotten_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_order_forgotten_memory_desc_third_perspective } }
+
+	duration = { years = 1000 }
+}
+
+spn_order_tutor_memory = {
+	categories = { private supernatural }
+	icon = "friend.dds"
+
+	description = { random_valid = { desc = spn_order_tutor_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_order_tutor_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_order_tutor_memory_desc_third_perspective } }
+	participants = { tutor }
+
+	duration = { years = 1000 }
+}
+
+spn_vade_bound_memory = {
+	categories = { private supernatural }
+	icon = "nemesis.dds"
+
+	description = { random_valid = { desc = spn_vade_bound_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_vade_bound_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_vade_bound_memory_desc_third_perspective } }
+
+	duration = { years = 1000 }
+}
+
+spn_zecchia_hired_memory = {
+	categories = { private supernatural }
+	icon = "intrigue.dds"
+
+	description = { random_valid = { desc = spn_zecchia_hired_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_zecchia_hired_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_zecchia_hired_memory_desc_third_perspective } }
+
+	duration = { years = 1000 }
+}
+
+spn_vade_soul_taken_memory = {
+	categories = { private supernatural }
+	icon = "death_negative.dds"
+
+	description = { random_valid = { desc = spn_vade_soul_taken_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_vade_soul_taken_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_vade_soul_taken_memory_desc_third_perspective } }
+	participants = { taken }
+
+	duration = { years = 1000 }
+}
+
+spn_seal_found_memory = {
+	categories = { private supernatural }
+	icon = "religious.dds"
+
+	description = { random_valid = { desc = spn_seal_found_memory_desc } }
+	second_perspective_description = { random_valid = { desc = spn_seal_found_memory_desc_second_perspective } }
+	third_perspective_description = { random_valid = { desc = spn_seal_found_memory_desc_third_perspective } }
+
+	duration = { years = 1000 }
+}
+
