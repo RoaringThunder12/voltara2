@@ -1,0 +1,8 @@
+﻿scorpions = {
+ type = siege_weapon
+ damage = 0 toughness = 12 pursuit = 0 screen = 0 siege_value = 0.1 siege_tier = 1
+ stack = 10
+ buy_cost = { gold = 150 } low_maintenance_cost = { gold = 0.5 } high_maintenance_cost = { gold = 2 }
+ icon = mangonel
+ can_recruit = { always = yes }
+}

@@ -1,10 +1,10 @@
 ﻿voltara_has_living_dragon = {
- exists = var:current_dragon var:current_dragon = { is_alive = yes has_trait = dragon var:current_rider ?= prev }
+ exists = var:current_dragon var:current_dragon ?= { is_alive = yes has_trait = dragon exists = var:current_rider var:current_rider = prev }
 }
 is_current_dragonrider = { is_alive = yes is_adult = yes is_imprisoned = no is_incapable = no
  has_trait = dragonrider voltara_has_living_dragon = yes var:current_dragon = { age >= 15 } }
 is_current_dragonrider_warfare = { is_current_dragonrider = yes has_character_flag = voltara_dragon_deployed }
-voltara_has_dragon_egg = { any_owned_artifact = { has_variable = voltara_dragon_egg } }
+voltara_has_dragon_egg = { any_character_artifact = { has_variable = voltara_dragon_egg } }
 voltara_free_dragon = { is_alive = yes has_trait = dragon NOT = { exists = var:current_rider } }
 voltara_duel_ready = { is_alive = yes is_adult = yes is_imprisoned = no is_incapable = no
  NOT = { has_trait = dragon } NOT = { has_variable = engaged_in_single_combat }

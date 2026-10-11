@@ -34,6 +34,7 @@ window = {
 
 	vbox = {
 		name = "main_content"
+ visible = "[Not(Character.HasTrait(GetTrait('dragon')))]"
 		using = Window_Margins_Sidebar
 
 		###############
@@ -4563,6 +4564,59 @@ window = {
 			}
 		}
 	}
+vbox = { name = "voltara_dragon_panel" using = Window_Margins_Sidebar
+ visible = "[Character.HasTrait(GetTrait('dragon'))]" spacing = 8
+ widget = { size = { 560 430 }
+ background = { texture = "gfx/interface/illustrations/event_scenes/agot_dragonstone_cave.dds" fittype = centercrop }
+ portrait_button = { using = portrait_base size = { 560 390 } parentanchor = bottom|hcenter
+ portrait_texture = "[Character.GetPortrait('environment_body', 'voltara_dragon_camera', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+ }
+ buttons_window_control = { parentanchor = top|right
+ blockoverride "button_close" { onclick = "[CharacterWindow.Close]" }
+ blockoverride "button_back" { visible = "[HasViewHistory]" onclick = "[OpenFromViewHistory]" }
+ }
+ }
+ text_single = { text = "[Character.GetFirstNameNicknamedNoTooltip], [Character.GetAge]" fontsize = 24 }
+ text_single = { text = "[SelectLocalization(Character.MakeScope.Var('current_rider').IsSet, 'voltara_dragon_bonded_label', 'voltara_dragon_wild_label')]" }
+ hbox = { spacing = 18
+vbox = { spacing = 3
+ icon = { size = { 32 32 } texture = "gfx/interface/icons/icon_dragon_size.dds" }
+ text_single = { text = "voltara_stat_dragon_size" fontsize = 14 }
+ text_single = { text = "[Character.MakeScope.ScriptValue('dragon_size')|0]" fontsize = 20 }
+ }
+vbox = { spacing = 3
+ icon = { size = { 32 32 } texture = "gfx/interface/icons/icon_dragon_combat_effectiveness.dds" }
+ text_single = { text = "voltara_stat_dragon_combat_effectiveness" fontsize = 14 }
+ text_single = { text = "[Character.MakeScope.ScriptValue('dragon_combat_effectiveness')|0]" fontsize = 20 }
+ }
+vbox = { spacing = 3
+ icon = { size = { 32 32 } texture = "gfx/interface/icons/icon_draconic_dread.dds" }
+ text_single = { text = "voltara_stat_draconic_dread" fontsize = 14 }
+ text_single = { text = "[Character.MakeScope.ScriptValue('draconic_dread')|0]" fontsize = 20 }
+ }
+vbox = { spacing = 3
+ icon = { size = { 32 32 } texture = "gfx/interface/icons/icon_draconic_temperament.dds" }
+ text_single = { text = "voltara_stat_temperament" fontsize = 14 }
+ text_single = { text = "[Character.MakeScope.ScriptValue('temperament')|0]" fontsize = 20 }
+ }
+vbox = { spacing = 3
+ icon = { size = { 32 32 } texture = "gfx/interface/icons/icon_dragon_taming_chance.dds" }
+ text_single = { text = "voltara_stat_taming_chance" fontsize = 14 }
+ text_single = { text = "[Character.MakeScope.ScriptValue('taming_chance')|0]" fontsize = 20 }
+ }
+ }
+ vbox = { datacontext = "[CharacterWindow.GetTraitArrays]" spacing = 5
+ fixedgridbox = { datamodel = "[TraitArrays.GetPersonalityTraits]" addcolumn = 62 addrow = 60 flipdirection = yes datamodel_wrap = 8
+ item = { icon_trait = { blockoverride "icon_size" { size = { 50 50 } } } } }
+ fixedgridbox = { datamodel = "[TraitArrays.GetTraits]" addcolumn = 62 addrow = 60 flipdirection = yes datamodel_wrap = 8
+ item = { icon_trait = { blockoverride "icon_size" { size = { 50 50 } } } } }
+ }
+ widget = { size = { 520 110 } visible = "[CharacterWindow.GetCharacter.MakeScope.Var('current_rider').IsSet]"
+ datacontext = "[CharacterWindow.GetCharacter.MakeScope.Var('current_rider').Char]"
+ hbox = { spacing = 12 portrait_head_small = { } text_single = { text = "[Character.GetNameNoTooltip]" } }
+ }
+ text_multi = { text = "voltara_dragon_panel_lore" max_width = 520 autoresize = yes }
+ }
 }
 
 

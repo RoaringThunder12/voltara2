@@ -1,4 +1,4 @@
-pdxmesh = {
+﻿pdxmesh = {
 	name = "saddle_mesh"
 	file = "saddle/saddle.mesh"
 	scale = 1.0
@@ -14,7 +14,7 @@ pdxmesh = {
 		texture_diffuse = "saddle_diffuse.dds"
 		texture_normal = "saddle_normal.dds"
 		texture_specular = "saddle_properties.dds"
-		shader = "portrait_attachment_pattern"
+		shader = "voltara_isolated_portrait_attachment_pattern"
 		shader_file = "gfx/FX/jomini/portrait.shader"
 	}
 

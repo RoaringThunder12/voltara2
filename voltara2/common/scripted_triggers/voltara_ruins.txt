@@ -1,0 +1,11 @@
+﻿voltara_ruins_can_settle = {
+ tier = tier_county has_variable = voltara_ruin_state
+ NOT = { has_variable = voltara_uncolonisable }
+ NOT = { has_variable = voltara_expedition_owner }
+ holder = global_var:voltara_ruins_keeper
+ scope:actor = { is_landed = yes is_adult = yes is_imprisoned = no gold >= 250 }
+ OR = {
+  var:voltara_former_holder ?= scope:actor
+  any_neighboring_county = { holder = { top_liege = scope:actor.top_liege } }
+ }
+}

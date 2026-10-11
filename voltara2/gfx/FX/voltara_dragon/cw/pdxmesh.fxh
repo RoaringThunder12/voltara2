@@ -1,7 +1,7 @@
 ﻿Includes = {
-	"cw/camera.fxh"
-	"cw/random.fxh"
-	"cw/pdxmesh_buffers.fxh"
+	"voltara_dragon/cw/camera.fxh"
+	"voltara_dragon/cw/random.fxh"
+	"voltara_dragon/cw/pdxmesh_buffers.fxh"
 }
 
 VertexShader =

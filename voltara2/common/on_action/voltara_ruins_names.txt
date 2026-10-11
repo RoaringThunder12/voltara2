@@ -1,0 +1,4 @@
+﻿on_game_start_after_lobby = { on_actions = { voltara_migrate_ruins_names } }
+voltara_migrate_ruins_names = { effect = {
+ every_in_global_list = { variable = voltara_ruined_counties limit = { has_variable = voltara_ruin_state } voltara_name_ruined_county = yes }
+} }

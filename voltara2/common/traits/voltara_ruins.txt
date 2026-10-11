@@ -1,0 +1,7 @@
+﻿voltara_ruins_keeper = {
+ icon = architect.dds name = voltara_ruins_keeper desc = voltara_ruins_keeper_desc
+ flag = can_not_marry flag = blocks_getting_non_epidemic_disease
+ health = 100 epidemic_resistance = 100 fertility = -1 immortal = yes
+ inheritance_blocker = all claim_inheritance_blocker = all shown_in_ruler_designer = no
+ domain_limit = 10000 ai_energy = -1000 ai_boldness = -1000
+}

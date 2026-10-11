@@ -9,7 +9,7 @@
 			accessory = {
 				mode = add
 				gene = clothes
-				template = no_clothes_forced
+				template = no_clothes
 				range = { 0 1 } # For the randomness to work correctly
 			}
 

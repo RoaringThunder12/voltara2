@@ -1,6 +1,6 @@
 ﻿Includes = {
 	"voltara_dragon/jomini/texture_decals_base.fxh"
-	"jomini/portrait_user_data.fxh"
+	"voltara_dragon/jomini/portrait_user_data.fxh"
 	"voltara_dragon/jomini/portrait_decals.fxh"
 }
 

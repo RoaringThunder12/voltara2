@@ -1,4 +1,4 @@
-### Dragonfire - baked-mesh particle effect
+﻿### Dragonfire - baked-mesh particle effect
 #
 # A skinned card mesh driven by a baked .anim, not a .particle2. Shader is
 # agot/gfx/FX/agot_particle_card.fxh. See "CK3 Model Particle System/README.md".
@@ -26,7 +26,7 @@ pdxmesh = {
 		texture_diffuse = "fx_fire_a.dds"
 
 		# Unlit, billboarded, alpha blended, palette tinted, no shadow pass.
-		shader = "portrait_particle_card_dragon"
+		shader = "voltara_isolated_portrait_particle_card_dragon"
 		shader_file = "gfx/FX/jomini/portrait.shader"
 
 		additional_shader_defines = {
@@ -126,7 +126,7 @@ pdxmesh = {
 		# LIT, not emissive: the puff takes the portrait lights instead of
 		# glowing, which is what stops a black card reading as a hole punched in
 		# the portrait. Also gates the whole layer on how dark the dragon is.
-		shader = "portrait_particle_card_dragon_lit"
+		shader = "voltara_isolated_portrait_particle_card_dragon_lit"
 		shader_file = "gfx/FX/jomini/portrait.shader"
 
 		additional_shader_defines = {

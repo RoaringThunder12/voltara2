@@ -1,0 +1,6 @@
+﻿on_game_start = { on_actions = { voltara_initialize_culture_ruins } }
+voltara_initialize_culture_ruins = { effect = {
+ title:c_voltara_226.holder = { trigger_event = { id = voltara_culture_ruins.1 } }
+} }
+on_game_start_after_lobby = { on_actions = { voltara_refresh_ruins_realm } }
+voltara_refresh_ruins_realm = { effect = { voltara_ensure_ruins_realm = yes } }

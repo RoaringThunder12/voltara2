@@ -1,5 +1,5 @@
 ﻿Includes = {
-	"cw/pdxmesh_buffers.fxh"
+	"voltara_dragon/cw/pdxmesh_buffers.fxh"
 	"voltara_dragon/agot_portrait_decals_shared.fxh"
 	"voltara_dragon/agot_markers.fxh"
 }

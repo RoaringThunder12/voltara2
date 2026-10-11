@@ -1,0 +1,6 @@
+﻿voltara_battle_ready_dragonrider = {
+ is_alive = yes is_adult = yes is_imprisoned = no is_incapable = no
+ voltara_has_living_dragon = yes
+ NOT = { has_character_flag = voltara_dragon_grounded }
+ var:current_dragon ?= { is_alive = yes age >= 15 NOT = { has_trait = dragon_wounded_3 } }
+}

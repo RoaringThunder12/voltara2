@@ -1,0 +1,18 @@
+﻿voltara_ruin_01 = {
+ construction_time = 365 cost_gold = 500
+ can_construct_potential = { always = no } can_construct = { always = no }
+ asset = { type = pdxmesh name = "agot_building_western_ruin_mesh" illustration = "gfx/interface/illustrations/holding_types/ruin_generic.dds" }
+ type_icon = "icon_building_ruin.dds"
+}
+voltara_wasteland_01 = {
+ construction_time = 365 cost_gold = 500
+ can_construct_potential = { always = no } can_construct = { always = no }
+ asset = { type = pdxmesh name = "agot_building_western_ruin_mesh" illustration = "gfx/interface/illustrations/holding_types/ruin_generic.dds" }
+ type_icon = "icon_building_ruin.dds"
+}
+voltara_settlement_01 = {
+ construction_time = 365 cost_gold = 500
+ can_construct_potential = { always = no } can_construct = { always = no }
+ asset = { type = pdxmesh name = "agot_building_western_ruin_mesh" illustration = "gfx/interface/illustrations/holding_types/ruin_generic.dds" }
+ type_icon = "icon_building_ruin.dds"
+}

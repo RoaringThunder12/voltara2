@@ -3,7 +3,7 @@
 		normal_portrait = {
 			index = 0
 			visible = no
-			male = {}
+			male = { setting = { attribute = "bs_no_portrait" value = { min = 0 max = 0 } } setting = { attribute = "bs_body_no_portrait" value = { min = 0 max = 0 } } }
 			female = male
 			boy = male
 			girl = female

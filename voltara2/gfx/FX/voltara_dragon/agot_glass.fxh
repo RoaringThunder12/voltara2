@@ -1,7 +1,7 @@
 ﻿Includes = {
-	"cw/lighting.fxh"
-	"cw/lighting_util.fxh"
-	"jomini/portrait_lighting.fxh"
+	"voltara_dragon/cw/lighting.fxh"
+	"voltara_dragon/cw/lighting_util.fxh"
+	"voltara_dragon/jomini/portrait_lighting.fxh"
 }
 
 PixelShader =

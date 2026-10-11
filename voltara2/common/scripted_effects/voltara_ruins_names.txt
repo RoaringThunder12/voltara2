@@ -1,0 +1,26 @@
+﻿voltara_mark_ruins_name = {
+ set_title_name = voltara_ruined_title
+ set_variable = { name = voltara_ruins_named value = yes }
+}
+voltara_refresh_ruins_region_name = {
+ if = { limit = { any_de_jure_county = { always = yes } NOT = { any_de_jure_county = { NOT = { has_variable = voltara_ruin_state } } } }
+  voltara_mark_ruins_name = yes
+ }
+ else_if = { limit = { has_variable = voltara_ruins_named }
+  reset_title_name = yes remove_variable = voltara_ruins_named
+ }
+}
+voltara_name_ruined_county = {
+ voltara_mark_ruins_name = yes
+ every_county_province = { barony = { voltara_mark_ruins_name = yes } }
+ duchy ?= { voltara_refresh_ruins_region_name = yes }
+ kingdom ?= { voltara_refresh_ruins_region_name = yes }
+ empire ?= { voltara_refresh_ruins_region_name = yes }
+}
+voltara_restore_ruins_names = {
+ if = { limit = { has_variable = voltara_ruins_named } reset_title_name = yes remove_variable = voltara_ruins_named }
+ every_county_province = { barony = { if = { limit = { has_variable = voltara_ruins_named } reset_title_name = yes remove_variable = voltara_ruins_named } } }
+ duchy ?= { voltara_refresh_ruins_region_name = yes }
+ kingdom ?= { voltara_refresh_ruins_region_name = yes }
+ empire ?= { voltara_refresh_ruins_region_name = yes }
+}

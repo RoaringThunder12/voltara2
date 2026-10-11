@@ -1,0 +1,14 @@
+﻿voltara_dragon_commander_phase = {
+ type = commander
+ is_valid = { exists = scope:combat_side.side_commander scope:combat_side = {
+ OR = { any_side_commander = { voltara_battle_ready_dragonrider = yes } any_side_knight = { voltara_battle_ready_dragonrider = yes } }
+ } }
+ chance = { base = 1000000 }
+ effect = {
+ scope:combat_side = {
+ every_side_commander = { limit = { voltara_battle_ready_dragonrider = yes NOT = { has_character_flag = voltara_air_duel_cooldown } } voltara_dragon_automatic_encounter = yes }
+ every_side_knight = { limit = { voltara_battle_ready_dragonrider = yes NOT = { exists = commanding_army } NOT = { has_character_flag = voltara_air_duel_cooldown } } voltara_dragon_automatic_encounter = yes }
+ }
+ voltara_dragon_process_combat_side = yes
+ }
+}

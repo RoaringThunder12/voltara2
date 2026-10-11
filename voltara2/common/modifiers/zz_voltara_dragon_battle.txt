@@ -1,0 +1,188 @@
+﻿dragon_battle_prowess_modifier_1 = {
+	icon = martial_positive
+	prowess = 30
+}
+dragon_battle_prowess_modifier_2 = {
+	icon = martial_positive
+	prowess = 45
+}
+dragon_battle_prowess_modifier_3 = {
+	icon = martial_positive
+	prowess = 60
+}
+dragon_battle_prowess_modifier_4 = {
+	icon = martial_positive
+	prowess = 75
+}
+dragon_battle_prowess_modifier_5 = {
+	icon = martial_positive
+	prowess = 100
+}
+base_dragon_army_modifier_1 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_1
+}
+base_dragon_army_modifier_2 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_2
+	enemy_hard_casualty_modifier = 0.1
+}
+base_dragon_army_modifier_3 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_3
+	enemy_hard_casualty_modifier = 0.15
+}
+base_dragon_army_modifier_4 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_4
+	enemy_hard_casualty_modifier = 0.2
+}
+base_dragon_army_modifier_5 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_5
+	enemy_hard_casualty_modifier = 0.25
+}
+base_dragon_army_modifier_6 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_6
+	enemy_hard_casualty_modifier = 0.3
+}
+base_dragon_army_modifier_7 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_7
+	enemy_hard_casualty_modifier = 0.35
+}
+base_dragon_army_modifier_8 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_8
+	enemy_hard_casualty_modifier = 0.4
+}
+base_dragon_army_modifier_9 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_9
+	enemy_hard_casualty_modifier = 0.45
+}
+base_dragon_army_modifier_10 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_10
+	enemy_hard_casualty_modifier = 0.5
+}
+dragon_combat_modifier_1 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_1
+}
+dragon_combat_modifier_2 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_2
+}
+dragon_combat_modifier_3 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_3
+}
+dragon_combat_modifier_4 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_4
+}
+dragon_combat_modifier_5 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_5
+}
+dragon_combat_modifier_6 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_6
+}
+dragon_combat_modifier_7 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_7
+}
+dragon_combat_modifier_8 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_8
+}
+dragon_combat_modifier_9 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_9
+}
+dragon_combat_modifier_10 = {
+	stacking = yes
+	icon = beast_positive
+	advantage = dragon_advantage_values_10
+}
+base_dragon_army_modifier_scorpions_counter_1 = {
+	stacking = yes
+	icon = beast_negative
+	advantage = dragon_advantage_counter_values_1
+}
+base_dragon_army_modifier_scorpions_counter_2 = {
+	stacking = yes
+	icon = beast_negative
+	advantage = dragon_advantage_counter_values_2
+	enemy_hard_casualty_modifier = -0.1
+}
+base_dragon_army_modifier_scorpions_counter_3 = {
+	stacking = yes
+	icon = beast_negative
+	advantage = dragon_advantage_counter_values_3
+	enemy_hard_casualty_modifier = -0.15
+}
+base_dragon_army_modifier_scorpions_counter_4 = {
+	stacking = yes
+	icon = beast_negative
+	advantage = dragon_advantage_counter_values_4
+	enemy_hard_casualty_modifier = -0.2
+}
+base_dragon_army_modifier_scorpions_counter_5 = {
+	stacking = yes
+	icon = beast_negative
+	advantage = dragon_advantage_counter_values_5
+	enemy_hard_casualty_modifier = -0.25
+}
+base_dragon_army_modifier_scorpions_counter_6 = {
+	stacking = yes
+	icon = beast_negative
+	advantage = dragon_advantage_counter_values_6
+	enemy_hard_casualty_modifier = -0.3
+}
+base_dragon_army_modifier_scorpions_counter_7 = {
+	stacking = yes
+	icon = beast_negative
+	advantage = dragon_advantage_counter_values_7
+	enemy_hard_casualty_modifier = -0.35
+}
+base_dragon_army_modifier_scorpions_counter_8 = {
+	stacking = yes
+	icon = beast_negative
+	advantage = dragon_advantage_counter_values_8
+	enemy_hard_casualty_modifier = -0.4
+}
+base_dragon_army_modifier_scorpions_counter_9 = {
+	stacking = yes
+	icon = beast_negative
+	advantage = dragon_advantage_counter_values_9
+	enemy_hard_casualty_modifier = -0.45
+}
+base_dragon_army_modifier_scorpions_counter_10 = {
+	stacking = yes
+	icon = beast_negative
+	advantage = dragon_advantage_counter_values_10
+	enemy_hard_casualty_modifier = -0.5
+}

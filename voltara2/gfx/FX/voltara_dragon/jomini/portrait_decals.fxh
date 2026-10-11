@@ -1,8 +1,8 @@
 ﻿includes = {
 	"voltara_dragon/jomini/texture_decals_base.fxh"
-	"jomini/portrait_user_data.fxh"
+	"voltara_dragon/jomini/portrait_user_data.fxh"
 	# MOD(agot)
-	"standardfuncsgfx.fxh"
+	"voltara_dragon/standardfuncsgfx.fxh"
 	"voltara_dragon/agot_portrait_decals_shared.fxh"
 	"voltara_dragon/agot_constants.fxh"
 	"voltara_dragon/agot_utils.fxh"

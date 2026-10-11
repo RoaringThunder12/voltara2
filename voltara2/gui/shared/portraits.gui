@@ -1555,7 +1555,7 @@ types PortraitTypes
 				using = portrait_base
 				parentanchor = hcenter|bottom
 
-				portrait_texture = "[Character.GetAnimatedPortrait('environment_event_standard', 'environment_event_standard', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+				portrait_texture = "[Character.GetAnimatedPortrait('environment_event_standard', Select_CString(Character.HasTrait(GetTrait('dragon')), 'voltara_dragon_camera', 'environment_event_standard'), 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 				background_texture = "gfx/portraits/portrait_transparent.dds"
 				texture = "gfx/portraits/portrait_transparent.dds"
 				mask = "gfx/portraits/portrait_mask_event.dds"
@@ -1605,7 +1605,7 @@ types PortraitTypes
 				using = portrait_base
 				parentanchor = hcenter|bottom
 
-				portrait_texture = "[Character.GetAnimatedPortrait('environment_event_standard', 'environment_event_standard', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+				portrait_texture = "[Character.GetAnimatedPortrait('environment_event_standard', Select_CString(Character.HasTrait(GetTrait('dragon')), 'voltara_dragon_camera', 'environment_event_standard'), 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 				background_texture = "gfx/portraits/portrait_transparent.dds"
 				texture = "gfx/portraits/portrait_transparent.dds"
 				mask = "gfx/portraits/portrait_mask_event.dds"
@@ -1655,7 +1655,7 @@ types PortraitTypes
 				using = portrait_base
 				parentanchor = hcenter|bottom
 
-				portrait_texture = "[Character.GetAnimatedPortrait('environment_event_standard', 'environment_event_standard', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+				portrait_texture = "[Character.GetAnimatedPortrait('environment_event_standard', Select_CString(Character.HasTrait(GetTrait('dragon')), 'voltara_dragon_camera', 'environment_event_standard'), 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 				background_texture = "gfx/portraits/portrait_transparent.dds"
 				texture = "gfx/portraits/portrait_transparent.dds"
 				mask = "gfx/portraits/portrait_mask_event.dds"
@@ -1812,7 +1812,7 @@ types PortraitTypes
 
 			block "portrait_texture_block"
 			{
-				portrait_texture = "[Character.GetAnimatedPortrait('environment_council', 'camera_council', CouncilPositionType.GetPortraitAnimation, PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+				portrait_texture = "[Character.GetAnimatedPortrait('environment_council', Select_CString(Character.HasTrait(GetTrait('dragon')), 'voltara_dragon_camera', 'camera_council'), CouncilPositionType.GetPortraitAnimation, PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 			}
 
 			mask = "gfx/portraits/portrait_mask_council.dds"
@@ -1865,7 +1865,7 @@ types PortraitTypes
 			parentanchor = bottom|hcenter
 			using = portrait_base
 
-			portrait_texture = "[Character.GetAnimatedPortrait('environment_body', 'camera_body', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+			portrait_texture = "[Character.GetAnimatedPortrait('environment_body', Select_CString(Character.HasTrait(GetTrait('dragon')), 'voltara_dragon_camera', 'camera_body'), 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 			mask = "gfx/portraits/portrait_mask_torso.dds"
 			effectname = "NoHighlight"
 
@@ -1911,7 +1911,7 @@ types PortraitTypes
 			parentanchor = bottom|hcenter
 			using = portrait_base
 
-			portrait_texture = "[Character.GetAnimatedPortrait('environment_war_overview', 'camera_war_overview', Select_CString(WarParticipantItem.IsAttacker, 'war_attacker', 'war_defender'), PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+			portrait_texture = "[Character.GetAnimatedPortrait('environment_war_overview', Select_CString(Character.HasTrait(GetTrait('dragon')), 'voltara_dragon_camera', 'camera_war_overview'), Select_CString(WarParticipantItem.IsAttacker, 'war_attacker', 'war_defender'), PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 			mask = "gfx/portraits/portrait_mask_torso.dds"
 			effectname = "NoHighlight"
 
@@ -1982,7 +1982,7 @@ types PortraitTypes
 		clicksound = "event:/SFX/UI/Character/sfx_ui_character_portrait_select"
 		oversound = "event:/SFX/UI/Character/sfx_ui_character_portrait_pointer_over"
 
-		portrait_texture = "[Character.GetAnimatedPortrait('environment_hud', 'camera_hud', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+		portrait_texture = "[Character.GetAnimatedPortrait('environment_hud', Select_CString(Character.HasTrait(GetTrait('dragon')), 'voltara_dragon_camera', 'camera_hud'), 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 		background_texture = "gfx/portraits/portrait_transparent.dds"
 		texture = "gfx/portraits/portrait_transparent.dds"
 		mask = "gfx/portraits/portrait_mask_blank.dds"
@@ -2032,7 +2032,7 @@ types PortraitTypes
 
 		using = portrait_base
 
-		portrait_texture = "[Character.GetAnimatedPortrait('environment_body', 'camera_lifestyles', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+		portrait_texture = "[Character.GetAnimatedPortrait('environment_body', Select_CString(Character.HasTrait(GetTrait('dragon')), 'voltara_dragon_camera', 'camera_lifestyles'), 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 		mask = "gfx/portraits/portrait_mask_blank.dds"
 
 		state = {
@@ -2070,7 +2070,7 @@ types PortraitTypes
 
 		onclick = "[DefaultOnCharacterClick(Character.GetID)]"
 
-		portrait_texture = "[Character.GetAnimatedPortrait('environment_body', 'camera_lifestyles', ActivityIntent.GetAnimation( Character.Self ), PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+		portrait_texture = "[Character.GetAnimatedPortrait('environment_body', Select_CString(Character.HasTrait(GetTrait('dragon')), 'voltara_dragon_camera', 'camera_lifestyles'), ActivityIntent.GetAnimation( Character.Self ), PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 		mask = "gfx/portraits/portrait_mask_blank.dds"
 
 		state = {
@@ -2107,7 +2107,7 @@ types PortraitTypes
 
 		button_ignore = both
 
-		portrait_texture = "[Character.GetAnimatedPortrait('environment_hud', 'camera_event_left', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+		portrait_texture = "[Character.GetAnimatedPortrait('environment_hud', Select_CString(Character.HasTrait(GetTrait('dragon')), 'voltara_dragon_camera', 'camera_event_left'), 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 		background_texture = "gfx/portraits/portrait_transparent.dds"
 		texture = "gfx/portraits/portrait_transparent.dds"
 		mask = "gfx/portraits/portrait_mask_blank.dds"
@@ -2123,7 +2123,7 @@ types PortraitTypes
 
 		button_ignore = both
 
-		portrait_texture = "[Character.GetAnimatedPortrait('environment_hud', 'camera_event_left', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+		portrait_texture = "[Character.GetAnimatedPortrait('environment_hud', Select_CString(Character.HasTrait(GetTrait('dragon')), 'voltara_dragon_camera', 'camera_event_left'), 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 		background_texture = "gfx/portraits/portrait_transparent.dds"
 		texture = "gfx/portraits/portrait_transparent.dds"
 		mask = "gfx/portraits/portrait_mask_blank.dds"
@@ -2143,7 +2143,7 @@ types PortraitTypes
 			using = portrait_base
 
 			block "portrait_texture" {
-				portrait_texture = "[Character.GetAnimatedPortrait('environment_body', 'camera_body', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+				portrait_texture = "[Character.GetAnimatedPortrait('environment_body', Select_CString(Character.HasTrait(GetTrait('dragon')), 'voltara_dragon_camera', 'camera_body'), 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 			}
 			block "mask" {
 				mask = "gfx/portraits/portrait_mask_body.dds"

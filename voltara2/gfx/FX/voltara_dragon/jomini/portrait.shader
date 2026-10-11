@@ -1,8 +1,8 @@
 ﻿Includes = {
-	"cw/pdxmesh_blendshapes.fxh"
+	"voltara_dragon/cw/pdxmesh_blendshapes.fxh"
 	"voltara_dragon/cw/pdxmesh.fxh"
-	"cw/utility.fxh"
-	"cw/shadow.fxh"
+	"voltara_dragon/cw/utility.fxh"
+	"voltara_dragon/cw/shadow.fxh"
 	# MOD(agot)
 	# agot_camera.fxh adds the camera-zoom system on top of the vanilla camera
 	# (which arrives via cw/pdxmesh.fxh above). KEEP THIS ORDER: agot_camera.fxh
@@ -10,19 +10,19 @@
 	"voltara_dragon/cw/agot_camera.fxh"
 	"voltara_dragon/agot_glass.fxh"
 	# END MOD
-	"cw/alpha_to_coverage.fxh"
-	"jomini/jomini_lighting.fxh"
-	"jomini/jomini_fog.fxh"
+	"voltara_dragon/cw/alpha_to_coverage.fxh"
+	"voltara_dragon/jomini/jomini_lighting.fxh"
+	"voltara_dragon/jomini/jomini_fog.fxh"
 	"voltara_dragon/jomini/portrait_accessory_variation.fxh"
 	"voltara_dragon/jomini/portrait_coa.fxh"
 	"voltara_dragon/jomini/portrait_decals.fxh"
-	"jomini/portrait_user_data.fxh"
-	"jomini/portrait_hair_lighting.fxh"
-	"jomini/portrait_lighting.fxh"
-	"jomini/shader_utility.fxh"
-	"constants.fxh"
+	"voltara_dragon/jomini/portrait_user_data.fxh"
+	"voltara_dragon/jomini/portrait_hair_lighting.fxh"
+	"voltara_dragon/jomini/portrait_lighting.fxh"
+	"voltara_dragon/jomini/shader_utility.fxh"
+	"voltara_dragon/constants.fxh"
 	# MOD(agot)
-	"standardfuncsgfx.fxh"
+	"voltara_dragon/standardfuncsgfx.fxh"
 	"voltara_dragon/agot_portrait_constants.fxh"
 	"voltara_dragon/agot_portrait_decals_shared.fxh"
 	# END MOD
@@ -124,17 +124,7 @@ PixelShader =
 		SampleModeU = "Wrap"
 		SampleModeV = "Wrap"
 	}
-	TextureSampler ShadowTexture
-	{
-		Ref = PdxShadowmap
-		MagFilter = "Linear"
-		MinFilter = "Linear"
-		MipFilter = "Linear"
-		SampleModeU = "Clamp"
-		SampleModeV = "Clamp"
-		CompareFunction = less_equal
-		SamplerType = "Compare"
-	}
+	
 
 	VertexStruct PS_COLOR_SSAO
 	{
@@ -452,7 +442,7 @@ PixelShader =
 			GetSpecularAA( Normal, 1.0f, 1.0f, Properties.a );
 			
 			SMaterialProperties MaterialProps = GetMaterialProperties( Diffuse.rgb, Normal, saturate( Properties.a ), Properties.g, Properties.b );
-			SLightingProperties LightingProps = GetSunLightingProperties( Input.WorldSpacePos, ShadowTexture );
+			SLightingProperties LightingProps = GetSunLightingProperties( Input.WorldSpacePos, 1.0 );
 			
 			float3 DiffuseIBL;
 			float3 SpecularIBL;
@@ -1070,7 +1060,7 @@ PixelShader =
 				AnisotropyShift = lerp( HairSettings._AnisotropySmoothnessMin, HairSettings._AnisotropySmoothnessMax, AnisotropyShift );
 
 				SMaterialProperties MaterialProps = GetMaterialProperties( HairBaseDiffuse, Normal, saturate( lerp( HairSettings._RoughnessMin, HairSettings._RoughnessMax, Properties.a ) ), Properties.g + 0.01f, Properties.b );
-				SLightingProperties LightingProps = GetSunLightingProperties( Input.WorldSpacePos, ShadowTexture );
+				SLightingProperties LightingProps = GetSunLightingProperties( Input.WorldSpacePos, 1.0 );
 
 				//The specular will stretch along the input tangent. This can be provided via a flowmap or a vector.
 				#ifdef USE_FLOWMAP
@@ -1419,7 +1409,7 @@ RasterizerState ShadowRasterizerStateBackfaces
 	FrontCCW = yes
 }
 
-Effect portrait_skin
+Effect voltara_isolated_portrait_skin
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_skin"
@@ -1429,7 +1419,7 @@ Effect portrait_skin
 	# END MOD
 }
 
-Effect portrait_skinShadow
+Effect voltara_isolated_portrait_skinShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1440,7 +1430,7 @@ Effect portrait_skinShadow
 	# END MOD
 }
 
-Effect portrait_teeth
+Effect voltara_isolated_portrait_teeth
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_skin"
@@ -1452,7 +1442,7 @@ Effect portrait_teeth
 	# END MOD
 }
 
-Effect portrait_skin_face
+Effect voltara_isolated_portrait_skin_face
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_skin"
@@ -1462,7 +1452,7 @@ Effect portrait_skin_face
 	# END MOD
 }
 
-Effect portrait_skin_faceShadow
+Effect voltara_isolated_portrait_skin_faceShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1473,7 +1463,7 @@ Effect portrait_skin_faceShadow
 	# END MOD
 }
 
-Effect portrait_eye
+Effect voltara_isolated_portrait_eye
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_eye"
@@ -1482,7 +1472,7 @@ Effect portrait_eye
 	# END MOD
 }
 
-Effect portrait_attachment
+Effect voltara_isolated_portrait_attachment
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_attachment"
@@ -1492,7 +1482,7 @@ Effect portrait_attachment
 	# END MOD
 }
 
-Effect portrait_attachmentShadow
+Effect voltara_isolated_portrait_attachmentShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1503,7 +1493,7 @@ Effect portrait_attachmentShadow
 	# END MOD
 }
 
-Effect portrait_attachment_pattern
+Effect voltara_isolated_portrait_attachment_pattern
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_attachment"
@@ -1513,7 +1503,7 @@ Effect portrait_attachment_pattern
 	# END MOD
 }
 
-Effect portrait_attachment_patternShadow
+Effect voltara_isolated_portrait_attachment_patternShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1524,7 +1514,7 @@ Effect portrait_attachment_patternShadow
 	# END MOD
 }
 
-Effect portrait_attachment_pattern_alpha_to_coverage
+Effect voltara_isolated_portrait_attachment_pattern_alpha_to_coverage
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_attachment"
@@ -1535,7 +1525,7 @@ Effect portrait_attachment_pattern_alpha_to_coverage
 	# END MOD
 }
 
-Effect portrait_attachment_pattern_alpha_to_coverageShadow
+Effect voltara_isolated_portrait_attachment_pattern_alpha_to_coverageShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1546,7 +1536,7 @@ Effect portrait_attachment_pattern_alpha_to_coverageShadow
 	# END MOD
 }
 
-Effect portrait_attachment_pattern_no_blend_alpha_to_coverage
+Effect voltara_isolated_portrait_attachment_pattern_no_blend_alpha_to_coverage
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_attachment"
@@ -1557,7 +1547,7 @@ Effect portrait_attachment_pattern_no_blend_alpha_to_coverage
 	# END MOD
 }
 
-Effect portrait_attachment_pattern_no_blend_alpha_to_coverageShadow
+Effect voltara_isolated_portrait_attachment_pattern_no_blend_alpha_to_coverageShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1568,7 +1558,7 @@ Effect portrait_attachment_pattern_no_blend_alpha_to_coverageShadow
 	# END MOD
 }
 
-Effect portrait_attachment_variedShadow
+Effect voltara_isolated_portrait_attachment_variedShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1579,7 +1569,7 @@ Effect portrait_attachment_variedShadow
 	# END MOD
 }
 
-Effect portrait_attachment_alpha_to_coverage
+Effect voltara_isolated_portrait_attachment_alpha_to_coverage
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_attachment"
@@ -1590,7 +1580,7 @@ Effect portrait_attachment_alpha_to_coverage
 	# END MOD
 }
 
-Effect portrait_attachment_alpha_to_coverageShadow
+Effect voltara_isolated_portrait_attachment_alpha_to_coverageShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1601,7 +1591,7 @@ Effect portrait_attachment_alpha_to_coverageShadow
 	# END MOD
 }
 
-Effect portrait_attachment_with_coa
+Effect voltara_isolated_portrait_attachment_with_coa
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_attachment"
@@ -1611,7 +1601,7 @@ Effect portrait_attachment_with_coa
 	# END MOD
 }
 
-Effect portrait_attachment_with_coaShadow
+Effect voltara_isolated_portrait_attachment_with_coaShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1622,7 +1612,7 @@ Effect portrait_attachment_with_coaShadow
 	# END MOD
 }
 
-Effect portrait_attachment_alpha_to_coverage_with_coa
+Effect voltara_isolated_portrait_attachment_alpha_to_coverage_with_coa
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_attachment"
@@ -1633,7 +1623,7 @@ Effect portrait_attachment_alpha_to_coverage_with_coa
 	# END MOD
 }
 
-Effect portrait_attachment_alpha_to_coverage_with_coaShadow
+Effect voltara_isolated_portrait_attachment_alpha_to_coverage_with_coaShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1644,7 +1634,7 @@ Effect portrait_attachment_alpha_to_coverage_with_coaShadow
 	# END MOD
 }
 
-Effect portrait_attachment_with_coa_and_variations
+Effect voltara_isolated_portrait_attachment_with_coa_and_variations
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_attachment"
@@ -1654,7 +1644,7 @@ Effect portrait_attachment_with_coa_and_variations
 	# END MOD
 }
 
-Effect portrait_attachment_with_coa_and_variationsShadow
+Effect voltara_isolated_portrait_attachment_with_coa_and_variationsShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1665,7 +1655,7 @@ Effect portrait_attachment_with_coa_and_variationsShadow
 	# END MOD
 }
 
-Effect portrait_attachment_alpha_to_coverage_with_coa_and_variations
+Effect voltara_isolated_portrait_attachment_alpha_to_coverage_with_coa_and_variations
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_attachment"
@@ -1676,7 +1666,7 @@ Effect portrait_attachment_alpha_to_coverage_with_coa_and_variations
 	# END MOD
 }
 
-Effect portrait_attachment_alpha_to_coverage_with_coa_and_variationsShadow
+Effect voltara_isolated_portrait_attachment_alpha_to_coverage_with_coa_and_variationsShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1687,7 +1677,7 @@ Effect portrait_attachment_alpha_to_coverage_with_coa_and_variationsShadow
 	# END MOD
 }
 
-Effect portrait_hair
+Effect voltara_isolated_portrait_hair
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_hair"
@@ -1699,7 +1689,7 @@ Effect portrait_hair
 	# END MOD
 }
 
-Effect portrait_hair_transparency_hack
+Effect voltara_isolated_portrait_hair_transparency_hack
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_hair"
@@ -1711,7 +1701,7 @@ Effect portrait_hair_transparency_hack
 	# END MOD
 }
 
-Effect portrait_hairShadow
+Effect voltara_isolated_portrait_hairShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1722,7 +1712,7 @@ Effect portrait_hairShadow
 	# END MOD
 }
 
-Effect portrait_hair_double_sided
+Effect voltara_isolated_portrait_hair_double_sided
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_hair_double_sided"
@@ -1735,7 +1725,7 @@ Effect portrait_hair_double_sided
 	# END MOD
 }
 
-Effect portrait_hair_alpha
+Effect voltara_isolated_portrait_hair_alpha
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_hair"
@@ -1747,7 +1737,7 @@ Effect portrait_hair_alpha
 	# END MOD
 }
 
-Effect portrait_hair_decrease_specular_light_alpha
+Effect voltara_isolated_portrait_hair_decrease_specular_light_alpha
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_hair"
@@ -1756,7 +1746,7 @@ Effect portrait_hair_decrease_specular_light_alpha
 	Defines = { "PDX_MESH_BLENDSHAPES" "PDX_DECREASE_SPECULAR_LIGHT" }
 }
 
-Effect portrait_hair_opaque
+Effect voltara_isolated_portrait_hair_opaque
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_hair"
@@ -1767,7 +1757,7 @@ Effect portrait_hair_opaque
 	# END MOD
 }
 
-Effect portrait_hair_opaqueShadow
+Effect voltara_isolated_portrait_hair_opaqueShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1778,7 +1768,7 @@ Effect portrait_hair_opaqueShadow
 	# END MOD
 }
 
-Effect portrait_attachment_alpha
+Effect voltara_isolated_portrait_attachment_alpha
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_attachment"
@@ -1789,7 +1779,7 @@ Effect portrait_attachment_alpha
 	# END MOD
 }
 
-Effect portrait_attachment_alphaShadow
+Effect voltara_isolated_portrait_attachment_alphaShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1800,7 +1790,7 @@ Effect portrait_attachment_alphaShadow
 	# END MOD
 }
 
-Effect portrait_hair_backside
+Effect voltara_isolated_portrait_hair_backside
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_portrait_hair_backface"
@@ -1810,7 +1800,7 @@ Effect portrait_hair_backside
 	# END MOD
 }
 
-Effect portrait_anisotropic_hair
+Effect voltara_isolated_portrait_anisotropic_hair
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_anisotropic_hair"
@@ -1819,7 +1809,7 @@ Effect portrait_anisotropic_hair
 	Defines = { "ALPHA_TO_COVERAGE" "PDX_MESH_BLENDSHAPES" "USE_FLOWMAP" }
 }
 
-Effect portrait_anisotropic_hairShadow
+Effect voltara_isolated_portrait_anisotropic_hairShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1827,7 +1817,7 @@ Effect portrait_anisotropic_hairShadow
 	Defines = { "PDXMESH_DISABLE_DITHERED_OPACITY" }
 }
 
-Effect portrait_anisotropic_hair_no_flow
+Effect voltara_isolated_portrait_anisotropic_hair_no_flow
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_anisotropic_hair"
@@ -1836,7 +1826,7 @@ Effect portrait_anisotropic_hair_no_flow
 	Defines = { "ALPHA_TO_COVERAGE" "PDX_MESH_BLENDSHAPES" }
 }
 
-Effect portrait_anisotropic_hair_no_flowShadow
+Effect voltara_isolated_portrait_anisotropic_hair_no_flowShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
@@ -1844,7 +1834,7 @@ Effect portrait_anisotropic_hair_no_flowShadow
 	Defines = { "PDXMESH_DISABLE_DITHERED_OPACITY" }
 }
 # MOD(agot)
-Effect portrait_skin_no_decal
+Effect voltara_isolated_portrait_skin_no_decal
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_skin"
@@ -1853,42 +1843,42 @@ Effect portrait_skin_no_decal
 # END MOD
 
 # MOD(agot)
-Effect skin_alpha
+Effect voltara_isolated_skin_alpha
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_skin_alpha"
 	Defines = {"PDX_MESH_BLENDSHAPES" "PORTRAIT_WIDGET"}
 }
 
-Effect portrait_skin_hair_color
+Effect voltara_isolated_portrait_skin_hair_color
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_skin"
 	Defines = {"PDX_MESH_BLENDSHAPES" "FAKE_SSS_EMISSIVE" "SKIN_TO_HAIR_COLOR" "AGOT_PORTRAIT_SKIN" "PORTRAIT_WIDGET"}
 }
 
-Effect portrait_eye_no_decal
+Effect voltara_isolated_portrait_eye_no_decal
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_eye"
 	Defines = {"PDX_MESH_BLENDSHAPES" "PORTRAIT_WIDGET"}
 }
 
-Effect portrait_eye_shift
+Effect voltara_isolated_portrait_eye_shift
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_eye"
 	Defines = {"PDX_MESH_BLENDSHAPES" "EYE_DECAL" "HSV_SHIFT" "PORTRAIT_WIDGET"}
 }
 
-Effect portrait_eye_blind
+Effect voltara_isolated_portrait_eye_blind
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_eye"
 	Defines = {"PDX_MESH_BLENDSHAPES" "EYE_DECAL" "EYE_BLIND" "PORTRAIT_WIDGET"}
 }
 
-Effect portrait_attachment_refract
+Effect voltara_isolated_portrait_attachment_refract
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_attachment"
@@ -1897,7 +1887,7 @@ Effect portrait_attachment_refract
 	Defines = { "PDX_MESH_BLENDSHAPES" "ATTACHEMENT_DECAY" "REFRACT" "PORTRAIT_WIDGET"}
 }
 
-Effect portrait_attachment_pattern_refract
+Effect voltara_isolated_portrait_attachment_pattern_refract
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_attachment"
@@ -1908,14 +1898,14 @@ Effect portrait_attachment_pattern_refract
 # END MOD
 
 # MOD(agot)
-Effect portrait_dragon
+Effect voltara_isolated_portrait_dragon
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_dragon"
 	Defines = { "ALPHA_TO_COVERAGE" "PDX_MESH_BLENDSHAPES" "PORTRAIT_WIDGET"}
 }
 
-Effect portrait_dragon_shadow
+Effect voltara_isolated_portrait_dragon_shadow
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_dragon_shadow"
@@ -1924,14 +1914,14 @@ Effect portrait_dragon_shadow
 	Defines = { "ALPHA_TO_COVERAGE" "PDX_MESH_BLENDSHAPES" "PORTRAIT_WIDGET" "SHADOW_HACK"}
 }
 
-Effect portrait_dragon_decals
+Effect voltara_isolated_portrait_dragon_decals
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_dragon"
 	Defines = { "ALPHA_TO_COVERAGE" "PDX_MESH_BLENDSHAPES" "DECALS" "PORTRAIT_WIDGET"}
 }
 
-Effect portrait_dragon_decals_shadow
+Effect voltara_isolated_portrait_dragon_decals_shadow
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_dragon_shadow"
@@ -1940,7 +1930,7 @@ Effect portrait_dragon_decals_shadow
 	Defines = { "ALPHA_TO_COVERAGE" "PDX_MESH_BLENDSHAPES" "PORTRAIT_WIDGET" "SHADOW_HACK"}
 }
 
-Effect portrait_dragon_wing_decals
+Effect voltara_isolated_portrait_dragon_wing_decals
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_dragon"
@@ -1948,7 +1938,7 @@ Effect portrait_dragon_wing_decals
 	Defines = { "ALPHA_TO_COVERAGE" "PDX_MESH_BLENDSHAPES" "DECALS" "PORTRAIT_WIDGET"}
 }
 
-Effect portrait_dragon_wing_decals_shadow
+Effect voltara_isolated_portrait_dragon_wing_decals_shadow
 {
 	VertexShader = "VS_standard"
 	PixelShader = "PS_dragon_shadow"
@@ -1970,7 +1960,7 @@ Effect portrait_dragon_wing_decals_shadow
 
 # Unlit and tinted by the wearer's dragon palette. For fire, which is its own
 # light source.
-Effect portrait_particle_card_dragon
+Effect voltara_isolated_portrait_particle_card_dragon
 {
 	VertexShader = "VS_particle_card"
 	PixelShader = "PS_particle_card"
@@ -1988,7 +1978,7 @@ Effect portrait_particle_card_dragon
 # and a lit card needs that basis for its normal. The gate needs no
 # interpolator at all: it rides the opacity, and closes by collapsing the quad
 # in the vertex shader so a pale dragon costs no fill.
-Effect portrait_particle_card_dragon_lit
+Effect voltara_isolated_portrait_particle_card_dragon_lit
 {
 	VertexShader = "VS_particle_card"
 	PixelShader = "PS_particle_card_lit"

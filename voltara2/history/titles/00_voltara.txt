@@ -38,7 +38,7 @@ k_voltara_test_1111 = { 3116.1.1 = { holder = 9911111 } }
 k_voltara_test_11136 = { 3116.1.1 = { holder = 9921136 } }
 k_voltara_test_11173 = { 3116.1.1 = { holder = 9921173 } }
 k_voltara_test_11237 = { 3116.1.1 = { holder = 9921237 } }
-k_voltara_test_113 = { 3116.1.1 = { holder = 9910113 } }
+k_voltara_test_113 = { 3116.1.1 = { holder = 0 } }
 k_voltara_test_11412 = { 3116.1.1 = { holder = 9921412 } }
 k_voltara_test_117 = { 3116.1.1 = { holder = 9910117 } }
 k_voltara_test_128 = { 3116.1.1 = { holder = 9910128 } }
@@ -412,13 +412,13 @@ d_voltara_test_9601 = { 3116.1.1 = { holder = 9919601 liege = k_voltara_test_112
 d_voltara_test_527 = { 3116.1.1 = { holder = 9910527 liege = k_voltara_test_11237 } }
 d_voltara_test_584 = { 3116.1.1 = { holder = 9910584 liege = k_voltara_test_11237 } }
 d_voltara_test_510 = { 3116.1.1 = { holder = 9910510 liege = k_voltara_test_11237 } }
-d_voltara_test_113 = { 3116.1.1 = { holder = 9910113 } }
-d_voltara_test_143 = { 3116.1.1 = { holder = 9910143 liege = k_voltara_test_113 } }
-d_voltara_test_2249 = { 3116.1.1 = { holder = 9912249 liege = k_voltara_test_113 } }
-d_voltara_test_1613 = { 3116.1.1 = { holder = 9911613 liege = k_voltara_test_113 } }
+d_voltara_test_113 = { 3116.1.1 = { holder = 18970030 liege = 0 government = clan_government } }
+d_voltara_test_143 = { 3116.1.1 = { holder = 18970010 liege = 0 government = clan_government } }
+d_voltara_test_2249 = { 3116.1.1 = { holder = 18970050 liege = 0 government = clan_government } }
+d_voltara_test_1613 = { 3116.1.1 = { holder = 18970040 liege = 0 government = clan_government } }
 d_voltara_test_94 = { 3116.1.1 = { holder = 0 liege = k_voltara_test_113 } }
-d_voltara_test_119 = { 3116.1.1 = { holder = 9910119 liege = k_voltara_test_113 } }
-d_voltara_test_734 = { 3116.1.1 = { holder = 9910734 liege = k_voltara_test_113 } }
+d_voltara_test_119 = { 3116.1.1 = { holder = 18970000 liege = 0 government = clan_government } }
+d_voltara_test_734 = { 3116.1.1 = { holder = 18970020 liege = 0 government = clan_government } }
 d_voltara_test_11412 = { 3116.1.1 = { holder = 9921412 } }
 d_voltara_test_117 = { 3116.1.1 = { holder = 9910117 } }
 d_voltara_test_1994 = { 3116.1.1 = { holder = 9911994 liege = k_voltara_test_117 } }
@@ -1999,8 +1999,8 @@ c_voltara_2230 = { 3116.1.1 = { holder = 9912230 liege = d_voltara_test_2227 } }
 c_voltara_2229 = { 3116.1.1 = { holder = 9912229 liege = d_voltara_test_2227 } }
 c_voltara_777 = { 3116.1.1 = { holder = 9910777 liege = d_voltara_test_2227 } }
 c_voltara_781 = { 3116.1.1 = { holder = 9910781 liege = d_voltara_test_2227 } }
-c_voltara_778 = { 3116.1.1 = { holder = 9910778 } }
-c_voltara_780 = { 3116.1.1 = { holder = 9910780 liege = d_voltara_test_778 } }
+c_voltara_778 = { 3116.1.1 = { holder = 18970060 liege = d_voltara_stoneborn_clan government = clan_government } }
+c_voltara_780 = { 3116.1.1 = { holder = 18970060 liege = d_voltara_stoneborn_clan government = clan_government } }
 c_voltara_85 = { 3116.1.1 = { holder = 9910085 liege = d_voltara_test_778 } }
 c_voltara_11136 = { 3116.1.1 = { holder = 9921136 } }
 c_voltara_11140 = { 3116.1.1 = { holder = 9921140 liege = d_voltara_test_11136 } }
@@ -2114,37 +2114,37 @@ c_voltara_7262 = { 3116.1.1 = { holder = 9917262 liege = d_voltara_test_510 } }
 c_voltara_9263 = { 3116.1.1 = { holder = 9919263 liege = d_voltara_test_510 } }
 c_voltara_565 = { 3116.1.1 = { holder = 9910565 liege = d_voltara_test_510 } }
 c_voltara_113 = { 3116.1.1 = { holder = 15000113 liege = d_voltara_37 } }
-c_voltara_1472 = { 3116.1.1 = { holder = 9911472 liege = d_voltara_test_113 } }
+c_voltara_1472 = { 3116.1.1 = { holder = 18970030 liege = d_voltara_test_113 government = clan_government } }
 c_voltara_1473 = { 3116.1.1 = { holder = 9911473 liege = d_voltara_37 } }
 c_voltara_1474 = { 3116.1.1 = { holder = 9911474 liege = d_voltara_37 } }
-c_voltara_1476 = { 3116.1.1 = { holder = 9911476 liege = d_voltara_test_113 } }
-c_voltara_1479 = { 3116.1.1 = { holder = 9911479 liege = d_voltara_test_113 } }
-c_voltara_143 = { 3116.1.1 = { holder = 9910143 } }
-c_voltara_2248 = { 3116.1.1 = { holder = 9912248 liege = d_voltara_test_143 } }
-c_voltara_2251 = { 3116.1.1 = { holder = 9912251 liege = d_voltara_test_143 } }
-c_voltara_2252 = { 3116.1.1 = { holder = 9912252 liege = d_voltara_test_143 } }
-c_voltara_2274 = { 3116.1.1 = { holder = 9912274 liege = d_voltara_test_143 } }
-c_voltara_2249 = { 3116.1.1 = { holder = 9912249 } }
-c_voltara_934 = { 3116.1.1 = { holder = 9910934 liege = d_voltara_test_2249 } }
-c_voltara_2250 = { 3116.1.1 = { holder = 9912250 liege = d_voltara_test_2249 } }
-c_voltara_933 = { 3116.1.1 = { holder = 9910933 liege = d_voltara_test_2249 } }
-c_voltara_941 = { 3116.1.1 = { holder = 9910941 liege = d_voltara_test_2249 } }
-c_voltara_1613 = { 3116.1.1 = { holder = 9911613 } }
-c_voltara_931 = { 3116.1.1 = { holder = 9910931 liege = d_voltara_test_1613 } }
-c_voltara_932 = { 3116.1.1 = { holder = 9910932 liege = d_voltara_test_1613 } }
-c_voltara_935 = { 3116.1.1 = { holder = 9910935 liege = d_voltara_test_1613 } }
-c_voltara_936 = { 3116.1.1 = { holder = 9910936 liege = d_voltara_test_1613 } }
+c_voltara_1476 = { 3116.1.1 = { holder = 18970030 liege = d_voltara_test_113 government = clan_government } }
+c_voltara_1479 = { 3116.1.1 = { holder = 18970030 liege = d_voltara_test_113 government = clan_government } }
+c_voltara_143 = { 3116.1.1 = { holder = 18970010 liege = d_voltara_test_143 government = clan_government } }
+c_voltara_2248 = { 3116.1.1 = { holder = 18970010 liege = d_voltara_test_143 government = clan_government } }
+c_voltara_2251 = { 3116.1.1 = { holder = 18970010 liege = d_voltara_test_143 government = clan_government } }
+c_voltara_2252 = { 3116.1.1 = { holder = 18970010 liege = d_voltara_test_143 government = clan_government } }
+c_voltara_2274 = { 3116.1.1 = { holder = 18970010 liege = d_voltara_test_143 government = clan_government } }
+c_voltara_2249 = { 3116.1.1 = { holder = 18970050 liege = d_voltara_test_2249 government = clan_government } }
+c_voltara_934 = { 3116.1.1 = { holder = 18970050 liege = d_voltara_test_2249 government = clan_government } }
+c_voltara_2250 = { 3116.1.1 = { holder = 18970050 liege = d_voltara_test_2249 government = clan_government } }
+c_voltara_933 = { 3116.1.1 = { holder = 18970050 liege = d_voltara_test_2249 government = clan_government } }
+c_voltara_941 = { 3116.1.1 = { holder = 18970050 liege = d_voltara_test_2249 government = clan_government } }
+c_voltara_1613 = { 3116.1.1 = { holder = 18970040 liege = d_voltara_test_1613 government = clan_government } }
+c_voltara_931 = { 3116.1.1 = { holder = 18970040 liege = d_voltara_test_1613 government = clan_government } }
+c_voltara_932 = { 3116.1.1 = { holder = 18970040 liege = d_voltara_test_1613 government = clan_government } }
+c_voltara_935 = { 3116.1.1 = { holder = 18970040 liege = d_voltara_test_1613 government = clan_government } }
+c_voltara_936 = { 3116.1.1 = { holder = 18970040 liege = d_voltara_test_1613 government = clan_government } }
 c_voltara_94 = { 3116.1.1 = { holder = 15000094 liege = d_voltara_37 } }
 c_voltara_942 = { 3116.1.1 = { holder = 9910942 liege = d_voltara_37 } }
-c_voltara_119 = { 3116.1.1 = { holder = 9910119 } }
-c_voltara_1612 = { 3116.1.1 = { holder = 9911612 liege = d_voltara_test_119 } }
-c_voltara_1614 = { 3116.1.1 = { holder = 9911614 liege = d_voltara_test_119 } }
-c_voltara_1616 = { 3116.1.1 = { holder = 9911616 liege = d_voltara_test_119 } }
-c_voltara_1617 = { 3116.1.1 = { holder = 9911617 liege = d_voltara_test_119 } }
-c_voltara_734 = { 3116.1.1 = { holder = 9910734 } }
-c_voltara_735 = { 3116.1.1 = { holder = 9910735 liege = d_voltara_test_734 } }
-c_voltara_736 = { 3116.1.1 = { holder = 9910736 liege = d_voltara_test_734 } }
-c_voltara_81 = { 3116.1.1 = { holder = 9910081 liege = d_voltara_test_734 } }
+c_voltara_119 = { 3116.1.1 = { holder = 18970000 liege = d_voltara_test_119 government = clan_government } }
+c_voltara_1612 = { 3116.1.1 = { holder = 18970000 liege = d_voltara_test_119 government = clan_government } }
+c_voltara_1614 = { 3116.1.1 = { holder = 18970000 liege = d_voltara_test_119 government = clan_government } }
+c_voltara_1616 = { 3116.1.1 = { holder = 18970000 liege = d_voltara_test_119 government = clan_government } }
+c_voltara_1617 = { 3116.1.1 = { holder = 18970000 liege = d_voltara_test_119 government = clan_government } }
+c_voltara_734 = { 3116.1.1 = { holder = 18970020 liege = d_voltara_test_734 government = clan_government } }
+c_voltara_735 = { 3116.1.1 = { holder = 18970020 liege = d_voltara_test_734 government = clan_government } }
+c_voltara_736 = { 3116.1.1 = { holder = 18970020 liege = d_voltara_test_734 government = clan_government } }
+c_voltara_81 = { 3116.1.1 = { holder = 18970020 liege = d_voltara_test_734 government = clan_government } }
 c_voltara_11412 = { 3116.1.1 = { holder = 9921412 } }
 c_voltara_664 = { 3116.1.1 = { holder = 9910664 liege = d_voltara_test_11412 } }
 c_voltara_117 = { 3116.1.1 = { holder = 9910117 } }

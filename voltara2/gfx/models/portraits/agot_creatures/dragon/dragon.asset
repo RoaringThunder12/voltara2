@@ -26,10 +26,19 @@ pdxmesh = {
 	file = "dragon.mesh"
 	scale = 1.0
 
-	import = {
-		type = skeletal_animation_set
-		name = "dragon_animations"
-	}
+	animation = { 			id = "dragon_idle_flair_lookingleft" 		type = "dragon_idle_flair_lookingleft.anim" }
+animation = { 			id = "dragon_idle_1" 						type = "dragon_idle_1.anim" }
+animation = { 			id = "dragon_flying_1" 						type = "dragon_glide.anim" }
+animation = { 			id = "dragon_flying_2" 						type = "dragon_glide_wing_flap.anim" }
+animation = { 			id = "dragon_flying_1_fire" 				type = "dragon_glide_fire.anim" }
+animation = { 			id = "dragon_flying_2_fire" 				type = "dragon_glide_wing_flap_fire.anim" }
+animation = { 			id = "dragon_roar_1" 						type = "dragon_roar.anim" }
+animation = { 			id = "dragon_hover_1" 						type = "dragon_hover_1.anim" }
+animation = { 			id = "dragon_baby_idle_1" 					type = "dragon_baby_idle_1.anim" }
+animation = { 			id = "dragon_baby_idle_2" 					type = "dragon_baby_idle_2.anim" }
+animation = { 			id = "dragon_baby_idle_burp" 				type = "dragon_baby_idle_burp.anim" }
+animation = { 			id = "dragon_roar_1_fire" 					type = "dragon_roar_fire.anim" }
+animation = { 			id = "dragon_hover_1_fire" 					type = "dragon_hover_1_fire.anim" }
 
 	additive_animation = { 	id = "dragon_infant_proportions"			type = "dragon_infant.anim" }
 	additive_animation = { 	id = "dragon_large_proportions"				type = "dragon_large.anim" }
@@ -93,7 +102,7 @@ pdxmesh = {
 		texture_normal = "dragon_body_normal.dds"
 		texture_specular = "dragon_body_properties.dds"
 		texture = { file = "dragon_body_mask.dds" index = 3 }
-		shader = "portrait_dragon_decals"
+		shader = "voltara_isolated_portrait_dragon_decals"
 		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
 		additional_shader_defines = {
             "DRAGON_BODYPART_MARKER float3(1.0f,0.0f,0.0f)"
@@ -107,7 +116,7 @@ pdxmesh = {
 		texture_normal = "dragon_wing_normal.dds"
 		texture_specular = "dragon_wing_properties.dds"
 		texture = { file = "dragon_wing_mask.dds" index = 3 }
-		shader = "portrait_dragon_wing_decals"
+		shader = "voltara_isolated_portrait_dragon_wing_decals"
 		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
 		additional_shader_defines = {
             "DRAGON_BODYPART_MARKER float3(0.0f,0.0f,1.0f)"
@@ -121,7 +130,7 @@ pdxmesh = {
 		texture_normal = "dragon_eye_inside_normal.dds"
 		texture_specular = "dragon_eye_inside_properties.dds"
 		texture = { file = "dragon_eye_mask.dds" index = 3 }
-		shader = "portrait_dragon_decals"
+		shader = "voltara_isolated_portrait_dragon_decals"
 		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
 		additional_shader_defines = {
             "DRAGON_BODYPART_MARKER float3(0.0f,1.0f,1.0f)"
@@ -136,7 +145,7 @@ pdxmesh = {
 		texture_normal = "dragon_horns_normal.dds"
 		texture_specular = "no_properties.dds"
 		texture = { file = "dragon_horns_mask.dds" index = 3 }
-		shader = "portrait_dragon_decals"
+		shader = "voltara_isolated_portrait_dragon_decals"
 		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
 		additional_shader_defines = {
             "DRAGON_BODYPART_MARKER float3(1.0f,1.0f,0.0f)"
@@ -240,10 +249,19 @@ pdxmesh = {
 	file = "dragon.mesh"
 	scale = 1.0
 
-	import = {
-		type = skeletal_animation_set
-		name = "dragon_animations"
-	}
+	animation = { 			id = "dragon_idle_flair_lookingleft" 		type = "dragon_idle_flair_lookingleft.anim" }
+animation = { 			id = "dragon_idle_1" 						type = "dragon_idle_1.anim" }
+animation = { 			id = "dragon_flying_1" 						type = "dragon_glide.anim" }
+animation = { 			id = "dragon_flying_2" 						type = "dragon_glide_wing_flap.anim" }
+animation = { 			id = "dragon_flying_1_fire" 				type = "dragon_glide_fire.anim" }
+animation = { 			id = "dragon_flying_2_fire" 				type = "dragon_glide_wing_flap_fire.anim" }
+animation = { 			id = "dragon_roar_1" 						type = "dragon_roar.anim" }
+animation = { 			id = "dragon_hover_1" 						type = "dragon_hover_1.anim" }
+animation = { 			id = "dragon_baby_idle_1" 					type = "dragon_baby_idle_1.anim" }
+animation = { 			id = "dragon_baby_idle_2" 					type = "dragon_baby_idle_2.anim" }
+animation = { 			id = "dragon_baby_idle_burp" 				type = "dragon_baby_idle_burp.anim" }
+animation = { 			id = "dragon_roar_1_fire" 					type = "dragon_roar_fire.anim" }
+animation = { 			id = "dragon_hover_1_fire" 					type = "dragon_hover_1_fire.anim" }
 
 	additive_animation = { 	id = "dragon_infant_proportions"			type = "dragon_infant.anim" }
 	additive_animation = { 	id = "dragon_large_proportions"				type = "dragon_large.anim" }
@@ -306,7 +324,7 @@ pdxmesh = {
 		texture_diffuse = "black.dds"
 		texture_normal = "no_normal.dds"
 		texture_specular = "no_properties.dds"
-		shader = "portrait_dragon_shadow"
+		shader = "voltara_isolated_portrait_dragon_shadow"
 		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
 	}
 
@@ -316,7 +334,7 @@ pdxmesh = {
 		texture_diffuse = "black.dds"
 		texture_normal = "no_normal.dds"
 		texture_specular = "no_properties.dds"
-		shader = "portrait_dragon_shadow"
+		shader = "voltara_isolated_portrait_dragon_shadow"
 		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
 	}
 
@@ -326,7 +344,7 @@ pdxmesh = {
 		texture_diffuse = "black.dds"
 		texture_normal = "no_normal.dds"
 		texture_specular = "no_properties.dds"
-		shader = "portrait_dragon_shadow"
+		shader = "voltara_isolated_portrait_dragon_shadow"
 		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
 	}
 
@@ -336,7 +354,7 @@ pdxmesh = {
 		texture_diffuse = "black.dds"
 		texture_normal = "no_normal.dds"
 		texture_specular = "no_properties.dds"
-		shader = "portrait_dragon_shadow"
+		shader = "voltara_isolated_portrait_dragon_shadow"
 		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
 	}
 }
