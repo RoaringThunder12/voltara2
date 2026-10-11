@@ -1,0 +1,15 @@
+﻿voltara_demon = {
+ color = { 91 25 38 }
+ ethos = ethos_bellicose
+ heritage = heritage_voltara_demon
+ language = language_voltara_demon
+ martial_custom = martial_custom_equal
+ head_determination = head_determination_domain
+ traditions = { tradition_warrior_culture }
+ name_list = name_list_voltara_demon
+ coa_gfx = { western_coa_gfx }
+ building_gfx = { western_building_gfx }
+ clothing_gfx = { vt_demon_clothing_gfx western_clothing_gfx }
+ unit_gfx = { ek_dremora_unit_gfx }
+ ethnicities = { 100 = voltara_demon }
+}

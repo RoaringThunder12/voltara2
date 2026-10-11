@@ -1,0 +1,202 @@
+﻿vt_ek_necromancer = {
+	category = fame
+
+	learning = 2
+	flag = add_arcana_3
+
+	same_opinion = 10
+
+	monthly_dark_arts_lifestyle_xp_gain_mult = 0.1
+
+	dread_baseline_add = 10
+
+	ruler_designer_cost = 50
+
+	opposites = {
+		vt_ek_experimentalist_necromancer #shouldn't be combined with secret variant
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_necromancer_desc
+			}
+			desc = trait_vt_ek_necromancer_character_desc
+		}
+	}
+
+	ai_rationality = -20
+	ai_honor = -10
+	ai_compassion = -10
+
+	triggered_opinion = {
+		parameter = necromancy_criminal
+		opinion_modifier = necromancy_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = necromancy_shunned
+		opinion_modifier = necromancy_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+}
+vt_ek_undead_character = {
+	group = undead
+	level = 1
+
+	opposites = {
+		vt_ek_lich_character
+	}
+
+	immortal = yes
+
+	flag = is_immortal	
+	flag = immortal_incapability
+	flag = immune_to_disease
+	flag = mindless_character
+
+	shown_in_ruler_designer = no
+	#ruler_designer_cost = 40
+
+	monthly_lifestyle_xp_gain_mult = -0.5
+	monthly_prestige_gain_mult = -0.45
+	monthly_piety_gain_mult = -0.45
+	monthly_influence_mult = -0.45
+	monthly_dark_arts_lifestyle_xp_gain_mult = 0.2
+	stress_loss_mult = -0.35
+	stress_gain_mult = -0.35
+	can_have_children = no
+	no_prowess_loss_from_age = yes
+	
+	triggered_opinion = {
+		parameter = undeath_criminal
+		opinion_modifier = necromancy_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = undeath_shunned
+		opinion_modifier = necromancy_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_undead_character_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_variable = undead_version_of
+				}
+				desc = trait_vt_ek_undead_character_undead_version_of_desc
+			}
+			desc = trait_vt_ek_undead_character_character_desc
+		}
+	}
+}
+vt_ek_lich_character = {
+	group = undead
+	level = 2
+
+	opposites = {
+		# doesn't combine well with other transformation traits
+		vt_ek_undead_character
+		vampire_character
+		lycan_character
+		hagraven
+		briarheart
+	}	
+
+	ruler_designer_cost = 100
+
+	immortal = yes
+	
+	flag = is_immortal	
+	flag = immortal_incapability
+	flag = immune_to_disease	
+
+	monthly_lifestyle_xp_gain_mult = -0.5
+	monthly_prestige_gain_mult = -0.45
+	monthly_piety_gain_mult = -0.45
+	monthly_influence_mult = -0.45
+	stress_loss_mult = -0.35
+	stress_gain_mult = -0.35
+	can_have_children = no
+	long_reign_bonus_mult = -0.6 #for reference the vanilla trait has -1000
+	no_prowess_loss_from_age = yes
+	
+	flag = add_arcana_5
+	dread_baseline_add = 30
+
+	triggered_opinion = {
+		parameter = undeath_criminal
+		opinion_modifier = necromancy_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	triggered_opinion = {
+		parameter = undeath_shunned
+		opinion_modifier = necromancy_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_lich_character_desc
+			}
+			desc = trait_vt_ek_lich_character_character_desc
+		}
+	}
+
+}
+vt_ek_experimentalist_necromancer = { # Is known for secret experiments and weird behaviour because the character is secretly a vt_ek_necromancer.
+	category = fame
+	learning = 1
+	diplomacy = -2
+	flag = add_arcana_3
+	stress_loss_mult = 0.2
+
+	shown_in_ruler_designer = no
+
+	opposites = {
+		vt_ek_necromancer  #shouldn't be combined with open variant
+	}
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_experimentalist
+			}
+			triggered_desc = {
+				trigger = { is_local_player = yes }
+				desc = trait_vt_ek_experimentalist_necromancer_player
+			}
+			desc = trait_experimentalist
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {	NOT = { exists = this }	}
+				desc = trait_experimentalist_desc
+			}
+			triggered_desc = {
+				trigger = { is_local_player = yes }
+				desc = trait_vt_ek_experimentalist_necromancer_player_desc
+			}
+			desc = trait_experimentalist_character_desc
+		}
+	}
+}

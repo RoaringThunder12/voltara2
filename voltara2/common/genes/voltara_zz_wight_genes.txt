@@ -1,0 +1,520 @@
+﻿# The Long Night+ - wight decay skin, ported & renamed from EK2's 'draugr' gene.
+# ══ 1.0.15b -- THE DEAD ZONE, AND WHY EVERY CURVE BELOW NOW IGNORES ITS OWN MIDDLE ═════════════════════════
+# Reports from Ereska, KngZawd and CinkoSenpai: living characters -- women above all -- rendering with corpse skin, the sunken face and the glowing eyes.
+# Some of them on NEW games, which rules out the save-drift story on its own.
+#
+# Every applier this mod owns sets these genes to EXACTLY 1.0 (wight_trait_modifiers.txt), so the whole
+# 0.0-0.85 span was never ours to use -- and yet the old curves reached FULL STRENGTH at 0.5, and the skin
+# tint at 0.2. Anything that put a stray mid-range value in this gene's slot -- another mod's gene churn
+# shifting indices, a portrait cache from a different playset, an accessory pack rewriting the pool -- got a
+# fully rendered corpse for it. So the curves are now flat zero until 0.85 and only reach full at 1.0:
+# our own look is bit-identical, and every value we did not deliberately write renders NOTHING.
+# This is the belt to the by-name trigger gate's braces (see wight_trait_modifiers.txt); either one alone
+# should stop it, and neither costs anything when the mod is behaving.
+#
+# FIX (v0.1.0): wrapped in special_genes. Top-level gene categories are required in every persistent DNA entry;
+# special_genes are not. Full reasoning in zz_long_night_genes.txt.
+special_genes = {
+	morph_genes = {
+			vt_undead_skin = {
+				non_draugr = {
+					index = 0
+					male = {}
+					female = male
+					boy = male
+					girl = male
+				}
+				draugr_bs = {
+					index = 1
+					male = {
+
+						setting = { 
+							attribute = "bs_gaunt_head"	
+							# value = { min = 1.0 max = -1.5 }	
+							curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   1.0 }
+							}	
+						} 
+
+						setting = { 
+							attribute = "bs_gaunt_body"	
+							#value = { min = 0.0 max = 1.0 }	
+							curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   1.0 }
+							}
+						} 
+
+						setting = { 
+							attribute = "bs_body_gaunt_1"	
+							# value = { min = 1.0 max = -1.5 }	
+							curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   1.0 }
+							}	
+						} 
+						# setting = { 
+						# 	attribute = "bs_body_slim_1"	
+						# 	# value = { min = 0.5 max = -0.5 }	
+						# 	curve = {
+						# 		{ 0.0   0.0 }
+						# 		{ 0.85  0.0 }
+						# 		{ 1.0   1.0 }
+						# 	}	
+						# }
+
+						# DELETED: bs_draugr_body / bs_draugr_head. Neither blend shape exists in CK3 -- the log said so
+						# four times a launch ("could not find attribute"). They were also redundant: bs_body_gaunt_1
+						# and bs_gaunt_head are the real emaciated-corpse shapes and both are already applied a few
+						# lines above with proper curves. Nothing about the wight's look changes.
+						setting = { attribute = "bs_old"		value = { min = 0.0 max = 1.0 } }
+
+						setting = { attribute = "eye_depth"	value = { min = 0.0 max = 1.0 }	} 
+					
+						skin_hsv_shift_curve = {
+							curve = {
+								{ 0.0   { 0.0 0.0 0.0 } }
+								{ 0.85  { 0.0 0.0 0.0 } }
+								{ 1.0   { 0.55 0.3 0.25 } }
+							}
+						}
+
+						hair_hsv_shift_curve = {
+							curve = {
+								{ 0.0   { 0.0 0.0 0.0 } }
+								{ 0.85  { 0.0 0.0 0.0 } }
+								{ 1.0   { 0.0 -0.2 0.0 } }
+							}
+
+						}
+
+						decal = { 
+							body_part = head
+							textures = {
+								diffuse = "gfx/models/portraits/decals/male_head/male_draugr_head_diffuse.dds"
+								normal = "gfx/models/portraits/decals/male_head/male_draugr_head_normal.dds"
+								properties = "gfx/models/portraits/decals/male_head/male_draugr_head_properties.dds"
+							}
+							alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+								#gene strength%, decal alpha
+								{ 0.0  0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   1.0 }
+							}
+							blend_modes = {              #overlay/replace/hard_light/multiply
+								diffuse = replace
+								normal = overlay
+								properties = replace
+						
+
+							}
+							priority = 0
+							decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+						}
+
+						decal = { 
+							body_part = torso
+							textures = {
+								diffuse = "gfx/models/portraits/decals/male_body/male_draugr_body_diffuse.dds"
+								normal = "gfx/models/portraits/decals/male_body/male_draugr_body_normal.dds"
+								properties = "gfx/models/portraits/decals/male_body/male_draugr_body_properties.dds"
+							}
+							alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+								#gene strength%, decal alpha
+								{ 0.0  0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   1.0 }
+							}
+							blend_modes = {              #overlay/replace/hard_light/multiply
+								diffuse = replace
+								normal = overlay
+								properties = replace
+						
+
+							}
+							priority = 0
+							decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+						}
+
+
+
+
+
+						decal = {
+							body_part = torso
+							textures = {
+								diffuse = "gfx/models/portraits/decals/zz_ln_wight_torso_decal.dds"
+								# normal = ""
+								# properties = ""
+							}
+							alpha_curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   0.5 }
+							}
+							blend_modes = {#overlay/replace/hard_light/multiply
+								diffuse = replace
+								# normal = replace
+								# properties = replace
+							}
+							priority = 100
+							decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+
+						}
+
+						decal = {
+							body_part = head
+							textures = {
+								diffuse = "gfx/models/portraits/decals/male_head/decal_glowing_eyes_diffuse.dds"
+								# normal = ""
+								# properties = ""
+							}
+							alpha_curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   1.0 }
+							}
+							blend_modes = {#overlay/replace/hard_light/multiply
+								diffuse = multiply
+								# normal = replace
+								# properties = replace
+							}
+							priority = 10
+							decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+						}
+	
+						decal = {
+							body_part = torso
+							textures = {
+								diffuse = "gfx/models/portraits/decals/eyes/pupil_glow_dremora.dds"
+								#normal = ""
+								#properties = "gfx/models/portraits/decals/eyes/full_eyes_properties_emissive.dds"
+							}
+							alpha_curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   0.75 }
+							}
+							blend_modes = {#overlay/replace/hard_light/multiply
+								diffuse = multiply
+								#normal = replace
+								#properties = replace
+							}
+							priority = 1
+							decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+						}
+	
+						decal = {
+							body_part = torso
+							textures = {
+								#diffuse = "gfx/models/portraits/decals/eyes/pupil_glow_dremora.dds"
+								#normal = ""
+								properties = "gfx/models/portraits/decals/eyes/full_eyes_properties_emissive.dds"
+							}
+							alpha_curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   1.0 }
+							}
+							blend_modes = {#overlay/replace/hard_light/multiply
+								#diffuse = multiply
+								#normal = replace
+								properties = replace
+							}
+							priority = 1
+							decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+						}
+
+						decal = {
+							body_part = torso
+							textures = {
+								diffuse = "gfx/models/portraits/decals/eyes/sclera_black.dds"
+								# normal = ""
+								# properties = ""
+							}
+							alpha_curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   1.0 }
+							}
+							blend_modes = {#overlay/replace/hard_light/multiply
+								diffuse = replace
+								# normal = replace
+								# properties = replace
+							}
+							priority = 15
+							decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+						}
+
+					}
+					female = {
+
+						setting = { 
+							attribute = "bs_gaunt_head"	
+							# value = { min = 1.0 max = -1.5 }	
+							curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   0.5 }
+							}	
+						} 
+
+						setting = { 
+							attribute = "bs_gaunt_body"	
+							#value = { min = 0.0 max = 1.0 }	
+							curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   1.0 }
+							}
+						} 
+
+						setting = { 
+							attribute = "bs_body_gaunt_1"	
+							# value = { min = 1.0 max = -1.5 }	
+							curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   1.0 }
+							}	
+						} 
+
+						# DELETED: bs_draugr_body / bs_draugr_head. Neither blend shape exists in CK3 -- the log said so
+						# four times a launch ("could not find attribute"). They were also redundant: bs_body_gaunt_1
+						# and bs_gaunt_head are the real emaciated-corpse shapes and both are already applied a few
+						# lines above with proper curves. Nothing about the wight's look changes.
+
+						setting = { attribute = "eye_depth"	value = { min = 0.0 max = 1.0 }	} 
+					
+						skin_hsv_shift_curve = {
+							curve = {
+								{ 0.0   { 0.0 0.0 0.0 } }
+								{ 0.85  { 0.0 0.0 0.0 } }
+								{ 1.0   { 0.55 0.3 0.25 } }
+							}
+						}
+
+						hair_hsv_shift_curve = {
+							curve = {
+								{ 0.0   { 0.0 0.0 0.0 } }
+								{ 0.85  { 0.0 0.0 0.0 } }
+								{ 1.0   { 0.0 -0.2 0.0 } }
+							}
+
+						}
+
+						decal = { 
+							body_part = head
+							textures = {
+								diffuse = "gfx/models/portraits/decals/female_head/female_draugr_head_diffuse.dds"
+								#normal = "gfx/models/portraits/decals/female_head/female_draugr_head_normal.dds"
+								#properties = "gfx/models/portraits/decals/female_head/female_draugr_head_properties.dds"
+							}
+							alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+								#gene strength%, decal alpha
+								{ 0.0  0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   0.9 }
+							}
+							blend_modes = {              #overlay/replace/hard_light/multiply
+								diffuse = replace
+								#normal = overlay
+								#properties = replace
+						
+
+							}
+							priority = 0
+							decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+						}
+
+						decal = { 
+							body_part = head
+							textures = {
+								#diffuse = "gfx/models/portraits/decals/female_head/female_draugr_head_diffuse.dds"
+								normal = "gfx/models/portraits/decals/female_head/female_draugr_head_normal.dds"
+								properties = "gfx/models/portraits/decals/female_head/female_draugr_head_properties.dds"
+							}
+							alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+								#gene strength%, decal alpha
+								{ 0.0  0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   1.0 }
+							}
+							blend_modes = {              #overlay/replace/hard_light/multiply
+								#diffuse = replace
+								normal = overlay
+								properties = replace
+						
+
+							}
+							priority = 0
+							decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+						}
+
+						decal = { 
+							body_part = torso
+							textures = {
+								diffuse = "gfx/models/portraits/decals/female_body/female_draugr_body_diffuse.dds"
+								#normal = "gfx/models/portraits/decals/female_body/female_draugr_body_normal.dds"
+								#properties = "gfx/models/portraits/decals/female_body/female_draugr_body_properties.dds"
+							}
+							alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+								#gene strength%, decal alpha
+								{ 0.0  0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   0.9 }
+							}
+							blend_modes = {              #overlay/replace/hard_light/multiply
+								diffuse = replace
+								#normal = overlay
+								#properties = replace
+						
+
+							}
+							priority = 0
+							decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+						}
+
+						decal = { 
+							body_part = torso
+							textures = {
+								#diffuse = "gfx/models/portraits/decals/female_body/female_draugr_body_diffuse.dds"
+								normal = "gfx/models/portraits/decals/female_body/female_draugr_body_normal.dds"
+								properties = "gfx/models/portraits/decals/female_body/female_draugr_body_properties.dds"
+							}
+							alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+								#gene strength%, decal alpha
+								{ 0.0  0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   1.0 }
+							}
+							blend_modes = {              #overlay/replace/hard_light/multiply
+								#diffuse = replace
+								normal = overlay
+								properties = replace
+						
+
+							}
+							priority = 0
+							decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+						}
+
+
+
+						decal = {
+							body_part = torso
+							textures = {
+								diffuse = "gfx/models/portraits/decals/zz_ln_wight_torso_decal.dds"
+								# normal = ""
+								# properties = ""
+							}
+							alpha_curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   0.5 }
+							}
+							blend_modes = {#overlay/replace/hard_light/multiply
+								diffuse = replace
+								# normal = replace
+								# properties = replace
+							}
+							priority = 100
+							decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+
+						}
+
+						decal = {
+							body_part = head
+							textures = {
+								diffuse = "gfx/models/portraits/decals/male_head/decal_glowing_eyes_diffuse.dds"
+								# normal = ""
+								# properties = ""
+							}
+							alpha_curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   1.0 }
+							}
+							blend_modes = {#overlay/replace/hard_light/multiply
+								diffuse = multiply
+								# normal = replace
+								# properties = replace
+							}
+							priority = 10
+							decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+						}
+	
+						decal = {
+							body_part = torso
+							textures = {
+								diffuse = "gfx/models/portraits/decals/eyes/pupil_glow_dremora.dds"
+								#normal = ""
+								#properties = "gfx/models/portraits/decals/eyes/full_eyes_properties_emissive.dds"
+							}
+							alpha_curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   0.75 }
+							}
+							blend_modes = {#overlay/replace/hard_light/multiply
+								diffuse = multiply
+								#normal = replace
+								#properties = replace
+							}
+							priority = 1
+							decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+						}
+	
+						decal = {
+							body_part = torso
+							textures = {
+								#diffuse = "gfx/models/portraits/decals/eyes/pupil_glow_dremora.dds"
+								#normal = ""
+								properties = "gfx/models/portraits/decals/eyes/full_eyes_properties_emissive.dds"
+							}
+							alpha_curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   1.0 }
+							}
+							blend_modes = {#overlay/replace/hard_light/multiply
+								#diffuse = multiply
+								#normal = replace
+								properties = replace
+							}
+							priority = 1
+							decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+						}
+
+						decal = {
+							body_part = torso
+							textures = {
+								diffuse = "gfx/models/portraits/decals/eyes/sclera_black.dds"
+								# normal = ""
+								# properties = ""
+							}
+							alpha_curve = {
+								{ 0.0   0.0 }
+								{ 0.85  0.0 }
+								{ 1.0   1.0 }
+							}
+							blend_modes = {#overlay/replace/hard_light/multiply
+								diffuse = replace
+								# normal = replace
+								# properties = replace
+							}
+							priority = 15
+							decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+						}
+
+					}
+					boy = male
+					girl = female
+				}
+			}
+	}
+}

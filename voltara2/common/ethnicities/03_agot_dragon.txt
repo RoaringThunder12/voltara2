@@ -1,0 +1,365 @@
+﻿dragon = {
+
+	template = "ethnicity_template"
+	visible = no
+
+	skin_color = {
+		10 = { 0.0 0.0 1.0 1.0 }
+	}
+
+	eye_color = {
+		10 = { 0.0 0.0 1.0 1.0 }
+	}
+
+	hair_color = {
+		10 = { 0.0 0.0 1.0 1.0 }
+	}
+
+	gene_dragon_fire_color = {
+		10 = { name = gene_dragon_fire_color_automatic          range = { 1.0 1.0 } }
+	}
+
+	gene_dragon_fire_smoke = {
+		10 = { name = gene_dragon_fire_smoke_automatic          range = { 1.0 1.0 } }
+	}
+
+	gene_dragon_primary_color_hue = {
+		10 = { name = dragon_primary_color_hue          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_primary_color_value = {
+		5 = { name = dragon_primary_color_value          range = { 0.0 0.1 } }
+		10 = { name = dragon_primary_color_value          range = { 0.1 0.3 } }
+		1 = { name = dragon_primary_color_value          range = { 0.3 0.7 } }
+		10 = { name = dragon_primary_color_value          range = { 0.7 0.9 } }
+		5 = { name = dragon_primary_color_value          range = { 0.9 1.0 } }
+	}
+
+	gene_dragon_secondary_hue = {
+		10 = { name = dragon_secondary_hue          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_secondary_value = {
+		5 = { name = dragon_secondary_value          range = { 0.0 0.1 } }
+		1 = { name = dragon_secondary_value          range = { 0.1 0.4 } }
+		10 = { name = dragon_secondary_value          range = { 0.4 0.6 } }
+		1 = { name = dragon_secondary_value          range = { 0.6 0.9 } }
+		5 = { name = dragon_secondary_value          range = { 0.9 1.0 } }
+	}
+
+	gene_dragon_tertiary_hue = {
+		10 = { name = dragon_tertiary_hue          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_tertiary_value = {
+		5 = { name = dragon_tertiary_value          range = { 0.0 0.1 } }
+		1 = { name = dragon_tertiary_value          range = { 0.1 0.4 } }
+		10 = { name = dragon_tertiary_value          range = { 0.4 0.6 } }
+		1 = { name = dragon_tertiary_value          range = { 0.6 0.9 } }
+		5 = { name = dragon_tertiary_value          range = { 0.9 1.0 } }
+	}
+
+	gene_dragon_eye_color_hue = {
+		10 = { name = dragon_eye_color_hue          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_eye_color_value = {
+
+		5 = { name = dragon_eye_color_value          range = { 0.0 0.1 } }
+		1 = { name = dragon_eye_color_value          range = { 0.1 0.4 } }
+		10 = { name = dragon_eye_color_value          range = { 0.4 0.6 } }
+		1 = { name = dragon_eye_color_value          range = { 0.6 0.95 } }
+		5 = { name = dragon_eye_color_value          range = { 0.95 1.0 } }
+	}
+
+	gene_dragon_horn_color_hue = {
+		10 = { name = dragon_horn_color_hue       	 range = { 0.0 0.2 } }
+		1 = { name = dragon_horn_color_hue       	 range = { 0.2 0.95 } }
+		10 = { name = dragon_horn_color_hue       	 range = { 0.95 1.0 } }
+	}
+
+	gene_dragon_horn_color_value = {
+		10 = { name = dragon_horn_color_value          range = { 0.0 0.25 } }
+		1 = { name = dragon_horn_color_value          range = { 0.25 0.8 } }
+		10 = { name = dragon_horn_color_value          range = { 0.8 1.0 } }
+	}
+
+	# Saturation multipliers: 1.0 = the palette colour untouched. Muted colours are
+	# the norm, vivid ones the exception.
+	gene_dragon_primary_color_saturation = {
+		10 = { name = dragon_primary_color_saturation          range = { 0.0 0.5 } }
+		5 = { name = dragon_primary_color_saturation          range = { 0.5 0.75 } }
+		2 = { name = dragon_primary_color_saturation          range = { 0.75 1.0 } }
+	}
+
+	gene_dragon_secondary_saturation = {
+		10 = { name = dragon_secondary_saturation          range = { 0.0 0.5 } }
+		5 = { name = dragon_secondary_saturation          range = { 0.5 0.75 } }
+		2 = { name = dragon_secondary_saturation          range = { 0.75 1.0 } }
+	}
+
+	gene_dragon_tertiary_saturation = {
+		10 = { name = dragon_tertiary_saturation          range = { 0.0 0.5 } }
+		5 = { name = dragon_tertiary_saturation          range = { 0.5 0.75 } }
+		2 = { name = dragon_tertiary_saturation          range = { 0.75 1.0 } }
+	}
+
+	gene_dragon_eye_color_saturation = {
+		10 = { name = dragon_eye_color_saturation          range = { 0.0 0.5 } }
+		5 = { name = dragon_eye_color_saturation          range = { 0.5 0.75 } }
+		2 = { name = dragon_eye_color_saturation          range = { 0.75 1.0 } }
+	}
+
+	gene_dragon_horn_color_saturation = {
+		10 = { name = dragon_horn_color_saturation          range = { 0.0 0.5 } }
+		5 = { name = dragon_horn_color_saturation          range = { 0.5 0.75 } }
+		2 = { name = dragon_horn_color_saturation          range = { 0.75 1.0 } }
+	}
+
+
+	
+
+	gene_dragon_aging = {
+		10 = { name = dragon_aging          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon = {
+		10 = { name = dragon          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_size = {
+		10 = { name = dragon_size          range = { 0.13 0.13 } }
+	}
+
+	gene_dragon_brow_width = {
+		10 = { name = dragon_brow_width          range = { 0.0 0.5 } }
+		5 = { name = dragon_brow_width          range = { 0.5 1.0 } }
+	}
+
+	gene_dragon_cheek_width = {
+		2 = { name = dragon_cheek_width          range = { 0.0 0.3 } }
+		10 = { name = dragon_cheek_width          range = { 0.3 0.7 } }
+		2 = { name = dragon_cheek_width          range = { 0.7 1.0 } }
+	}
+
+	gene_dragon_chin_profile = {
+		10 = { name = dragon_chin_profile          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_crest_depth = {
+		10 = { name = dragon_crest_depth          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_head_roundness = {
+		10 = { name = dragon_head_roundness          range = { 0.0 0.3 } }
+		5 = { name = dragon_head_roundness          range = { 0.3 0.5 } }
+		1 = { name = dragon_head_roundness          range = { 0.5 0.7 } }
+	}
+
+	gene_dragon_horns_eyebrow_length = {
+		10 = { name = dragon_horns_eyebrow_length          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_main_horn_shape = {
+		10 = { name = dragon_horns_meleys         	 	range = { 0.5 1.0 } }
+		10 = { name = dragon_horns_balerion          	range = { 0.5 1.0 } }
+		10 = { name = dragon_horns_cannibal        		range = { 0.5 1.0 } }
+		10 = { name = dragon_horns_curvy          		range = { 0.5 1.0 } }
+		10 = { name = dragon_horns_dreamfyre          	range = { 0.5 1.0 } }
+		10 = { name = dragon_horns_grey_ghost         	range = { 0.5 1.0 } }
+		10 = { name = dragon_horns_long         		range = { 0.5 1.0 } }
+		10 = { name = dragon_horns_meraxes          	range = { 0.5 1.0 } }
+		10 = { name = dragon_horns_silverwing          	range = { 0.5 1.0 } }
+		10 = { name = dragon_horns_drogon          		range = { 0.5 1.0 } }
+		10 = { name = dragon_horns_drogon          		range = { 0.0 0.2 } }
+	}
+
+	gene_dragon_jaw_width = {
+		1 = { name = dragon_jaw_width          range = { 0.0 0.35 } }
+		10 = { name = dragon_jaw_width          range = { 0.35 0.7 } }
+		1 = { name = dragon_jaw_width          range = { 0.7 1.0 } }
+	}
+
+	gene_dragon_lower_jaw_height = {
+	    1 = { name = dragon_lower_jaw_height          range = { 0.0 0.4 } }
+		10 = { name = dragon_lower_jaw_height          range = { 0.4 0.7 } }
+		1 = { name = dragon_lower_jaw_height          range = { 0.7 0.9 } }
+	}
+
+	gene_dragon_lower_jaw_width = {
+		10 = { name = dragon_lower_jaw_width          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_old_neck = {
+		10 = { name = dragon_old_neck          range = { 0.0 0.3 } }
+	}
+
+	gene_dragon_outer_brow_height = {
+		10 = { name = dragon_outer_brow_height          range = { 0.0 0.3 } }
+	}
+
+	gene_dragon_snout_height = {
+		1 = { name = dragon_snout_height          range = { 0.2 0.35 } }
+		10 = { name = dragon_snout_height          range = { 0.35 0.8 } }
+		5 = { name = dragon_snout_height          range = { 0.8 1.0 } }
+
+	}
+
+	gene_dragon_snout_length = {
+		1 = { name = dragon_snout_length          range = { 0.0 0.20 } }
+		10 = { name = dragon_snout_length          range = { 0.20 0.6 } }
+		1 = { name = dragon_snout_length          range = { 0.6 0.8 } }
+	}
+
+	gene_dragon_snout_profile = {
+		10 = { name = dragon_snout_profile          range = { 0.0 0.5 } }
+		5 = { name = dragon_snout_profile          range = { 0.5 0.75 } }
+	}
+
+	gene_dragon_snout_width = {
+		10 = { name = dragon_snout_width          range = { 0.0 0.5 } }
+		5 = { name = dragon_snout_width          range = { 0.5 1.0 } }
+	}
+
+	gene_dragon_upper_jaw_width = {
+		5 = { name = dragon_upper_jaw_width          range = { 0.0 0.5 } }
+		10 = { name = dragon_upper_jaw_width          range = { 0.5 1.0 } }
+	}
+
+	gene_dragon_center_fin_size = {
+		5 = { name = dragon_center_fin_size          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_back_spike_size = {
+		5 = { name = dragon_back_spike_size          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_horns_eyebrow = {
+		5 = { name = dragon_horns_eyebrow          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_neck_spike_size = {
+		5 = { name = dragon_neck_spike_size          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_side_fin_size = {
+		5 = { name = dragon_side_fin_size          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_snout_end_width = {
+		5 = { name = dragon_snout_end_width          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_neck_length = {
+		10 = { name = dragon_neck_length          range = { 0.0 0.5 } }
+		1 = { name = dragon_neck_length          range = { 0.5 1.0 	 } }
+	}
+
+	gene_dragon_tail_length = {
+		5 = { name = dragon_tail_length          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_metallic_scales_strength = {
+		10 = { name = dragon_scales_metallic          range = { 0.0 0.0 } }
+		1 = { name = dragon_scales_metallic          range = { 0.8 1.0 } }
+	}
+
+	gene_dragon_scale_shadows = {
+		1 = { name = dragon_scale_shadows          range = { 0.15 1.0 } }
+	}
+
+	gene_dragon_scale_highlights = {
+		1 = { name = dragon_scale_highlights          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_wounded = {
+		10 = { name = dragon_scarred          range = { 0.0 0.0 } }
+	}
+
+	gene_dragon_body_shading = {
+		1 = { name = dragon_body_shading_lower_black          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_shading_lower_white          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_shading_lower_secondary         range = { 0.0 1.0 } }
+		1 = { name = dragon_body_shading_lower_tertiary         range = { 0.0 1.0 } }
+		1 = { name = dragon_body_shading_upper_black          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_shading_upper_white          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_shading_upper_secondary          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_shading_upper_tertiary         range = { 0.0 1.0 } }
+		1 = { name = dragon_body_shading_front_black          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_shading_front_white          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_shading_front_secondary          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_shading_front_tertiary          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_shading_back_black          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_shading_back_white          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_shading_back_secondary          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_shading_back_tertiary          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_body_pattern = {
+		1 = { name = dragon_body_pattern_stripes_1_black          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_pattern_stripes_1_white          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_pattern_stripes_1_secondary          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_pattern_stripes_1_tertiary          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_pattern_stripes_2_black          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_pattern_stripes_2_white          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_pattern_stripes_2_secondary          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_pattern_stripes_2_tertiary          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_pattern_stripes_3_black          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_pattern_stripes_3_white          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_pattern_stripes_3_secondary          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_pattern_stripes_3_tertiary          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_pattern_stripes_4_black          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_pattern_stripes_4_white          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_pattern_stripes_4_secondary          range = { 0.0 1.0 } }
+		1 = { name = dragon_body_pattern_stripes_4_tertiary          range = { 0.0 1.0 } }
+	}
+
+	gene_dragon_wings_shading = {
+		1 = { name = dragon_wings_shading_back_black          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_back_white          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_back_secondary          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_back_tertiary         range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_front_black          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_front_white          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_front_secondary          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_front_tertiary        range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_outside_black          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_outside_white          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_outside_secondary          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_outside_tertiary          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_inside_black          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_inside_white          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_inside_secondary          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_inside_tertiary          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_full_black          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_full_white          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_full_secondary          range = { 0.0 1.0 } }
+		1 = { name = dragon_wings_shading_full_tertiary          range = { 0.0 1.0 } }
+	}
+
+	gene_height = {
+		10 = { name = normal_height          range = { 0.5 0.5 } }
+	}
+
+	gene_no_portrait = {
+		10 = { name = no_portrait          range = { 0.0 1.0 } }
+	}
+
+	eyelashes_accessory = {
+		10 = { name = no_eyelashes          range = { 0.0 1.0 } }
+	}
+
+	eye_accessory = {
+		10 = { name = no_eyes      range = { 0.0 1.0 } }
+	}
+
+	teeth_accessory = {
+		10 = { name = no_teeth      range = { 0.0 1.0 } }
+	}
+
+	gene_bs_body_type = {
+		10 = { name = body_fat_head_fat_full    range = {0.3 0.7}}
+	}
+
+
+}

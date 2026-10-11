@@ -1,0 +1,618 @@
+﻿ek_aging_penalties = {
+	trigger = {
+		ek_human_age_equivalent >= 40
+		is_alive = yes
+		is_immortal = no # the age penalty thing for immortals is quite stubborn it seems, let's see if this helps
+	}
+	effect = {
+		if = {
+			limit = {
+				ek_human_age_equivalent >= 40
+				NOR = {
+					has_character_modifier = ek_age_40_penalty
+					has_character_modifier = ek_age_40_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 45
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_40_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_40_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 45
+				NOR = {
+					has_character_modifier = ek_age_45_penalty
+					has_character_modifier = ek_age_45_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 50
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_45_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_45_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 50
+				NOR = {
+					has_character_modifier = ek_age_50_penalty
+					has_character_modifier = ek_age_50_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 55
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_50_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_50_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 55
+				NOR = {
+					has_character_modifier = ek_age_55_penalty
+					has_character_modifier = ek_age_55_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 60
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_55_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_55_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 60
+				NOR = {
+					has_character_modifier = ek_age_60_penalty
+					has_character_modifier = ek_age_60_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 65
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_60_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_60_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 65
+				NOR = {
+					has_character_modifier = ek_age_65_penalty
+					has_character_modifier = ek_age_65_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 70
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_65_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_65_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 70
+				NOR = {
+					has_character_modifier = ek_age_70_penalty
+					has_character_modifier = ek_age_70_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 75
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_70_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_70_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 75
+				NOR = {
+					has_character_modifier = ek_age_75_penalty
+					has_character_modifier = ek_age_75_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 80
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_75_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_75_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 80
+				NOR = {
+					has_character_modifier = ek_age_80_penalty
+					has_character_modifier = ek_age_80_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 85
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_80_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_80_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 85
+				NOR = {
+					has_character_modifier = ek_age_85_penalty
+					has_character_modifier = ek_age_85_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 90
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_85_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_85_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 90
+				NOR = {
+					has_character_modifier = ek_age_90_penalty
+					has_character_modifier = ek_age_90_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 95
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_90_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_90_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 95
+				NOR = {
+					has_character_modifier = ek_age_95_penalty
+					has_character_modifier = ek_age_95_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 100
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_95_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_95_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 100
+				NOR = {
+					has_character_modifier = ek_age_100_penalty
+					has_character_modifier = ek_age_100_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 105
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_100_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_100_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 105
+				NOR = {
+					has_character_modifier = ek_age_105_penalty
+					has_character_modifier = ek_age_105_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 110
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_105_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_105_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 110
+				NOR = {
+					has_character_modifier = ek_age_110_penalty
+					has_character_modifier = ek_age_110_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 115
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_110_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_110_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 115
+				NOR = {
+					has_character_modifier = ek_age_115_penalty
+					has_character_modifier = ek_age_115_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 120
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_115_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_115_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 120
+				NOR = {
+					has_character_modifier = ek_age_120_penalty
+					has_character_modifier = ek_age_120_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 125
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_120_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_120_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 125
+				NOR = {
+					has_character_modifier = ek_age_125_penalty
+					has_character_modifier = ek_age_125_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 130
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_125_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_125_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 130
+				NOR = {
+					has_character_modifier = ek_age_130_penalty
+					has_character_modifier = ek_age_130_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 135
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_130_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_130_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 135
+				NOR = {
+					has_character_modifier = ek_age_135_penalty
+					has_character_modifier = ek_age_135_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 140
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_135_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_135_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 140
+				NOR = {
+					has_character_modifier = ek_age_140_penalty
+					has_character_modifier = ek_age_140_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 145
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_140_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_140_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 145
+				NOR = {
+					has_character_modifier = ek_age_145_penalty
+					has_character_modifier = ek_age_145_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 150
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_145_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_145_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 150
+				NOR = {
+					has_character_modifier = ek_age_150_penalty
+					has_character_modifier = ek_age_150_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 155
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_150_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_150_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 155
+				NOR = {
+					has_character_modifier = ek_age_155_penalty
+					has_character_modifier = ek_age_155_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 160
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_155_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_155_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 160
+				NOR = {
+					has_character_modifier = ek_age_160_penalty
+					has_character_modifier = ek_age_160_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 165
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_160_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_160_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 165
+				NOR = {
+					has_character_modifier = ek_age_165_penalty
+					has_character_modifier = ek_age_165_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 170
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_165_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_165_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 170
+				NOR = {
+					has_character_modifier = ek_age_170_penalty
+					has_character_modifier = ek_age_170_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 175
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_170_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_170_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 175
+				NOR = {
+					has_character_modifier = ek_age_175_penalty
+					has_character_modifier = ek_age_175_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 180
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_175_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_175_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 180
+				NOR = {
+					has_character_modifier = ek_age_180_penalty
+					has_character_modifier = ek_age_180_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 185
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_180_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_180_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 185
+				NOR = {
+					has_character_modifier = ek_age_185_penalty
+					has_character_modifier = ek_age_185_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 190
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_185_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_185_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 190
+				NOR = {
+					has_character_modifier = ek_age_190_penalty
+					has_character_modifier = ek_age_190_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 195
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_190_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_190_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 195
+				NOR = {
+					has_character_modifier = ek_age_195_penalty
+					has_character_modifier = ek_age_195_penalty_no_prowess_loss_from_age
+					ek_human_age_equivalent >= 200
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_195_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_195_penalty }
+		}
+		else_if = {
+			limit = {
+				ek_human_age_equivalent >= 200
+				NOR = {
+					has_character_modifier = ek_age_200_penalty
+					has_character_modifier = ek_age_200_penalty_no_prowess_loss_from_age
+				}
+			}
+			clear_aging_modifier_effect = yes
+			if = {
+				limit = { AND = { exists = dynasty	dynasty = { has_dynasty_perk = kin_legacy_5 } } }
+				add_character_modifier = ek_age_200_penalty_no_prowess_loss_from_age
+			}
+			else = { add_character_modifier = ek_age_200_penalty }
+		}
+	}
+}
+
+ek_aging_penalties_remove = {
+	trigger = {
+		is_alive = yes
+	}
+	effect = {
+		if = {
+			limit = {
+				ek_human_age_equivalent < 40
+				OR = {
+					has_character_modifier = ek_age_40_penalty
+					has_character_modifier = ek_age_40_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_45_penalty
+					has_character_modifier = ek_age_45_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_50_penalty
+					has_character_modifier = ek_age_50_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_55_penalty
+					has_character_modifier = ek_age_55_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_60_penalty
+					has_character_modifier = ek_age_60_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_65_penalty
+					has_character_modifier = ek_age_65_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_70_penalty
+					has_character_modifier = ek_age_70_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_75_penalty
+					has_character_modifier = ek_age_75_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_80_penalty
+					has_character_modifier = ek_age_80_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_85_penalty
+					has_character_modifier = ek_age_85_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_90_penalty
+					has_character_modifier = ek_age_90_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_95_penalty
+					has_character_modifier = ek_age_95_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_100_penalty
+					has_character_modifier = ek_age_100_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_105_penalty
+					has_character_modifier = ek_age_105_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_110_penalty
+					has_character_modifier = ek_age_110_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_115_penalty
+					has_character_modifier = ek_age_115_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_120_penalty
+					has_character_modifier = ek_age_120_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_125_penalty
+					has_character_modifier = ek_age_125_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_130_penalty
+					has_character_modifier = ek_age_130_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_135_penalty
+					has_character_modifier = ek_age_135_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_140_penalty
+					has_character_modifier = ek_age_140_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_145_penalty
+					has_character_modifier = ek_age_145_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_150_penalty
+					has_character_modifier = ek_age_150_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_155_penalty
+					has_character_modifier = ek_age_155_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_160_penalty
+					has_character_modifier = ek_age_160_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_165_penalty
+					has_character_modifier = ek_age_165_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_170_penalty
+					has_character_modifier = ek_age_170_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_175_penalty
+					has_character_modifier = ek_age_175_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_180_penalty
+					has_character_modifier = ek_age_180_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_185_penalty
+					has_character_modifier = ek_age_185_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_190_penalty
+					has_character_modifier = ek_age_190_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_195_penalty
+					has_character_modifier = ek_age_195_penalty_no_prowess_loss_from_age
+					has_character_modifier = ek_age_200_penalty
+					has_character_modifier = ek_age_200_penalty_no_prowess_loss_from_age
+				}
+			}
+			clear_aging_modifier_effect = yes
+		}
+	}
+}

@@ -1,0 +1,687 @@
+﻿# Standard Values
+@pos_compat_high = 30
+@pos_compat_medium = 15
+@pos_compat_low = 5
+
+@neg_compat_high = -30
+@neg_compat_medium = -15
+@neg_compat_low = -5
+
+
+##### EDUCATION #####
+### Arcana - Can be gained after getting the Codified Magical Studies/School of Magicka innovation and being educated by someone with a positive Arcana trait or with a Student of Magicka trait
+## to add arcana to a trait, you can't just add flag = add_arcana_x, you have to also assign it a value in common\script_values\ek_magic_values.txt and then setup the trigger adding that value. Trait loc is setup in ek_magic_l_english.yml
+vt_ek_education_magic_1 = {
+	minimum_age = 16
+	flag = add_arcana_2
+	flag = add_spell_range_1
+	monthly_vt_threadbinding_magic_lifestyle_xp_gain_mult = 0.1
+
+	group = education_magic
+	level = 1
+	
+	ruler_designer_cost = 40
+	
+	culture_modifier = {
+		parameter = good_arcana_traits_give_bonuses
+		same_culture_opinion = 2
+	}
+
+	culture_modifier = {
+		parameter = prowess_from_magical_education ### EK EDIT: new parameter
+		prowess = 1
+	}
+
+	culture_modifier = {
+		parameter = diplomacy_from_magic_education
+		diplomacy = 1
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_education_magic_1_desc
+			}
+			desc = trait_vt_ek_education_magic_1_character_desc
+		}
+	}
+}
+vt_ek_education_magic_2 = {
+	minimum_age = 16
+	flag = add_arcana_4
+	flag = add_ritual_slot_1
+	flag = add_spell_range_2
+	monthly_vt_threadbinding_magic_lifestyle_xp_gain_mult = 0.2
+
+	group = education_magic
+	level = 2
+	
+	ruler_designer_cost = 60
+	
+	culture_modifier = {
+		parameter = good_arcana_traits_give_bonuses
+		same_culture_opinion = 4
+	}
+
+	culture_modifier = {
+		parameter = prowess_from_magical_education ### EK EDIT: new parameter
+		prowess = 2
+	}
+
+	culture_modifier = {
+		parameter = diplomacy_from_magic_education
+		diplomacy = 2
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_education_magic_2_desc
+			}
+			desc = trait_vt_ek_education_magic_2_character_desc
+		}
+	}
+}
+vt_ek_education_magic_3 = {
+	minimum_age = 16
+	flag = add_arcana_6
+	flag = add_ritual_slot_1
+	flag = add_spell_range_3
+	monthly_vt_threadbinding_magic_lifestyle_xp_gain_mult = 0.3
+
+	group = education_magic
+	level = 3
+	
+	ruler_designer_cost = 80
+	
+	culture_modifier = {
+		parameter = good_arcana_traits_give_bonuses
+		same_culture_opinion = 6
+	}
+
+	culture_modifier = {
+		parameter = prowess_from_magical_education ### EK EDIT: new parameter
+		prowess = 4
+	}
+
+	culture_modifier = {
+		parameter = diplomacy_from_magic_education
+		diplomacy = 3
+	}
+
+	culture_modifier = {
+		parameter = imperial_battlemages_trait_bonuses
+		monthly_influence = 0.25
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_education_magic_3_desc
+			}
+			desc = trait_vt_ek_education_magic_3_character_desc
+		}
+	}
+}
+vt_ek_education_magic_4 = {
+	minimum_age = 16
+	flag = add_arcana_8
+	flag = add_ritual_slot_2
+	flag = add_spell_range_4
+	monthly_vt_threadbinding_magic_lifestyle_xp_gain_mult = 0.4
+
+	group = education_magic
+	level = 4
+	
+	ruler_designer_cost = 100
+	
+	culture_modifier = {
+		parameter = good_arcana_traits_give_bonuses
+		same_culture_opinion = 8
+	}
+
+	culture_modifier = {
+		parameter = prowess_from_magical_education ### EK EDIT: new parameter
+		prowess = 6
+	}
+
+	culture_modifier = {
+		parameter = diplomacy_from_magic_education
+		diplomacy = 4
+	}
+
+	culture_modifier = {
+		parameter = imperial_battlemages_trait_bonuses
+		monthly_influence = 0.4
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_education_magic_4_desc
+			}
+			desc = trait_vt_ek_education_magic_4_character_desc
+		}
+	}
+}
+vt_ek_education_magic_5 = {
+	minimum_age = 16
+	flag = add_arcana_10
+	flag = add_ritual_slot_2
+	flag = add_monthly_magicka_1
+	flag = add_spell_range_5
+	monthly_vt_threadbinding_magic_lifestyle_xp_gain_mult = 0.5
+	monthly_dark_arts_lifestyle_xp_gain_mult = 0.1
+
+	mages_max_size_add = 1
+
+	group = education_magic
+	level = 5
+	
+	ruler_designer_cost = 150
+	
+	culture_modifier = {
+		parameter = good_arcana_traits_give_bonuses
+		same_culture_opinion = 10
+	}
+
+	culture_modifier = {
+		parameter = prowess_from_magical_education ### EK EDIT: new parameter
+		prowess = 8
+	}
+
+	culture_modifier = {
+		parameter = diplomacy_from_magic_education
+		diplomacy = 5
+	}
+
+	culture_modifier = {
+		parameter = imperial_battlemages_trait_bonuses
+		monthly_influence = 0.5
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_education_magic_5_desc
+			}
+			desc = trait_vt_ek_education_magic_5_character_desc
+		}
+	}
+}
+
+##### GENETIC #####
+### Arcana
+vt_ek_arcana_good_1 = {
+	opposites = {
+		arcana_bad
+		vt_ek_arcana_good_2
+		vt_ek_arcana_good_3
+	}
+	
+	flag = add_arcana_2
+	flag = add_monthly_magicka_1
+	
+	birth = 0.5
+	random_creation = 0.5
+	
+	group = arcana_good
+	level = 1
+	
+	ruler_designer_cost = 60
+	
+	culture_modifier = {
+		parameter = good_arcana_traits_give_bonuses
+		same_culture_opinion = 2
+	}
+
+	culture_modifier = {
+		parameter = dynasty_arcana_respect
+		dynasty_opinion = 5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_arcana_good_1_desc
+			}
+			desc = trait_vt_ek_arcana_good_1_character_desc
+		}
+	}
+
+	genetic = yes
+	good = yes
+}
+
+# Arcana (+2)
+vt_ek_arcana_good_2 = {
+	opposites = {
+		arcana_bad
+		vt_ek_arcana_good_1
+		vt_ek_arcana_good_3
+	}
+	
+	flag = add_arcana_4
+	flag = add_monthly_magicka_2
+	
+	
+	birth = 0.25
+	random_creation = 0.25
+	
+	group = arcana_good
+	level = 2
+	
+	ruler_designer_cost = 120
+	
+	culture_modifier = {
+		parameter = good_arcana_traits_give_bonuses
+		same_culture_opinion = 4
+	}
+
+	culture_modifier = {
+		parameter = dynasty_arcana_respect
+		dynasty_opinion = 10
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_arcana_good_2_desc
+			}
+			desc = trait_vt_ek_arcana_good_2_character_desc
+		}
+	}
+
+	genetic = yes
+	good = yes
+}
+
+# Arcana (+3)
+vt_ek_arcana_good_3 = {
+	opposites = {
+		arcana_bad
+		vt_ek_arcana_good_1
+		vt_ek_arcana_good_2
+	}
+	
+	flag = add_arcana_8
+	flag = add_monthly_magicka_3
+	
+	birth = 0.15
+	random_creation = 0.15
+	
+	group = arcana_good
+	level = 3
+	
+	ruler_designer_cost = 180
+	
+	culture_modifier = {
+		parameter = good_arcana_traits_give_bonuses
+		same_culture_opinion = 6
+	}
+
+	culture_modifier = {
+		parameter = dynasty_arcana_respect
+		dynasty_opinion = 15
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_arcana_good_3_desc
+			}
+			desc = trait_vt_ek_arcana_good_3_character_desc
+		}
+	}
+
+	genetic = yes
+	good = yes
+}
+
+# Arcana (-1)
+vt_ek_arcana_bad_1 = {
+	opposites = {
+		vt_ek_magickal
+		arcana_good
+		vt_ek_arcana_bad_2
+		vt_ek_arcana_bad_3
+	}
+	
+	flag = subtract_arcana_2
+	flag = subtract_monthly_magicka_1
+	
+	birth = 0.5
+	random_creation = 0.5
+	
+	group = arcana_bad
+	level = 1
+	
+	ruler_designer_cost = -15
+	
+	culture_modifier = {
+		parameter = bad_arcana_traits_give_maluses
+		same_culture_opinion = -2
+	}
+	culture_modifier = {
+		parameter = imperial_battlemages_trait_maluses
+		monthly_influence = -0.25
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_arcana_bad_1_desc
+			}
+			desc = trait_vt_ek_arcana_bad_1_character_desc
+		}
+	}
+
+	genetic = yes
+}
+
+# Arcana (-2)
+vt_ek_arcana_bad_2 = {
+	opposites = {
+		vt_ek_magickal
+		arcana_good
+		vt_ek_arcana_bad_1
+		vt_ek_arcana_bad_3
+	}
+	
+	flag = subtract_arcana_4
+	flag = subtract_monthly_magicka_2
+	
+	birth = 0.25
+	random_creation = 0.25
+	
+	group = arcana_bad
+	level = 2
+	
+	ruler_designer_cost = -30
+	
+	culture_modifier = {
+		parameter = bad_arcana_traits_give_maluses
+		same_culture_opinion = -4
+	}
+	culture_modifier = {
+		parameter = imperial_battlemages_trait_maluses
+		monthly_influence = -0.4
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_arcana_bad_2_desc
+			}
+			desc = trait_vt_ek_arcana_bad_2_character_desc
+		}
+	}
+
+	genetic = yes
+}
+
+# Arcana (-3)
+vt_ek_arcana_bad_3 = {
+	opposites = {
+		vt_ek_magickal
+		arcana_good
+		vt_ek_arcana_bad_1
+		vt_ek_arcana_bad_2
+	}
+	
+	flag = subtract_arcana_8
+	flag = subtract_monthly_magicka_3
+	
+	birth = 0.15
+	random_creation = 0.15
+	
+	group = arcana_bad
+	level = 3
+	
+	ruler_designer_cost = -45
+	
+	culture_modifier = {
+		parameter = bad_arcana_traits_give_maluses
+		same_culture_opinion = -6
+	}
+	
+	culture_modifier = {
+		parameter = imperial_battlemages_trait_maluses
+		monthly_influence = -0.5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_arcana_bad_3_desc
+			}
+			desc = trait_vt_ek_arcana_bad_3_character_desc
+		}
+	}
+
+	genetic = yes
+}
+
+##### CIRCUMSTANCE #####
+# Magickal
+vt_ek_magickal = {
+	opposites = {
+		arcana_bad
+	}
+	physical = yes
+
+	flag = add_arcana_4
+	flag = add_monthly_magicka_1
+	
+	ruler_designer_cost = 50
+	
+	culture_modifier = {
+		parameter = good_arcana_traits_give_bonuses
+		same_culture_opinion = 4
+	}
+
+	culture_modifier = {
+		parameter = dynasty_arcana_respect
+		dynasty_opinion = 10
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_magickal_desc
+			}
+			desc = trait_vt_ek_magickal_character_desc
+		}
+	}
+}
+
+vt_ek_disrupted = {
+	category = health
+	monthly_vt_threadbinding_magic_lifestyle_xp_gain_mult = -0.5
+
+	flag = subtract_arcana_10
+	flag = subtract_monthly_magicka_5
+	
+	ruler_designer_cost = -30
+	
+	culture_modifier = {
+		parameter = bad_arcana_traits_give_maluses
+		same_culture_opinion = -15
+	}
+
+	culture_modifier = {
+		parameter = imperial_battlemages_trait_maluses
+		monthly_influence = -1
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vt_ek_disrupted_desc
+			}
+			desc = trait_vt_ek_disrupted_character_desc
+		}
+	}
+}
+
+##### BASE ARCANA TRAITS #####
+# These are added using GUI Jank in Ruler Designer, then removed on game start.
+vt_ek_base_arcana_1 = {
+	flag = add_arcana_1
+	flag = add_base_arcana
+	group = base_arcana
+	level = 1
+	
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	ruler_designer_cost = 2
+}
+vt_ek_base_arcana_2 = {
+	flag = add_arcana_2
+	flag = add_base_arcana
+	group = base_arcana
+	level = 2
+	
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	ruler_designer_cost = 6
+}
+vt_ek_base_arcana_3 = {
+	flag = add_arcana_3
+	flag = add_base_arcana
+	group = base_arcana
+	level = 3
+	
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	ruler_designer_cost = 12
+}
+vt_ek_base_arcana_4 = {
+	flag = add_arcana_4
+	flag = add_base_arcana
+	group = base_arcana
+	level = 4
+	
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	ruler_designer_cost = 20
+}
+vt_ek_base_arcana_5 = {
+	flag = add_arcana_5
+	flag = add_base_arcana
+	group = base_arcana
+	level = 5
+	
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	ruler_designer_cost = 30
+}
+vt_ek_base_arcana_6 = {
+	flag = add_arcana_6
+	flag = add_base_arcana
+	group = base_arcana
+	level = 6
+	
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	ruler_designer_cost = 42
+}
+vt_ek_base_arcana_7 = {
+	flag = add_arcana_7
+	flag = add_base_arcana
+	group = base_arcana
+	level = 7
+	
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	ruler_designer_cost = 56
+}
+vt_ek_base_arcana_8 = {
+	flag = add_arcana_8
+	flag = add_base_arcana
+	group = base_arcana
+	level = 8
+	
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	ruler_designer_cost = 72
+}
+vt_ek_base_arcana_9 = {
+	flag = add_arcana_9
+	flag = add_base_arcana
+	group = base_arcana
+	level = 9
+	
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	ruler_designer_cost = 90
+}
+vt_ek_base_arcana_10 = {
+	flag = add_arcana_10
+	flag = add_base_arcana
+	group = base_arcana
+	level = 10
+	
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	ruler_designer_cost = 110
+}
+vt_ek_base_arcana_11 = {
+	flag = add_arcana_11
+	flag = add_base_arcana
+	group = base_arcana
+	level = 11
+	
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	ruler_designer_cost = 132
+}
+vt_ek_base_arcana_12 = {
+	flag = add_arcana_12
+	flag = add_base_arcana
+	group = base_arcana
+	level = 12
+	
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	ruler_designer_cost = 156
+}

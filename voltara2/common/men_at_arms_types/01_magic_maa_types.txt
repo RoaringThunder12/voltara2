@@ -60,6 +60,7 @@ cultists = {
 }
 
 skeletons = {
+
 	type = skirmishers
 	
 	damage = 20
@@ -92,17 +93,14 @@ skeletons = {
 	}
 
 	can_recruit = {
-		OR = {
-			has_character_flag = skeleton_warriors
-			has_trait = necromancer
-		}
-	}
+ OR = { has_trait = necromancer has_trait = vt_ek_necromancer has_trait = vt_ek_experimentalist_necromancer }
+}
 
 	access_through_subject = {
 		always = no
 	}
 	
-	buy_cost = { prestige = 200 }
+	buy_cost = { piety = 200 }
 	low_maintenance_cost = { gold = 0 }
 	high_maintenance_cost = { gold = 0 }
 	
@@ -113,6 +111,7 @@ skeletons = {
 	stack = 100
 	ai_quality = { value = culture_ai_weight_skirmishers }
 	icon = skeleton
+
 }
 
 demonic_knights = {

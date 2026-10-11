@@ -9,7 +9,7 @@
  name_list = name_list_voltara_gorilla
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_scaled_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = voltara_gorilla }
 }
@@ -24,7 +24,7 @@ voltara_western_goblins = {
  name_list = name_list_voltara_western_goblins
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_goblin_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = voltara_goblin }
 }

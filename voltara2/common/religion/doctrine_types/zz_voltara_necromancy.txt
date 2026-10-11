@@ -1,0 +1,12 @@
+﻿voltara_necromancy_crime = {
+ doctrine_group_type = voltara_doctrine_necromancy index = 0 divergence = 0
+ parameters = { necromancy_criminal }
+ traits = { sins = { vt_ek_necromancer = { weight = 1 scale = 2 } } }
+ piety_cost = { value = faith_doctrine_cost_low }
+}
+voltara_necromancy_accepted = {
+ doctrine_group_type = voltara_doctrine_necromancy index = 1 divergence = 15
+ parameters = { necromancy_accepted }
+ traits = { virtues = { necromancer = { weight = 1 scale = 1 } vt_ek_necromancer = { weight = 1 scale = 1 } } }
+ piety_cost = { value = faith_doctrine_cost_low }
+}

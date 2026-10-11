@@ -1,0 +1,17 @@
+﻿##to add arcana to modifiers, compare with modifier_ritual_fortify_arcana in common\script_values\ek_magic_values.txt. Assign value and then the effect adding that value
+
+### Modifiers
+
+# Slow Decay
+cof_ekue_decay_slow = {
+	icon = magic_positive
+	#Slows decay by adding negative decay
+}
+
+# Slow Decay Rejuv
+
+cof_ekue_decay_slow_rejuv = {
+	icon = magic_positive
+	#Slows decay so far it (should) reverse
+}
+

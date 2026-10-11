@@ -1,0 +1,3377 @@
+﻿battlemage = {
+	category = fame
+	flag = add_arcana_3
+	prowess = 2
+	siege_phase_time = -0.05
+	enemy_hard_casualty_modifier = 0.1
+	mages_damage_mult = 0.1
+	#group = class # Disabled until this is actually used - He9
+
+
+	ruler_designer_cost = 40
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_battlemage_desc
+			}
+			desc = trait_battlemage_character_desc
+		}
+	}
+}
+
+briarheart = {
+
+	opposites = {
+		vt_ek_undead_character
+		vampire_character
+		lycan_character
+		vt_ek_lich_character
+		hagraven
+	}
+
+	ruler_designer_cost = 100
+
+	life_expectancy = 60
+	flag = lifespan_1_flag
+	flag = immune_to_disease
+
+	# skill increases
+	martial = 4
+	prowess = 7
+	flag = add_arcana_4
+
+	# penalties - death should be generally more likely
+	enemy_hostile_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
+	character_travel_safety_mult = -0.14
+	health = minor_health_penalty
+	flag = higher_chance_of_dying_in_battle
+	can_have_children = no
+	# lose yourself
+	diplomacy = -2
+
+	# war and defensive bonuses
+	hard_casualty_modifier = -0.2 # from holy monarch / crusader king
+	retreat_losses = -0.2		# from holy monarch / crusader king
+	no_prowess_loss_from_age = yes
+	min_combat_roll = -2	# from reckless
+	max_combat_roll = 3		# from reckless
+	dread_baseline_add = 15
+	
+	# if theres a briarheart maa added, it should be available to briarhearts regardless of tradition, like the way of the nomad trait in vanilla
+
+	same_opinion = 5
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_briarheart_desc
+			}
+			desc = trait_briarheart_character_desc
+		}
+	}
+
+	# crime wise this is handled akin to witchcraft
+	triggered_opinion = {
+		parameter = witchcraft_illegal
+		opinion_modifier = witchcraft_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = witchcraft_shunned
+		opinion_modifier = witchcraft_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	ai_boldness = 20
+	ai_vengefulness = dominant_positive_ai_value
+	ai_compassion = -20
+
+}
+
+experimentalist = {
+	category = fame
+	learning = 1
+	diplomacy = -2
+	flag = add_arcana_3
+	stress_loss_mult = 0.2
+
+	ruler_designer_cost = 15
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_experimentalist_desc
+			}
+			desc = trait_experimentalist_character_desc
+		}
+	}
+
+	ai_rationality = -10
+}
+
+furstock_dagi = {
+	flag = furstock
+	flag = add_arcana_2
+	group = khajiit_form
+	level = 9
+	prowess = -2
+
+	ruler_designer_cost = -1 #this is what makes the faux "furstock trait" trait category show up
+}
+
+furstock_dagi_raht = {
+	flag = furstock
+	flag = add_arcana_1
+	group = khajiit_form
+	level = 10
+	prowess = -1
+
+	ruler_designer_cost = -1 #this is what makes the faux "furstock trait" trait category show up
+}
+
+furstock_tojay = { # in terms of appearance these appear to be completely identical to suthay in the games, but i made them a bit smaller
+	flag = furstock
+	flag = add_arcana_1
+	group = khajiit_form
+	level = 7
+	intrigue = 1
+	prowess = -2
+
+	ruler_designer_cost = -1 #this is what makes the faux "furstock trait" trait category show up
+}
+
+furstock_tojay_raht = {
+	flag = furstock
+	flag = add_arcana_1
+	group = khajiit_form
+	level = 8
+	prowess = -1
+
+	ruler_designer_cost = -1 #this is what makes the faux "furstock trait" trait category show up
+}
+
+hagraven = {
+
+	opposites = {
+		vt_ek_undead_character
+		vampire_character
+		lycan_character
+		vt_ek_lich_character
+		briarheart
+	}	
+
+	ruler_designer_cost = 100
+
+	immortal = yes
+	
+	flag = is_immortal	
+	flag = immune_to_disease
+
+	monthly_lifestyle_xp_gain_mult = -0.5
+	monthly_prestige_gain_mult = -0.45
+	monthly_piety_gain_mult = -0.45
+	monthly_influence_mult = -0.45
+	stress_loss_mult = -0.35
+	stress_gain_mult = -0.35
+	can_have_children = no
+	long_reign_bonus_mult = -0.6
+	no_prowess_loss_from_age = yes
+
+	flag = add_arcana_6
+	dread_baseline_add = 20
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_hagraven_desc
+			}
+			desc = trait_hagraven_character_desc
+		}
+	}
+
+	# crime wise this is handled akin to witchcraft
+	triggered_opinion = {
+		parameter = witchcraft_illegal
+		opinion_modifier = witchcraft_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = witchcraft_shunned
+		opinion_modifier = witchcraft_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+}
+
+lifespan_1 = {
+	life_expectancy = 60
+	years_of_fertility = 45 #90 years old
+	monthly_lifestyle_xp_gain_mult = -0.3
+	monthly_prestige_gain_mult = -0.15
+	monthly_piety_gain_mult = -0.15
+	monthly_influence_mult = -0.15
+	stress_loss_mult = -0.05
+	#stress_gain_mult = -0.05
+	fertility = -0.1
+	long_reign_bonus_mult = -0.1
+
+	shown_in_ruler_designer = no
+
+	group = lifespan
+	flag = lifespan
+	level = 1
+	flag = lifespan_1_flag
+
+	flag = inheritable_lifespan
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_1_desc
+			}
+			desc = trait_lifespan_1_character_desc
+		}
+	}
+}
+
+lifespan_2 = {
+	life_expectancy = 110
+	years_of_fertility = 75 #120 years old
+	monthly_lifestyle_xp_gain_mult = -0.4
+	monthly_prestige_gain_mult = -0.2
+	monthly_piety_gain_mult = -0.2
+	monthly_influence_mult = -0.2
+	stress_loss_mult = -0.1
+	#stress_gain_mult = -0.1
+	fertility = -0.2
+	long_reign_bonus_mult = -0.2
+
+	shown_in_ruler_designer = no
+
+	group = lifespan
+	flag = lifespan
+	level = 2
+	flag = lifespan_2_flag
+
+	flag = inheritable_lifespan
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_2_desc
+			}
+			desc = trait_lifespan_2_character_desc
+		}
+	}
+}
+
+lifespan_3 = {
+	life_expectancy = 160
+	years_of_fertility = 120 #165 years old
+	monthly_lifestyle_xp_gain_mult = -0.5
+	monthly_prestige_gain_mult = -0.25
+	monthly_piety_gain_mult = -0.25
+	monthly_influence_mult = -0.25
+	stress_loss_mult = -0.15
+	stress_gain_mult = -0.05
+	fertility = -0.3
+	long_reign_bonus_mult = -0.3
+
+	shown_in_ruler_designer = no
+
+	group = lifespan
+	flag = lifespan
+	level = 3
+	flag = lifespan_3_flag
+
+	flag = inheritable_lifespan
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_3_desc
+			}
+			desc = trait_lifespan_3_character_desc
+		}
+	}
+}
+
+lifespan_4 = {
+	life_expectancy = 260
+	years_of_fertility = 195 #240 years old
+	monthly_lifestyle_xp_gain_mult = -0.5
+	monthly_prestige_gain_mult = -0.3
+	monthly_piety_gain_mult = -0.3
+	monthly_influence_mult = -0.3
+	stress_loss_mult = -0.2
+	stress_gain_mult = -0.05
+	fertility = -0.4
+	long_reign_bonus_mult = -0.4
+
+	shown_in_ruler_designer = no
+
+	group = lifespan
+	flag = lifespan
+	level = 4
+	flag = lifespan_4_flag
+
+	flag = inheritable_lifespan
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_4_desc
+			}
+			desc = trait_lifespan_4_character_desc
+		}
+	}
+}
+
+lifespan_6 = {
+	years_of_fertility = 7500 #7545 years old
+	monthly_lifestyle_xp_gain_mult = -0.5
+	monthly_prestige_gain_mult = -0.45
+	monthly_piety_gain_mult = -0.45
+	monthly_influence_mult = -0.45
+	stress_loss_mult = -0.35
+	stress_gain_mult = -0.35
+	fertility = -0.6
+	long_reign_bonus_mult = -0.6 #for reference the vanilla trait has -1000
+	no_prowess_loss_from_age = yes
+	
+	shown_in_ruler_designer = no	
+
+	flag = is_immortal
+	flag = immortal_visuals
+	flag = immortal_fertility
+	flag = immortal_incapability
+
+	flag = not_inheritable_lifespan
+
+	immortal = yes	
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_6_desc
+			}
+			desc = trait_lifespan_6_character_desc
+		}
+	}
+}
+
+lycan_character = {
+	prowess = 5
+	health = 0.25
+	stress_loss_mult = -0.05
+	flag = immune_to_disease
+
+	opposites = {
+		# doesn't combine well with other transformation traits
+		vampire_character
+		vt_ek_lich_character
+		irritable_lycan #shouldn't be combined with secret variant
+		briarheart
+		hagraven
+	}
+
+	triggered_opinion = {
+		parameter = lycanthropy_criminal
+		opinion_modifier = lycanthropy_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = lycanthropy_shunned
+		opinion_modifier = lycanthropy_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lycan_character_desc
+			}
+			desc = trait_lycan_character_character_desc
+		}
+	}
+}
+
+magical_court_1 = {
+	flag = add_arcana_1
+
+	category = court_type
+	group = magical_court
+	level = 1
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_magical_court_1_desc
+			}
+			desc = trait_magical_court_1_character_desc
+		}
+	}
+
+	compatibility = {
+		magical_court_2 = 15
+	}
+}
+
+magical_court_2 = {
+	flag = add_arcana_2
+	flag = add_spell_range_2
+	monthly_vt_threadbinding_magic_lifestyle_xp_gain_mult = 0.15
+
+	category = court_type
+	group = magical_court
+	level = 2
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_magical_court_2_desc
+			}
+			desc = trait_magical_court_2_character_desc
+		}
+	}
+
+	compatibility = {
+		magical_court_1 = 15
+	}
+}
+
+p_ae_magnus = {
+
+	learning = 1
+	flag = add_arcana_2
+	monthly_piety = 0.1
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = -666 #this is what makes the faux "patron trait" trait category show up
+
+	flag = patron_trait
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_ae_magnus_base
+			}
+			triggered_desc = {
+				trigger = { faith = { has_doctrine = doctrine_pantheon_magna_ge } }
+				desc = trait_p_mg_magnus
+			}	
+			desc = trait_p_ae_magnus
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_ae_magnus_null
+			}
+			triggered_desc = {
+				trigger = { faith = { has_doctrine = doctrine_pantheon_magna_ge } }
+				desc = trait_p_mg_magnus_character_desc
+			}	
+			desc = trait_p_ae_magnus_character_desc
+		}
+	}
+
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = { is_player_selected = yes }
+							desc = "[Select_CString( GetPlayer.MakeScope.Var('faith_window').IsSet, Concatenate( 'patron_nbg/', GetPlayer.Custom('get_ae_magnus_icon') ), 'p_ae_magnus.dds' )]"
+						}
+						desc = p_ae_magnus.dds
+					}
+				}
+			}
+			triggered_desc = {
+				trigger = { faith = { has_doctrine = doctrine_pantheon_riddlethar } }
+				desc = p_rt_magrus.dds
+			}
+			triggered_desc = {
+				trigger = { faith = { has_doctrine = doctrine_pantheon_khajiiti } }
+				desc = p_rt_magrus.dds
+			}
+			triggered_desc = {
+				trigger = { faith = { has_doctrine = doctrine_pantheon_magna_ge } }
+				desc = p_mg_magnus.dds
+			}	
+			desc = p_ae_magnus.dds
+		}
+	}
+}
+
+p_ae_syrabane = {
+
+	flag = add_arcana_4
+	monthly_piety = 0.1
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = -666 #this is what makes the faux "patron trait" trait category show up
+
+	flag = patron_trait
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_ae_syrabane_base
+			}
+			desc = trait_p_ae_syrabane
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_ae_syrabane_null
+			}
+			desc = trait_p_ae_syrabane_character_desc
+		}
+	}
+
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = { is_player_selected = yes }
+							desc = patron_nbg/p_ae_syrabane_nbg.dds
+							#desc = "[Select_CString( GetPlayer.MakeScope.Var('faith_window').IsSet, GetPlayer.Custom('get_ae_syrabane_icon'), 'p_ae_syrabane.dds' )]"
+						}
+						desc = p_ae_syrabane.dds
+					}
+				}
+			}
+			desc = p_ae_syrabane.dds
+		}
+	}
+}
+
+p_at_owl = {
+
+	learning = 1
+	flag = add_arcana_2
+	monthly_piety = 0.1
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = -666 #this is what makes the faux "patron trait" trait category show up
+
+	flag = patron_trait
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_at_owl_base
+			}
+			desc = trait_p_at_owl
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_at_owl_null
+			}
+			desc = trait_p_at_owl_character_desc
+		}
+	}
+
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = { is_player_selected = yes }
+							desc = "[Select_CString( GetPlayer.MakeScope.Var('faith_window').IsSet, Concatenate( 'patron_nbg/', GetPlayer.Custom('get_at_owl_icon') ), 'p_at_owl.dds' )]"
+						}
+						desc = p_at_owl.dds
+					}
+				}
+			}
+			desc = p_at_owl.dds
+		}
+	}
+}
+
+p_dv_julianos = {
+
+	learning = 2
+	flag = add_arcana_1
+	monthly_piety = 0.1
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = -666 #this is what makes the faux "patron trait" trait category show up
+
+	flag = patron_trait
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_dv_julianos_base
+			}
+			desc = trait_p_dv_julianos
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_dv_julianos_null
+			}
+			desc = trait_p_dv_julianos_character_desc
+		}
+	}
+
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = { is_player_selected = yes }
+							desc = "[Select_CString( GetPlayer.MakeScope.Var('faith_window').IsSet, Concatenate( 'patron_nbg/', GetPlayer.Custom('get_dv_julianos_icon') ), 'p_dv_julianos.dds' )]"
+						}
+						desc = p_dv_julianos.dds
+					}
+				}
+			}
+			desc = p_dv_julianos.dds
+		}
+	}
+}
+
+p_kw_mannimarco = {
+
+	flag = cheaper_necromancy_spells
+	flag = add_spell_range_1
+	monthly_piety = 0.1
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = -666 #this is what makes the faux "patron trait" trait category show up
+
+	flag = patron_trait
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_kw_mannimarco_base
+			}
+			desc = trait_p_kw_mannimarco
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_kw_mannimarco_null
+			}
+			desc = trait_p_kw_mannimarco_character_desc
+		}
+	}
+
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = { is_player_selected = yes }
+							desc = patron_nbg/p_kw_mannimarco_nbg.dds
+							#desc = "[Select_CString( GetPlayer.MakeScope.Var('faith_window').IsSet, GetPlayer.Custom('p_kw_mannimarco'), 'p_kw_mannimarco.dds' )]"
+						}
+						desc = p_kw_mannimarco.dds
+					}
+				}
+			}
+			desc = p_kw_mannimarco.dds
+		}
+	}	
+}
+
+p_kw_necromancer = {
+
+	monthly_dark_arts_lifestyle_xp_gain_mult = 0.1
+	flag = add_arcana_2
+	monthly_piety = 0.1
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = -666 #this is what makes the faux "patron trait" trait category show up
+
+	flag = patron_trait
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_kw_necromancer_base
+			}
+			desc = trait_p_kw_necromancer
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_kw_necromancer_null
+			}
+			desc = trait_p_kw_necromancer_character_desc
+		}
+	}
+
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = { is_player_selected = yes }
+							desc = patron_nbg/p_kw_mannimarco_nbg.dds
+							#desc = "[Select_CString( GetPlayer.MakeScope.Var('faith_window').IsSet, GetPlayer.Custom('p_kw_mannimarco'), 'p_kw_mannimarco.dds' )]"
+						}
+						desc = p_kw_mannimarco.dds
+					}
+				}
+			}
+			desc = p_kw_mannimarco.dds
+		}
+	}	
+}
+
+p_ob_hermaeus = {
+
+	learning = 2
+	health = tiny_health_penalty #obssessed with knowledge, losing sense of self
+	flag = add_arcana_1
+	monthly_piety = 0.1
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = -666 #this is what makes the faux "patron trait" trait category show up
+
+	flag = patron_trait
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_ob_hermaeus_base
+			}
+			desc = trait_p_ob_hermaeus
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_ob_hermaeus_null
+			}
+			desc = trait_p_ob_hermaeus_character_desc
+		}
+	}
+
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = { is_player_selected = yes }
+							desc = "[Select_CString( GetPlayer.MakeScope.Var('faith_window').IsSet, Concatenate( 'patron_nbg/', GetPlayer.Custom('get_ob_hermaeus_icon') ), 'p_ob_hermaeus.dds' )]"
+						}
+						desc = p_ob_hermaeus.dds
+					}
+				}
+			}
+			triggered_desc = {
+				trigger = { faith = { has_doctrine = doctrine_pantheon_riddlethar } }
+				desc = p_kj_hermora.dds
+			}
+				
+			triggered_desc = {
+				trigger = { faith = { has_doctrine = doctrine_pantheon_khajiiti } }
+				desc = p_kj_hermora.dds
+			}
+			desc = p_ob_hermaeus.dds
+		}
+	}
+}
+
+p_tc_heavens = {
+
+	learning = 1
+	flag = add_arcana_2
+	monthly_piety = 0.1
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = -666 #this is what makes the faux "patron trait" trait category show up
+
+	flag = patron_trait
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_tc_heavens_base
+			}
+			desc = trait_p_tc_heavens
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_tc_heavens_null
+			}
+			desc = trait_p_tc_heavens_character_desc
+		}
+	}
+
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = { is_player_selected = yes }
+							desc = patron_nbg/p_tc_heavens_nbg.dds
+							#desc = "[Select_CString( GetPlayer.MakeScope.Var('faith_window').IsSet, GetPlayer.Custom('get_tc_heavens_icon'), 'p_tc_heavens.dds' )]"
+						}
+						desc = p_tc_heavens.dds
+					}
+				}
+			}
+			desc = p_tc_heavens.dds
+		}
+	}
+}
+
+p_tr_sotha = {
+
+	learning = 1
+	flag = add_arcana_2
+	monthly_piety = 0.1
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = -666 #this is what makes the faux "patron trait" trait category show up
+
+	flag = patron_trait
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_tr_sotha_base
+			}
+			desc = trait_p_tr_sotha
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_tr_sotha_null
+			}
+			desc = trait_p_tr_sotha_character_desc
+		}
+	}
+
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = { is_player_selected = yes }
+							desc = patron_nbg/p_tr_sotha_nbg.dds
+							#desc = "[Select_CString( GetPlayer.MakeScope.Var('faith_window').IsSet, GetPlayer.Custom('get_tr_sotha_icon'), 'p_tr_sotha.dds' )]"
+						}
+						desc = p_tr_sotha.dds
+					}
+				}
+			}
+			desc = p_tr_sotha.dds
+		}
+	}
+}
+
+p_vl_veloth = {
+
+	learning = 1
+	clergy_opinion = 5
+	monthly_piety = 0.1
+
+	flag = add_arcana_1
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = -666 #this is what makes the faux "patron trait" trait category show up
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_vl_veloth_base
+			}
+			desc = trait_p_vl_veloth
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_vl_veloth_null
+			}
+			desc = trait_p_vl_veloth_character_desc
+		}
+	}
+
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = { is_player_selected = yes }
+							desc = patron_nbg/p_vl_veloth_nbg.dds
+							#desc = "[Select_CString( GetPlayer.MakeScope.Var('faith_window').IsSet, GetPlayer.Custom('get_vl_veloth_icon'), 'p_vl_veloth.dds' )]"
+						}
+						desc = p_vl_veloth.dds
+					}
+				}
+			}
+			desc = p_vl_veloth.dds
+		}
+	}
+}
+
+p_vl_vorys = {
+
+	learning = 1
+	flag = add_arcana_2
+	monthly_piety = 0.1
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = -666 #this is what makes the faux "patron trait" trait category show up
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_vl_vorys_base
+			}
+			desc = trait_p_vl_vorys
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_p_vl_vorys_null
+			}
+			desc = trait_p_vl_vorys_character_desc
+		}
+	}
+
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = { is_player_selected = yes }
+							desc = patron_nbg/p_vl_vorys_nbg.dds
+							#desc = "[Select_CString( GetPlayer.MakeScope.Var('faith_window').IsSet, GetPlayer.Custom('get_vl_vorys_icon'), 'p_vl_vorys.dds' )]"
+						}
+						desc = p_vl_vorys.dds
+					}
+				}
+			}
+			desc = p_vl_vorys.dds
+		}
+	}
+}
+
+racial_blindness = { #not only do they not see color, they also just cant see light in general
+	birth = 0 #we'll distribute this like lifespan or species
+	inherit_chance = 25 # 25% chance of inheriting from one parent
+	both_parent_has_trait_inherit_chance = 100 # 100% chance of inheriting from both parents
+	shown_in_ruler_designer = no
+	icon = eyeless.dds
+
+	opposites = {
+		blind		# this is techncically a buff since its effectively blindness immunity
+		one_eyed
+	}
+	flag = add_arcana_1
+
+	general_opinion = -10
+	same_opinion = 10
+}
+
+reclusive_vampire = { # Hides away from relationships and responsibilities (because you secretly are a vampire).
+	category = fame
+	immortal = yes
+	flag = immune_to_disease
+	diplomacy = -2
+	stewardship = -1
+	stress_loss_mult = 0.2
+	can_have_children = no
+	
+	shown_in_ruler_designer = no
+
+	# EK NOTE: this trait is intentionally not opposite to its open variant since it's an immortality trait and we cannot risk not applying the open immortality trait prior to removing the secret one
+	# opposites = {
+	# 	vampire_character #shouldn't be combined with open variant
+	# }
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_reclusive
+			}
+			triggered_desc = {
+				trigger = { is_local_player = yes }
+				desc = reclusive_vampire_player_desc
+			}
+			desc = trait_reclusive
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {	NOT = { exists = this }	}
+				desc = trait_reclusive_desc
+			}
+			triggered_desc = {
+				trigger = { is_local_player = yes }
+				desc = trait_vampire_player_desc
+			}
+			desc = trait_reclusive_character_desc
+		}
+	}
+
+	compatibility = {
+		gregarious = -5
+	}	
+}
+
+sanguinare_vampiris = {
+	health = -1
+	child_health = -5
+	prowess_mult = -0.4
+	fertility = -0.2
+
+	category = health
+
+	shown_in_ruler_designer = no
+
+	dread_baseline_add = -10
+	dread_loss_mult = 1
+
+	ai_energy = -25
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	flag = curable_disease
+}
+
+sanies_lupinus = {
+	health = -1
+	prowess_mult = -0.4
+	fertility = -0.2
+
+	category = health
+
+	shown_in_ruler_designer = no
+
+	dread_baseline_add = -10
+	dread_loss_mult = 1
+
+	ai_energy = -25
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	flag = curable_disease
+}
+
+scholar = {
+	category = lifestyle
+
+	learning = 3
+	owned_personal_scheme_success_chance_add = 10
+	owned_hostile_scheme_success_chance_add = 10
+	development_growth_factor = 0.15
+	development_decline_factor = -0.15
+	county_fertility_growth_mult = 0.15
+	
+	ruler_designer_cost = 50
+	
+	flag = add_arcana_3 #EK EDIT: Arcana bonus
+
+	culture_modifier = {
+		parameter = prowess_from_religious_traits
+		prowess = 2
+	}
+
+	culture_modifier = {
+		parameter = innovation_from_learning_traits
+		cultural_head_fascination_mult = 0.1
+	}
+
+	culture_modifier = {
+		parameter = build_bonuses_on_religious_traits
+		church_holding_build_speed = -0.1
+		church_holding_holding_build_speed = -0.1
+		church_holding_build_gold_cost = -0.05
+		church_holding_holding_build_gold_cost = -0.05
+	}
+
+	culture_modifier = { #for FP3's "Irrigation Expert" tradition
+		parameter = innovative_traits_more_valued
+		drylands_tax_mult = 0.1
+		desert_tax_mult = 0.1
+		desert_mountains_tax_mult = 0.1
+	}
+	#EK ADDITIONS
+	culture_modifier = {
+		parameter = scholars_respected #EK EDIT
+		monthly_prestige = 1
+	}
+	#EK ADDITIONS END
+
+	ai_rationality = 30
+
+	compatibility = {
+		whole_of_body = 15
+		scholar = 15
+		theologian = 15
+		lifestyle_gardener = 15
+		intellect_good_1 = 5
+		intellect_good_2 = 5
+		intellect_good_3 = 5
+		pensive = 5
+		shrewd = 5
+		diligent = 5
+		lazy = -5
+		intellect_bad_1 = -5
+		intellect_bad_2 = -5
+		intellect_bad_3 = -5
+	}
+}
+
+sign_apprentice = {
+	flag = birthsign
+	group = birthsign
+	level = 7
+	
+	monthly_lifestyle_xp_gain_mult = 0.05
+	flag = add_arcana_2
+	
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 1 #this is what makes the faux "birthsign trait" trait category show up
+	
+	ai_boldness = 5
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_sign_apprentice
+			}
+			triggered_desc = {
+				trigger = { has_dwemer_constellation_names = yes }
+				# From the Redguard Companion
+				desc = trait_sign_automaton
+			}
+			desc = trait_sign_apprentice
+		}
+	}
+
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sign_apprentice_desc
+			}
+			triggered_desc = {
+				trigger = { has_dwemer_constellation_names = yes }
+				# From the Redguard Companion
+				desc = trait_sign_automaton_character_desc
+			}
+			desc = trait_sign_apprentice_character_desc
+		}
+	}
+}
+
+sign_atronach = {
+	flag = birthsign
+	group = birthsign
+	level = 11
+	
+	flag = add_arcana_2
+	flag = increase_max_magicka_2
+	flag = subtract_monthly_magicka_1
+	
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 1 #this is what makes the faux "birthsign trait" trait category show up
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_sign_atronach
+			}
+			triggered_desc = {
+				trigger = { has_dwemer_constellation_names = yes }
+				# From the Redguard Companion
+				desc = trait_sign_warmachine
+			}
+			desc = trait_sign_atronach
+		}
+	}
+
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sign_atronach_desc
+			}
+			triggered_desc = {
+				trigger = { has_dwemer_constellation_names = yes }
+				# From the Redguard Companion
+				desc = trait_sign_warmachine_character_desc
+			}
+			desc = trait_sign_atronach_character_desc
+		}
+	}
+}
+
+sign_mage = {
+	flag = birthsign
+	group = birthsign
+	level = 4
+    
+	monthly_lifestyle_xp_gain_mult = -0.05
+	flag = add_arcana_4
+	
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 1 #this is what makes the faux "birthsign trait" trait category show up
+	
+	ai_zeal = 5
+	ai_boldness = 5
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_sign_mage
+			}
+			triggered_desc = {
+				trigger = { has_reachfolk_constellation_names = yes }
+				#A Reachfolk, or a culture with the Reach Folklore tradition, while not being of a celestial faith call the trait "The Witch" instead
+				desc = trait_sign_witch
+			}
+			triggered_desc = {
+				trigger = { has_dwemer_constellation_names = yes }
+				# From the Redguard Companion
+				desc = trait_sign_mechanist
+			}
+			desc = trait_sign_mage
+		}
+	}
+
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sign_mage_desc
+			}
+			triggered_desc = {
+				trigger = { has_reachfolk_constellation_names = yes }
+				#A Reachfolk, or a culture with the Reach Folklore tradition, while not being of a celestial faith call the trait "The Witch" instead
+				desc = trait_sign_witch_character_desc
+			}
+			triggered_desc = {
+				trigger = { has_dwemer_constellation_names = yes }
+				# "Of course, the Dwarves didn't believe in magic, so the Wizard is the Mechanist to them."
+				# then again how tf could they not believe in magic
+				# it's from the best game in the series though so must be true
+				desc = trait_sign_mechanist_character_desc
+			}
+			desc = trait_sign_mage_character_desc
+		}
+	}
+}
+
+skooma_drinker = { # Substance Abuse (Skooma) - Basically a copy paste of hashishiyah
+	category = fame
+	stewardship = -2
+	diplomacy = -2
+	flag = subtract_arcana_3
+	stress_loss_mult = 0.2
+
+	same_opinion = 10
+
+	ruler_designer_cost = 5
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_skooma_drinker_desc
+			}
+			desc = trait_skooma_drinker_character_desc
+		}
+	}
+
+	ai_energy = -15
+	ai_rationality = -10
+
+	compatibility = {
+		temperate = -5
+	}
+}
+
+stricken = {
+	diplomacy = -3
+	stewardship = -3
+	intrigue = -3
+	learning = -3
+	health = -1
+	fertility = -0.25
+	flag = subtract_arcana_4 #EK EDIT: Arcana penalty
+
+	category = health
+
+	attraction_opinion = -30
+	same_opinion = 25
+	general_opinion = -20
+	dread_baseline_add = 20
+	dread_gain_mult = 1
+	
+	shown_in_ruler_designer = no
+
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_stricken_desc
+			}
+			desc = trait_stricken_character_desc
+		}
+	}
+
+	ai_energy = -25
+	ai_rationality = -25
+}
+
+sun_blessed_1 = {
+	shown_in_ruler_designer = no
+
+	flag = add_arcana_2
+	learning = 1
+	intrigue = -1
+
+	group = sun_blessed
+	level = 1
+
+	opposites = {
+		amber_blessed
+		ghost_scale
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sun_blessed_1_desc
+			}
+			desc = trait_sun_blessed_1_character_desc
+		}
+	}
+}
+
+sun_blessed_2 = {
+	shown_in_ruler_designer = no
+
+	flag = add_arcana_4
+	learning = 2
+	intrigue = -2
+
+	group = sun_blessed
+	level = 2
+
+	opposites = {
+		amber_blessed
+		ghost_scale
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sun_blessed_2_desc
+			}
+			desc = trait_sun_blessed_2_character_desc
+		}
+	}
+}
+
+sun_blessed_3 = {
+	shown_in_ruler_designer = no
+
+	flag = add_arcana_6
+	learning = 3
+	intrigue = -3
+
+	group = sun_blessed
+	level = 3
+
+	opposites = {
+		amber_blessed
+		ghost_scale
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sun_blessed_3_desc
+			}
+			desc = trait_sun_blessed_3_character_desc
+		}
+	}
+}
+
+tsaesci_1 = {
+	opposites = {
+		tsaesci_2
+		tsaesci_3
+		tsaesci_4
+	}
+
+	life_expectancy = 60
+	years_of_fertility = 40
+	monthly_lifestyle_xp_gain_mult = -0.3
+	monthly_prestige_gain_mult = -0.15
+	monthly_piety_gain_mult = -0.15
+	stress_gain_mult = -0.05
+	#stress_loss_mult = -0.05
+	fertility = -0.05
+
+	flag = lifespan_1_flag
+	flag = tsaesci
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_tsaesci_1_desc
+			}
+			desc = trait_tsaesci_1_character_desc
+		}
+	}
+
+	shown_in_ruler_designer = no
+
+	group = tsaesci
+	level = 1
+}
+
+tsaesci_2 = {
+	opposites = {
+		tsaesci_1
+		tsaesci_3
+		tsaesci_4
+	}
+
+	life_expectancy = 110
+	years_of_fertility = 75
+	monthly_lifestyle_xp_gain_mult = -0.4
+	monthly_prestige_gain_mult = -0.2
+	monthly_piety_gain_mult = -0.2
+	stress_gain_mult = -0.1
+	#stress_loss_mult = -0.1
+	fertility = -0.1
+
+	flag = lifespan_2_flag
+	flag = tsaesci
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_tsaesci_2_desc
+			}
+			desc = trait_tsaesci_2_character_desc
+		}
+	}
+
+	shown_in_ruler_designer = no
+
+	group = tsaesci
+	level = 2
+}
+
+tsaesci_3 = {
+	opposites = {
+		tsaesci_1
+		tsaesci_2
+		tsaesci_4
+	}
+	
+	life_expectancy = 160
+	years_of_fertility = 100
+	monthly_lifestyle_xp_gain_mult = -0.5
+	monthly_prestige_gain_mult = -0.25
+	monthly_piety_gain_mult = -0.25
+	stress_gain_mult = -0.15
+	stress_loss_mult = -0.05
+	fertility = -0.2
+
+	flag = lifespan_3_flag
+	flag = tsaesci
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_tsaesci_3_desc
+			}
+			desc = trait_tsaesci_3_character_desc
+		}
+	}
+
+	shown_in_ruler_designer = no
+
+	group = tsaesci
+	level = 3
+}
+
+tsaesci_4 = {
+	opposites = {
+		tsaesci_1
+		tsaesci_2
+		tsaesci_3
+	}
+
+	life_expectancy = 260
+	years_of_fertility = 170
+	monthly_lifestyle_xp_gain_mult = -0.5
+	monthly_prestige_gain_mult = -0.3
+	monthly_piety_gain_mult = -0.3
+	stress_gain_mult = -0.2
+	stress_loss_mult = -0.1
+	fertility = -0.3
+
+	flag = lifespan_4_flag
+	flag = tsaesci
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_tsaesci_4_desc
+			}
+			desc = trait_tsaesci_4_character_desc
+		}
+	}
+
+	shown_in_ruler_designer = no
+
+	group = tsaesci
+	level = 4
+}
+
+vampire_character = {
+	immortal = yes
+	
+	flag = is_immortal	
+	flag = immortal_incapability
+	flag = immune_to_disease
+
+	prowess = 3
+
+	monthly_lifestyle_xp_gain_mult = -0.5
+	monthly_prestige_gain_mult = -0.45
+	monthly_piety_gain_mult = -0.45
+	monthly_influence_mult = -0.45
+	stress_loss_mult = -0.35
+	stress_gain_mult = -0.35
+	can_have_children = no
+	long_reign_bonus_mult = -0.6 #for reference the vanilla trait has -1000
+	no_prowess_loss_from_age = yes
+	
+	opposites = {
+		# doesn't combine well with other transformation traits
+		lycan_character
+		vt_ek_lich_character
+		reclusive_vampire #shouldn't be combined with secret variant
+		briarheart
+		hagraven
+		#reclusive_vampire # EK NOTE: this trait is intentionally not opposite to its secret variant since it's an immortality trait and we cannot risk not applying the open immortality trait prior to removing the secret one
+	}
+
+	triggered_opinion = {
+		parameter = vampirism_criminal
+		opinion_modifier = vampirism_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = vampirism_shunned
+		opinion_modifier = vampirism_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vampire_character_desc
+			}
+			desc = trait_vampire_character_character_desc
+		}
+	}
+}
+
+irritable_lycan = { # Prone to outbursts and tantrums (because you're secretly a werething)
+	category = fame
+	flag = immune_to_disease
+	diplomacy = -2
+	martial = -1
+	prowess = 2
+	flag = subtract_arcana_3
+	dread_gain_mult = 0.1
+	stress_loss_mult = 0.2
+
+	ai_war_chance = 0.25
+	ai_war_cooldown = -0.25
+
+	flag = can_duel_anyone_interaction
+	
+	shown_in_ruler_designer = no
+
+	opposites = {
+		lycan_character #shouldn't be combined with open variant
+	}
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_irritable
+			}
+			triggered_desc = {
+				trigger = { is_local_player = yes }
+				desc = irritable_lycan_player_desc
+			}
+			desc = trait_irritable
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_irritable_desc
+			}
+			triggered_desc = {
+				trigger = { is_local_player = yes }
+				desc = trait_lycan_player_desc
+			}
+			desc = trait_irritable_character_desc
+		}
+	}
+
+	attraction_opinion = -5
+
+	ai_rationality = -20
+	ai_energy = 10
+	ai_boldness = 10
+	ai_vengefulness = 10
+	ai_compassion = -10
+
+	compatibility = {
+		compassionate = -5
+		gregarious = -5
+		calm = -5
+	}
+}
+
+lifespan_magic_1 = {
+	life_expectancy = 60
+	years_of_fertility = 45 #90 years old
+	monthly_lifestyle_xp_gain_mult = -0.3
+	monthly_prestige_gain_mult = -0.15
+	monthly_piety_gain_mult = -0.15
+	monthly_influence_mult = -0.15
+	stress_loss_mult = -0.05
+	#stress_gain_mult = -0.05
+	fertility = -0.1
+	long_reign_bonus_mult = -0.1
+
+	shown_in_ruler_designer = no
+
+	group = lifespan_magic
+	flag = lifespan_magic
+	level = 1
+	flag = lifespan_1_flag
+
+	flag = not_inheritable_lifespan
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_magic_1_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = artificial_lifespan
+				}
+				desc = trait_lifespan_magic_1_character_desc_extended
+			}
+			desc = trait_lifespan_magic_1_character_desc
+		}
+	}
+}
+
+lifespan_magic_2 = {
+	life_expectancy = 110
+	years_of_fertility = 75 #120 years old
+	monthly_lifestyle_xp_gain_mult = -0.4
+	monthly_prestige_gain_mult = -0.2
+	monthly_piety_gain_mult = -0.2
+	monthly_influence_mult = -0.2
+	stress_loss_mult = -0.1
+	#stress_gain_mult = -0.1
+	fertility = -0.2
+	long_reign_bonus_mult = -0.2
+
+	shown_in_ruler_designer = no
+
+	group = lifespan_magic
+	flag = lifespan_magic
+	level = 2
+	flag = lifespan_2_flag
+
+	flag = not_inheritable_lifespan
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_magic_2_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = artificial_lifespan
+				}
+				desc = trait_lifespan_magic_2_character_desc_extended
+			}
+			desc = trait_lifespan_magic_2_character_desc
+		}
+	}
+}
+
+lifespan_magic_3 = {
+	life_expectancy = 160
+	years_of_fertility = 120 #165 years old
+	monthly_lifestyle_xp_gain_mult = -0.5
+	monthly_prestige_gain_mult = -0.25
+	monthly_piety_gain_mult = -0.25
+	monthly_influence_mult = -0.25
+	stress_loss_mult = -0.15
+	stress_gain_mult = -0.05
+	fertility = -0.3
+	long_reign_bonus_mult = -0.3
+
+	shown_in_ruler_designer = no
+
+	group = lifespan_magic
+	flag = lifespan_magic
+	level = 3
+	flag = lifespan_3_flag
+
+	flag = not_inheritable_lifespan
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_magic_3_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = artificial_lifespan
+				}
+				desc = trait_lifespan_magic_3_character_desc_extended
+			}
+			desc = trait_lifespan_magic_3_character_desc
+		}
+	}
+}
+
+lifespan_magic_4 = {
+	life_expectancy = 260
+	years_of_fertility = 195 #240 years old
+	monthly_lifestyle_xp_gain_mult = -0.5
+	monthly_prestige_gain_mult = -0.3
+	monthly_piety_gain_mult = -0.3
+	monthly_influence_mult = -0.3
+	stress_loss_mult = -0.2
+	stress_gain_mult = -0.05
+	fertility = -0.4
+	long_reign_bonus_mult = -0.4
+
+	shown_in_ruler_designer = no
+
+	group = lifespan_magic
+	flag = lifespan_magic
+	level = 4
+	flag = lifespan_4_flag
+
+	flag = not_inheritable_lifespan
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_magic_4_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = artificial_lifespan
+				}
+				desc = trait_lifespan_magic_4_character_desc_extended
+			}
+			desc = trait_lifespan_magic_4_character_desc
+		}
+	}
+}
+
+lifespan_magic_5 = {
+	life_expectancy = 460
+	years_of_fertility = 345 #390 years old
+	monthly_lifestyle_xp_gain_mult = -0.5
+	monthly_prestige_gain_mult = -0.35
+	monthly_piety_gain_mult = -0.35
+	monthly_influence_mult = -0.35
+	stress_loss_mult = -0.25
+	stress_gain_mult = -0.1
+	fertility = -0.5
+	long_reign_bonus_mult = -0.5
+
+	shown_in_ruler_designer = no
+
+	group = lifespan_magic
+	flag = lifespan_magic
+	level = 5
+	
+	flag = lifespan_5_flag
+
+	flag = not_inheritable_lifespan
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_magic_5_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = artificial_lifespan
+				}
+				desc = trait_lifespan_magic_5_character_desc_extended
+			}
+			desc = trait_lifespan_magic_5_character_desc
+		}
+	}
+}
+
+lifespan_magic_6 = {
+	# He9: Deliberately does not have immune_to_disease, if you've managed to get this just heal yourself you dingus
+	years_of_fertility = 7500 #7545 years old
+	monthly_lifestyle_xp_gain_mult = -0.5
+	monthly_prestige_gain_mult = -0.45
+	monthly_piety_gain_mult = -0.45
+	monthly_influence_mult = -0.45
+	stress_loss_mult = -0.35
+	stress_gain_mult = -0.35
+	fertility = -0.6
+	long_reign_bonus_mult = -0.6 #for reference the vanilla trait has -1000
+	no_prowess_loss_from_age = yes
+	
+	shown_in_ruler_designer = no	
+
+	flag = is_immortal
+	flag = immortal_visuals
+	flag = immortal_fertility
+	flag = immortal_incapability
+
+	flag = not_inheritable_lifespan
+
+	immortal = yes	
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_magic_6_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = artificial_lifespan
+				}
+				desc = trait_lifespan_magic_6_character_desc_extended
+			}
+			desc = trait_lifespan_magic_6_character_desc
+		}
+	}
+}
+
+clone = { # This character is a clone of another!
+	category = fame
+
+	general_opinion = -10
+	health = -0.20
+	same_opinion = 25
+	
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_clone_desc
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_variable = clone_creator
+					culture = { has_cultural_pillar = heritage_argonian }
+				}
+				desc = trait_clone_character_desc_hatched_creator
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_variable = clone_creator
+				}
+				desc = trait_clone_character_desc_creator
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_variable = clone_creator
+					culture = { has_cultural_pillar = heritage_argonian }
+				}
+				desc = trait_clone_character_desc_hatched
+			}
+			desc = trait_clone_character_desc
+		}
+	}
+}
+
+sign_lady = {
+	flag = birthsign
+	group = birthsign
+	level = 9
+	
+	diplomacy = 1
+	general_opinion = 5
+	dread_gain_mult = -0.1
+	
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 1 #this is what makes the faux "birthsign trait" trait category show up
+	
+	ai_honor = 10
+	ai_boldness = -10
+
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sign_lady_desc
+			}
+			desc = trait_sign_lady_character_desc
+		}
+	}
+}
+
+sign_lord = {
+	flag = birthsign
+	group = birthsign
+	level = 3
+	
+	stewardship = 1
+	negate_health_penalty_add = 0.25
+	health = miniscule_health_bonus
+	
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 1 #this is what makes the faux "birthsign trait" trait category show up
+	
+	ai_honor = 10
+
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sign_lord_desc
+			}
+			desc = trait_sign_lord_character_desc
+		}
+	}
+}
+
+sign_lover = {
+	flag = birthsign
+	group = birthsign
+	level = 2
+    
+	intrigue = 1
+	fertility = 0.1
+	attraction_opinion = 5
+	
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 1 #this is what makes the faux "birthsign trait" trait category show up
+
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sign_lover_desc
+			}
+			desc = trait_sign_lover_character_desc
+		}
+	}
+}
+
+sign_ritual = {
+	flag = birthsign
+	group = birthsign
+	level = 1
+    
+	stress_loss_mult = 0.1
+	stress_gain_mult = 0.1
+	learning = 2
+	
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 1 #this is what makes the faux "birthsign trait" trait category show up
+	
+	ai_zeal = 10
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_sign_ritual
+			}
+			triggered_desc = {
+				trigger = { has_dwemer_constellation_names = yes }
+				# From the Redguard Companion
+				desc = trait_sign_laboratory
+			}
+			desc = trait_sign_ritual
+		}
+	}
+
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sign_ritual_desc
+			}
+			triggered_desc = {
+				trigger = { has_dwemer_constellation_names = yes }
+				# From the Redguard Companion
+				desc = trait_sign_laboratory_character_desc
+			}
+			desc = trait_sign_ritual_character_desc
+		}
+	}
+}
+
+sign_serpent = {
+	flag = birthsign
+	group = birthsign
+	level = 13
+	
+	diplomacy = 1
+	martial = 1
+	stewardship = 1
+	intrigue = 1
+	learning = 1
+
+	monthly_lifestyle_xp_gain_mult = -0.1
+	
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 1 #this is what makes the faux "birthsign trait" trait category show up
+	
+	ai_rationality = -10
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_sign_serpent
+			}
+			triggered_desc = {
+				trigger = { has_reachfolk_constellation_names = yes }
+				#A Reachfolk, or a culture with the Reach Folklore tradition, while not being of a celestial faith call the trait "The Snake" instead
+				desc = trait_sign_snake
+			}
+			desc = trait_sign_serpent
+		}
+	}
+
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sign_serpent_desc
+			}
+			triggered_desc = {
+				trigger = { has_reachfolk_constellation_names = yes }
+				#A Reachfolk, or a culture with the Reach Folklore tradition, while not being of a celestial faith call the trait "The Snake" instead
+				desc = trait_sign_snake_character_desc
+			}
+			desc = trait_sign_serpent_character_desc
+		}
+	}
+}
+
+sign_shadow = {
+	flag = birthsign
+	group = birthsign
+	level = 5
+	
+	intrigue = 1
+	enemy_hostile_scheme_success_chance_add = -5
+	owned_hostile_scheme_success_chance_add = 5
+	
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 1 #this is what makes the faux "birthsign trait" trait category show up
+	
+	ai_honor = -10
+	ai_rationality = 10
+
+    name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sign_shadow
+			}
+			triggered_desc = {
+				trigger = {
+					culture = { has_cultural_pillar = heritage_argonian }
+				}
+				desc = trait_sign_shadow
+			}
+			desc = trait_sign_shadow
+		}
+	}
+
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sign_shadow_desc
+			}
+			triggered_desc = {
+				trigger = {
+					culture = { has_cultural_pillar = heritage_argonian }
+				}
+				desc = trait_sign_shadow_argonian_desc
+			}
+			desc = trait_sign_shadow_character_desc
+		}
+	}
+}
+
+sign_steed = {
+	flag = birthsign
+	group = birthsign
+	level = 6
+    
+	martial = 1
+	prowess = 1
+	stress_gain_mult = 0.1
+	character_travel_speed = 10
+	
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 1 #this is what makes the faux "birthsign trait" trait category show up
+	
+	ai_rationality = -10
+	ai_zeal = 10
+
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sign_steed_desc
+			}
+			desc = trait_sign_steed_character_desc
+		}
+	}
+}
+
+sign_thief = {
+	flag = birthsign
+	group = birthsign
+	level = 12
+	
+	intrigue = 3
+	health = miniscule_health_penalty
+	
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 1 #this is what makes the faux "birthsign trait" trait category show up
+	
+	ai_greed = 10
+	ai_honor = -10
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_sign_thief
+			}
+			triggered_desc = {
+				trigger = { has_reachfolk_constellation_names = yes }
+				#A Reachfolk, or a culture with the Reach Folklore tradition, while not being of a celestial faith call the trait "The Hunter" instead
+				desc = trait_sign_hunter
+			}
+			desc = trait_sign_thief
+		}
+	}
+
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sign_thief_desc
+			}
+			triggered_desc = {
+				trigger = { has_reachfolk_constellation_names = yes }
+				#A Reachfolk, or a culture with the Reach Folklore tradition, while not being of a celestial faith call the trait "The HUnter" instead
+				desc = trait_sign_hunter_character_desc
+			}
+			desc = trait_sign_thief_character_desc
+		}
+	}
+}
+
+sign_tower = {
+	flag = birthsign
+	group = birthsign
+	level = 10
+	
+	diplomacy = 1
+	stewardship = 1
+	monthly_income_mult = 0.05
+	
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 1 #this is what makes the faux "birthsign trait" trait category show up
+	
+	ai_boldness = -5
+	ai_rationality = 5
+	ai_honor = 5
+
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sign_tower_desc
+			}
+			desc = trait_sign_tower_character_desc
+		}
+	}
+}
+
+sign_warrior = {
+	flag = birthsign
+	group = birthsign
+	level = 8
+	
+	martial = 2
+	prowess = 2
+	stress_loss_mult = -0.1
+	
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 1 #this is what makes the faux "birthsign trait" trait category show up
+	
+	ai_greed = 5
+	ai_honor = 5
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_sign_warrior
+			}
+			triggered_desc = {
+				trigger = { has_reachfolk_constellation_names = yes }
+				#A Reachfolk, or a culture with the Reach Folklore tradition, while not being of a celestial faith call the trait "The Headsman" instead
+				desc = trait_sign_headsman
+			}
+			desc = trait_sign_warrior
+		}
+	}
+
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sign_warrior_desc
+			}
+			triggered_desc = {
+				trigger = { has_reachfolk_constellation_names = yes }
+				#A Reachfolk, or a culture with the Reach Folklore tradition, while not being of a celestial faith call the trait "The Headsman" instead
+				desc = trait_sign_headsman_character_desc
+			}
+			desc = trait_sign_warrior_character_desc
+		}
+	}
+}
+
+azura_worshipper = {
+	category = fame
+
+	# to prevent stacking these in RD
+	opposites = {
+		boethiah_worshipper
+		clavicus_worshipper
+		hermaeus_worshipper
+		hircine_worshipper
+		malacath_worshipper
+		mehrunes_worshipper
+		mephala_worshipper
+		meridia_worshipper
+		molag_worshipper
+		namira_worshipper
+		nocturnal_worshipper
+		peryite_worshipper
+		sanguine_worshipper
+		sheogorath_worshipper
+		vaermina_worshipper
+	}
+	
+	triggered_opinion = {
+		parameter = worship_azura_criminal_active
+		opinion_modifier = azura_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_azura_shunned_active
+		opinion_modifier = azura_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_azura_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_azura_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_azura_worshipper_desc
+			}
+			desc = trait_azura_worshipper_character_desc
+		}
+	}
+}
+
+boethiah_worshipper = {
+	category = fame
+	
+	# to prevent stacking these in RD
+	opposites = {
+		azura_worshipper
+		clavicus_worshipper
+		hermaeus_worshipper
+		hircine_worshipper
+		malacath_worshipper
+		mehrunes_worshipper
+		mephala_worshipper
+		meridia_worshipper
+		molag_worshipper
+		namira_worshipper
+		nocturnal_worshipper
+		peryite_worshipper
+		sanguine_worshipper
+		sheogorath_worshipper
+		vaermina_worshipper
+	}
+
+	triggered_opinion = {
+		parameter = worship_boethiah_criminal_active
+		opinion_modifier = boethiah_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_boethiah_shunned_active
+		opinion_modifier = boethiah_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_boethiah_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_boethiah_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_boethiah_worshipper_desc
+			}
+			desc = trait_boethiah_worshipper_character_desc
+		}
+	}
+}
+
+clavicus_worshipper = {
+	category = fame
+	
+	# to prevent stacking these in RD
+	opposites = {
+		azura_worshipper
+		boethiah_worshipper
+		hermaeus_worshipper
+		hircine_worshipper
+		malacath_worshipper
+		mehrunes_worshipper
+		mephala_worshipper
+		meridia_worshipper
+		molag_worshipper
+		namira_worshipper
+		nocturnal_worshipper
+		peryite_worshipper
+		sanguine_worshipper
+		sheogorath_worshipper
+		vaermina_worshipper
+	}
+
+	triggered_opinion = {
+		parameter = worship_clavicus_criminal_active
+		opinion_modifier = clavicus_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_clavicus_shunned_active
+		opinion_modifier = clavicus_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_clavicus_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_clavicus_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_clavicus_worshipper_desc
+			}
+			desc = trait_clavicus_worshipper_character_desc
+		}
+	}
+}
+
+hermaeus_worshipper = {
+	category = fame
+	
+	# to prevent stacking these in RD
+	opposites = {
+		azura_worshipper
+		boethiah_worshipper
+		clavicus_worshipper
+		hircine_worshipper
+		malacath_worshipper
+		mehrunes_worshipper
+		mephala_worshipper
+		meridia_worshipper
+		molag_worshipper
+		namira_worshipper
+		nocturnal_worshipper
+		peryite_worshipper
+		sanguine_worshipper
+		sheogorath_worshipper
+		vaermina_worshipper
+	}
+
+	triggered_opinion = {
+		parameter = worship_hermaeus_criminal_active
+		opinion_modifier = hermaeus_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_hermaeus_shunned_active
+		opinion_modifier = hermaeus_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_hermaeus_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_hermaeus_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_hermaeus_worshipper_desc
+			}
+			desc = trait_hermaeus_worshipper_character_desc
+		}
+	}
+}
+
+hircine_worshipper = {
+	category = fame
+	
+	# to prevent stacking these in RD
+	opposites = {
+		azura_worshipper
+		boethiah_worshipper
+		clavicus_worshipper
+		hermaeus_worshipper
+		malacath_worshipper
+		mehrunes_worshipper
+		mephala_worshipper
+		meridia_worshipper
+		molag_worshipper
+		namira_worshipper
+		nocturnal_worshipper
+		peryite_worshipper
+		sanguine_worshipper
+		sheogorath_worshipper
+		vaermina_worshipper
+	}
+
+	triggered_opinion = {
+		parameter = worship_hircine_criminal_active
+		opinion_modifier = hircine_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_hircine_shunned_active
+		opinion_modifier = hircine_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_hircine_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_hircine_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_hircine_worshipper_desc
+			}
+			desc = trait_hircine_worshipper_character_desc
+		}
+	}
+}
+
+malacath_worshipper = {
+	category = fame	
+	
+	# to prevent stacking these in RD
+	opposites = {
+		azura_worshipper
+		boethiah_worshipper
+		clavicus_worshipper
+		hermaeus_worshipper
+		hircine_worshipper
+		mehrunes_worshipper
+		mephala_worshipper
+		meridia_worshipper
+		molag_worshipper
+		namira_worshipper
+		nocturnal_worshipper
+		peryite_worshipper
+		sanguine_worshipper
+		sheogorath_worshipper
+		vaermina_worshipper
+	}
+
+	triggered_opinion = {
+		parameter = worship_malacath_criminal_active
+		opinion_modifier = malacath_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_malacath_shunned_active
+		opinion_modifier = malacath_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_malacath_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_malacath_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_malacath_worshipper_desc
+			}
+			desc = trait_malacath_worshipper_character_desc
+		}
+	}
+}
+
+mehrunes_worshipper = {
+	category = fame	
+	
+	# to prevent stacking these in RD
+	opposites = {
+		azura_worshipper
+		boethiah_worshipper
+		clavicus_worshipper
+		hermaeus_worshipper
+		hircine_worshipper
+		malacath_worshipper
+		mephala_worshipper
+		meridia_worshipper
+		molag_worshipper
+		namira_worshipper
+		nocturnal_worshipper
+		peryite_worshipper
+		sanguine_worshipper
+		sheogorath_worshipper
+		vaermina_worshipper
+	}
+
+	triggered_opinion = {
+		parameter = worship_mehrunes_criminal_active
+		opinion_modifier = mehrunes_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_mehrunes_shunned_active
+		opinion_modifier = mehrunes_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_mehrunes_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_mehrunes_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mehrunes_worshipper_desc
+			}
+			desc = trait_mehrunes_worshipper_character_desc
+		}
+	}
+}
+
+mephala_worshipper = {
+	category = fame
+	
+	# to prevent stacking these in RD
+	opposites = {
+		azura_worshipper
+		boethiah_worshipper
+		clavicus_worshipper
+		hermaeus_worshipper
+		hircine_worshipper
+		malacath_worshipper
+		mehrunes_worshipper
+		meridia_worshipper
+		molag_worshipper
+		namira_worshipper
+		nocturnal_worshipper
+		peryite_worshipper
+		sanguine_worshipper
+		sheogorath_worshipper
+		vaermina_worshipper
+	}
+
+	triggered_opinion = {
+		parameter = worship_mephala_criminal_active
+		opinion_modifier = mephala_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_mephala_shunned_active
+		opinion_modifier = mephala_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_mephala_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_mephala_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mephala_worshipper_desc
+			}
+			desc = trait_mephala_worshipper_character_desc
+		}
+	}
+}
+
+meridia_worshipper = {
+	category = fame
+	
+	# to prevent stacking these in RD
+	opposites = {
+		azura_worshipper
+		boethiah_worshipper
+		clavicus_worshipper
+		hermaeus_worshipper
+		hircine_worshipper
+		malacath_worshipper
+		mehrunes_worshipper
+		mephala_worshipper
+		molag_worshipper
+		namira_worshipper
+		nocturnal_worshipper
+		peryite_worshipper
+		sanguine_worshipper
+		sheogorath_worshipper
+		vaermina_worshipper
+	}
+
+	triggered_opinion = {
+		parameter = worship_meridia_criminal_active
+		opinion_modifier = meridia_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_meridia_shunned_active
+		opinion_modifier = meridia_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_meridia_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_meridia_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_meridia_worshipper_desc
+			}
+			desc = trait_meridia_worshipper_character_desc
+		}
+	}
+}
+
+molag_worshipper = {
+	category = fame
+	
+	# to prevent stacking these in RD
+	opposites = {
+		azura_worshipper
+		boethiah_worshipper
+		clavicus_worshipper
+		hermaeus_worshipper
+		hircine_worshipper
+		malacath_worshipper
+		mehrunes_worshipper
+		mephala_worshipper
+		meridia_worshipper
+		namira_worshipper
+		nocturnal_worshipper
+		peryite_worshipper
+		sanguine_worshipper
+		sheogorath_worshipper
+		vaermina_worshipper
+	}
+
+	triggered_opinion = {
+		parameter = worship_molag_criminal_active
+		opinion_modifier = molag_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_molag_shunned_active
+		opinion_modifier = molag_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_molag_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_molag_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_molag_worshipper_desc
+			}
+			desc = trait_molag_worshipper_character_desc
+		}
+	}
+}
+
+namira_worshipper = {
+	category = fame	
+	
+	# to prevent stacking these in RD
+	opposites = {
+		azura_worshipper
+		boethiah_worshipper
+		clavicus_worshipper
+		hermaeus_worshipper
+		hircine_worshipper
+		malacath_worshipper
+		mehrunes_worshipper
+		mephala_worshipper
+		meridia_worshipper
+		molag_worshipper
+		nocturnal_worshipper
+		peryite_worshipper
+		sanguine_worshipper
+		sheogorath_worshipper
+		vaermina_worshipper
+	}
+
+	triggered_opinion = {
+		parameter = worship_namira_criminal_active
+		opinion_modifier = namira_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_namira_shunned_active
+		opinion_modifier = namira_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_namira_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_namira_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_namira_worshipper_desc
+			}
+			desc = trait_namira_worshipper_character_desc
+		}
+	}
+}
+
+nocturnal_worshipper = {
+	category = fame
+	
+	# to prevent stacking these in RD
+	opposites = {
+		azura_worshipper
+		boethiah_worshipper
+		clavicus_worshipper
+		hermaeus_worshipper
+		hircine_worshipper
+		malacath_worshipper
+		mehrunes_worshipper
+		mephala_worshipper
+		meridia_worshipper
+		molag_worshipper
+		namira_worshipper
+		peryite_worshipper
+		sanguine_worshipper
+		sheogorath_worshipper
+		vaermina_worshipper
+	}
+
+	triggered_opinion = {
+		parameter = worship_nocturnal_criminal_active
+		opinion_modifier = nocturnal_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_nocturnal_shunned_active
+		opinion_modifier = nocturnal_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_nocturnal_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_nocturnal_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_nocturnal_worshipper_desc
+			}
+			desc = trait_nocturnal_worshipper_character_desc
+		}
+	}
+}
+
+peryite_worshipper = {
+	category = fame	
+	
+	# to prevent stacking these in RD
+	opposites = {
+		azura_worshipper
+		boethiah_worshipper
+		clavicus_worshipper
+		hermaeus_worshipper
+		hircine_worshipper
+		malacath_worshipper
+		mehrunes_worshipper
+		mephala_worshipper
+		meridia_worshipper
+		molag_worshipper
+		namira_worshipper
+		nocturnal_worshipper
+		sanguine_worshipper
+		sheogorath_worshipper
+		vaermina_worshipper
+	}
+
+	triggered_opinion = {
+		parameter = worship_peryite_criminal_active
+		opinion_modifier = peryite_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_peryite_shunned_active
+		opinion_modifier = peryite_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_peryite_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_peryite_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_peryite_worshipper_desc
+			}
+			desc = trait_peryite_worshipper_character_desc
+		}
+	}
+}
+
+sanguine_worshipper = {
+	category = fame
+	
+	# to prevent stacking these in RD
+	opposites = {
+		azura_worshipper
+		boethiah_worshipper
+		clavicus_worshipper
+		hermaeus_worshipper
+		hircine_worshipper
+		malacath_worshipper
+		mehrunes_worshipper
+		mephala_worshipper
+		meridia_worshipper
+		molag_worshipper
+		namira_worshipper
+		nocturnal_worshipper
+		peryite_worshipper
+		sheogorath_worshipper
+		vaermina_worshipper
+	}
+
+	triggered_opinion = {
+		parameter = worship_sanguine_criminal_active
+		opinion_modifier = sanguine_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_sanguine_shunned_active
+		opinion_modifier = sanguine_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_sanguine_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_sanguine_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sanguine_worshipper_desc
+			}
+			desc = trait_sanguine_worshipper_character_desc
+		}
+	}
+}
+
+sheogorath_worshipper = {
+	category = fame	
+	
+	# to prevent stacking these in RD
+	opposites = {
+		azura_worshipper
+		boethiah_worshipper
+		clavicus_worshipper
+		hermaeus_worshipper
+		hircine_worshipper
+		malacath_worshipper
+		mehrunes_worshipper
+		mephala_worshipper
+		meridia_worshipper
+		molag_worshipper
+		namira_worshipper
+		nocturnal_worshipper
+		peryite_worshipper
+		sanguine_worshipper
+		vaermina_worshipper
+	}
+
+	triggered_opinion = {
+		parameter = worship_sheogorath_criminal_active
+		opinion_modifier = sheogorath_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_sheogorath_shunned_active
+		opinion_modifier = sheogorath_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_sheogorath_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_sheogorath_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sheogorath_worshipper_desc
+			}
+			desc = trait_sheogorath_worshipper_character_desc
+		}
+	}
+}
+
+vaermina_worshipper = {
+	category = fame
+	
+	# to prevent stacking these in RD
+	opposites = {
+		azura_worshipper
+		boethiah_worshipper
+		clavicus_worshipper
+		hermaeus_worshipper
+		hircine_worshipper
+		malacath_worshipper
+		mehrunes_worshipper
+		mephala_worshipper
+		meridia_worshipper
+		molag_worshipper
+		namira_worshipper
+		nocturnal_worshipper
+		peryite_worshipper
+		sanguine_worshipper
+		sheogorath_worshipper
+	}
+
+	triggered_opinion = {
+		parameter = worship_vaermina_criminal_active
+		opinion_modifier = vaermina_worship_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = worship_vaermina_shunned_active
+		opinion_modifier = vaermina_worship_shunned
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	faith_modifier = {
+		parameter = worship_vaermina_criminal_active
+		zealot_opinion = -10
+	}
+
+	faith_modifier = {
+		parameter = worship_vaermina_shunned_active
+		zealot_opinion = -5
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vaermina_worshipper_desc
+			}
+			desc = trait_vaermina_worshipper_character_desc
+		}
+	}
+}

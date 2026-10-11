@@ -1,0 +1,69 @@
+﻿add_quarterly_magicka = {
+	effect = {
+		add_quarterly_magicka_effect = yes
+		add_character_flag = {
+			flag = gains_magicka
+			months = 3
+		}
+	}
+}
+
+add_monthly_magicka = {
+	effect = {
+		add_monthly_magicka_effect = yes
+	}
+}
+
+add_yearly_magicka = {
+	trigger = {
+		NOT = { has_character_flag = gains_magicka }
+	}
+	effect = {
+		add_yearly_magicka_effect = yes
+	}
+}
+
+on_start_arcana = {
+	effect = {
+		ek_on_start_arcana_effect = yes
+	}
+}
+
+summon_timer = {
+	effect = {
+		if = {
+			limit = {
+				any_courtier = {
+					has_character_flag = summoned_daedra
+				}
+			}
+			every_courtier = {
+				limit = {
+					has_character_flag = summoned_daedra
+				}
+				death = {
+					death_reason = death_returned_oblivion
+				}
+			}
+		}
+	}
+}
+
+# initalize_spell_lists = {
+#     effect = {
+#         init_spell_lists = yes
+#     }
+# }
+
+# clear_spell_vars = {
+#     effect = {
+#         spell_cleanup = yes
+#     }
+# }
+
+# ek_on_save_load = {
+#     on_actions = {
+#         initalize_spell_lists
+#         clear_spell_vars
+#     }
+# }

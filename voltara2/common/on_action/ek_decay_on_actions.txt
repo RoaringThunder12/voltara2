@@ -1,0 +1,28 @@
+﻿on_start_decay = {
+	trigger = {
+		OR = { 
+			vt_ek_is_undead = yes 
+			is_briarheart = yes
+		}
+	}
+	effect = {
+		set_starting_decay_effect = yes
+	}
+}
+
+ek_decay_monthly_pulse = {
+	trigger = {
+		is_alive = yes
+		OR = { 
+			vt_ek_is_undead = yes 
+			is_briarheart = yes
+		}
+	}
+	effect = {
+		update_decay_monthly_effect = yes
+		trigger_event = { 
+			on_action = ek_decay_monthly_pulse
+			months = 1
+		}
+	}
+}

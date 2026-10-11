@@ -1,0 +1,18 @@
+﻿on_game_start_after_lobby = { on_actions = { voltara_threadbinding_start } }
+voltara_threadbinding_start = {
+ effect = {
+  every_living_character = {
+   limit = { OR = { is_ruler = yes has_trait = education_magic has_trait = necromancer has_trait = vt_ek_necromancer vt_ek_is_undead = yes } NOT = { has_trait = dragon } }
+   voltara_initialize_threadbinder = yes
+  }
+ }
+}
+quarterly_playable_pulse = { on_actions = { voltara_threadbinding_quarterly } }
+voltara_threadbinding_quarterly = {
+ trigger = { NOT = { has_trait = dragon } }
+ effect = {
+  voltara_initialize_threadbinder = yes
+  if = { limit = { can_magic_trigger = yes } add_quarterly_magicka_effect = yes }
+  every_court_position_holder = { type = court_mage_court_position voltara_initialize_threadbinder = yes add_quarterly_magicka_effect = yes }
+ }
+}

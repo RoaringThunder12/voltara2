@@ -1,0 +1,47 @@
+﻿# On actions to handle the learnig necromancy story line
+
+ongoing_necromancy_events = {
+    random_events = {
+        # Province Specific Events
+        100 = ek_story_cycle_necromancy_events.0100 # Reach Event
+        100 = ek_story_cycle_necromancy_events.0105 # Elsweyr Event
+        100 = ek_story_cycle_necromancy_events.0110 # Hammerfell Event
+        100 = ek_story_cycle_necromancy_events.0115 # Valenwood Event
+        #100 = ek_story_cycle_necromancy_events.0120 # Blackmarsh Event
+        #100 = ek_story_cycle_necromancy_events.0125 # Skyrim Event
+        #100 = ek_story_cycle_necromancy_events.0130 # Morrowind Event
+        #100 = ek_story_cycle_necromancy_events.0135 # Cyrodiil Event
+        #100 = ek_story_cycle_necromancy_events.0140 # Highrock Event
+        #100 = ek_story_cycle_necromancy_events.0145 # Summerset Event
+        #100 = ek_story_cycle_necromancy_events.0150 # Yokuda Event
+
+        # Universal Events
+        100 = ek_story_cycle_necromancy_events.0200 # Necromancy Book Event
+        #100 = ek_story_cycle_necromancy_events.0205 # Get Necromancy Spellbook
+        100 = ek_story_cycle_necromancy_events.0210 # Tutor Wants Court Position
+        100 = ek_story_cycle_necromancy_events.0215 # Having Difficulties
+        100 = ek_story_cycle_necromancy_events.0220 # Having Second Thoughts
+        #100 = ek_story_cycle_necromancy_events.0225 # Making Progress
+        100 = ek_story_cycle_necromancy_events.0225 # Anatomy Insights
+        100 = ek_story_cycle_necromancy_events.0230 # Improved Arcana
+        100 = ek_story_cycle_necromancy_events.0235 # Magic Lifestyle Experience
+        100 = ek_story_cycle_necromancy_events.0240 # Go Grave Digging
+        100 = ek_story_cycle_necromancy_events.0245 # Get Dead Animal
+        100 = ek_story_cycle_necromancy_events.0250 # Stench of Death
+        #100 = ek_story_cycle_necromancy_events.0245 # Tutor is helpful
+        #100 = ek_story_cycle_necromancy_events.0250 # Landless Tutor Arrives
+
+        # Secrecy Events
+        100 = ek_story_cycle_necromancy_events.0300 # Secret Tutor Arrives
+        100 = ek_story_cycle_necromancy_events.0305 # Someone Is Suspicious
+        100 = ek_story_cycle_necromancy_events.0310 # Its Stressfull
+
+        # Non Secrecy Events
+        100 = ek_story_cycle_necromancy_events.0400 # Someone Tries to Talk You Out of It
+        100 = ek_story_cycle_necromancy_events.0405 # Court Priest Intervenes
+        #100 = ek_story_cycle_necromancy_events.0410 # Get some Dread
+
+        # Suceess
+        10 = ek_story_cycle_necromancy_events.1000 # Get the trait
+    }
+}

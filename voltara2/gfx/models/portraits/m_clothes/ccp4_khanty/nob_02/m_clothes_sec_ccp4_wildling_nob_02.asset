@@ -1,0 +1,67 @@
+### ENTITIES ####
+# COM
+entity = {
+	name = "m_clothes_sec_ccp4_wildling_com_03_entity"
+	pdxmesh = "m_clothes_sec_ccp4_khanty_nob_02_mesh"
+
+	attribute = { name = "bs_body_infant_1"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_infant" }
+	attribute = { name = "bs_body_fat_1"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_fat" }
+	attribute = { name = "bs_body_gaunt_1"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_gaunt" }
+	attribute = { name = "bs_body_muscular_1"				blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_muscular" }
+	attribute = { name = "bs_body_dwarf_1"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_dwarf" }
+	attribute = { name = "bs_body_old_1"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_old" }
+	#attribute = { name = "bs_body_seated"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_seated" }
+
+	game_data = {
+        portrait_entity_user_data = {
+			portrait_accessory = {
+				pattern_mask = "gfx/models/portraits/m_clothes/ccp4_khanty/nob_02/m_clothes_sec_ccp4_khanty_nob_02_masks.dds"	#Any 4-channel texture. Each channel will be used to mask a pattern from the variation object
+				variation = "ccp4_wildling_com_02"	#A "variation" object in gfx/portraits/accessory_variations/
+			}
+        }
+	}
+}
+# LOW
+entity = {
+	name = "m_clothes_sec_ccp4_wildling_lo_nob_03_entity"
+	pdxmesh = "m_clothes_sec_ccp4_khanty_nob_02_mesh"
+
+	attribute = { name = "bs_body_infant_1"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_infant" }
+	attribute = { name = "bs_body_fat_1"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_fat" }
+	attribute = { name = "bs_body_gaunt_1"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_gaunt" }
+	attribute = { name = "bs_body_muscular_1"				blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_muscular" }
+	attribute = { name = "bs_body_dwarf_1"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_dwarf" }
+	attribute = { name = "bs_body_old_1"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_old" }
+	#attribute = { name = "bs_body_seated"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_seated" }
+
+	game_data = {
+        portrait_entity_user_data = {
+			portrait_accessory = {
+				pattern_mask = "gfx/models/portraits/m_clothes/ccp4_khanty/nob_02/m_clothes_sec_ccp4_khanty_nob_02_masks.dds"	#Any 4-channel texture. Each channel will be used to mask a pattern from the variation object
+				variation = "ccp4_wildling_low_02"	#A "variation" object in gfx/portraits/accessory_variations/
+			}
+        }
+	}
+}
+# HIGH
+entity = {
+	name = "m_clothes_sec_ccp4_wildling_hi_nob_03_entity"
+	pdxmesh = "m_clothes_sec_ccp4_khanty_nob_02_mesh"
+
+	attribute = { name = "bs_body_infant_1"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_infant" }
+	attribute = { name = "bs_body_fat_1"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_fat" }
+	attribute = { name = "bs_body_gaunt_1"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_gaunt" }
+	attribute = { name = "bs_body_muscular_1"				blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_muscular" }
+	attribute = { name = "bs_body_dwarf_1"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_dwarf" }
+	attribute = { name = "bs_body_old_1"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_old" }
+	#attribute = { name = "bs_body_seated"					blend_shape = "m_clothes_sec_ccp4_khanty_nob_02_bs_seated" }
+
+	game_data = {
+        portrait_entity_user_data = {
+			portrait_accessory = {
+				pattern_mask = "gfx/models/portraits/m_clothes/ccp4_khanty/nob_02/m_clothes_sec_ccp4_khanty_nob_02_masks.dds"	#Any 4-channel texture. Each channel will be used to mask a pattern from the variation object
+				variation = "ccp4_wildling_high_02"	#A "variation" object in gfx/portraits/accessory_variations/
+			}
+        }
+	}
+}

@@ -1,0 +1,131 @@
+﻿ArcanaLevel = {
+	type = character
+
+	text = {
+		localization_key = SKILL_TERRIBLE
+		trigger = { root.arcana < { value = terrible_skill_level add = 2 } }
+	}
+
+	text = {
+		localization_key = SKILL_POOR
+		trigger = {
+			root.arcana >= { value = terrible_skill_level add = 2 }
+			root.arcana < { value = poor_skill_level add = 2 }
+		}
+	}
+
+	text = {
+		localization_key = SKILL_AVERAGE
+		trigger = {
+			root.arcana >= { value = poor_skill_level add = 2 }
+			root.arcana < { value = average_skill_level add = 2 }
+		}
+	}
+
+	text = {
+		localization_key = SKILL_GOOD
+		trigger = {
+			root.arcana >= { value = average_skill_level add = 2 }
+			root.arcana < { value = good_skill_level add = 2 }
+		}
+	}
+
+	text = {
+		localization_key = SKILL_EXCELLENT
+		trigger = { root.arcana >= { value = good_skill_level add = 2 } }
+	}
+}
+
+# On the lifestyle window
+education_magic_impact_vt_threadbinding_magic_lifestyle_experience = {
+	type = character
+	
+	text = {
+		localization_key = education_magic_impact_vt_threadbinding_magic_lifestyle_experience_5
+		trigger = { has_trait = vt_ek_education_magic_5 }
+	}
+	text = {
+		localization_key = education_magic_impact_vt_threadbinding_magic_lifestyle_experience_4
+		trigger = { has_trait = vt_ek_education_magic_4 }
+	}
+	text = {
+		localization_key = education_magic_impact_vt_threadbinding_magic_lifestyle_experience_3
+		trigger = { has_trait = vt_ek_education_magic_3 }
+	}
+	text = {
+		localization_key = education_magic_impact_vt_threadbinding_magic_lifestyle_experience_2
+		trigger = { has_trait = vt_ek_education_magic_2 }
+	}
+	text = {
+		localization_key = education_magic_impact_vt_threadbinding_magic_lifestyle_experience_1
+		trigger = { has_trait = vt_ek_education_magic_1 }
+	}
+}
+necromancer_trait_group_impact_dark_arts_lifestyle_experience = {
+	type = character
+
+	text = {
+		localization_key = necromancer_trait_impact_dark_arts_lifestyle_experience
+		trigger = { 
+			has_trait = vt_ek_necromancer
+			NOT = { has_trait = vt_ek_lich_character }
+		}
+	}
+	text = {
+		localization_key = experimentalist_necromancer_trait_impact_dark_arts_lifestyle_experience
+		trigger = { has_trait = vt_ek_experimentalist_necromancer }
+	}
+	text = {
+		localization_key = education_magic_trait_impact_dark_arts_lifestyle_experience
+		trigger = { has_trait = vt_ek_education_magic_5 }
+	}
+}
+lichdom_trait_group_impact_dark_arts_lifestyle_experience = {
+	type = character
+
+	text = {
+		localization_key = lich_trait_impact_dark_arts_lifestyle_experience
+		trigger = {
+			has_trait = vt_ek_lich_character
+		}
+	}
+}
+
+GetNaturalLifespan = {
+	type = character
+
+	text = {
+		localization_key = natural_lifespan_0
+		trigger = {
+			has_character_flag = natural_lifespan_0
+		}
+	}
+
+	text = {
+		localization_key = natural_lifespan_1
+		trigger = {
+			has_character_flag = natural_lifespan_1
+		}
+	}
+
+	text = {
+		localization_key = natural_lifespan_2
+		trigger = {
+			has_character_flag = natural_lifespan_2
+		}
+	}
+
+	text = {
+		localization_key = natural_lifespan_3
+		trigger = {
+			has_character_flag = natural_lifespan_3
+		}
+	}
+
+	text = {
+		localization_key = natural_lifespan_4
+		trigger = {
+			has_character_flag = natural_lifespan_4
+		}
+	}
+}

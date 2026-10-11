@@ -1,0 +1,3135 @@
+﻿@dragonMature = 0.3
+
+morph_genes = {
+
+	gene_dragon_aging = {
+
+
+		non_dragon_aging = {
+			index = 0
+			visible = no
+			male = {}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_aging = {
+			index = 1
+			visible = no
+			male = {
+
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_camera_zoom = {
+		#group = body
+
+		no_camera_zoom = {
+			index = 0
+			visible = no
+			male = {}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		linear_camera_zoom = {
+			index = 1
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/camera_zoom_control.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 1
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_size_portrait_camera = {
+			index = 2
+			visible = no
+			male = {
+
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/camera_zoom_control.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 0.1 0.2 }
+						{ 1.0 1.0 }
+					}
+					priority = 1
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/camera_raise_control.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 0.1 0.1 }
+						{ 1.0 0.5 }
+					}
+					priority = 1
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_size_fixed_frame_zoom = {
+			index = 3
+			visible = no
+			male = {
+
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/camera_zoom_control.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.03 }
+						{ 0.1 0.2 }
+						{ 1.0 1.0 }
+					}
+					priority = 1
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/camera_raise_control.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.005 }
+						{ 0.1 0.02 }
+						{ 1.0 0.15 }
+					}
+					priority = 1
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+
+	gene_dragon_size = {
+
+
+		non_dragon_size = {
+			index = 0
+			visible = no
+			male = {}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_size = {
+			index = 1
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "dragon_infant_proportions"
+					curve = {
+						{ 0.0 -0.5 }
+						{ 0.1 0.0 }
+					}
+				}
+
+				setting = {
+					attribute = "bs_dragon_infant"
+					curve = {
+						{ 0.0 1.0 }
+						{ 0.1 0.0 }
+					}
+				}
+
+				decal = {
+					body_part = torso
+					textures = {
+						normal = "gfx/models/portraits/decals/dragon/dragon_no_normal.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						normal = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.8 }
+						{ 0.2 0.0 }
+					}
+					priority = 1
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+
+				decal = {
+					body_part = torso
+					textures = {
+						normal = "gfx/models/portraits/decals/dragon/dragon_wings_no_normal.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						normal = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.8 }
+						{ 0.2 0.0 }
+					}
+					priority = 2
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+
+				setting = {
+					attribute = "dragon_large_proportions"
+					curve = {
+						{ 0.0 0.0 }
+						{ 0.1 0.0 }
+						{ 1.0 0.5 }
+					}
+				}
+
+				setting = {
+					attribute = "bs_dragon_large"
+					curve = {
+						{ 0.0 0.0 }
+						{ 0.1 0.0 }
+						{ 1.0 1.0 }
+					}
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_size_portrait_camera = {
+			index = 2
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "dragon_infant_proportions"
+					curve = {
+						{ 0.0 -0.5 }
+						{ 0.1 0.0 }
+					}
+				}
+
+				setting = {
+					attribute = "bs_dragon_infant"
+					curve = {
+						{ 0.0 1.0 }
+						{ 0.1 0.0 }
+					}
+				}
+
+				setting = {
+					attribute = "dragon_large_proportions"
+					curve = {
+						{ 0.0 0.0 }
+						{ 0.1 0.0 }
+						{ 1.0 0.5 }
+					}
+				}
+
+				decal = {
+					body_part = torso
+					textures = {
+						normal = "gfx/models/portraits/decals/dragon/dragon_no_normal.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						normal = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.8 }
+						{ 0.2 0.0 }
+					}
+					priority = 1
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+
+				decal = {
+					body_part = torso
+					textures = {
+						normal = "gfx/models/portraits/decals/dragon/dragon_wings_no_normal.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						normal = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.8 }
+						{ 0.2 0.0 }
+					}
+					priority = 2
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+
+				setting = {
+					attribute = "bs_dragon_large"
+					curve = {
+						{ 0.0 0.0 }
+						{ 0.1 0.0 }
+						{ 1.0 1.0 }
+					}
+				}
+
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/camera_zoom_control.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 0.1 0.25 }
+						{ 1.0 1.0 }
+					}
+					priority = 1
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/camera_raise_control.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 0.0 }
+					}
+					priority = 1
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_size_fixed_frame_zoom = {
+			index = 3
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "dragon_infant_proportions"
+					curve = {
+						{ 0.0 -0.5 }
+						{ 0.1 0.0 }
+					}
+				}
+
+				setting = {
+					attribute = "bs_dragon_infant"
+					curve = {
+						{ 0.0 1.0 }
+						{ 0.1 0.0 }
+					}
+				}
+
+				decal = {
+					body_part = torso
+					textures = {
+						normal = "gfx/models/portraits/decals/dragon/dragon_no_normal.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						normal = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.8 }
+						{ 0.2 0.0 }
+					}
+					priority = 1
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+
+				decal = {
+					body_part = torso
+					textures = {
+						normal = "gfx/models/portraits/decals/dragon/dragon_wings_no_normal.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						normal = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.8 }
+						{ 0.2 0.0 }
+					}
+					priority = 2
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+
+				setting = {
+					attribute = "dragon_large_proportions"
+					curve = {
+						{ 0.0 0.0 }
+						{ 0.1 0.0 }
+						{ 1.0 0.5 }
+					}
+				}
+
+				setting = {
+					attribute = "bs_dragon_large"
+					curve = {
+						{ 0.0 0.0 }
+						{ 0.1 0.0 }
+						{ 1.0 1.0 }
+					}
+				}
+
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/camera_zoom_control.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.05 }
+						{ 0.1 0.3 }
+						{ 1.0 1.0 }
+					}
+					priority = 1
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_primary_color_hue = {
+		dragon_primary_color_hue = {
+			index = 0
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.01 }
+						{ 1.0 0.99 }
+					}
+					priority = 0
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_primary_color_value = {
+		dragon_primary_color_value = {
+			index = 0
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.01 }
+						{ 1.0 0.99 }
+					}
+					priority = 1
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_secondary_hue = {
+		dragon_secondary_hue = {
+			index = 0
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.01 }
+						{ 1.0 0.99 }
+					}
+					priority = 2
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_secondary_value = {
+		dragon_secondary_value = {
+			index = 0
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.01 }
+						{ 1.0 0.99 }
+					}
+					priority = 3
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_tertiary_hue = {
+		dragon_tertiary_hue = {
+			index = 0
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.01 }
+						{ 1.0 0.99 }
+					}
+					priority = 4
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_tertiary_value = {
+		dragon_tertiary_value = {
+			index = 0
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.01 }
+						{ 1.0 0.99 }
+					}
+					priority = 5
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_eye_color_hue = {
+		dragon_eye_color_hue = {
+			index = 0
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.01 }
+						{ 1.0 0.99 }
+					}
+					priority = 6
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_eye_color_value = {
+		dragon_eye_color_value = {
+			index = 0
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.01 }
+						{ 1.0 0.99 }
+					}
+					priority = 7
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+		gene_dragon_horn_color_hue = {
+		dragon_horn_color_hue = {
+			index = 0
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.01 }
+						{ 1.0 0.99 }
+					}
+					priority = 8
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+		gene_dragon_horn_color_value = {
+		dragon_horn_color_value = {
+			index = 0
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.01 }
+						{ 1.0 0.99 }
+					}
+					priority = 9
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+		gene_dragon_primary_color_saturation = {
+			dragon_primary_color_saturation = {
+				index = 0
+				visible = no
+				male = {
+					decal = {
+						body_part = torso
+						textures = {
+							diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+						}
+						blend_modes = {              #inert here - this decal only smuggles its weight
+							diffuse = replace
+						}
+						alpha_curve = {
+							{ 0.0 0.01 }
+							{ 1.0 0.99 }
+						}
+						priority = 10 #10-14: saturation, after the hue/value pairs (0-9), before shading/patterns (15+)
+						decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+					}
+				}
+				female = male
+				boy = male
+				girl = female
+			}
+		}
+
+		gene_dragon_secondary_saturation = {
+			dragon_secondary_saturation = {
+				index = 0
+				visible = no
+				male = {
+					decal = {
+						body_part = torso
+						textures = {
+							diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+						}
+						blend_modes = {              #inert here - this decal only smuggles its weight
+							diffuse = replace
+						}
+						alpha_curve = {
+							{ 0.0 0.01 }
+							{ 1.0 0.99 }
+						}
+						priority = 11 #10-14: saturation, after the hue/value pairs (0-9), before shading/patterns (15+)
+						decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+					}
+				}
+				female = male
+				boy = male
+				girl = female
+			}
+		}
+
+		gene_dragon_tertiary_saturation = {
+			dragon_tertiary_saturation = {
+				index = 0
+				visible = no
+				male = {
+					decal = {
+						body_part = torso
+						textures = {
+							diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+						}
+						blend_modes = {              #inert here - this decal only smuggles its weight
+							diffuse = replace
+						}
+						alpha_curve = {
+							{ 0.0 0.01 }
+							{ 1.0 0.99 }
+						}
+						priority = 12 #10-14: saturation, after the hue/value pairs (0-9), before shading/patterns (15+)
+						decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+					}
+				}
+				female = male
+				boy = male
+				girl = female
+			}
+		}
+
+		gene_dragon_eye_color_saturation = {
+			dragon_eye_color_saturation = {
+				index = 0
+				visible = no
+				male = {
+					decal = {
+						body_part = torso
+						textures = {
+							diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+						}
+						blend_modes = {              #inert here - this decal only smuggles its weight
+							diffuse = replace
+						}
+						alpha_curve = {
+							{ 0.0 0.01 }
+							{ 1.0 0.99 }
+						}
+						priority = 13 #10-14: saturation, after the hue/value pairs (0-9), before shading/patterns (15+)
+						decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+					}
+				}
+				female = male
+				boy = male
+				girl = female
+			}
+		}
+
+		gene_dragon_horn_color_saturation = {
+			dragon_horn_color_saturation = {
+				index = 0
+				visible = no
+				male = {
+					decal = {
+						body_part = torso
+						textures = {
+							diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+						}
+						blend_modes = {              #inert here - this decal only smuggles its weight
+							diffuse = replace
+						}
+						alpha_curve = {
+							{ 0.0 0.01 }
+							{ 1.0 0.99 }
+						}
+						priority = 14 #10-14: saturation, after the hue/value pairs (0-9), before shading/patterns (15+)
+						decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+					}
+				}
+				female = male
+				boy = male
+				girl = female
+			}
+		}
+
+		gene_dragon_fire_color = {
+			gene_dragon_fire_color_automatic = {
+				index = 0
+				visible = no
+				male = {
+					decal = {
+						body_part = torso
+						textures = {
+							diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+						}
+						alpha_curve = { { 0.0 0.01 } { 1.0 0.99 } }
+						blend_modes = { diffuse = replace }
+						priority = 15
+						decal_apply_order = pre_skin_color
+						#overlay/replace/hard_light/multiply
+						# pre_skin_color | post_skin_color
+					}
+				}
+				female = male
+				boy = male
+				girl = female
+			}
+			gene_dragon_fire_color_custom = {
+				index = 1
+				visible = no
+				male = {
+					decal = {
+						body_part = torso
+						textures = {
+							diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+						}
+						alpha_curve = { { 0.0 0.01 } { 1.0 0.99 } }
+						blend_modes = { diffuse = multiply }
+						priority = 15
+						decal_apply_order = pre_skin_color
+						#overlay/replace/hard_light/multiply
+						# pre_skin_color | post_skin_color
+					}
+				}
+				female = male
+				boy = male
+				girl = female
+			}
+		}
+
+		gene_dragon_fire_smoke = {
+			gene_dragon_fire_smoke_automatic = {
+				index = 0
+				visible = no
+				male = {
+					decal = {
+						body_part = torso
+						textures = {
+							diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+						}
+						alpha_curve = { { 0.0 0.01 } { 1.0 0.99 } }
+						blend_modes = { diffuse = replace }
+						priority = 16
+						decal_apply_order = pre_skin_color
+						#overlay/replace/hard_light/multiply
+						# pre_skin_color | post_skin_color
+					}
+				}
+				female = male
+				boy = male
+				girl = female
+			}
+			gene_dragon_fire_smoke_custom = {
+				index = 1
+				visible = no
+				male = {
+					decal = {
+						body_part = torso
+						textures = {
+							diffuse = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+						}
+						alpha_curve = { { 0.0 0.01 } { 1.0 0.99 } }
+						blend_modes = { diffuse = multiply }
+						priority = 16
+						decal_apply_order = pre_skin_color
+						#overlay/replace/hard_light/multiply
+						# pre_skin_color | post_skin_color
+					}
+				}
+				female = male
+				boy = male
+				girl = female
+			}
+		}
+
+
+	gene_dragon_brow_width = {
+		dragon_brow_width = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_brow_width"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_cheek_width = {
+		dragon_cheek_width = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_cheek_width_neg"
+					curve = {
+						{ 0.0 1.0 }
+						{ 0.5 0.0 }
+						{ 1.0 0.0 }
+					}
+				}
+
+				setting = {
+					attribute = "bs_dragon_cheek_width_pos"
+					curve = {
+						{ 0.0 0.0 }
+						{ 0.5 0.0 }
+						{ 1.0 1.0 }
+					}
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_chin_profile = {
+		dragon_chin_profile = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_chin_profile"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_crest_depth = {
+		dragon_crest_depth = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_crest_depth"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_head_roundness = {
+		dragon_head_roundness = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_head_roundness"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_horns_eyebrow_length = {
+		dragon_horns_eyebrow_length = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_horns_eyebrow_length"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_main_horn_shape = {
+		dragon_horns_drogon = {
+			index = 0
+			visible = no
+			male = {
+				setting = {
+					attribute = "bs_dragon_horns_small"
+					value = { min = 1.0 max = 0.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_horns_meleys = {
+			index = 1
+			visible = no
+			male = {
+				setting = {
+					attribute = "bs_dragon_horns_small"
+					value = { min = 1.0 max = 0.0 }
+				}
+				setting = {
+					attribute = "bs_dragon_horns_meleys"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_horns_balerion = {
+			index = 2
+			visible = no
+			male = {
+				setting = {
+					attribute = "bs_dragon_horns_small"
+					value = { min = 1.0 max = 0.0 }
+				}
+				setting = {
+					attribute = "bs_dragon_horns_balerion"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_horns_cannibal = {
+			index = 3
+			visible = no
+			male = {
+				setting = {
+					attribute = "bs_dragon_horns_small"
+					value = { min = 1.0 max = 0.0 }
+				}
+				setting = {
+					attribute = "bs_dragon_horns_cannibal"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_horns_curvy = {
+			index = 4
+			visible = no
+			male = {
+				setting = {
+					attribute = "bs_dragon_horns_small"
+					value = { min = 1.0 max = 0.0 }
+				}
+				setting = {
+					attribute = "bs_dragon_horns_curvy"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_horns_dreamfyre = {
+			index = 5
+			visible = no
+			male = {
+				setting = {
+					attribute = "bs_dragon_horns_small"
+					value = { min = 1.0 max = 0.0 }
+				}
+				setting = {
+					attribute = "bs_dragon_horns_dreamfyre"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_horns_grey_ghost = {
+			index = 6
+			visible = no
+			male = {
+				setting = {
+					attribute = "bs_dragon_horns_small"
+					value = { min = 1.0 max = 0.0 }
+				}
+				setting = {
+					attribute = "bs_dragon_horns_grey_ghost"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_horns_long = {
+			index = 7
+			visible = no
+			male = {
+				setting = {
+					attribute = "bs_dragon_horns_small"
+					value = { min = 1.0 max = 0.0 }
+				}
+				setting = {
+					attribute = "bs_dragon_horns_long"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_horns_meraxes = {
+			index = 8
+			visible = no
+			male = {
+				setting = {
+					attribute = "bs_dragon_horns_small"
+					value = { min = 1.0 max = 0.0 }
+				}
+				setting = {
+					attribute = "bs_dragon_horns_meraxes"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_horns_silverwing = {
+			index = 9
+			visible = no
+			male = {
+				setting = {
+					attribute = "bs_dragon_horns_small"
+					value = { min = 1.0 max = 0.0 }
+				}
+				setting = {
+					attribute = "bs_dragon_horns_silverwing"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_jaw_width = {
+		dragon_jaw_width = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_jaw_width_neg"
+					curve = {
+						{ 0.0 1.0 }
+						{ 0.5 0.0 }
+						{ 1.0 0.0 }
+					}
+				}
+
+				setting = {
+					attribute = "bs_dragon_jaw_width_pos"
+					curve = {
+						{ 0.0 0.0 }
+						{ 0.5 0.0 }
+						{ 1.0 1.0 }
+					}
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_lower_jaw_height = {
+		dragon_lower_jaw_height = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_lower_jaw_height_neg"
+					curve = {
+						{ 0.0 1.0 }
+						{ 0.5 0.0 }
+						{ 1.0 0.0 }
+					}
+				}
+
+				setting = {
+					attribute = "bs_dragon_lower_jaw_height_pos"
+					curve = {
+						{ 0.0 0.0 }
+						{ 0.5 0.0 }
+						{ 1.0 1.0 }
+					}
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_lower_jaw_width = {
+		dragon_lower_jaw_width = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_lower_jaw_width"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_old_neck = {
+		dragon_old_neck = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_old_neck"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_outer_brow_height = {
+		dragon_outer_brow_height = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_outer_brow_height"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_snout_height = {
+		dragon_snout_height = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_snout_height_neg"
+					curve = {
+						{ 0.0 1.0 }
+						{ 0.5 0.0 }
+						{ 1.0 0.0 }
+					}
+				}
+
+				setting = {
+					attribute = "bs_dragon_snout_height_pos"
+					curve = {
+						{ 0.0 0.0 }
+						{ 0.5 0.0 }
+						{ 1.0 1.0 }
+					}
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_snout_length = {
+		dragon_snout_length = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_snout_length_neg"
+					curve = {
+						{ 0.0 1.0 }
+						{ 0.5 0.0 }
+						{ 1.0 0.0 }
+					}
+				}
+
+				setting = {
+					attribute = "bs_dragon_snout_length_pos"
+					curve = {
+						{ 0.0 0.0 }
+						{ 0.5 0.0 }
+						{ 1.0 1.0 }
+					}
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_snout_profile = {
+		dragon_snout_profile = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_snout_profile_neg"
+					curve = {
+						{ 0.0 1.0 }
+						{ 0.5 0.0 }
+						{ 1.0 0.0 }
+					}
+				}
+
+				setting = {
+					attribute = "bs_dragon_snout_profile_pos"
+					curve = {
+						{ 0.0 0.0 }
+						{ 0.5 0.0 }
+						{ 1.0 1.0 }
+					}
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_snout_width = {
+		dragon_snout_width = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_snout_width"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_upper_jaw_width = {
+		dragon_upper_jaw_width = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_upper_jaw_width"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_back_spike_size = {
+		dragon_back_spike_size = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_back_spike_size"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_center_fin_size = {
+		dragon_center_fin_size = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_center_fin_size_neg"
+					curve = {
+						{ 0.0 1.0 }
+						{ 0.5 0.0 }
+						{ 1.0 0.0 }
+					}
+				}
+
+				setting = {
+					attribute = "bs_dragon_center_fin_size_pos"
+					curve = {
+						{ 0.0 0.0 }
+						{ 0.5 0.0 }
+						{ 1.0 1.0 }
+					}
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_horns_eyebrow = {
+		dragon_horns_eyebrow = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_horns_eyebrow"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_neck_spike_size = {
+		dragon_neck_spike_size = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_neck_spike_size"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_side_fin_size = {
+		dragon_side_fin_size = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_side_fin_size_neg"
+					curve = {
+						{ 0.0 1.0 }
+						{ 0.5 0.0 }
+						{ 1.0 0.0 }
+					}
+				}
+
+				setting = {
+					attribute = "bs_dragon_side_fin_size_pos"
+					curve = {
+						{ 0.0 0.0 }
+						{ 0.5 0.0 }
+						{ 1.0 1.0 }
+					}
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_snout_end_width = {
+		dragon_snout_end_width = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "bs_dragon_snout_end_width_neg"
+					curve = {
+						{ 0.0 1.0 }
+						{ 0.5 0.0 }
+						{ 1.0 0.0 }
+					}
+				}
+
+				setting = {
+					attribute = "bs_dragon_snout_end_width_pos"
+					curve = {
+						{ 0.0 0.0 }
+						{ 0.5 0.0 }
+						{ 1.0 1.0 }
+					}
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_neck_length = {
+		dragon_neck_length = {
+			index = 0
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "dragon_neck_length"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		dragon_neck_length_camera_zoom = {
+			index = 1
+			visible = no
+			male = {
+
+				setting = {
+					attribute = "dragon_neck_length"
+					value = { min = 0.0 max = 1.0 }
+				}
+
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/camera_zoom_control.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 0.5 }
+					}
+					priority = 1
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_tail_length = {
+		dragon_tail_length = {
+			index = 0
+			visible = no
+			male = {
+				setting = {
+					attribute = "dragon_tail_length"
+					value = { min = 0.0 max = 1.0 }
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_metallic_scales_strength = {
+		dragon_scales_default = {
+			index = 0
+			visible = no
+			male = {
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_scales_metallic = {
+			index = 1
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						properties = "gfx/models/portraits/decals/dragon/properties_metallic.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						properties = hard_light
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 1
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_scale_shadows = {
+		dragon_scale_shadows_default = {
+			index = 0
+			visible = no
+			male = {
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_scale_shadows = {
+			index = 1
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/scale_shadows.dds"
+					}
+					blend_modes = {              #multiply is cosmetic - the shader routes this decal by its MIP-6 (9,1) MAGENTA marker
+						diffuse = multiply
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 3
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_scale_highlights = {
+		dragon_scale_highlights_default = {
+			index = 0
+			visible = no
+			male = {
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_scale_highlights = {
+			index = 1
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/scale_highlights.dds"
+					}
+					blend_modes = {              #replace is cosmetic - the shader routes this decal by its MIP-6 (9,1) CYAN marker
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 4
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_wounded = {
+		dragon_wounded = {
+			index = 0
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/dragon_scar_diffuse_atlas.dds"
+						normal = "gfx/models/portraits/decals/dragon/dragon_scar_normal_atlas.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+						normal = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 1
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/dragon_wound_diffuse_atlas.dds"
+						normal = "gfx/models/portraits/decals/dragon/dragon_wound_normal_atlas.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+						normal = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 2
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_scarred = {
+			index = 1
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/dragon_scar_diffuse_atlas.dds"
+						normal = "gfx/models/portraits/decals/dragon/dragon_scar_normal_atlas.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+						normal = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 1
+					decal_apply_order = post_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_body_shading = {
+		dragon_body_shading_lower_black = {
+			index = 0
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_1.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_shading_lower_white = {
+			index = 1
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_1.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = multiply
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_shading_lower_secondary = {
+			index = 2
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_1.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = hard_light
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_shading_lower_tertiary = {
+			index = 3
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_1.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = overlay
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_shading_upper_black = {
+			index = 4
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_2.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_shading_upper_white = {
+			index = 5
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_2.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = multiply
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_shading_upper_secondary = {
+			index = 6
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_2.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = hard_light
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_shading_upper_tertiary = {
+			index = 7
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_2.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = overlay
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_shading_front_black = {
+			index = 8
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_3.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_shading_front_white = {
+			index = 9
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_3.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = multiply
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_shading_front_secondary = {
+			index = 10
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_3.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = hard_light
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_shading_front_tertiary = {
+			index = 11
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_3.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = overlay
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_shading_back_black = {
+			index = 12
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_4.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_shading_back_white = {
+			index = 13
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_4.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = multiply
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_shading_back_secondary = {
+			index = 14
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_4.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = hard_light
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_shading_back_tertiary = {
+			index = 15
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_fade_4.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = overlay
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 15 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_dragon_body_pattern = {
+		dragon_body_pattern_stripes_1_black = {
+			index = 0
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_1.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_pattern_stripes_1_white = {
+			index = 1
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_1.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = multiply
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_pattern_stripes_1_secondary = {
+			index = 2
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_1.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = hard_light
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_pattern_stripes_1_tertiary = {
+			index = 3
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_1.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = overlay
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_pattern_stripes_2_black = {
+			index = 4
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_2.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_pattern_stripes_2_white = {
+			index = 5
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_2.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = multiply
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_pattern_stripes_2_secondary = {
+			index = 6
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_2.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = hard_light
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_pattern_stripes_2_tertiary = {
+			index = 7
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_2.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = overlay
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_pattern_stripes_3_black = {
+			index = 8
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_3.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_pattern_stripes_3_white = {
+			index = 9
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_3.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = multiply
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_pattern_stripes_3_secondary = {
+			index = 10
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_3.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = hard_light
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_pattern_stripes_3_tertiary = {
+			index = 11
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_3.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = overlay
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_pattern_stripes_4_black = {
+			index = 12
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_4.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_pattern_stripes_4_white = {
+			index = 13
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_4.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = multiply
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_pattern_stripes_4_secondary = {
+			index = 14
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_4.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = hard_light
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_body_pattern_stripes_4_tertiary = {
+			index = 15
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/body_stripes_4.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = overlay
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation, 15 is body shading
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+	}
+	gene_dragon_wings_shading = {
+		dragon_wings_shading_back_black = {
+			index = 0
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_1.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_back_white = {
+			index = 1
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_1.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = multiply
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_back_secondary = {
+			index = 2
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_1.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = hard_light
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_back_tertiary = {
+			index = 3
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_1.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = overlay
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_front_black = {
+			index = 4
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_2.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_front_white = {
+			index = 5
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_2.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = multiply
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_front_secondary = {
+			index = 6
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_2.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = hard_light
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_front_tertiary = {
+			index = 7
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_2.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = overlay
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_outside_black = {
+			index = 8
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_3.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_outside_white = {
+			index = 9
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_3.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = multiply
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_outside_secondary = {
+			index = 10
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_3.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = hard_light
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_outside_tertiary = {
+			index = 11
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_3.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = overlay
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_inside_black = {
+			index = 12
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_4.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_inside_white = {
+			index = 13
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_4.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = multiply
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_inside_secondary = {
+			index = 14
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_4.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = hard_light
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_inside_tertiary = {
+			index = 15
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_4.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = overlay
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_full_black = {
+			index = 16
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_5.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = replace
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_full_white = {
+			index = 17
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_5.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = multiply
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_full_secondary = {
+			index = 18
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_5.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = hard_light
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+		dragon_wings_shading_full_tertiary = {
+			index = 19
+			visible = no
+			male = {
+				decal = {
+					body_part = torso
+					textures = {
+						diffuse = "gfx/models/portraits/decals/dragon/wing_fade_5.dds"
+					}
+					blend_modes = {              #overlay/replace/hard_light/multiply
+						diffuse = overlay
+					}
+					alpha_curve = {
+						{ 0.0 0.0 }
+						{ 1.0 1.0 }
+					}
+					priority = 16 #0-9 palette colours, 10-14 colour saturation
+					decal_apply_order = pre_skin_color # pre_skin_color | post_skin_color
+				}
+			}
+			female = male
+			boy = male
+			girl = female
+		}
+
+	}
+
+
+	#BUGGY NEEDS TO BE FIXED
+	# gene_dragon_body_shape = {
+	#
+
+	# 	dragon_body_shape = {
+	# 		index = 0
+	# 		male = {
+
+	# 			setting = {
+	# 				attribute = "dragon_body_shape"
+	# 				value = { min = -0.5 max = 0.5 }
+	# 			}
+	# 		}
+	# 		female = male
+	# 		boy = male
+	# 		girl = female
+	# 	}
+	# }
+
+}

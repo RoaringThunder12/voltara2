@@ -1,0 +1,16 @@
+﻿voltara_initialize_threadbinder = {
+ voltara_demon_court_setup = yes
+ if = {
+  limit = { this = character:9999401 NOT = { has_character_flag = voltara_ithren_rite_repaired } }
+  set_character_rite = rite:voltara_unbound_weave
+  add_trait = witch
+  title:c_voltara_barelvar_sanctum = { set_county_rite = rite:voltara_unbound_weave }
+  add_character_flag = voltara_ithren_rite_repaired
+ }
+
+ ek_on_start_arcana_effect = yes
+ if = { limit = { has_trait = necromancer NOT = { has_trait = vt_ek_necromancer } } add_trait = vt_ek_necromancer }
+ if = { limit = { has_trait = education_magic NOT = { has_trait = education_magic } } add_trait = vt_ek_education_magic_1 }
+ if = { limit = { can_magic_trigger = yes NOT = { has_variable = magicka } } set_variable = { name = magicka value = magicka_max } }
+ if = { limit = { vt_ek_is_undead = yes NOT = { has_character_flag = has_decay_value } } set_starting_decay_effect = yes }
+}

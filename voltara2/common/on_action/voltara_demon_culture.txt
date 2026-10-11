@@ -1,0 +1,7 @@
+﻿on_game_start_after_lobby = { on_actions = { voltara_demon_start } }
+voltara_demon_start = { effect = { every_living_character = { voltara_demon_culture_setup = yes }
+ character:9999401 = { voltara_demon_court_setup = yes } } }
+on_character_created = { on_actions = { voltara_demon_created } }
+on_birth_child = { on_actions = { voltara_demon_created } }
+on_character_culture_change = { on_actions = { voltara_demon_created } }
+voltara_demon_created = { effect = { voltara_demon_culture_setup = yes } }

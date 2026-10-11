@@ -1196,7 +1196,7 @@ necromancer = {
 	shown_in_ruler_designer = no
 	opposite_opinion = -50
 	desc = trait_necromancer_desc
-	general_opinion = -30
+	general_opinion = 0
 	dread_baseline_add = 20
 	army_maintenance_mult = -0.1
 
@@ -1206,6 +1206,7 @@ necromancer = {
 	ai_vengefulness = 20
 	
 	triggered_opinion = {
+		parameter = necromancy_criminal
 		opinion_modifier = witchcraft_crime
 		ignore_opinion_value_if_same_trait = yes
 	}

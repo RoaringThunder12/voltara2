@@ -1,0 +1,850 @@
+﻿become_necromancer_decision = {
+	picture = { reference = "gfx/interface/illustrations/decisions/ai_decision_dark_magic.dds" }
+
+	desc = become_necromancer_decision_desc
+	selection_tooltip = become_necromancer_decision_tooltip
+
+	ai_check_interval = 120
+	decision_group_type = major
+
+	is_shown = {
+		has_perk = conjuration_novice_perk
+		custom_tooltip = {
+			text = can_magic_tt
+			can_magic_trigger = yes
+		}
+		NOR = {
+			vt_ek_is_necromancer = yes
+			has_character_modifier = learning_necromancy
+			has_character_flag = failed_necromancy
+		}
+	}
+	is_valid = {
+		has_perk = conjuration_novice_perk
+		OR = {
+			faith = {
+				custom_description = {
+					text = doctrine_necromancy_accepted_custom_desc
+					has_doctrine = doctrine_necromancy_accepted
+				}
+			}	
+			calc_true_if = {
+				amount >= 2
+				has_trait = cynical
+				has_trait = callous
+				has_trait = sadistic
+				faith = {
+					custom_description = {
+						text = doctrine_necromancy_shunned_custom_desc
+						has_doctrine = doctrine_necromancy_shunned
+					}
+				}
+			}
+		}
+	}
+    is_valid_showing_failures_only = {
+        is_capable_adult = yes
+        is_available = yes
+        is_imprisoned = no
+    }
+
+	effect = {
+		start_story_cycle_learn_necromancy_effect = yes
+	}
+	
+	minimum_cost = {
+		piety = 500
+	}
+
+	ai_potential = { always = yes }
+	ai_will_do = { 
+		base = 50
+		
+        modifier = {
+            has_trait = sadistic
+            add = 10
+        }
+        modifier = {
+            has_trait = ambitious
+            add = 10
+        }
+        modifier = {
+            has_trait = cynical
+            add = 10
+        }
+        modifier = {
+            has_trait = compassionate
+            add = -20
+        }
+
+		modifier = { 
+			faith = { has_doctrine = doctrine_necromancy_shunned }
+			add = -20
+		}
+
+		modifier = { 
+			faith = { has_doctrine = doctrine_necromancy_crime }
+			add = -30
+		}
+    }	
+}
+
+reveal_necromancy_decision = { # lose the secret and get the trait
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds" }
+
+	desc = reveal_necromancy_decision_desc
+	selection_tooltip = reveal_necromancy_decision_tooltip
+
+	ai_check_interval = 120
+	decision_group_type = major
+	
+	is_shown = {
+		has_trait = vt_ek_experimentalist_necromancer
+	}
+
+	is_valid = {
+		has_trait = vt_ek_experimentalist_necromancer
+	}
+
+	effect = {
+		reveal_necromancer_secret_effect = yes
+		save_temporary_scope_as = revealed_necromancer
+		if = {
+			limit = {
+				is_independent_ruler = no
+			}
+			liege = { 
+				trigger_event = life_extension.0260
+			}
+		}
+		if = { 
+			limit = { is_ai = yes }
+			summon_undead_skeleton_effect = { MASTER = root }
+			if = {
+                limit = {
+                    has_arcana = { VALUE >= 30 }
+                }
+				spawn_army = {
+                    men_at_arms = {
+                        type = maa_undead_soldiers
+                        stacks = 5
+                    }
+                    location = this.capital_province
+                    inheritable = no
+                    name = "undead_horde"
+                }
+            }
+            else_if = {
+                limit = {
+                    has_arcana = { VALUE >= 25 }
+                }
+                spawn_army = {
+                    men_at_arms = {
+                        type = maa_undead_soldiers
+                        stacks = 4
+                    }
+                    location = this.capital_province
+                    inheritable = no
+                    name = "undead_horde"
+                }
+            }
+			else_if = {
+                limit = {
+                    has_arcana = { VALUE >= 20 }
+                }
+                spawn_army = {
+                    men_at_arms = {
+                        type = maa_undead_soldiers
+                        stacks = 3
+                    }
+                    location = this.capital_province
+                    inheritable = no
+                    name = "undead_horde"
+                }
+            }
+			else_if = {
+                limit = {
+                    has_arcana = { VALUE >= 15 }
+                }
+                spawn_army = {
+                    men_at_arms = {
+                        type = maa_undead_soldiers
+                        stacks = 2
+                    }
+                    location = this.capital_province
+                    inheritable = no
+                    name = "undead_horde"
+                }
+            }
+			else_if = {
+                limit = {
+                    has_arcana = { VALUE >= 10 }
+                }
+                spawn_army = {
+                    men_at_arms = {
+                        type = maa_undead_soldiers
+                        stacks = 1
+                    }
+                    location = this.capital_province
+                    inheritable = no
+                    name = "undead_horde"
+                }
+            }
+		}
+	}
+
+	ai_potential = { 
+		has_perk = necromancy_master_perk
+	}
+	ai_will_do = { 
+		base = 50
+
+		modifier = {
+			is_independent_ruler = yes
+			add = 50
+		}
+
+		modifier = { 
+			faith = { has_doctrine = doctrine_necromancy_shunned }
+			add = -20
+		}
+
+		modifier = { 
+			faith = { has_doctrine = doctrine_necromancy_crime }
+			add = -40
+		}
+    }
+}
+
+become_lich_decision = { #become a lich! the easy way!
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds" }
+
+	desc = become_lich_decision_desc
+	selection_tooltip = become_lich_decision_tooltip
+
+	ai_check_interval = 0
+	
+	decision_group_type = major
+
+	is_shown = {
+		OR = {
+			vt_ek_is_necromancer = yes
+			has_perk = necromancy_novice_perk		
+		}
+		NOR = {
+			has_trait = vt_ek_lich_character
+			has_character_flag = race_daedra
+			is_vampire = yes
+			is_lycan = yes
+			is_briarheart = yes
+			is_hagraven = yes
+		}
+	}
+	is_valid = {
+		has_perk = necromancy_master_perk
+		vt_ek_is_necromancer = yes
+		has_magicka >= { VALUE = 100 }
+		NOT = { has_character_modifier = failed_lich_ascension}
+	}
+
+    is_valid_showing_failures_only = {
+        is_capable_adult = yes
+        is_available = yes
+        is_imprisoned = no
+    }
+
+	effect = {
+		custom_tooltip = {
+			text = become_lich_decision_effect
+			trigger_event = { id = life_extension.0290 }
+		}
+	}
+	
+	minimum_cost = {
+		piety = 1000
+	}
+
+	ai_potential = { always = no } #this is the player version of the decision, which features a magicka cost
+}
+
+become_lich_decision_ai = { #computer time B-)
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds" }
+
+	desc = become_lich_decision_ai_desc
+	selection_tooltip = become_lich_decision_tooltip
+	
+	decision_group_type = major
+
+	is_shown = {
+		OR = {
+			vt_ek_is_necromancer = yes
+			has_perk = necromancy_novice_perk		
+		}
+		NOR = {
+			has_trait = vt_ek_lich_character
+			has_character_flag = race_daedra
+			is_vampire = yes
+			is_lycan = yes
+			is_briarheart = yes
+			is_hagraven = yes
+			#Tristan added briar and hag
+		}
+		is_ai = yes
+		# AI immortals shouldn't seek to become liches
+		NOT = {
+			is_immortal = yes
+		}
+	}
+	is_valid = {
+		has_perk = necromancy_master_perk
+		vt_ek_is_necromancer = yes
+		has_magicka >= { VALUE = 100 }
+		NOT = { has_character_modifier = failed_lich_ascension}
+	}
+
+    is_valid_showing_failures_only = {
+        is_capable_adult = yes
+        is_available = yes
+        is_imprisoned = no
+    }
+
+	effect = {
+		trigger_event = { id = life_extension.0290 }
+	}
+	
+	minimum_cost = {
+		piety = 1000
+	}
+
+	ai_goal = yes
+	ai_potential = { always = yes }
+	ai_will_do = {
+		base = 100
+	}
+}
+
+become_hagraven_decision = { #added by tristan
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds" }
+
+	desc = become_hagraven_decision_desc
+	selection_tooltip = become_hagraven_decision_tooltip
+
+	ai_check_interval = 0
+	
+	decision_group_type = major
+
+
+	is_shown = {
+		has_trait = witch
+		faith = { has_doctrine_parameter = become_hagraven_active }
+		is_female = yes
+		is_hagraven = no
+	}
+	
+	is_valid = {
+		has_trait = witch
+		has_magicka >= { VALUE = 100 }
+		has_arcana >= { VALUE = 16 }
+		NOT = { has_character_modifier = failed_hagraven_ascension}
+	}
+
+    is_valid_showing_failures_only = {
+        is_capable_adult = yes
+        is_available = yes
+        is_imprisoned = no
+		NOR = {
+			has_trait = vt_ek_lich_character
+			has_character_flag = race_daedra
+			has_trait = lifespan
+			has_trait = lifespan_magic
+			has_trait = tsaesci
+			is_vampire = yes
+			vt_ek_is_undead = yes
+			is_lycan = yes
+			is_briarheart = yes
+			is_hagraven = yes
+			has_trait = immortal
+			is_immortal = yes
+		}
+    }
+
+	effect = {
+		custom_tooltip = {
+			text = become_hagraven_decision_effect
+			trigger_event = { id = life_extension.0400 }
+		}
+	}
+	
+	minimum_cost = {
+		piety = 1000
+	}
+
+	ai_potential = { always = no } #this is the player version of the decision, which features a magicka cost
+}
+
+become_hagraven_decision_ai = { #computer time B-) #added by tristan
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds" }
+
+	desc = become_hagraven_decision_ai_desc
+	selection_tooltip = become_hagraven_decision_tooltip
+	
+	decision_group_type = major
+
+	is_shown = {
+		has_trait = witch
+		faith = { has_doctrine_parameter = become_hagraven_active }
+		is_female = yes
+		is_hagraven = no
+		is_ai = yes
+	}
+	
+	is_valid = {
+		has_trait = witch
+		has_arcana >= { VALUE = 16 }
+		NOT = { has_character_modifier = failed_hagraven_ascension}
+	}
+
+    is_valid_showing_failures_only = {
+        is_capable_adult = yes
+        is_available = yes
+        is_imprisoned = no
+		NOR = {
+			has_trait = vt_ek_lich_character
+			has_character_flag = race_daedra
+			has_trait = lifespan
+			has_trait = lifespan_magic
+			has_trait = tsaesci
+			is_vampire = yes
+			vt_ek_is_undead = yes
+			is_lycan = yes
+			is_briarheart = yes
+			is_hagraven = yes
+			has_trait = immortal
+			is_immortal = yes
+		}
+    }
+
+	effect = {
+		trigger_event = { id = life_extension.0400 }
+	}
+	
+	minimum_cost = {
+		piety = 1000
+	}
+
+	ai_goal = yes
+	ai_potential = { always = yes }
+	ai_will_do = {
+		base = 100
+	}
+}
+
+become_briarheart_decision = {
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds" }
+
+	desc = become_briarheart_decision_desc
+	selection_tooltip = become_briarheart_decision_tooltip
+
+	ai_check_interval = 0
+	
+	decision_group_type = major
+
+	is_shown = {
+		faith = { has_doctrine_parameter = become_briarheart_active }
+		#can_be_warrior_trigger = { ARMY_OWNER = root }
+		is_briarheart = no
+	}
+	is_valid = {
+		NOT = { has_character_modifier = failed_briarheart_ascension}
+		OR = {
+			custom_description = {
+				text = is_losing_defensive_war_trigger_custom_desc
+				is_losing_defensive_war_trigger = yes
+			}
+			#custom_description = {	##this trigger doesn work, may amend in future
+			#	text = outnumbered_in_war_trigger_custom_desc
+			#	outnumbered_in_war_trigger = yes
+			#}
+			custom_description = {
+				text = at_war_with_any_non_coreligionist_trigger_custom_desc
+				at_war_with_any_non_coreligionist_trigger = yes
+			}
+		}
+
+		prowess >= 10
+	}
+
+    is_valid_showing_failures_only = {
+        is_capable_adult = yes
+        is_available = yes
+        is_imprisoned = no
+		age >= 18
+		NOR = {
+			has_trait = vt_ek_lich_character
+			has_character_flag = race_daedra
+			has_trait = lifespan
+			has_trait = lifespan_magic
+			has_trait = tsaesci
+			is_vampire = yes
+			vt_ek_is_undead = yes
+			is_lycan = yes
+			is_briarheart = yes
+			is_hagraven = yes
+			has_trait = immortal
+			is_immortal = yes
+		}
+    }
+
+	effect = {
+		custom_tooltip = {
+			text = become_briarheart_decision_effect
+			trigger_event = { id = life_extension.0410 }
+		}
+	}
+	
+	minimum_cost = {
+		piety = 1000
+	}
+
+	ai_potential = { always = no } #this is the player version of the decision, which features a magicka cost
+}
+
+become_briarheart_decision_ai = { #computer time B-) #added by tristan
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds" }
+
+	desc = become_briarheart_decision_ai_desc
+	selection_tooltip = become_briarheart_decision_tooltip
+	
+	decision_group_type = major
+
+	is_shown = {
+		faith = { has_doctrine_parameter = become_briarheart_active }
+		#can_be_warrior_trigger = { ARMY_OWNER = root }
+		is_ai = yes
+		is_female = no
+		is_briarheart = no
+		age >= 18
+	}
+	is_valid = {
+		NOT = { has_character_modifier = failed_briarheart_ascension}
+		OR = {
+			is_losing_defensive_war_trigger = yes
+			# outnumbered_in_war_trigger = yes
+			at_war_with_any_non_coreligionist_trigger = yes
+		}
+		prowess >= 14
+	}
+
+    is_valid_showing_failures_only = {
+        is_capable_adult = yes
+        is_available = yes
+        is_imprisoned = no
+		NOR = {
+			has_trait = vt_ek_lich_character
+			has_character_flag = race_daedra
+			has_trait = lifespan
+			has_trait = lifespan_magic
+			has_trait = tsaesci
+			is_vampire = yes
+			vt_ek_is_undead = yes
+			is_lycan = yes
+			is_briarheart = yes
+			is_hagraven = yes
+			has_trait = immortal
+			is_immortal = yes
+		}
+    }
+
+	effect = {
+		trigger_event = { id = life_extension.0410 }
+	}
+	
+	minimum_cost = {
+		piety = 1000
+	}
+
+	ai_goal = yes
+	ai_potential = { always = yes }
+	ai_will_do = {
+		base = 100
+	}
+}
+
+life_extension_decision = { #become immortal
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds" }
+
+	desc = life_extension_decision_desc
+	selection_tooltip = life_extension_decision_tooltip
+
+	ai_check_interval = 0
+	
+	decision_group_type = major
+
+	is_shown = {
+		valid_increase_lifespan_trigger = yes
+		OR = {
+			has_vt_threadbinding_magic_lifestyle_mastery_trigger = yes
+			has_perk = necromancy_master_perk
+		}
+	}
+	is_valid = {
+		valid_increase_lifespan_trigger = yes
+		can_increase_lifespan_trigger = yes
+		has_magicka >= { VALUE = 100 }
+		NOT = { has_character_modifier = failed_life_extension }
+	}
+
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = life_extension_decision_exhaustion
+			NOT = { has_character_flag = attempted_extend_lifespan }
+		}
+        is_capable_adult = yes
+        is_available = yes
+        is_imprisoned = no
+	}
+
+	effect = {
+		# save natural lifespan for inheritance purposes
+		save_lifespan_effect = yes
+		# check for success - is lifespan extended?
+		increase_lifespan_duel = yes
+		# Adding exhaustion modifier (if you're alive)
+		if = {
+			limit = { is_alive = yes}
+			lifespan_extension_exhaustion_effect = yes 
+		}
+
+		#Event for outcome
+		if = { 
+			limit = {
+				scope:life_extension_outcome = flag:no_increase
+			}
+			trigger_event = {
+				id = life_extension.0001
+			} 
+		}
+		else = {
+			trigger_event = {
+				id = life_extension.0002
+			}
+		}
+	}
+
+	ai_potential = { always = no } #this is the player version of the decision, which features a magicka cost
+}
+
+life_extension_decision_ai = { #computer time B-)
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds" }
+
+	desc = life_extension_decision_ai_desc
+	selection_tooltip = life_extension_decision_tooltip
+	
+	decision_group_type = major
+
+	is_shown = {
+		valid_increase_lifespan_trigger = yes
+		OR = {
+			has_vt_threadbinding_magic_lifestyle_mastery_trigger = yes
+			has_perk = necromancy_master_perk
+		}
+		is_ai = yes
+		NOT = {	this = character:mannimarco_1000 } # we want Mannimarco to go for lichdom, not immortality
+	}
+	is_valid = {
+		valid_increase_lifespan_trigger = yes
+		can_increase_lifespan_trigger = yes
+		has_magicka >= { VALUE = 100 }
+		NOT = { has_character_modifier = failed_life_extension }
+	}
+
+    is_valid_showing_failures_only = {
+        is_capable_adult = yes
+        is_available = yes
+        is_imprisoned = no
+    }
+
+	effect = {
+		# save natural lifespan for inheritance purposes
+		save_lifespan_effect = yes
+		# check for success - is lifespan extended?
+		increase_lifespan_duel = yes
+		# Adding exhaustion modifier (if you're alive)
+		if = {
+			limit = { is_alive = yes}
+			lifespan_extension_exhaustion_effect = yes 
+		}
+
+		#Event for outcome
+		if = { 
+			limit = {
+				scope:life_extension_outcome = flag:no_increase
+			}
+			trigger_event = {
+				id = life_extension.0001
+			} 
+		}
+		else = {
+			trigger_event = {
+				id = life_extension.0002
+			}
+		}
+	}
+
+	ai_goal = yes
+	ai_potential = { always = yes }
+	ai_will_do = {
+		base = 100
+	}
+}
+
+study_cloning_decision = { #Study Cloning (The Learning Process)
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds" }
+
+	desc = study_cloning_decision_desc
+	selection_tooltip = study_cloning_decision_tooltip
+
+	ai_check_interval = 0
+	
+	decision_group_type = major
+
+	is_shown = {
+		has_perk = restoration_master_perk
+		NOT = { has_character_modifier = cloning_mastery }
+	}
+	is_valid = {
+		has_perk = restoration_master_perk
+		NOT = { has_character_modifier = learning_cloning }
+		is_landed = yes # Need a lab and stuff
+		vt_ek_is_undead = no
+		#gold >= medium_gold_value
+		calc_true_if = {
+			amount >= 3
+			NOT = { has_trait = compassionate }
+			has_trait = experimentalist
+			has_trait = eccentric
+			learning >= 20
+			#can_have_children = no
+			custom_tooltip = {
+				text = study_cloning_decision_low_fertility
+				fertility < 0.1 # Infertile
+			}
+		}
+	}
+
+    is_valid_showing_failures_only = {
+        is_capable_adult = yes
+        is_available = yes
+        is_imprisoned = no
+    }
+
+	cooldown = { years = 5 }
+
+	effect = {
+		show_as_tooltip = {
+			custom_tooltip = life_extension.0100.a.tt
+			#remove_short_term_gold = medium_gold_value
+			add_character_modifier = learning_cloning
+		}
+		trigger_event = {
+			id = life_extension.0100
+		}
+	}
+
+		
+	minimum_cost = {
+		piety = 1000
+		gold = medium_gold_value
+	}
+
+	ai_potential = { # Suuuper rare but we dont want immortal ai chars to get kids like this
+		NOR = {
+			has_trait = immortal
+			is_immortal = yes
+		}
+		OR = {
+			this = character:fyr_100 #Divayth Fyr
+			is_important_lore_character = no
+		}
+		has_trait = eccentric
+		is_vampire = no
+		is_briarheart = no
+		is_hagraven = no
+	}
+
+	ai_will_do = {
+		base = 30
+	}
+}
+
+make_a_clone_decision = { #Create A Clone! (Repeatable, practical Application)
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds" }
+
+	desc = {
+		desc = make_a_clone_decision_desc
+        triggered_desc = {
+            trigger = { has_variable = cl_cloning_insights }
+            desc = make_a_clone_decision_insights_desc
+        }
+	}
+	selection_tooltip = make_a_clone_decision_tooltip
+
+	ai_check_interval = 120
+	
+	decision_group_type = major
+
+	is_shown = {
+		has_character_modifier = cloning_mastery
+	}
+	is_valid = {
+		is_landed = yes # Need a lab and stuff
+		has_perk = restoration_master_perk
+		has_character_modifier = cloning_mastery
+		NOT = { has_character_modifier = ongoing_cloning_project }
+		vt_ek_is_undead = no
+		gold >= medium_gold_value
+	}
+
+    is_valid_showing_failures_only = {
+        is_capable_adult = yes
+        is_available = yes
+        is_imprisoned = no
+    }
+
+	cooldown = { years = 3 }
+
+	effect = {
+		custom_tooltip = start_a_clone_project_tt
+		custom_tooltip = start_a_clone_project_options_tt
+		custom_tooltip = start_a_clone_project_cloning_insights_tt
+		show_as_tooltip = { add_character_modifier = ongoing_cloning_project }
+		trigger_event = {
+			id = life_extension.0150
+		}
+	}
+
+		
+	minimum_cost = {
+		gold = medium_gold_value
+		piety = 300
+	}
+
+	ai_potential = { # Suuuper rare but we dont want immortal ai chars to get kids like this
+		NOR = {
+			has_trait = immortal
+			is_immortal = yes
+		}
+		OR = {
+			this = character:fyr_100 #Divayth Fyr
+			is_important_lore_character = no
+		}
+		has_trait = eccentric
+		is_vampire = no
+		is_briarheart = no
+		is_hagraven = no
+	}
+
+	ai_will_do = {
+		base = 30
+	}
+}

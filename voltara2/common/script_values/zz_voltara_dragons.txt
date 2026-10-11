@@ -1,0 +1,7 @@
+﻿voltara_dragon_visual_size = { value = age divide = 600 min = 0.02 max = 0.45 }
+voltara_dragon_combat_power = { value = 40
+ add = martial multiply = 1
+ if = { limit = { exists = var:current_dragon } add = { value = var:current_dragon.age max = 150 divide = 3 } }
+ if = { limit = { has_character_modifier = voltara_dragon_training } add = 10 }
+ if = { limit = { var:current_dragon ?= { has_character_modifier = voltara_dragon_wounded } } multiply = 0.5 }
+}

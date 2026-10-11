@@ -1,0 +1,1157 @@
+﻿#EK NOTE: The effects here are used by player magic and ai magic
+
+##### Magic
+### Alteration
+# Burden
+burden_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    scope:spell_recipient = {
+        send_interface_toast = {
+            type = event_toast_effect_bad
+            title = target_of_hostile_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+            add_character_modifier = {
+                modifier = modifier_spell_burden_$TIER$
+                years = 5
+            }
+        }
+    }
+}
+
+# Fortify Buildings
+fortify_buildings_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $COUNTY$.holder = { save_scope_as = spell_recipient }
+    $COUNTY$ = { save_scope_as = spell_county }
+
+    if = { 
+        limit = { scope:spell_caster = scope:spell_recipient }
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_own_spell_notification
+                left_icon = scope:spell_caster
+                scope:spell_county = {
+                    add_county_modifier = { 
+                        modifier = modifier_spell_fortify_buildings_$TIER$
+                        years = 5
+                    }
+                }
+            }
+        }
+    }
+    else = { 
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_friendly_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                scope:spell_county = {
+                    add_county_modifier = { 
+                        modifier = modifier_spell_fortify_buildings_$TIER$
+                        years = 5
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+# Transmute
+transmute_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    if = { 
+        limit = { scope:spell_caster = scope:spell_recipient }
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_own_spell_notification
+                left_icon = scope:spell_caster
+                add_gold = {
+                    value = 20
+                    multiply = spell_multiplier_$TIER$
+                }
+            }
+        }
+    }
+    else = { 
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_friendly_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                add_gold = {
+                    value = 20
+                    multiply = spell_multiplier_$TIER$
+                }
+            }
+        }
+    }
+}
+
+# Dispel
+dispel_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    $TIER$_effect = yes
+
+    if = { 
+        limit = { scope:spell_caster = scope:spell_recipient }
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = removed_hostile_spell_modifier_notification
+                left_icon = scope:spell_caster
+                magical_dispel_effect = yes
+            }
+        }
+    }
+    else = { 
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = removed_hostile_spell_modifier_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                magical_dispel_effect = yes
+            }
+        }
+    }
+}
+
+# Absorb Skill
+absorb_skill_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    scope:spell_recipient = {
+        send_interface_toast = {
+            type = event_toast_effect_bad
+            title = target_of_hostile_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+            add_character_modifier = { modifier = modifier_spell_absorb_$VALUE$_neg_$TIER$ years = 5 }
+        }
+    }
+    scope:spell_caster = {
+        send_interface_toast = {
+            type = event_toast_effect_good
+            title = target_of_own_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+            add_character_modifier = { modifier = modifier_spell_absorb_$VALUE$_pos_$TIER$ years = 5 }
+        }
+    }
+}
+
+### Conjuration
+# Banish Daedra
+banish_daedra_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    $TIER$_effect = yes
+
+    scope:spell_caster = {
+        random_list = {
+            10 = {
+                modifier = { # the success chance depends on the arcana of ROOT aka the caster vs the castee
+                    add = { value = arcana }
+                }
+                custom_tooltip = banish_daedra_effect
+                send_interface_toast = {
+                    title = spell_banish_daedra_succesfull
+                    left_icon = scope:spell_caster
+                    right_icon = scope:spell_recipient
+                    scope:spell_recipient = {
+                        death = {
+                            death_reason = death_banished
+                            killer = scope:spell_caster
+                        }
+                    }
+                }
+            }
+            10 = {
+                modifier = {
+                    add = { scope:spell_recipient = { value = arcana } }
+                }
+                scope:spell_caster = {
+                    send_interface_toast = {
+                        title = spell_failed
+                        left_icon = scope:spell_caster
+                        right_icon = scope:spell_recipient
+                        custom_tooltip = spell_banish_daedra_failed
+                    }
+                }
+                hidden_effect = {
+                    scope:spell_recipient = {
+                        send_interface_toast = {
+                            title = resisted_hostile_spell_notification
+                            left_icon = scope:spell_caster
+                            right_icon = scope:spell_recipient
+                            custom_tooltip = spell_banish_daedra_resisted
+                            add_character_modifier = modifier_spell_banishment
+                        }
+                    }
+                }
+            }            
+        }
+    }
+}
+
+# Summon Atronach
+summon_atronach_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    conjuration_remove_atronach = yes
+
+    if = { 
+        limit = { scope:spell_caster = scope:spell_recipient }
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_own_spell_notification
+                left_icon = scope:spell_caster
+                add_character_modifier = {
+                    modifier = modifier_spell_summon_atronach_$TIER$
+                    years = 5
+                }
+            }
+        }
+    }
+    else = { 
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_friendly_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                add_character_modifier = {
+                    modifier = modifier_spell_summon_atronach_$TIER$
+                    years = 5
+                }
+            }
+        }
+    }
+}
+
+# Daedric Horde
+daedric_horde_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $COUNTY$.holder = { save_scope_as = spell_recipient }
+    $COUNTY$ = { save_scope_as = spell_county }
+
+    $TIER$_effect = yes
+
+    scope:spell_recipient = {
+        send_interface_toast = {
+            type = event_toast_effect_bad
+            title = target_of_hostile_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+            scope:spell_county = { 
+                add_rampant_modifier_effect = { TYPE = daedra }
+            }
+        }
+    }    
+}
+
+# Summon Dremora
+summon_dremora_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    $TIER$_effect = yes
+
+    if = { 
+        limit = { scope:spell_caster = scope:spell_recipient }
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_own_spell_notification
+                left_icon = scope:spell_caster
+                summon_dremora_effect = yes
+            }
+        }
+    }
+    else = { 
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_friendly_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                summon_dremora_effect = yes
+            }
+        }
+    }    
+}
+
+# Daedric Army
+daedric_army_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    if = { 
+        limit = { scope:spell_caster = scope:spell_recipient }
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_own_spell_notification
+                left_icon = scope:spell_caster
+                spawn_army = {
+                    men_at_arms = {
+                        type = daedra
+                        stacks = {
+                            value = 1
+                            multiply = spell_multiplier_$TIER$
+                        }
+                    }
+                    location = location
+                    inheritable = no
+                    uses_supply = no
+                    name = "daedra"
+                    war = war
+                }
+            }
+        }
+    }
+    else = { 
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_friendly_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                spawn_army = {
+                    men_at_arms = {
+                        type = daedra
+                        stacks = {
+                            value = 1
+                            multiply = spell_multiplier_$TIER$
+                        }
+                    }
+                    location = location
+                    inheritable = no
+                    uses_supply = no
+                    name = "daedra"
+                    war = war
+                }
+            }
+        }
+    }
+}    
+
+### Destruction
+# Detract Magicka
+detract_magicka_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    $TIER$_effect = yes
+
+    scope:spell_recipient = {
+        if = {
+            limit = { has_magicka_less_than = { VALUE = 100 } }
+            send_interface_toast = {
+                type = event_toast_effect_bad
+                title = target_of_hostile_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                add_magicka = { VALUE = var:magicka.negate }
+                add_stress = var:magicka
+            }
+        }
+        else = {
+            send_interface_toast = {
+                type = event_toast_effect_bad
+                title = target_of_hostile_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                add_magicka = { VALUE = -100 }
+                add_stress = 100
+            }
+        }
+    }
+}
+
+# Destroy Walls
+destroy_walls_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $COUNTY$.holder = { save_scope_as = spell_recipient }
+    $COUNTY$ = { save_scope_as = spell_county }
+
+    scope:spell_recipient = {
+        send_interface_toast = {
+            type = event_toast_effect_bad
+            title = target_of_hostile_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+            scope:spell_county = { 
+                add_county_modifier = {
+                    modifier = modifier_spell_destroy_walls_$TIER$
+                    years = 5
+                }
+            }
+        }
+    }    
+}
+
+# Inflict Wounds
+inflict_wounds_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    $TIER$_effect = yes
+
+    custom_tooltip = {
+        text = inflict_wounds_effect_desc
+        send_interface_toast = {
+            type = event_toast_effect_bad
+            title = target_of_hostile_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+            random_list = {
+                10 = { 
+                    increase_wounds_effect = { REASON = fire_magic }
+                    add_character_modifier = {
+                        modifier = modifier_spell_burn
+                        years = 5
+                    }
+                }
+                10 = { 
+                    increase_wounds_effect = { REASON = ice_magic }
+                    add_character_modifier = {
+                        modifier = modifier_spell_frostbite
+                        years = 5
+                    }
+                }
+                10 = { 
+                    increase_wounds_effect = { REASON = electricity_magic }
+                    add_character_modifier = {
+                        modifier = modifier_spell_shock
+                        years = 5
+                    }
+                }
+            }         
+        }
+    }
+}
+
+# Display of Might
+display_of_might_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $COUNTY$.holder = { save_scope_as = spell_recipient }
+    $COUNTY$ = { save_scope_as = spell_county }
+
+    if = { 
+        limit = { scope:spell_caster = scope:spell_recipient }
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_own_spell_notification
+                left_icon = scope:spell_caster
+                scope:spell_county = {
+                    change_county_control = 10
+                    add_county_modifier = { 
+                        modifier = modifier_spell_display_of_might_$TIER$
+                        years = 5
+                    }
+                }
+            }
+        }
+    }
+    else = { 
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_friendly_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                scope:spell_county = {
+                    change_county_control = 10
+                    add_county_modifier = { 
+                        modifier = modifier_spell_display_of_might_$TIER$
+                        years = 5
+                    }
+                }
+            }
+        }
+    } 
+}
+
+# Devastate Province
+devastate_province_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $COUNTY$.holder = { save_scope_as = spell_recipient }
+    $COUNTY$ = { save_scope_as = spell_county }
+
+    $TIER$_effect = yes
+
+    scope:spell_recipient = {
+        send_interface_toast = {
+            type = event_toast_effect_bad
+            title = target_of_hostile_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+            scope:spell_county = { 
+                add_county_modifier = { 
+                    modifier = modifier_spell_devastate_province
+                    years = 5
+                }
+                change_development_level = -1
+                title_province = {
+                    every_character_in_location = {
+                        limit = { NOT = { this = scope:spell_caster } }
+                        add_character_flag = {
+                            flag = spell_already_afflicted
+                            years = 5
+                        }
+                        custom_tooltip = spell_devastate_province.tt
+                        hidden_effect = {
+                            random_list = {
+                                10 = { 
+                                    increase_wounds_effect = { REASON = fire_magic }
+                                    add_character_modifier = {
+                                        modifier = modifier_spell_burn
+                                        years = 5
+                                    }
+                                }
+                                1 = { 
+                                    death = { 
+                                        death_reason = death_fire_magic_killer
+                                        killer = scope:spell_caster
+                                    }
+                                }
+                                10 = { 
+                                    increase_wounds_effect = { REASON = ice_magic }
+                                    add_character_modifier = {
+                                        modifier = modifier_spell_frostbite
+                                        years = 5
+                                    }
+                                }
+                                1 = { 
+                                    death = { 
+                                        death_reason = death_ice_magic_killer
+                                        killer = scope:spell_caster
+                                    }
+                                }
+                                10 = { 
+                                    increase_wounds_effect = { REASON = electricity_magic }
+                                    add_character_modifier = {
+                                        modifier = modifier_spell_shock
+                                        years = 5
+                                    }
+                                }
+                                1 = { 
+                                    death = { 
+                                        death_reason = death_electricity_magic_killer
+                                        killer = scope:spell_caster
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }    
+}
+
+### Illusion
+# Muffled Senses
+muffled_senses_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    scope:spell_recipient = {
+        send_interface_toast = {
+            type = event_toast_effect_bad
+            title = target_of_hostile_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+            add_character_modifier = {
+                modifier = modifier_spell_muffled_senses_$TIER$
+                years = 5
+            }
+        }
+    }
+}
+
+# Charm
+charm_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    scope:spell_recipient = {
+        send_interface_toast = {
+            type = event_toast_effect_good
+            title = target_of_charm_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+            add_opinion = {
+                target = scope:spell_caster
+                modifier = charmed_opinion
+                opinion = { 
+                    value = 10
+                    multiply = spell_multiplier_$TIER$
+                }
+                years = 5
+            }
+        }
+    }
+}
+
+# Calm
+calm_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    if = { 
+        limit = { scope:spell_caster = scope:spell_recipient }
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_own_spell_notification
+                left_icon = scope:spell_caster
+                add_stress = {
+                    value = -20
+                    multiply = spell_multiplier_$TIER$
+                }
+                add_character_modifier = {
+                    modifier = modifier_spell_calmed_$TIER$
+                    years = 5
+                }
+            }
+        }
+    }
+    else = { 
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_friendly_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                add_stress = {
+                    value = -20
+                    multiply = spell_multiplier_$TIER$
+                }
+                add_character_modifier = {
+                    modifier = modifier_spell_calmed_$TIER$
+                    years = 5
+                }
+            }
+        }
+    }
+}
+
+# Mass Paranoia
+mass_paranoia_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $COUNTY$.holder = { save_scope_as = spell_recipient }
+    $COUNTY$ = { save_scope_as = spell_county }
+
+    scope:spell_recipient = {
+        send_interface_toast = {
+            type = event_toast_effect_bad
+            title = target_of_hostile_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+
+            scope:spell_recipient = {
+                add_stress = {
+                    value = 10
+                    multiply = spell_multiplier_$TIER$
+                }
+            }
+           
+            scope:spell_county = { 
+                add_county_modifier = {
+                    modifier = modifier_spell_mass_paranoia_$TIER$
+                    years = 5
+                }
+                custom_tooltip = spell_mass_paranoia.tt
+                hidden_effect = {
+                    title_province = {
+                        every_character_in_location = {
+                            limit = { 
+                                NOR = { 
+                                    this = scope:spell_recipient
+                                    this = scope:spell_caster
+                                    has_character_flag = spell_already_afflicted
+                                }
+                            }
+                            add_stress = {
+                                value = 10
+                                multiply = spell_multiplier_$TIER$
+                            }
+                            add_opinion = {
+                                target = scope:spell_recipient
+                                modifier = mass_paranoia_opinion
+                                opinion = {
+                                    value = -10
+                                    multiply = spell_multiplier_$TIER$
+                                }
+                            }
+                        }
+                    }                     
+                }
+            }
+        }
+    }    
+}
+
+# Mind Bending
+mind_bending_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    $TIER$_effect = yes
+
+    scope:spell_recipient = {
+        send_interface_toast = {
+            type = event_toast_effect_good
+            title = target_of_charm_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+            if = {
+                limit = { has_arcana >= { VALUE = 10 } }
+                scope:spell_caster = {
+                    add_hook = { 
+                        type = weak_illusion_hook
+                        target = scope:spell_recipient
+                    }
+                }
+            }
+            else = {
+                scope:spell_caster = {
+                    add_hook = { 
+                        type = strong_illusion_hook
+                        target = scope:spell_recipient
+                    }
+                }
+            }
+        }
+    }
+}
+
+### Restoration
+# Resilience
+resilience_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    if = { 
+        limit = { scope:spell_caster = scope:spell_recipient }
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_own_spell_notification
+                left_icon = scope:spell_caster
+                add_character_modifier = {
+                    modifier = modifier_spell_resilience_$TIER$
+                    years = 5
+                }
+            }
+        }
+    }
+    else = { 
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_friendly_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                add_character_modifier = {
+                    modifier = modifier_spell_resilience_$TIER$
+                    years = 5
+                }
+            }
+        }
+    }
+}
+
+# Mend Wound
+mend_wound_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    $TIER$_effect = yes
+
+    if = {
+        limit = {
+            has_trait = wounded_1
+        }
+        custom_tooltip = {
+            text = mend_wounded_1_effect_desc
+            trigger_event = health.0001 #Recover from Wounded
+        }
+    }
+    if = {
+        limit = {
+            has_trait = wounded_2
+        }
+        custom_tooltip = {
+            text = mend_wounded_2_effect_desc
+            trigger_event = health.0002 #Recover from Severely Wounded
+        }
+    }
+    if = {
+        limit = {
+            has_trait_rank = {
+                trait = wounded
+                rank > 2
+            }
+        }
+        custom_tooltip = {
+            text = mend_wounded_3_effect_desc
+            trigger_event = health.0003 #Recover from Near Death
+        }
+    }
+    if = {
+        limit = {
+            has_character_modifier = infected_wound_modifier
+        }
+        custom_tooltip = {
+            text = mend_infected_wound_modifier_effect_desc
+            trigger_event = health.0004 #Infected wound is no longer infected
+        }
+    }
+}
+
+# Turn Undead
+turn_undead_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    $TIER$_effect = yes
+
+    scope:spell_recipient = {
+        if = {
+            limit = {            
+                is_undead_character = yes
+                is_mindless_character = yes
+            }
+            death = {
+                death_reason = death_purged_undead
+                killer = scope:spell_caster
+            }
+        }
+        else_if = {
+            limit = {
+                is_undead_character = yes
+            }
+            send_interface_toast = {
+                type = event_toast_effect_bad
+                title = target_of_hostile_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                add_character_modifier = {
+                    modifier = modifier_spell_turn_undead
+                    years = 5
+                }
+                change_variable = {
+                    name = ek_undead_decay
+                    add = 0.1
+
+                }
+            }  
+        }      
+    }
+}
+
+# Cure Disease
+cure_disease_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    $TIER$_effect = yes
+
+    if = { 
+        limit = { scope:spell_caster = scope:spell_recipient }
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_own_spell_notification
+                left_icon = scope:spell_caster
+                magical_cure_disease = yes
+            }
+        }
+    }
+    else = { 
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_friendly_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                magical_cure_disease = yes
+            }
+        }
+    }
+}
+
+# Spread Vitality
+spread_vitality_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $COUNTY$.holder = { save_scope_as = spell_recipient }
+    $COUNTY$ = { save_scope_as = spell_county }
+
+    if = { 
+        limit = { scope:spell_caster = scope:spell_recipient }
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_own_spell_notification
+                left_icon = scope:spell_caster
+                scope:spell_county = {
+                    add_county_modifier = { 
+                        modifier = modifier_spell_spread_vitality_$TIER$
+                        years = 5
+                    }
+                }
+            }
+        }
+    }
+    else = { 
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_friendly_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                scope:spell_county = {
+                    add_county_modifier = { 
+                        modifier = modifier_spell_spread_vitality_$TIER$
+                        years = 5
+                    }
+                }
+            }
+        }
+    } 
+}
+
+# Remove Curse
+remove_curse_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    $TIER$_effect = yes
+
+    if = { 
+        limit = { scope:spell_caster = scope:spell_recipient }
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_own_spell_notification
+                left_icon = scope:spell_caster
+                magical_remove_curse = yes
+            }
+        }
+    }
+    else = { 
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_friendly_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                magical_remove_curse = yes
+            }
+        }
+    }
+}
+
+##### Dark Arts
+# Necromancy
+# Summon Skeleton
+summon_skeleton_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    $TIER$_effect = yes
+
+    if = { 
+        limit = { scope:spell_caster = scope:spell_recipient }
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_own_spell_notification
+                left_icon = scope:spell_caster
+                hidden_effect = {
+                    summon_undead_skeleton_effect = { MASTER = scope:spell_recipient }
+                }
+            }
+        }
+    }
+    else = { 
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_friendly_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                hidden_effect = {
+                    summon_undead_skeleton_effect = { MASTER = scope:spell_recipient }
+                }
+            }
+        }
+    }
+}
+
+# Claim Corpse
+claim_corpse_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    $TIER$_effect = yes
+
+    custom_tooltip = {
+        text = claim_corpse_effect_desc
+        send_interface_toast = {
+            type = event_toast_effect_bad
+            title = target_of_hostile_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+            add_character_modifier = {
+                modifier = modifier_spell_claim_corpse
+                years = 5
+            }
+            set_variable = { name = new_master value = scope:spell_caster }
+        }
+    }
+}
+
+# Leech Health
+leech_health_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    scope:spell_recipient = {
+        send_interface_toast = {
+            type = event_toast_effect_bad
+            title = target_of_hostile_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+            add_character_modifier = { modifier = modifier_spell_leech_health_negative_$TIER$ years = 5 }
+        }
+    }
+    scope:spell_caster = {
+        send_interface_toast = {
+            type = event_toast_effect_good
+            title = target_of_own_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+            add_character_modifier = { modifier = modifier_spell_leech_health_positive_$TIER$ years = 5 }
+        }
+    }
+}
+
+# Restless Dead
+restless_dead_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $COUNTY$.holder = { save_scope_as = spell_recipient }
+    $COUNTY$ = { save_scope_as = spell_county }
+
+    $TIER$_effect = yes
+
+    scope:spell_recipient = {
+        send_interface_toast = {
+            type = event_toast_effect_bad
+            title = target_of_hostile_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+            scope:spell_county = { 
+                add_county_modifier = {
+                    modifier = modifier_spell_restless_dead
+                    years = 5
+                }
+            }
+        }
+    }
+    scope:spell_caster = {
+        send_interface_toast = {
+            type = event_toast_effect_good
+            title = target_of_own_spell_notification
+            left_icon = scope:spell_caster
+            right_icon = scope:spell_recipient
+            spawn_army = {
+                levies = {
+                    value = scope:spell_county.total_county_levies
+                    multiply = restless_dead_value 
+                }
+                location = scope:spell_caster.location
+                inheritable = no
+                uses_supply = no
+                name = "undead_horde"
+            }
+        }
+    }  
+}
+
+# Create Undead Horde
+create_undead_spell_effect = {
+    $CASTER$ = { save_scope_as = spell_caster }
+    $RECIPIENT$ = { save_scope_as = spell_recipient }
+
+    $TIER$_effect = yes
+
+    if = { 
+        limit = { scope:spell_caster = scope:spell_recipient }
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_own_spell_notification
+                left_icon = scope:spell_caster
+                spawn_army = {
+                    men_at_arms = {
+                        type = maa_$VALUE$
+                        stacks = {
+                            value = 1
+                            multiply = spell_multiplier_$TIER$
+                            multiply = create_undead_value
+                        }
+                    }
+                    location = scope:spell_recipient.location
+                    inheritable = no
+                    uses_supply = no
+                    name = "undead_horde"
+                }
+            }
+        }
+    }
+    else = { 
+        scope:spell_recipient = {
+            send_interface_toast = {
+                type = event_toast_effect_good
+                title = target_of_friendly_spell_notification
+                left_icon = scope:spell_caster
+                right_icon = scope:spell_recipient
+                spawn_army = {
+                    men_at_arms = {
+                        type = maa_$VALUE$
+                        stacks = {
+                            value = 1
+                            multiply = spell_multiplier_$TIER$
+                            multiply = create_undead_value
+                        }
+                    }
+                    location = scope:spell_recipient.location
+                    inheritable = no
+                    uses_supply = no
+                    name = "undead_horde"
+                }
+            }
+        }
+    }
+}    

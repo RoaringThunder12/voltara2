@@ -1,8 +1,8 @@
 ﻿
 voltara_religion = {
- religion_details = { family = rf_pagan graphical_faith = pagan_gfx }
- doctrine = doctrine_monasticism_absent
- doctrine = doctrine_sacraments_absent
+ religion_details = { theocracy_government_type = ecclesiastical_government theocracy_lease_contract_type = ecclesiastical_lease family = rf_pagan graphical_faith = pagan_gfx }
+ doctrine = doctrine_monasticism_accepted
+ doctrine = doctrine_sacraments_central
 
  pagan_roots = no
  doctrine = pagan_hostility_doctrine

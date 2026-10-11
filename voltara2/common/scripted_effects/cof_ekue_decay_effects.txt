@@ -1,0 +1,36 @@
+﻿update_cof_decay_monthly_effect = {
+	if = {
+		limit = {
+			vt_ek_is_undead = yes
+			OR = {
+				has_character_modifier = cof_ekue_decay_slow
+				has_character_modifier = cof_ekue_decay_slow_rejuv
+			}
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = cof_ekue_decay_slow
+			}
+			change_variable = {
+				name = ek_undead_decay
+				add = -0.002
+			}
+			check_decay_max_min_effect = yes
+		}
+
+		if = {
+			limit = {
+				has_character_modifier = cof_ekue_decay_slow_rejuv
+			}
+			change_variable = {
+				name = ek_undead_decay
+				add = -0.15
+			}
+			check_decay_max_min_effect = yes
+		}
+
+	}
+}
+
+

@@ -1,0 +1,5 @@
+﻿interaction_category_magic = {
+	index = 16
+	desc =  "MAGIC_ACTIONS"
+	color = { 1 0 1 1 } # EK TODO: assign colour
+}

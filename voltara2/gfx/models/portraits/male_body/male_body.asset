@@ -2117,4 +2117,6 @@ attribute = { name = "giantish_height" 				additive_animation = "male_giantish_h
 
 attribute = { name = "imgan_body_bs"						blend_shape = "male_imgan_body" }
 attribute = { name = "imgan_body_proportions" 				additive_animation = "male_imgan_body_proportions"}
+
+ locator = { name = dragon_origin position = { 0 0 0 } rotation = { 0 0 0 } scale = 1 }
 }

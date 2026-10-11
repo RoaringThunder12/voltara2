@@ -8117,6 +8117,7 @@ b_voltara_2497 = {
 province = 2497
 }
 }
+c_voltara_barelvar_sanctum = { color = { 88 115 100 } b_voltara_barelvar_sanctum = { province = 11454 } }
 c_voltara_2496 = {
 color = { 128 142 125 }
 b_voltara_2496 = {
@@ -35369,7 +35370,7 @@ can_create = { always = no }
 }
 k_voltara_luminous_see = {
  color = { 232 215 153 } capital = c_voltara_4509
- definite_form = yes ruler_uses_title_name = no landless = yes allow_domicile = no
+ definite_form = yes ruler_uses_title_name = no landless = yes allow_domicile = yes
  no_automatic_claims = yes always_follows_primary_heir = yes destroy_if_invalid_heir = yes de_jure_drift_disabled = yes
  d_voltara_luminous_see = { color = { 232 215 153 } capital = c_voltara_4509
 c_voltara_4509 = {

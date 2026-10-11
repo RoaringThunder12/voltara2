@@ -1,0 +1,329 @@
+﻿story_cycle_cloning = { #Story Cycle for Cloning yourself
+	# by Juke
+
+	# Over the next 9 to 11 months (taking into account some time for planning), you will grow a clone of yourself
+	# Requires restoration mastery and having learnt cloning via a decision small event chain
+	# Each month, there is a base 5% of failure, instantly failing the process
+	# This can be altered by two factors: cl_cloning_insights and cl_success_chance
+
+	## cl_cloning_insights
+	# represents the total experience one has gathered about cloning
+	# stored on story owner, persists on character
+	# Each point increases monthly success chance by 1%
+	# Increases by 1 if the project fails or succeeds and the clone is dissected anyway
+
+	## cl_success_chance
+	# represents the clones condition in the current project
+	# stored in story, does not persist
+	# Each point increases/decreases monthly success chance by 1%
+	# can be negative or positive
+
+
+	on_setup = {
+		# Standard Variables
+		set_variable = { #Months that passed
+			name = cl_months
+			value = 0
+		}
+		set_variable = { #Number of Events
+			name = cl_num_of_events
+			value = 0
+		}
+		set_variable = { #Initial Success Chance Modifier
+			name = cl_success_chance
+			value = 0
+		}
+		set_variable = { #Chance of Negative Traits at conclusion
+			name = cl_negative_traits
+			value = 0
+		}
+		add_to_variable_list = { #List of used Events
+			name = cl_event_list
+			target = flag:0
+		}
+		
+		# Clone Stat Variables
+		set_variable = { name = cl_diplomacy	value = 1 }
+		set_variable = { name = cl_martial		value = 1 }
+		set_variable = { name = cl_stewardship	value = 1 }
+		set_variable = { name = cl_intrigue		value = 1 }
+		set_variable = { name = cl_learning		value = 1 }
+		set_variable = { name = cl_prowess		value = 1 }
+		set_variable = { name = cl_arcana		value = 1 }
+
+		story_owner = {
+			trigger_event = { # After 9-11 months finish the baby if its still going (Actually getting the thing in the tube might take a month or two)
+				id = life_extension.0200
+				days = { 270 330 }
+			}
+		}
+	}
+
+	on_end = {
+		story_owner = {
+			if = {
+				limit = { has_character_modifier = ongoing_cloning_project }
+				remove_character_modifier = ongoing_cloning_project
+			}
+			if = {
+				limit = { has_character_modifier = cloning_isolation_modifier }
+				remove_character_modifier = cloning_isolation_modifier
+			}
+			if = {
+				limit = { has_character_flag = clone_was_sickly }
+				remove_character_flag = clone_was_sickly
+			}
+		}
+	}
+
+	on_owner_death = {
+		scope:story = { end_story = yes }
+	}
+
+	effect_group = {
+		days = 30
+
+		triggered_effect = {
+			trigger = { always = yes }
+			effect = {
+
+				# Track how long the clone has been in the tube
+				change_variable = {
+					name = cl_months
+					add = 1
+				}
+
+				# Chance for the Clone to Perish
+				random_list = {
+					95 = { # It lives, random event?
+						if = {
+							limit = {
+								exists = var:cl_num_of_events
+								var:cl_num_of_events < 4
+							}
+							random_list = {
+								1000 = {
+									modifier = { #Decrease likelyhood as project progresses
+										add = {
+											value = var:cl_num_of_events
+											multiply = -200
+										}
+									}
+								}
+								### BASIC RANDOM EVENTS
+								400 = { # Improve Success Chance
+									trigger = {
+										NOT = {
+											is_target_in_variable_list = {
+												name = cl_event_list
+												target = flag:0151
+											}
+										}
+										var:cl_months < 5 #Only relatively early
+										var:cl_num_of_events < 3 # Start of the chain
+									}
+									story_owner = { trigger_event = { id = life_extension.0151 days = { 1 15 } } }
+									modifier = { #Decrease likelyhood as project progresses
+										add = {
+											value = var:cl_num_of_events
+											multiply = -100
+										}
+										var:cl_num_of_events < 3
+									}
+								}
+								100 = { # Base Skill
+									trigger = {
+										NOT = {
+											is_target_in_variable_list = {
+												name = cl_event_list
+												target = flag:0152
+											}
+										}
+									}
+									story_owner = { trigger_event = { id = life_extension.0152 days = { 1 15 } } }
+								}
+								100 = { # Improve Congenital
+									trigger = {
+										#Can trigger several times
+										#At least one option still available
+										NAND = {
+											OR = {
+												story_owner = { has_trait = physique_good_3 }
+												AND = {
+													story_owner = { has_trait = physique_good_2 }
+													exists = var:cl_congenital_physique
+												}
+												exists = var:cl_congenital_physique_2
+											}
+											OR = {
+												story_owner = { has_trait = beauty_good_3 }
+												AND = {
+													story_owner = { has_trait = beauty_good_2 }
+													exists = var:cl_congenital_beauty
+												}
+												exists = var:cl_congenital_beauty_2
+											}
+											OR = {
+												story_owner = { has_trait = intellect_good_3 }
+												AND = {
+													story_owner = { has_trait = intellect_good_2 }
+													exists = var:cl_congenital_intellect
+												}
+												exists = var:cl_congenital_intellect_2
+											}
+											OR = {
+												story_owner = { has_trait = vt_ek_arcana_good_3 }
+												AND = {
+													story_owner = { has_trait = vt_ek_arcana_good_2 }
+													exists = var:cl_congenital_arcana
+												}
+												exists = var:cl_congenital_arcana_2
+											}
+										}
+									}
+									story_owner = { trigger_event = { id = life_extension.0153 days = { 1 15 } } }
+									modifier = { #Decrease likelyhood if it was already used
+										add = -30
+										is_target_in_variable_list = {
+											name = cl_event_list
+											target = flag:0153
+										}
+									}
+								}
+								100 = { # Gender
+									trigger = {
+										NOT = {
+											is_target_in_variable_list = {
+												name = cl_event_list
+												target = flag:0154
+											}
+										}
+									}
+									story_owner = { trigger_event = { id = life_extension.0154 days = { 1 15 } } }
+								}
+								100 = { # Size
+									trigger = {
+										NOT = {
+											is_target_in_variable_list = {
+												name = cl_event_list
+												target = flag:0155
+											}
+										}
+									}
+									story_owner = { trigger_event = { id = life_extension.0155 days = { 1 15 } } }
+								}
+								100 = { # Age
+									trigger = {
+										NOT = {
+											is_target_in_variable_list = {
+												name = cl_event_list
+												target = flag:0156
+											}
+										}
+									}
+									story_owner = { trigger_event = { id = life_extension.0156 days = { 1 15 } } }
+								}
+								### ADVANCED RANDOM EVENTS
+								20 = { # Twins
+									trigger = {
+										NOT = {
+											is_target_in_variable_list = {
+												name = cl_event_list
+												target = flag:0157
+											}
+										}
+										var:cl_months < 9 #Not in the end phase
+									}
+									story_owner = { trigger_event = { id = life_extension.0157 days = { 1 15 } } }
+								}
+								20 = { # Lycanthrope
+									trigger = {
+										NOT = {
+											is_target_in_variable_list = {
+												name = cl_event_list
+												target = flag:0158
+											}
+										}
+										# Werewolf or hircine worshipper
+										story_owner = {
+											OR = {
+												is_lycan = yes
+												faith = { has_doctrine = doctrine_hircine_pantheon }
+												faith = { has_doctrine = doctrine_hircine_allowed }
+												secret_faith ?= { has_doctrine = doctrine_hircine_pantheon }
+											}
+										}
+									}
+									story_owner = { trigger_event = { id = life_extension.0158 days = { 1 15 } } }
+								}
+							}
+						}
+
+						### Modifiers
+						min = 90
+						modifier = { # Every Cloning Insight makes death rarer
+							has_variable = cl_cloning_insights
+							add = {
+								value = var:cl_cloning_insights
+							}
+						}
+						modifier = { # Improved or Reduced success chance via events
+							has_variable = cl_success_chance
+							add = {
+								value = var:cl_success_chance
+							}
+						}
+					}
+					5 = { # It dies
+						trigger = {
+							exists = var:cl_months
+							var:cl_months >= 4 # At least 4 months have passed
+						}
+						random_list = {
+							80 = { # Clone dies
+								story_owner = { trigger_event = life_extension.0250 }
+								min = 60
+								
+								# You didnt mess with its genome too much
+								modifier = {
+									add = -20
+									exists = var:cl_success_chance
+									var:cl_success_chance >= 0
+								}
+							}
+							20 = { # Clone is born half-alive
+								trigger = { var:cl_months >= 8 } # After 8 months
+								story_owner = { trigger_event = life_extension.0251 }
+
+								# You didnt mess with its genome too much
+								modifier = {
+									add = 20
+									exists = var:cl_success_chance
+									var:cl_success_chance >= 0
+								}
+							}
+						}
+
+						### Modifiers
+						min = 1
+						modifier = { # Every Cloning Insight makes death rarer
+							has_variable = cl_cloning_insights
+							add = {
+								value = var:cl_cloning_insights
+								multiply = -1
+							}
+						}
+						modifier = { # Improved or Reduced success chance via events
+							has_variable = cl_success_chance
+							add = {
+								value = var:cl_success_chance
+								multiply = -1
+							}
+						}
+						min = 1
+					}
+				}
+			}
+		}
+	}
+}

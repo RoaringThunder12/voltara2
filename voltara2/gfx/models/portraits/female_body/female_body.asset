@@ -1503,4 +1503,6 @@ attribute = { name = "giantish_height" 				additive_animation = "female_giantish
 
 attribute = { name = "imgan_body_bs"						blend_shape = "female_imgan_body" }
 attribute = { name = "imgan_body_proportions" 				additive_animation = "female_imgan_body_proportions"}
+
+ locator = { name = dragon_origin position = { 0 0 0 } rotation = { 0 0 0 } scale = 1 }
 }

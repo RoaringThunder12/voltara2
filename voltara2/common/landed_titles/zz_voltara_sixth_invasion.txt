@@ -1,4 +1,6 @@
-﻿k_voltara_sixth_southron_invasion = {
+﻿e_voltara_sixth_southron_invasion = {
+ color = { 173 104 47 } capital = c_voltara_10307
+k_voltara_sixth_southron_invasion = {
 color = { 173 104 47 } capital = c_voltara_10307
 d_voltara_test_10264 = {
 color = { 128 142 125 } capital = c_voltara_10264
@@ -1494,4 +1496,6 @@ province = 9894
 }
 }
 }
+}
+
 }

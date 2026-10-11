@@ -1,0 +1,273 @@
+﻿court_mage_court_position = {
+	sort_order = 395 # right after court physician
+	max_available_positions = 1
+
+	skill = learning
+
+	court_position_asset = { #Nords get Clever Man
+		trigger = {
+			root.culture ?= {
+				has_cultural_tradition = tradition_nord_core
+			}
+		}
+		animation = holding_staff
+		background = "gfx/interface/illustrations/event_scenes/fp1_throneroom_tribal.dds"
+		localization_key = court_mage_clever_man
+	}
+
+	court_position_asset = { #Landless get Field Mage
+		trigger = {
+			government_has_flag = government_is_landless_adventurer
+			# landless nords can keep their Clever Man
+			NOT = {
+				root.culture ?= {
+					has_cultural_tradition = tradition_nord_core
+				}
+			}
+		}
+		animation = holding_staff
+		background = "gfx/interface/illustrations/event_scenes/ep3_campfire.dds"
+		localization_key = court_mage_field_mage
+	}
+
+	court_position_asset = {
+		animation = holding_staff
+		background = "gfx/interface/illustrations/event_scenes/throneroom_west.dds"
+	}
+
+	opinion = {
+		value = regular_court_position_opinion
+	}
+
+	# How high the aptitude has to be to reach the 5 different modifier levels
+	aptitude_level_breakpoints = { 20 40 60 80 }
+
+	# How good is this character in this position? root scope is the holder of the court position
+	aptitude = {
+		value = 1
+		add = {
+			value = arcana
+			multiply = 1.5
+			max = 50
+			desc = court_position_skill_arcana
+		}
+		add = aptitude_from_arcana_traits
+		add = aptitude_from_alteration_perks
+		add = aptitude_from_conjuration_perks
+		add = aptitude_from_destruction_perks 
+		add = aptitude_from_illusion_perks
+		add = aptitude_from_restoration_perks
+		add = aptitude_from_necromancy_perks
+
+		add = court_position_aptitude_low_penalty_value
+		add = general_aptitude_bonus
+
+		if = {
+			limit = {
+				liege = {
+					has_realm_law = outright_crossroads_magecrafting_murder_encouraged_law
+				}
+			}
+			add = {
+				value = 10
+				desc = ek_court_mage_court_position_aptitude_from_outright_crossroads_magecrafting_murder_encouraged_law
+			}
+		}
+
+		if = {
+			limit = {
+				liege = {
+					has_realm_law = wayfarers_protected_law
+				}
+			}
+			add = {
+				value = -10
+				desc = ek_court_mage_court_position_aptitude_from_wayfarers_protected_law
+			}
+		}
+	}
+
+	is_shown = {}
+
+	is_shown_character = {
+		scope:employee = {
+			court_position_employee_shown_trigger = yes
+		}
+	}
+
+	valid_position = {
+		always = yes
+	}
+
+	valid_character = {
+		valid_camp_officer_trigger = {
+			OFFICER = court_mage
+		}
+	}
+
+	revoke_cost = {
+		prestige =  {
+			value = major_court_position_prestige_revoke_cost
+			# Set to 0 via obligation hook
+			if = {
+				limit = {
+					court_position_obligation_hook_salary_trigger = {
+						POS = court_mage
+						LIEGE = root
+					}
+				}
+				multiply = 0
+			}
+			# Avoid AI prestige issues
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+			# Special case for events
+			if = {
+				limit = {
+					exists = this
+					has_character_flag = free_revoke_cost
+				}
+				multiply = 0
+			}
+			#Lowering for LAAMPS, to match Camp Officer revoke cost
+			if = {
+				limit = { 
+					exists = this
+					government_has_flag = government_is_landless_adventurer
+				}
+				value = minor_court_position_prestige_revoke_cost
+			}
+		}
+	}
+
+	salary = {
+		gold = {
+			value = 0
+			if = {
+				limit = {
+					scope:liege = {
+						has_treasury = no
+					}
+				}
+				add = court_mage_total_salary_value
+			}
+		}
+		treasury = {
+			value = 0
+			if = {
+				limit = {
+					scope:liege = {
+						has_treasury = yes
+					}
+				}
+				add = court_mage_total_salary_value
+			}
+		}
+		prestige = {
+			value = court_mage_prestige_salary_value
+		}
+	}
+
+	received_salary = {
+		gold = {
+			value = court_mage_total_salary_value
+		}
+		prestige = {
+			value = court_mage_prestige_salary_value
+		}
+		round = no
+	}
+
+	is_powerful_agent = yes
+
+	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
+	custom_scaling_employer_modifier_description = {
+		terrible = court_mage_terrible_desc
+		poor = court_mage_poor_desc
+		average = court_mage_average_desc
+		good = court_mage_good_desc
+		excellent = court_mage_excellent_desc
+		range = court_mage_range_desc
+	}
+
+	custom_employer_modifier_description = court_mage_employer_custom_effect_description
+
+	modifier = {
+		learning = 1
+		#arcana = 2 #fake skill, effect applied in ek_magic_values.txt
+	}
+
+	on_court_position_received = {
+		basic_gained_court_position_effect = yes
+	}
+	on_court_position_revoked = {
+		basic_revoked_court_position_effect = yes
+	}
+	on_court_position_invalidated = {
+		basic_invalidated_court_position_effect = yes
+	}
+	on_court_position_vacated = {
+		court_position_vacated_event_effect = {
+			COURT_POSITION_TYPE = court_mage_court_position
+		}
+	}
+
+	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
+	ai_position_score = {
+		value = 150
+	}
+
+	ai_candidate_score = {
+		value = 150
+        add = scope:base_value
+        add = court_position_candidate_score_base_value
+        add = court_position_candidate_aptitude_value
+
+		if = {
+			limit = { exists = scope:employee.var:magicka }
+			add = {
+				value = scope:employee.var:magicka
+				desc = game_concept_magicka
+			}
+		}
+		# AI is less likely to fire the court mage, unless they have a better candidate.
+        if = {
+            limit = {
+                exists = scope:firing_court_position
+            }
+            add = 200
+            scope:employee = {
+                # Does the liege have a better candidate that they should be hiring instead?
+                if = {
+                    limit = {
+                        scope:highest_available_aptitude > scope:employee_aptitude
+                    }
+                    add = -150
+                }
+            }
+        }
+
+		if = { # To stop petitioned positions immediately being fired by the AI
+			limit = {
+				court_position_petition_ai_weight_trigger = { ROLE = court_mage }
+			}
+			add = 1000
+		}
+	}
+
+	search_for_courtier = {
+		send_interface_toast = {
+			title = hire_court_mage_decision
+			custom_tooltip = hire_court_mage_decision_effect_tooltip
+		}
+		trigger_event = {
+			id = ek_court_position.0001
+			days = 14
+		}
+	}
+}

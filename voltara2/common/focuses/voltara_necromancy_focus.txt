@@ -1,0 +1,29 @@
+﻿dark_arts_mysticism_focus = {
+	lifestyle = dark_arts_lifestyle
+	
+	modifier = {
+		intrigue = 2
+		learning = 2
+		courtier_and_guest_opinion = -5
+	}
+
+	desc = {
+		desc = dark_arts_mysticism_focus_desc
+		desc = line_break
+	}
+
+	is_valid = {
+		vt_ek_is_necromancer = yes
+	}
+
+	auto_selection_weight = {
+		value = 0
+		if = {
+			limit = { 
+				vt_ek_is_necromancer = yes
+				NOT = { has_perk = necromancy_master_perk }
+			}
+			add = 2000
+		}
+	}
+}

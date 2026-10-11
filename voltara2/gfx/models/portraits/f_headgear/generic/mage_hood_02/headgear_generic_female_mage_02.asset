@@ -1,0 +1,110 @@
+pdxmesh = {
+	name = "headgear_generic_female_mage_02_mesh"
+	file = "headgear_generic_female_mage_02.mesh"
+
+	blend_shape = { id = "female_argonian_blendshape"		type = "headgear_generic_female_mage_02_bs_argonian.mesh" }
+	blend_shape = { id = "female_khajiit_blendshape"		type = "headgear_generic_female_mage_02_bs_khajiit.mesh" }
+
+	meshsettings = {
+		name = "male_clothes_situational_western_stealth_hood_01Shape"
+		index = 0
+		texture_diffuse = "headgear_generic_male_mage_02_diffuse.dds"
+		texture_normal = "m_clothes_situational_western_stealth_01_normal.dds"
+		texture_specular = "m_clothes_situational_western_stealth_01_properties.dds"
+		shader = "portrait_attachment_pattern"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "headgear_generic_female_mage_02_common_entity"
+	pdxmesh = "headgear_generic_female_mage_02_mesh"
+
+	attribute = { name = "argonian_head_bs"					blend_shape = "female_argonian_blendshape" }
+	attribute = { name = "khajiit_head_bs"					blend_shape = "female_khajiit_blendshape" }
+
+	game_data = {
+        portrait_entity_user_data = {
+			portrait_accessory = {
+				pattern_mask = "gfx/models/portraits/m_headgear/generic/mage_hood_02/headgear_generic_male_mage_02_masks.dds"	#Any 4-channel texture. Each channel will be used to mask a pattern from the variation object
+				variation = "western_common_01"	#A "variation" object in gfx/portraits/accessory_variations/
+			}
+        }
+	}
+}
+
+# MAGE
+entity = {
+	name = "headgear_generic_female_mage_02_entity"
+	pdxmesh = "headgear_generic_female_mage_02_mesh"
+
+	attribute = { name = "argonian_head_bs"					blend_shape = "female_argonian_blendshape" }
+	attribute = { name = "khajiit_head_bs"					blend_shape = "female_khajiit_blendshape" }
+
+	game_data = {
+        portrait_entity_user_data = {
+			portrait_accessory = {
+				pattern_mask = "gfx/models/portraits/m_headgear/generic/mage_hood_02/headgear_generic_male_mage_02_masks.dds"	#Any 4-channel texture. Each channel will be used to mask a pattern from the variation object
+				variation = "mage_test"	#A "variation" object in gfx/portraits/accessory_variations/
+			}
+        }
+	}
+}
+
+
+
+# PRIESTS #
+# MONK
+entity = {
+	name = "headgear_generic_female_monk_02_entity"
+	pdxmesh = "headgear_generic_female_mage_02_mesh"
+
+	attribute = { name = "argonian_head_bs"					blend_shape = "female_argonian_blendshape" }
+	attribute = { name = "khajiit_head_bs"					blend_shape = "female_khajiit_blendshape" }
+
+	game_data = {
+        portrait_entity_user_data = {
+			portrait_accessory = {
+				pattern_mask = "gfx/models/portraits/m_headgear/generic/mage_hood_02/headgear_generic_male_mage_02_masks.dds"	#Any 4-channel texture. Each channel will be used to mask a pattern from the variation object
+				variation = "monk_01"	#A "variation" object in gfx/portraits/accessory_variations/
+			}
+        }
+	}
+}
+# MOTH PRIESTS
+entity = {
+	name = "headgear_generic_female_moth_priest_02_entity"
+	pdxmesh = "headgear_generic_female_mage_02_mesh"
+
+	attribute = { name = "argonian_head_bs"					blend_shape = "female_argonian_blendshape" }
+	attribute = { name = "khajiit_head_bs"					blend_shape = "female_khajiit_blendshape" }
+
+	game_data = {
+        portrait_entity_user_data = {
+			portrait_accessory = {
+				pattern_mask = "gfx/models/portraits/m_headgear/generic/mage_hood_02/headgear_generic_male_mage_02_masks.dds"	#Any 4-channel texture. Each channel will be used to mask a pattern from the variation object
+				variation = "ancestor_moth_silk"	#A "variation" object in gfx/portraits/accessory_variations/
+			}
+        }
+	}
+}
+
+# SPYMASTERS #
+# ALTMER
+entity = {
+	name = "headgear_generic_female_spymaster_altmer_entity"
+	pdxmesh = "headgear_generic_female_mage_02_mesh"
+
+	attribute = { name = "argonian_head_bs"					blend_shape = "female_argonian_blendshape" }
+	attribute = { name = "khajiit_head_bs"					blend_shape = "female_khajiit_blendshape" }
+
+	game_data = {
+        portrait_entity_user_data = {
+			portrait_accessory = {
+				pattern_mask = "gfx/models/portraits/m_headgear/generic/mage_hood_02/headgear_generic_male_mage_02_masks.dds"	#Any 4-channel texture. Each channel will be used to mask a pattern from the variation object
+				variation = "altmer_spymaster_high"	#A "variation" object in gfx/portraits/accessory_variations/
+			}
+        }
+	}
+}
+

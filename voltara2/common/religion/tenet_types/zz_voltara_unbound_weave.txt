@@ -1,0 +1,8 @@
+﻿tenet_voltara_unbound_souls = {
+ icon = tenet_esotericism
+ traits = { virtues = { necromancer = { weight = 20 scale = 1 } vt_ek_necromancer = { weight = 20 scale = 1 } } }
+ parameters = { necromancy_accepted }
+ personal_tenet_modifier = { learning = 2 monthly_dark_arts_lifestyle_xp_gain_mult = 0.15 }
+ piety_cost = { value = faith_tenet_cost_mid }
+ is_shown = { religion = religion:voltara_khaos_religion }
+}

@@ -1,0 +1,29 @@
+﻿vt_threadbinding_magic_lifestyle = {
+
+	is_highlighted = {
+		has_trait = education_magic
+	}
+	
+	xp_per_level = 1000
+	base_xp_gain = 25
+}
+
+dark_arts_lifestyle = {
+
+	is_highlighted = {
+		OR = {
+			has_trait = vt_ek_necromancer
+			has_trait = vt_ek_experimentalist_necromancer
+		}
+	}
+	
+	is_valid = { 
+		OR = {
+			has_trait = vt_ek_necromancer
+			has_trait = vt_ek_experimentalist_necromancer
+		}
+	}
+		
+	xp_per_level = 1000
+	base_xp_gain = 25
+}

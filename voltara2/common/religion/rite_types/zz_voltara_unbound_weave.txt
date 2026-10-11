@@ -1,0 +1,9 @@
+﻿voltara_unbound_weave = {
+ faith = voltara_khaotism
+ icon = voltara_khaos
+ color = { 92 44 126 }
+ create = yes
+ convert = yes
+ tenets = { tenet_voltara_unbound_souls tenet_esotericism tenet_pursuit_of_power }
+ doctrines = { spn_doctrine_vampirism_accepted voltara_necromancy_accepted voltara_khaos_hostility doctrine_no_head doctrine_gender_equal doctrine_witchcraft_accepted }
+}

@@ -7,7 +7,7 @@ voltara_aeluinist = {
  faith_details = { religion = voltara_religion color = { 236 171 46 } icon = voltara_23 graphical_faith = catholic_gfx religious_head = k_voltara_luminous_see }
  eminent_holy_sites = { voltara_first_measure voltara_titania voltara_kartholos }
  holy_sites = { voltara_thornfall voltara_enderal }
- doctrines = { voltara_order_hostility doctrine_spiritual_head }
+ doctrines = { special_doctrine_has_clerical_electors voltara_order_hostility doctrine_spiritual_head }
 }
 voltara_khaotism = {
  main_rite = voltara_khaotism_rite

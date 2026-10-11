@@ -9,7 +9,7 @@
  name_list = name_list_voltara_culture_0
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_courtly_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -24,7 +24,7 @@ voltara_culture_18 = {
  name_list = name_list_voltara_culture_18
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_high_elven_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = voltara_high_elven }
 }
@@ -39,7 +39,7 @@ voltara_culture_19 = {
  name_list = name_list_voltara_culture_19
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_courtly_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -54,7 +54,7 @@ voltara_culture_20 = {
  name_list = name_list_voltara_culture_20
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_orc_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = voltara_orc }
 }
@@ -69,7 +69,7 @@ voltara_culture_21 = {
  name_list = name_list_voltara_culture_21
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_goblin_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = voltara_goblin }
 }
@@ -84,7 +84,7 @@ voltara_culture_22 = {
  name_list = name_list_voltara_culture_22
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_highland_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -99,7 +99,7 @@ voltara_culture_23 = {
  name_list = name_list_voltara_culture_23
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_stoneborn_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = voltara_stoneborn }
 }
@@ -114,7 +114,7 @@ voltara_culture_24 = {
  name_list = name_list_voltara_culture_24
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_courtly_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -129,7 +129,7 @@ voltara_culture_25 = {
  name_list = name_list_voltara_culture_25
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_courtly_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -144,7 +144,7 @@ voltara_culture_26 = {
  name_list = name_list_voltara_culture_26
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_southern_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -159,7 +159,7 @@ voltara_culture_27 = {
  name_list = name_list_voltara_culture_27
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_southern_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -174,7 +174,7 @@ voltara_culture_30 = {
  name_list = name_list_voltara_culture_30
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_courtly_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -189,7 +189,7 @@ voltara_culture_31 = {
  name_list = name_list_voltara_culture_31
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_woodland_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -204,7 +204,7 @@ voltara_culture_32 = {
  name_list = name_list_voltara_culture_32
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_highland_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -219,7 +219,7 @@ voltara_culture_33 = {
  name_list = name_list_voltara_culture_33
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_highland_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -234,7 +234,7 @@ voltara_culture_35 = {
  name_list = name_list_voltara_culture_35
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_woodland_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -249,7 +249,7 @@ voltara_culture_36 = {
  name_list = name_list_voltara_culture_36
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_courtly_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -264,7 +264,7 @@ voltara_culture_39 = {
  name_list = name_list_voltara_culture_39
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_scaled_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = voltara_naga }
 }
@@ -279,7 +279,7 @@ voltara_culture_40 = {
  name_list = name_list_voltara_culture_40
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_highland_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -294,7 +294,7 @@ voltara_culture_41 = {
  name_list = name_list_voltara_culture_41
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_scaled_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -309,7 +309,7 @@ voltara_culture_42 = {
  name_list = name_list_voltara_culture_42
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_deep_elven_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = voltara_deep_elven }
 }
@@ -324,7 +324,7 @@ voltara_culture_43 = {
  name_list = name_list_voltara_culture_43
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_courtly_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -339,7 +339,7 @@ voltara_culture_44 = {
  name_list = name_list_voltara_culture_44
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_highland_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -354,7 +354,7 @@ voltara_culture_45 = {
  name_list = name_list_voltara_culture_45
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_courtly_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -369,7 +369,7 @@ voltara_culture_46 = {
  name_list = name_list_voltara_culture_46
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_courtly_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -384,7 +384,7 @@ voltara_culture_47 = {
  name_list = name_list_voltara_culture_47
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_courtly_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
@@ -399,7 +399,7 @@ voltara_culture_48 = {
  name_list = name_list_voltara_culture_48
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
- clothing_gfx = { western_clothing_gfx }
+ clothing_gfx = { vt_courtly_clothing_gfx western_clothing_gfx }
  unit_gfx = { western_unit_gfx }
  ethnicities = { 100 = mediterranean }
 }
