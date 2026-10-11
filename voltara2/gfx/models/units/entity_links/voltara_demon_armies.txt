@@ -1,0 +1,17 @@
+﻿dremora_army_01 = {
+	type = army
+	graphical_cultures = { ek_dremora_unit_gfx }
+	entity = unit_dremora_infantry_01_entity
+}
+dremora_army_03 = {
+	type = army
+	quality = 2
+	graphical_cultures = { ek_dremora_unit_gfx }
+	entity = unit_dremora_infantry_02_entity
+}
+dremora_army_05 = {
+	type = army
+	quality = 4
+	graphical_cultures = { ek_dremora_unit_gfx }
+	entity = unit_dremora_infantry_03_entity
+}

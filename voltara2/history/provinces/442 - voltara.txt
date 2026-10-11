@@ -1,0 +1,8 @@
+﻿442 = {
+# Provisional holding layout; source culture/faith retained.
+culture = voltara_culture_43
+religion = voltara_faith_0
+holding = castle_holding
+ special_building_slot = voltara_regional_site_442
+ special_building = voltara_regional_site_442
+}

@@ -1,0 +1,6 @@
+﻿voltara_gorilla_grooming = { usage = game priority = 1 selection_behavior = max
+ gorilla = { dna_modifiers = {
+ accessory = { mode = replace gene = hairstyles template = no_hairstyles range = { 0 0 } }
+ accessory = { mode = replace gene = beards template = no_beard range = { 0 0 } }
+ } weight = { base = 0 modifier = { add = 100 exists = this culture = culture:voltara_gorilla } } }
+}

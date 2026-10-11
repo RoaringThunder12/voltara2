@@ -1,0 +1,532 @@
+﻿clothes_altmer_male_noble_war_01 = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_altmer_male_noble_war_01_entity }
+}
+clothes_altmer_male_common_war_01 = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_altmer_male_common_war_01_entity }
+}
+clothes_altmer_male_noble_01_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	set_tags = "altmer_var_01"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_altmer_male_noble_01_high_entity }
+}
+clothes_altmer_male_noble_01_low = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	set_tags = "altmer_var_01"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_altmer_male_noble_01_low_entity }
+}
+clothes_altmer_male_noble_01b_low = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	set_tags = "altmer_var_01"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_altmer_male_noble_01b_low_entity }
+}
+clothes_altmer_male_noble_01_common = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	set_tags = "altmer_var_01"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_altmer_male_noble_01_common_entity }
+}
+clothes_altmer_male_noble_02_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	set_tags = "altmer_var_02"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_altmer_male_noble_02_high_entity }
+}
+clothes_altmer_male_noble_02_low = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	set_tags = "altmer_var_02"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_altmer_male_noble_02_low_entity }
+}
+clothes_altmer_male_noble_02_common = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	set_tags = "altmer_var_02"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_altmer_male_noble_02_common_entity }
+}
+clothes_altmer_female_noble_war_01 = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_altmer_female_noble_war_01_entity }
+}
+clothes_altmer_female_common_war_01 = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_altmer_female_common_war_01_entity }
+}
+female_clothes_secular_altmer_01_common = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_altmer_01_common_entity }
+}
+female_clothes_secular_altmer_01_low = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_altmer_01_low_entity }
+}
+female_clothes_secular_altmer_01_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_altmer_01_high_entity }
+}
+female_clothes_secular_altmer_02_common = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_altmer_02_common_entity }
+}
+female_clothes_secular_altmer_02_low = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_altmer_02_low_entity }
+}
+female_clothes_secular_altmer_02_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_altmer_02_high_entity }
+}
+clothes_altmer_female_noble_01_m_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	set_tags = "altmer_var_01"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_altmer_female_noble_01_mb_high_entity }
+}
+clothes_altmer_female_noble_01_m_low = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	set_tags = "altmer_var_01"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_altmer_female_noble_01_mb_low_entity }
+}
+clothes_altmer_female_noble_01b_m_low = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	set_tags = "altmer_var_01"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_altmer_female_noble_01b_mb_low_entity }
+}
+clothes_altmer_female_noble_01_m_common = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	set_tags = "altmer_var_01"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_altmer_female_noble_01_mb_common_entity }
+}
+male_clothes_secular_ashlander_scarf_01_high = {
+		entity = { required_tags = "no_cloak"		shared_pose_entity = torso }
+		entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_ashlander_scarf_01_high_entity }
+}
+male_clothes_secular_ashlander_scarf_01_low = {
+		entity = { required_tags = "no_cloak"		shared_pose_entity = torso }
+		entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_ashlander_scarf_01_low_entity }
+}
+male_clothes_secular_ashlander_scarf_02_high = {
+		entity = { required_tags = "no_cloak"		shared_pose_entity = torso }
+		entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_ashlander_scarf_02_high_entity }
+}
+male_clothes_secular_ashlander_scarf_02_low = {
+		entity = { required_tags = "no_cloak"		shared_pose_entity = torso }
+		entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_ashlander_scarf_02_low_entity }
+}
+male_clothes_secular_ashlander_pauldrons = {
+		entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_ashlander_pauldrons_entity }
+}
+female_clothes_secular_ashlander_scarf_01_high = {
+		entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_ashlander_scarf_01_high_entity }
+}
+female_clothes_secular_ashlander_scarf_01_low = {
+		entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_ashlander_scarf_01_low_entity }
+}
+male_clothes_secular_dunmer_war_nobility = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_dunmer_war_01_high_entity }
+}
+male_clothes_secular_dunmer_gahjulan_war_nobility = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_dunmer_war_02_high_entity }
+}
+male_clothes_secular_dunmer_01_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_dunmer_male_noble_01_high_entity }
+}
+male_clothes_secular_dunmer_01_low = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_dunmer_male_noble_01_low_entity }
+}
+male_clothes_secular_dunmer_02_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	set_tags = "no_cloak"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_dunmer_02_high_entity }
+}
+male_clothes_secular_dunmer_03_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_dunmer_03_high_entity }
+}
+male_clothes_secular_dunmer_03_low = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_dunmer_03_low_entity }
+}
+male_clothes_secular_dunmer_03_common = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_dunmer_03_common_entity }
+}
+male_clothes_secular_ashlander_01_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_ashlander_01_high_entity }
+}
+male_clothes_secular_ashlander_01_low = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_ashlander_01_low_entity }
+}
+male_clothes_secular_ashlander_02_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_ashlander_02_high_entity }
+}
+male_clothes_secular_ashlander_02_low = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_ashlander_02_low_entity }
+}
+female_clothes_secular_dunmer_war_nobility = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_dunmer_war_01_high_entity }
+}
+female_clothes_secular_dunmer_gahjulan_war_nobility = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_dunmer_war_02_high_entity }
+}
+female_clothes_secular_ashlander_01_low = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_ashlander_01_low_entity }
+}
+female_clothes_secular_ashlander_01_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_ashlander_01_high_entity }
+}
+female_clothes_secular_ashlander_02_low = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_ashlander_02_low_entity }
+}
+female_clothes_secular_ashlander_02_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_ashlander_02_high_entity }
+}
+female_clothes_secular_dunmer_02_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_dunmer_02_high_entity }
+}
+female_clothes_secular_dunmer_03_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_dunmer_03_high_entity }
+}
+female_clothes_secular_dunmer_03_low = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_dunmer_03_low_entity }
+}
+female_clothes_secular_dunmer_03_common = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_dunmer_03_common_entity }
+}
+female_clothes_secular_dunmer_01_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_dunmer_01_high_entity }
+}
+male_clothes_secular_daedric = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = m_clothes_ek2_daedric_war_nob_01_entity }
+}
+female_clothes_secular_daedric = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = f_clothes_ek2_daedric_war_nob_01_entity }
+}
+male_clothes_secular_orc_war = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_orc_war_entity }
+}
+clothes_orc_male_steppe_nobility_01_common = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_orc_male_steppe_nobility_01_common_entity }
+}
+clothes_orc_male_steppe_nobility_01_low = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_orc_male_steppe_nobility_01_low_entity }
+}
+clothes_orc_male_steppe_nobility_01_high = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_orc_male_steppe_nobility_01_high_entity }
+}
+clothes_orc_male_chupa_01_common = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_orc_male_chupa_01_common_entity }
+}
+clothes_orc_male_chupa_02_common = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_orc_male_chupa_02_common_entity }
+}
+clothes_orc_male_chupa_01_low = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_orc_male_chupa_01_low_entity }
+}
+clothes_orc_male_chupa_02_low = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_orc_male_chupa_02_low_entity }
+}
+clothes_orc_male_chupa_01_high = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_orc_male_chupa_01_high_entity }
+}
+clothes_orc_male_chupa_02_high = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = clothes_orc_male_chupa_02_high_entity }
+}
+female_clothes_secular_orc_war = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_orc_war_entity }
+}
+female_clothes_secular_orc_01_common = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_orc_01_common_entity }
+}
+female_clothes_secular_orc_01_low = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_orc_01_low_entity }
+}
+female_clothes_secular_orc_01_high = {
+	set_tags = "shrink_chest,shrink_belly,shrink_arms"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_orc_01_high_entity }
+}
+male_clothes_secular_riekling_01 = {
+	set_tags = "shrink_chest,shrink_belly"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_riekling_01_entity }
+}
+male_clothes_secular_riekling_02 = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_riekling_02_entity }
+}
+m_clothes_sec_ek2_goblin_com_01 = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = m_clothes_sec_ek2_goblin_com_01_entity }
+}
+m_clothes_sec_ek2_goblin_com_02 = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = m_clothes_sec_ek2_goblin_com_02_entity }
+}
+female_clothes_secular_riekling_01 = {
+	set_tags = "shrink_chest,shrink_belly"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_riekling_01_entity }
+}
+fem_clothes_sec_ek2_goblin_com_01 = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = f_clothes_sec_ek2_goblin_com_01_entity }
+}
+m_clothes_sec_ek2_kothri_01_low = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = m_clothes_sec_ek2_kothri_01_low_entity }
+}
+m_clothes_sec_ek2_kothri_01_high = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = m_clothes_sec_ek2_kothri_01_high_entity }
+}
+m_clothes_sec_ek2_kothri_02_low = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = m_clothes_sec_ek2_kothri_02_low_entity }
+}
+m_clothes_sec_ek2_kothri_02_high = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = m_clothes_sec_ek2_kothri_02_high_entity }
+}
+male_clothes_secular_keptu_01_common = {
+	set_tags = "shrink_arms,shrink_chest,shrink_belly"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_keptu_01_entity }
+}
+male_clothes_secular_keptu_02_common = {
+	set_tags = "shrink_arms,shrink_chest,shrink_belly"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_keptu_02_entity }
+}
+male_clothes_secular_keptu_01_low = {
+	set_tags = "shrink_arms,shrink_chest,shrink_belly"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_keptu_01_low_entity }
+}
+male_clothes_secular_keptu_02_low = {
+	set_tags = "shrink_arms,shrink_chest,shrink_belly"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_clothes_secular_keptu_02_low_entity }
+}
+female_clothes_secular_keptu_01_common = {
+	set_tags = "shrink_arms,shrink_chest,shrink_belly"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_keptu_01_entity }
+}
+female_clothes_secular_keptu_01_low = {
+	set_tags = "shrink_arms,shrink_chest,shrink_belly"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_clothes_secular_keptu_01_low_entity }
+}
+headgear_altmer_male_spymaster_01_high = {
+	set_tags = "no_hair"
+	set_tags = "hood"
+	set_tags = "snug_headgear"
+	set_tags = "no_khajiit_ears"
+ 	entity = { required_tags = ""			shared_pose_entity = head		entity = headgear_generic_male_spymaster_altmer_entity	 }	
+}
+headgear_altmer_male_chancellor_01_high = {
+	set_tags = "cap"
+	set_tags = "mask_hat"
+	set_tags = "no_khajiit_ears"
+	entity = { required_tags = ""			shared_pose_entity = head		entity = headgear_altmer_male_chancellor_01_high_entity }
+}
+headgear_altmer_male_priest_01_lowborn = {
+	set_tags = "no_hair"
+	set_tags = "hood"
+	set_tags = "snug_headgear"
+	set_tags = "no_khajiit_ears"
+	entity = { required_tags = ""			shared_pose_entity = head		entity = headgear_altmer_male_priest_01_lowborn_entity }
+}
+headgear_altmer_male_priest_01_common = {
+	set_tags = "no_hair"
+	set_tags = "hood"
+	set_tags = "snug_headgear"
+	set_tags = "no_khajiit_ears"
+	entity = { required_tags = ""			shared_pose_entity = head		entity = headgear_altmer_male_priest_01_common_entity }
+}
+headgear_altmer_male_priest_01_low = {
+	set_tags = "no_hair"
+	set_tags = "hood"
+	set_tags = "snug_headgear"
+	set_tags = "no_khajiit_ears"
+	entity = { required_tags = ""			shared_pose_entity = head		entity = headgear_altmer_male_priest_01_low_entity }
+}
+headgear_altmer_male_priest_01_high = {
+	set_tags = "no_hair"
+	set_tags = "hood"
+	set_tags = "snug_headgear"
+	set_tags = "no_khajiit_ears"
+	entity = { required_tags = ""			shared_pose_entity = head		entity = headgear_altmer_male_priest_01_high_entity }
+}
+headgear_altmer_male_noble_war_01 = {
+	set_tags = "no_hair"
+	set_tags = "hood"
+	set_tags = "snug_headgear"
+	set_tags = "no_khajiit_ears"
+	entity = { required_tags = ""		shared_pose_entity = head		entity = headgear_altmer_male_noble_war_01_entity }
+}
+headgear_altmer_female_noble_war_01 = {
+	set_tags = "no_hair"
+	set_tags = "hood"
+	set_tags = "snug_headgear"
+	set_tags = "no_khajiit_ears"
+	entity = { required_tags = ""		shared_pose_entity = head		entity = headgear_altmer_female_noble_war_01_entity }
+}
+headgear_altmer_female_spymaster_01_high = {
+	set_tags = "no_hair"
+	set_tags = "hood"
+	set_tags = "snug_headgear"
+	set_tags = "no_khajiit_ears"
+ 	entity = { required_tags = ""			shared_pose_entity = head		entity = headgear_generic_female_spymaster_altmer_entity	 }	
+}
+male_headgear_secular_dunmer_war_headwrap_01 = {
+ 	entity = { required_tags = "bonemold_helm"			shared_pose_entity = head		entity = male_headgear_secular_dunmer_war_scarf_01_entity	 }	
+ 	entity = { required_tags = ""			shared_pose_entity = head		entity = male_headgear_secular_dunmer_war_scarf_02_entity	 }	
+}
+female_headgear_secular_dunmer_war_headwrap_01 = {
+ 	entity = { required_tags = "bonemold_helm"			shared_pose_entity = head		entity = female_headgear_secular_dunmer_war_scarf_01_entity	 }
+ 	entity = { required_tags = ""			shared_pose_entity = head		entity = female_headgear_secular_dunmer_war_scarf_02_entity	 }	
+}
+male_headgear_secular_dunmer_common_01 = {
+	set_tags = "cap"
+	set_tags = "mask_hat"
+	set_tags = "no_khajiit_ears"
+ 	entity = { required_tags = ""			shared_pose_entity = head		entity = male_headgear_secular_dunmer_common_01_entity	 }	
+}
+male_headgear_secular_dunmer_war_01 = {
+	set_tags = "no_hair"
+	set_tags = "no_beard"
+	set_tags = "bonemold_helm"
+	set_tags = "snug_headgear"
+	set_tags = "mask"
+	set_tags = "no_khajiit_ears"
+ 	entity = { required_tags = ""			shared_pose_entity = head		entity = male_headgear_secular_dunmer_war_01_high_entity	 }	
+}
+male_headgear_secular_dunmer_war_scarf_01 = {
+ 	entity = { required_tags = ""			shared_pose_entity = head		entity = male_headgear_secular_dunmer_war_scarf_02_entity	 }	
+}
+female_headgear_secular_dunmer_common_01 = {
+	set_tags = "cap"
+	set_tags = "mask_hat"
+	set_tags = "no_khajiit_ears"
+ 	entity = { required_tags = ""			shared_pose_entity = head		entity = female_headgear_secular_dunmer_common_01_entity	 }	
+}
+female_headgear_secular_dunmer_war_01 = {
+	set_tags = "no_hair"
+	set_tags = "no_beard"
+	set_tags = "bonemold_helm"
+	set_tags = "no_khajiit_ears"
+ 	entity = { required_tags = ""			shared_pose_entity = head		entity = female_headgear_secular_dunmer_war_02_high_entity	 }	
+}
+female_headgear_secular_dunmer_war_02 = {
+	set_tags = "no_hair"
+	set_tags = "no_beard"
+	set_tags = "bonemold_helm"
+	set_tags = "snug_headgear"
+	set_tags = "no_khajiit_ears"
+ 	entity = { required_tags = ""			shared_pose_entity = head		entity = female_headgear_secular_dunmer_war_02_high_entity	 }	
+}
+female_headgear_secular_dunmer_war_scarf_01 = {
+ 	entity = { required_tags = ""			shared_pose_entity = head		entity = female_headgear_secular_dunmer_war_scarf_02_entity	 }	
+}
+
+female_headgear_secular_riekling_war_01 = {
+ 	entity = { required_tags = ""			shared_pose_entity = head		entity = female_headgear_secular_riekling_war_01_entity	 }	
+}
+legwear_altmer_male_noble_01_high = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = "altmer_var_02"		shared_pose_entity = torso		entity = legwear_altmer_male_noble_02_high_entity }
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = legwear_altmer_male_noble_01_high_entity }
+}
+legwear_altmer_male_noble_01_low = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = "altmer_var_02"		shared_pose_entity = torso		entity = legwear_altmer_male_noble_02_low_entity }
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = legwear_altmer_male_noble_01_low_entity }
+}
+legwear_altmer_male_noble_01_common = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = "altmer_var_02"		shared_pose_entity = torso		entity = legwear_altmer_male_noble_02_common_entity }
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = legwear_altmer_male_noble_01_common_entity }
+}
+legwear_altmer_male_noble_02_high = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = "altmer_var_01"		shared_pose_entity = torso		entity = legwear_altmer_male_noble_01_high_entity }
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = legwear_altmer_male_noble_02_high_entity }
+}
+legwear_altmer_male_noble_02_low = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = "altmer_var_01"		shared_pose_entity = torso		entity = legwear_altmer_male_noble_01_low_entity }
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = legwear_altmer_male_noble_02_low_entity }
+}
+legwear_altmer_male_noble_02_common = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = "altmer_var_01"		shared_pose_entity = torso		entity = legwear_altmer_male_noble_01_common_entity }
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = legwear_altmer_male_noble_02_common_entity }
+}
+legwear_altmer_male_noble_war_01 = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = legwear_altmer_male_noble_war_01_entity }
+}
+legwear_altmer_female_noble_war_01 = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = legwear_altmer_female_noble_war_01_entity }
+}
+legwear_altmer_female_noble_01_m_high = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = legwear_altmer_female_noble_01_mb_high_entity }
+}
+legwear_altmer_female_noble_01_m_low = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = legwear_altmer_female_noble_01_mb_low_entity }
+}
+legwear_altmer_female_noble_01_m_common = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = legwear_altmer_female_noble_01_mb_common_entity }
+}
+male_legwear_secular_dunmer_war_nobility = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = male_legwear_secular_dunmer_war_01_high_entity }
+}
+female_legwear_secular_dunmer_war_nobility = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_legwear_secular_dunmer_war_01_high_entity }
+}
+male_legwear_secular_daedric = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = m_legwear_ek2_daedric_war_nob_01_entity }
+}
+female_legwear_secular_daedric = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = f_legwear_ek2_daedric_war_nob_01_entity }
+}
+m_legwear_sec_ek2_kothri_01_low = {
+	entity = { required_tags = ""		shared_pose_entity = torso		entity = m_legwear_sec_ek2_kothri_01_low_entity }
+}
+cloaks_altmer_male_noble_01_high = {
+		entity = { required_tags = "altmer_var_02" shared_pose_entity = head }
+		entity = { required_tags = ""		shared_pose_entity = head		entity = cloaks_altmer_male_noble_01_high_entity }
+}
+cloaks_altmer_male_noble_02_high = {
+		entity = { required_tags = ""		shared_pose_entity = torso		entity = cloaks_altmer_male_noble_02_high_entity }
+}
+cloaks_altmer_male_noble_03_high = {
+		entity = { required_tags = ""		shared_pose_entity = torso		entity = cloaks_altmer_male_noble_03_high_entity }
+}
+cloaks_altmer_male_noble_01_low = {
+		entity = { required_tags = "altmer_var_02" shared_pose_entity = head }
+		entity = { required_tags = ""		shared_pose_entity = head		entity = cloaks_altmer_male_noble_01_low_entity }
+}
+cloaks_altmer_male_noble_02_low = {
+		entity = { required_tags = ""		shared_pose_entity = torso		entity = cloaks_altmer_male_noble_02_low_entity }
+}
+cloaks_altmer_male_spymaster_high = {
+		entity = { required_tags = ""		shared_pose_entity = torso		entity = cloaks_altmer_male_noble_04_spymaster_entity }
+}
+cloaks_dunmer_male_noble_01_high = {
+		entity = { required_tags = "no_cloak"		shared_pose_entity = torso }
+		entity = { required_tags = ""		shared_pose_entity = torso		entity = cloaks_dunmer_male_noble_01_high_entity }
+}

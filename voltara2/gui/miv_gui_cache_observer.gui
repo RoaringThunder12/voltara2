@@ -1,0 +1,49 @@
+﻿widget = {
+	name = "miv_gui_cache_observer"
+	size = { 0 0 }
+	alwaystransparent = yes
+	visible = "[GetPlayer.IsValid]"
+
+	widget = {
+		size = { 0 0 }
+		alwaystransparent = yes
+		state = {
+			name = miv_gui_character_capture
+			trigger_when = "[And( CharacterWindow.GetCharacter.IsShownInCharacterWindow, GetScriptedGui('miv_gui_character_observer_needed').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'miv_gui_subject', CharacterWindow.GetCharacter.MakeScope ).End ) )]"
+			on_start = "[GetScriptedGui('miv_gui_character_capture').Execute( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]"
+			next = miv_gui_character_capture_idle
+		}
+		state = {
+			name = miv_gui_character_capture_idle
+		}
+	}
+
+	widget = {
+		size = { 0 0 }
+		alwaystransparent = yes
+		state = {
+			name = miv_gui_wardec_attacker
+			trigger_when = "[And( GetVariableSystem.Exists( 'miv_gui_wardec_open' ), GetScriptedGui('miv_gui_wardec_observer_needed').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'miv_gui_subject', DeclareWarInteractionWindow.GetAttackerCharacter.GetCharacter.MakeScope ).AddScope( 'miv_enemy', DeclareWarInteractionWindow.GetDefenderCharacter.GetCharacter.MakeScope ).End ) )]"
+			on_start = "[GetScriptedGui('miv_wardec_hover_init').Execute( GuiScope.SetRoot( DeclareWarInteractionWindow.GetAttackerCharacter.GetCharacter.MakeScope ).AddScope( 'miv_enemy', DeclareWarInteractionWindow.GetDefenderCharacter.GetCharacter.MakeScope ).End )]"
+			next = miv_gui_wardec_attacker_idle
+		}
+		state = {
+			name = miv_gui_wardec_attacker_idle
+		}
+	}
+
+	widget = {
+		size = { 0 0 }
+		alwaystransparent = yes
+		state = {
+			name = miv_gui_wardec_defender
+			trigger_when = "[And( GetVariableSystem.Exists( 'miv_gui_wardec_open' ), GetScriptedGui('miv_gui_wardec_observer_needed').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'miv_gui_subject', DeclareWarInteractionWindow.GetDefenderCharacter.GetCharacter.MakeScope ).AddScope( 'miv_enemy', DeclareWarInteractionWindow.GetAttackerCharacter.GetCharacter.MakeScope ).End ) )]"
+			on_start = "[GetScriptedGui('miv_wardec_hover_init').Execute( GuiScope.SetRoot( DeclareWarInteractionWindow.GetDefenderCharacter.GetCharacter.MakeScope ).AddScope( 'miv_enemy', DeclareWarInteractionWindow.GetAttackerCharacter.GetCharacter.MakeScope ).End )]"
+			next = miv_gui_wardec_defender_idle
+		}
+		state = {
+			name = miv_gui_wardec_defender_idle
+		}
+	}
+
+}

@@ -1,0 +1,2 @@
+﻿l_english:
+ voltara_thread_reserve_readout:0 "Thread Reserve: [GetPlayer.MakeScope.Var('magicka').GetValue|0] / [GetPlayer.MakeScope.ScriptValue('magicka_max')|0]"

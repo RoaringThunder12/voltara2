@@ -1,0 +1,273 @@
+template character_opinion_tooltip {
+	widget = {
+		using = GeneralTooltipSetup
+		using = DefaultTooltipBackground
+		alwaystransparent = no
+
+		vbox = {
+			set_parent_size_to_minimum = yes
+			margin = { 8 8 }
+			spacing = 2
+
+			hbox = {
+				name = "heading"
+				layoutpolicy_horizontal = expanding
+
+				margin = { 8 8 }
+
+				spacing = 6
+
+				background = {
+					using = Background_Area
+				}
+
+				text_single = {
+					block "ott_heading_text"
+					{
+						raw_text = "@opinion_icon! [Character.GetOpinionHeadingText( GetPlayer )]"
+					}
+
+					max_width = 400
+					elide = right
+					using = Font_Size_Medium
+					align = nobaseline
+					fonttintcolor = "[TooltipInfo.GetTintColor]"
+				}
+
+				text_single = {
+					background = {
+						name = "portrait_opinion_bg"
+						texture = "gfx/interface/component_tiles/solid_black_label.dds"
+						spritetype = Corneredtiled
+						spriteborder = { 20 20 }
+						texture_density = 2
+						margin = { 3 1 }
+					}
+
+					max_width = 45
+					align = nobaseline
+
+					block "ott_opinion_value_text"
+					{
+						text = "[Character.GetOpinionOf( GetPlayer )|=]"
+						fonttintcolor = "[Character.GetOpinionOfTint( GetPlayer )]"
+					}
+
+					default_format = "#true_white"
+					using = Font_Size_Medium
+
+					fonttintcolor = "[TooltipInfo.GetTintColor]"
+				}
+
+				expand = {}
+			}
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				margin = { 8 0 }
+				visible = "[Character.IsPlayer]"
+
+				text_multi = {
+					datacontext = "[Character]"
+					visible = "[Not( Character.IsLocalPlayer )]"
+
+					autoresize = yes
+					max_width = 400
+					text = "PLAYER_OPINION_UNIMPORTANT"
+					default_format = "#weak"
+					fonttintcolor = "[TooltipInfo.GetTintColor]"
+				}
+
+				text_multi = {
+					datacontext = "[Character]"
+					visible = "[Character.IsLocalPlayer]"
+
+					autoresize = yes
+					max_width = 400
+					text = "PLAYER_OPINION_UNIMPORTANT_SELF"
+					default_format = "#weak"
+					fonttintcolor = "[TooltipInfo.GetTintColor]"
+				}
+
+				expand = {}
+			}
+
+
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				margin_left = 8
+
+				widget = {
+					layoutpolicy_horizontal = expanding
+
+					background = {
+						texture = "gfx/interface/scrollbars/scrollbar_fade.dds"
+						spriteType = Corneredtiled
+						spriteborder = { 0 30 }
+					}
+
+					scrollbox = {
+						resizeparent = yes
+						max_height = 400
+						scrollbarpolicy_vertical = as_needed
+
+						blockoverride "scrollbox_background" {}
+
+						blockoverride "scrollbox_background_fade" {}
+
+						blockoverride "scrollbox_margins" {
+							margin_top = 4
+							margin_bottom = 2
+							margin_left = 0
+							margin_right = 18
+						}
+
+						blockoverride "scrollbox_content" {
+							set_parent_size_to_minimum = yes
+
+							widget = {
+								size = { 450 0 }
+							}
+
+							hbox = {
+								layoutpolicy_horizontal = expanding
+
+								text_multi = {
+									block "ott_opinion_breakdown_text"
+									{
+										text = "[Character.GetOpinionBreakdownText( GetPlayer )]"
+									}
+
+									autoresize = yes
+									max_width = 450
+									fonttintcolor = "[TooltipInfo.GetTintColor]"
+								}
+
+								expand = {}
+							}
+						}
+					}
+				}
+			}
+			vbox = {
+				visible = "[And( Character.GetLiege.IsValid, And( Character.IsAlive, Not( Character.IsLocalPlayer ) ) )]"
+				layoutpolicy_horizontal = expanding
+				margin_left = 8
+				spacing = 2
+
+				vbox = {
+					visible = "[GreaterThanZero_CFixedPoint( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'liege', Character.GetLiege.MakeScope ).AddScope( 'vassal', Character.MakeScope ).ScriptValue( 'miv_hover_state' ) )]"
+					layoutpolicy_horizontal = expanding
+
+					background = {
+						texture = "gfx/interface/scrollbars/scrollbar_fade.dds"
+						spriteType = Corneredtiled
+						spriteborder = { 0 30 }
+					}
+
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						margin_top = 10
+						margin_bottom = 2
+						margin_right = 18
+						spacing = 4
+						ignoreinvisible = yes
+
+						text_single = {
+							text = "MIV_HOVER_RUNG"
+							tooltip = "MIV_HOVER_HDR"
+							alwaystransparent = no
+							default_format = "#T"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							visible = "[And( Character.GetLiege.IsLocalPlayer, Not( EqualTo_CFixedPoint( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'liege', Character.GetLiege.MakeScope ).AddScope( 'vassal', Character.MakeScope ).ScriptValue( 'miv_hover_state' ), '(CFixedPoint)3' ) ) )]"
+							text = "MIV_HOVER_YOU"
+							default_format = "#T"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							visible = "[And( Not( Character.GetLiege.IsLocalPlayer ), Not( EqualTo_CFixedPoint( GuiScope.SetRoot( Character.MakeScope ).AddScope( 'liege', Character.GetLiege.MakeScope ).AddScope( 'vassal', Character.MakeScope ).ScriptValue( 'miv_hover_state' ), '(CFixedPoint)3' ) ) )]"
+							text = "[Character.GetLiege.GetShortUIName]"
+							max_width = 250
+							elide = right
+							default_format = "#T"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+
+						expand = {}
+
+						text_single = {
+							text = "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'liege', Character.GetLiege.MakeScope ).AddScope( 'vassal', Character.MakeScope ).ScriptValue( 'interactive_bannermen_muster_score' )|+0=]"
+							align = right
+							default_format = "#T"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+
+					widget = {
+						datacontext = "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'liege', Character.GetLiege.MakeScope ).AddScope( 'vassal', Character.MakeScope ).GetScriptValueBreakdown( 'interactive_bannermen_muster_score' )]"
+						layoutpolicy_horizontal = expanding
+
+						scrollbox = {
+							resizeparent = yes
+							max_height = 400
+							scrollbarpolicy_vertical = as_needed
+
+							blockoverride "scrollbox_background" {}
+
+							blockoverride "scrollbox_background_fade" {}
+
+							blockoverride "scrollbox_margins" {
+								margin_top = 0
+								margin_bottom = 10
+								margin_left = 0
+								margin_right = 18
+							}
+
+							blockoverride "scrollbox_content" {
+								set_parent_size_to_minimum = yes
+
+								widget = {
+									size = { 450 0 }
+								}
+
+							vbox = {
+								layoutpolicy_horizontal = expanding
+
+								vbox = {
+									layoutpolicy_horizontal = expanding
+									datamodel = "[ValueBreakdown.GetSubValues]"
+									spacing = 0
+
+									item = {
+										hbox = {
+											layoutpolicy_horizontal = expanding
+
+											text_single = {
+												text = "[ValueBreakdown.GetName]"
+												max_width = 440
+												margin_right = 10
+												fonttintcolor = "[TooltipInfo.GetTintColor]"
+											}
+
+											expand = {}
+
+											text_single = {
+												visible = "[ValueBreakdown.ShouldShowValue]"
+												text = "[ValueBreakdown.GetFixedPointValue|+0=]"
+												align = right
+												fonttintcolor = "[TooltipInfo.GetTintColor]"
+											}
+										}
+									}
+								}
+							}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

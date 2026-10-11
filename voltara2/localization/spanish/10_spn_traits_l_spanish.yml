@@ -1,0 +1,106 @@
+﻿l_spanish:
+# Vampire Traits
+trait_supernatural_vampire:0 "Vampiro"
+supernatural_vampire:0 "Vampiro"
+trait_supernatural_vampire_desc:0 "Este personaje es un vampiro.\nEs una condición que muchos consideran incurable."
+trait_supernatural_vampire_character_desc:0 ""
+trait_supernatural_vampire_1:0 "Vampiro neófito"
+trait_supernatural_vampire_2:0 "Vampiro"
+trait_supernatural_vampire_3:0 "Vampiro reverenciado"
+trait_supernatural_vampire_4:0 "Vampiro anciano"
+trait_track_vampirism:0 "Vampirismo"
+trait_track_vampirism_desc:0 "Una sangre ancestral que concede poderes y dones sobrenaturales a quienes se alimentan de la sangre ajena."
+trait_track_blood_magic:0 "Magia de sangre"
+trait_track_blood_magic_desc:0 "En lo más profundo de la sangre de un vampiro inmortal yace un poder oculto, capaz de someter voluntades y perfeccionar las propias capacidades."
+
+trait_spn_vampire_1_progeny_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un vampiro.\nPosee juventud eterna, una fuerza y una velocidad inconmensurables, y es capaz de influir en la mente de los demás.\nTen cuidado.\n\n#high [pprogeny|E]: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_conferred_progeny').GetCharacter.GetName] #!"
+trait_spn_vampire_1_sire_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un vampiro.\nPosee juventud eterna, una fuerza y una velocidad inconmensurables, y es capaz de influir en la mente de los demás.\nTen cuidado.\n\n#high [mmaker|E]: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_conferred_sire').GetCharacter.GetName] #!"
+trait_spn_vampire_1_both_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un vampiro.\nPosee juventud eterna, una fuerza y una velocidad inconmensurables, y es capaz de influir en la mente de los demás.\nTen cuidado.\n\n#high [mmaker|E]: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_conferred_sire').GetCharacter.GetName] #!\n#high [pprogeny|E] reciente: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_conferred_progeny').GetCharacter.GetName] #!"
+
+trait_spn_true_vampire:0 "Vampiro verdadero"
+trait_spn_true_vampire_desc:0 "Es un vampiro poderoso con acceso a una amplia variedad de habilidades."
+
+# Known Vampire
+trait_spn_known_vampire:0 "Vampiro conocido"
+trait_spn_known_vampire_desc:0 "Es de dominio público que [ROOT.GetCharacter.GetFirstNameNoTooltip] es un vampiro."
+
+# Lycan Traits
+trait_supernatural_werewolf:0 "Hombre lobo"
+trait_supernatural_werewolf_desc:0 "Este personaje es un hombre lobo.\nSe trata de un rasgo genético que puede mejorarse."
+trait_supernatural_werewolf_character_desc:0 ""
+trait_track_lycanthropy:0 "Licantropía"
+trait_track_lycanthropy_desc:0 "Quien padece esta condición se transforma en lobo y devora animales, personas o cadáveres, aunque después recupera la forma humana."
+trait_track_wolf_pack:0 "Manada"
+trait_track_wolf_pack_desc:0 "Para los hombres lobo, la familia, la lealtad y los beneficios de poner la manada en primer lugar lo son todo."
+
+trait_spn_werewolf_3_confer_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un hombre lobo.\nSe trata de un rasgo genético que ya no puede mejorarse. Sus hijos pueden heredar versiones superiores de estos rasgos.\n\n#high [mmaker|E]: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_conferred_sire').GetCharacter.GetName] #!"
+trait_spn_werewolf_3_both_parents_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un hombre lobo.\nSe trata de un rasgo genético que ya no puede mejorarse. Sus hijos pueden heredar versiones superiores de estos rasgos.\n\n#high Madre: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_mother_sire').GetCharacter.GetName] #!\n#high Padre: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_father_sire').GetCharacter.GetName] #!"
+trait_spn_werewolf_3_mother_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un hombre lobo.\nSe trata de un rasgo genético que ya no puede mejorarse. Sus hijos pueden heredar versiones superiores de estos rasgos.\n\n#high Madre: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_mother_sire').GetCharacter.GetName] #!"
+trait_spn_werewolf_3_father_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un hombre lobo.\nSe trata de un rasgo genético que ya no puede mejorarse. Sus hijos pueden heredar versiones superiores de estos rasgos.\n\n#high Padre: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_father_sire').GetCharacter.GetName] #!"
+
+trait_spn_true_werewolf:0 "Hombre lobo verdadero"
+trait_spn_true_werewolf_desc:0 "Es un hombre lobo poderoso, dotado de una fuerza extraordinaria."
+
+# Known Lycan
+trait_spn_known_werewolf:0 "Hombre lobo conocido"
+trait_spn_known_werewolf_desc:0 "Es de dominio público que [ROOT.GetCharacter.GetFirstNameNoTooltip] es un hombre lobo."
+
+# Hybrid Traits
+trait_supernatural_hybrid:0 "Híbrido"
+trait_supernatural_hybrid_desc:0 "Este personaje es un híbrido.\nEs una condición que muchos consideran incurable.\nNo se sabe nada sobre su capacidad reproductiva."
+trait_supernatural_hybrid_character_desc:0 ""
+trait_track_hybrid_vampirism:0 "Vampirismo"
+trait_track_hybrid_vampirism_desc:0 "Una sangre ancestral que concede poderes y dones sobrenaturales a quienes se alimentan de la sangre ajena."
+trait_track_hybrid_lycanthropy:0 "Licantropía"
+trait_track_hybrid_lycanthropy_desc:0 "Quien padece esta condición se transforma en lobo y devora animales, personas o cadáveres, aunque después recupera la forma humana."
+
+trait_spn_hybrid_1_sire_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un híbrido.\nEs una condición que muchos consideran incurable.\nNo se sabe nada sobre su capacidad reproductiva.\n#high [mmaker|E]: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_conferred_sire').GetCharacter.GetName] #!"
+trait_spn_hybrid_1_progeny_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un híbrido.\nEs una condición que muchos consideran incurable.\nNo se sabe nada sobre su capacidad reproductiva.\n\n#high [pprogeny|E] reciente: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_conferred_progeny').GetCharacter.GetName] #!"
+trait_spn_hybrid_1_both_parents_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un híbrido.\nEs una condición que muchos consideran incurable.\nNo se sabe nada sobre su capacidad reproductiva.\n\n#high Madre: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_mother_sire').GetCharacter.GetName] #!\n#high Padre: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_father_sire').GetCharacter.GetName] #!"
+trait_spn_hybrid_1_mother_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un híbrido.\nEs una condición que muchos consideran incurable.\nNo se sabe nada sobre su capacidad reproductiva.\n\n#high Madre: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_mother_sire').GetCharacter.GetName] #!"
+trait_spn_hybrid_1_father_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un híbrido.\nEs una condición que muchos consideran incurable.\nNo se sabe nada sobre su capacidad reproductiva.\n\n#high Padre: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_father_sire').GetCharacter.GetName] #!"
+
+# Known Hybrid
+trait_spn_known_hybrid:0 "Híbrido conocido"
+trait_spn_known_hybrid_desc:0 "Es de dominio público que [ROOT.GetCharacter.GetFirstNameNoTooltip] es un híbrido."
+
+# Hunter Trait
+trait_supernatural_hunter:0 "Cazador"
+trait_supernatural_hunter_desc:0 "Este personaje es un cazador de monstruos."
+trait_track_monster_hunting:0 "Caza de monstruos"
+trait_track_monster_hunting_desc:0 "Solo los más diestros pueden abatir a las criaturas de la noche y llevar la ruina a los suyos."
+trait_track_witch_hunting:0 "Caza de brujas"
+trait_track_witch_hunting_desc:0 "Dominio de las artes arcanas y de la caza de quienes las emplean para el mal."
+
+trait_spn_hunter_3_confer_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un cazador de monstruos.\n\n#high Entrenado por: #! #P [ROOT.GetCharacter.MakeScope.Var('spn_hunter_trainer').GetCharacter.GetName] #!"
+
+# Known Hunter Trait
+trait_spn_known_hunter:0 "Cazador conocido"
+trait_spn_known_hunter_desc:0 "Es de dominio público que [ROOT.GetCharacter.GetFirstNameNoTooltip] es un cazador de monstruos."
+
+# Supernatural Trait
+trait_spn_supernatural:0 "Sobrenatural"
+
+
+### added by sync_localizations.py -- untranslated, 16 keys
+ supernatural_werewolf:0 "Werewolf"
+ trait_supernatural_werewolf_1:0 "Fledgling Werewolf"
+ trait_supernatural_werewolf_2:0 "Werewolf"
+ trait_supernatural_werewolf_3:0 "Feral Werewolf"
+ trait_supernatural_werewolf_4:0 "Dread Werewolf"
+ trait_supernatural_werewolf_5:0 "Primal Werewolf"
+ trait_ww_infected_wound:0 "Infected Wound"
+ trait_ww_infected_wound_desc:0 "A festering wound left by a werewolf's claws. The body wages a long, brutal war against the change - over one to three years it either takes hold and they turn, or it overwhelms them."
+ trait_ww_infected_wound_character_desc:0 ""
+ trait_ww_infected_wound_1:0 "Infected Wound"
+ trait_ww_infected_wound_2:0 "Festering Wound"
+ trait_ww_infected_wound_3:0 "Virulent Wound"
+ trait_ww_infected_wound_4:0 "Ravaging Wound"
+ trait_ww_infected_wound_5:0 "Consuming Wound"
+ trait_track_infection:0 "Infection"
+ trait_track_infection_desc:0 "How far the beast's taint has spread through the wound. The higher it climbs, the slimmer the odds of surviving the change."
+
+
+### added by sync_localizations.py -- untranslated, 2 keys
+ trait_spn_true_monster_hunter:0 "True Monster Hunter"
+ trait_spn_true_monster_hunter_desc:0 "This is a Hunter who has faced every kind of monster there is, and walked away from all of them."
