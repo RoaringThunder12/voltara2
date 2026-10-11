@@ -1,0 +1,6 @@
+﻿voltara_heirloom_template = {
+    can_equip = { always = yes }
+    can_benefit = { }
+    fallback = { }
+    unique = yes
+}

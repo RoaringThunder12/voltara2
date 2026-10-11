@@ -1,4 +1,4 @@
-﻿object={ name="voltara_pine_forest" render_pass=Map clamp_to_water_level=no generated_content=yes layer="tree_high_layer" pdxmesh="tree_pine_single_01_a_mesh" count=12850 transform="533.307 0.000 2529.378 0 0.977509 0 0.210893 0.932 0.932 0.932
+﻿object={ name="voltara_pine_forest" render_pass=Map clamp_to_water_level=no generated_content=yes layer="tree_high_layer" pdxmesh="tree_pine_single_01_a_mesh" count = 12850 transform = "533.307 0.000 2529.378 0 0.977509 0 0.210893 0.932 0.932 0.932
 536.648 0.000 2528.629 0 0.044227 0 0.999021 0.919 0.919 0.919
 539.087 0.000 2527.345 0 0.834987 0 0.550270 0.866 0.866 0.866
 541.054 0.000 2527.126 0 0.530565 0 0.847644 1.097 1.097 1.097

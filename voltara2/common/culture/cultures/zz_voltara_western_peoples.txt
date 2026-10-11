@@ -6,7 +6,7 @@
  martial_custom = martial_custom_male_only
  head_determination = head_determination_domain
  traditions = { tradition_forest_folk }
- name_list = name_list_roman
+ name_list = name_list_voltara_gorilla
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
  clothing_gfx = { western_clothing_gfx }
@@ -21,7 +21,7 @@ voltara_western_goblins = {
  martial_custom = martial_custom_male_only
  head_determination = head_determination_domain
  traditions = { tradition_formation_fighting }
- name_list = name_list_roman
+ name_list = name_list_voltara_western_goblins
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }
  clothing_gfx = { western_clothing_gfx }
