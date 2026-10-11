@@ -1,0 +1,11 @@
+﻿l_english:
+ voltara_demon:0 "Demon"
+ voltara_demon_collective_noun:0 "Demons"
+ voltara_demon_prefix:0 "Demonic"
+ heritage_voltara_demon_name:0 "Demonic"
+ heritage_voltara_demon_collective_noun:0 "Demons"
+ language_voltara_demon_name:0 "Abyssal"
+ name_list_voltara_demon:0 "Demonic"
+ trait_vt_ek_undead_character_desc:0 "Bound to the Weave after death, this character's body decays unless preserved through Threadbinding."
+ trait_vt_ek_undead_character_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] walks Voltara after death, sustained by a binding upon the Weave."
+ MAGICKA_CURRENT:0 "Thread Reserve: [Character.MakeScope.Var('magicka').GetValue|0]/[Character.MakeScope.ScriptValue('magicka_max')|0]"

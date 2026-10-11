@@ -1,0 +1,4 @@
+﻿l_english:
+ # Supernatural 2.38a: the mod names vanilla's first interaction menu (moved here from 10_spn_character_interactions_l_english.yml,
+ # because vanilla defines the same key and a replace file is the way to change it without a duplicate).
+ interaction_category_favorites:0 "Supernatural"

@@ -1,0 +1,4 @@
+﻿l_french:
+ # Supernatural 2.38i: the mod names vanilla's first interaction menu; vanilla defines the same key, so it lives in
+ # a replace file (as English since 2.38a).
+ interaction_category_favorites:0 "Supernatural"

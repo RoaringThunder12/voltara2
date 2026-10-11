@@ -1,0 +1,151 @@
+﻿l_spanish:
+
+#Vampire Blood Event Localization
+spn_vampire_events.0102.t:0 "La sangre"
+spn_vampire_events.0102.desc:0 "Tus sentidos se han agudizado. El mundo parece más claro, más nítido, más vivo. Cada bocanada de aire llega cargada de aromas; cada sonido se distingue con una precisión cristalina. Debe de ser el rastro de la sangre vampírica que aún corre por tus venas.\n\nUna extraña ansia se remueve en tu interior, aunque todavía no sabes qué significa."
+spn_vampire_events.0102.a:0 "Disfrutar de esta nueva claridad."
+spn_vampire_events.0102.a.tt:0 "Aceptas los sentidos aumentados que te ha otorgado la sangre vampírica."
+spn_vampire_events.0102.b:0 "Esto no está bien. Debo resistirme."
+spn_vampire_events.0102.b.tt:0 "Te resistes a ese influjo antinatural e intentas ignorar sus efectos."
+spn_vampire_events.0102.c:0 "Esto no es una simple sensación. Debo averiguar más."
+spn_vampire_events.0102.c.tt:0 "Buscarás información sobre el vampirismo."
+
+spn_vampire_events.0103.t:0 "La sangre: segunda parte"
+spn_vampire_events.0103.desc:0 "Tu investigación te ha llevado a conclusiones intrigantes, aunque ninguna es definitiva. Si quieres continuar, tendrás que decidir hasta dónde estás dispuesto a llegar."
+spn_vampire_events.0103.a:0 "He descubierto el secreto. Ha llegado el momento."
+spn_vampire_events.0103.a.tt:0 "Tus conocimientos te garantizan una transformación segura."
+spn_vampire_events.0103.b:0 "Creo que sé cómo hacerlo... creo."
+spn_vampire_events.0103.b.tt:0 "Un experimento arriesgado. ¿Te concederá poder o te costará la vida?"
+spn_vampire_events.0103.c:0 "No he aprendido nada útil."
+spn_vampire_events.0103.c.tt:0 "Tu investigación no ha llegado a ninguna parte, así que abandonas tus esfuerzos."
+
+
+#Hunter Event Localization 
+spn_hunters.0001.t:0 "Cazador: avistamiento de una bruja"
+spn_hunters.0001.desc:0 "Varios lugareños se acercan a ti en el mercado local que estás inspeccionando.\n\n«Vimos a una bruja el otro día. Era el ocaso y volvíamos de la taberna. Llevaba un montón de ingredientes, seguro que para maldecir a los vecinos. Intentamos atraparla para traerla ante vos, pero debió de usar su magia para confundirnos... ¡y escapó!»\n\nMientras investigas, varias personas aseguran haber visto un cometa desplazándose hacia atrás. Eso suena a mal presagio."
+spn_hunters.0001.a:0 "¡Parece el comienzo de una caza de brujas!"
+spn_hunters.0001.b:0 "Suena demasiado peligroso. Buscad a alguien más preparado."
+spn_hunters.0001.c:0 "Eso suena al típico disparate de una cuadrilla de borrachos."
+spn_hunters.0001.d:0 "Encontraré a vuestra bruja, pero espero cobrar por ello."
+spn_hunters.0001.e:0 "Habéis dado con la persona indicada. Dejad actuar al profesional."
+spn_hunters.0001.c.tt:0 "Despachas al grupo de lugareños; es normal que la gente imagine cosas cuando no tiene nada mejor que hacer."
+spn_hunters.0001.d.tt:0 "Recibes la mitad ahora gracias a tu reputación como cazador, y el resto cuando atrapes a la bruja."
+ 
+
+spn_hunters.0002.desc:0 "Tras días rastreando por un bosque espeso, tu grupo descubre lo que parece un sendero estrecho, abierto por manos humanas, que serpentea hacia las sombras.\n\nAlguien murmura que el aire se siente extraño, como si crepitara con una energía invisible. Otro lo descarta enseguida diciendo que seguramente sea Andrés, que necesita otro baño.\n\nLa conversación degenera en una discusión sin importancia y, antes de que puedas poner orden, varios miembros del grupo empiezan a dispersarse en distintas direcciones, tropezando con raíces y hojas secas... quizá borrando el rastro correcto sin darse cuenta siquiera."
+spn_hunters.0002.a:0 "Intentar seguir sus huellas."
+spn_hunters.0002.aa.t:0 "Tu grupo encuentra a la bruja"
+spn_hunters.0002.ab.t:0 "Tu grupo pierde el rastro de la bruja"
+spn_hunters.0002.ac.t:0 "La bruja encuentra primero a tu grupo"
+spn_hunters.0002.b:0 "Intentar seguir el rastro de la magia."
+spn_hunters.0002.b.tt:0 "En efecto, hay restos de magia en el aire."
+spn_hunters.0002.c:0 "Puede que esto no fuera tan buena idea..."
+spn_hunters.0002.c.tt:0 "Abandonas la búsqueda de la bruja y das media vuelta."
+ 
+spn_hunters.00021.t:0 "Cazador: rastro perdido"
+spn_hunters.00021.a:0 "Esperemos que alguien más la encuentre..."
+spn_hunters.00021.desc:0 "Tras días de búsqueda infructuosa, el grupo admite la derrota. Recogéis los bártulos y la exhausta partida emprende el camino de regreso al pueblo. Al menos a Andrés le han dicho —con bastante franqueza— que ya va siendo hora de darse un baño.\n\nAun así, al dejar atrás el bosque, una duda persistente se queda contigo. ¿Había magia de verdad en el aire, o solo fue imaginación desbocada? Solo cabe esperar que otra persona tenga más suerte retomando el rastro donde lo dejasteis."
+
+ 
+spn_hunters.0003.desc:0 "Ante vosotros se alza lo que parece una cabaña en lo más profundo del bosque. Fuera, una mujer ya está atada a un montón de leña seca.\n\nTiene un aspecto inquietantemente familiar; sus rasgos evocan los relatos sobre «Baba Yaga». Pero algo en tu interior te susurra que no es la bruja infame... ¿o sí? «Soy inocente», suplica. Asegura que José el leñador lleva mucho tiempo intentando echarla de estos bosques para ampliar sus terrenos de tala.\n\nJosé insiste en que la vio maldecir a su hermano, dejándolo postrado en cama con una dolencia invisible. Su voz vacila, como si ni siquiera él estuviera del todo seguro. Sin embargo, los murmullos de tus compañeros crecen: dicen que solo una bruja podría causar semejante desgracia a un hombre."
+ 
+spn_hunters.0003.a:0 "¡Quemad a la bruja! No podemos correr riesgos."
+spn_hunters.0003.a.tt:0 "[witch.GetName] será ejecutada por sus crímenes."
+spn_hunters.0003.b:0 "¿Estáis todos locos? Miradla... ¡esos «ingredientes» eran para un guiso!"
+spn_hunters.0003.b.tt:0 "[witch.GetName] podrá marcharse en libertad."
+spn_hunters.0003.c:0 "¡Desatadla! Sé cómo hacerla hablar..."
+spn_hunters.0003.c.tt:0 "Les convences de dejar en paz a [witch.GetName] si comparte los secretos de la brujería."
+ 
+
+ 
+spn_hunters.0010.t:0 "Cazador: avistamiento de un monstruo"
+spn_hunters.0010.desc:0 "La taberna bulle con el ruido de siempre: jarras que chocan, estallidos de risa y el murmullo grave de las conversaciones. Mientras das un sorbo a tu bebida, la voz de un parroquiano cercano se eleva lo justo para llamar tu atención.\n\n«Lo juro», murmura en tono conspiratorio. «Tenía un aspecto... raro, como si no hubiera visto el sol en su vida. Y luego estaba aquel sonido... como un gruñido, o quizá solo un carraspeo. No lo sé. Pero se me puso la piel de gallina.»\n\nEl parroquiano se inclina hacia sus compañeros y baja aún más la voz: «Está arriba, en la última habitación del pasillo.»\n\nTu curiosidad se despierta. Tal vez no sea más que chismorreo de taberna alimentado por la cerveza... pero ¿y si no lo es?"
+spn_hunters.0010.a:0 "Coges tu bebida e intentas sentarte con ellos."
+spn_hunters.0010.a.tt:0 "Será mejor escuchar algo más antes de sacar conclusiones."
+spn_hunters.0010.b:0 "Pagas la cuenta del parroquiano antes de intentar unirte a su mesa."
+spn_hunters.0010.b.tt:0 "Invitarles a beber hará más fácil unirte a la conversación sin levantar sospechas."
+spn_hunters.0010.c:0 "Te acercas con el porte de un cazador curtido."
+spn_hunters.0010.c.tt:0 "El parroquiano parece unir tu aspecto con tu reputación, y no pone objeciones cuando tomas asiento."
+spn_hunters.0010.d:0 "Dejas unas monedas en la barra y te diriges a la puerta."
+spn_hunters.0010.d.tt:0 "Quizá sea mejor no meterse en rumores."
+
+spn_hunters.0011.desc:0 "Te sientas a la mesa del parroquiano con la bebida en la mano, intentando pasar desapercibido entre el bullicio de la taberna. El parroquiano apenas te presta atención, perdido en una retahíla de divagaciones sobre sus viajes, sueños extraños y ganado maldito.\n\nJusto cuando empiezas a pensar que la conversación es una pérdida de tiempo, vuelve al asunto que antes te llamó la atención: los monstruos. Baja la voz y describe a la figura que dice haber visto.\n\nCuesta dar sentido a sus palabras entre la niebla del alcohol y, cuanto más habla, menos seguro estás. ¿Hay algo de verdad en lo que dice, o es solo el resultado de demasiadas jarras?"
+spn_hunters.0011.a:0 "Suena sospechosamente a vampiro."
+spn_hunters.0011.a.tt:0 "La piel pálida, esa presencia extraña... todo encaja."
+spn_hunters.0011.b:0 "Podría ser un hombre lobo ocultándose."
+spn_hunters.0011.b.tt:0 "El comportamiento extraño y los sonidos guturales apuntan a algo salvaje."
+spn_hunters.0011.c:0 "Esto es una pérdida de tiempo."
+spn_hunters.0011.c.tt:0 "Terminas tu bebida y dejas al parroquiano con sus divagaciones."
+ # Hunter events from spn_hunters_events.txt
+spn_hunters.0012.desc:0 "Te acercas y el parroquiano te saluda con una inclinación de cabeza; una leve sonrisa aparece en su rostro al darte la bienvenida. Sea lo que sea, parece más que dispuesto a compartir su historia.\n\n«No os lo creeríais», dice inclinándose hacia ti como si fuera a revelar un oscuro secreto. «El tipo de arriba... no estaba bien. Tenía una presencia... inquietante. ¡Juro que vi cómo sus ojos brillaban como ascuas cuando el tabernero le dijo que no quedaban habitaciones!» Suelta una risa nerviosa, pero notas que no está bromeando.\n\nSea cual sea la verdad, la historia desde luego ha captado tu atención."
+spn_hunters.0012.a:0 "A mí me suena a vampiro."
+spn_hunters.0012.a.tt:0 "Una criatura de la noche... podría ser justo lo que estás buscando."
+spn_hunters.0012.b:0 "Podría ser un hombre lobo."
+spn_hunters.0012.b.tt:0 "Lo de los ojos y el comportamiento extraño encaja perfectamente."
+spn_hunters.0012.c:0 "Sé lo que están describiendo: es un hombre lobo."
+spn_hunters.0012.c.tt:0 "Tu experiencia como cazador no te deja ninguna duda."
+spn_hunters.0012.d:0 "Creo que ya he oído suficiente. Aunque me llevaré ese monedero."
+spn_hunters.0012.d.tt:0 "Mientras todos están distraídos, birlas el monedero discretamente y te marchas."
+ 
+spn_hunters.0013.desc:0 "Subes las escaleras hacia la planta superior con los nervios a flor de piel. El ruido de la animada taberna de abajo dificulta oír gran cosa, pero te dices que probablemente sea lo mejor.\n\nLa estaca de madera pesa más en tu mano de lo que esperabas, pero afianzas el agarre y sigues adelante. Cuando la puerta se abre con un chirrido, examinas la figura que tienes delante. Algo no encaja. Esperabas colmillos afilados, algo claramente vampírico, pero no hay nada de eso. Sus dientes, sin embargo, son demasiado irregulares para ignorarlos.\n\nRepasas la conversación en tu cabeza: ¿habían hablado de un gruñido gutural... o solo de un carraspeo? Los pensamientos se arremolinan mientras la verdad se abre paso poco a poco: esto no es un vampiro."
+spn_hunters.0013.a:0 "Has llegado demasiado lejos para echarte atrás. ¡Enfréntate al monstruo!"
+spn_hunters.0013.a.tt:0 "Te comprometes con el ataque, salga bien o mal. Ya no hay vuelta atrás."
+spn_hunters.0013.b:0 "Quizá esta sea tu oportunidad de convertirte en algo más: uno de ellos."
+spn_hunters.0013.b.tt:0 "Por la forma en que ha comenzado el encuentro, tus probabilidades de éxito son menores."
+spn_hunters.0013.c:0 "Cierras la puerta de golpe y echas a correr, ignorando las risas a tu espalda."
+spn_hunters.0013.c.tt:0 "Huyes de la situación, salvando el pellejo pero perdiendo el monedero."
+ 
+spn_hunters.0013.aa.t:0 "¡Consigues abatir al monstruo!"
+spn_hunters.0013.ab.t:0 "¡El monstruo consigue escapar!"
+spn_hunters.0013.ac.t:0 "¡El monstruo te infecta y escapa!"
+spn_hunters.0013.ad.t:0 "El monstruo te mata."
+spn_hunters.0013.e.tt:0 "Se ríen de ti y te dejan marchar ileso."
+ 
+ 
+spn_hunters.0014.desc:0 "Subes las escaleras con la espada desenvainada, midiendo cada paso mientras el bullicio de la taberna queda atrás. Al empujar la puerta, encuentras a la criatura esperándote dentro: una figura de músculos tensos y fuerza antinatural. Sus ojos afilados se abren de sorpresa y, por un instante, parece desprevenida ante tu presencia.\n\nSabes que vacilar puede costarte la vida; tu mejor oportunidad de sobrevivir es atacar deprisa. Pero el poder que irradia la criatura te hace dudar... quizá exista otra salida. El tiempo parece ralentizarse mientras sopesas tus opciones y notas cómo cambia la tensión en el aire. Elijas lo que elijas, la criatura no tardará en reaccionar."
+spn_hunters.0014.a:0 "¡Ataca mientras la criatura está aturdida!"
+spn_hunters.0014.a.tt:0 "Golpeas con rapidez, intentando imponerte a la bestia antes de que pueda recuperarse."
+spn_hunters.0014.b:0 "Baja el arma y pídele a la criatura que te convierta en uno de los suyos."
+spn_hunters.0014.b.tt:0 "Bajas el arma con la esperanza de que la criatura te conceda su fuerza y poder."
+spn_hunters.0014.c:0 "Te disculpas por entrar en la habitación equivocada y te vas."
+spn_hunters.0014.c.tt:0 "Te retiras de la situación, salvando el pellejo pero dejando atrás tu dignidad."
+
+spn_hunters.0014.aa.t:0 "¡Consigues abatir al monstruo!"
+spn_hunters.0014.ab.t:0 "¡El monstruo consigue escapar!"
+spn_hunters.0014.ac.t:0 "¡El monstruo te infecta y escapa!"
+spn_hunters.0014.ad.t:0 "El monstruo te mata."
+spn_hunters.0014.e.tt:0 "Se ríen de ti y te dejan marchar ileso."
+ 
+ # Hunter events from training in 10_spn_train_hunter.txt
+spn_train_hunter.0001.t:0 "Cazador: elegir una especialización"
+spn_train_hunter.0003.t:0 "Cazador: elegir una especialización"
+spn_train_hunter.0001.desc:0 "En un claro apartado, rodeado por los susurros de la naturaleza, tu instructor comparte contigo su sabiduría y su experiencia, dispuesto a guiarte por la senda del cazador. Este refugio tranquilo, cedido generosamente por un terrateniente agradecido después de que tu instructor acabara con una amenaza que acechaba en la zona, es el lugar perfecto para iniciar tu transformación.\n\nLa luz del sol se filtra entre los árboles y dibuja sombras moteadas en el suelo mientras contemplas tu futuro. Con un deseo ferviente de librar al mundo del mal, te sientes preparado para enfrentarte a la oscuridad, aprender las artes del cazador y descubrir tu verdadera fuerza.\n\nSabes que este camino será arduo y estará lleno de decisiones que moldearán tu destino."
+ 
+spn_train_hunter.0001.a:0 "Quiero recibir entrenamiento tradicional contra monstruos."
+spn_train_hunter.0001.a.tt:0 "Tu instructor te enseñará todo lo que sabe sobre la caza de monstruos."
+spn_train_hunter.0001.b:0 "Quiero recibir entrenamiento tradicional contra brujas."
+spn_train_hunter.0001.b.tt:0 "Tu instructor te enseñará todo lo que sabe sobre la caza de brujas."
+spn_train_hunter.0001.c:0 "Pensándolo mejor..."
+spn_train_hunter.0001.c.tt:0 "Reconsideras tu decisión de seguir la vida de cazador."
+ 
+spn_train_hunter.0002.t:0 "Cazador: entrenamiento completado"
+spn_train_hunter.0004.t:0 "Cazador: entrenamiento completado"
+spn_train_hunter.0002.desc:0 "Tras meses de entrenamiento riguroso bajo la tutela de tu instructor, te encuentras ante una encrucijada. Las lecciones aprendidas en este claro apartado te han preparado para los desafíos que te esperan, pero el camino está lleno de peligros.\n\nSientes el peso de tu decisión mientras piensas en tus próximos pasos. ¿Aceptarás tus nuevas habilidades y te convertirás en cazador, o darás la espalda a esta vida sabiendo que solo puede acabar de una manera?"
+ 
+spn_train_hunter.0002.a:0 "Estoy preparado para ser cazador en este mundo."
+spn_train_hunter.0002.a.tt:0 "Das un paso al frente, listo para enfrentarte a la oscuridad con tu entrenamiento a la espalda."
+spn_train_hunter.0002.b:0 "No estoy hecho para salvar gente y cazar cosas."
+spn_train_hunter.0002.b.tt:0 "Comprendes que esta vida quizá no sea para ti y decides abandonar el camino del cazador."
+ 
+ # Hunter event for the trainer (more of a notification)
+spn_train_hunter.0005.t:0 "Cazador: entrenar a un cazador"
+spn_train_hunter.0005.desc:0 "En un claro apartado, rodeado por los susurros de la naturaleza, estás ante un aprendiz incipiente, ansioso por abrazar la vida de cazador. Este lugar, un refugio tranquilo cedido por un terrateniente agradecido después de que tú acabaras con una amenaza que acechaba en la zona, es el escenario perfecto para su transformación.\n\nMientras el sol se filtra entre los árboles y dibuja sombras moteadas en el suelo, tu aprendiz expresa un deseo ferviente de librar al mundo del mal. Está preparado para enfrentarse a la oscuridad, aprender las artes del cazador y descubrir su verdadera fuerza.\n\nEsperas ser el instructor adecuado para guiarlo por este camino arduo, en el que elegirá su rumbo, afrontará desafíos formidables y, al final, se encontrará con su destino."
+ 
+spn_train_hunter.0005.a:0 "Haré todo lo posible por entrenar a mi aprendiz."
+spn_train_hunter.0005.a.tt:0 "Tu aprendiz iniciará su propia cadena de misiones de varios meses, durante la cual podrá elegir una especialización, completar el entrenamiento, morir o abandonar por completo."
+spn_train_hunter.0005.b.tt:0 "Ganarás un punto de ventaja en el estilo de vida de cazador."
+ 
+
+
+### added by sync_localizations.py -- untranslated, 1 keys
+ spn_hunters.0013.b.bite.tt:0 "They oblige you. The wound will decide the rest — in a year, or three."
