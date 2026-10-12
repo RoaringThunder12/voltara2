@@ -1,0 +1,4 @@
+﻿voltara_racial_grooming = { usage = game priority = 1 selection_behavior = max
+elven = { dna_modifiers = { accessory = { mode = replace gene = beards template = no_beard range = { 0 1 } } } weight = { base = 0 modifier = { add = 100 exists = this is_male = yes age >= 18 culture = culture:voltara_culture_18 } } }
+stoneborn = { dna_modifiers = { accessory = { mode = replace gene = beards template = voltara_stoneborn_beards range = { 0 1 } } } weight = { base = 0 modifier = { add = 100 exists = this is_male = yes age >= 18 culture = culture:voltara_culture_23 } } }
+}

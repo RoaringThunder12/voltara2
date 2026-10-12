@@ -1,0 +1,14 @@
+﻿male_skeleton_body = {
+	entity = { required_tags = "" shared_pose_entity = torso  entity = male_skeleton_body_entity		 }
+}
+male_skeleton_head = {
+	entity = { required_tags = "khajiit_features" shared_pose_entity = head  entity = male_skeleton_head_khajiit_entity		 }
+	entity = { required_tags = "" shared_pose_entity = head  entity = male_skeleton_head_entity		 }
+}
+female_skeleton_body = {
+	entity = { required_tags = "" shared_pose_entity = torso  entity = female_skeleton_body_entity		 }
+}
+female_skeleton_head = {
+	entity = { required_tags = "khajiit_features" shared_pose_entity = head  entity = female_skeleton_head_khajiit_entity		 }
+	entity = { required_tags = "" shared_pose_entity = head  entity = female_skeleton_head_entity		 }
+}

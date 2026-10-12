@@ -1,0 +1,8 @@
+﻿voltara_species_grooming = { usage = game priority = 150
+ hairless = { dna_modifiers = {
+ accessory = { mode = add gene = hairstyles template = no_hairstyles value = 0.5 }
+ accessory = { mode = add gene = beards template = no_beard value = 0.5 }
+ } weight = { base = 0 modifier = { add = 1000 OR = { culture = culture:voltara_culture_39 culture = culture:voltara_gorilla } } } }
+ red_eyes = { dna_modifiers = { morph = { mode = add gene = vt_demon_eye_pupil template = dremora_pupils value = 1.0 } }
+ weight = { base = 0 modifier = { add = 1000 OR = { culture = culture:voltara_demon culture = culture:voltara_culture_42 } } } }
+}

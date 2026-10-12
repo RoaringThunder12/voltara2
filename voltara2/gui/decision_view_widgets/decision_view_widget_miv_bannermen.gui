@@ -1,0 +1,403 @@
+﻿types MivBannermenTypes
+{
+	type miv_value_breakdown_list = widget {
+		name = "values_grid"
+		size = { 50 50 }
+		alwaystransparent = no
+
+		block "background" {
+			background = {
+				using = Background_Area_Border_Solid
+			}
+		}
+
+		vbox = {
+			set_parent_size_to_minimum = yes
+			margin = { 20 10 }
+
+
+			vbox = {
+				datamodel = "[ValueBreakdown.GetSubValues]"
+				alwaystransparent = no
+				spacing = 5
+
+				block "list" {}
+
+				block "header" {}
+
+				item = {
+					hbox = {
+						name = "value_breakdown"
+						layoutpolicy_horizontal = expanding
+
+						text_single = {
+							name = "name"
+							layoutpolicy_horizontal = expanding
+							text = "[ValueBreakdown.GetName]"
+							min_width = 180
+							max_width = 400
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+							margin_right = 10
+						}
+
+						text_single= {
+							visible = "[And(ValueBreakdown.HasTooltip, ValueBreakdown.ShouldShowValue)]"
+							name = "value_with_tooltip"
+							text = "[ValueBreakdown.GetFixedPointValue|+0=]"
+							align = right
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+
+							using = tooltip_below
+
+							tooltipwidget = {
+								recursive = yes
+
+								widget_value_breakdown_tooltip = {}
+							}
+						}
+
+						text_single = {
+							layoutpolicy_horizontal = expanding
+
+							visible = "[And( Not(ValueBreakdown.HasTooltip), ValueBreakdown.ShouldShowValue )]"
+							name = "value_with_no_tooltip"
+							text = "[ValueBreakdown.GetFixedPointValue|+0=]"
+							align = right
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+				}
+			}
+
+			textbox = {
+				name = "input_info"
+				layoutpolicy_horizontal = expanding
+				margin_top = 4
+				margin_bottom = 8
+				using = DefaultTooltipText
+				multiline = yes
+				block "input_info_text" {
+					visible = no
+				}
+				fonttintcolor = "[TooltipInfo.GetTintColor]"
+			}
+		}
+	}
+
+	type miv_muster_group = vbox {
+		layoutpolicy_horizontal = expanding
+		spacing = 0
+
+		text_multi = {
+			layoutpolicy_horizontal = expanding
+			margin_left = 15
+			margin_right = 15
+			margin_top = 18
+			max_width = 515
+			autoresize = yes
+			alwaystransparent = no
+			using = Font_Size_Medium
+
+			block "header_top" {
+				text = "MIV_HDR_PROMPT_TOP"
+			}
+		}
+
+		text_multi = {
+			layoutpolicy_horizontal = expanding
+			margin_left = 15
+			margin_right = 15
+			margin_bottom = 6
+			max_width = 515
+			autoresize = yes
+
+			block "header_sub" {
+				text = "MIV_HDR_PROMPT_SUB"
+			}
+		}
+
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			spacing = 0
+
+			block "list" {
+				datamodel = "[GetPlayer.MakeScope.GetList('miv_widget_prompt')]"
+			}
+
+			item = {
+				text_multi = {
+					datacontext = "[Scope.GetCharacter]"
+					layoutpolicy_horizontal = expanding
+					margin_left = 15
+					margin_right = 15
+					margin_bottom = 4
+					max_width = 515
+					autoresize = yes
+					alwaystransparent = no
+
+					block "rung" {
+						text = "MIV_ROW_PROMPT"
+					}
+
+					using = tooltip_ne
+					tooltipwidget = {
+						miv_value_breakdown_list = {
+							datacontext = "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'liege', GetPlayer.MakeScope ).AddScope( 'vassal', Character.MakeScope ).GetScriptValueBreakdown( 'interactive_bannermen_muster_score' )]"
+
+							blockoverride "background" {
+								using = DefaultTooltipBackground
+							}
+
+							blockoverride "list" {
+								margin_bottom = 17
+							}
+
+							blockoverride "header" {
+								hbox = {
+									layoutpolicy_horizontal = expanding
+									margin_bottom = 5
+
+									text_single = {
+										layoutpolicy_horizontal = expanding
+										alwaystransparent = no
+										block "breakdown_header" {
+											text = "MIV_RUNG_PROMPT"
+										}
+										min_width = 180
+										max_width = 400
+										margin_right = 10
+										default_format = "#T"
+									}
+
+									text_single = {
+										layoutpolicy_horizontal = expanding
+										text = "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'liege', GetPlayer.MakeScope ).AddScope( 'vassal', Character.MakeScope ).ScriptValue( 'interactive_bannermen_muster_score' )|+0=]"
+										align = right
+										default_format = "#T"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+widget = {
+	name = "decision_view_widget_miv_bannermen"
+	widgetid = "miv_gui_banners_widget"
+	layoutpolicy_horizontal = expanding
+	layoutpolicy_vertical = expanding
+	minimumsize = { 550 500 }
+
+	state = {
+		name = init
+		trigger_on_create = yes
+		on_finish = "[GetScriptedGui('miv_bannermen_widget_init').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+	}
+
+	vbox = {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+
+		text_multi = {
+			name = "description"
+			minimumsize = { 515 -1 }
+			maximumsize = { 515 -1 }
+			margin = { 15 15 }
+			autoresize = yes
+			text = "interactive_bannermen_mode_decision_desc"
+		}
+
+		scrollbox = {
+			name = "description_scrollarea"
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			blockoverride "scrollbox_content"
+			{
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					spacing = 0
+
+					text_label_center = {
+						text = "DECISION_DETAIL_EFFECTS"
+					}
+					text_multi = {
+						layoutpolicy_horizontal = expanding
+						margin = { 15 0 }
+						margin_top = 10
+						max_width = 515
+						autoresize = yes
+						text = "MIV_HEADLINE"
+					}
+					vbox = {
+						name = "bannermen"
+						layoutpolicy_horizontal = expanding
+						spacing = 0
+
+						miv_muster_group = {
+							blockoverride "list" {
+								datamodel = "[GetPlayer.MakeScope.GetList('miv_widget_serving')]"
+							}
+							blockoverride "header_top" {
+								text = "MIV_HDR_SERVING_TOP"
+								tooltip = "MIV_HDR_SERVING_SUB"
+							}
+							blockoverride "header_sub" {
+								text = "MIV_HDR_SERVING_SUB"
+							}
+							blockoverride "rung" {
+								text = "MIV_ROW_SERVING"
+							}
+							blockoverride "breakdown_header" {
+								text = "MIV_RUNG_SERVING"
+								tooltip = "MIV_HDR_SERVING_SUB"
+							}
+						}
+						miv_muster_group = {
+							blockoverride "list" {
+								datamodel = "[GetPlayer.MakeScope.GetList('miv_widget_rebellion')]"
+							}
+							blockoverride "header_top" {
+								text = "MIV_HDR_REBELLION_TOP"
+								tooltip = "MIV_HDR_REBELLION_SUB"
+							}
+							blockoverride "header_sub" {
+								text = "MIV_HDR_REBELLION_SUB"
+							}
+							blockoverride "rung" {
+								text = "MIV_ROW_REBELLION"
+							}
+							blockoverride "breakdown_header" {
+								text = "MIV_RUNG_REBELLION_YOU"
+								tooltip = "MIV_HDR_REBELLION_SUB"
+							}
+						}
+						miv_muster_group = {
+							blockoverride "list" {
+								datamodel = "[GetPlayer.MakeScope.GetList('miv_widget_unavailable')]"
+							}
+							blockoverride "header_top" {
+								text = "MIV_HDR_UNAVAILABLE_TOP"
+								tooltip = "MIV_HDR_UNAVAILABLE_SUB"
+							}
+							blockoverride "header_sub" {
+								text = "MIV_HDR_UNAVAILABLE_SUB"
+							}
+							blockoverride "rung" {
+								text = "MIV_ROW_UNAVAILABLE"
+							}
+							blockoverride "breakdown_header" {
+								text = "MIV_RUNG_UNAVAILABLE"
+								tooltip = "MIV_HDR_UNAVAILABLE_SUB"
+							}
+						}
+						miv_muster_group = {
+							blockoverride "list" {
+								datamodel = "[GetPlayer.MakeScope.GetList('miv_widget_prompt')]"
+							}
+							blockoverride "header_top" {
+								text = "MIV_HDR_PROMPT_TOP"
+								tooltip = "MIV_HDR_PROMPT_SUB"
+							}
+							blockoverride "header_sub" {
+								text = "MIV_HDR_PROMPT_SUB"
+							}
+							blockoverride "rung" {
+								text = "MIV_ROW_PROMPT"
+							}
+							blockoverride "breakdown_header" {
+								text = "MIV_RUNG_PROMPT_YOU"
+								tooltip = "MIV_HDR_PROMPT_SUB"
+							}
+						}
+						miv_muster_group = {
+							blockoverride "list" {
+								datamodel = "[GetPlayer.MakeScope.GetList('miv_widget_reluctant')]"
+							}
+							blockoverride "header_top" {
+								text = "MIV_HDR_RELUCTANT_TOP"
+								tooltip = "MIV_HDR_RELUCTANT_SUB"
+							}
+							blockoverride "header_sub" {
+								text = "MIV_HDR_RELUCTANT_SUB"
+							}
+							blockoverride "rung" {
+								text = "MIV_ROW_RELUCTANT"
+							}
+							blockoverride "breakdown_header" {
+								text = "MIV_RUNG_RELUCTANT_YOU"
+								tooltip = "MIV_HDR_RELUCTANT_SUB"
+							}
+						}
+						miv_muster_group = {
+							blockoverride "list" {
+								datamodel = "[GetPlayer.MakeScope.GetList('miv_widget_grudging')]"
+							}
+							blockoverride "header_top" {
+								text = "MIV_HDR_GRUDGING_TOP"
+								tooltip = "MIV_HDR_GRUDGING_SUB"
+							}
+							blockoverride "header_sub" {
+								text = "MIV_HDR_GRUDGING_SUB"
+							}
+							blockoverride "rung" {
+								text = "MIV_ROW_GRUDGING"
+							}
+							blockoverride "breakdown_header" {
+								text = "MIV_RUNG_GRUDGING_YOU"
+								tooltip = "MIV_HDR_GRUDGING_SUB"
+							}
+						}
+						miv_muster_group = {
+							blockoverride "list" {
+								datamodel = "[GetPlayer.MakeScope.GetList('miv_widget_refuse')]"
+							}
+							blockoverride "header_top" {
+								text = "MIV_HDR_REFUSE_TOP"
+								tooltip = "MIV_HDR_REFUSE_SUB"
+							}
+							blockoverride "header_sub" {
+								text = "MIV_HDR_REFUSE_SUB"
+							}
+							blockoverride "rung" {
+								text = "MIV_ROW_REFUSE"
+							}
+							blockoverride "breakdown_header" {
+								text = "MIV_RUNG_REFUSE_YOU"
+								tooltip = "MIV_HDR_REFUSE_SUB"
+							}
+						}
+						miv_muster_group = {
+							blockoverride "list" {
+								datamodel = "[GetPlayer.MakeScope.GetList('miv_widget_betray')]"
+							}
+							blockoverride "header_top" {
+								text = "MIV_HDR_BETRAY_TOP"
+								tooltip = "MIV_HDR_BETRAY_SUB"
+							}
+							blockoverride "header_sub" {
+								text = "MIV_HDR_BETRAY_SUB"
+							}
+							blockoverride "rung" {
+								text = "MIV_ROW_BETRAY"
+							}
+							blockoverride "breakdown_header" {
+								text = "MIV_RUNG_BETRAY_YOU"
+								tooltip = "MIV_HDR_BETRAY_SUB"
+							}
+						}
+					}
+
+					expand = {}
+				}
+			}
+
+			blockoverride "scrollbox_background_fade" {}
+		}
+	}
+}

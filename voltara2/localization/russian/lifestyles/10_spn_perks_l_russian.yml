@@ -1,0 +1,78 @@
+﻿ l_russian:
+# Vampire: Vampirism
+ daywalker_perk_name:0 "Дневной странник"
+ vampire_seduction_perk_name:0 "Поцелуй вампира"
+ vampire_nest_perk_name:0 "Гнездо вампиров"
+ master_shadows_perk_name:0 "Повелитель теней"
+ domination_perk_name:0 "Доминирование"
+ retinue_of_night_perk_name:0 "Свиты ночи"
+ celerity_of_ages_perk_name:0 "Быстрота веков"
+ compulsion_perk_name:0 "Принуждение"
+ true_vampire_perk_name:0 "Истинный вампир"
+ bloodthirsty_perk_name:0 "Жаждущий крови"
+ 
+ # Werewolf: Lycanthropy
+ curse_wolf_perk_name:0 "Проклятие волка"
+ wolf_politics_perk_name:0 "Политика волков"
+ natural_selection_perk_name:0 "Естественный отбор"
+ pack_mentality_perk_name:0 "Менталитет стаи"
+ berserker_perk_name:0 "Берсеркер"
+ the_prowl_perk_name:0 "На охоте"
+ pack_redistribution_perk_name:0 "Перераспределение стаи"
+ true_werewolf_perk_name:0 "Истинный Оборотень"
+ 
+ 
+ # Hunter: Monster Hunter
+ wellrounded_perk_name:0 "Универсальный"
+ upstanding_perk_name:0 "Порядочный гражданин"
+ built_different_perk_name:0 "Другой уровень"
+ tossacoin_perk_name:0 "Бросить монету"
+ faith_defender_perk_name:0 "Верный фанатик"
+ born_leader_perk_name:0 "Рождённый лидером"
+ cultural_icon_perk_name:0 "Культурный символ"
+ witcher_perk_name:0 "Ведьмак"
+ 
+ # Hunter: Witch Hunter
+ witch_hunter_name:0 "Охотник на Ведьм"
+
+ hunter_witch_hunter_focus:0 "Охотник на Ведьм"
+ witch_hunter_focus_desc:0 "Следуйте по пути охотника на ведьм и изучите его навыки."
+ hunter_witch_hunter_focus_effect_desc:0 "Сосредоточение на охоте на ведьм даёт:"
+ antimage_perk_name:0 "Антимаг"
+ antimage_perk_effect:0 "Предоставляет возможность охоты на ведьм"
+ antimage_perk_custom:0 "Предоставляет возможность охоты на ведьм"
+ hunter_academy_perk_name:0 "Академия охотников"
+ mageslayer_perk_name:0 "Убийца магов"
+ hunter_training_perk_name:0 "Обучение охотников"
+ witch_hunter_perk_name:0 "Охотник на Ведьм"
+ combat_spells_perk_name:0 "Боевые заклинания"
+ pious_perk_name:0 "Благочестивый охотник"
+ protection_runes_perk_name:0 "Руны защиты"
+
+ 
+ # Hybrid: Vampire
+ vampiric_nature_perk_name:0 "Вампирская природа"
+ master_night_perk_name:0 "Повелитель ночи"
+ sireline_perk_name:0 "Древо предков"
+ deadly_seduction_perk_name:0 "Смертельное соблазнение"
+ undead_command_perk_name:0 "Команда нежити"
+ unholy_tribute_perk_name:0 "Нечестивый дань"
+ blood_bond_perk_name:0 "Кровное братство"
+ dreadlord_perk_name:0 "Ужасный лорд"
+ true_vampire_hybrid_perk_name:0 "Истинный вампир"
+ 
+ # Hybrid: Werewolf
+ lycanthropic_nature_perk_name:0 "Ликантропная природа"
+ savage_strength_perk_name:0 "Дикая сила"
+ pack_proceeds_perk_name:0 "Прибыль от стаи"
+ hybrid_constitution_perk_name:0 "Гибридное Конституция"
+ bloodline_perk_name:0 "Ликанская Кровь"
+ master_hunt_perk_name:0 "Мастер Охоты"
+ wolf_challenge_perk_name:0 "Вызов"
+ pack_leader_perk_name:0 "Вожак Стаи"
+ true_werewolf_hybrid_perk_name:0 "Истинный Оборотень"
+
+
+### added by sync_localizations.py -- untranslated, 2 keys
+ hunter_witch_hunter_focus_modifier:0 "Witch-Hunter"
+ spn_capstone_blocked_by_hunter:0 "A Hunter cannot take this path"

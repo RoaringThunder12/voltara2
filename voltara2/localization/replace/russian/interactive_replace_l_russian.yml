@@ -1,0 +1,3 @@
+﻿l_russian:
+ CHARACTER_WINDOW_MILITARY_STRENGTH_TOOLTIP: "[CharacterWindow.GetMilitaryStrengthTooltip][AddLocalizationIf(Not(StringIsEmpty(CharacterWindow.GetMenAtArmsSubjectRecruitmentPotentialTooltip)),'MAA_SUBJECT_ACCESS_POTENTIAL')][AddLocalizationIf( GreaterThan_CFixedPoint( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).ScriptValue( 'miv_gui_strength_visible_count' ), '(CFixedPoint)0' ), 'MIV_BANNERMEN_STRENGTH' )]"
+ call_ally_interaction: "Call Ally to War"

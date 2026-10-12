@@ -1,0 +1,5 @@
+﻿voltara_dragon_camera = {
+ camera = { position = cylindrical{ 650 150 20 } position_node = { default = dragon_origin }
+ look_at = { 0 90 0 } look_at_node = { default = dragon_origin } fov = 40 camera_near_far = { 1 10000 } }
+ unknown = "gfx/portraits/unknown_portraits/unknown_unclickable_small.dds"
+}

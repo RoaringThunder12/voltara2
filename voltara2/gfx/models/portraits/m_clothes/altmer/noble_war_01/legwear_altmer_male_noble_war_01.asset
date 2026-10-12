@@ -1,0 +1,50 @@
+pdxmesh = {
+	name = "legwear_altmer_male_noble_war_01_mesh"
+	file = "legwear_altmer_male_noble_war_01.mesh"
+
+	#blend_shape = { id = "legwear_altmer_male_noble_war_01_bs_infant"		type = "legwear_altmer_male_noble_war_01_bs_infant.mesh" }
+	#blend_shape = { id = "legwear_altmer_male_noble_war_01_bs_fat"		type = "legwear_altmer_male_noble_war_01_bs_fat.mesh" }
+	#blend_shape = { id = "legwear_altmer_male_noble_war_01_bs_gaunt"		type = "legwear_altmer_male_noble_war_01_bs_gaunt.mesh" }
+	#blend_shape = { id = "legwear_altmer_male_noble_war_01_bs_muscular"		type = "legwear_altmer_male_noble_war_01_bs_muscular.mesh" }	
+	#blend_shape = { id = "legwear_altmer_male_noble_war_01_bs_old"		type = "legwear_altmer_male_noble_war_01_bs_old.mesh" }
+	#blend_shape = { id = "legwear_altmer_male_noble_war_01_bs_dwarf"		type = "legwear_altmer_male_noble_war_01_bs_dwarf.mesh" }
+
+	meshsettings = {
+		name = "altmer_armor_legwear"
+		index = 0
+		texture_diffuse = "legwear_altmer_male_noble_war_01_diffuse.dds"
+		texture_normal = "legwear_altmer_male_noble_war_01_normal.dds"
+		texture_specular = "legwear_altmer_male_noble_war_01_properties.dds"
+		texture = { file = "legwear_altmer_male_noble_war_01_glass_masks.dds" index = 5 }
+		texture = { file = "glass_inner.dds" index = 6 }
+		additional_shader_defines = {
+			"GLASS_TILING float2(2.0f,2.0f)"	# Tiling of the inner glass texture
+			"OUTER_REFRACTION float(0.2f)"		# How much the normal map bends the parallax. 0.0 is flat, 1.0 follows the normal map.
+			"INNER_THICKNESS float(350.0f)"		# Maximum depth of the parallax. The mask blue channel scales it per pixel.
+		}
+		shader = "portrait_attachment_pattern_glass"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "legwear_altmer_male_noble_war_01_entity"
+	pdxmesh = "legwear_altmer_male_noble_war_01_mesh"
+
+	#attribute = { name = "bs_body_infant_1"					blend_shape = "legwear_altmer_male_noble_war_01b_bs_infant" }
+	#attribute = { name = "bs_body_fat_1"					blend_shape = "legwear_altmer_male_noble_war_01b_bs_fat" }
+	#attribute = { name = "bs_body_gaunt_1"					blend_shape = "legwear_altmer_male_noble_war_01b_bs_gaunt" }
+	#attribute = { name = "bs_body_muscular_1"					blend_shape = "legwear_altmer_male_noble_war_01b_bs_muscular" }	
+	#attribute = { name = "bs_body_old_1"					blend_shape = "legwear_altmer_male_noble_war_01b_bs_old" }
+	#attribute = { name = "bs_body_dwarf_1"					blend_shape = "legwear_altmer_male_noble_war_01b_bs_dwarf" }
+
+	game_data = {
+        portrait_entity_user_data = {
+			portrait_accessory = {
+				pattern_mask = "gfx/models/portraits/m_clothes/altmer/noble_war_01/legwear_altmer_male_noble_war_01_masks.dds"	#Any 4-channel texture. Each channel will be used to mask a pattern from the variation object
+				variation = "altmer_nobility_war_01"	#A "variation" object in gfx/portraits/accessory_variations/
+			}
+        }
+	}
+}
+

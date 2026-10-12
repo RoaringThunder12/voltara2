@@ -1,0 +1,20 @@
+﻿# Repair missing base eyes in existing race DNA. Only the no_eyes template is affected.
+voltara_eye_repair = {
+ usage = game
+ priority = 0
+ selection_behavior = max
+ restore_eyes = {
+  dna_modifiers = { accessory = { mode = replace gene = eye_accessory template = normal_eyes range = { 0.5 0.5 } } }
+  weight = { base = 0 modifier = {
+   add = 100
+   exists = this
+   has_gene = { category = eye_accessory template = no_eyes }
+   OR = {
+    culture = culture:voltara_culture_18
+    culture = culture:voltara_culture_20
+    culture = culture:voltara_culture_21
+    culture = culture:voltara_culture_23
+   }
+  } }
+ }
+}

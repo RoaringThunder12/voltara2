@@ -1,0 +1,12 @@
+﻿voltara_humanoid_visibility = {
+ usage = game selection_behavior = weighted_random priority = 10000
+ normal = {
+ dna_modifiers = {
+ morph = { mode = replace gene = gene_no_portrait template = normal_portrait value = 0 }
+ morph = { mode = replace gene = gene_camera_zoom template = no_camera_zoom value = 0 }
+ morph = { mode = replace gene = gene_dragon_size template = non_dragon_size value = 0 }
+ accessory = { mode = replace gene = gene_dragon template = human_body value = 0 }
+ }
+ weight = { base = 0 modifier = { add = 1000 NOT = { portrait_has_trait_trigger = { TRAIT = dragon } } } }
+ }
+}

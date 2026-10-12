@@ -1,0 +1,14 @@
+﻿voltara_demon_appearance = { usage = game priority = 60 demon = { dna_modifiers = {
+accessory = { mode = add gene = beards template = no_beard value = 0 }
+morph = { mode = add gene = vt_demon_skin_color_hue template = skin_color_hue_black value = 0.847 }
+morph = { mode = add gene = vt_demon_skin_color_saturation template = skin_color_saturation value = 0.565 }
+morph = { mode = add gene = vt_demon_race_gene_skin_metallic template = metallic_skin value = 0.020 }
+morph = { mode = add gene = vt_demon_race_gene_skin_color template = dunmer_skin value = 0.976 }
+morph = { mode = add gene = vt_demon_eye_pupil template = dremora_pupils value = 0.588 }
+morph = { mode = add gene = vt_demon_race_gene_mer_forehead template = dremora_face value = 0.659 }
+morph = { mode = add gene = vt_demon_race_gene_mer_nose template = mer_nose value = 0.463 }
+morph = { mode = add gene = vt_demon_race_gene_mer_ears_01 template = mer_ears_02 value = 0.984 }
+morph = { mode = add gene = vt_demon_race_gene_mer_ears_02 template = mer_ears_02 value = 0.620 }
+morph = { mode = add gene = vt_demon_race_gene_mer_eyebrows_01 template = mer_eyebrows_01 value = 0.435 }
+accessory = { mode = add gene = vt_demon_beast_head_attachment_01 template = dremora_horns value = 0.239 }
+} weight = { base = 0 modifier = { add = 1000 culture = culture:voltara_demon } } } }

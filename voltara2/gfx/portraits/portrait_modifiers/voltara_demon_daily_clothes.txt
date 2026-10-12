@@ -1,0 +1,8 @@
+﻿voltara_demon_daily_clothes = { usage = game priority = 46
+ demon = { dna_modifiers = { accessory = { mode = add gene = clothes template = vt_demon_armor range = { 0 1 } } }
+ weight = { base = 0 modifier = { add = 100 culture = culture:voltara_demon is_adult = yes is_imprisoned = no NOR = { should_be_fully_naked_portrait_trigger = yes should_be_topless_portrait_trigger = yes portrait_sickness_trigger = yes } portrait_wear_no_armor_trigger = yes } } }
+}
+voltara_demon_unlanded_headgear = { usage = game priority = 150
+ demon = { dna_modifiers = { accessory = { mode = add gene = headgear template = no_headgear value = 0 } }
+ weight = { base = 0 modifier = { add = 100 culture = culture:voltara_demon is_landed = no } } }
+}
