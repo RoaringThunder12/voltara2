@@ -816,9 +816,7 @@ province = 9016
 b_voltara_9028 = {
 province = 9028
 }
-b_voltara_9030 = {
-province = 9030
-}
+# Impassable Southorion ridge 9030
 }
 }
 d_voltara_test_8996 = {
@@ -1050,9 +1048,7 @@ province = 10309
 b_voltara_10324 = {
 province = 10324
 }
-b_voltara_10327 = {
-province = 10327
-}
+# Impassable Southorion ridge 10327
 b_voltara_10346 = {
 province = 10346
 }
@@ -1317,9 +1313,7 @@ province = 9860
 b_voltara_9871 = {
 province = 9871
 }
-b_voltara_9879 = {
-province = 9879
-}
+# Impassable Southorion ridge 9879
 b_voltara_9888 = {
 province = 9888
 }
@@ -1431,12 +1425,8 @@ color = { 128 142 125 }
 b_voltara_7741 = {
 province = 7741
 }
-b_voltara_7760 = {
-province = 7760
-}
-b_voltara_7772 = {
-province = 7772
-}
+# Impassable Southorion ridge 7760
+# Impassable Southorion ridge 7772
 b_voltara_7785 = {
 province = 7785
 }
@@ -1449,27 +1439,19 @@ province = 7750
 b_voltara_7782 = {
 province = 7782
 }
-b_voltara_7808 = {
-province = 7808
-}
-b_voltara_7805 = {
-province = 7805
-}
+# Impassable Southorion ridge 7808
+# Impassable Southorion ridge 7805
 }
 c_voltara_8995 = {
 color = { 128 142 125 }
 b_voltara_8995 = {
 province = 8995
 }
-b_voltara_9005 = {
-province = 9005
-}
+# Impassable Southorion ridge 9005
 b_voltara_9007 = {
 province = 9007
 }
-b_voltara_9019 = {
-province = 9019
-}
+# Impassable Southorion ridge 9019
 }
 c_voltara_9856 = {
 color = { 128 142 125 }
@@ -1479,12 +1461,8 @@ province = 9856
 b_voltara_9876 = {
 province = 9876
 }
-b_voltara_9895 = {
-province = 9895
-}
-b_voltara_9890 = {
-province = 9890
-}
+# Impassable Southorion ridge 9895
+# Impassable Southorion ridge 9890
 }
 c_voltara_9870 = {
 color = { 128 142 125 }

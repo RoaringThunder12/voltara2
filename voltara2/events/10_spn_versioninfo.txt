@@ -8,7 +8,7 @@ spn_versioninfo.1000 = {
 	desc = spn_versioninfo.1000.desc
 
 	trigger = {
-		NOT = { exists = global_var:version_2_38 }
+		always = no # Imported release notice disabled for Voltara
 	}
 
 	immediate = {

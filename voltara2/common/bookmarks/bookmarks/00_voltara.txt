@@ -3,5 +3,28 @@
  is_playable = yes
  group = bm_group_voltara
  weight = { value = 100 }
- character = { name = voltara_titus dynasty = 9900021 dynasty_splendor_level = 2 type = male birth = 3086.1.1 title = e_voltara_21 government = feudal_government culture = voltara_culture_22 religion = voltara_faith_23 difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_HARD" history_id = 9900021 position = { 500 500 } animation = war_over_win }
+ character = {
+ name = voltara_titus history_id = 9900021 dynasty = 9900021 dynasty_splendor_level = 2
+ type = male birth = 3086.1.1 title = e_voltara_21 government = feudal_government
+ culture = voltara_culture_22 religion = voltara_order_rite_23 difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_HARD"
+ position = { 850 355 } animation = personality_bold
+ }
+ character = {
+ name = voltara_cassian history_id = 9900022 dynasty = 9900022 dynasty_splendor_level = 2
+ type = male birth = 3080.1.1 title = k_voltara_22 government = feudal_government
+ culture = voltara_culture_36 religion = voltara_order_rite_23 difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_MEDIUM"
+ position = { 610 495 } animation = personality_bold
+ }
+ character = {
+ name = voltara_talia history_id = 9999100 dynasty = 9999100 dynasty_splendor_level = 2
+ type = female birth = 3082.1.1 title = e_voltara_sixth_southron_invasion government = feudal_government
+ culture = voltara_southorion religion = voltara_khaotism_rite difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_HARD"
+ position = { 970 690 } animation = personality_bold
+ }
+ character = {
+ name = voltara_jerion history_id = 9900040 dynasty = 9900040 dynasty_splendor_level = 2
+ type = male birth = 3084.1.1 title = k_voltara_40 government = feudal_government
+ culture = voltara_culture_19 religion = voltara_order_rite_23 difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_MEDIUM"
+ position = { 1250 435 } animation = personality_bold
+ }
 }
