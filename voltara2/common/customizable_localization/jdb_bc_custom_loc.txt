@@ -1,0 +1,84 @@
+﻿JdbBcGetCommanderFlavorTextRetreat = {
+	type = character
+
+	text = {
+		trigger = {
+			var:jdb_bc_commander_flavor_text_retreat ?= flag:jdb_bc_commander_flavor_text_retreat_dominant
+		}
+		localization_key = jdb_bc_commander_flavor_text_retreat_dominant
+	}
+
+	text = {
+		trigger = {
+			var:jdb_bc_commander_flavor_text_retreat ?= flag:jdb_bc_commander_flavor_text_retreat_zeal_forsaken
+		}
+		localization_key = jdb_bc_commander_flavor_text_retreat_zeal_forsaken
+	}
+
+	text = {
+		trigger = {
+			var:jdb_bc_commander_flavor_text_retreat ?= flag:jdb_bc_commander_flavor_text_retreat_fallback
+		}
+		localization_key = jdb_bc_commander_flavor_text_retreat_fallback
+	}
+
+	text = {
+		trigger = {
+			var:jdb_bc_commander_flavor_text_retreat ?= flag:jdb_bc_commander_flavor_text_retreat_we_need_more_allies
+		}
+		localization_key = jdb_bc_commander_flavor_text_retreat_we_need_more_allies
+	}
+
+	text = {
+		trigger = {
+			var:jdb_bc_commander_flavor_text_retreat ?= flag:jdb_bc_commander_flavor_text_retreat
+		}
+		localization_key = jdb_bc_commander_flavor_text_retreat
+	}
+}
+
+JdbBcGetCommanderFlavorTextSiege = {
+	type = character
+
+	text = {
+		trigger = {
+			var:jdb_bc_commander_flavor_text_siege ?= flag:jdb_bc_commander_flavor_text_siege_tear_walls
+		}
+		localization_key = jdb_bc_commander_flavor_text_siege_tear_walls
+	}
+
+	text = {
+		trigger = {
+			var:jdb_bc_commander_flavor_text_siege ?= flag:jdb_bc_commander_flavor_text_siege_archers
+		}
+		localization_key = jdb_bc_commander_flavor_text_siege_archers
+	}
+
+	text = {
+		trigger = {
+			var:jdb_bc_commander_flavor_text_siege ?= flag:jdb_bc_commander_flavor_text_siege_burn_them
+		}
+		localization_key = jdb_bc_commander_flavor_text_siege_burn_them
+	}
+
+	text = {
+		trigger = {
+			var:jdb_bc_commander_flavor_text_siege ?= flag:jdb_bc_commander_flavor_text_siege_storm_gate
+		}
+		localization_key = jdb_bc_commander_flavor_text_siege_storm_gate
+	}
+
+	text = {
+		trigger = {
+			var:jdb_bc_commander_flavor_text_siege ?= flag:jdb_bc_commander_flavor_text_siege_towers
+		}
+		localization_key = jdb_bc_commander_flavor_text_siege_towers
+	}
+
+	text = {
+		trigger = {
+			var:jdb_bc_commander_flavor_text_siege ?= flag:jdb_bc_commander_flavor_text_siege_mine
+		}
+		localization_key = jdb_bc_commander_flavor_text_siege_mine
+	}
+}

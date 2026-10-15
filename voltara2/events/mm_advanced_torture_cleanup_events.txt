@@ -1,0 +1,36 @@
+﻿namespace = advanced_torture
+
+advanced_torture.9001 = {
+ type = character_event
+ hidden = yes
+
+ immediate = {
+  if = { limit = { has_character_modifier = advanced_torture_tortured_to_survive } remove_character_modifier = advanced_torture_tortured_to_survive }
+
+  if = { limit = { has_character_flag = advanced_torture_long_sleep_active } remove_character_flag = advanced_torture_long_sleep_active }
+  if = { limit = { has_character_flag = advanced_torture_long_dark_cell_active } remove_character_flag = advanced_torture_long_dark_cell_active }
+  if = { limit = { has_character_flag = advanced_torture_long_starvation_active } remove_character_flag = advanced_torture_long_starvation_active }
+  if = { limit = { has_character_flag = advanced_torture_long_suspension_active } remove_character_flag = advanced_torture_long_suspension_active }
+
+  if = { limit = { has_character_flag = advanced_torture_long_sleep_extend_3 } remove_character_flag = advanced_torture_long_sleep_extend_3 }
+  if = { limit = { has_character_flag = advanced_torture_long_dark_cell_extend_15 } remove_character_flag = advanced_torture_long_dark_cell_extend_15 }
+  if = { limit = { has_character_flag = advanced_torture_long_starvation_extend_5 } remove_character_flag = advanced_torture_long_starvation_extend_5 }
+  if = { limit = { has_character_flag = advanced_torture_long_suspension_extend_1 } remove_character_flag = advanced_torture_long_suspension_extend_1 }
+
+  if = { limit = { has_character_modifier = advanced_torture_cooldown } remove_character_modifier = advanced_torture_cooldown }
+
+  if = { limit = { has_variable = advanced_torture_long_sleep_days } set_variable = { name = advanced_torture_long_sleep_days value = 0 } }
+  if = { limit = { has_variable = advanced_torture_long_dark_cell_days } set_variable = { name = advanced_torture_long_dark_cell_days value = 0 } }
+  if = { limit = { has_variable = advanced_torture_long_starvation_days } set_variable = { name = advanced_torture_long_starvation_days value = 0 } }
+  if = { limit = { has_variable = advanced_torture_long_suspension_days } set_variable = { name = advanced_torture_long_suspension_days value = 0 } }
+ }
+}
+
+advanced_torture.9002 = {
+ type = character_event
+ hidden = yes
+
+ immediate = {
+  if = { limit = { has_character_modifier = advanced_torture_tortured_to_survive } remove_character_modifier = advanced_torture_tortured_to_survive }
+ }
+}

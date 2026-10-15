@@ -1,0 +1,48 @@
+﻿l_simp_chinese:
+ mod_mass_convert_subjects_decision: "$game_concept_demand_conversion$"
+ mod_mass_convert_subjects_decision_desc: "$game_concept_demand_conversion_desc$"
+ mod_mass_convert_subjects_decision_tooltip: "$game_concept_demand_conversion_desc$"
+
+ mod_convert_direct_vassals_loc: "$game_concept_direct_vassals$ ([SCOPE.ScriptValue('mod_convert_direct_vassals_number')])"
+ mod_convert_direct_vassals_tooltip: "要求你所有的异教$game_concept_direct_vassals$改信。"
+
+ mod_convert_indirect_vassals_loc: "非直属$game_concept_vassals$ ([SCOPE.ScriptValue('mod_convert_indirect_vassals_number')])"
+ mod_convert_indirect_vassals_tooltip: "要求你所有异教的非直属$game_concept_vassals$改信。"
+
+ mod_convert_tributaries_loc: "朝贡国 ([SCOPE.ScriptValue('mod_convert_tributaries_number')])"
+ mod_convert_tributaries_tooltip: "要求你所有的异教朝贡国改信。"
+
+ mod_convert_courtiers_loc: "廷臣([SCOPE.ScriptValue('mod_convert_courtiers_number')])"
+ mod_convert_courtiers_tooltip: "要求你所有异教的[courtiers|E]改信。"
+
+ mod_convert_house_loc: "家族成员([SCOPE.ScriptValue('mod_convert_house_number')])"
+ mod_convert_house_tooltip: "要求你所有异教的家族成员改信。"
+
+ mod_mass_convert_subjects_decision_confirm: "发送要求"
+
+ # Acceptance only; actual conversion may finish through a later native event.
+ mdc_conversion_accepted_title:0 "改信请求已接受"
+ mdc_conversion_accepted_desc:0 "[recipient.GetShortUIName]已接受改信请求。"
+
+ # Immediate acceptance filter; no persistent player preference.
+ mdc_chance_filter_heading:0 "接受概率："
+ mdc_chance_filter_none:0 "不筛选"
+ mdc_chance_filter_80:0 "≥ 80 %"
+ mdc_chance_filter_100:0 "100 %"
+ mdc_chance_filter_scope_note:0 "仅适用于直属及非直属封臣和朝贡国。廷臣和家族成员保持不变。"
+ mdc_chance_filter_tooltip:0 "$mdc_chance_filter_scope_note$\n\n按计算出的立即接受概率筛选。不包括后续谈判和已完成的改信。100%不保证完成改信。数量表示符合条件的请求；发送前会再次检查目标。"
+ mdc_convert_direct_vassals_80_loc:0 "$game_concept_direct_vassals$ ([SCOPE.ScriptValue('mdc_convert_direct_vassals_80_number')])"
+ mdc_convert_direct_vassals_80_tooltip:0 "$mod_convert_direct_vassals_tooltip$\n$mdc_chance_filter_80$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_direct_vassals_100_loc:0 "$game_concept_direct_vassals$ ([SCOPE.ScriptValue('mdc_convert_direct_vassals_100_number')])"
+ mdc_convert_direct_vassals_100_tooltip:0 "$mod_convert_direct_vassals_tooltip$\n$mdc_chance_filter_100$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_indirect_vassals_80_loc:0 "非直属$game_concept_vassals$ ([SCOPE.ScriptValue('mdc_convert_indirect_vassals_80_number')])"
+ mdc_convert_indirect_vassals_80_tooltip:0 "$mod_convert_indirect_vassals_tooltip$\n$mdc_chance_filter_80$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_indirect_vassals_100_loc:0 "非直属$game_concept_vassals$ ([SCOPE.ScriptValue('mdc_convert_indirect_vassals_100_number')])"
+ mdc_convert_indirect_vassals_100_tooltip:0 "$mod_convert_indirect_vassals_tooltip$\n$mdc_chance_filter_100$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_tributaries_80_loc:0 "朝贡国 ([SCOPE.ScriptValue('mdc_convert_tributaries_80_number')])"
+ mdc_convert_tributaries_80_tooltip:0 "$mod_convert_tributaries_tooltip$\n$mdc_chance_filter_80$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_tributaries_100_loc:0 "朝贡国 ([SCOPE.ScriptValue('mdc_convert_tributaries_100_number')])"
+ mdc_convert_tributaries_100_tooltip:0 "$mod_convert_tributaries_tooltip$\n$mdc_chance_filter_100$\n$mdc_chance_filter_tooltip$"
+
+ # Decision preview only; request outcomes remain native.
+ mdc_mass_conversion_requests_effect:0 "向选定对象发送普通改信请求。"

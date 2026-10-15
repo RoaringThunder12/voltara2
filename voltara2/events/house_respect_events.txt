@@ -1,0 +1,494 @@
+﻿namespace = house_respect
+
+house_respect.0001 = {
+	type = character_event
+	title = house_respect.0001.t
+	desc = house_respect.0001.desc
+	theme = crown
+	override_background = { reference = throne_room_scope }
+
+	trigger = {
+
+	}
+
+	immediate = {
+		# Oathman 1
+		random_vassal = {
+			limit = {
+				OR = {
+					has_relation_friend = ROOT
+					has_relation_best_friend = ROOT
+					opinion = {
+						target = ROOT
+						value >= 60
+					}
+					has_dread_level_towards = { target = ROOT level > 0 }
+				}
+			}
+			save_scope_as = oathman_1
+		} # any_vassal
+
+		# Oathman 2
+		random_vassal = {
+			limit = {
+				NOT = { THIS = scope:oathman_1 }
+				OR = {
+					has_relation_friend = ROOT
+					has_relation_best_friend = ROOT
+					opinion = {
+						target = ROOT
+						value >= 60
+					}
+					has_dread_level_towards = { target = ROOT level > 0 }
+				}
+			}
+			save_scope_as = oathman_2
+		} # any_vassal
+
+		# Oathman 3
+		random_vassal = {
+			limit = {
+				NOT = {
+					THIS = scope:oathman_1
+					THIS = scope:oathman_2
+				}
+				OR = {
+					has_relation_friend = ROOT
+					has_relation_best_friend = ROOT
+					opinion = {
+						target = ROOT
+						value >= 60
+					}
+					has_dread_level_towards = { target = ROOT level > 0 }
+				}
+			}
+			save_scope_as = oathman_3
+		} # any_vassal
+
+		# Oathman 4
+		random_vassal = {
+			limit = {
+				NOT = {
+					THIS = scope:oathman_1
+					THIS = scope:oathman_2
+					THIS = scope:oathman_3
+				}
+				OR = {
+					has_relation_friend = ROOT
+					has_relation_best_friend = ROOT
+					opinion = {
+						target = ROOT
+						value >= 60
+					}
+					has_dread_level_towards = { target = ROOT level > 0 }
+				}
+			}
+			save_scope_as = oathman_4
+		} # any_vassal
+	} # immediate
+
+	left_portrait = {
+		character = ROOT
+		animation = personality_callous
+	}
+	right_portrait = {
+		character = scope:oathman_1
+		animation = beg
+	}
+	lower_left_portrait = {
+		character = scope:oathman_2
+#		animation = beg
+	}
+	lower_center_portrait = {
+		character = scope:oathman_3
+#		animation = beg
+	}
+	lower_right_portrait = {
+		character = scope:oathman_4
+#		animation = beg
+	}
+
+	option = { # No contenders
+		name = house_respect.0001.a
+		trigger = {
+			NOT = {
+				any_vassal = {
+					NOT = {
+						has_relation_friend = ROOT
+						has_relation_best_friend = ROOT
+					}
+					opinion = {
+						target = ROOT
+						value < 60
+					}
+					has_dread_level_towards = { target = ROOT level = 0 }
+				}
+			}
+		}
+
+		# Gain hook on loyal and intimidated vassals
+		every_vassal = {
+			limit = {
+				OR = {
+					has_relation_friend = ROOT
+					has_relation_best_friend = ROOT
+					opinion = {
+						target = ROOT
+						value >= 60
+					}
+					has_dread_level_towards = { target = ROOT level > 0 }
+				}
+			}
+			ROOT = {
+				add_hook_no_toast = {
+					type = loyalty_hook
+					target = PREV
+					years = 10
+				}
+			}
+		} # Every_vassal
+
+	} # Option
+	option = { # Some vassals will be upset
+		name = house_respect.0001.b
+		trigger = {
+			any_vassal = {
+				NOT = {
+					has_relation_friend = ROOT
+					has_relation_best_friend = ROOT
+				}
+				opinion = {
+					target = ROOT
+					value < 60
+				}
+				has_dread_level_towards = { target = ROOT level = 0 }
+			}
+		}
+
+		trigger_event = house_respect.0002
+	}
+	option = { # Cancel
+		name = house_respect.0001.c
+		trigger = {
+			any_vassal = {
+				NOT = {
+					has_relation_friend = ROOT
+					has_relation_best_friend = ROOT
+				}
+				opinion = {
+					target = ROOT
+					value < 60
+				}
+				has_dread_level_towards = { target = ROOT level = 0 }
+			}
+		}
+
+		remove_character_flag = has_demanded_fealty_from_vassals
+	}
+}
+
+house_respect.0002 = {
+	type = character_event
+	title = house_respect.0001.t
+	desc = house_respect.0002.desc
+	theme = crown
+	override_background = { reference = throne_room_scope }
+
+	immediate = {
+		# Setup Portraits
+
+		# Dissenter 1
+		random_vassal = {
+			limit = {
+				NOT = {
+					has_relation_friend = ROOT
+					has_relation_best_friend = ROOT
+				}
+				opinion = {
+					target = ROOT
+					value < 60
+				}
+				has_dread_level_towards = { target = ROOT level = 0 }
+			}
+			save_scope_as = dissenter_1
+		} # any_vassal
+
+		# Dissenter 2
+		random_vassal = {
+			limit = {
+				NOT = { THIS = scope:dissenter_1 }
+				NOT = {
+					has_relation_friend = ROOT
+					has_relation_best_friend = ROOT
+				}
+				opinion = {
+					target = ROOT
+					value < 60
+				}
+				has_dread_level_towards = { target = ROOT level = 0 }
+			}
+			save_scope_as = dissenter_2
+		} # any_vassal
+
+		# Dissenter 3
+		random_vassal = {
+			limit = {
+				NOT = {
+					THIS = scope:dissenter_1
+					THIS = scope:dissenter_2
+				}
+				NOT = {
+					has_relation_friend = ROOT
+					has_relation_best_friend = ROOT
+				}
+				opinion = {
+					target = ROOT
+					value < 60
+				}
+				has_dread_level_towards = { target = ROOT level = 0 }
+			}
+			save_scope_as = dissenter_3
+		} # any_vassal
+
+		# Dissenter 4
+		random_vassal = {
+			limit = {
+				NOT = {
+					THIS = scope:dissenter_1
+					THIS = scope:dissenter_2
+					THIS = scope:dissenter_3
+				}
+				NOT = {
+					has_relation_friend = ROOT
+					has_relation_best_friend = ROOT
+				}
+				opinion = {
+					target = ROOT
+					value < 60
+				}
+				has_dread_level_towards = { target = ROOT level = 0 }
+			}
+			save_scope_as = dissenter_4
+		} # any_vassal
+		
+		# Demanding Fealty Results		
+		every_vassal = {
+			limit = {
+				OR = {
+					has_relation_friend = ROOT
+					has_relation_best_friend = ROOT
+					opinion = {
+						target = ROOT
+						value >= 60
+					}
+					has_dread_level_towards = { target = ROOT level > 0 }
+				}
+			}
+			ROOT = {
+				add_hook_no_toast = {
+					type = loyalty_hook
+					target = PREV
+					years = 10
+				}
+			}
+		} # Every_vassal
+
+		# Anger all other vassals
+		every_vassal = {
+			limit = {
+				NOT = {
+					has_relation_friend = ROOT
+					has_relation_best_friend = ROOT
+				}
+				opinion = {
+					target = ROOT
+					value < 60
+				}
+				has_dread_level_towards = { target = ROOT level = 0 }
+			}
+			add_opinion = {
+				modifier = angry_opinion
+				opinion = -25
+				target = ROOT
+			}
+			hidden_effect = {				
+				reverse_add_opinion = {
+					modifier = refusal_opinion
+					opinion = -25
+					target = ROOT
+				}
+			}
+		} # Every_vassal
+
+	} # immediate
+
+	left_portrait = {
+		character = ROOT
+		animation = anger
+	}
+	right_portrait = {
+		character = scope:dissenter_1
+		animation = disapproval
+	}
+	lower_left_portrait = {
+		character = scope:dissenter_2
+#		animation = disapproval
+	}
+	lower_center_portrait = {
+		character = scope:dissenter_3
+#		animation = disapproval
+	}
+	lower_right_portrait = {
+		character = scope:dissenter_4
+#		animation = disapproval
+	}
+
+	option = {
+		name = house_respect.0002.a
+		every_vassal = {
+			limit = {
+				NOT = {
+					has_relation_friend = ROOT
+					has_relation_best_friend = ROOT
+				}
+				opinion = {
+					target = ROOT
+					value < 60
+				}
+				has_dread_level_towards = { target = ROOT level = 0 }
+			}
+
+			random_list = {
+				50 = {
+					ROOT = {
+						imprison = {
+							target = PREV
+							type = house_arrest
+							# reason =   # Can't find list of reasons
+						}
+					}
+					modifier = { factor = 0.7 ROOT = { has_trait = intellect_bad_1 } }
+					modifier = { factor = 0.4 ROOT = { has_trait = intellect_bad_2 } }
+					modifier = { factor = 0.2 ROOT = { has_trait = intellect_bad_3 } }
+					modifier = { factor = 1.5 ROOT = { has_trait = intellect_good_1 } }
+					modifier = { factor = 2 ROOT = { has_trait = intellect_good_2 } }
+					modifier = { factor = 3 ROOT = { has_trait = intellect_good_3 } }
+					modifier = {
+						add = 10
+						diplomacy_diff = { target = ROOT value <= 0 }
+					}
+					modifier = {
+						add = 10
+						intrigue_diff = { target = ROOT value <= -10 }
+					}
+					modifier = {
+						add = 10
+						intrigue_diff = { target = ROOT value <= -8 }
+					}
+					modifier = {
+						add = 10
+						intrigue_diff = { target = ROOT value <= -6 }
+					}
+					modifier = {
+						add = 10
+						intrigue_diff = { target = ROOT value <= -4 }
+					}
+					modifier = {
+						add = 10
+						intrigue_diff = { target = ROOT value <= -2 }
+					}
+					modifier = {
+						add = -10
+						intrigue_diff = { target = ROOT value <= 10 }
+					}
+					modifier = {
+						add = -10
+						intrigue_diff = { target = ROOT value <= 8 }
+					}
+					modifier = {
+						add = -10
+						intrigue_diff = { target = ROOT value <= 6 }
+					}
+					modifier = {
+						add = -10
+						intrigue_diff = { target = ROOT value <= 4 }
+					}
+					modifier = {
+						add = -10
+						intrigue_diff = { target = ROOT value <= 2 }
+					}
+					modifier = {
+						add = 10
+						martial_diff = { target = ROOT value <= -3 }
+					}
+					modifier = {
+						add = 10
+						martial_diff = { target = ROOT value <= -6 }
+					}
+					modifier = {
+						add = 10
+						martial_diff = { target = ROOT value <= -9 }
+					}
+					modifier = {
+						add = 10
+						martial_diff = { target = ROOT value <= -12 }
+					}
+				}
+				50 = {
+					custom_tooltip = house_respect.0002.fail
+					modifier = { factor = 2 has_trait = paranoid }
+					modifier = { factor = 2 has_trait = craven }
+					modifier = { factor = 0.1 has_trait = trusting }
+					modifier = { factor = 0.5 has_trait = intellect_bad }
+					modifier = { factor = 0.5 has_trait = brave }
+					modifier = {
+						factor = 0.5
+						trait_compatibility = {
+							target = ROOT
+							value >= high_positive_trait_compatibility
+						}
+					}
+
+					hidden_effect = {
+						if = {
+							limit = {
+								ROOT = {
+									any_targeting_faction = {
+										faction_is_type = liberty_faction
+									}
+								}
+							}
+							save_temporary_scope_as = rebel_member
+							ROOT = {
+								random_targeting_faction = {
+									limit = { faction_is_type = liberty_faction }
+									scope:rebel_member = { 
+										join_faction_skip_check = PREV
+									}
+								}
+							}
+						}
+						else = {
+							create_faction = {
+								type = liberty_faction
+								target = ROOT
+							}
+						}
+					} # Hidden Effect
+				}
+			}			
+		} # Every_vassal
+		ROOT = { add_tyranny = 40 }
+		ROOT = {
+			random_targeting_faction = {
+				limit = { faction_is_type = liberty_faction }
+				faction_start_war = {}
+			}
+		}
+	}
+
+	option = {
+		name = house_respect.0002.b
+		# No Further Effects
+	}
+}

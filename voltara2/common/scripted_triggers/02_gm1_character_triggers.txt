@@ -1,0 +1,17 @@
+﻿##############################
+## GM1 scripted_triggers
+##############################
+
+is_under_ongoing_interaction = {
+	custom_description = {															
+		text = "is_under_ongoing_interaction_trigger"
+		has_character_flag = under_prison_transfer
+	}
+}
+
+has_recently_undergone_interaction = {
+	custom_description = {
+		text = "has_recently_undergone_interaction_trigger"
+		has_character_flag = recently_prison_transferred
+	}
+}

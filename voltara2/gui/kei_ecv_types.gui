@@ -1,0 +1,2667 @@
+﻿types kECV_CountyViewTypes
+{
+    type kECV_scrollbar_vertical = scrollbar {
+        name = "vertical_scrollbar"
+        size = { 12 12 }
+        block "wheelstep"
+        {
+            wheelstep = 60
+        }
+        direction = vertical
+
+        track = {
+            button = {
+                size = { 12 12 }
+                gfxtype = buttongfx
+
+                texture = "gfx/interface/scrollbars/scrollbar_track_vertical.dds"
+                spriteType = Corneredtiled
+                spriteborder = { 0 3 }
+                effectname = "NoHighlight"
+            }
+        }
+
+        slider = {
+            button = {
+                gfxtype = framedbuttongfx
+                effectname = "NoHighlight"
+
+                texture = "gfx/interface/scrollbars/scrollbar_slider.dds"
+                spriteType = Corneredtiled
+                spriteborder = { 0 3 }
+                framesize = { 12 40 }
+                minimumsize = { -1 40 }
+
+                upframe = 1
+                overframe = 2
+                downframe = 2
+
+                oversound = "event:/SFX/UI/Generic/sfx_ui_generic_icon_pointer_over"
+
+                state = {
+                    name = _mouse_press
+                    start_sound = { soundeffect = "event:/SFX/UI/Generic/sfx_ui_generic_icon_select" }
+                }
+
+                state = {
+                    name = _mouse_release
+                    start_sound = { soundeffect = "event:/SFX/UI/Generic/sfx_ui_generic_icon_select" }
+                }
+            }
+        }
+
+        dec_button = { button = { } }
+        inc_button = { button = { } }
+    }
+
+    type kECV_scrollbar_horizontal = scrollbar {
+        size = { 12 12 }
+        block "wheelstep"
+        {
+            wheelstep = 60
+        }
+        direction = horizontal
+
+        track = {
+            button = {
+                size = { 12 12 }
+                gfxtype = buttongfx
+
+                texture = "gfx/interface/scrollbars/scrollbar_track_horizontal.dds"
+                spriteType = Corneredtiled
+                spriteborder = { 3 0 }
+                effectname = "NoHighlight"
+                intersectionmask = yes
+            }
+        }
+
+        slider = {
+            button = {
+                gfxtype = framedbuttongfx
+                effectname = "NoHighlight"
+
+                texture = "gfx/interface/scrollbars/scrollbar_slider_horizontal.dds"
+                spriteType = Corneredtiled
+                spriteborder = { 3 0 }
+                framesize = { 40 12 }
+                minimumsize = { 15 -1 }
+
+                upframe = 1
+                overframe = 2
+                downframe = 2
+
+                oversound = "event:/SFX/UI/Generic/sfx_ui_generic_icon_pointer_over"
+
+                state = {
+                    name = _mouse_press
+                    start_sound = { soundeffect = "event:/SFX/UI/Generic/sfx_ui_generic_icon_select" }
+                }
+
+                state = {
+                    name = _mouse_release
+                    start_sound = { soundeffect = "event:/SFX/UI/Generic/sfx_ui_generic_icon_select" }
+                }
+            }
+        }
+
+        dec_button = { button = { } }
+        inc_button = { button = { } }
+    }
+
+    type kECV_county_coa_title = button_group {
+		using = CoA_Title_Defaults
+
+		flowcontainer = {
+			margin = { 0 0 }
+			direction = vertical
+			spacing = -4
+			ignoreinvisible = yes
+
+			icon = {
+				name = "crown"
+                size = { 68 46 }
+				parentanchor = hcenter
+				texture = "gfx/interface/coat_of_arms/crown_strip_115.dds"
+				frame = "[Title.GetTierFrame]"
+				framesize = { 80 56 }
+
+				block "crown" {
+					visible = no
+				}
+			}
+
+			widget = {
+				parentanchor = hcenter
+				size = { 80 80 }
+
+				coat_of_arms_icon = {
+					parentanchor = center
+					size = { 70 70 }
+					coat_of_arms = "[Title.GetTitleCoA.GetTexture('(int32)124','(int32)124')]"
+					coat_of_arms_slot = "[Title.GetTitleCoA.GetSlot('(int32)124','(int32)124')]"
+					coat_of_arms_mask = "gfx/interface/coat_of_arms/title_mask.dds"
+
+					using = CoA_Title_Hover_Glow
+
+					coa_title_frame = {
+						texture = "gfx/interface/coat_of_arms/title_62.dds"
+						size = { 80 80 }
+					}
+
+					coa_title_frame_no_holder = {
+						texture = "gfx/interface/coat_of_arms/title_no_holder_62.dds"
+						size = { 80 80 }
+					}
+				}
+			}
+		}
+	}
+
+	type kECV_county_stat = vbox {
+		minimumsize = { 36 40 }
+        maximumsize = { 72 0 }
+        margin_top = 4
+        margin_bottom = 8
+
+        layoutpolicy_vertical = expanding
+
+        spacing = -2
+
+		block "datacontexts" {}
+		
+		tooltipwidget = {
+			block "tooltip" {
+				widget_value_breakdown_tooltip = {}
+			}
+		}
+
+        widget = {
+            name = "icon_container"
+			size = { 32 32 }
+
+            icon = {
+			    size = { 100% 100% }
+                block "icon" {
+                    texture = "gfx/interface/_default_icon.dds"
+                }
+            }
+
+            highlight_icon = {
+			    size = { 100% 100% }
+                block "greyed_out_icon" {
+                    texture = "gfx/interface/_default_icon.dds"
+                    visible = no
+                }
+                effectname = "GreyedOut"
+                tintcolor = { 1 1 1 0.8 }
+            }
+        }
+
+		hbox = {
+			spacing = 2
+
+			background = {
+				block "bad_status" {
+					visible = no
+				}
+				using = Status_Bad
+				alpha = 0.75
+				margin = { 7 0 }
+			}
+
+			background = {
+				block "mixed_status" {
+					visible = no
+				}
+				alpha = 0.55
+				margin = { 7 0 }
+				using = Status_Mixed
+			}
+
+			background = {
+				block "good_status" {
+					visible = no
+				}
+				margin = { 7 0 }
+				using = Status_Good
+			}
+
+            expand = {}
+
+			text_single = {
+				block "value_text" {
+					text = "[ValueBreakdown.GetFixedPointValue|0]"
+				}
+                fontsize = 15
+				default_format = "#high"
+			}
+
+			text_single = {
+				block "alternative_value_text" {
+					text = ""
+                    visible = no
+				}
+			    default_format = "#weak"
+			}
+
+			text_single = {
+				text = "[ValueBreakdown.GetValueIndicatorHideNone( '(CFixedPoint)-5', '(CFixedPoint)1' )]"
+                visible = "[Not(GetVariableSystem.Exists( 'kECV_setting_display_change_values' ))]"
+				block "change_indicator" {}
+
+				tooltip_visible = "[ValueBreakdown.HasTooltip]"
+
+                min_height = 26
+
+				margin_left = -6
+				margin_right = -5
+                margin_bottom = 2
+
+				tooltipwidget = {
+					widget_value_breakdown_tooltip = {
+						blockoverride "header" {
+							hbox = {
+								text_label_left = {
+									layoutpolicy_horizontal = expanding
+									text = "[ValueBreakdown.GetName]"
+									default_format = "#T"
+									visible = "[Not( StringIsEmpty( ValueBreakdown.GetName ) )]"
+								}
+								text_label_right = {
+									layoutpolicy_horizontal = expanding
+									text = "[ValueBreakdown.GetValue]"
+									default_format = "#T"
+								}
+							}
+						}
+					}
+				}
+			}
+            
+            expand = {}
+		}
+
+        spacer = { size = { 1 5 } }
+
+        widget = {
+            visible = "[GetVariableSystem.Exists( 'kECV_setting_display_change_values' )]"
+            size = { 0 20 }
+            layoutpolicy_horizontal = expanding
+
+            text_single = {
+				#visible = "[Not(EqualTo_CFixedPoint(ValueBreakdown.GetFixedPointValue, '(CFixedPoint)0'))]"
+            	block "change_value" {}
+                parentanchor = center
+
+                fontsize = 13
+                max_width = 38
+                fontsize_min = 9
+
+                raw_text = "([ValueBreakdown.GetValue])"
+                tooltip_visible = "[ValueBreakdown.HasTooltip]"
+                tooltipwidget = {
+                    widget_value_breakdown_tooltip = {}
+                }
+            }
+        }
+
+        expand = {}
+	}
+
+    type kECV_occupier_coa = widget {
+        block "datacontext"
+        {
+            datacontext = [County.GetCountyOccupant]
+        }
+        
+        size = { 72 72 }
+
+        background = {
+            texture = "gfx/interface/component_masks/patterns/mask_pattern_06.dds"
+            spriteType = Corneredtiled
+            margin = { 20 20 }
+            using = Color_Red
+            alpha = 0.3
+
+            modify_texture = {
+                texture = "gfx/interface/component_masks/mask_fade_circle.dds"
+                blend_mode = alphamultiply
+
+                block "background_mask"
+                {
+
+                }
+            }
+
+            block "background"
+            {
+            }
+        }
+
+        icon = {
+            size = { 72 72 }
+            name = "war_icon"
+            texture = "gfx/interface/icons/war_status/war_icon.dds"
+            parentanchor = center
+        }
+        button_group =  {
+            size = { 70 70 }
+            parentanchor = center
+            using = CoA_Realm_Defaults
+            using = State_Realm_MouseEntry
+            tooltip = "COUNTY_OCCUPIER_TOOLTIP"
+
+            flowcontainer = {
+                parentanchor = center
+                margin = { 3 3 }
+                margin_top = -10
+                direction = vertical
+                spacing = -4
+                ignoreinvisible = yes
+
+			    datacontext = "[Character.GetGovernment]"
+
+                widget = {
+                    size = { 44 32 }
+                    icon = {
+                        name = "crown"
+                        parentanchor = center
+                        position = { 0 -10 }
+
+                        texture = "gfx/interface/coat_of_arms/crown_strip_62.dds"
+                        frame = "[Character.GetPrimaryTitle.GetTierFrame]"
+				        framesize = { 64 40 }
+                    }
+
+                    icon = {
+                        name = "adventurer_top_decor"
+                        visible = "[GovernmentType.IsType('landless_adventurer_government')]"
+                        parentanchor = center
+                        position = { 0 -12 }
+                        
+                        texture = "gfx/interface/coat_of_arms/landless_adventurer_topframe_62.dds"
+                    }
+
+                    icon = {
+                        name = "mercenary"
+                        visible = "[Character.GetPrimaryTitle.IsMercenaryCompany]"
+                        visible_at_creation = no
+                        parentanchor = center
+                        position = { 0 -12 }
+
+                        texture = "gfx/interface/coat_of_arms/mercenary_topframe_62.dds"
+                    }
+
+                    icon = {
+                        name = "holy_order"
+                        visible = "[Character.GetPrimaryTitle.IsHolyOrder]"
+                        visible_at_creation = no
+                        parentanchor = center
+                        position = { 0 -12 }
+
+                        texture = "gfx/interface/coat_of_arms/holyorder_topframe_62.dds"
+                    }
+                }
+
+                widget = {
+                    size = { 44 52 }
+
+                    coat_of_arms_icon = {
+                        parentanchor = center
+                        size = { 48 52 }
+                        coat_of_arms = "[Character.GetPrimaryTitle.GetTitleCoA.GetTexture('(int32)88','(int32)88')]"
+                        coat_of_arms_slot = "[Character.GetPrimaryTitle.GetTitleCoA.GetSlot('(int32)88','(int32)88')]"
+
+                        coat_of_arms_offset = "[GovernmentType.GetRealmMaskOffset]"
+                        coat_of_arms_scale = "[GovernmentType.GetRealmMaskScale]"
+
+                        using = CoA_Realm_Hover_Glow
+
+                        modify_texture = {
+                            texture = "[Character.GetGovernment.GetRealmMask]"
+                            blend_mode = overlay
+                            alpha = 0.4
+                        }
+
+                        coa_realm_overlay = {
+                            texture = "[Character.GetGovernment.GetRealmFrame('(int32)44')]"
+                            framesize = { 48 52 }
+                            size = { 100% 100% }
+                        }
+
+                        coa_realm_topframe = {
+                            texture ="gfx/interface/coat_of_arms/topframe_62.dds"
+                            framesize = { 64 64 }
+						    position = { 0 -7 }
+                            size = { 100% 100% }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    type kECV_barony_tabs_row = hbox {
+        layoutpolicy_horizontal = expanding
+        min_height = 41
+        block "parameters" {
+            datamodel = "[HoldingView.GetCountyHoldings]"
+        }
+        spacing = 3
+
+        item = {
+            button_tab_dark = {
+                layoutpolicy_horizontal = preferred
+                layoutpolicy_vertical = expanding
+                datacontext = "[GUICountyHolding.GetHolding]"
+                down = "[GUICountyHolding.IsSelected]"
+                alwaystransparent = "[GUICountyHolding.IsSelected]"
+                onclick = "[GUICountyHolding.OnClick]"
+                onclick = "[PdxGuiTriggerAllAnimations('holding_view_refresh')]"
+                using = tooltip_ne
+                tooltipwidget = { holding_tooltip_click = {} }
+
+                # Background
+                widget = {
+                    size = { 100% 100% }
+                    parentanchor = center
+
+                    background = {
+                        visible = "[Not(Holding.IsEmpty)]"
+                        texture = "[Holding.GetIllustration]"
+                        alpha = 0.5
+                        mirror = horizontal
+                        fittype = centercrop
+                        using = Mask_Rough_Edges
+                        margin_top = -2
+
+                        modify_texture = {
+                            texture = "gfx/interface/window_county/mask_holding_illustration.dds"
+                            blend_mode = alphamultiply
+                        }
+
+                        modify_texture = {
+                            texture = "gfx/interface/component_overlay/overlay_effect.dds"
+                            spriteType = Corneredstretched
+                            spriteborder = { 0 0 }
+                            blend_mode = overlay
+                        }
+                    }
+                    background = {
+                        visible = "[Holding.IsEmpty]"
+                        texture = "[Holding.GetProvince.GetTerrain.GetIllustration]"
+                        fittype = centercrop
+                        margin_top = -5
+                        alpha = 0.5
+
+                        modify_texture = {
+                            texture = "gfx/interface/window_county/mask_holding_illustration.dds"
+                            blend_mode = alphamultiply
+                        }
+
+                        modify_texture = {
+                            texture = "gfx/interface/component_overlay/overlay_effect.dds"
+                            spriteType = Corneredstretched
+                            spriteborder = { 0 0 }
+                            blend_mode = overlay
+                        }
+                    }
+                    background = {
+                        using = Background_Area_Solid
+                        visible = "[GUICountyHolding.IsSelected]"
+                        alpha = 0.65
+
+                        modify_texture = {
+                            texture = "gfx/interface/window_county/mask_holding_illustration.dds"
+                            blend_mode = mask
+                        }
+                    }
+                }
+
+                # Content
+                vbox = {
+                    margin = { 4 4 }
+
+                    expand = {}
+
+                    hbox = {
+                        layoutpolicy_horizontal = expanding
+
+                        icon_flat_standard = {
+                            visible = "[And(Holding.IsEmpty, Holding.IsConstructionInProgress)]"
+                            size = { 30 26 }
+                            texture = "gfx/interface/icons/building_types/icon_building_workshops.dds"
+                            alwaystransparent = yes
+                            down = "[GUICountyHolding.IsSelected]"
+                            blockoverride "master_color_frame" { frame = 7 }
+                            alpha = 0.85
+                        }
+
+                        # Holding Type Icon
+                        widget = {
+                            size = { 35 30 }
+                            alwaystransparent = yes								
+                            visible = "[And(Not(Holding.IsEmpty), kECVCompatProvinceNotEmpty)]"
+
+                            button_icon_highlight = {
+                                visible = "[Not(GUICountyHolding.GetHolding.GetProvince.GetTitle.IsCountyCapital)]"
+                                size = { 100% 100% }
+                                
+                                down = "[GUICountyHolding.IsSelected]"
+                                texture = "[GUICountyHolding.GetHolding.GetType.GetTabIcon]"					
+
+                                alpha = "[Select_float(  GUICountyHolding.IsSelected, '(float)0.85', '(float)1' )]"				
+                                blockoverride "button_frames"
+                                {
+                                    gfxtype = togglepushbuttongfx
+                                    effectname = "NoHighlight"
+
+                                    upframe = 4
+                                    uphoverframe = 5
+                                    uppressedframe = 4
+                                    downframe = 5
+                                    downhoverframe = 5
+                                    downpressedframe = 5
+                                    disableframe = 3
+                                }
+
+                                glow = {
+                                    glow_radius = 3
+                                    color = { 0 0 0 0.65 }
+                                    using = Glow_Standard
+                                }
+                            }
+
+                            button_icon_highlight = {
+                                visible = "[GUICountyHolding.GetHolding.GetProvince.GetTitle.IsCountyCapital]"
+                                size = { 100% 100% }
+                                
+                                down = "[GUICountyHolding.IsSelected]"
+                                texture = "[GUICountyHolding.GetHolding.GetType.GetTabIcon]"
+
+                                glow = {
+                                    glow_radius = 3
+                                    color = { 0 0 0 0.65 }
+                                    using = Glow_Standard
+                                }
+                            }
+                        }
+
+                        widget = {
+                            size = { 6 0 }
+                            visible = "[And(Or(Holding.IsEmpty, Not(kECVCompatProvinceNotEmpty)), Not(Holding.IsConstructionInProgress))]"
+                        }
+
+                        widget = {
+                            size = { 2 0 }
+                            visible = "[And(Or(Holding.IsEmpty, Not(kECVCompatProvinceNotEmpty)), Holding.IsConstructionInProgress)]"
+                        }
+
+                        # Name
+                        vbox = {
+                            layoutpolicy_vertical = expanding
+                            layoutpolicy_horizontal = expanding
+
+                            background = {
+                                texture = "gfx/interface/component_tiles/tile_title_bg_01.dds"
+                                spriteType = Corneredtiled
+                                spriteborder = { 30 30 }
+                                margin_top = 6
+                                margin_left = 10
+                                margin_right = -10
+                                texture_density = 2
+
+                                modify_texture = {
+								    texture = "gfx/interface/component_masks/mask_fade_corner.dds"
+                                    mirror = horizontal
+                                    blend_mode = alphamultiply
+                                }
+                            }
+
+                            expand = {}
+                            text_single = {
+                                margin_left = -3
+                                text = "[Holding.GetProvince.GetTitle.GetNameNoTierNoTooltip]"
+                            	visible = "[And(GUICountyHolding.GetHolding.GetProvince.GetTitle.IsCountyCapital, kECVCompatProvinceNotEmpty)]"
+                                default_format = "#S;color_goldy_yellow"
+                                layoutpolicy_horizontal = expanding
+                                fontsize_min = 12
+                                autoresize = no
+                            }
+                            text_single = {
+                                text = "[Holding.GetProvince.GetTitle.GetNameNoTierNoTooltip]"
+                                visible = "[Or(Not(GUICountyHolding.GetHolding.GetProvince.GetTitle.IsCountyCapital), Not(kECVCompatProvinceNotEmpty))]"
+                                default_format = "#medium;glow_color:{0,0,0,1.0}"
+                                layoutpolicy_horizontal = expanding
+                                fontsize_min = 12
+                                autoresize = no
+                            }
+                        }
+
+                        # widget = {
+                        #     layoutpolicy_horizontal = shrinking
+                        #     size = { 35 30 }
+                        #     visible = "[Not(Holding.IsEmpty)]"
+                        # }
+                    }
+                }
+           
+                icon_flat_standard = {
+                    visible = "[And(Not(GetVariableSystem.Exists('kECV_setting_hide_can_construct')), And(Not(Holding.IsEmpty), Holding.CanConstructAnyBuilding(GetPlayer)))]"
+                    parentanchor = top|right
+                    position = { -6 9 }
+                    size = { 20 18 }
+                    texture = "gfx/interface/icons/building_types/icon_building_workshops.dds"
+                    alwaystransparent = yes
+                    alpha = 0.6
+                    blockoverride "master_color_frame" { frame = 1 }
+                    tooltip = "MY_REALM_WINDOW_CONSTRUCT_BUILDING"
+                    glow = {
+                        color = { 0 0 0 0.5 }
+                        glow_radius = 2
+                        using = Glow_Standard
+                    }
+                }
+            }
+        }
+    }
+
+    type kECV_simple_barony_tabs_row = hbox {
+		layoutpolicy_vertical = preferred
+        block "parameters" {
+            datamodel = "[HoldingView.GetCountyHoldings]"
+        }
+        spacing = 3
+
+        item = {
+            button_tab_dark = {
+                size = { 50 0 }
+		        layoutpolicy_vertical = preferred
+                datacontext = "[GUICountyHolding.GetHolding]"
+                down = "[GUICountyHolding.IsSelected]"
+                alwaystransparent = "[GUICountyHolding.IsSelected]"
+                onclick = "[GUICountyHolding.OnClick]"
+                onclick = "[PdxGuiTriggerAllAnimations('holding_view_refresh')]"
+                using = tooltip_ne
+                tooltipwidget = { holding_tooltip_click = {} }
+
+                # Background
+                widget = {
+                    size = { 100% 100% }
+                    parentanchor = center
+
+                    background = {
+                        visible = "[Not(Holding.IsEmpty)]"
+                        texture = "[Holding.GetIllustration]"
+                        alpha = 0.15
+                        mirror = horizontal
+                        fittype = centercrop
+                        using = Mask_Rough_Edges
+                        margin_top = -2
+
+                        modify_texture = {
+                            texture = "gfx/interface/window_county/mask_holding_illustration.dds"
+                            blend_mode = alphamultiply
+                        }
+
+                        modify_texture = {
+                            texture = "gfx/interface/component_overlay/overlay_effect.dds"
+                            spriteType = Corneredstretched
+                            spriteborder = { 0 0 }
+                            blend_mode = overlay
+                        }
+                    }
+                    background = {
+                        visible = "[Holding.IsEmpty]"
+                        texture = "[Holding.GetProvince.GetTerrain.GetIllustration]"
+                        fittype = centercrop
+                        margin_top = -5
+                        alpha = 0.15
+
+                        modify_texture = {
+                            texture = "gfx/interface/window_county/mask_holding_illustration.dds"
+                            blend_mode = alphamultiply
+                        }
+
+                        modify_texture = {
+                            texture = "gfx/interface/component_overlay/overlay_effect.dds"
+                            spriteType = Corneredstretched
+                            spriteborder = { 0 0 }
+                            blend_mode = overlay
+                        }
+                    }
+                    background = {
+                        using = Background_Area_Solid
+                        visible = "[GUICountyHolding.IsSelected]"
+                        alpha = 0.65
+
+                        modify_texture = {
+                            texture = "gfx/interface/window_county/mask_holding_illustration.dds"
+                            blend_mode = mask
+                        }
+                    }
+                }
+
+                # Content
+                vbox = {
+                    margin = { 4 4 }
+
+                    expand = {}
+
+                    spacing = -5
+
+                    # icon = {
+                    #     name = "realm_capital_icon"
+                    #     visible = "[GUICountyHolding.GetHolding.GetProvince.GetTitle.IsCountyCapital]"
+                    #     size = { 33 32 }
+                    #     framesize = { 63 63 }
+                    #     texture = "gfx/interface/icons/icon_capital.dds"
+                    #     frame = 1
+                    # }
+
+                    hbox = {
+                        layoutpolicy_horizontal = expanding
+
+                        expand = {}
+
+                        ## Icon
+                        # Standard
+                        widget = {
+                            size = { 40 36 }
+                            alwaystransparent = yes								
+                            visible = "[And(kECVCompatProvinceNotEmpty, Not(GUICountyHolding.GetHolding.GetProvince.GetTitle.IsCountyCapital))]"
+
+                            button_icon_highlight = {
+                                size = { 100% 100% }
+                                
+                                down = "[GUICountyHolding.IsSelected]"
+                                texture = "[GUICountyHolding.GetHolding.GetType.GetTabIcon]"					
+
+                                alpha = "[Select_float(  GUICountyHolding.IsSelected, '(float)0.85', '(float)1' )]"				
+                                blockoverride "button_frames"
+                                {
+                                    gfxtype = togglepushbuttongfx
+                                    effectname = "NoHighlight"
+
+                                    upframe = 4
+                                    uphoverframe = 5
+                                    uppressedframe = 4
+                                    downframe = 5
+                                    downhoverframe = 5
+                                    downpressedframe = 5
+                                    disableframe = 3
+                                }
+
+                                glow = {
+                                    visible = "[Not(GUICountyHolding.GetHolding.IsEmpty)]"
+                                    glow_radius = 3
+                                    color = { 0 0 0 0.65 }
+                                    using = Glow_Standard
+                                }
+                            }
+                        }
+
+                        # Capital
+                        widget = {
+                            size = { 40 36 }
+                            alwaystransparent = yes
+                            visible = "[And(kECVCompatProvinceNotEmpty, GUICountyHolding.GetHolding.GetProvince.GetTitle.IsCountyCapital)]"
+
+                            button_icon_highlight = {
+                                size = { 100% 100% }
+                                
+                                down = "[GUICountyHolding.IsSelected]"
+                                texture = "[GUICountyHolding.GetHolding.GetType.GetTabIcon]"					
+
+                                alpha = "[Select_float(  GUICountyHolding.IsSelected, '(float)0.85', '(float)1' )]"				
+                                blockoverride "button_frames"
+                                {
+                                    gfxtype = togglepushbuttongfx
+                                    effectname = "NoHighlight"
+
+                                    upframe = 1
+                                    uphoverframe = 2
+                                    uppressedframe = 1
+                                    downframe = 2
+                                    downhoverframe = 5
+                                    downpressedframe = 5
+                                    disableframe = 3
+                                }
+
+                                glow = {
+                                    visible = "[Not(GUICountyHolding.GetHolding.IsEmpty)]"
+                                    glow_radius = 3
+                                    color = { 0 0 0 0.65 }
+                                    using = Glow_Standard
+                                }
+                            }
+                        }
+
+                        expand = {}
+                    }
+                }
+
+                icon_flat_standard = {
+                    visible = "[And(Holding.IsEmpty, Holding.IsConstructionInProgress)]"
+                    parentanchor = center
+                    position = { 0 0 }
+                    size = { 36 32 }
+                    texture = "gfx/interface/icons/building_types/icon_building_workshops.dds"
+                    alwaystransparent = yes
+                    down = "[GUICountyHolding.IsSelected]"
+                    alpha = 0.85
+                    blockoverride "master_color_frame" { frame = 7 }
+                }
+           
+                icon_flat_standard = {
+                    visible = "[And(Not(GetVariableSystem.Exists('kECV_setting_hide_can_construct')), And(Not(Holding.IsEmpty), Holding.CanConstructAnyBuilding(GetPlayer)))]"
+                    parentanchor = top|right
+                    position = { -5 9 }
+                    size = { 18 16 }
+                    tooltip = "MY_REALM_WINDOW_CONSTRUCT_BUILDING"
+                    texture = "gfx/interface/icons/building_types/icon_building_workshops.dds"
+                    alwaystransparent = yes
+                    alpha = 0.6
+                    blockoverride "master_color_frame" { frame = 1 }
+                    glow = {
+                        color = { 0 0 0 0.5 }
+                        glow_radius = 2
+                        using = Glow_Standard
+                    }
+                }
+            }
+        }
+    }
+
+    type kECV_holding_tab_button = button_group {
+        using = tooltip_ne
+        onclick = "[PdxGuiTriggerAllAnimations('holding_view_refresh')]"
+
+        button_normal = {
+		    size = { 52 52 }
+            parentanchor = center
+            effectname = "NoHighlight"
+            color = { 0.95 1 1 1 }
+
+            texture = "gfx/interface/skinned/button_hud_character_bar.dds"
+            #framesize = { 103 102 }
+            framesize = { 103 104 }
+            #using = tooltip_es
+            #tooltip_offset = { 20 0 }
+
+            state = {
+                name = _show
+                frame = 1
+
+                using = Animation_Curve_Default
+                duration = 0.25
+            }
+
+            state = {
+                name = _mouse_hierarchy_enter
+                frame = 2
+
+                using = Animation_Curve_Default
+                duration = 0.1
+            }
+
+            state = {
+                name = _mouse_hierarchy_leave
+                frame = 1
+
+                using = Animation_Curve_Default
+                duration = 0.25
+            }
+
+            state = {
+                name = _mouse_press
+                frame = 3
+            }
+
+            state = {
+                name = _mouse_release
+                frame = 2
+
+                using = Animation_Curve_Default
+                duration = 0.25
+            }
+
+            icon = {
+                size = { 90% 80% }
+                #position = { -4 1 }
+                position = { 1 0 }
+                parentanchor = center
+                texture = "gfx/interface/component_masks/mask_glow.dds"
+                color = { 1 0.80 0.35 0.5 }
+
+                block "highlight"
+                {
+                    visible = no
+                }
+            }
+
+            highlight_icon = {
+                size = { 36 36 }
+                #position = { -4 1 }
+                position = { 1 2 }
+                parentanchor = center
+                
+                block "icon"
+                {
+                }
+
+                glow = {
+                    color = { 0 0 0 0.7 }
+                    glow_radius = 3
+                    using = Glow_Standard
+                    block "glow" {}
+                }
+            }
+        }
+    }
+
+    type kECV_holding_tab_button_indicator = button_round {
+        parentanchor = top|right
+        position = { 0 -1 }
+        size = { 20 20 }
+        text_single = {
+            block "text" {}
+            parentanchor = center
+            position = { 0 -3 }
+            align = center
+            default_format = "#high"
+        }
+    }
+
+    type kECV_holding_tabs = scrollarea {
+        minimumsize = { -1 52 }
+		#autoresizescrollarea = yes
+        #size = { 100% 100% }
+        scrollbarpolicy_vertical = always_off
+        scrollbarpolicy_horizontal = as_needed
+        #scrollbarpolicy_horizontal = always_off
+
+
+        scrollbar_horizontal = { kECV_scrollbar_horizontal = { blockoverride "wheelstep" { wheelstep = 51 } } }
+
+        scrollwidget = {
+            hbox = {
+            #vbox = {
+                layoutpolicy_vertical = expanding
+                #layoutpolicy_horizontal = expanding
+                spacing = -1
+
+                datacontext = "[GetVariableSystem]"
+
+                righttoleft = yes
+
+                kECV_holding_tab_button = {
+                    onclick = "[VariableSystem.Clear( 'kECV_barony_tab' )]"
+                    tooltip = "COUNTY_WINDOW_BARONY_TAB_GENERAL"
+                    blockoverride "icon"
+                    {
+                        texture = "gfx/interface/icons/icon_contract_modification.dds"
+                        framesize = { 60 60 }
+                        frame = 0
+                    }
+                    blockoverride "glow" { glow_radius = 1 }
+                    blockoverride "highlight" { visible = "[Not(VariableSystem.Exists('kECV_barony_tab'))]" }
+					shortcut = "tab_1"
+                }
+
+                kECV_holding_tab_button = {
+                    onclick = "[VariableSystem.Set( 'kECV_barony_tab', 'buildings' )]"
+                    tooltip = "COUNTY_WINDOW_BARONY_TAB_BUILDINGS"
+                    enabled = "[And(HoldingView.HasHolding, kECVCompatProvinceNotEmpty)]"
+                    blockoverride "icon" { texture = "gfx/interface/icons/icon_domain.dds" }
+                    blockoverride "glow" { glow_radius = 4 }
+                    blockoverride "highlight" { visible = "[VariableSystem.HasValue('kECV_barony_tab', 'buildings')]" }
+
+                    # state = {
+                    #     name = "reset_disabled"
+                    #     trigger_when = "[And(VariableSystem.HasValue('kECV_barony_tab', 'buildings'), Not(HoldingView.HasHolding))]"
+                    #     on_finish = "[VariableSystem.Clear( 'kECV_barony_tab' )]"
+                    # }
+					shortcut = "tab_2"
+
+                    button_round = {
+                        visible = "[And(Not(Holding.IsEmpty), Holding.CanConstructAnyBuilding(GetPlayer))]"
+                        parentanchor = top|right
+                        position = { 0 -1 }
+                        size = { 20 20 }
+                        highlight_icon = {
+                            parentanchor = center
+                            position = { 1 -1 }
+                            size = { 18 18 }
+                            texture = "gfx/interface/icons/map_icons/county_building_available.dds"
+                        }
+                    }
+                }
+
+                kECV_holding_tab_button = {
+                    visible = "[kei_Compat_IsModLoaded_kCAFG]"
+                    onclick = "[VariableSystem.Set( 'kECV_barony_tab', 'kCAFG_cultures' )]"
+                    tooltip = "COUNTY_WINDOW_BARONY_TAB_KCAFG_CULTURES"
+                    blockoverride "icon" { texture = "gfx/interface/icons/icon_culture.dds" }
+                    blockoverride "glow" { glow_radius = 3 }
+                    blockoverride "highlight" { visible = "[VariableSystem.HasValue('kECV_barony_tab', 'kCAFG_cultures')]" }
+
+					shortcut = "tab_3"
+
+                    kECV_holding_tab_button_indicator = {
+                        visible = "[GreaterThan_int32(GetDataModelSize(Province.MakeScope.GetList('kCAFG_province_cultures')), '(int32)0')]"
+                        blockoverride "text" {
+                            text = "[GetDataModelSize(Province.MakeScope.GetList('kCAFG_province_cultures'))]"
+                        }
+                    }
+                }
+                
+                kECV_holding_tab_button = {
+                    visible = "[kei_Compat_IsModLoaded_kCAFG]"
+                    onclick = "[VariableSystem.Set( 'kECV_barony_tab', 'kCAFG_rites' )]"
+                    tooltip = "COUNTY_WINDOW_BARONY_TAB_KCAFG_FAITHS"
+                    blockoverride "icon" { texture = "gfx/interface/icons/message_feed/religious.dds" }
+                    blockoverride "highlight" { visible = "[VariableSystem.HasValue( 'kECV_barony_tab', 'kCAFG_rites')]" }
+
+					shortcut = "tab_4"
+
+                    kECV_holding_tab_button_indicator = {
+                        visible = "[GreaterThan_int32(GetDataModelSize(Province.MakeScope.GetList('kCAFG_province_rites')), '(int32)0')]"
+                        blockoverride "text" {
+                            text = "[GetDataModelSize(Province.MakeScope.GetList('kCAFG_province_rites'))]"
+                        }
+                    }
+                }
+                
+                kECV_holding_tab_button = {
+                    onclick = "[VariableSystem.Set( 'kECV_barony_tab', 'modifiers' )]"
+                    tooltip = "COUNTY_WINDOW_BARONY_TAB_MODIFIERS"
+                    blockoverride "icon" {
+                        size = { 32 32 }
+                        texture = "gfx/interface/icons/modifiers/county_modifier_development_both.dds"
+                    }
+                    blockoverride "highlight" { visible = "[VariableSystem.HasValue( 'kECV_barony_tab', 'modifiers')]" }
+
+					shortcut = "tab_5"
+
+                    kECV_holding_tab_button_indicator = {
+                        visible = "[GreaterThan_int32(Subtract_int32(GetDataModelSize(HoldingView.GetHoldingStatuses), Add_int32(FixedPointToInt(Province.MakeScope.ScriptValue('V_kECV_province_non_modifiers_holding_status_count')), Select_int32(And(Province.GetTitle.GetHolder.IsLocalPlayer, Province.GetMaaOriginHere.IsValid), '(int32)1', '(int32)0'))), '(int32)0')]"
+                        blockoverride "text" {
+                            text = "[Subtract_int32(GetDataModelSize(HoldingView.GetHoldingStatuses), Add_int32(FixedPointToInt(Province.MakeScope.ScriptValue('V_kECV_province_non_modifiers_holding_status_count')), Select_int32(And(Province.GetTitle.GetHolder.IsLocalPlayer, Province.GetMaaOriginHere.IsValid), '(int32)1', '(int32)0')))]"
+                        }
+                    }
+                }
+                
+                kECV_holding_tab_button = {
+                    onclick = "[VariableSystem.Set( 'kECV_barony_tab', 'legends' )]"
+                    tooltip = "COUNTY_WINDOW_BARONY_TAB_LEGENDS"
+                    blockoverride "icon" { texture = "gfx/interface/icons/message_feed/legend.dds" }
+                    blockoverride "highlight" { visible = "[VariableSystem.HasValue( 'kECV_barony_tab', 'legends')]" }
+
+					shortcut = "tab_6"
+
+                    kECV_holding_tab_button_indicator = {
+                        visible = "[GreaterThan_int32(GetDataModelSize(Province.GetLegends), '(int32)0')]"
+                        blockoverride "text" {
+                            text = "[GetDataModelSize(Province.GetLegends)]"
+                        }
+                    }
+                }
+                
+                kECV_holding_tab_button = {
+                    onclick = "[VariableSystem.Set( 'kECV_barony_tab', 'epidemics' )]"
+                    tooltip = "COUNTY_WINDOW_BARONY_TAB_EPIDEMICS"
+                    blockoverride "icon" { texture = "gfx/interface/icons/message_feed/plague.dds" }
+                    blockoverride "highlight" { visible = "[VariableSystem.HasValue( 'kECV_barony_tab', 'epidemics')]" }
+
+					shortcut = "tab_7"
+
+                    kECV_holding_tab_button_indicator = {
+                        visible = "[GreaterThan_int32(GetDataModelSize(Province.GetEpidemics), '(int32)0')]"
+                        blockoverride "text" {
+                            text = "[GetDataModelSize(Province.GetEpidemics)]"
+                        }
+                    }
+                }
+
+                kECV_holding_tab_button = {
+                    onclick = "[VariableSystem.Set( 'kECV_barony_tab', 'landless_rulers' )]"
+                    tooltip = "COUNTY_WINDOW_BARONY_TAB_LANDLESS_RULERS"
+                    #blockoverride "icon" { texture = "gfx/interface/icons/map_icons/map_icon_estate.dds" size = { 35 35 } }
+                    blockoverride "icon" { texture = "gfx/interface/icons/government_types/landless_adventurer_government.dds" }
+                    blockoverride "glow" { glow_radius = 2 }
+                    blockoverride "highlight" { visible = "[VariableSystem.HasValue('kECV_barony_tab', 'landless_rulers')]" }
+
+					shortcut = "tab_8"
+
+                    kECV_holding_tab_button_indicator = {
+                        visible = "[GreaterThan_int32(GetLobbyHelper.CountFilteredDomicilesInProvince( Province.Self ), '(int32)0')]"
+                        blockoverride "text" {
+                            text = "[GetLobbyHelper.CountFilteredDomicilesInProvince( Province.Self )]"
+                        }
+                    }
+                }
+                
+                expand = {}
+            }
+        }
+    }
+
+    type kECG_holding_category_container = margin_widget {
+        size = { 100% 100% }
+        margin = { 5 5 }
+
+        block "background" {
+            background = {
+                using = Background_Area_Light
+
+                modify_texture = {
+                    texture = "gfx/interface/window_county/mask_holding_illustration.dds"
+                    blend_mode = alphamultiply
+                    alpha = 0.95
+                }
+            }
+        }
+    }
+
+    type kECV_holding_stat = widget {
+        size = { 51 51 }
+            
+        hbox = {
+            layoutpolicy_vertical = expanding
+            layoutpolicy_horizontal = expanding
+            vbox = {
+                layoutpolicy_vertical = expanding
+                layoutpolicy_horizontal = expanding
+                expand = {}
+                widget = {
+                    size = { 30 30 }
+                    icon = {
+                        parentanchor = center
+                        size = { 100% 100% }
+                        block "icon" {
+                            texture = "gfx/interface/icons/icon_gold.dds"
+                        }
+
+                        warning_icon = {
+                            size = { 20 20 }
+                            parentanchor = top|right
+                            position = { 10 -2 }
+                            block "warning_icon" { visible = no }
+                        }
+                    }
+                }
+
+                block "additional_content" {}
+
+                hbox = {
+                    margin_top = -2
+                    background = {
+                        block "bad_status" {
+                            visible = no
+                        }
+                        margin_top = 0
+                        margin_bottom = -2
+                        using = Status_Bad
+                    }
+
+                    text_single = {
+                        block "text" {
+                            raw_text = "?"
+                        }
+                        block "text_format" {
+                            default_format = "#V"
+                        }
+                        align = top
+                    }
+                }
+
+                expand = {}
+            }
+    
+            block "additional_vertical_content" {}
+        }
+    }
+
+    type kECV_holding_stats = vbox {
+        margin = { 5 5 }
+        margin_top = 9
+        ignoreinvisible = no
+        layoutpolicy_vertical = expanding
+
+        # Terrain - MAA
+        hbox = {
+            layoutpolicy_horizontal = expanding
+            ignoreinvisible = no
+
+            expand = {}
+
+            hbox = {
+                visible = "[kECVCompatDisplayHolder]"
+                ignoreinvisible = no
+
+                # MAA
+                widget = {
+                    size = { 52 52 }
+                    vbox = {
+                        expand = {}
+                        widget = {
+                            size = { 50 50 }
+                            visible = "[Province.GetMaaOriginHere.IsValid]"
+                            datacontext = "[Province.GetMaaOriginHere]"
+                            datacontext = "[Regiment.GetMAAType]"
+                            
+                            button_round = {
+                                name = "stationed_maa_button"
+                                size = { 100% 100% }
+
+                                visible = "[And(Not(IsObserver), Regiment.GetOwner.IsLocalPlayer)]"
+
+                                tooltip = "SHOW_MAA_ORIGIN_TT"
+                                
+                                onclick = "[OpenGameView( 'military' )]"
+                                onclick = "[OpenGameViewData( 'men_at_arms', Regiment.GetID )]"
+
+                                glow = {
+                                    using = Color_Orange
+                                    visible = "[Regiment.IsShownInMaaView]"
+
+                                    glow_radius = 3
+                                    using = Glow_Standard
+                                }
+                                using = Animation_Glow_Pulse
+
+                                icon = {
+                                    texture = "[MenAtArmsType.GetIcon]"
+                                    parentanchor = center
+                                    size = { 80% 80% }
+                                }
+                            }
+                            
+                            icon = {
+                                size = { 80% 80% }
+                                parentanchor = center
+                                alwaystransparent = yes
+                                visible = "[Or(IsObserver, Not(Regiment.GetOwner.IsLocalPlayer))]"
+                                texture = "[MenAtArmsType.GetIcon]"
+                                tooltip = "SHOW_MAA_ORIGIN_TT"
+                            }
+                        }
+                        expand = {}
+                    }
+                }
+            }
+
+            icon = {
+                size = { 52 52 }
+                datacontext = "[HoldingView.GetProvince]"
+                tooltip = "HOLDING_TERRAIN_TOTAL_TOOLTIP"
+                datacontext = "[HoldingView.GetProvince.GetTerrain]"
+                texture = "[Terrain.GetIcon]"
+
+                widget = {
+                    size = { 28 28 }
+                    position = { 6 -6 }
+                    parentanchor = top|right
+
+                    icon = { # Mild Winter
+                        name = "winter_level_icon_mild"
+                        visible = "[Province.HasWinterLevel('(int32)1')]"
+                        texture = "gfx/interface/icons/terrain_types/winter_mild.dds"
+                        size = { 28 28 }
+                        tooltip = "PROVINCE_VIEW_TOOLTIP_WINTER"
+                    }
+
+                    icon = { # Normal Winter
+                        name = "winter_level_icon_normal"
+                        #visible = "[Province.HasWinterLevel('(int32)2')]"
+                        texture = "gfx/interface/icons/terrain_types/winter_normal.dds"
+                        size = { 28 28 }
+                        tooltip = "PROVINCE_VIEW_TOOLTIP_WINTER"
+                    }
+
+                    icon = { # Harsh Winter
+                        name = "winter_level_icon_harsh"
+                        visible = "[Province.HasWinterLevel('(int32)3')]"
+                        texture = "gfx/interface/icons/terrain_types/winter_harsh.dds"
+                        size = { 28 28 }
+                        tooltip = "PROVINCE_VIEW_TOOLTIP_WINTER"
+                    }
+                }
+
+                widget = {
+                    visible = "[Or(GetScriptedGui('historical_battle_1_ui').IsShown( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).End), GetScriptedGui('historical_battle_2_ui').IsShown( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).End))]"
+                    size = { 24 24 }
+                    position = { 4 4 }
+                    parentanchor = bottom|right
+
+                    icon = {
+                        texture = "gfx/interface/icons/struggle_banners/icon_background_02.dds"
+                        parentanchor = bottom|hcenter
+                        size = { 100% 100% }
+                    }
+
+                    icon = {
+                        datacontext = "[GetScriptedGui('historical_battle_1_ui')]"										
+                        visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).End)]"
+                        alwaystransparent = yes
+                        
+                        size = { 100% 100% }
+                        texture = "gfx/interface/icons/point_of_interest_types/poi_battles.dds"
+                        tooltipwidget = { using = battle_ui_1_tooltip }
+                        
+                    }
+                    icon = {
+                        datacontext = "[GetScriptedGui('historical_battle_2_ui')]"										
+                        visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).End)]"
+                        alwaystransparent = yes
+                        
+                        size = { 100% 100% }
+                        texture = "gfx/interface/icons/point_of_interest_types/poi_battles.dds"
+                        tooltipwidget = { using = battle_ui_2_tooltip }
+                    }
+                }
+            }
+        
+            expand = {}
+        }
+
+        expand = {}
+
+        # Main Stats
+        hbox = {
+            layoutpolicy_horizontal = expanding
+            expand = {}
+            vbox = {
+                margin = { 5 5 }
+                alwaystransparent = yes
+                ignoreinvisible = no
+                
+                background = { using = Background_Area_Dark }
+
+                expand = {}
+
+                hbox = {
+                    visible = "[And(HoldingView.HasHolding, kECVCompatProvinceNotEmpty)]"
+
+                    expand = {}
+                    
+                    kECV_holding_stat = {
+                        visible = "[And(HoldingView.GetProvince.HasFort, kECVCompatDisplayGarrison)]"
+                        tooltip = "[HoldingView.GetGarrisonTooltip]"
+                        blockoverride "icon" { texture = "gfx/interface/icons/icon_garrison.dds" }
+                        blockoverride "text" { raw_text = "[HoldingView.GetCurrentGarrisonSize]" }
+                        blockoverride "additional_content"
+                        {
+                            widget = {
+                                layoutpolicy_horizontal = expanding
+                                size = { 0 0 }
+                                hbox = {
+                                    progressbar_standard_transparent = {
+                                        layoutpolicy_horizontal = expanding
+
+                                        size = { 0 18 }
+                                        value = "[HoldingView.GetGarrisonRatio]"
+                                        direction = horizontal
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    kECV_holding_stat = {
+                        visible = "[HoldingView.GetProvince.HasFort]"
+                        tooltip = "[HoldingView.GetProvince.GetFortLevelTooltip]"
+                        blockoverride "icon" { texture = "gfx/interface/window_siege/fort_icon.dds" }
+                        blockoverride "text" { raw_text = "[HoldingView.GetProvince.GetFortLevel]" }
+                        blockoverride "text_format" { default_format = "#T" }
+                    }
+                    expand = {}
+                }
+
+                hbox = {
+                    visible = "[kECVCompatProvinceNotEmpty]"
+                    expand = {}
+                    
+                    kECV_holding_stat = {
+                        visible = "[GreaterThanOrEqualTo_CFixedPoint( Province.MakeScope.ScriptValue( 'V_kECV_population_displayed'), '(CFixedPoint)0' ) ]"
+                        tooltip = "kECV_province_population_tooltip"
+                        blockoverride "warning_icon" { visible = "[GetScriptedGui('kECV_population_warning_scripted_gui').IsShown(GuiScope.SetRoot(Province.MakeScope).End)]" }
+                        blockoverride "icon" { texture = "gfx/interface/icons/message_feed/council.dds" color = { 0.85 0.85 0.9 1 } size = { 36 32 } }
+                        blockoverride "text" { raw_text = "[Province.MakeScope.ScriptValue('V_kECV_population_displayed')|0]" }
+                        blockoverride "additional_content"
+                        {
+                            widget = {
+                                visible = "[GreaterThanOrEqualTo_CFixedPoint( Province.MakeScope.ScriptValue('V_kECV_population_baseline_displayed'), '(CFixedPoint)0' ) ]"
+                                layoutpolicy_horizontal = expanding
+                                size = { 0 0 }
+                                widget = {
+                                    size = { 100% 100% }
+                                    progressbar_standard = {
+                                        visible = "[And(GreaterThanOrEqualTo_CFixedPoint(Province.MakeScope.ScriptValue('V_kECV_population_baseline_displayed'), Province.MakeScope.ScriptValue('V_kECV_population_displayed')), GreaterThanOrEqualTo_CFixedPoint(Province.MakeScope.ScriptValue('V_kECV_population_percentage_of_baseline'), Province.MakeScope.ScriptValue('V_kECV_low_population_threshold_percentage')))]"
+                                        size = { 100% 18 }
+                                        value = "[Province.MakeScope.ScriptValue('V_kECV_population_percentage_of_baseline')]"
+                                        direction = horizontal
+                                        blockoverride "progress_textures"
+                                        {
+                                            progresstexture = "gfx/interface/progressbars/progress_green.dds"
+                                            noprogresstexture = "gfx/interface/progressbars/progress_frozen.dds"
+                                        }
+                                    }
+                                    progressbar_standard = {
+                                        visible = "[And(GreaterThanOrEqualTo_CFixedPoint(Province.MakeScope.ScriptValue('V_kECV_population_baseline_displayed'), Province.MakeScope.ScriptValue('V_kECV_population_displayed')), LessThan_CFixedPoint(Province.MakeScope.ScriptValue('V_kECV_population_percentage_of_baseline'), Province.MakeScope.ScriptValue('V_kECV_low_population_threshold_percentage')))]"
+                                        size = { 100% 18 }
+                                        value = "[Province.MakeScope.ScriptValue('V_kECV_population_percentage_of_baseline')]"
+                                        direction = horizontal
+                                        blockoverride "progress_textures"
+                                        {
+                                            progresstexture = "gfx/interface/progressbars/progress_red.dds"
+                                            noprogresstexture = "gfx/interface/progressbars/progress_frozen.dds"
+                                        }
+                                    }
+                                    progressbar_standard = {
+                                        visible = "[Not(GreaterThanOrEqualTo_CFixedPoint(Province.MakeScope.ScriptValue('V_kECV_population_baseline_displayed'), Province.MakeScope.ScriptValue('V_kECV_population_displayed')))]"
+                                        size = { 100% 18 }
+                                        value = "[Province.MakeScope.ScriptValue('V_kECV_population_baseline_percentage_of_population')]"
+                                        direction = horizontal
+                                        blockoverride "progress_textures"
+                                        {
+                                            progresstexture = "gfx/interface/progressbars/progress_green.dds"
+                                            noprogresstexture = "gfx/interface/progressbars/progress_orange.dds"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    kECV_holding_stat = {
+                        visible = "[HoldingView.HasHolding]"
+                        tooltip = "[Holding.GetLeviesTooltip]"
+                        blockoverride "warning_icon" { visible = "[Holding.LevyAndTaxIsAffectedByFixableSituation]" }
+                        blockoverride "icon" { texture = "gfx/interface/icons/icon_levies.dds" }
+                        blockoverride "text" { raw_text = "[Holding.GetMaxLevySize|0]" }
+                        blockoverride "additional_content"
+                        {
+                            widget = {
+                                layoutpolicy_horizontal = expanding
+                                size = { 0 0 }
+                                hbox = {
+                                    progressbar_standard_transparent = {
+                                        layoutpolicy_horizontal = expanding
+                                        size = { 0 18 }
+                                        value = "[Holding.GetUnraisedLevyRatioPercent]"
+                                        direction = horizontal
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                hbox = {
+                    visible = "[And(HoldingView.HasHolding, kECVCompatProvinceNotEmpty)]"
+
+                    kECV_holding_stat = {
+                        tooltip = "[Holding.GetProvince.GetLootTooltip]"
+                        blockoverride "icon" { texture = "gfx/interface/icons/icon_loot.dds"  size = { 32 32 } }
+                        blockoverride "warning_icon" { visible = "[Holding.GetProvince.IsRecentlyLooted]" }
+                        blockoverride "text" { raw_text = "[Holding.GetProvince.GetLoot|0V]" }
+                        blockoverride "text_format" { default_format = "#BOL;weak_glow" }
+                    }
+
+                    kECV_holding_stat = {
+                        visible = "[And(HoldingView.HasHolding, Not(Holding.GetHolder.HasBarterGoods))]"
+                        tooltip = "[Holding.GetTaxTooltip]"
+                        blockoverride "icon" { texture = "gfx/interface/icons/icon_gold.dds" }
+                        blockoverride "warning_icon" { visible = "[Holding.LevyAndTaxIsAffectedByFixableSituation]" }
+                        blockoverride "text" { raw_text = "[Holding.GetIncome|2+=]" }
+                    }
+
+                    kECV_holding_stat = {
+                        visible = "[And(HoldingView.HasHolding, Holding.GetHolder.HasBarterGoods)]"
+                        tooltip = "[Holding.GetBarterGoodsIncomeTooltip]"
+                        blockoverride "icon" { texture = "gfx/interface/icons/icon_barter.dds" }
+                        blockoverride "warning_icon" { visible = "[Holding.LevyAndTaxIsAffectedByFixableSituation]" }
+                        blockoverride "text" { raw_text = "[HoldingView.GetHolding.GetBarterGoodsIncome|1=]" }
+                    }
+                }
+
+                hbox = {
+                    kECV_holding_stat = {
+                        tooltip = "[HoldingView.GetSupplyLimitTooltip]"
+                        blockoverride "icon" { texture = "gfx/interface/icons/icon_supply.dds" }
+                        blockoverride "text" { raw_text = "[HoldingView.GetSupplyLimit|V]" }
+                    }
+                    kECV_holding_stat = {
+                        datacontext = "[HoldingView.AccessPlagueResistanceBreakdown]"
+                        tooltip_visible = "[ValueBreakdown.HasTooltip]"
+                        tooltipwidget = {
+                            widget_value_breakdown_tooltip = {
+                                blockoverride "header"
+                                {
+                                    text_label_left = {
+                                        layoutpolicy_horizontal = expanding
+                                        text = "PLAGUE_RESISTANCE_BREAKDOWN_HEADER"
+                                        default_format = "#T"
+                                    }
+                                }
+                            }
+                        }
+                        blockoverride "icon" { texture = "gfx/interface/icons/message_feed/plague.dds" }
+                        blockoverride "text" { raw_text = "[Province.GetEpidemicResistance|0]" }
+                    }
+                }
+            }
+        }
+    }
+
+    type kECV_building_item = widget {
+		size = { 55 55 }
+		enabled = "[GUIBuildingItem.IsBuildingButtonEnabled]"
+        #enabled = "[Or(Province.GetTitle.GetHolder.IsLocalPlayer, Province.GetTitle.GetHolder.IsOtherLiegeOrAbove(GetPlayer))]"
+		tooltip = "[GUIBuildingItem.GetTooltip]"
+		using = tooltip_ne
+
+		button_standard = {
+			name = "building_button"
+			size = { 100% 100% }
+			onclick = "[GUIBuildingItem.OnClick]"
+			down = "[GUIBuildingItem.IsHighlighted]"
+			tooltip = "[GUIBuildingItem.GetTooltip]"
+			using = tooltip_ne
+
+            margin_widget = {
+                size = { 100% 100% }
+                margin = { 2 2 }
+                progressbar_standard = {
+                    name = "holding_upgrade_progressbar"
+                    layoutpolicy_horizontal = expanding
+                    visible = "[GUIBuildingItem.IsConstructing]"
+                    size = { 100% 100% }
+					alpha = 0.8
+                    alwaystransparent = yes
+                    value = "[GUIBuildingItem.GetConstructingProgress]"
+                }
+            }
+
+			block "shortcut" {}
+            block "frame" {}
+
+            widget = {
+                name = "building_icon_container"
+                block "icon_size" {
+                    size = { 72% 72% }
+                }
+                parentanchor = center
+
+                highlight_icon = {
+                    name = "build_new_icon"
+                    visible = "[And(And(GUIBuildingItem.IsBuildNewIconShown, GUIBuildingItem.IsBuildingButtonEnabled), Not(GUIBuildingItem.HasLevel))]"
+                    parentanchor = center
+                    size = { 70% 70% }
+                    alpha = 0.7
+                    texture = "gfx/interface/icons/symbols/icon_plus.dds"
+                }
+
+                icon_building = {
+                    name = "building_icon"
+                    visible = "[Not( GUIBuildingItem.CanUpgrade )]"
+                    parentanchor = center
+                    size = { 100% 100% }
+                    texture = "[GUIBuildingItem.GetCurrentOrConstrucingBuilding.GetTypeIcon]"
+                }
+
+                icon_building = {
+                    name = "ruined_building_icon"
+                    visible = "[GUIBuildingItem.IsBuildingRuined]"
+                    parentanchor = center
+                    size = { 100% 100% }
+                    texture = "gfx/interface/icons/flat_icons/ruined_building.dds"
+                }
+
+                highlight_icon_building = {
+                    name = "building_icon_can_upgrade"
+                    visible = "[GUIBuildingItem.CanUpgrade]"
+                    parentanchor = center
+                    size = { 100% 100% }
+                    texture = "[GUIBuildingItem.GetCurrentOrConstrucingBuilding.GetTypeIcon]"
+                }
+            }
+
+			text_single = {
+				visible = "[GUIBuildingItem.HasLevel]"
+				text = "[GUIBuildingItem.GetCurrentOrConstrucingBuilding.GetLevel]"
+                block "level_text_position" {
+                    parentanchor = bottom|right
+                    position = { -6 -2 }
+                }
+				fontsize = 15
+				default_format = "#medium;bold"
+				align = nobaseline
+
+				background = {
+					using = Background_Area_Dark
+					margin = { 5 0 }
+				}
+
+				background = {
+					using = Background_Area_Dark
+					margin = { 5 0 }
+				}
+
+				background = {
+					using = Background_Area_Dark
+					margin = { 5 0 }
+				}
+			}
+
+			warning_icon = {
+				name = "reduced_by_fixable_situation"
+				visible = "[GUIBuildingItem.IsBuildingDisabled]"
+				size = { 25 25 }
+			}
+		}
+
+		icon = {
+			name = "building_slot"
+			size = { 100% 100% }
+			using = Background_Area
+			visible = "[GUIBuildingItem.IsBuildingSlotShown]"
+		}
+	}
+
+    type kECV_legend_library_entry_vbox = vbox_generic_object_card
+    {
+    	datacontext = "[LegendItem.GetLegend]"
+        visible = "[Legend.IsValid]"
+
+        layoutpolicy_horizontal = expanding
+        using = Legend_Mouse_Entry
+
+        blockoverride "header_properties"
+        {
+            layoutpolicy_horizontal = expanding
+            margin = { 10 10 }
+        }
+        blockoverride "header_tooltip"
+        {
+		    tooltipwidget = legend_tooltip
+            block "header_tooltip_additional" {}
+        }
+
+        blockoverride "header_background_color"
+        {
+            using = Legend_Quality_Colors
+        }
+
+        blockoverride "header_pre_contents"
+        {
+            button = {
+                datacontext = "[Legend.GetType]"
+                texture = "[LegendType.GetIcon]"
+
+                size = { 50 50 }
+
+				effectname = "GreyedOut"
+                block "unpromoted_icon" {
+                    visible = "[Not( Legend.IsCharacterPromotingLegend( GetPlayer ) )]"
+                }
+                datacontext = "[Legend.GetType]"
+            }
+
+            icon_legend_highlight = {
+                block "promoted_icon" {
+                    visible = "[Legend.IsCharacterPromotingLegend( GetPlayer )]"
+                }
+                datacontext = "[Legend.GetType]"
+            }
+        }
+        blockoverride "header_top_contents"
+        {
+			layoutpolicy_vertical = expanding
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+	            text_single = {
+	                text = "[Legend.GetNameNoTooltip]"
+	                default_format = "#high"
+
+	                using = Font_Size_Medium
+	                align = nobaseline
+	                max_width = 350
+
+	            }
+	            expand = {}
+            }
+        }
+        blockoverride "header_bottom_contents"
+        {
+			layoutpolicy_vertical = expanding
+
+            text_single = {
+                text = "LEGEND_HEADER_SUBTITLE"
+                default_format = "#weak"
+                align = nobaseline
+                parentanchor = vcenter|left
+                max_width = 350
+            }
+        }
+        blockoverride "header_post_contents"
+        {
+            using = GenericObjectCardDefaultHeaderPostProperties
+
+			vbox = {
+				layoutpolicy_vertical = expanding
+
+				hbox = {
+		            text_single  = {
+		                text = "[Legend.GetQualityLevel]"
+		                default_format = "#weak"
+		                align = nobaseline
+		                margin_right = 5
+		            }
+
+		            hbox = {
+		                spacing = -4
+
+		                icon_flat_standard_gold = {
+		                    size = { 24 24 }
+		                    texture = "gfx/interface/icons/flat_icons/legends.dds"
+		                }
+
+		                icon_flat_standard_gold = {
+		                    visible = "[Legend.HasQuality( 'mythical' )]"
+		                    size = { 24 24 }
+		                    texture = "gfx/interface/icons/flat_icons/legends.dds"
+		                }
+
+
+		                icon_flat_standard_gold = {
+		                    visible = "[Or(Legend.HasQuality( 'illustrious' ), Legend.HasQuality( 'mythical' ))]"
+		                    size = { 24 24 }
+		                    texture = "gfx/interface/icons/flat_icons/legends.dds"
+		                }
+
+		                icon_flat_standard_black = {
+		                    visible = "[Legend.HasQuality( 'famed' )]"
+		                    size = { 24 24 }
+		                    texture = "gfx/interface/icons/flat_icons/legends.dds"
+
+		                    glow = {
+		                        glow_radius = 3
+		                        using = Glow_Standard
+		                        using = Color_White
+		                        alpha = 0.08
+		                    }
+		                }
+
+		                icon_flat_standard_black = {
+		                    visible = "[Or(Legend.HasQuality( 'famed' ), Legend.HasQuality( 'illustrious' ))]"
+		                    size = { 24 24 }
+		                    texture = "gfx/interface/icons/flat_icons/legends.dds"
+
+		                    glow = {
+		                        glow_radius = 3
+		                        using = Glow_Standard
+		                        using = Color_White
+		                        alpha = 0.08
+		                    }
+		                }
+		            }
+	            }
+
+				hbox = {
+					layoutpolicy_horizontal = expanding
+
+					expand = {}
+		            text_single  = {
+	                    text = "LEGEND_DURATION_COMPLETED"
+                        visible = "[Legend.IsCompleted]"
+	                    default_format = "#weak"
+	                    align = nobaseline
+	                    margin_right = 5
+	                }
+		            text_single  = {
+	                    text = "LEGEND_DURATION_ACTIVE"
+                        visible = "[Not(Legend.IsCompleted)]"
+	                    default_format = "#weak"
+	                    align = nobaseline
+	                    margin_right = 5
+	                }
+                }
+
+	            expand = {}
+	        }
+        }
+    }
+
+    type kECV_holding_war_status = flowcontainer {
+        parentanchor = top|right
+        margin_right = 73
+        righttoleft = yes
+        ignoreinvisible = yes
+
+        widget = { 
+            size = { 60 1 }
+            visible = "[HoldingView.GetTitle.HasHolder]"
+        }
+
+        flowcontainer = {
+            direction = vertical
+            margin_top = 5
+            ignoreinvisible = yes
+
+            background = {
+                spriteType = Corneredstretched
+                margin_right = 14
+                margin_left = 14
+                margin_bottom = 28
+                spriteborder = { 0 29 }
+                texture_density = 0.9
+                color = { 0.9 0.85 0.8 1 }
+                texture = "gfx/interface/icons/roco_tabs/banner_notification.dds"
+            }
+
+            button_group = {
+                size = { 40 40 }
+                visible = "[HoldingView.GetProvince.IsOccupied]"
+                raw_tooltip = "#T [HoldingView.GetOccupiedInfo]#!"
+                datacontext = "[HoldingView.GetProvince.GetController]"
+                onclick = "[DefaultOnCharacterClick(HoldingView.GetProvince.GetController.GetID)]"
+                button_round = {
+                    coa_realm_tiny = {
+                        blockoverride "coa_button" {}
+                        position = { 0 3 }
+                        parentanchor = center
+                    }
+                }
+            }
+
+            button_round = {
+                name = "open_siege_button"
+                datacontext = "[HoldingView.GetProvince.GetSiege]"
+                visible = "[HoldingView.GetProvince.HasActiveSiege]"
+                onclick = "[DefaultOnSiegeClick(Siege.GetID)]"
+                tooltip = "[Siege.GetSiegeDescription]"
+                shortcut = county_go_to_siege
+                using = siege_goto_template
+            }
+
+            button_group = {
+                name = "open_raid_button"
+                datacontext = "[HoldingView.GetProvince.GetRaid]"
+                visible = "[HoldingView.GetProvince.HasActiveRaid]"
+                onclick = "[DefaultOnRaidClick( Raid.Self )]"
+                tooltip = "MAP_RAID_TOOLTIP"
+                shortcut = county_go_to_siege
+                using = raid_goto_template
+                blockoverride "tooltip" {}
+            }
+        }
+    }
+
+    type kECV_settings_window = hbox {
+        layoutpolicy_horizontal = expanding
+        margin_bottom = -9
+        expand = {}
+        widget = {
+            visible = "[And(GetVariableSystem.Exists( 'county_view_open' ), GetVariableSystem.Exists( 'kECV_settings_opened' ))]"
+            visible_at_creation = no
+            
+            using = Window_Background_Subwindow
+            using = Animation_ShowHide_Quick
+
+            state = {
+                name = _show
+                on_finish = "[GetScriptedGui('kECV_setup_summary_setting').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+            }
+
+            state = {
+                trigger_when = "[Not(GetVariableSystem.Exists('kECV_summary_settings_dropdown_selection'))]"
+                on_finish = "[GetVariableSystem.Set('kECV_summary_settings_dropdown_selection', 'kECV_summary_setting_none')]"
+            }
+            
+            vbox = {
+                resizeparent = yes
+                min_width = 370
+                margin = { 4 4 }
+                margin_bottom = 15
+                spacing = 5
+
+                header_pattern = {
+                    layoutpolicy_horizontal = expanding
+                    blockoverride "header_text" { text = "COUNTY_WINDOW_SETTINGS_HEADING" }
+                    blockoverride "button_close" { onclick = "[GetVariableSystem.Clear( 'kECV_settings_opened' )]" }
+                }
+
+                hbox = {
+                    margin_top = -10
+                    layoutpolicy_horizontal = expanding
+                    vbox = {
+                        margin_left = 10
+                        margin_right = 10
+                        layoutpolicy_vertical = expanding
+                        layoutpolicy_horizontal = expanding
+
+                        spacing = 4
+                        kECV_setting_checkbox = {
+                            blockoverride "checkbox" {
+                                checked = "[GetVariableSystem.Exists( 'kECV_setting_display_culture_acceptance' )]"
+                                onclick = "[GetVariableSystem.Toggle( 'kECV_setting_display_culture_acceptance' )]"
+                            }
+                            blockoverride "text" {
+                                text = "COUNTY_WINDOW_SETTING_TITLE_DISPLAY_CULTURE_ACCEPTANCE"
+                                tooltip = "COUNTY_WINDOW_SETTING_TITLE_DISPLAY_CULTURE_ACCEPTANCE_DESC"
+                            }
+                        }
+                        kECV_setting_checkbox = {
+                            blockoverride "checkbox" {
+                                checked = "[GetVariableSystem.Exists( 'kECV_setting_hide_can_construct' )]"
+                                onclick = "[GetVariableSystem.Toggle( 'kECV_setting_hide_can_construct' )]"
+                            }
+                            blockoverride "text" {
+                                text = "COUNTY_WINDOW_SETTING_TITLE_DISPLAY_CAN_CONSTRUCT"
+                                tooltip = "COUNTY_WINDOW_SETTING_TITLE_DISPLAY_CAN_CONSTRUCT_DESC"
+                            }
+                        }
+                        kECV_setting_checkbox = {
+                            blockoverride "checkbox" {
+                                checked = "[GetVariableSystem.Exists( 'kECV_setting_display_compact_barony_tabs' )]"
+                                onclick = "[GetVariableSystem.Toggle( 'kECV_setting_display_compact_barony_tabs' )]"
+                            }
+                            blockoverride "text" {
+                                text = "COUNTY_WINDOW_SETTING_TITLE_DISPLAY_COMPACT_BARONY_TABS"
+                                tooltip = "COUNTY_WINDOW_SETTING_TITLE_DISPLAY_COMPACT_BARONY_TABS_DESC"
+                            }
+                        }
+                        kECV_setting_checkbox = {
+                            blockoverride "checkbox" {
+                                checked = "[GetVariableSystem.Exists( 'kECV_setting_display_change_values' )]"
+                                onclick = "[GetVariableSystem.Toggle( 'kECV_setting_display_change_values' )]"
+                            }
+                            blockoverride "text" {
+                                text = "COUNTY_WINDOW_SETTING_TITLE_DISPLAY_CHANGE_VALUES"
+                                tooltip = "COUNTY_WINDOW_SETTING_TITLE_DISPLAY_CHANGE_VALUES_DESC"
+                            }
+                        }
+                        kECV_setting_dropdown = {
+                            blockoverride "text" {
+                                text = "COUNTY_WINDOW_SETTING_TITLE_DISPLAY_HOLDING_SUMMARY"
+                                tooltip = "COUNTY_WINDOW_SETTING_TITLE_DISPLAY_HOLDING_SUMMARY_DESC"
+                            }
+                            blockoverride "dropdown_properties" { datamodel = "[GetGlobalList('kECV_summary_settings')]" }
+                            blockoverride "dropdown_active_item_properties" {
+                                raw_text = "[Localize(Concatenate(GetVariableSystem.Get('kECV_summary_settings_dropdown_selection'), '_name'))]"
+                            }
+                            blockoverride "dropdown_1" { visible = "[Not(GetVariableSystem.Exists('kECV_summary_settings_dropdown_toggle'))]" }
+                            blockoverride "dropdown_1_button" {
+                                onclick = "[GetVariableSystem.Set('kECV_summary_settings_dropdown_toggle', 'yes')]"
+                                onclick = "[GetVariableSystem.Set('kECV_summary_settings_dropdown_selection', Scope.GetFlagKey)]"
+                            }
+                            blockoverride "dropdown_2" { visible = "[GetVariableSystem.Exists('kECV_summary_settings_dropdown_toggle')]" }
+                            blockoverride "dropdown_2_button" {
+                                onclick = "[GetVariableSystem.Clear('kECV_summary_settings_dropdown_toggle')]"
+                                onclick = "[GetVariableSystem.Set('kECV_summary_settings_dropdown_selection', Scope.GetFlagKey)]"
+                            }
+                        }
+                        expand = {}
+                    }
+                }
+            }
+        }
+    }
+    type kECV_setting_checkbox = hbox {
+        spacing = 5
+        layoutpolicy_horizontal = expanding
+
+        text_single = {
+            align = nobaseline
+            default_format = "#clickable"
+
+            block "text" {
+                text = "DEFAULT_TEXT"
+                using = tooltip_above
+            }
+            alwaystransparent = yes
+            max_width = 200
+        }
+
+        expand = {}
+
+        button_checkbox = {
+            block "checkbox" {}
+        }
+    }
+    type kECV_setting_dropdown = hbox {
+        spacing = 5
+        layoutpolicy_horizontal = expanding
+
+        text_single = {
+            block "text" {
+                text = "DEFAULT_TEXT"
+                using = tooltip_above
+            }
+            align = nobaseline
+            max_width = 120
+            default_format = "#clickable"
+        }
+
+        expand = {}
+
+        widget = {
+			size = { 140 32 }
+
+            # there is a pair of dropdowns that work as one. They alternate visibility to fake closing the list
+            dropdown_menu_standard = {
+		        blockoverride "dropdown_size" { size = { 140 32 } }
+                block "dropdown_1" {}
+
+                blockoverride "dropdown_item_properties"
+                {
+                    button = {
+                        block "dropdown_1_button" {}
+                        size = { 100% 100% }
+                    }
+                    raw_text = "[Localize(Concatenate(Scope.GetFlagKey, '_name'))]"
+                }
+            }
+
+            dropdown_menu_standard = {
+		        blockoverride "dropdown_size" { size = { 140 32 } }
+                block "dropdown_2" {}
+
+                blockoverride "dropdown_item_properties"
+                {
+                    button = {
+                        block "dropdown_2_button" {}
+                        size = { 100% 100% }
+                    }
+                    raw_text = "[Localize(Concatenate(Scope.GetFlagKey, '_name'))]"
+                }
+            }
+        
+        }
+    }
+
+    type kECV_change_holding_type_button = button_standard {
+        size = { 0 35 }
+        datacontext = "[HoldingView.GetGUIHoldingBuilding]"
+        datacontext = "[HoldingView.GetTitle]"
+        datacontext = "[HoldingView.GetHolder]"
+        oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
+        clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
+
+        block "building_buttons_background" {}
+
+        hbox = {
+            resizeparent = yes
+            margin = { 6 0 }
+            spacing = -5
+
+            background = {
+                #block "background" {}
+                texture = "gfx/interface/component_masks/patterns/mask_pattern_06.dds"
+                spriteType = Corneredtiled
+                alpha = 0.1
+
+                using = Color_Orange
+                using = Mask_Rough_Edges
+            }
+
+            expand = {}
+            
+            button_icon = {
+                size = { 31 26 }
+                alwaystransparent = yes
+                block "source_type" {}
+            }
+
+            button_icon = {
+                size = { 23 21 }
+                alwaystransparent = yes
+                texture = "gfx/interface/icons/flat_icons/select_arrow.dds"
+            }
+
+            button_icon = {
+                size = { 31 26 }
+                alwaystransparent = yes
+                block "target_type" {}
+            }
+            expand = {}
+        }
+    }
+
+    type kECV_buildings = vbox {
+        expand = {}
+        margin_widget = {
+            margin_left = 12
+            margin_right = 12
+            allow_outside = yes
+            layoutpolicy_horizontal = expanding
+            size = { 0 40 }
+            margin_widget = {
+                scissor = yes
+                size = { 100% 40 }
+                hbox = {
+                    ignoreinvisible = yes
+                    using = kECV_buildings_top_bar_spacing
+					datacontext = "[HoldingView.GetTitle]"
+
+                    expand = {}
+
+                    # Finish when the mod is updated
+                    #kECV_compat__holding_manager__holding_buttons = {}
+
+		            ### FEUDALIZE HOLDING ###
+                    button_round  = {
+                        visible = "[And(Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('feudalize_holding_interaction', Title.Self))]"
+                        enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('feudalize_holding_interaction', Title.Self)]"
+                        tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('feudalize_holding_interaction', Title.Self)]"
+                        oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
+                        clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
+                        onclick = "[Character.OpenPlayerInteractionWithTargetTitle('feudalize_holding_interaction', Title.Self)]"
+
+                        button_feudalize_holding = {
+                            size = { 25 25 }
+                            parentanchor = center
+                            alwaystransparent = yes
+                        }
+                    }
+
+                    ### TRIBALIZE HOLDING ###
+                    button_round  = {
+                        visible = "[And(Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('tribalize_holding_interaction', Title.Self))]"
+                        enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('tribalize_holding_interaction', Title.Self)]"
+                        tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('tribalize_holding_interaction', Title.Self)]"
+                        oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
+                        clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
+                        onclick = "[Character.OpenPlayerInteractionWithTargetTitle('tribalize_holding_interaction', Title.Self)]"
+
+                        button_tribalize_holding = {
+                            size = { 25 25 }
+                            parentanchor = center
+                            alwaystransparent = yes
+                        }
+                    }
+
+                    ### RAZE HOLDING ###
+                    button_round = {
+                        visible = "[And( And( ObjectsEqual( Title.GetHolder, GetPlayer ), Not(Title.IsLeasedOut) ), IsNomad( GetPlayer ) )]"
+                        datacontext = "[Title.GetProvince]"
+
+                        onclick = "[CreateCommandPopup( Province.RazeHolding( GetPlayer ) )]"
+                        enabled = "[IsValidCommand( Province.RazeHolding( GetPlayer ) )]"
+                        tooltip = "[GetCommandDesc( Province.RazeHolding( GetPlayer ) )]"
+
+                        button_icon = {
+                            parentanchor = center
+                            size = { 27 27 }
+                            texture = "gfx/interface/icons/raid_intents/raze_intent.dds"
+                            alwaystransparent = yes
+                        }
+                    }
+
+                    kECV_compat__princes_of_darkness__change_holding_types_buttons = {}
+                    
+                    kECV_compat__nbbbs__expand_holding_slots_button = {}
+                    
+                    expand = {}
+                }
+            }
+        }
+        
+        spacer = {
+            block "top_spacer"
+            {
+                size = { 0 3 }
+            }
+        }
+
+        ## Important Buildings
+        hbox = {
+            margin_left = 12
+            margin_right = 12
+            block "important_buildings"
+            {
+                spacing = 4
+                margin_right = 16
+            }
+            ignoreinvisible = yes
+            expand = {}
+
+            # Duchy Capital Building
+            widget = {
+                visible = "[Or(HoldingView.HasDuchyCapitalBuildingSlot, Not(HoldingView.HasGreatBuildingSlot))]"
+                block "duchy_building" {
+                    size = { 94 75 }
+                }
+                kECV_building_item = {
+                    size = { 100% 100% }
+                    block "building_buttons_background" {}
+                    name = "duchy_capital_building"
+                    datacontext = "[HoldingView.GetGUIDuchyCapitalBuilding]"
+                    visible = "[HoldingView.HasDuchyCapitalBuildingSlot]"
+										
+                    blockoverride "shortcut" {
+                        shortcut = "_ctrl_alt_2"
+                    }
+                    
+                    blockoverride "frame"
+                    {
+                        icon = {
+                            size = { 100% 100% }
+                            texture = "gfx/interface/buttons/button_duchy_capital.dds"
+                            alwaystransparent = yes
+                            spriteType = Corneredtiled
+                            spriteborder = { 20 20 }
+                            framesize = { 252 80 }
+
+                            modify_texture = {
+                                texture = "gfx/interface/colors/gold.dds"
+                                alpha = 0.2
+                            }
+                        }
+                    }
+
+                    blockoverride "icon_size" {
+                        block "duchy_building_icon_size" {
+                            size = { 70 60 }
+                        }
+                    }
+                } 
+            }
+
+            # Holding Building
+            button_standard = {
+                block "main_building" {
+                    size = { 124 75 }
+                }
+                block "building_buttons_background" {}
+                #texture = "gfx/interface/buttons/button_verb_primary.dds"
+                datacontext = "[HoldingView.GetGUIHoldingBuilding]"
+                allow_outside = yes
+                onclick = "[GUIBuildingItem.OnClick]"
+                down = "[GUIBuildingItem.IsHighlighted]"
+                enabled = "[GUIBuildingItem.IsBuildingButtonEnabled]"
+                tooltip = "[GUIBuildingItem.GetTooltip]"
+                
+                shortcut = "_ctrl_alt_1"
+                
+                using = tooltip_ne
+
+                background = {
+                    visible = "[Not(GUIBuildingItem.CanUpgrade)]"
+                    texture = "gfx/interface/skinned/mask_pattern.dds"
+                    texture_density = 4
+                    spriteType = Corneredtiled
+                    alpha = 0.1
+
+                    using = Color_Blue
+                    using = Mask_Rough_Edges
+                }
+
+                background = {
+                    visible = "[GUIBuildingItem.CanUpgrade]"
+                    texture = "gfx/interface/skinned/mask_pattern.dds"
+                    texture_density = 4
+                    spriteType = Corneredtiled
+                    alpha = 0.1
+
+                    using = Color_Orange
+                    using = Mask_Rough_Edges
+                }
+
+                margin_widget = {
+                    size = { 100% 100% }
+                    margin = { 2 2 }
+                    progressbar_standard = {
+                        name = "holding_upgrade_progressbar"
+                        layoutpolicy_horizontal = expanding
+                        visible = "[GUIBuildingItem.IsConstructing]"
+                        size = { 100% 100% }
+                        alpha = 0.8
+                        alwaystransparent = yes
+                        value = "[GUIBuildingItem.GetConstructingProgress]"
+                    }
+                }
+
+                widget = {
+                    position = { 0 -2 }
+                    block "main_building_icon" {
+                        size = { 90 76 }
+                    }
+                    parentanchor = center
+
+                    icon_building = {
+                        name = "building_icon"
+                        visible = "[Not( GUIBuildingItem.CanUpgrade )]"
+                        parentanchor = center
+                        size = { 100% 100% }
+                        texture = "[GUIBuildingItem.GetCurrentOrConstrucingBuilding.GetTypeIcon]"
+                    }
+
+                    highlight_icon_building = {
+                        name = "building_icon_can_upgrade"
+                        visible = "[GUIBuildingItem.CanUpgrade]"
+                        parentanchor = center
+                        size = { 100% 100% }
+                        texture = "[GUIBuildingItem.GetCurrentOrConstrucingBuilding.GetTypeIcon]"
+                    }
+                }
+
+                # text_single = {
+                #     text = "[HoldingView.GetHolding.GetPrimaryBuildingType.GetTypeName]"
+                #     visible = "[Not(kei_Compat_IsModLoaded_AGOT)]"
+                #     align = nobaseline
+                #     parentanchor = bottom|hcenter
+
+                #     background = {
+                #         using = Background_Area_Dark
+                #         margin = { 8 0 }
+                #     }
+
+                #     background = {
+                #         using = Background_Area_Dark
+                #         margin = { 8 0 }
+                #     }
+
+                #     background = {
+                #         using = Background_Area_Dark
+                #         margin = { 8 0 }
+                #     }
+                # }
+
+                text_single = {
+                    parentanchor = bottom|right
+                    visible = "[GUIBuildingItem.HasLevel]"
+                    text = "[GUIBuildingItem.GetCurrentOrConstrucingBuilding.GetLevel]"
+                    size = { 15 20 }
+                    position = { -7 0 }
+                    fontsize = 15
+                    default_format = "#medium;bold"
+                    align = center|nobaseline
+
+                    background = {
+                        using = Background_Area_Dark
+                        margin = { 6 0 }
+                    }
+
+                    background = {
+                        using = Background_Area_Dark
+                        margin = { 6 0 }
+                    }
+
+                    background = {
+                        using = Background_Area_Dark
+                        margin = { 6 0 }
+                    }
+
+                    background = {
+                        using = Background_Area_Dark
+                        margin = { 6 0 }
+                    }
+
+                    background = {
+                        using = Background_Area_Dark
+                        margin = { 6 0 }
+                    }
+                }
+
+                warning_icon = {
+                    parentanchor = top|right
+                    position = { -2 2 }
+                    name = "wrong_type"
+                    datacontext = "[HoldingView.GetHolder]"
+                    visible = "[And(Not(HoldingView.GetHolding.IsEmpty),Not(HoldingView.GetHolding.IsValidForLesseeOrHolder))]"
+                    size = { 24 24 }
+                    tooltip = HOLDING_VIEW_WRONG_HOLDING_TYPE
+                }
+
+                warning_icon = {
+                    parentanchor = top|left
+                    position = { 2 2 }
+                    name = "reduced_by_fixable_situation"
+                    visible = "[GUIBuildingItem.IsBuildingDisabled]"
+                    size = { 24 24 }
+                }
+            }
+            
+            # Special Building
+            widget = {
+                visible = "[Or(Not(HoldingView.HasGreatBuildingSlot), HoldingView.HasSpecialBuildingSlot)]"
+                block "special_building" {
+                    size = { 94 75 }
+                }
+                kECV_building_item = {
+                    size = { 100% 100% }
+                    block "building_buttons_background" {}
+                    name = "special_building"
+                    datacontext = "[HoldingView.GetGUISpecialBuilding]"
+                    visible = "[HoldingView.HasSpecialBuildingSlot]"
+
+                    blockoverride "shortcut" {
+                        shortcut = "_ctrl_alt_3"
+                    }
+                    
+                    blockoverride "frame"
+                    {
+                        icon = {
+                            size = { 100% 100% }
+                            using = Special_Building_Texture
+                            alwaystransparent = yes
+                            spriteborder = { 18 18 }
+                            framesize = { 252 80 }
+
+                            modify_texture = {
+                                texture = "gfx/interface/colors/gold.dds"
+                                alpha = 0.2
+                            }
+                        }
+                    }
+
+                    blockoverride "icon_size" {
+                        block "special_building_icon_size" {
+                            size = { 70 60 }
+                        }
+                    }
+                }
+                
+            }
+
+            # Great Building
+            kECV_building_item = {
+                block "great_building" {
+                    size = { 94 75 }
+                }
+                visible = "[HoldingView.HasGreatBuildingSlot]"
+                block "building_buttons_background" {}
+                name = "great_building"
+                datacontext = "[HoldingView.GetGUIGreatBuilding]"
+										
+                blockoverride "shortcut" {
+                    shortcut = "_ctrl_alt_4"
+                }
+                
+                blockoverride "frame"
+                {
+                    icon = {
+                        size = { 100% 100% }
+                        texture = "gfx/interface/buttons/button_great_building.dds"
+                        alwaystransparent = yes
+                        spriteType = Corneredtiled
+                        spriteborder = { 18 18 }
+
+                        modify_texture = {
+                            texture = "gfx/interface/colors/gold.dds"
+                            alpha = 0.2
+                        }
+                    }
+                }
+
+                blockoverride "icon_size" {
+                    block "great_building_icon_size" {
+                        size = { 70 60 }
+                    }
+                }
+
+                warning_icon = {
+                    name = "ruined_great_building"
+                    visible = "[GUIBuildingItem.IsBuildingRuined]"
+                    position = { 3 3 }
+                    size = { 20 20 }
+                }
+            }
+
+            expand = {}
+        }
+        
+        spacer = {
+            block "mid_spacer"
+            {
+                size = { 0 5 }
+            }
+        }
+        
+        ## Buildings Grid
+        hbox = {
+            widgetid = "holding_view_buildings_area" # ra_merit_governor_holding_view uses this
+            expand = {}
+            hbox = {
+                datamodel = "[HoldingView.GetBuildings]"
+                block "buildings_grid_first_line" {
+                    visible = no
+                    spacing = 4
+                }
+                item = {
+                    kECV_building_item = {
+                        block "building" {
+                            size = { 50 50 }
+                        }
+                        block "building_buttons_background" {}
+                        blockoverride "shortcut" {
+                            shortcut = "[Concatenate('sub_tab_', IntToString(Subtract_int32(GetDataModelSize(HoldingView.GetBuildings), PdxGuiWidget.AccessParent.GetIndexInDataModel)))]"
+                        }
+                        blockoverride "icon_size" {
+                            block "building_icon_size" {
+                                size = { 80% 80% }
+                            }
+                        }
+                    }
+                }
+            }
+            scrollbox = {
+                # 6 columns, 2 rows of 54x54 + 2 margins of 12 (scrollbar)
+                block "scrollbox" {
+                    visible = yes
+                    size = { 348 108 }
+                }
+
+                blockoverride "scrollbox_scrollbar_vertical" {
+                    scrollbar_vertical = {
+                        kECV_scrollbar_vertical = {
+                            block "scrollbar" {
+                                blockoverride "wheelstep" {
+                                    wheelstep = 54
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                blockoverride "scrollbox_background"
+                {
+                    background = {
+                        block "buildings_grid_background" {
+                            visible = "[GreaterThan_int32(GetDataModelSize(HoldingView.GetBuildings), '(int32)12')]"
+                        }
+                        using = Background_Area
+                        margin_left = -12
+                    }
+                }
+
+                blockoverride "scrollbox_background_fade"
+                {
+                    icon = {
+                        block "buildings_grid_background_fade" {
+                            visible = "[GreaterThan_int32(GetDataModelSize(HoldingView.GetBuildings), '(int32)12')]"
+                        }
+                        name = "scrollbar_fade"
+                        texture = "gfx/interface/scrollbars/scrollbar_fade.dds"
+                        size = { 100% 100% }
+                        alwaystransparent = yes
+
+                        spriteType = Corneredtiled
+                        spriteborder = { 0 30 }
+                    }
+                }
+
+                blockoverride "scrollbox_margins" {
+                    margin_top = 0
+                    margin_bottom = 0
+                    margin_right = 12
+                    margin_left = 12
+                }
+
+                blockoverride "scrollbox_content" {
+                    hbox = {
+                        layoutpolicy_horizontal = expanding
+                        expand = {}
+                        fixedgridbox = {
+                            name = "buildings_grid"
+                            flipdirection = yes
+
+                            block "buildings_gridbox" {
+                                maxverticalslots = 10
+                                datamodel_wrap = 6
+                                addrow = 54
+                                addcolumn = 54
+                            }
+
+                            datamodel = "[HoldingView.GetBuildings]"
+                            item = {
+                                kECV_building_item = {
+                                    block "building" {
+                                        size = { 50 50 }
+                                    }
+                                    block "building_buttons_background" {}
+                                    blockoverride "shortcut" {
+                                        shortcut = "[Concatenate('sub_tab_', IntToString(Subtract_int32(GetDataModelSize(HoldingView.GetBuildings), PdxGuiWidget.AccessParent.GetIndexInDataModel)))]"
+                                    }
+                                    blockoverride "icon_size" {
+                                        block "building_icon_size" {
+                                            size = { 80% 80% }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        expand = {}
+                    }
+                }
+            }
+            expand = {}
+        }
+    }
+
+    type kECV_modifier_grid = fixedgridbox {
+        datamodel = "[HoldingView.GetCountyModifiers]"
+        addcolumn = 30
+        addrow = 30
+        datamodel_wrap = 5
+        maxverticalslots = 2
+        flipdirection = yes
+
+        item = {
+            modifier_item_icon = {
+                size = { 30 30 }
+
+                blockoverride "icon_data" {
+                    using = tooltip_ne
+                }
+            }
+        }
+    }
+}

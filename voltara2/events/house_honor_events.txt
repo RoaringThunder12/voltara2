@@ -1,0 +1,597 @@
+﻿namespace = house_honor
+
+house_honor.0001 = {
+	type = character_event
+	title = house_honor.0001.t
+	desc = house_honor.0001.desc
+	theme = dynasty
+	override_background = { reference = throne_room_scope }
+
+	trigger = {
+		any_vassal = {
+			is_ai = yes
+			has_opinion_modifier = {
+				target = ROOT
+				modifier = opinion_of_predecessor
+			}
+			NOT = {
+				any_known_secret = {
+					secret_type = secret_disputed_heritage
+					any_secret_participant = {
+						THIS = ROOT
+					}
+				}
+			}
+			OR = {
+				trigger_if = {
+					limit = { ROOT = { NOT = { has_trait = disputed_heritage } } }
+					OR = {
+						house = { has_house_modifier = trad_honor }
+						ai_honor >= 0
+						opinion = {
+							target = ROOT
+							value > 0
+						}
+					}
+				}	
+				trigger_else = {
+					opinion = {
+						target = ROOT
+						value >= 50
+					}
+				}			
+			}
+		} # any_vassal
+	}
+
+	immediate = {
+		# Oathman 1
+		random_vassal = {
+			limit = {
+				is_ai = yes
+				has_opinion_modifier = {
+					target = ROOT
+					modifier = opinion_of_predecessor
+				}
+				NOT = {
+					any_known_secret = {
+						secret_type = secret_disputed_heritage
+						any_secret_participant = {
+							THIS = ROOT
+						}
+					}
+				}
+				OR = {
+					trigger_if = {
+						limit = { ROOT = { NOT = { has_trait = disputed_heritage } } }
+						OR = {
+							house = { has_house_modifier = trad_honor }
+							ai_honor >= 0
+							opinion = {
+								target = ROOT
+								value > 40
+							}
+						}
+					}	
+					trigger_else = {
+						opinion = {
+							target = ROOT
+							value >= 65
+						}
+					}			
+				}
+			}
+			save_scope_as = oathman_1
+		} # any_vassal
+
+		# Oathman 2
+		random_vassal = {
+			limit = {
+				is_ai = yes
+				has_opinion_modifier = {
+					target = ROOT
+					modifier = opinion_of_predecessor
+				}
+				NOT = { THIS = scope:oathman_1 }
+				NOT = {
+					any_known_secret = {
+						secret_type = secret_disputed_heritage
+						any_secret_participant = {
+							THIS = ROOT
+						}
+					}
+				}
+				OR = {
+					trigger_if = {
+						limit = { ROOT = { NOT = { has_trait = disputed_heritage } } }
+						OR = {
+							house = { has_house_modifier = trad_honor }
+							ai_honor >= 0
+							opinion = {
+								target = ROOT
+								value > 40
+							}
+						}
+					}	
+					trigger_else = {
+						opinion = {
+							target = ROOT
+							value >= 65
+						}
+					}			
+				}
+			}
+			save_scope_as = oathman_2
+		} # any_vassal
+
+		# Oathman 3
+		random_vassal = {
+			limit = {
+				is_ai = yes
+				has_opinion_modifier = {
+					target = ROOT
+					modifier = opinion_of_predecessor
+				}
+				NOT = {
+					THIS = scope:oathman_1
+					THIS = scope:oathman_2
+				}
+				NOT = {
+					any_known_secret = {
+						secret_type = secret_disputed_heritage
+						any_secret_participant = {
+							THIS = ROOT
+						}
+					}
+				}
+				OR = {
+					trigger_if = {
+						limit = { ROOT = { NOT = { has_trait = disputed_heritage } } }
+						OR = {
+							house = { has_house_modifier = trad_honor }
+							ai_honor >= 0
+							opinion = {
+								target = ROOT
+								value > 40
+							}
+						}
+					}	
+					trigger_else = {
+						opinion = {
+							target = ROOT
+							value >= 65
+						}
+					}
+				}
+			}
+			save_scope_as = oathman_3
+		} # any_vassal
+
+		# Oathman 4
+		random_vassal = {
+			limit = {
+				is_ai = yes
+				has_opinion_modifier = {
+					target = ROOT
+					modifier = opinion_of_predecessor
+				}
+				NOT = {
+					THIS = scope:oathman_1
+					THIS = scope:oathman_2
+					THIS = scope:oathman_3
+				}
+				NOT = {
+					any_known_secret = {
+						secret_type = secret_disputed_heritage
+						any_secret_participant = {
+							THIS = ROOT
+						}
+					}
+				}
+				OR = {
+					trigger_if = {
+						limit = { ROOT = { NOT = { has_trait = disputed_heritage } } }
+						OR = {
+							house = { has_house_modifier = trad_honor }
+							ai_honor >= 0
+							opinion = {
+								target = ROOT
+								value > 40
+							}
+						}
+					}	
+					trigger_else = {
+						opinion = {
+							target = ROOT
+							value >= 65
+						}
+					}			
+				}
+			}
+			save_scope_as = oathman_4
+		} # any_vassal
+	} # immediate
+
+	left_portrait = {
+		character = ROOT
+		animation = war_defender
+	}
+	right_portrait = {
+		character = scope:oathman_1
+		animation = personality_honorable
+	}
+	lower_left_portrait = {
+		character = scope:oathman_2
+#		animation = personality_honorable
+	}
+	lower_center_portrait = {
+		character = scope:oathman_3
+#		animation = personality_honorable
+	}
+	lower_right_portrait = {
+		character = scope:oathman_4
+#		animation = personality_honorable
+	}
+
+	option = {
+		name = house_honor.0001.a
+		trigger = {
+			age >= 6
+		}
+
+		every_vassal = {
+			limit = {
+				is_ai = yes
+				has_opinion_modifier = {
+					target = ROOT
+					modifier = opinion_of_predecessor
+				}
+				NOT = {
+					any_known_secret = {
+						secret_type = secret_disputed_heritage
+						any_secret_participant = {
+							THIS = ROOT
+						}
+					}
+				}
+				OR = {
+					trigger_if = {
+						limit = { ROOT = { NOT = { has_trait = disputed_heritage } } }
+						OR = {
+							# house = { has_house_modifier = trad_honor }
+							ai_honor > 0
+							opinion = {
+								target = ROOT
+								value > 40
+							}
+						}
+					}	
+					trigger_else = {
+						opinion = {
+							target = ROOT
+							value >= 65
+						}
+					}			
+				}
+			}
+			ROOT = {
+				add_hook_no_toast = {
+					type = loyalty_hook
+					target = PREV
+					years = 10
+				}
+			}
+		} # every_vassal
+	} # Option 1
+
+	option = {
+		name = house_honor.0001.a
+		trigger = {
+			age < 6
+			age >= 5
+		}
+
+		every_vassal = {
+			limit = {
+				is_ai = yes
+				has_opinion_modifier = {
+					target = ROOT
+					modifier = opinion_of_predecessor
+				}
+				NOT = {
+					any_known_secret = {
+						secret_type = secret_disputed_heritage
+						any_secret_participant = {
+							THIS = ROOT
+						}
+					}
+				}
+				OR = {
+					trigger_if = {
+						limit = { ROOT = { NOT = { has_trait = disputed_heritage } } }
+						OR = {
+							# house = { has_house_modifier = trad_honor }
+							ai_honor > 0
+							opinion = {
+								target = ROOT
+								value > 40
+							}
+						}
+					}	
+					trigger_else = {
+						opinion = {
+							target = ROOT
+							value >= 65
+						}
+					}			
+				}
+			}
+			ROOT = {
+				add_hook_no_toast = {
+					type = loyalty_hook
+					target = PREV
+					years = 11
+				}
+			}
+		} # every_vassal
+	} # Option 2
+
+	option = {
+		name = house_honor.0001.a
+		trigger = {
+			age < 5
+			age >= 4
+		}
+
+		every_vassal = {
+			limit = {
+				is_ai = yes
+				has_opinion_modifier = {
+					target = ROOT
+					modifier = opinion_of_predecessor
+				}
+				NOT = {
+					any_known_secret = {
+						secret_type = secret_disputed_heritage
+						any_secret_participant = {
+							THIS = ROOT
+						}
+					}
+				}
+				OR = {
+					trigger_if = {
+						limit = { ROOT = { NOT = { has_trait = disputed_heritage } } }
+						OR = {
+							# house = { has_house_modifier = trad_honor }
+							ai_honor > 0
+							opinion = {
+								target = ROOT
+								value > 40
+							}
+						}
+					}	
+					trigger_else = {
+						opinion = {
+							target = ROOT
+							value >= 65
+						}
+					}			
+				}
+			}
+			ROOT = {
+				add_hook_no_toast = {
+					type = loyalty_hook
+					target = PREV
+					years = 12
+				}
+			}
+		} # every_vassal
+	} # Option 3
+
+	option = {
+		name = house_honor.0001.a
+		trigger = {
+			age < 4
+			age >= 3
+		}
+
+		every_vassal = {
+			limit = {
+				is_ai = yes
+				has_opinion_modifier = {
+					target = ROOT
+					modifier = opinion_of_predecessor
+				}
+				NOT = {
+					any_known_secret = {
+						secret_type = secret_disputed_heritage
+						any_secret_participant = {
+							THIS = ROOT
+						}
+					}
+				}
+				OR = {
+					trigger_if = {
+						limit = { ROOT = { NOT = { has_trait = disputed_heritage } } }
+						OR = {
+							# house = { has_house_modifier = trad_honor }
+							ai_honor > 0
+							opinion = {
+								target = ROOT
+								value > 40
+							}
+						}
+					}	
+					trigger_else = {
+						opinion = {
+							target = ROOT
+							value >= 65
+						}
+					}			
+				}
+			}
+			ROOT = {
+				add_hook_no_toast = {
+					type = loyalty_hook
+					target = PREV
+					years = 13
+				}
+			}
+		} # every_vassal
+	} # Option 4
+
+	option = {
+		name = house_honor.0001.a
+		trigger = {
+			age < 3
+			age >= 2
+		}
+
+		every_vassal = {
+			limit = {
+				is_ai = yes
+				has_opinion_modifier = {
+					target = ROOT
+					modifier = opinion_of_predecessor
+				}
+				NOT = {
+					any_known_secret = {
+						secret_type = secret_disputed_heritage
+						any_secret_participant = {
+							THIS = ROOT
+						}
+					}
+				}
+				OR = {
+					trigger_if = {
+						limit = { ROOT = { NOT = { has_trait = disputed_heritage } } }
+						OR = {
+							# house = { has_house_modifier = trad_honor }
+							ai_honor > 0
+							opinion = {
+								target = ROOT
+								value > 40
+							}
+						}
+					}	
+					trigger_else = {
+						opinion = {
+							target = ROOT
+							value >= 65
+						}
+					}			
+				}
+			}
+			ROOT = {
+				add_hook_no_toast = {
+					type = loyalty_hook
+					target = PREV
+					years = 14
+				}
+			}
+		} # every_vassal
+	} # Option 5
+
+	option = {
+		name = house_honor.0001.a
+		trigger = {
+			age < 2
+			age >= 1
+		}
+
+		every_vassal = {
+			limit = {
+				is_ai = yes
+				has_opinion_modifier = {
+					target = ROOT
+					modifier = opinion_of_predecessor
+				}
+				NOT = {
+					any_known_secret = {
+						secret_type = secret_disputed_heritage
+						any_secret_participant = {
+							THIS = ROOT
+						}
+					}
+				}
+				OR = {
+					trigger_if = {
+						limit = { ROOT = { NOT = { has_trait = disputed_heritage } } }
+						OR = {
+							# house = { has_house_modifier = trad_honor }
+							ai_honor > 0
+							opinion = {
+								target = ROOT
+								value > 40
+							}
+						}
+					}	
+					trigger_else = {
+						opinion = {
+							target = ROOT
+							value >= 65
+						}
+					}			
+				}
+			}
+			ROOT = {
+				add_hook_no_toast = {
+					type = loyalty_hook
+					target = PREV
+					years = 15
+				}
+			}
+		} # every_vassal
+	} # Option 6
+
+	option = {
+		name = house_honor.0001.a
+		trigger = {
+			age < 1
+		}
+
+		every_vassal = {
+			limit = {
+				is_ai = yes
+				has_opinion_modifier = {
+					target = ROOT
+					modifier = opinion_of_predecessor
+				}
+				NOT = {
+					any_known_secret = {
+						secret_type = secret_disputed_heritage
+						any_secret_participant = {
+							THIS = ROOT
+						}
+					}
+				}
+				OR = {
+					trigger_if = {
+						limit = { ROOT = { NOT = { has_trait = disputed_heritage } } }
+						OR = {
+							# house = { has_house_modifier = trad_honor }
+							ai_honor > 0
+							opinion = {
+								target = ROOT
+								value > 40
+							}
+						}
+					}	
+					trigger_else = {
+						opinion = {
+							target = ROOT
+							value >= 65
+						}
+					}			
+				}
+			}
+			ROOT = {
+				add_hook_no_toast = {
+					type = loyalty_hook
+					target = PREV
+					years = 16
+				}
+			}
+		} # every_vassal
+	} # Option 7
+}

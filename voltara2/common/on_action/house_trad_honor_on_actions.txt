@@ -1,0 +1,24 @@
+﻿on_death = { on_actions = { house_honor_succession } }
+
+house_honor_succession = {
+	trigger = {
+		is_landed = yes
+		is_lowborn = no
+		house = { has_house_modifier = trad_honor }
+#		NOT = { has_character_modifier = blacksheep }
+	}
+	effect = {
+		every_heir = {
+			limit = {
+				OR = {
+					is_close_family_of = ROOT
+					house = ROOT.house
+				}
+			}
+			trigger_event = {
+				id = house_honor.0001
+				days = 7
+			}
+		}
+	}
+}

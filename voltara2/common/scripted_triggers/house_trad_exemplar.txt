@@ -1,0 +1,329 @@
+﻿is_house_exemplar = {
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_valor } }
+		OR = {
+			$evaluate$ = { has_trait = brave }
+			$evaluate$ = { has_trait = stubborn }
+			$evaluate$ = { has_trait = impatient }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_honor } }
+		OR = {
+			$evaluate$ = { has_trait = honest }
+			$evaluate$ = { has_trait = just }
+			$evaluate$ = { has_trait = stubborn }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_duty } }
+		OR = {
+			$evaluate$ = { has_trait = diligent }
+			$evaluate$ = { has_trait = humble }
+			$evaluate$ = { has_trait = impatient }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_justice } }
+		OR = {
+			$evaluate$ = { has_trait = just }
+			$evaluate$ = { has_trait = vengeful }
+			$evaluate$ = { has_trait = zealous }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_vengeance } }
+		OR = {
+			$evaluate$ = { has_trait = vengeful }
+			$evaluate$ = { has_trait = just }
+			$evaluate$ = { has_trait = sadistic }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_pride } }
+		OR = {
+			$evaluate$ = { has_trait = arrogant }
+			$evaluate$ = { has_trait = ambitious }
+			$evaluate$ = { has_trait = wrathful }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_respect } }
+		OR = {
+			$evaluate$ = { has_trait = callous }
+			$evaluate$ = { has_trait = arrogant }
+			$evaluate$ = { has_trait = vengeful }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_power } }
+		OR = {
+			$evaluate$ = { has_trait = ambitious }
+			$evaluate$ = { has_trait = wrathful }
+			$evaluate$ = { has_trait = impatient }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_influence } }
+		OR = {
+			$evaluate$ = { has_trait = gregarious }
+			$evaluate$ = { has_trait = calm }
+			$evaluate$ = { has_trait = deceitful }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_guile } }
+		OR = {
+			$evaluate$ = { has_trait = deceitful }
+			$evaluate$ = { has_trait = fickle }
+			$evaluate$ = { has_trait = arbitrary }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_survival } }
+		OR = {
+			$evaluate$ = { has_trait = craven }
+			$evaluate$ = { has_trait = paranoid }
+			$evaluate$ = { has_trait = deceitful }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_vigilance } }
+		OR = {
+			$evaluate$ = { has_trait = diligent }
+			$evaluate$ = { has_trait = patient }
+			$evaluate$ = { has_trait = paranoid }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_peace } }
+		OR = {
+			$evaluate$ = { has_trait = forgiving }
+			$evaluate$ = { has_trait = honest }
+			$evaluate$ = { has_trait = trusting }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_fortune } }
+		OR = {
+			$evaluate$ = { has_trait = greedy }
+			$evaluate$ = { has_trait = diligent }
+			$evaluate$ = { has_trait = gregarious }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_knowledge } }
+		OR = {
+			$evaluate$ = { has_trait = patient }
+			$evaluate$ = { has_trait = cynical }
+			$evaluate$ = { has_trait = shy }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_truth } }
+		OR = {
+			$evaluate$ = { has_trait = cynical }
+			$evaluate$ = { has_trait = honest }
+			$evaluate$ = { has_trait = just }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_wisdom } }
+		OR = {
+			$evaluate$ = { has_trait = temperate }
+			$evaluate$ = { has_trait = calm }
+			$evaluate$ = { has_trait = patient }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_devotion } }
+		OR = {
+			$evaluate$ = { has_trait = content }
+			$evaluate$ = { has_trait = diligent }
+			$evaluate$ = { has_trait = zealous }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_family } }
+		OR = {
+			$evaluate$ = { has_trait = compassionate }
+			$evaluate$ = { has_trait = forgiving }
+			$evaluate$ = { has_trait = chaste }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_compassion } }
+		OR = {
+			$evaluate$ = { has_trait = compassionate }
+			$evaluate$ = { has_trait = forgiving }
+			$evaluate$ = { has_trait = generous }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_joy } }
+		OR = {
+			$evaluate$ = { has_trait = lustful }
+			$evaluate$ = { has_trait = gluttonous }
+			$evaluate$ = { has_trait = generous }
+		}
+	}
+}
+
+is_house_blacksheep = {
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_valor } }
+		OR = {
+			$evaluate$ = { has_trait = craven }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_honor } }
+		OR = {
+			$evaluate$ = { has_trait = deceitful }
+			$evaluate$ = { has_trait = arbitrary }
+			$evaluate$ = { has_trait = fickle }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_duty } }
+		OR = {
+			$evaluate$ = { has_trait = lazy }
+			$evaluate$ = { has_trait = arrogant }
+			$evaluate$ = { has_trait = ambitious }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_justice } }
+		OR = {
+			$evaluate$ = { has_trait = arbitrary }
+			$evaluate$ = { has_trait = forgiving }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_vengeance } }
+		OR = {
+			$evaluate$ = { has_trait = forgiving }
+			$evaluate$ = { has_trait = compassionate }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_pride } }
+		OR = {
+			$evaluate$ = { has_trait = humble }
+			$evaluate$ = { has_trait = content }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_respect } }
+		OR = {
+			$evaluate$ = { has_trait = humble }
+			$evaluate$ = { has_trait = compassionate }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_power } }
+		OR = {
+			$evaluate$ = { has_trait = lazy }
+			$evaluate$ = { has_trait = content }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_influence } }
+		OR = {
+			$evaluate$ = { has_trait = trusting }
+			$evaluate$ = { has_trait = content }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_guile } }
+		OR = {
+			$evaluate$ = { has_trait = trusting }
+			$evaluate$ = { has_trait = honest }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_survival } }
+		OR = {
+			$evaluate$ = { has_trait = brave }
+			$evaluate$ = { has_trait = trusting }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_vigilance } }
+		OR = {
+			$evaluate$ = { has_trait = impatient }
+			$evaluate$ = { has_trait = trusting }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_peace } }
+		OR = {
+			$evaluate$ = { has_trait = wrathful }
+			$evaluate$ = { has_trait = vengeful }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_fortune } }
+		OR = {
+			$evaluate$ = { has_trait = shy }
+			$evaluate$ = { has_trait = content }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_knowledge } }
+		OR = {
+			$evaluate$ = { has_trait = lazy }
+			$evaluate$ = { has_trait = paranoid }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_truth } }
+		OR = {
+			$evaluate$ = { has_trait = arbitrary }
+			$evaluate$ = { has_trait = fickle }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_wisdom } }
+		OR = {
+			$evaluate$ = { has_trait = wrathful }
+			$evaluate$ = { has_trait = impatient }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_devotion } }
+		OR = {
+			$evaluate$ = { has_trait = cynical }
+			$evaluate$ = { has_trait = fickle }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_family } }
+		OR = {
+			$evaluate$ = { has_trait = lustful }
+			$evaluate$ = { has_trait = sadistic }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_compassion } }
+		OR = {
+			$evaluate$ = { has_trait = callous }
+			$evaluate$ = { has_trait = sadistic }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_joy } }
+		OR = {
+			$evaluate$ = { has_trait = chaste }
+			$evaluate$ = { has_trait = temperate }
+		}
+	}
+	trigger_if = {
+		limit = { $standard$.house = { has_house_modifier = trad_distinction } }
+		OR = {
+			$evaluate$ = { has_trait = humble }
+			$evaluate$ = { has_trait = shy }
+		}
+	}
+}
+

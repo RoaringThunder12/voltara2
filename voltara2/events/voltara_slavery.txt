@@ -1,0 +1,2 @@
+﻿namespace = voltara_slavery
+voltara_slavery.1 = { type = character_event hidden = yes immediate = { voltara_check_slave_owner = yes } }

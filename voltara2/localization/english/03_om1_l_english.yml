@@ -1,0 +1,18 @@
+﻿##############################
+## OM1 interactions
+##############################
+
+l_english:
+# rescue_and_vengeance
+ ## INTERACTION
+ DEMAND_PRISONER_DECLINED_SUMMARY: "[actor.Custom2('DemandPrisonerInteractionDeclineSummary', recipient)]"
+ DEMAND_PRISONER_DECLINED_DEFAULT: ""
+ DEMAND_PRISONER_DECLINED_SUMMARY_RV: "@warning_icon! #X [prisoner|E] can be rescued if [second.GetShortUINameNoTooltip] declines.#!"
+
+ ## TRIGGER
+ GAIN_A_RESCUE_CB: "Gains a rescue [casus_belli|E] on [TARGET_CHARACTER.GetShortUIName]"
+ GAINED_A_RESCUE_CB: "Gained a rescue [casus_belli|E] on [TARGET_CHARACTER.GetShortUIName]"
+ I_GAIN_A_RESCUE_CB: "You gain a rescue [casus_belli|E] on [TARGET_CHARACTER.GetShortUIName]"
+ I_GAINED_A_RESCUE_CB: "You gained a rescue [casus_belli|E] on [TARGET_CHARACTER.GetShortUIName]"
+ CHARACTER_GAIN_A_RESCUE_CB: "[CHARACTER.GetShortUIName] gains a rescue [casus_belli|E] on [TARGET_CHARACTER.GetShortUIName]"
+ CHARACTER_GAINED_A_RESCUE_CB: "[CHARACTER.GetShortUIName] gained a rescue [casus_belli|E] on [TARGET_CHARACTER.GetShortUIName]"

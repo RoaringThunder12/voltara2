@@ -1,0 +1,33 @@
+﻿pdxmesh = {
+	name = "voltara_crystal_stump_mesh"
+	file = "voltara_crystal_stump.mesh"
+	scale = 1.0
+
+	meshsettings = {
+		name = "building_special_crystal_like_law"
+		index = 0
+		texture_diffuse = "building_special_crystal_like_law_diffuse.dds"
+		texture_normal = "building_special_crystal_like_law_normal.dds"
+		texture_specular = "building_special_crystal_like_law_properties.dds"
+		shader = "standard_alpha_to_coverage"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+}
+
+
+pdxmesh = {
+	name = "voltara_crystal_fallen_mesh"
+	file = "voltara_crystal_fallen.mesh"
+	scale = 1.0
+
+	meshsettings = {
+		name = "building_special_crystal_like_law"
+		index = 0
+		texture_diffuse = "building_special_crystal_like_law_diffuse.dds"
+		texture_normal = "building_special_crystal_like_law_normal.dds"
+		texture_specular = "building_special_crystal_like_law_properties.dds"
+		shader = "standard_alpha_to_coverage"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+}
+

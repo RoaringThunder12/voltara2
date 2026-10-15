@@ -1,0 +1,5560 @@
+window = {
+	name = "combat_window"
+	size = { 100% 100% }
+	alwaystransparent = yes
+	gfxtype = windowgfx
+	movable = no
+	layer = middle
+	allow_outside = yes
+
+	state = {
+		name = _show
+		position = { 0 0 }
+		duration = 0.15
+		bezier = { 0.5 0 1 0.5 }
+		alpha = 1
+
+		on_finish = "[GetScriptedGui('grab_knights').Execute( GuiScope.SetRoot( CombatWindow.GetCombat.MakeScope ).End )]"
+		# on_finish = "[PdxGuiWidget.FindChild('battle_big').Show]"
+		# on_finish = "[PdxGuiWidget.FindChild('maa_vbox').Show]"
+		start_sound = {
+			soundeffect = "event:/SFX/UI/Generic/Windows/sfx_ui_generic_window_standard_show"
+
+		}
+	}
+
+	state = {
+		name = _hide
+		position = { 0 5 }
+		duration = 0.3
+		bezier = { 0.5 0 1 0.5 }
+		alpha = 0
+		# on_start = "[PdxGuiWidget.FindChild('battle_big').Hide]"
+		# on_start = "[PdxGuiWidget.FindChild('maa_vbox').Hide]"
+
+		start_sound = {
+			soundeffect = "event:/SFX/UI/Generic/Windows/sfx_ui_generic_window_standard_hide"
+
+		}
+	}
+
+	widget = {
+
+		state = {
+			name = "phase_change"
+			alpha = 1
+		}
+
+		state = {
+			name = "daily_tick"
+			on_finish = "[GetScriptedGui('grab_knights').Execute( GuiScope.SetRoot( CombatWindow.GetCombat.MakeScope ).End )]"
+			alpha = 1
+		}
+
+		state = {
+			name = "new_battle_event"
+			alpha = 1
+		}
+	}
+
+	widget = {
+		size = { 100% 100% }
+		visible = "[Not(GetVariableSystem.Exists('big_battle'))]"
+		alwaystransparent = yes
+
+		# using = Window_Background_No_Edge
+
+		state = {
+			name = _show
+			position = { 0 0 }
+			duration = 0.2
+			bezier = { 0.5 0 1 0.5 }
+			alpha = 1
+			using = Sound_WindowShow_Standard
+		}
+
+		state = {
+			name = _hide
+			using = Sound_WindowHide_Standard
+			position = { 0 15 }
+			duration = 0.2
+			bezier = { 0.5 0 1 0.5 }
+			alpha = 0
+		}
+
+		# bg
+		widget = {
+			size = { 100% 100% }
+			# using = Window_Background_No_Edge
+
+			state = {
+				name = hide_combat_bg
+				alpha = 0.1
+			}
+
+			state = {
+				name = restore_combat_bg
+				alpha = 1
+			}
+
+			margin_widget = {
+				size = { 100% 100% }
+
+				icon = {
+					texture = "gfx/interface/component_tiles/tile_window_background_no_edge.dds"
+			        spriteType = Corneredtiled
+					size = { 100% 40% }
+					alwaystransparent = no
+				}
+
+				icon = {
+					texture = "gfx/interface/component_tiles/tile_window_background_no_edge.dds"
+			        spriteType = Corneredtiled
+					size = { 100% 60% }
+					position = { 0 40% }
+
+
+					modify_texture = {
+						visible = "[GetVariableSystem.Exists('army_hole')]"
+						texture = "gfx/interface/window_combat/combat_bg_darken.dds"
+						blend_mode = alphamultiply
+						mirror = vertical
+						alpha = 0.7
+					}
+				}
+
+				icon = {
+					datacontext = "[CombatWindow.GetCombat.GetProvince.GetTerrain]"
+					size = { 100% 100% }
+					texture = "[Terrain.GetIllustration]"
+					# texture = "gfx/interface/illustrations/terrain_types/steppe.dds"
+					alpha = 0.9
+
+					# using = Window_Background_No_Edge
+
+
+					modify_texture = {
+						texture = "gfx/interface/component_masks/mask_fade_horizontal_middle.dds"
+						blend_mode = alphamultiply
+						alpha = 0.4
+					}
+
+					modify_texture = {
+						texture = "gfx/interface/component_masks/mask_fade_horizontal_extended.dds"
+						blend_mode = alphamultiply
+						alpha = 0.4
+						rotate_uv = -4.75
+						translate_uv = { 0 -0.3 }
+					}
+
+					modify_texture = {
+						texture = "gfx/interface/window_combat/combat_bg_darken.dds"
+						blend_mode = alphamultiply
+						alpha = 0.3
+					}
+
+					# modify_texture = {
+					# 	texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+					# 	blend_mode = alphamultiply
+					# 	alpha = 0.3
+					# }
+
+					modify_texture = {
+						visible = "[GetVariableSystem.Exists('army_hole')]"
+						texture = "gfx/interface/window_combat/combat_bg_darken.dds"
+						blend_mode = alphamultiply
+						mirror = vertical
+						alpha = 1
+					}
+				}
+
+				widget = {
+					size = { 100% 100% }
+					alpha = 0.6
+
+					icon = {
+						visible = "[CombatWindow.IsCombatInPursuitPhase]"
+						size = { 100% 90 }
+						parentanchor = top|hcenter
+						using = Background_Area_Dark
+						color = { 0.1 0.1 0.1 1 }
+
+						modify_texture = {
+							texture = "gfx/interface/window_combat/combat_bg_mask.dds"
+							blend_mode = alphamultiply
+							spriteType = corneredStretched
+							spriteborder_top = 200
+							spriteborder_right = 200
+							spriteborder_left = 200
+						}
+
+						using = Animation_ShowHide_Standard
+					}
+				}
+			}
+		}
+
+		widget = {
+			size = { 100% 100% }
+			name = "battle_big"
+			alpha = 1
+			alwaystransparent = yes
+			# visible = no
+
+			state = {
+				name = _show
+				duration = 0.25
+				alpha = 1
+			}
+
+			state = {
+				name = _hide
+				duration = 0.2
+				alpha = 0
+			}
+
+			widget = {
+				size = { 100% 100% }
+				alwaystransparent = yes
+				# visible = no
+
+				text_single = {
+					position = { 10 5 }
+					raw_text = "[NumberOrErrors] errors"
+					visible = "[Not(InReleaseMode)]"
+				}
+
+				text_label_center = {
+					visible = "[And(CombatWindow.IsCombatInPursuitPhase, CombatWindow.IsRightSideWinning)]"
+					parentanchor = top|hcenter
+					position = { 0 0 }
+					fontsize = 30
+					text = "game_concept_defeat"
+					default_format = "#negative_value;bold;glow_color:{0.1,0.1,0.1,1.0}"
+
+					using = Animation_ShowHide_Standard
+
+					background = {
+						texture = "gfx/interface/component_masks/mask_fade_halfcircle.dds"
+						margin = { 100 0 }
+						margin_bottom = 100
+						margin_top = 0
+						using = Color_Red
+						alpha = 0.3
+					}
+				}
+
+				text_label_center = {
+					visible = "[And(CombatWindow.IsCombatInPursuitPhase, CombatWindow.IsLeftSideWinning)]"
+					parentanchor = top|hcenter
+					position = { 0 0 }
+					fontsize = 30
+					text = "game_concept_victory"
+					default_format = "#positive_value;bold;glow_color:{0.1,0.1,0.1,1.0}"
+
+					using = Animation_ShowHide_Standard
+
+					background = {
+						texture = "gfx/interface/component_masks/mask_fade_halfcircle.dds"
+						margin = { 100 0 }
+						margin_bottom = 100
+						margin_top = 3
+						using = Color_Green
+						alpha = 0.3
+					}
+				}
+
+				button = {
+					parentanchor = right
+					shortcut = close_window
+					onclick = "[CombatWindow.CloseAndDeselect]"
+					tooltip = "CLOSE_TOOLTIP"
+					size = { 60 50 }
+				}
+
+				button = {
+					size = { 60 50 }
+					tooltip = "MINIMIZE_TOOLTIP"
+					onclick = "[GetVariableSystem.Toggle('big_battle')]"
+					shortcut = zoom_in
+					# onmousehierarchyenter = "[PdxGuiTriggerAllAnimations('hide_combat_bg')]"
+					# onmousehierarchyleave = "[PdxGuiTriggerAllAnimations('restore_combat_bg')]"
+				}
+
+				flowcontainer = {
+					position = { 30 15 }
+					spacing = 3
+					button_icon = {
+						texture = "gfx/interface/icons/flat_icons/zoom_out.dds"
+						onclick = "[GetVariableSystem.Toggle('big_battle'))]"
+						shortcut = zoom_in
+					}
+
+					icon = {
+						name = "terrain"
+						datacontext = "[CombatWindow.GetCombat.GetProvince.GetTerrain]"
+						texture = "[Terrain.GetIcon]"
+						size = { 30 30 }
+						tooltip = "HOLDING_TERRAIN_TOOLTIP"
+						alwaystransparent = no
+					}
+				}
+
+				flowcontainer = {
+					parentanchor = right
+					position = { -20 15 }
+					spacing = 5
+					margin_right = 10
+
+					button_go_to_my_location = {
+						onclick = "[CombatWindow.GoToProvince]"
+						tooltip = "GOTO_PROVINCE_TT"
+						onclick = "[GetVariableSystem.Toggle('big_battle')]"
+					}
+
+					button_close = {
+						shortcut = close_window
+						onclick = "[CombatWindow.CloseAndDeselect]"
+						tooltip = "CLOSE_LABEL"
+					}
+				}
+
+				button_standard_hover = {
+					size = { 150 30 }
+					parentanchor = bottom|hcenter
+					onclick = "[GetVariableSystem.Toggle('army_hole')]"
+
+					button_icon = {
+						parentanchor = center
+						texture = "gfx/interface/icons/flat_icons/observer.dds"
+						alwaystransparent = yes
+					}
+				}
+			}
+
+			vbox = {
+				# visible = no
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				margin = { 0 15 }
+				margin_top = 80
+				margin_bottom = 42
+				spacing = 10
+
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					spacing = 10
+					# visible = no
+
+					# progressbar
+					hbox = {
+						layoutpolicy_horizontal = expanding
+
+						visible = "[Not(CombatWindow.IsCombatInPursuitPhase)]"
+						widget = {
+							name = "combat_progress"
+							size = { 1220 42 }
+							# layoutpolicy_horizontal = expanding
+							tooltip = "CV_TT_RELATIVE_SOLDIERS"
+							using = tooltip_above
+
+							using = Animation_ShowHide_Standard
+
+							background = {
+								texture = "gfx/interface/progressbars/war_progress_noprogress.dds"
+								margin = { 0 -3 }
+							}
+
+							widget = {
+								size = { 100% 100% }
+								scissor = yes
+
+								hbox = {
+									margin_top = 5
+
+									icon = {
+										layoutpolicy_horizontal = expanding
+										layoutpolicy_vertical = expanding
+										layoutstretchfactor_horizontal = "[GetProgressBarValueMaxScaled( CombatWindow.GetCombat.GetPowerSlider, '(float)100', '(int32)410' )]"
+										size = { 0 0 }
+
+										texture = "gfx/interface/progressbars/progress_grandeur.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 4 0 }
+
+										modify_texture = {
+											name = "bright"
+											texture = "gfx/interface/colors/blue.dds"
+											blend_mode = colordodge
+											alpha = 0.7
+										}
+										modify_texture = {
+											name = "mask"
+											texture = "gfx/interface/component_masks/mask_fade_horizontal.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = alphamultiply
+											alpha = 0.35
+										}
+
+										modify_texture = {
+											name = "flash"
+											texture = "gfx/interface/colors/orange.dds"
+											blend_mode = colordodge
+											alpha = 0
+										}
+
+										state = {
+											name = "daily_tick_left_most_casualties"
+											next = "b"
+											duration = 0.05
+											using = Animation_Curve_Default
+
+											modify_texture = {
+												name = "flash"
+												alpha = 0.5
+											}
+										}
+
+										state = {
+											name = "b"
+											duration = 0.2
+											using = Animation_Curve_Default
+
+											modify_texture = {
+												name = "flash"
+												alpha = 0
+											}
+										}
+
+										icon = {
+											parentanchor = right|vcenter
+											position = { 5 0 }
+
+											size = { 25 100% }
+											texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
+											color = { 0.9 0.9 0.9 1 }
+
+											state = {
+												name = a
+												next = b
+												trigger_on_create = yes
+												duration = 0.2
+												alpha = 1
+											}
+
+											state = {
+												name = b
+												next = a
+												duration = 0.4
+												alpha = 0.85
+											}
+										}
+									}
+
+									icon = {
+										layoutpolicy_horizontal = expanding
+										layoutpolicy_vertical = expanding
+										layoutstretchfactor_horizontal = "[GetProgressBarValueMaxOtherScaled( CombatWindow.GetCombat.GetPowerSlider, '(float)100', '(int32)410' )]"
+										size = { 0 0 }
+
+										texture = "gfx/interface/progressbars/progress_grandeur_decrease.dds"
+										spriteborder = { 4 0 }
+										spriteType = Corneredtiled
+
+										modify_texture = {
+											name = "bright"
+											texture = "gfx/interface/colors/red.dds"
+											blend_mode = colordodge
+											alpha = 0.25
+										}
+										modify_texture = {
+											name = "mask"
+											texture = "gfx/interface/component_masks/mask_fade_horizontal.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = alphamultiply
+											# mirror = horizontal
+											alpha = 0.3
+										}
+
+										modify_texture = {
+											name = "flash"
+											texture = "gfx/interface/colors/orange.dds"
+											blend_mode = colordodge
+											alpha = 0
+										}
+
+
+										state = {
+											name = "daily_tick_right_most_casualties"
+											next = "b"
+											duration = 0.05
+											using = Animation_Curve_Default
+
+											modify_texture = {
+												name = "flash"
+												alpha = 0.3
+											}
+										}
+
+										state = {
+											name = "b"
+											duration = 0.2
+											using = Animation_Curve_Default
+
+											modify_texture = {
+												name = "flash"
+												alpha = 0
+											}
+										}
+
+										icon = {
+											parentanchor = left|vcenter
+											position = { -6 0 }
+											mirror = horizontal
+
+											size = { 25 100% }
+											texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
+											color = { 0.9 0.9 0.9 1 }
+
+											state = {
+												name = a
+												next = b
+												trigger_on_create = yes
+												duration = 0.2
+												alpha = 1
+											}
+
+											state = {
+												name = b
+												next = a
+												duration = 0.4
+												alpha = 0.85
+											}
+										}
+									}
+								}
+							}
+
+							widget = {
+								name = "power_bar_frame"
+								parentanchor = top
+								size = { 100% 100% }
+								alwaystransparent = yes
+
+								background = {
+									texture = "gfx/interface/progressbars/siege_frame.dds"
+									spriteType = Corneredstretched
+									spriteborder = { 30 40 }
+									margin = { 5 0 }
+									margin_bottom = 10
+									texture_density = 2
+								}
+							}
+
+							text_label_center = {
+								name = "combat_result"
+								visible = "[CombatWindow.IsCombatInPursuitPhase]"
+								parentanchor = center
+								text = "[CombatWindow.GetWonLostLabel]"
+								font = TitleFont
+								fontsize = 35
+								align = nobaseline
+								margin_bottom = 0
+							}
+						}
+					}
+
+					widget = {
+						size = { 0 17 }
+						visible = "[CombatWindow.IsCombatInPursuitPhase]"
+					}
+
+					# retreat
+					widget = {
+						tooltip = "[CombatWindow.GetCurrentPhaseTooltip]"
+						name = "pursuit_phase"
+						visible = "[CombatWindow.IsCombatInPursuitPhase]"
+						#visible_at_creation = no
+						size = { 450 50 }
+
+						using = Animation_ShowHide_Standard
+
+						background = {
+							using = Background_Area
+						}
+
+						hbox = {
+							margin = { 20 0 }
+							margin_top = 5
+
+							hbox = {
+								visible = "[CombatWindow.IsRightSideWinning]"
+								spacing = 5
+
+								icon = {
+									name = "left_side_fled"
+									texture = "gfx/interface/icons/icon_fled.dds"
+									size = { 35 35 }
+								}
+
+								text_single = {
+									text = "[CombatWindow.GetLeftCombatSide.GetPursuingRetreatingLabel]"
+									using = Font_Size_Medium
+									align = nobaseline
+									default_format = "#N"
+								}
+							}
+
+							hbox = {
+								visible = "[CombatWindow.IsLeftSideWinning]"
+								spacing = 5
+
+								icon = {
+									name = "left_side_pursuing"
+									texture = "gfx/interface/icons/icon_pursuit.dds"
+									size = { 35 35 }
+								}
+
+								text_single = {
+									text = "[CombatWindow.GetLeftCombatSide.GetPursuingRetreatingLabel]"
+									using = Font_Size_Medium
+									align = nobaseline
+								}
+
+							}
+
+							expand = {}
+
+							hbox = {
+								visible = "[CombatWindow.IsLeftSideWinning]"
+								spacing = 5
+
+								text_single = {
+									text = "[CombatWindow.GetRightCombatSide.GetPursuingRetreatingLabel]"
+									using = Font_Size_Medium
+									align = nobaseline
+									default_format = "#N"
+								}
+
+								icon = {
+									name = "right_side_fled"
+									texture = "gfx/interface/icons/icon_fled.dds"
+									size = { 35 35 }
+								}
+							}
+
+							hbox = {
+								visible = "[CombatWindow.IsRightSideWinning]"
+								spacing = 5
+
+								text_single = {
+									text = "[CombatWindow.GetRightCombatSide.GetPursuingRetreatingLabel]"
+									using = Font_Size_Medium
+									align = nobaseline
+								}
+
+								icon = {
+									name = "right_side_pursuing"
+									texture = "gfx/interface/icons/icon_pursuit.dds"
+									mirror = horizontal
+									size = { 35 35 }
+								}
+							}
+						}
+					}
+
+					# advantage
+					widget = {
+						size = { 450 0 }
+						allow_outside = yes
+
+						widget = {
+							visible = "[Not(CombatWindow.IsCombatInPursuitPhase)]"
+							parentanchor = hcenter
+							size = { 450 55 }
+							position = { 0 -107 }
+							scissor = yes
+
+							widget = {
+								size = { 120 70 }
+								parentanchor = hcenter
+								position = { -128 2 }
+								scissor = yes
+								datacontext = "[CombatWindow.GetLeftSideCommander]"
+								visible = "[Character.IsValid]"
+
+								icon = {
+									# size = { 450 64 }
+									parentanchor = center
+									texture = "gfx/interface/window_combat/combat_advantage_bars.dds"
+									mirror = vertical
+								}
+
+								text_single = {
+									text = "[Character.GetCommanderAdvantage]"
+									tooltip = "[Character.GetCommanderAdvantageDesc]"
+									parentanchor = hcenter
+									margin = { 15 0 }
+									position = { -15 7 }
+									alpha = 0.8
+									default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+									align = nobaseline
+									using = Font_Size_Big
+								}
+							}
+
+							widget = {
+								size = { 120 70 }
+								parentanchor = hcenter
+								position = { -78 2 }
+								scissor = yes
+
+								icon = {
+									# size = { 450 64 }
+									parentanchor = center
+									texture = "gfx/interface/window_combat/combat_advantage_bars.dds"
+									mirror = vertical
+
+									modify_texture = {
+										name = "flash"
+										texture = "gfx/interface/component_effects/effect_shimmer.dds"
+										blend_mode = colordodge
+										alpha = 0
+									}
+
+									state = {
+										name = "combat_left_roll"
+										next = "b"
+										trigger_on_create = yes
+
+										duration = 0.1
+										using = Animation_Curve_Default
+
+										modify_texture = {
+											name = "flash"
+											alpha = 1
+										}
+									}
+
+									state = {
+										name = "b"
+
+										duration = 0.3
+										using = Animation_Curve_Default
+
+										modify_texture = {
+											name = "flash"
+											alpha = 0
+										}
+									}
+								}
+
+								text_single = {
+									tooltip = COW_TT_CURRENT_ROLL_LEFT
+									parentanchor = hcenter
+									margin = { 15 0 }
+									position = { -15 7 }
+									alpha = 0.8
+									text = "[CombatWindow.GetLeftRoll]"
+									default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+									align = nobaseline
+									using = Font_Size_Big
+								}
+							}
+
+							widget = {
+								size = { 120 70 }
+								parentanchor = hcenter
+								position = { 128 2 }
+								scissor = yes
+								datacontext = "[CombatWindow.GetRightSideCommander]"
+								visible = "[Character.IsValid]"
+
+								icon = {
+									# size = { 450 64 }
+									parentanchor = center
+									texture = "gfx/interface/window_combat/combat_advantage_bars.dds"
+									mirror = vertical
+								}
+
+								text_single = {
+									text = "[Character.GetCommanderAdvantage]"
+									tooltip = "[Character.GetCommanderAdvantageDesc]"
+									parentanchor = hcenter
+									margin = { 15 0 }
+									position = { 15 7 }
+									alpha = 0.8
+									default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+									align = nobaseline
+									using = Font_Size_Big
+								}
+							}
+
+							widget = {
+								size = { 120 70 }
+								parentanchor = hcenter
+								position = { 78 2 }
+								scissor = yes
+
+								icon = {
+									parentanchor = center
+									texture = "gfx/interface/window_combat/combat_advantage_bars.dds"
+									mirror = vertical
+
+									modify_texture = {
+										name = "flash"
+										texture = "gfx/interface/component_effects/effect_shimmer.dds"
+										blend_mode = colordodge
+										alpha = 0
+									}
+
+									state = {
+										name = "combat_right_roll"
+										next = "b"
+										trigger_on_create = yes
+
+										duration = 0.1
+										using = Animation_Curve_Default
+
+										modify_texture = {
+											name = "flash"
+											alpha = 1
+										}
+									}
+
+									state = {
+										name = "b"
+
+										duration = 0.3
+										using = Animation_Curve_Default
+
+										modify_texture = {
+											name = "flash"
+											alpha = 0
+										}
+									}
+
+								}
+
+								text_single = {
+									tooltip = COW_TT_CURRENT_ROLL_RIGHT
+									parentanchor = hcenter
+									margin = { 15 0 }
+									position = { 15 7 }
+									alpha = 0.8
+									text = "[CombatWindow.GetRightRoll]"
+									default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+									align = nobaseline
+									using = Font_Size_Big
+								}
+							}
+
+							icon = {
+								glow = {
+									glow_radius = 3
+									using = Glow_Standard
+									using = Color_Black
+								}
+								name = "center_box"
+								size = { 450 170 }
+								texture = "gfx/interface/window_combat/combat_info_box.dds"
+
+								modify_texture = {
+									name = "1_maneuver"
+									visible = "[CombatWindow.IsCombatInManeuverPhase]"
+									texture = "gfx/interface/window_combat/combat_info_box_glow.dds"
+									blend_mode = colordodge
+								}
+
+								modify_texture = {
+									name = "2_reteat"
+									visible = "[CombatWindow.ShowNoRetreatIcon]"
+									texture = "gfx/interface/window_combat/combat_info_box_glow.dds"
+									blend_mode = colordodge
+									translate_uv = { -0.07 0 }
+								}
+
+								modify_texture = {
+									name = "3_no_reteat"
+									visible = "[CombatWindow.ShowRetreatIcon]"
+									texture = "gfx/interface/window_combat/combat_info_box_glow.dds"
+									blend_mode = colordodge
+									translate_uv = { -0.13 0 }
+								}
+
+								modify_texture = {
+									name = "4_pursuit"
+									visible = "[CombatWindow.IsCombatInPursuitPhase]"
+									texture = "gfx/interface/window_combat/combat_info_box_glow.dds"
+									blend_mode = colordodge
+									translate_uv = { -0.198 0 }
+								}
+
+								modify_texture = {
+									name = "flash"
+									texture = "gfx/interface/window_combat/combat_info_box_glow_full.dds"
+									blend_mode = colordodge
+									alpha = 0
+								}
+
+								state = {
+									name = "phase_change"
+									next = "b"
+									duration = 0.4
+									using = Animation_Transition_Start
+
+									modify_texture = {
+										name = "flash"
+										alpha = 1
+									}
+								}
+
+								state = {
+									name = "b"
+									duration = 1
+									using = Animation_Transition_End
+
+									modify_texture = {
+										name = "flash"
+										alpha = 0
+									}
+								}
+
+								background = {
+									texture ="gfx/interface/component_masks/patterns/mask_pattern_02.dds"
+									spriteType = Corneredtiled
+									color = { 0.6 0.7 0.65 0.3 }
+									margin = { -10 0 }
+									margin_top = -30
+
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+										blend_mode = alphamultiply
+										mirror = vertical
+									}
+								}
+
+								widget = {
+									name = "combat_phases"
+									parentanchor = top|hcenter
+									position = { 0 10 }
+									size = { 120 28 }
+									tooltip = "[CombatWindow.GetCurrentPhaseTooltip]"
+									using = tooltip_ne
+								}
+
+							}
+						}
+
+						widget = {
+							parentanchor = hcenter
+							name = "main_info"
+							size = { 100% 100% }
+							position = { 0 -108 }
+							allow_outside = yes
+
+							vbox = {
+								margin = { 10 10 }
+								margin_top = 40
+
+								widget = {
+									layoutpolicy_horizontal = expanding
+									size = { 0 45 }
+									allow_outside = yes
+
+									widget = {
+										name = "advantage"
+										visible = "[Not(CombatWindow.IsCombatInPursuitPhase)]"
+										#visible_at_creation = no
+										position = { 0 0 }
+										size = { 100% 100% }
+										tooltip = "[CombatWindow.GetAdvantageDescription]"
+
+										using = Animation_ShowHide_Standard
+
+										hbox = {
+											margin = { 38 0 }
+											margin_top = 0
+
+											vbox = {
+												layoutpolicy_vertical = expanding
+												margin_top = 5
+
+												widget = {
+													name = "progressbar"
+													size = { 145 10 }
+
+													background = {
+														texture = "gfx/interface/component_overlay/overlay_stone.dds"
+														texture_density = 2
+														spritetype = corneredtiled
+														color = { 0.3 0.3 0.34 1 }
+														alpha = 0.8
+													}
+
+													arrow_progressbar_icon = {
+														size = { 100% 100% }
+														visible = "[GreaterThan_CFixedPoint( CombatWindow.GetAdvantage, '(CFixedPoint)40')]"
+
+														blockoverride "color"
+														{
+															using = Color_Blue
+															mirror = horizontal
+														}
+													}
+
+													hbox = {
+														visible = "[And(LessThanOrEqualTo_CFixedPoint( CombatWindow.GetAdvantage, '(CFixedPoint)40'), GreaterThan_CFixedPoint( CombatWindow.GetAdvantage, '(CFixedPoint)0'))]"
+
+														widget = {
+															layoutstretchfactor_horizontal = "[GetProgressBarValueMaxOtherScaled( FixedPointToFloat( CombatWindow.GetAdvantage ), '(float)40', '(int32)145' )]"
+															layoutpolicy_horizontal = expanding
+														}
+
+														arrow_progressbar_icon  = {
+															layoutstretchfactor_horizontal = "[GetProgressBarValueMaxScaled( FixedPointToFloat( CombatWindow.GetAdvantage ), '(float)40', '(int32)145' )]"
+															layoutpolicy_horizontal = expanding
+															layoutpolicy_vertical = expanding
+
+															blockoverride "color"
+															{
+																using = Color_Blue
+																mirror = horizontal
+															}
+														}
+													}
+												}
+
+												hbox = {
+													name = "advantage_icons"
+													layoutpolicy_horizontal = expanding
+													layoutpolicy_vertical = expanding
+													margin_top = 4
+
+													# icon = {
+													# 	name = "terrain"
+													# 	datacontext = "[CombatWindow.GetCombat.GetProvince.GetTerrain]"
+													# 	texture = "[Terrain.GetIcon]"
+													# 	size = { 30 30 }
+													# 	tooltip = "HOLDING_TERRAIN_TOOLTIP"
+													# }
+
+													expand = {}
+												}
+
+												expand = {}
+											}
+
+											expand = {}
+
+											vbox = {
+												layoutpolicy_vertical = expanding
+												margin_top = 5
+
+												widget = {
+													name = "progressbar"
+													size = { 145 10 }
+
+													background = {
+														texture = "gfx/interface/component_overlay/overlay_stone.dds"
+														texture_density = 2
+														spritetype = corneredtiled
+														color = { 0.3 0.3 0.34 1 }
+														alpha = 0.8
+													}
+
+													arrow_progressbar_icon = {
+														size = { 100% 100% }
+														visible = "[LessThan_CFixedPoint( CombatWindow.GetAdvantage, '(CFixedPoint)-40')]"
+
+														blockoverride "color"
+														{
+															using = Color_Red
+														}
+													}
+
+
+													hbox = {
+														visible = "[And(GreaterThanOrEqualTo_CFixedPoint( CombatWindow.GetAdvantage, '(CFixedPoint)-40'), LessThan_CFixedPoint( CombatWindow.GetAdvantage, '(CFixedPoint)0'))]"
+
+														arrow_progressbar_icon  = {
+															layoutstretchfactor_horizontal = "[GetProgressBarValueMaxScaled( Multiply_float( FixedPointToFloat( CombatWindow.GetAdvantage ), '(float)-1'), '(float)40', '(int32)145' )]"
+															layoutpolicy_horizontal = expanding
+															layoutpolicy_vertical = expanding
+
+															blockoverride "color"
+															{
+																using = Color_Red
+															}
+														}
+
+														widget = {
+															layoutstretchfactor_horizontal = "[GetProgressBarValueMaxOtherScaled( Multiply_float( FixedPointToFloat( CombatWindow.GetAdvantage ), '(float)-1'), '(float)40', '(int32)145' )]"
+															layoutpolicy_horizontal = expanding
+														}
+													}
+												}
+
+												hbox = {
+													name = "advantage_icons"
+													layoutpolicy_horizontal = expanding
+													layoutpolicy_vertical = expanding
+													margin_top = 4
+
+													# icon = {
+													# 	name = "terrain"
+													# 	datacontext = "[CombatWindow.GetCombat.GetProvince.GetTerrain]"
+													# 	texture = "[Terrain.GetIcon]"
+													# 	size = { 30 30 }
+													# 	tooltip = "HOLDING_TERRAIN_TOOLTIP"
+													# }
+
+													expand = {}
+												}
+
+												expand = {}
+											}
+										}
+
+										widget = {
+											visible = "[Not(CombatWindow.IsCombatInPursuitPhase)]"
+											size = { 400 64 }
+											parentanchor = hcenter
+											position = { 0 -10 }
+											scissor = yes
+
+											icon = {
+												parentanchor = hcenter
+												size = { 500 64 }
+												texture = "gfx/interface/window_combat/combat_advantage_bars.dds"
+
+												modify_texture = {
+													name = "swoosh_left"
+													texture = "gfx/interface/component_effects/effect_shimmer.dds"
+													blend_mode = colordodge
+													alpha = 1
+													translate_uv = { 0.6 0 }
+												}
+
+												modify_texture = {
+													name = "swoosh_right"
+													texture = "gfx/interface/component_effects/effect_shimmer.dds"
+													blend_mode = colordodge
+													alpha = 1
+													translate_uv = { -0.6 0 }
+												}
+
+												modify_texture = {
+													name = "flash"
+													texture = "gfx/interface/window_combat/combat_info_advantage_glow.dds"
+													blend_mode = colordodge
+													alpha = 0
+												}
+
+												# Left side
+												state = {
+													name = "combat_left_roll"
+													next = "left_b"
+													delay = 0.4
+													trigger_on_create = yes
+
+													modify_texture = {
+														name = "swoosh_left"
+														alpha = 0.2
+														translate_uv = { 0.6 0 }
+													}
+												}
+
+												state = {
+													name = "left_b"
+													next = "left_c"
+													duration = 0.3
+
+													modify_texture = {
+														name = "swoosh_left"
+														alpha = 0.3
+														translate_uv = { 0 0 }
+													}
+												}
+
+												state = {
+													name = "left_c"
+													next = "left_d"
+
+													duration = 0.1
+													using = Animation_Curve_Default
+
+													modify_texture = {
+														name = "flash"
+														alpha = 0.3
+													}
+
+													modify_texture = {
+														name = "swoosh_left"
+														alpha = 0.2
+													}
+												}
+
+												state = {
+													name = "left_d"
+													duration = 0.8
+													bezier = { 0 0.8 0.6 1 }
+
+													modify_texture = {
+														name = "flash"
+														alpha = 0
+													}
+
+													modify_texture = {
+														name = "swoosh_left"
+														alpha = 0
+													}
+												}
+
+
+												# Right side
+												state = {
+													name = "combat_right_roll"
+													next = "right_b"
+													delay = 0.4
+													trigger_on_create = yes
+
+													modify_texture = {
+														name = "swoosh_right"
+														alpha = 0.2
+														translate_uv = { -0.6 0 }
+													}
+												}
+
+												state = {
+													name = "right_b"
+													next = "right_c"
+													duration = 0.3
+
+													modify_texture = {
+														name = "swoosh_right"
+														alpha = 0.3
+														translate_uv = { 0 0 }
+													}
+												}
+
+												state = {
+													name = "right_c"
+													next = "right_d"
+
+													duration = 0.1
+													using = Animation_Curve_Default
+
+													modify_texture = {
+														name = "flash"
+														alpha = 0.3
+													}
+
+													modify_texture = {
+														name = "swoosh_right"
+														alpha = 0.2
+													}
+												}
+
+												state = {
+													name = "right_d"
+													duration = 0.8
+													bezier = { 0 0.8 0.6 1 }
+
+													modify_texture = {
+														name = "flash"
+														alpha = 0
+													}
+
+													modify_texture = {
+														name = "swoosh_right"
+														alpha = 0
+													}
+												}
+											}
+										}
+
+										widget = {
+											size = { 50 50 }
+											parentanchor = center
+											position = { 0 -5 }
+
+											text_single = {
+												name = "advantage"
+												parentanchor = center
+												text = "COMBAT_WINDOW_ADVANTAGE"
+												fontsize = 20
+												tooltip = "[CombatWindow.GetAdvantageDescription]"
+												default_format = "#high;bold;glow_color:{0.1,0.1,0.1,1.0}"
+												align = nobaseline
+											}
+										}
+									}
+								}
+
+								expand = {}
+							}
+						}
+					}
+
+					# advantage
+					widget = {
+						size = { 500 25 }
+						scissor = yes
+						visible = "[Not(CombatWindow.IsCombatInPursuitPhase)]"
+
+						background = {
+							using = Text_Label_Background
+							margin_top = 2
+							alpha = 0.6
+							modify_texture = {
+								texture = "gfx/interface/component_masks/mask_fade_horizontal_middle.dds"
+								blend_mode = alphamultiply
+								# alpha = 0.7
+							}
+						}
+
+						text_single = {
+							parentanchor = hcenter
+							position = { 0 -30 }
+							text = "[CombatWindow.GetAdvantageDescription]"
+						}
+					}
+
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						spacing = 45
+
+						expand = { }
+
+						widget = {
+							size = { 360 0 }
+							layoutpolicy_vertical = expanding
+
+							flowcontainer_reinforcements = {
+								datacontext = "[CombatWindow.GetLeftSideMainParticipant]"
+								# parentanchor = right
+								blockoverride "order" {
+									righttoleft = yes
+								}
+							}
+						}
+
+						widget = {
+							name = "troop_counters"
+							size = { 410 60 }
+
+							widget = {
+								size = { 100% 100% }
+								visible = "[CombatWindow.IsCombatInPursuitPhase]"
+
+								state = {
+									name = _show
+									using = Animation_FadeIn_Standard
+									duration = 0.8
+								}
+
+								state = {
+									name = _hide
+									using = Animation_FadeOut_Standard
+								}
+
+								animation_soldier_loss = {
+									visible = "[CombatWindow.IsCombatInPursuitPhase]"
+									position = { 55 20 }
+
+									blockoverride "animation_trigger_name"
+									{
+										name = "daily_tick_left_most_casualties"
+									}
+								}
+
+								animation_soldier_loss = {
+									visible = "[CombatWindow.IsCombatInPursuitPhase]"
+									parentanchor = right
+									position = { -22 20 }
+
+									blockoverride "animation_trigger_name"
+									{
+										name = "daily_tick_right_most_casualties"
+									}
+								}
+							}
+
+							flowcontainer = {
+								name = "left_soldiers"
+								datacontext = "[CombatWindow.GetLeftCombatSide]"
+								datacontext = "[CombatSide.GetComposition]"
+								tooltip = "[ArmyComposition.GetArmyCompositionTooltip]"
+								ignoreinvisible = yes
+
+								background = {
+									margin = { 45 20 }
+									texture = "gfx/interface/component_masks/mask_fade_circle.dds"
+									color = { 0.2 0.2 0.2 0.8 }
+								}
+
+								flowcontainer = {
+									visible = "[And( CombatWindow.IsCombatInPursuitPhase, Not(CombatSide.IsStillFighting ))]"
+									spacing = 3
+
+									using = Animation_ShowHide_Standard
+
+									icon = {
+										name = "fled_icon_left"
+										parentanchor = vcenter
+										size = { 25 25 }
+										texture = "gfx/interface/icons/icon_retreat.dds"
+									}
+
+									text_single = {
+										text = "[ArmyComposition.GetSoldierCountString]"
+										default_format = "#N;glow_color:{0.1,0.1,0.1,1}"
+										fontsize = 25
+										align = nobaseline
+									}
+								}
+
+								flowcontainer = {
+									visible = "[Or( Not(CombatWindow.IsCombatInPursuitPhase), CombatSide.IsStillFighting )]"
+									direction = vertical
+									spacing = -5
+
+									using = Animation_ShowHide_Standard
+
+									flowcontainer = {
+										spacing = 3
+
+										icon = {
+											name = "icon_soldier"
+											parentanchor = vcenter
+											texture = "gfx/interface/icons/icon_soldier.dds"
+											size = { 25 25 }
+										}
+
+										text_single = {
+											text = "[CombatSide.GetCurrentFightingMen|0]"
+											fontsize = 25
+											align = nobaseline
+											default_format = "#high;glow_color:{0.1,0.1,0.1,1}"
+
+											text_single = {
+												text = "[CombatSide.GetCurrentFightingMen|0]"
+												fontsize = 25
+												align = nobaseline
+												default_format = "#N;glow_color:{0.1,0.1,0.1,1}"
+
+												state = {
+													name = "daily_tick_left_most_casualties"
+													next = "b"
+													duration = 0.1
+													using = Animation_Curve_Default
+													alpha = 1
+													trigger_on_create = yes
+												}
+
+												state = {
+													name = "b"
+													duration = 0.3
+													using = Animation_Curve_Default
+													alpha = 0
+												}
+											}
+
+										}
+
+										army_quality_icon = {
+											parentanchor = vcenter
+										}
+									}
+
+									flowcontainer = {
+										visible = "[CombatSide.IsStillFighting]"
+										tooltip = "COW_TT_SOFT_CASUALTIES_LEFT"
+										spacing = 3
+										ignoreinvisible = yes
+
+										using = Animation_ShowHide_Standard
+
+										icon = {
+											name = "fled_icon_left"
+											parentanchor = vcenter
+											size = { 20 20 }
+											texture = "gfx/interface/icons/icon_retreat.dds"
+										}
+
+										text_single = {
+											text = "[CombatWindow.GetLeftCombatSide.GetSoftCasualties|0]"
+											default_format = "#medium;glow_color:{0.1,0.1,0.1,1}"
+											align = nobaseline
+										}
+									}
+								}
+							}
+
+							text_label_center = {
+								parentanchor = top|hcenter
+								position = { 0 1 }
+								text = "[CombatWindow.GetName]"
+								max_width = 185
+								fontsize = 20
+								font = TitleFont
+								default_format = "#high"
+								alpha = 0.5
+							}
+
+							flowcontainer = {
+								name = "right_soldiers"
+								parentanchor = right
+								datacontext = "[CombatWindow.GetRightCombatSide]"
+								datacontext = "[CombatSide.GetComposition]"
+								tooltip = "[ArmyComposition.GetArmyCompositionTooltip]"
+								ignoreinvisible = yes
+
+								background = {
+									margin = { 45 20 }
+									texture = "gfx/interface/component_masks/mask_fade_circle.dds"
+									color = { 0.2 0.2 0.2 0.8 }
+								}
+
+								flowcontainer = {
+									visible = "[And( CombatWindow.IsCombatInPursuitPhase, Not(CombatSide.IsStillFighting ))]"
+									spacing = 3
+
+									using = Animation_ShowHide_Standard
+
+									icon = {
+										name = "fled_icon_left"
+										parentanchor = vcenter
+										size = { 25 25 }
+										texture = "gfx/interface/icons/icon_retreat.dds"
+									}
+
+									text_single = {
+										text = "[ArmyComposition.GetSoldierCountString]"
+										default_format = "#N;glow_color:{0.1,0.1,0.1,1}"
+										fontsize = 25
+										align = nobaseline
+									}
+
+								}
+
+								flowcontainer = {
+									visible = "[Or( Not(CombatWindow.IsCombatInPursuitPhase), CombatSide.IsStillFighting )]"
+									direction = vertical
+									spacing = -5
+
+									using = Animation_ShowHide_Standard
+
+									flowcontainer = {
+										spacing = 3
+
+										icon = {
+											name = "icon_soldier"
+											parentanchor = vcenter
+											texture = "gfx/interface/icons/icon_soldier.dds"
+											size = { 25 25 }
+										}
+
+										text_single = {
+											text = "[CombatSide.GetCurrentFightingMen|0]"
+											fontsize = 25
+											align = nobaseline
+											default_format = "#high;glow_color:{0.1,0.1,0.1,1}"
+
+											text_single = {
+												text = "[CombatSide.GetCurrentFightingMen|0]"
+												fontsize = 25
+												align = nobaseline
+												default_format = "#N;glow_color:{0.1,0.1,0.1,1}"
+
+												state = {
+													name = "daily_tick_right_most_casualties"
+													next = "b"
+													duration = 0.1
+													using = Animation_Curve_Default
+													alpha = 1
+													trigger_on_create = yes
+												}
+
+												state = {
+													name = "b"
+													duration = 0.3
+													using = Animation_Curve_Default
+													alpha = 0
+												}
+											}
+										}
+
+										army_quality_icon = {
+											parentanchor = vcenter
+										}
+									}
+
+									flowcontainer = {
+										visible = "[CombatSide.IsStillFighting]"
+										tooltip = "COW_TT_SOFT_CASUALTIES_RIGHT"
+										spacing = 3
+										parentanchor = right
+
+										using = Animation_ShowHide_Standard
+
+										icon = {
+											name = "fled_icon_left"
+											parentanchor = vcenter
+											size = { 20 20 }
+											texture = "gfx/interface/icons/icon_retreat.dds"
+										}
+
+										text_single = {
+											text = "[CombatWindow.GetRightCombatSide.GetSoftCasualties|0]"
+											default_format = "#medium;glow_color:{0.1,0.1,0.1,1}"
+											align = nobaseline
+										}
+									}
+								}
+							}
+						}
+
+						widget = {
+							size = { 360 0 }
+							layoutpolicy_vertical = expanding
+
+							flowcontainer_reinforcements = {
+								parentanchor = right
+								datacontext = "[CombatWindow.GetRightSideMainParticipant]"
+							}
+						}
+
+						expand = { }
+					}
+				}
+
+				# maa
+				vbox = {
+					# margin = { 200 0 }
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+
+					scrollbox = {
+						# visible = no
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+
+						blockoverride "scrollbox_background" {}
+						blockoverride "scrollbox_background_fade" {}
+						blockoverride "scrollbox_margins" {}
+						blockoverride "scrollbox_content" {
+
+							vbox = {
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = expanding
+								#visible_at_creation = no
+								# visible = no
+								name = "maa_vbox"
+								# alpha = 1
+
+								# state = {
+								# 	name = _show
+								# 	alpha = 1
+								# 	duration = 0.3
+								# }
+								#
+								# state = {
+								# 	name = _hide
+								# 	alpha = 0
+								# }
+
+								hbox = {
+									layoutpolicy_horizontal = expanding
+									layoutpolicy_vertical = expanding
+
+									expand = {}
+
+									vbox = {
+										# visible = no
+										layoutpolicy_vertical = expanding
+										datacontext = "[CombatWindow.GetLeftCombatSide]"
+										datacontext = "[CombatSide.GetComposition]"
+										spacing = 10
+
+										levies_maa = {
+											blockoverride "visible_compact" {
+												visible = "[GreaterThan_int32(GetDataModelSize(CombatWindow.GetLeftSideMaaTypes), '(int32)5')]"
+											}
+											blockoverride "visible_big" {
+												visible = "[LessThan_int32(GetDataModelSize(CombatWindow.GetLeftSideMaaTypes), '(int32)5')]"
+											}
+											blockoverride "levy_progress" {
+												max = "[ArmyComposition.GetMaxNumberOfLevies]"
+												value = "[ArmyComposition.GetCurrentNumberOfLevies]"
+											}
+										}
+
+										vbox = {
+											visible = "[DataModelHasItems(CombatWindow.GetLeftSideMaaTypes)]"
+											spacing = 10
+											datamodel = "[CombatWindow.GetLeftSideMaaTypes]"
+											item = {
+												container_text_maa = {
+													blockoverride "stat_spacing"
+													{
+														righttoleft = yes
+													}
+												}
+											}
+										}
+
+										hbox = {
+											layoutpolicy_horizontal = expanding
+											spacing = 15
+											margin = { 5 0 }
+
+											background = {
+												using = Text_Label_Background margin = { 5 5 }
+												alpha = 0.7
+												modify_texture = {
+													name = "mask"
+													texture = "gfx/interface/component_masks/mask_fade_horizontal.dds"
+													spriteType = Corneredstretched
+													spriteborder = { 0 0 }
+													blend_mode = alphamultiply
+													mirror = horizontal
+												}
+											}
+
+											text_single = {
+												name = "left_knights"
+												visible = "[GreaterThan_int32( CombatWindow.GetLeftKnightCount, '(int32)0' )]"
+												text = "COW_KNIGHT_COUNT_LEFT"
+												default_format = "#high"
+												using = Font_Size_Medium
+												align = nobaseline
+												tooltip = "COW_TT_KNIGHT_COUNT_LEFT"
+											}
+
+											text_single = {
+												margin_top = 2 # the icon for the knights messes vertical alignment
+												visible = "[GreaterThan_int32( CombatWindow.GetLeftKnightCount, '(int32)0' )]"
+												raw_text = "[knight_effectiveness|e] [CombatWindow.GetLeftSideMainParticipant.GetKnightEffectiveness|%0]"
+												default_format = "#high"
+												using = Font_Size_Medium
+												align = nobaseline
+												tooltip = "[CombatWindow.GetLeftSideMainParticipant.GetKnightEffectivenessBreakdown]"
+											}
+
+											text_single = {
+												name = "left_no_knights"
+												visible = "[Not(GreaterThan_int32( CombatWindow.GetLeftKnightCount, '(int32)0' ))]"
+												text = "CW_NO_KNIGHTS"
+												default_format = "#weak"
+												align = nobaseline
+											}
+
+											expand = { }
+										}
+
+										hbox = {
+											layoutpolicy_horizontal = expanding
+
+											dynamicgridbox = {
+												flipdirection = yes
+												datamodel_wrap = 7
+												datamodel = "[CombatWindow.GetCombat.MakeScope.GetList('attacker_knights')]"
+												visible = "[And(CombatWindow.GetLeftCombatSide.IsAttacker, DataModelHasItems(CombatWindow.GetCombat.MakeScope.GetList('attacker_knights')))]"
+
+												item = {
+													portrait_head_small = {
+														datacontext = "[Scope.GetCharacter]"
+														blockoverride "opinion_box" {
+															text_single = {
+																margin_right = 5
+																background = { using = Background_Area_Solid }
+																raw_text = "@skill_prowess_icon![Character.GetProwess]"
+																default_format = "#high"
+															}
+														}
+													}
+												}
+											}
+
+											dynamicgridbox = {
+												flipdirection = yes
+												datamodel_wrap = 7
+												datamodel = "[CombatWindow.GetCombat.MakeScope.GetList('defender_knights')]"
+												visible = "[And(Not(CombatWindow.GetLeftCombatSide.IsAttacker), DataModelHasItems(CombatWindow.GetCombat.MakeScope.GetList('defender_knights')))]"
+
+												item = {
+													portrait_head_small = {
+														datacontext = "[Scope.GetCharacter]"
+														blockoverride "opinion_box" {
+															text_single = {
+																margin_right = 5
+																background = { using = Background_Area_Solid }
+																raw_text = "@skill_prowess_icon![Character.GetProwess]"
+																default_format = "#high"
+															}
+														}
+													}
+												}
+											}
+
+											expand = { }
+										}
+
+										expand = {}
+									}
+
+									widget = {
+										size = { 35 0 }
+										layoutpolicy_vertical = expanding
+
+										vbox = {
+											margin_bottom = 200
+											layoutpolicy_vertical = expanding
+											divider = {
+												color = { 0 0 0 1 }
+												size = { 5 0 }
+												layoutpolicy_vertical = expanding
+											}
+										}
+									}
+
+									vbox = {
+										layoutpolicy_vertical = expanding
+										datacontext = "[CombatWindow.GetRightCombatSide]"
+										datacontext = "[CombatSide.GetComposition]"
+										spacing = 10
+
+										levies_maa = {
+											blockoverride "progresstexture" {
+												progresstexture = "gfx/interface/progressbars/progress_grandeur_decrease.dds"
+											}
+											blockoverride "image_right" {
+												mirror = horizontal
+											}
+											blockoverride "levy_progress" {
+												max = "[ArmyComposition.GetMaxNumberOfLevies]"
+												value = "[ArmyComposition.GetCurrentNumberOfLevies]"
+											}
+											blockoverride "right_progressbar_bg" {
+												righttoleft = yes
+											}
+											blockoverride "right_progressbar" {
+												# mirror = horizontal
+											}
+											blockoverride "right" {
+												righttoleft = yes
+												# margin_left = 20
+											}
+											blockoverride "size_align" {
+												align = nobaseline
+											}
+										}
+
+										vbox = {
+											visible = "[DataModelHasItems(CombatWindow.GetRightSideMaaTypes)]"
+											spacing = 10
+											datamodel = "[CombatWindow.GetRightSideMaaTypes]"
+											item = {
+												container_text_maa = {
+													blockoverride "progresstexture" {
+														progresstexture = "gfx/interface/progressbars/progress_grandeur_decrease.dds"
+													}
+													blockoverride "image_right" {
+														mirror = horizontal
+													}
+													blockoverride "size_align" {
+														align = nobaseline
+													}
+													blockoverride "right_status" {
+														position = { 600 0 }
+													}
+													blockoverride "right_progressbar_bg" {
+														righttoleft = yes
+													}
+													blockoverride "right_progressbar" {
+														# mirror = horizontal
+													}
+													blockoverride "right" {
+														righttoleft = yes
+														# margin_left = 20
+													}
+													blockoverride "parentanchor" {}
+												}
+											}
+										}
+
+										hbox = {
+											layoutpolicy_horizontal = expanding
+											spacing = 15
+											margin = { 5 0 }
+
+											background = {
+												using = Text_Label_Background margin = { 5 5 }
+												alpha = 0.7
+												modify_texture = {
+													name = "mask"
+													texture = "gfx/interface/component_masks/mask_fade_horizontal.dds"
+													spriteType = Corneredstretched
+													spriteborder = { 0 0 }
+													blend_mode = alphamultiply
+												}
+											}
+
+											expand = { }
+
+											text_single = {
+												name = "right_no_knights"
+												visible = "[Not(GreaterThan_int32( CombatWindow.GetRightKnightCount, '(int32)0' ))]"
+												text = "CW_NO_KNIGHTS"
+												align = nobaseline
+												default_format = "#low"
+											}
+
+											text_single = {
+												margin_top = 2
+												visible = "[GreaterThan_int32( CombatWindow.GetRightKnightCount, '(int32)0' )]"
+												raw_text = "[knight_effectiveness|e] [CombatWindow.GetRightSideMainParticipant.GetKnightEffectiveness|%0]"
+												default_format = "#high"
+												using = Font_Size_Medium
+												align = nobaseline
+												tooltip = "[CombatWindow.GetRightSideMainParticipant.GetKnightEffectivenessBreakdown]"
+											}
+
+											text_single = {
+												name = "right_knights"
+												visible = "[GreaterThan_int32( CombatWindow.GetRightKnightCount, '(int32)0' )]"
+												align = nobaseline
+												text = "COW_KNIGHT_COUNT_RIGHT"
+												default_format = "#high"
+												using = Font_Size_Medium
+												tooltip = "COW_TT_KNIGHT_COUNT_RIGHT"
+											}
+										}
+
+										hbox = {
+											layoutpolicy_horizontal = expanding
+											expand = {}
+
+											dynamicgridbox = {
+												flipdirection = yes
+												datamodel_wrap = 7
+												datamodel = "[CombatWindow.GetCombat.MakeScope.GetList('defender_knights')]"
+
+												visible = "[And(CombatWindow.GetLeftCombatSide.IsAttacker, DataModelHasItems(CombatWindow.GetCombat.MakeScope.GetList('defender_knights')))]"
+												item = {
+													portrait_head_small = {
+														datacontext = "[Scope.GetCharacter]"
+														blockoverride "opinion_box" {
+															text_single = {
+																margin_right = 5
+																background = { using = Background_Area_Solid }
+																raw_text = "@skill_prowess_icon![Character.GetProwess]"
+																default_format = "#high"
+															}
+														}
+													}
+												}
+											}
+
+											dynamicgridbox = {
+												flipdirection = yes
+												datamodel_wrap = 7
+												datamodel = "[CombatWindow.GetCombat.MakeScope.GetList('attacker_knights')]"
+
+												visible = "[And(Not(CombatWindow.GetLeftCombatSide.IsAttacker), DataModelHasItems(CombatWindow.GetCombat.MakeScope.GetList('attacker_knights')))]"
+
+												item = {
+													portrait_head_small = {
+														datacontext = "[Scope.GetCharacter]"
+														blockoverride "opinion_box" {
+															text_single = {
+																margin_right = 5
+																background = { using = Background_Area_Solid }
+																raw_text = "@skill_prowess_icon![Character.GetProwess]"
+																default_format = "#high"
+															}
+														}
+													}
+												}
+											}
+										}
+
+										expand = {}
+									}
+
+									expand = {}
+								}
+							}
+						}
+					}
+				}
+
+				widget = {
+					visible = "[CombatWindow.BattleEventIsShown]"
+					size = { 0 80 }
+					#visible_at_creation = no
+				}
+
+				expand = { }
+			}
+
+			widget = {
+				# visible = no
+				name = "commander_info"
+				parentanchor = bottom|hcenter
+				size = { 100% 0 }
+				allow_outside = yes
+				position = { 0 -20 }
+
+				container = {
+					ignoreinvisible = yes
+					widgetanchor = bottom
+					position = { 300 50 }
+					visible = "[LessThan_int32(GetDataModelSize(CombatWindow.GetLeftSideMaaTypes), '(int32)3')]"
+
+					flowcontainer = {
+						ignoreinvisible = yes
+						datamodel = "[DataModelFirst(CombatWindow.GetCombat.MakeScope.GetList('defender_knights'), '(int32)3')]"
+						visible = "[And(Not(CombatWindow.GetLeftCombatSide.IsAttacker), DataModelHasItems(CombatWindow.GetCombat.MakeScope.GetList('defender_knights')))]"
+
+						item = {
+							knight_portrait = {}
+						}
+					}
+
+					flowcontainer = {
+						ignoreinvisible = yes
+						datamodel = "[DataModelFirst(CombatWindow.GetCombat.MakeScope.GetList('attacker_knights'), '(int32)3')]"
+						visible = "[And(CombatWindow.GetLeftCombatSide.IsAttacker, DataModelHasItems(CombatWindow.GetCombat.MakeScope.GetList('attacker_knights')))]"
+
+						item = {
+							knight_portrait = {}
+						}
+					}
+
+				}
+
+				### Commander Left
+				widget = {
+					name = "left_commander"
+					datacontext = "[CombatWindow.GetLeftSideCommander]"
+					parentanchor = left|bottom
+					position = { 10 20 }
+					allow_outside = yes
+
+					container = {
+						visible = "[Character.IsValid]"
+						parentanchor = bottom|left
+						scale = 1.3
+
+						portrait_body = {
+							visible = "[CombatWindow.IsAttackerOnLeftSide]"
+
+							blockoverride "portrait_button"
+							{
+								portrait_texture = "[Character.GetPortrait('environment_combat_window', 'camera_combat_window', 'war_attacker', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+								mask = "gfx/portraits/portrait_mask_blank.dds"
+							}
+
+							blockoverride "portrait_button_template_tooltip" {
+								tooltip = "[CombatWindow.GetLeftSideCommanderTooltip]"
+							}
+
+							blockoverride "coa" {}
+							blockoverride "opinion_box" {}
+							blockoverride "status_icons" {}
+						}
+
+						portrait_body = {
+							visible = "[Not(CombatWindow.IsAttackerOnLeftSide)]"
+
+							blockoverride "portrait_button"
+							{
+								portrait_texture = "[Character.GetPortrait('environment_combat_window', 'camera_combat_window', 'war_defender', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+								mask = "gfx/portraits/portrait_mask_blank.dds"
+							}
+
+							blockoverride "portrait_button_template_tooltip" {
+								tooltip = "[CombatWindow.GetLeftSideCommanderTooltip]"
+							}
+
+							blockoverride "coa" {}
+							blockoverride "opinion_box" {}
+							blockoverride "status_icons" {}
+						}
+					}
+
+					icon = {
+						parentanchor = bottom|left
+						position = { 9 0 }
+						size = { 200 100 }
+						texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+						mirror = vertical
+						color = { 0.15 0.15 0.15 0.5 }
+					}
+
+					coa_realm_medium_crown = {
+						datacontext = "[CombatWindow.GetLeftSideMainParticipant]"
+						parentanchor = bottom|left
+						position = { 20 -70 }
+						tooltip = "[CombatWindow.GetLeftSideRealmFlagTooltip]"
+					}
+
+					text_label_center = {
+						visible = "[Not(Character.IsValid)]"
+						parentanchor = bottom|left
+						widgetanchor = center
+						position = { 110 -25 }
+						text = "COMBAT_WINDOW_NO_COMMANDER"
+					}
+
+					flowcontainer = {
+						name = "martial_value"
+						visible = "[Character.IsValid]"
+						parentanchor = bottom|left
+						position = { 100 -80 }
+						tooltip = "[Character.GetCommanderAdvantageDesc]"
+						direction = vertical
+
+						background = {
+							using = Background_Area_Dark
+							margin = { 12 8 }
+							color = { 0.1 0.1 0.1 0.8 }
+						}
+
+						background = {
+							using = Background_Frame
+							margin = { 9 5 }
+							alpha = 0.7
+						}
+
+						icon = {
+							name = "icon"
+							parentanchor = hcenter
+							texture = "gfx/interface/icons/icon_commander_advantage.dds"
+							size = { 30 30 }
+						}
+
+						text_single = {
+							name = "label"
+							parentanchor = hcenter
+							text = "[Character.GetCommanderAdvantage]"
+							default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+							using = Font_Size_Big
+							align = nobaseline
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetLeftCommanderTraits]"
+						visible = "[LessThanOrEqualTo_int32(GetDataModelSize(CombatWindow.GetLeftCommanderTraits), '(int32)3')]"
+
+						parentanchor = bottom|left
+						position = { 25 -5 }
+						flipdirection = yes
+						datamodel_wrap = 3
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 50 50 }
+								}
+							}
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetLeftCommanderTraits]"
+						visible = "[EqualTo_int32(GetDataModelSize(CombatWindow.GetLeftCommanderTraits), '(int32)4')]"
+
+						parentanchor = bottom|left
+						position = { 25 -5 }
+						flipdirection = yes
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 45 45 }
+								}
+							}
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetLeftCommanderTraits]"
+						visible = "[EqualTo_int32(GetDataModelSize(CombatWindow.GetLeftCommanderTraits), '(int32)5')]"
+
+						parentanchor = bottom|left
+						position = { 25 -5 }
+						flipdirection = yes
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 36 36 }
+								}
+							}
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetLeftCommanderTraits]"
+						visible = "[GreaterThanOrEqualTo_int32(GetDataModelSize(CombatWindow.GetLeftCommanderTraits), '(int32)5')]"
+
+						parentanchor = bottom|left
+						position = { 25 -5 }
+						flipdirection = yes
+						datamodel_wrap = 6
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 30 30 }
+								}
+							}
+						}
+					}
+
+					flowcontainer = {
+						parentanchor = bottom|left
+						position = { 25 -60 }
+						ignoreinvisible = yes
+
+						text_label_left = {
+							visible = "[CombatWindow.IsAttackerOnLeftSide]"
+							text = "ATTACKER"
+							default_format = "#defender_color"
+						}
+
+						text_label_left = {
+							visible = "[Not(CombatWindow.IsAttackerOnLeftSide)]"
+							text = "DEFENDER"
+							default_format = "#defender_color"
+						}
+					}
+				}
+
+				### Commander Right
+
+				container = {
+					ignoreinvisible = yes
+					parentanchor = right
+					widgetanchor = bottom|right
+					position = { -250 50 }
+					visible = "[LessThan_int32(GetDataModelSize(CombatWindow.GetRightSideMaaTypes), '(int32)3')]"
+
+					flowcontainer = {
+						ignoreinvisible = yes
+						datamodel = "[DataModelFirst(CombatWindow.GetCombat.MakeScope.GetList('defender_knights'), '(int32)3')]"
+						visible = "[And(CombatWindow.GetLeftCombatSide.IsAttacker, DataModelHasItems(CombatWindow.GetCombat.MakeScope.GetList('defender_knights')))]"
+
+						item = {
+							knight_portrait = {
+								blockoverride "portrait_texture" {
+									portrait_texture = "[Character.GetPortrait('environment_combat_window', 'camera_body_right', 'throne_room_one_handed_passive_1', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+								}
+							}
+						}
+					}
+
+					flowcontainer = {
+						ignoreinvisible = yes
+						datamodel = "[DataModelFirst(CombatWindow.GetCombat.MakeScope.GetList('attacker_knights'), '(int32)3')]"
+						visible = "[And(Not(CombatWindow.GetLeftCombatSide.IsAttacker), DataModelHasItems(CombatWindow.GetCombat.MakeScope.GetList('attacker_knights')))]"
+
+						item = {
+							knight_portrait = {
+								blockoverride "portrait_texture" {
+									portrait_texture = "[Character.GetPortrait('environment_combat_window', 'camera_body_right', 'throne_room_one_handed_passive_1', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+								}
+							}
+						}
+					}
+				}
+
+				widget = {
+					name = "right_commander"
+					datacontext = "[CombatWindow.GetRightSideCommander]"
+					parentanchor = bottom|right
+					position = { -10 -25 }
+					allow_outside = yes
+
+					container = {
+						parentanchor = bottom|right
+						visible = "[Character.IsValid]"
+						scale = 1.3
+						position = { 0 45 }
+
+						portrait_body = {
+							visible = "[Not(CombatWindow.IsAttackerOnLeftSide)]"
+
+							blockoverride "portrait_button"
+							{
+								portrait_texture = "[Character.GetPortrait('environment_combat_window', 'camera_combat_window', 'war_attacker', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+								mask = "gfx/portraits/portrait_mask_blank.dds"
+
+								portrait_scale = { -1 1 }
+								portrait_offset = { 1 0 }
+							}
+
+							blockoverride "portrait_button_template_tooltip" {
+								tooltip = "[CombatWindow.GetRightSideCommanderTooltip]"
+							}
+
+							blockoverride "coa" {}
+							blockoverride "opinion_box" {}
+							blockoverride "status_icons" {}
+						}
+
+						portrait_body = {
+							visible = "[CombatWindow.IsAttackerOnLeftSide]"
+
+							blockoverride "portrait_button"
+							{
+								portrait_texture = "[Character.GetPortrait('environment_combat_window', 'camera_combat_window', 'war_defender', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+								mask = "gfx/portraits/portrait_mask_blank.dds"
+
+								portrait_scale = { -1 1 }
+								portrait_offset = { 1 0 }
+							}
+
+							blockoverride "portrait_button_template_tooltip" {
+								tooltip = "[CombatWindow.GetRightSideCommanderTooltip]"
+							}
+
+							blockoverride "coa" {}
+							blockoverride "opinion_box" {}
+							blockoverride "status_icons" {}
+						}
+					}
+
+					icon = {
+						parentanchor = bottom|right
+						position = { -9 0 }
+						size = { 200 100 }
+						texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+						mirror = vertical
+						color = { 0.15 0.15 0.15 0.5 }
+					}
+
+					coa_realm_medium_crown = {
+						datacontext = "[CombatWindow.GetRightSideMainParticipant]"
+						parentanchor = bottom|right
+						position = { -20 -70 }
+						tooltip = "[CombatWindow.GetRightSideRealmFlagTooltip]"
+					}
+
+					text_label_center = {
+						visible = "[Not(Character.IsValid)]"
+						parentanchor = bottom|right
+						widgetanchor = center
+						position = { -110 -25 }
+						text = "COMBAT_WINDOW_NO_COMMANDER"
+					}
+
+					flowcontainer = {
+						name = "martial_value"
+						visible = "[Character.IsValid]"
+						parentanchor = bottom|right
+						position = { -100 -80 }
+						tooltip = "[Character.GetCommanderAdvantageDesc]"
+						direction = vertical
+
+						background = {
+							using = Background_Area_Dark
+							margin = { 12 8 }
+							color = { 0.1 0.1 0.1 0.8 }
+						}
+
+						background = {
+							using = Background_Frame
+							margin = { 9 5 }
+							alpha = 0.7
+						}
+
+						icon = {
+							name = "icon"
+							parentanchor = hcenter
+							texture = "gfx/interface/icons/icon_commander_advantage.dds"
+							size = { 30 30 }
+						}
+
+						text_single = {
+							name = "label"
+							parentanchor = hcenter
+							text = "[Character.GetCommanderAdvantage]"
+							default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+							using = Font_Size_Big
+							align = nobaseline
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetRightCommanderTraits]"
+						visible = "[LessThanOrEqualTo_int32(GetDataModelSize(CombatWindow.GetRightCommanderTraits), '(int32)3')]"
+
+						parentanchor = bottom|right
+						position = { -25 -5 }
+						flipdirection = yes
+						datamodel_wrap = 3
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 50 50 }
+								}
+							}
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetRightCommanderTraits]"
+						visible = "[EqualTo_int32(GetDataModelSize(CombatWindow.GetRightCommanderTraits), '(int32)4')]"
+
+						parentanchor = bottom|right
+						position = { -25 -5 }
+						flipdirection = yes
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 45 45 }
+								}
+							}
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetRightCommanderTraits]"
+						visible = "[EqualTo_int32(GetDataModelSize(CombatWindow.GetRightCommanderTraits), '(int32)5')]"
+
+						parentanchor = bottom|right
+						position = { -25 -5 }
+						flipdirection = yes
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 36 36 }
+								}
+							}
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetRightCommanderTraits]"
+						visible = "[GreaterThanOrEqualTo_int32(GetDataModelSize(CombatWindow.GetRightCommanderTraits), '(int32)5')]"
+
+						parentanchor = bottom|right
+						position = { -25 -5 }
+						flipdirection = yes
+						datamodel_wrap = 6
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 30 30 }
+								}
+							}
+						}
+					}
+
+					flowcontainer = {
+						parentanchor = bottom|right
+						position = { -25 -60 }
+						ignoreinvisible = yes
+
+						text_label_right = {
+							visible = "[Not(CombatWindow.IsAttackerOnLeftSide)]"
+							text = "ATTACKER"
+							default_format = "#attacker_color"
+						}
+
+						text_label_right = {
+							visible = "[CombatWindow.IsAttackerOnLeftSide]"
+							text = "DEFENDER"
+							default_format = "#attacker_color"
+						}
+					}
+				}
+			}
+
+			### Battle event
+			container = {
+				# visible = no
+				visible = "[CombatWindow.BattleEventIsShown]"
+				parentanchor = bottom|hcenter
+				widgetanchor = bottom|hcenter
+				allow_outside = yes
+				#visible_at_creation = no
+				position = { 0 -5 }
+
+				state = {
+					name = _show
+					using = Animation_FadeIn_Standard
+					position_y = -5
+					start_sound = {
+						soundeffect = "event:/SFX/UI/Generic/Windows/sfx_ui_generic_window_small"
+					}
+				}
+
+				state = {
+					name = _hide
+					using = Animation_FadeOut_Standard
+					position_y = 0
+					start_sound = {
+						soundeffect = "event:/SFX/UI/Generic/Windows/sfx_ui_generic_window_small"
+					}
+				}
+
+				button_group = {
+					size = { 100% 100% }
+					onclick = "[CombatWindow.IncrementBattleEvent]"
+					onrightclick = "[CombatWindow.IncrementBattleEvent]"
+					button_ignore = none
+
+					background = {
+						using = Background_Area_Dark
+						color = { 0.13 0.13 0.13 0.85 }
+					}
+				}
+
+				flowcontainer = {
+					name = "battle_event"
+					datacontext = "[CombatWindow.GetCurrentBattleEvent]"
+					margin = { 10 10 }
+					allow_outside = yes
+
+					portrait_head_small = {
+						name = "left_portrait"
+						datacontext = "[BattleEvent.GetLeftCharacter( CombatWindow.GetLeftCombatSide.IsAttacker )]"
+						visible = "[Character.IsValid]"
+
+						blockoverride "opinion_box"	{}
+						blockoverride "coa" {}
+					}
+
+					text_multi = {
+						name = "title"
+						autoresize = yes
+						max_width = 230
+						min_width = 230
+						margin = { 5 5 }
+
+						text = "[CombatWindow.GetCurrentBattleEvent.GetTitle( CombatWindow.GetLeftCombatSide.IsAttacker )]"
+					}
+
+					portrait_head_small = {
+						name = "right_portrait"
+						datacontext = "[BattleEvent.GetRightCharacter( CombatWindow.GetLeftCombatSide.IsAttacker )]"
+						visible = "[Character.IsValid]"
+
+						blockoverride "opinion_box" {}
+						blockoverride "coa" {}
+
+						blockoverride "portrait_button"
+						{
+							portrait_scale = { -1 1 }
+							portrait_offset = { 1 0 }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	widget = {
+		alwaystransparent = no
+		visible = "[GetVariableSystem.Exists('big_battle')]"
+		parentanchor = bottom|hcenter
+		size = { 875 330 }
+		position = { 0 27 }
+
+		state = {
+			name = _show
+			position = { 0 27 }
+			duration = 0.15
+			bezier = { 0.5 0 1 0.5 }
+			alpha = 1
+		}
+
+		state = {
+			name = _hide
+			position = { 0 60 }
+			duration = 0.2
+			bezier = { 0.5 0 1 0.5 }
+			alpha = 0
+		}
+
+		widget = {
+			size = { 100% 100% }
+
+			background = {
+				texture = "gfx/interface/component_tiles/tile_window_background.dds"
+				spriteType = Corneredtiled
+				spriteborder = { 18 0 }
+				margin = { -23 -17 }
+				texture_density = 2
+
+				modify_texture = {
+					texture = "gfx/interface/component_overlay/overlay_effect.dds"
+					blend_mode = overlay
+				}
+
+				modify_texture = {
+					texture = "gfx/interface/window_combat/combat_bg_mask.dds"
+					blend_mode = alphamultiply
+					spriteType = corneredStretched
+					spriteborder_top = 200
+					spriteborder_right = 200
+					spriteborder_left = 200
+				}
+			}
+
+			background = {
+				texture = "gfx/interface/component_tiles/tile_window_background.dds"
+				spriteType = Corneredtiled
+				spriteborder = { 18 0 }
+				margin = { -23 -17 }
+				texture_density = 2
+
+				modify_texture = {
+					texture = "gfx/interface/component_overlay/overlay_effect.dds"
+					blend_mode = overlay
+				}
+
+				modify_texture = {
+					texture = "gfx/interface/window_combat/combat_bg_mask.dds"
+					blend_mode = alphamultiply
+					spriteType = corneredStretched
+					spriteborder_top = 200
+					spriteborder_right = 200
+					spriteborder_left = 200
+				}
+			}
+
+			margin_widget = {
+				size = { 100% 100% }
+				margin = { 23 17 }
+
+				icon = {
+					datacontext = "[CombatWindow.GetCombat.GetProvince.GetTerrain]"
+					size = { 100% 100% }
+					texture = "[Terrain.GetIllustration]"
+					# texture = "gfx/interface/illustrations/terrain_types/steppe.dds"
+					alpha = 0.8
+
+					modify_texture = {
+						texture = "gfx/interface/window_combat/combat_bg_mask.dds"
+						blend_mode = alphamultiply
+						spriteType = corneredStretched
+						spriteborder_top = 200
+						spriteborder_right = 200
+						spriteborder_left = 200
+					}
+
+					modify_texture = {
+						texture = "gfx/interface/component_masks/mask_fade_horizontal_middle.dds"
+						blend_mode = alphamultiply
+						alpha = 0.5
+					}
+
+					modify_texture = {
+						texture = "gfx/interface/component_masks/mask_fade_horizontal_extended.dds"
+						blend_mode = alphamultiply
+						alpha = 0.8
+						rotate_uv = -4.75
+						translate_uv = { 0 -0.3 }
+					}
+
+					modify_texture = {
+						texture = "gfx/interface/window_combat/combat_bg_darken.dds"
+						blend_mode = alphamultiply
+						alpha = 0.8
+					}
+				}
+
+				widget = {
+					size = { 100% 100% }
+					alpha = 0.6
+
+					icon = {
+						visible = "[CombatWindow.IsCombatInPursuitPhase]"
+						size = { 100% 103 }
+						parentanchor = top|hcenter
+						using = Background_Area_Dark
+						color = { 0.1 0.1 0.1 1 }
+
+						modify_texture = {
+							texture = "gfx/interface/window_combat/combat_bg_mask.dds"
+							blend_mode = alphamultiply
+							spriteType = corneredStretched
+							spriteborder_top = 200
+							spriteborder_right = 200
+							spriteborder_left = 200
+						}
+
+						using = Animation_ShowHide_Standard
+					}
+				}
+			}
+
+			icon = {
+				parentanchor = hcenter
+				position = { 0 -12 }
+				size = { 821 126 }
+				texture = "gfx/interface/window_combat/combat_decoration.dds"
+			}
+
+			icon = {
+				name = "tile_frame_top_center_part"
+				texture = "gfx/interface/window_war/tile_frame_top.dds"
+				position = { 0 -40 }
+				parentanchor = top|hcenter
+				texture_density = 2
+			}
+
+			widget = {
+				name = "commander_info"
+				parentanchor = bottom|hcenter
+				size = { 100% 0 }
+				allow_outside = yes
+
+				### Commander Left
+				widget = {
+					name = "left_commander"
+					datacontext = "[CombatWindow.GetLeftSideCommander]"
+					parentanchor = left|bottom
+					position = { 10 -25 }
+					allow_outside = yes
+
+					container = {
+						visible = "[Character.IsValid]"
+						parentanchor = bottom|left
+
+						portrait_body = {
+							visible = "[CombatWindow.IsAttackerOnLeftSide]"
+
+							blockoverride "portrait_button"
+							{
+								portrait_texture = "[Character.GetPortrait('environment_combat_window', 'camera_combat_window', 'war_attacker', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+								mask = "gfx/portraits/portrait_mask_blank.dds"
+							}
+
+							blockoverride "portrait_button_template_tooltip" {
+								tooltip = "[CombatWindow.GetLeftSideCommanderTooltip]"
+							}
+
+							blockoverride "coa" {}
+							blockoverride "opinion_box" {}
+							blockoverride "status_icons" {}
+						}
+
+						portrait_body = {
+							visible = "[Not(CombatWindow.IsAttackerOnLeftSide)]"
+
+							blockoverride "portrait_button"
+							{
+								portrait_texture = "[Character.GetPortrait('environment_combat_window', 'camera_combat_window', 'war_defender', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+								mask = "gfx/portraits/portrait_mask_blank.dds"
+							}
+
+							blockoverride "portrait_button_template_tooltip" {
+								tooltip = "[CombatWindow.GetLeftSideCommanderTooltip]"
+							}
+
+							blockoverride "coa" {}
+							blockoverride "opinion_box" {}
+							blockoverride "status_icons" {}
+						}
+					}
+
+					icon = {
+						parentanchor = bottom|left
+						position = { 9 0 }
+						size = { 200 100 }
+						texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+						mirror = vertical
+						color = { 0.15 0.15 0.15 0.5 }
+					}
+
+					coa_realm_medium_crown = {
+						datacontext = "[CombatWindow.GetLeftSideMainParticipant]"
+						parentanchor = bottom|left
+						position = { 20 -70 }
+						tooltip = "[CombatWindow.GetLeftSideRealmFlagTooltip]"
+					}
+
+					text_label_center = {
+						visible = "[Not(Character.IsValid)]"
+						parentanchor = bottom|left
+						widgetanchor = center
+						position = { 110 -25 }
+						text = "COMBAT_WINDOW_NO_COMMANDER"
+					}
+
+					flowcontainer = {
+						name = "martial_value"
+						visible = "[Character.IsValid]"
+						parentanchor = bottom|left
+						position = { 100 -80 }
+						tooltip = "[Character.GetCommanderAdvantageDesc]"
+						direction = vertical
+
+						background = {
+							using = Background_Area_Dark
+							margin = { 12 8 }
+							color = { 0.1 0.1 0.1 0.8 }
+						}
+
+						background = {
+							using = Background_Frame
+							margin = { 9 5 }
+							alpha = 0.7
+						}
+
+						icon = {
+							name = "icon"
+							parentanchor = hcenter
+							texture = "gfx/interface/icons/icon_commander_advantage.dds"
+							size = { 30 30 }
+						}
+
+						text_single = {
+							name = "label"
+							parentanchor = hcenter
+							text = "[Character.GetCommanderAdvantage]"
+							default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+							using = Font_Size_Big
+							align = nobaseline
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetLeftCommanderTraits]"
+						visible = "[LessThanOrEqualTo_int32(GetDataModelSize(CombatWindow.GetLeftCommanderTraits), '(int32)3')]"
+
+						parentanchor = bottom|left
+						position = { 25 -5 }
+						flipdirection = yes
+						datamodel_wrap = 3
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 50 50 }
+								}
+							}
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetLeftCommanderTraits]"
+						visible = "[EqualTo_int32(GetDataModelSize(CombatWindow.GetLeftCommanderTraits), '(int32)4')]"
+
+						parentanchor = bottom|left
+						position = { 25 -5 }
+						flipdirection = yes
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 45 45 }
+								}
+							}
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetLeftCommanderTraits]"
+						visible = "[EqualTo_int32(GetDataModelSize(CombatWindow.GetLeftCommanderTraits), '(int32)5')]"
+
+						parentanchor = bottom|left
+						position = { 25 -5 }
+						flipdirection = yes
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 36 36 }
+								}
+							}
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetLeftCommanderTraits]"
+						visible = "[GreaterThanOrEqualTo_int32(GetDataModelSize(CombatWindow.GetLeftCommanderTraits), '(int32)5')]"
+
+						parentanchor = bottom|left
+						position = { 25 -5 }
+						flipdirection = yes
+						datamodel_wrap = 6
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 30 30 }
+								}
+							}
+						}
+					}
+
+					flowcontainer = {
+						parentanchor = bottom|left
+						position = { 25 -60 }
+						ignoreinvisible = yes
+
+						text_label_left = {
+							visible = "[CombatWindow.IsAttackerOnLeftSide]"
+							text = "ATTACKER"
+							default_format = "#defender_color"
+						}
+
+						text_label_left = {
+							visible = "[Not(CombatWindow.IsAttackerOnLeftSide)]"
+							text = "DEFENDER"
+							default_format = "#defender_color"
+						}
+					}
+				}
+
+				### Commander Right
+				widget = {
+					name = "right_commander"
+					datacontext = "[CombatWindow.GetRightSideCommander]"
+					parentanchor = bottom|right
+					position = { -10 -25 }
+					allow_outside = yes
+
+					container = {
+						parentanchor = bottom|right
+						visible = "[Character.IsValid]"
+
+						portrait_body = {
+							visible = "[Not(CombatWindow.IsAttackerOnLeftSide)]"
+
+							blockoverride "portrait_button"
+							{
+								portrait_texture = "[Character.GetPortrait('environment_combat_window', 'camera_combat_window', 'war_attacker', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+								mask = "gfx/portraits/portrait_mask_blank.dds"
+
+								portrait_scale = { -1 1 }
+								portrait_offset = { 1 0 }
+							}
+
+							blockoverride "portrait_button_template_tooltip" {
+								tooltip = "[CombatWindow.GetRightSideCommanderTooltip]"
+							}
+
+							blockoverride "coa" {}
+							blockoverride "opinion_box" {}
+							blockoverride "status_icons" {}
+						}
+
+						portrait_body = {
+							visible = "[CombatWindow.IsAttackerOnLeftSide]"
+
+							blockoverride "portrait_button"
+							{
+								portrait_texture = "[Character.GetPortrait('environment_combat_window', 'camera_combat_window', 'war_defender', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+								mask = "gfx/portraits/portrait_mask_blank.dds"
+
+								portrait_scale = { -1 1 }
+								portrait_offset = { 1 0 }
+							}
+
+							blockoverride "portrait_button_template_tooltip" {
+								tooltip = "[CombatWindow.GetRightSideCommanderTooltip]"
+							}
+
+							blockoverride "coa" {}
+							blockoverride "opinion_box" {}
+							blockoverride "status_icons" {}
+						}
+					}
+
+					icon = {
+						parentanchor = bottom|right
+						position = { -9 0 }
+						size = { 200 100 }
+						texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+						mirror = vertical
+						color = { 0.15 0.15 0.15 0.5 }
+					}
+
+					coa_realm_medium_crown = {
+						datacontext = "[CombatWindow.GetRightSideMainParticipant]"
+						parentanchor = bottom|right
+						position = { -20 -70 }
+						tooltip = "[CombatWindow.GetRightSideRealmFlagTooltip]"
+					}
+
+					text_label_center = {
+						visible = "[Not(Character.IsValid)]"
+						parentanchor = bottom|right
+						widgetanchor = center
+						position = { -110 -25 }
+						text = "COMBAT_WINDOW_NO_COMMANDER"
+					}
+
+					flowcontainer = {
+						name = "martial_value"
+						visible = "[Character.IsValid]"
+						parentanchor = bottom|right
+						position = { -100 -80 }
+						tooltip = "[Character.GetCommanderAdvantageDesc]"
+						direction = vertical
+
+						background = {
+							using = Background_Area_Dark
+							margin = { 12 8 }
+							color = { 0.1 0.1 0.1 0.8 }
+						}
+
+						background = {
+							using = Background_Frame
+							margin = { 9 5 }
+							alpha = 0.7
+						}
+
+						icon = {
+							name = "icon"
+							parentanchor = hcenter
+							texture = "gfx/interface/icons/icon_commander_advantage.dds"
+							size = { 30 30 }
+						}
+
+						text_single = {
+							name = "label"
+							parentanchor = hcenter
+							text = "[Character.GetCommanderAdvantage]"
+							default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+							using = Font_Size_Big
+							align = nobaseline
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetRightCommanderTraits]"
+						visible = "[LessThanOrEqualTo_int32(GetDataModelSize(CombatWindow.GetRightCommanderTraits), '(int32)3')]"
+
+						parentanchor = bottom|right
+						position = { -25 -5 }
+						flipdirection = yes
+						datamodel_wrap = 3
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 50 50 }
+								}
+							}
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetRightCommanderTraits]"
+						visible = "[EqualTo_int32(GetDataModelSize(CombatWindow.GetRightCommanderTraits), '(int32)4')]"
+
+						parentanchor = bottom|right
+						position = { -25 -5 }
+						flipdirection = yes
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 45 45 }
+								}
+							}
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetRightCommanderTraits]"
+						visible = "[EqualTo_int32(GetDataModelSize(CombatWindow.GetRightCommanderTraits), '(int32)5')]"
+
+						parentanchor = bottom|right
+						position = { -25 -5 }
+						flipdirection = yes
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 36 36 }
+								}
+							}
+						}
+					}
+
+					dynamicgridbox = {
+						datamodel = "[CombatWindow.GetRightCommanderTraits]"
+						visible = "[GreaterThanOrEqualTo_int32(GetDataModelSize(CombatWindow.GetRightCommanderTraits), '(int32)5')]"
+
+						parentanchor = bottom|right
+						position = { -25 -5 }
+						flipdirection = yes
+						datamodel_wrap = 6
+
+						item = {
+							icon_trait = {
+								blockoverride "icon_size"
+								{
+									size = { 30 30 }
+								}
+							}
+						}
+					}
+
+					flowcontainer = {
+						parentanchor = bottom|right
+						position = { -25 -60 }
+						ignoreinvisible = yes
+
+						text_label_right = {
+							visible = "[Not(CombatWindow.IsAttackerOnLeftSide)]"
+							text = "ATTACKER"
+							default_format = "#attacker_color"
+						}
+
+						text_label_right = {
+							visible = "[CombatWindow.IsAttackerOnLeftSide]"
+							text = "DEFENDER"
+							default_format = "#attacker_color"
+						}
+					}
+				}
+			}
+		}
+
+		text_label_center = {
+			visible = "[And(CombatWindow.IsCombatInPursuitPhase, CombatWindow.IsRightSideWinning)]"
+			parentanchor = top|hcenter
+			position = { 0 17 }
+			fontsize = 30
+			text = "game_concept_defeat"
+			default_format = "#negative_value;bold;glow_color:{0.1,0.1,0.1,1.0}"
+
+			using = Animation_ShowHide_Standard
+
+			background = {
+				texture = "gfx/interface/component_masks/mask_fade_halfcircle.dds"
+				margin = { 100 0 }
+				margin_bottom = 100
+				margin_top = 0
+				using = Color_Red
+				alpha = 0.3
+			}
+		}
+
+		text_label_center = {
+			visible = "[And(CombatWindow.IsCombatInPursuitPhase, CombatWindow.IsLeftSideWinning)]"
+			parentanchor = top|hcenter
+			position = { 0 17 }
+			fontsize = 30
+			text = "game_concept_victory"
+			default_format = "#positive_value;bold;glow_color:{0.1,0.1,0.1,1.0}"
+
+			using = Animation_ShowHide_Standard
+
+			background = {
+				texture = "gfx/interface/component_masks/mask_fade_halfcircle.dds"
+				margin = { 100 0 }
+				margin_bottom = 100
+				margin_top = 3
+				using = Color_Green
+				alpha = 0.3
+			}
+		}
+
+		widget = {
+			name = "combat_progress"
+			visible = "[Not(CombatWindow.IsCombatInPursuitPhase)]"
+			parentanchor = top|hcenter
+			position = { 0 19 }
+			size = { 410 42 }
+			tooltip = "CV_TT_RELATIVE_SOLDIERS"
+			using = tooltip_above
+
+			using = Animation_ShowHide_Standard
+
+			background = {
+				texture = "gfx/interface/progressbars/war_progress_noprogress.dds"
+				margin = { 0 -3 }
+			}
+
+			widget = {
+				size = { 100% 100% }
+				scissor = yes
+
+				hbox = {
+					margin_top = 5
+
+					icon = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						layoutstretchfactor_horizontal = "[GetProgressBarValueMaxScaled( CombatWindow.GetCombat.GetPowerSlider, '(float)100', '(int32)410' )]"
+						size = { 0 0 }
+
+						texture = "gfx/interface/progressbars/war_progress_blue.dds"
+						spriteType = Corneredtiled
+
+						modify_texture = {
+							name = "flash"
+							texture = "gfx/interface/colors/orange.dds"
+							blend_mode = colordodge
+							alpha = 0
+						}
+
+						state = {
+							name = "daily_tick_left_most_casualties"
+							next = "b"
+							duration = 0.05
+							using = Animation_Curve_Default
+
+							modify_texture = {
+								name = "flash"
+								alpha = 0.5
+							}
+						}
+
+						state = {
+							name = "b"
+							duration = 0.2
+							using = Animation_Curve_Default
+
+							modify_texture = {
+								name = "flash"
+								alpha = 0
+							}
+						}
+
+						icon = {
+							parentanchor = right|vcenter
+							position = { 5 0 }
+
+							size = { 25 100% }
+							texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
+							color = { 0.9 0.9 0.9 1 }
+
+							state = {
+								name = a
+								next = b
+								trigger_on_create = yes
+								duration = 0.2
+								alpha = 1
+							}
+
+							state = {
+								name = b
+								next = a
+								duration = 0.4
+								alpha = 0.85
+							}
+						}
+					}
+
+					icon = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						layoutstretchfactor_horizontal = "[GetProgressBarValueMaxOtherScaled( CombatWindow.GetCombat.GetPowerSlider, '(float)100', '(int32)410' )]"
+						size = { 0 0 }
+
+						texture = "gfx/interface/progressbars/war_progress_red.dds"
+						spriteType = Corneredtiled
+
+						modify_texture = {
+							name = "flash"
+							texture = "gfx/interface/colors/orange.dds"
+							blend_mode = colordodge
+							alpha = 0
+						}
+
+						state = {
+							name = "daily_tick_right_most_casualties"
+							next = "b"
+							duration = 0.05
+							using = Animation_Curve_Default
+
+							modify_texture = {
+								name = "flash"
+								alpha = 0.3
+							}
+						}
+
+						state = {
+							name = "b"
+							duration = 0.2
+							using = Animation_Curve_Default
+
+							modify_texture = {
+								name = "flash"
+								alpha = 0
+							}
+						}
+
+						icon = {
+							parentanchor = left|vcenter
+							position = { -6 0 }
+							mirror = horizontal
+
+							size = { 25 100% }
+							texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
+							color = { 0.9 0.9 0.9 1 }
+
+							state = {
+								name = a
+								next = b
+								trigger_on_create = yes
+								duration = 0.2
+								alpha = 1
+							}
+
+							state = {
+								name = b
+								next = a
+								duration = 0.4
+								alpha = 0.85
+							}
+						}
+					}
+				}
+			}
+
+			widget = {
+				name = "power_bar_frame"
+				parentanchor = top
+				size = { 100% 100% }
+				alwaystransparent = yes
+
+				background = {
+					texture = "gfx/interface/progressbars/siege_frame.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 30 40 }
+					margin = { 5 0 }
+					margin_bottom = 10
+					texture_density = 2
+				}
+			}
+
+			text_label_center = {
+				name = "combat_result"
+				visible = "[CombatWindow.IsCombatInPursuitPhase]"
+				parentanchor = center
+				text = "[CombatWindow.GetWonLostLabel]"
+				font = TitleFont
+				fontsize = 35
+				align = nobaseline
+				margin_bottom = 0
+			}
+		}
+
+		widget = {
+			name = "troop_counters"
+			parentanchor = top|hcenter
+			position = { 0 63 }
+			size = { 410 70 }
+
+			widget = {
+				size = { 100% 100% }
+				visible = "[CombatWindow.IsCombatInPursuitPhase]"
+
+				state = {
+					name = _show
+					using = Animation_FadeIn_Standard
+					duration = 0.8
+				}
+
+				state = {
+					name = _hide
+					using = Animation_FadeOut_Standard
+				}
+
+				animation_soldier_loss = {
+					visible = "[CombatWindow.IsCombatInPursuitPhase]"
+					position = { 55 20 }
+
+					blockoverride "animation_trigger_name"
+					{
+						name = "daily_tick_left_most_casualties"
+					}
+				}
+
+				animation_soldier_loss = {
+					visible = "[CombatWindow.IsCombatInPursuitPhase]"
+					parentanchor = right
+					position = { -22 20 }
+
+					blockoverride "animation_trigger_name"
+					{
+						name = "daily_tick_right_most_casualties"
+					}
+				}
+			}
+
+			flowcontainer = {
+				name = "left_soldiers"
+				datacontext = "[CombatWindow.GetLeftCombatSide]"
+				datacontext = "[CombatSide.GetComposition]"
+				tooltip = "[ArmyComposition.GetArmyCompositionTooltip]"
+				ignoreinvisible = yes
+
+				background = {
+					margin = { 45 20 }
+					texture = "gfx/interface/component_masks/mask_fade_circle.dds"
+					color = { 0.2 0.2 0.2 0.8 }
+				}
+
+				flowcontainer = {
+					visible = "[And( CombatWindow.IsCombatInPursuitPhase, Not(CombatSide.IsStillFighting ))]"
+					spacing = 3
+
+					using = Animation_ShowHide_Standard
+
+					icon = {
+						name = "fled_icon_left"
+						parentanchor = vcenter
+						size = { 25 25 }
+						texture = "gfx/interface/icons/icon_retreat.dds"
+					}
+
+					text_single = {
+						text = "[ArmyComposition.GetSoldierCountString]"
+						default_format = "#N;glow_color:{0.1,0.1,0.1,1}"
+						fontsize = 25
+						align = nobaseline
+					}
+				}
+
+				flowcontainer = {
+					visible = "[Or( Not(CombatWindow.IsCombatInPursuitPhase), CombatSide.IsStillFighting )]"
+					direction = vertical
+					spacing = -5
+
+					using = Animation_ShowHide_Standard
+
+					flowcontainer = {
+						spacing = 3
+
+						icon = {
+							name = "icon_soldier"
+							parentanchor = vcenter
+							texture = "gfx/interface/icons/icon_soldier.dds"
+							size = { 25 25 }
+						}
+
+						text_single = {
+							text = "[CombatSide.GetCurrentFightingMen|0]"
+							fontsize = 25
+							align = nobaseline
+							default_format = "#high;glow_color:{0.1,0.1,0.1,1}"
+
+							text_single = {
+								text = "[CombatSide.GetCurrentFightingMen|0]"
+								fontsize = 25
+								align = nobaseline
+								default_format = "#N;glow_color:{0.1,0.1,0.1,1}"
+
+								state = {
+									name = "daily_tick_left_most_casualties"
+									next = "b"
+									duration = 0.1
+									using = Animation_Curve_Default
+									alpha = 1
+									trigger_on_create = yes
+								}
+
+								state = {
+									name = "b"
+									duration = 0.3
+									using = Animation_Curve_Default
+									alpha = 0
+								}
+							}
+
+						}
+
+						army_quality_icon = {
+							parentanchor = vcenter
+						}
+					}
+
+					flowcontainer = {
+						visible = "[CombatSide.IsStillFighting]"
+						tooltip = "COW_TT_SOFT_CASUALTIES_LEFT"
+						spacing = 3
+						ignoreinvisible = yes
+
+						using = Animation_ShowHide_Standard
+
+						icon = {
+							name = "fled_icon_left"
+							parentanchor = vcenter
+							size = { 20 20 }
+							texture = "gfx/interface/icons/icon_retreat.dds"
+						}
+
+						text_single = {
+							text = "[CombatWindow.GetLeftCombatSide.GetSoftCasualties|0]"
+							default_format = "#medium;glow_color:{0.1,0.1,0.1,1}"
+							align = nobaseline
+						}
+					}
+				}
+			}
+
+			text_label_center = {
+				parentanchor = top|hcenter
+				position = { 0 1 }
+				text = "[CombatWindow.GetName]"
+				max_width = 185
+				fontsize = 20
+				font = TitleFont
+				default_format = "#high"
+				alpha = 0.5
+			}
+
+			flowcontainer = {
+				name = "right_soldiers"
+				parentanchor = right
+				datacontext = "[CombatWindow.GetRightCombatSide]"
+				datacontext = "[CombatSide.GetComposition]"
+				tooltip = "[ArmyComposition.GetArmyCompositionTooltip]"
+				ignoreinvisible = yes
+
+				background = {
+					margin = { 45 20 }
+					texture = "gfx/interface/component_masks/mask_fade_circle.dds"
+					color = { 0.2 0.2 0.2 0.8 }
+				}
+
+				flowcontainer = {
+					visible = "[And( CombatWindow.IsCombatInPursuitPhase, Not(CombatSide.IsStillFighting ))]"
+					spacing = 3
+
+					using = Animation_ShowHide_Standard
+
+					icon = {
+						name = "fled_icon_left"
+						parentanchor = vcenter
+						size = { 25 25 }
+						texture = "gfx/interface/icons/icon_retreat.dds"
+					}
+
+					text_single = {
+						text = "[ArmyComposition.GetSoldierCountString]"
+						default_format = "#N;glow_color:{0.1,0.1,0.1,1}"
+						fontsize = 25
+						align = nobaseline
+					}
+
+				}
+
+				flowcontainer = {
+					visible = "[Or( Not(CombatWindow.IsCombatInPursuitPhase), CombatSide.IsStillFighting )]"
+					direction = vertical
+					spacing = -5
+
+					using = Animation_ShowHide_Standard
+
+					flowcontainer = {
+						spacing = 3
+
+						icon = {
+							name = "icon_soldier"
+							parentanchor = vcenter
+							texture = "gfx/interface/icons/icon_soldier.dds"
+							size = { 25 25 }
+						}
+
+						text_single = {
+							text = "[CombatSide.GetCurrentFightingMen|0]"
+							fontsize = 25
+							align = nobaseline
+							default_format = "#high;glow_color:{0.1,0.1,0.1,1}"
+
+							text_single = {
+								text = "[CombatSide.GetCurrentFightingMen|0]"
+								fontsize = 25
+								align = nobaseline
+								default_format = "#N;glow_color:{0.1,0.1,0.1,1}"
+
+								state = {
+									name = "daily_tick_right_most_casualties"
+									next = "b"
+									duration = 0.1
+									using = Animation_Curve_Default
+									alpha = 1
+									trigger_on_create = yes
+								}
+
+								state = {
+									name = "b"
+									duration = 0.3
+									using = Animation_Curve_Default
+									alpha = 0
+								}
+							}
+						}
+
+						army_quality_icon = {
+							parentanchor = vcenter
+						}
+					}
+
+					flowcontainer = {
+						visible = "[CombatSide.IsStillFighting]"
+						tooltip = "COW_TT_SOFT_CASUALTIES_RIGHT"
+						spacing = 3
+						parentanchor = right
+
+						using = Animation_ShowHide_Standard
+
+						icon = {
+							name = "fled_icon_left"
+							parentanchor = vcenter
+							size = { 20 20 }
+							texture = "gfx/interface/icons/icon_retreat.dds"
+						}
+
+						text_single = {
+							text = "[CombatWindow.GetRightCombatSide.GetSoftCasualties|0]"
+							default_format = "#medium;glow_color:{0.1,0.1,0.1,1}"
+							align = nobaseline
+						}
+					}
+				}
+			}
+		}
+
+		flowcontainer = {
+			position = { 187 26 }
+			spacing = 3
+
+			# button_plus = {
+			# 	onclick = "[GetVariableSystem.Toggle('big_battle'))]"
+			# 	shortcut = zoom_out
+			# 	raw_tooltip = "#T [Localize('SHOW_DETAILS')]"
+			# }
+
+			icon = {
+				name = "terrain"
+				datacontext = "[CombatWindow.GetCombat.GetProvince.GetTerrain]"
+				texture = "[Terrain.GetIcon]"
+				size = { 30 30 }
+				tooltip = "HOLDING_TERRAIN_TOOLTIP"
+				alwaystransparent = no
+			}
+		}
+
+		widget = {
+			name = "mouseover_catcher"
+			parentanchor = top|right
+			position = { -135 15 }
+			size = { 70 70 }
+			alwaystransparent = no
+		}
+
+		flowcontainer = {
+			parentanchor = right
+			position = { -164 25 }
+
+			button_go_to_my_location = {
+				onclick = "[CombatWindow.GoToProvince]"
+				tooltip = "GOTO_PROVINCE_TT"
+			}
+
+			button_close = {
+				onclick = "[CombatWindow.CloseAndDeselect]"
+				shortcut = close_window
+			}
+		}
+
+		### Battle event
+		container = {
+			visible = "[CombatWindow.BattleEventIsShown]"
+			parentanchor = top|hcenter
+			widgetanchor = bottom|hcenter
+			allow_outside = yes
+			position = { 0 -20 }
+
+			state = {
+				name = _show
+				using = Animation_FadeIn_Standard
+				position_y = -20
+				start_sound = {
+					soundeffect = "event:/SFX/UI/Generic/Windows/sfx_ui_generic_window_small"
+				}
+			}
+
+			state = {
+				name = _hide
+				using = Animation_FadeOut_Standard
+				position_y = 0
+				start_sound = {
+					soundeffect = "event:/SFX/UI/Generic/Windows/sfx_ui_generic_window_small"
+				}
+			}
+
+			button_group = {
+				size = { 100% 100% }
+				onclick = "[CombatWindow.IncrementBattleEvent]"
+
+				background = {
+					using = Background_Area_Dark
+					color = { 0.13 0.13 0.13 0.85 }
+				}
+			}
+
+			flowcontainer = {
+				name = "battle_event"
+				datacontext = "[CombatWindow.GetCurrentBattleEvent]"
+				margin = { 10 10 }
+				allow_outside = yes
+
+				portrait_head_small = {
+					name = "left_portrait"
+					datacontext = "[BattleEvent.GetLeftCharacter( CombatWindow.GetLeftCombatSide.IsAttacker )]"
+					visible = "[Character.IsValid]"
+
+					blockoverride "opinion_box"	{}
+					blockoverride "coa" {}
+				}
+
+				text_multi = {
+					name = "title"
+					autoresize = yes
+					max_width = 230
+					min_width = 230
+					margin = { 5 5 }
+
+					text = "[CombatWindow.GetCurrentBattleEvent.GetTitle( CombatWindow.GetLeftCombatSide.IsAttacker )]"
+				}
+
+				portrait_head_small = {
+					name = "right_portrait"
+					datacontext = "[BattleEvent.GetRightCharacter( CombatWindow.GetLeftCombatSide.IsAttacker )]"
+					visible = "[Character.IsValid]"
+
+					blockoverride "opinion_box" {}
+					blockoverride "coa" {}
+
+					blockoverride "portrait_button"
+					{
+						portrait_scale = { -1 1 }
+						portrait_offset = { 1 0 }
+					}
+				}
+			}
+		}
+
+		icon = {
+			name = "center_box"
+			parentanchor = bottom|hcenter
+			position = { 0 -25 }
+			size = { 450 170 }
+
+			texture = "gfx/interface/window_combat/combat_info_box.dds"
+
+			modify_texture = {
+				name = "1_maneuver"
+				visible = "[CombatWindow.IsCombatInManeuverPhase]"
+				texture = "gfx/interface/window_combat/combat_info_box_glow.dds"
+				blend_mode = colordodge
+			}
+
+			modify_texture = {
+				name = "2_reteat"
+				visible = "[CombatWindow.ShowNoRetreatIcon]"
+				texture = "gfx/interface/window_combat/combat_info_box_glow.dds"
+				blend_mode = colordodge
+				translate_uv = { -0.07 0 }
+			}
+
+			modify_texture = {
+				name = "3_no_reteat"
+				visible = "[CombatWindow.ShowRetreatIcon]"
+				texture = "gfx/interface/window_combat/combat_info_box_glow.dds"
+				blend_mode = colordodge
+				translate_uv = { -0.13 0 }
+			}
+
+			modify_texture = {
+				name = "4_pursuit"
+				visible = "[CombatWindow.IsCombatInPursuitPhase]"
+				texture = "gfx/interface/window_combat/combat_info_box_glow.dds"
+				blend_mode = colordodge
+				translate_uv = { -0.198 0 }
+			}
+
+			modify_texture = {
+				name = "flash"
+				texture = "gfx/interface/window_combat/combat_info_box_glow_full.dds"
+				blend_mode = colordodge
+				alpha = 0
+			}
+
+			state = {
+				name = "phase_change"
+				next = "b"
+				duration = 0.4
+				using = Animation_Transition_Start
+
+				modify_texture = {
+					name = "flash"
+					alpha = 1
+				}
+			}
+
+			state = {
+				name = "b"
+				duration = 1
+				using = Animation_Transition_End
+
+				modify_texture = {
+					name = "flash"
+					alpha = 0
+				}
+			}
+
+			background = {
+				texture ="gfx/interface/component_masks/patterns/mask_pattern_02.dds"
+				spriteType = Corneredtiled
+				color = { 0.6 0.7 0.65 0.3 }
+				margin = { -10 0 }
+				margin_top = -30
+
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+					blend_mode = alphamultiply
+					mirror = vertical
+				}
+			}
+
+			widget = {
+				name = "combat_phases"
+				parentanchor = top|hcenter
+				position = { 0 10 }
+				size = { 120 28 }
+				tooltip = "[CombatWindow.GetCurrentPhaseTooltip]"
+				using = tooltip_ne
+			}
+
+			widget = {
+				name = "main_info"
+				size = { 100% 100% }
+
+				vbox = {
+					margin = { 10 10 }
+					margin_top = 40
+
+					widget = {
+						layoutpolicy_horizontal = expanding
+						size = { 0 45 }
+
+						widget = {
+							name = "advantage"
+							visible = "[Not(CombatWindow.IsCombatInPursuitPhase)]"
+							#visible_at_creation = no
+							position = { 0 0 }
+							size = { 100% 100% }
+							tooltip = "[CombatWindow.GetAdvantageDescription]"
+
+							using = Animation_ShowHide_Standard
+
+							hbox = {
+								margin = { 38 0 }
+								margin_top = 0
+
+								vbox = {
+									layoutpolicy_vertical = expanding
+									margin_top = 5
+
+									widget = {
+										name = "progressbar"
+										size = { 145 10 }
+
+										background = {
+											texture = "gfx/interface/component_overlay/overlay_stone.dds"
+											texture_density = 2
+											spritetype = corneredtiled
+											color = { 0.3 0.3 0.34 1 }
+											alpha = 0.8
+										}
+
+										arrow_progressbar_icon = {
+											size = { 100% 100% }
+											visible = "[GreaterThan_CFixedPoint( CombatWindow.GetAdvantage, '(CFixedPoint)40')]"
+
+											blockoverride "color"
+											{
+												using = Color_Blue
+												mirror = horizontal
+											}
+										}
+
+										hbox = {
+											visible = "[And(LessThanOrEqualTo_CFixedPoint( CombatWindow.GetAdvantage, '(CFixedPoint)40'), GreaterThan_CFixedPoint( CombatWindow.GetAdvantage, '(CFixedPoint)0'))]"
+
+											widget = {
+												layoutstretchfactor_horizontal = "[GetProgressBarValueMaxOtherScaled( FixedPointToFloat( CombatWindow.GetAdvantage ), '(float)40', '(int32)145' )]"
+												layoutpolicy_horizontal = expanding
+											}
+
+											arrow_progressbar_icon  = {
+												layoutstretchfactor_horizontal = "[GetProgressBarValueMaxScaled( FixedPointToFloat( CombatWindow.GetAdvantage ), '(float)40', '(int32)145' )]"
+												layoutpolicy_horizontal = expanding
+												layoutpolicy_vertical = expanding
+
+												blockoverride "color"
+												{
+													using = Color_Blue
+													mirror = horizontal
+												}
+											}
+										}
+									}
+
+									hbox = {
+										name = "advantage_icons"
+										layoutpolicy_horizontal = expanding
+										layoutpolicy_vertical = expanding
+										margin_top = 4
+
+										# icon = {
+										# 	name = "terrain"
+										# 	datacontext = "[CombatWindow.GetCombat.GetProvince.GetTerrain]"
+										# 	texture = "[Terrain.GetIcon]"
+										# 	size = { 30 30 }
+										# 	tooltip = "HOLDING_TERRAIN_TOOLTIP"
+										# }
+
+										expand = {}
+									}
+
+									expand = {}
+								}
+
+								expand = {}
+
+								vbox = {
+									layoutpolicy_vertical = expanding
+									margin_top = 5
+
+									widget = {
+										name = "progressbar"
+										size = { 145 10 }
+
+										background = {
+											texture = "gfx/interface/component_overlay/overlay_stone.dds"
+											texture_density = 2
+											spritetype = corneredtiled
+											color = { 0.3 0.3 0.34 1 }
+											alpha = 0.8
+										}
+
+										arrow_progressbar_icon = {
+											size = { 100% 100% }
+											visible = "[LessThan_CFixedPoint( CombatWindow.GetAdvantage, '(CFixedPoint)-40')]"
+
+											blockoverride "color"
+											{
+												using = Color_Red
+											}
+										}
+
+
+										hbox = {
+											visible = "[And(GreaterThanOrEqualTo_CFixedPoint( CombatWindow.GetAdvantage, '(CFixedPoint)-40'), LessThan_CFixedPoint( CombatWindow.GetAdvantage, '(CFixedPoint)0'))]"
+
+											arrow_progressbar_icon  = {
+												layoutstretchfactor_horizontal = "[GetProgressBarValueMaxScaled( Multiply_float( FixedPointToFloat( CombatWindow.GetAdvantage ), '(float)-1'), '(float)40', '(int32)145' )]"
+												layoutpolicy_horizontal = expanding
+												layoutpolicy_vertical = expanding
+
+												blockoverride "color"
+												{
+													using = Color_Red
+												}
+											}
+
+											widget = {
+												layoutstretchfactor_horizontal = "[GetProgressBarValueMaxOtherScaled( Multiply_float( FixedPointToFloat( CombatWindow.GetAdvantage ), '(float)-1'), '(float)40', '(int32)145' )]"
+												layoutpolicy_horizontal = expanding
+											}
+										}
+									}
+
+									hbox = {
+										name = "advantage_icons"
+										layoutpolicy_horizontal = expanding
+										layoutpolicy_vertical = expanding
+										margin_top = 4
+
+										# icon = {
+										# 	name = "terrain"
+										# 	datacontext = "[CombatWindow.GetCombat.GetProvince.GetTerrain]"
+										# 	texture = "[Terrain.GetIcon]"
+										# 	size = { 30 30 }
+										# 	tooltip = "HOLDING_TERRAIN_TOOLTIP"
+										# }
+
+										expand = {}
+									}
+
+									expand = {}
+								}
+							}
+
+							icon = {
+								visible = "[Not(CombatWindow.IsCombatInPursuitPhase)]"
+								parentanchor = top|hcenter
+								position = { 0 -10 }
+								size = { 450 64 }
+								texture = "gfx/interface/window_combat/combat_advantage_bars.dds"
+
+								modify_texture = {
+									name = "swoosh_left"
+									texture = "gfx/interface/component_effects/effect_shimmer.dds"
+									blend_mode = colordodge
+									alpha = 1
+									translate_uv = { 0.6 0 }
+								}
+
+								modify_texture = {
+									name = "swoosh_right"
+									texture = "gfx/interface/component_effects/effect_shimmer.dds"
+									blend_mode = colordodge
+									alpha = 1
+									translate_uv = { -0.6 0 }
+								}
+
+								modify_texture = {
+									name = "flash"
+									texture = "gfx/interface/window_combat/combat_info_advantage_glow.dds"
+									blend_mode = colordodge
+									alpha = 0
+								}
+
+								# Left side
+								state = {
+									name = "combat_left_roll"
+									next = "left_b"
+									delay = 0.4
+									trigger_on_create = yes
+
+									modify_texture = {
+										name = "swoosh_left"
+										alpha = 0.2
+										translate_uv = { 0.6 0 }
+									}
+								}
+
+								state = {
+									name = "left_b"
+									next = "left_c"
+									duration = 0.3
+
+									modify_texture = {
+										name = "swoosh_left"
+										alpha = 0.3
+										translate_uv = { 0 0 }
+									}
+								}
+
+								state = {
+									name = "left_c"
+									next = "left_d"
+
+									duration = 0.1
+									using = Animation_Curve_Default
+
+									modify_texture = {
+										name = "flash"
+										alpha = 0.3
+									}
+
+									modify_texture = {
+										name = "swoosh_left"
+										alpha = 0.2
+									}
+								}
+
+								state = {
+									name = "left_d"
+									duration = 0.8
+									bezier = { 0 0.8 0.6 1 }
+
+									modify_texture = {
+										name = "flash"
+										alpha = 0
+									}
+
+									modify_texture = {
+										name = "swoosh_left"
+										alpha = 0
+									}
+								}
+
+
+								# Right side
+								state = {
+									name = "combat_right_roll"
+									next = "right_b"
+									delay = 0.4
+									trigger_on_create = yes
+
+									modify_texture = {
+										name = "swoosh_right"
+										alpha = 0.2
+										translate_uv = { -0.6 0 }
+									}
+								}
+
+								state = {
+									name = "right_b"
+									next = "right_c"
+									duration = 0.3
+
+									modify_texture = {
+										name = "swoosh_right"
+										alpha = 0.3
+										translate_uv = { 0 0 }
+									}
+								}
+
+								state = {
+									name = "right_c"
+									next = "right_d"
+
+									duration = 0.1
+									using = Animation_Curve_Default
+
+									modify_texture = {
+										name = "flash"
+										alpha = 0.3
+									}
+
+									modify_texture = {
+										name = "swoosh_right"
+										alpha = 0.2
+									}
+								}
+
+								state = {
+									name = "right_d"
+									duration = 0.8
+									bezier = { 0 0.8 0.6 1 }
+
+									modify_texture = {
+										name = "flash"
+										alpha = 0
+									}
+
+									modify_texture = {
+										name = "swoosh_right"
+										alpha = 0
+									}
+								}
+							}
+
+							icon = {
+								parentanchor = top|left
+								position = { -5 -5 }
+								texture = "gfx/interface/window_combat/combat_roll_bg.dds"
+								size = { 55 55 }
+								tooltip = COW_TT_CURRENT_ROLL_LEFT
+
+								modify_texture = {
+									name = "flash"
+									texture = "gfx/interface/component_effects/effect_shimmer.dds"
+									blend_mode = colordodge
+									alpha = 0
+								}
+
+								state = {
+									name = "combat_left_roll"
+									next = "b"
+									trigger_on_create = yes
+
+									duration = 0.1
+									using = Animation_Curve_Default
+
+									modify_texture = {
+										name = "flash"
+										alpha = 1
+									}
+								}
+
+								state = {
+									name = "b"
+
+									duration = 0.3
+									using = Animation_Curve_Default
+
+									modify_texture = {
+										name = "flash"
+										alpha = 0
+									}
+								}
+
+								text_single = {
+									parentanchor = center
+									text = "[CombatWindow.GetLeftRoll]"
+									default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+									fontsize = 25
+									align = nobaseline
+								}
+							}
+
+							icon = {
+								parentanchor = top|right
+								position = { 5 -5 }
+								texture = "gfx/interface/window_combat/combat_roll_bg.dds"
+								size = { 55 55 }
+								tooltip = COW_TT_CURRENT_ROLL_RIGHT
+								mirror = horizontal
+
+								modify_texture = {
+									name = "flash"
+									texture = "gfx/interface/component_effects/effect_shimmer.dds"
+									blend_mode = colordodge
+									alpha = 0
+								}
+
+								state = {
+									name = "combat_right_roll"
+									next = "b"
+									trigger_on_create = yes
+
+									duration = 0.1
+									using = Animation_Curve_Default
+
+									modify_texture = {
+										name = "flash"
+										alpha = 1
+									}
+								}
+
+								state = {
+									name = "b"
+
+									duration = 0.3
+									using = Animation_Curve_Default
+
+									modify_texture = {
+										name = "flash"
+										alpha = 0
+									}
+								}
+
+								text_single = {
+									parentanchor = center
+									text = "[CombatWindow.GetRightRoll]"
+									default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+									fontsize = 25
+									align = nobaseline
+								}
+							}
+
+							widget = {
+								size = { 50 50 }
+								parentanchor = center
+								position = { 0 -5 }
+
+								text_single = {
+									name = "advantage"
+									parentanchor = center
+									text = "COMBAT_WINDOW_ADVANTAGE"
+									fontsize = 20
+									tooltip = "[CombatWindow.GetAdvantageDescription]"
+									default_format = "#high;bold;glow_color:{0.1,0.1,0.1,1.0}"
+									align = nobaseline
+								}
+							}
+						}
+
+						widget = {
+							name = "pursuit_phase"
+							visible = "[CombatWindow.IsCombatInPursuitPhase]"
+							#visible_at_creation = no
+							size = { 100% 100% }
+
+							using = Animation_ShowHide_Standard
+
+							background = {
+								using = Background_Area
+							}
+
+							hbox = {
+								margin = { 20 0 }
+								margin_top = 5
+
+								hbox = {
+									visible = "[CombatWindow.IsRightSideWinning]"
+									spacing = 5
+
+									icon = {
+										name = "left_side_fled"
+										texture = "gfx/interface/icons/icon_fled.dds"
+										size = { 35 35 }
+									}
+
+									text_single = {
+										text = "[CombatWindow.GetLeftCombatSide.GetPursuingRetreatingLabel]"
+										using = Font_Size_Medium
+										align = nobaseline
+										default_format = "#N"
+									}
+								}
+
+								hbox = {
+									visible = "[CombatWindow.IsLeftSideWinning]"
+									spacing = 5
+
+									icon = {
+										name = "left_side_pursuing"
+										texture = "gfx/interface/icons/icon_pursuit.dds"
+										size = { 35 35 }
+									}
+
+									text_single = {
+										text = "[CombatWindow.GetLeftCombatSide.GetPursuingRetreatingLabel]"
+										using = Font_Size_Medium
+										align = nobaseline
+									}
+
+								}
+
+								expand = {}
+
+								hbox = {
+									visible = "[CombatWindow.IsLeftSideWinning]"
+									spacing = 5
+
+									text_single = {
+										text = "[CombatWindow.GetRightCombatSide.GetPursuingRetreatingLabel]"
+										using = Font_Size_Medium
+										align = nobaseline
+										default_format = "#N"
+									}
+
+									icon = {
+										name = "right_side_fled"
+										texture = "gfx/interface/icons/icon_fled.dds"
+										size = { 35 35 }
+									}
+								}
+
+								hbox = {
+									visible = "[CombatWindow.IsRightSideWinning]"
+									spacing = 5
+
+									text_single = {
+										text = "[CombatWindow.GetRightCombatSide.GetPursuingRetreatingLabel]"
+										using = Font_Size_Medium
+										align = nobaseline
+									}
+
+									icon = {
+										name = "right_side_pursuing"
+										texture = "gfx/interface/icons/icon_pursuit.dds"
+										mirror = horizontal
+										size = { 35 35 }
+									}
+								}
+							}
+						}
+					}
+
+					hbox = {
+						name = "MAA"
+						layoutpolicy_horizontal = expanding
+						margin = { 10 5 }
+
+						text_single = {
+							visible = "[IsDataModelEmpty(CombatWindow.GetLeftSideMaaTypes)]"
+							text = "COMBAT_WINDOW_NO_MAA"
+							default_format = "#weak"
+							align = nobaseline
+							margin_left = 5
+						}
+
+						overlappingitembox = {
+							datamodel = "[CombatWindow.GetLeftSideMaaTypes]"
+							datacontext = "[CombatWindow.GetLeftCombatSide]"
+							ignoreinvisible = yes
+							spacing = -2
+							maximumsize = { 200 40 }
+							minimumsize = { 0 40 }
+							autoresize = yes
+
+							item = {
+								container = {
+									icon_maa_combat = {
+										visible = "[And(CombatWindow.IsCombatInPursuitPhase, Not(CombatMaaItem.IsGoodAftermath(CombatSide.IsStillFighting)))]"
+
+										blockoverride "glow"
+										{
+											visible = no
+
+										}
+									}
+
+									icon_maa_combat = {
+										visible = "[And(CombatWindow.IsCombatInPursuitPhase, CombatMaaItem.IsGoodAftermath(CombatSide.IsStillFighting))]"
+
+										blockoverride "glow"
+										{
+											using = Color_Green
+
+										}
+									}
+
+									icon_maa_combat = {
+										visible = "[And(EqualTo_int32(CombatMaaItem.GetPerformance, '(int32)3'), Not(CombatWindow.IsCombatInPursuitPhase))]"
+
+										blockoverride "glow"
+										{
+											using = Color_Red
+
+										}
+									}
+
+									icon_maa_combat = {
+										visible = "[And(EqualTo_int32(CombatMaaItem.GetPerformance, '(int32)2'), Not(CombatWindow.IsCombatInPursuitPhase))]"
+
+										blockoverride "glow"
+										{
+											using = Color_Bright_Yellow
+
+										}
+									}
+
+									icon_maa_combat = {
+										visible = "[And(EqualTo_int32(CombatMaaItem.GetPerformance, '(int32)1'), Not(CombatWindow.IsCombatInPursuitPhase))]"
+
+										blockoverride "glow"
+										{
+											using = Color_Green
+
+										}
+									}
+
+									icon_maa_combat = {
+										visible = "[And(EqualTo_int32(CombatMaaItem.GetPerformance, '(int32)0'), Not(CombatWindow.IsCombatInPursuitPhase))]"
+
+										blockoverride "glow"
+										{
+											visible = no
+
+										}
+									}
+								}
+							}
+						}
+
+						expand = {
+						}
+
+						overlappingitembox = {
+							datamodel = "[CombatWindow.GetRightSideMaaTypes]"
+							datacontext = "[CombatWindow.GetRightCombatSide]"
+							ignoreinvisible = yes
+							spacing = -2
+							maximumsize = { 200 40 }
+							minimumsize = { 0 40 }
+							autoresize = yes
+							righttoleft = yes
+
+							item = {
+								container = {
+									icon_maa_combat = {
+										visible = "[And(CombatWindow.IsCombatInPursuitPhase, Not(CombatMaaItem.IsGoodAftermath(CombatSide.IsStillFighting)))]"
+
+										blockoverride "glow"
+										{
+											visible = no
+
+										}
+									}
+
+									icon_maa_combat = {
+										visible = "[And(CombatWindow.IsCombatInPursuitPhase, CombatMaaItem.IsGoodAftermath(CombatSide.IsStillFighting))]"
+
+										blockoverride "glow"
+										{
+											using = Color_Green
+
+										}
+									}
+
+									icon_maa_combat = {
+										visible = "[And(EqualTo_int32(CombatMaaItem.GetPerformance, '(int32)3'), Not(CombatWindow.IsCombatInPursuitPhase))]"
+
+										blockoverride "glow"
+										{
+											using = Color_Red
+
+										}
+									}
+
+									icon_maa_combat = {
+										visible = "[And(EqualTo_int32(CombatMaaItem.GetPerformance, '(int32)2'), Not(CombatWindow.IsCombatInPursuitPhase))]"
+
+										blockoverride "glow"
+										{
+											using = Color_Bright_Yellow
+
+										}
+									}
+
+									icon_maa_combat = {
+										visible = "[And(EqualTo_int32(CombatMaaItem.GetPerformance, '(int32)1'), Not(CombatWindow.IsCombatInPursuitPhase))]"
+
+										blockoverride "glow"
+										{
+											using = Color_Green
+
+										}
+									}
+
+									icon_maa_combat = {
+										visible = "[And(EqualTo_int32(CombatMaaItem.GetPerformance, '(int32)0'), Not(CombatWindow.IsCombatInPursuitPhase))]"
+
+										blockoverride "glow"
+										{
+											visible = no
+
+										}
+									}
+								}
+							}
+						}
+
+						text_single = {
+							visible = "[IsDataModelEmpty(CombatWindow.GetRightSideMaaTypes)]"
+							text = "COMBAT_WINDOW_NO_MAA"
+							default_format = "#weak"
+							align = nobaseline
+							margin_right = 5
+						}
+					}
+
+					divider_light = {
+						layoutpolicy_horizontal = expanding
+						alpha = 0.5
+					}
+
+					hbox = {
+						name = "knights"
+						layoutpolicy_horizontal = expanding
+						margin = { 15 0 }
+						margin_top = 3
+
+						text_single = {
+							visible = "[And(LessThanOrEqualTo_int32( CombatWindow.GetLeftKnightCount, '(int32)0' ), LessThanOrEqualTo_int32( CombatWindow.GetRightKnightCount, '(int32)0' ))]"
+							text = "CW_NO_KNIGHTS"
+							default_format = "#weak"
+							align = nobaseline
+						}
+
+						hbox = {
+							visible = "[Not(And(LessThanOrEqualTo_int32( CombatWindow.GetLeftKnightCount, '(int32)0' ), LessThanOrEqualTo_int32( CombatWindow.GetRightKnightCount, '(int32)0' )))]"
+							layoutpolicy_horizontal = expanding
+
+							text_single = {
+								name = "left_knights"
+								visible = "[GreaterThan_int32( CombatWindow.GetLeftKnightCount, '(int32)0' )]"
+								# visible = "[GreaterThan_int32( CombatWindow.GetLeftKnightCount, '(int32)10' )]"
+								text = "COW_KNIGHT_COUNT_LEFT"
+								align = nobaseline
+								tooltip = "COW_TT_KNIGHT_COUNT_LEFT"
+							}
+
+							text_single = {
+								name = "left_no_knights"
+								visible = "[Not(GreaterThan_int32( CombatWindow.GetLeftKnightCount, '(int32)0' ))]"
+								text = "CW_NO_KNIGHTS"
+								default_format = "#weak"
+								align = nobaseline
+							}
+
+							# icon = {
+							# 	size = { 20 20 }
+							# 	texture = "gfx/interface/icons/portraits/knight.dds"
+							# }
+
+							expand = {}
+
+							# icon = {
+							# 	size = { 20 20 }
+							# 	texture = "gfx/interface/icons/portraits/knight.dds"
+							# }
+
+							text_single = {
+								name = "right_no_knights"
+								visible = "[Not(GreaterThan_int32( CombatWindow.GetRightKnightCount, '(int32)0' ))]"
+								text = "CW_NO_KNIGHTS"
+								default_format = "#weak"
+								align = nobaseline
+							}
+
+							text_single = {
+								name = "right_knights"
+								visible = "[GreaterThan_int32( CombatWindow.GetRightKnightCount, '(int32)0' )]"
+								# visible = "[GreaterThan_int32( CombatWindow.GetRightKnightCount, '(int32)10' )]"
+								text = "COW_KNIGHT_COUNT_RIGHT"
+								align = nobaseline
+								tooltip = "COW_TT_KNIGHT_COUNT_RIGHT"
+							}
+						}
+					}
+
+					expand = {}
+				}
+			}
+		}
+
+		button = {
+			size = { 130 30 }
+			parentanchor = bottom|hcenter
+			onclick = "[GetVariableSystem.Toggle('big_battle'))]"
+			position = { 0 -27 }
+			raw_tooltip = "#T [Localize('SHOW_DETAILS')]"
+			shortcut = zoom_out
+			button_icon = {
+				texture = "gfx/interface/icons/flat_icons/zoom_in.dds"
+				alwaystransparent = yes
+				parentanchor = bottom|hcenter
+			}
+		}
+	}
+}
+
+types CombatWindow
+{
+	type animation_soldier_loss = icon {
+		widgetanchor = center
+		size = { 15 15 }
+		texture = "gfx/interface/colors/white.dds"
+		using = Color_Red
+		alpha = 0
+
+		modify_texture = {
+			name = "mask_1"
+			texture = "gfx/interface/component_masks/mask_glow.dds"
+			blend_mode = alphamultiply
+			rotate_uv = 1
+		}
+
+		modify_texture = {
+			name = "mask_2"
+			texture = "gfx/interface/component_masks/mask_glow.dds"
+			blend_mode = alphamultiply
+			rotate_uv = -1
+		}
+
+		modify_texture = {
+			name = "mask_3"
+			texture = "gfx/interface/component_masks/mask_clouds.dds"
+			blend_mode = alphamultiply
+			alpha = 0.1
+		}
+
+		modify_texture = {
+			name = "mask_4"
+			texture = "gfx/interface/component_masks/mask_circle.dds"
+			blend_mode = mask
+		}
+
+		modify_texture = {
+			name = "mask_3"
+			texture = "gfx/interface/colors/gold.dds"
+			blend_mode = add
+		}
+
+		state = {
+			block "animation_trigger_name"
+			{
+				name = "name"
+			}
+			next = b
+			trigger_on_create = yes
+
+			using = Animation_Curve_Default
+			scale = 1
+			alpha = 0
+		}
+
+		state = {
+			name = b
+			next = c
+
+			duration = 0.3
+			bezier = { 0.5 0 1 0.5 }
+
+			scale = 5
+			alpha = 0.7
+		}
+
+		state = {
+			name = c
+			duration = 0.3
+			alpha = 0
+			scale = 6
+		}
+
+		state = {
+			name = rotate_a
+			next = rotate_b
+			trigger_on_create = yes
+
+			modify_texture = {
+				name = "mask_1"
+				rotate_uv = 1
+			}
+		}
+
+		state = {
+			name = rotate_a
+			next = rotate_b
+
+			duration = 0.5
+
+			modify_texture = {
+				name = "mask_1"
+				rotate_uv = 180
+			}
+		}
+
+		state = {
+			name = rotate_a_2
+			next = rotate_b_2
+			trigger_on_create = yes
+
+			modify_texture = {
+				name = "mask_2"
+				rotate_uv = -1
+			}
+		}
+
+		state = {
+			name = rotate_a_2
+			next = rotate_b_2
+
+			duration = 0.5
+
+			modify_texture = {
+				name = "mask_2"
+				rotate_uv = -180
+			}
+		}
+
+		state = {
+			name = rotate_a_3
+			next = rotate_b_3
+			trigger_on_create = yes
+
+			modify_texture = {
+				name = "mask_3"
+				rotate_uv = 0
+				alpha = 0.1
+			}
+		}
+
+		state = {
+			name = rotate_a_3
+			next = rotate_b_3
+
+			duration = 0.5
+
+			modify_texture = {
+				name = "mask_3"
+				rotate_uv = 40
+				alpha = 0.8
+			}
+		}
+	}
+
+	type icon_maa_combat = icon {
+		name = "maa_icon"
+		datacontext = "[CombatMaaItem.GetMenAtArmsType]"
+		size = { 40 40 }
+		texture = "[MenAtArmsType.GetIcon]"
+
+		alwaystransparent = yes
+		using = tooltip_nw
+
+		tooltipwidget = {
+			maa_tooltip_widget = {}
+		}
+
+		glow = {
+			glow_radius = 3
+			using = Glow_Standard
+
+			block "glow"
+			{
+				using = Color_Green
+			}
+		}
+
+	}
+
+	type maa_tooltip_widget = widget {
+		alwaystransparent = no
+
+		widget = {
+			name = "background"
+			using = DefaultTooltipBackground
+			size = { 100% 100% }
+			alwaystransparent = no
+		}
+
+		vbox = {
+			margin = { 10 3 }
+			margin_bottom = 10
+			minimumsize = { 380 0 }
+			spacing = 5
+			set_parent_size_to_minimum = yes
+
+			vbox_maa_stats = {
+				layoutpolicy_horizontal = expanding
+
+				blockoverride "siege_stat"
+				{
+					text = "COMBAT_REGIMENT_SIEGE"
+				}
+				blockoverride "siege_tt"
+				{
+					tooltip = "COMBAT_REGIMENT_SIEGE_TT"
+				}
+				blockoverride "damage_stat"
+				{
+					text = "[CombatMaaItem.GetStat( 'damage' )|0]"
+				}
+				blockoverride "damage_tt"
+				{
+					tooltip = "COMBAT_REGIMENT_DAMAGE_TT"
+				}
+				blockoverride "toughness_stat"
+				{
+					text = "[CombatMaaItem.GetStat( 'toughness' )|0]"
+				}
+				blockoverride "toughness_tt"
+				{
+					tooltip = "COMBAT_REGIMENT_TOUGHNESS_TT"
+				}
+				blockoverride "pursuit_stat"
+				{
+					text = "[CombatMaaItem.GetStat( 'pursuit' )|0]"
+				}
+				blockoverride "pursuit_tt"
+				{
+					tooltip = "COMBAT_REGIMENT_PURSUIT_TT"
+					# fade out if 0
+					alpha = "[Select_float(GreaterThan_CFixedPoint(CombatMaaItem.GetStat( 'pursuit' ),'(CFixedPoint)0'), '(float)1.0','(float)0.4')]"
+				}
+				blockoverride "screen_stat"
+				{
+					text = "[CombatMaaItem.GetStat( 'screen' )|0]"
+				}
+				blockoverride "screen_tt"
+				{
+					tooltip = "COMBAT_REGIMENT_SCREEN_TT"
+					# fade out if 0
+					alpha = "[Select_float(GreaterThan_CFixedPoint(CombatMaaItem.GetStat( 'screen' ),'(CFixedPoint)0'), '(float)1.0','(float)0.4')]"
+				}
+			}
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				margin = { 10 0 }
+
+				text_single = {
+					layoutpolicy_horizontal = expanding
+					text = "[CombatMaaItem.GetCurrentStrength|0]/[CombatMaaItem.GetMaxStrength]"
+				}
+
+				text_single = {
+					text = "COMBAT_WINDOW_MAA_TT_REGIMENTS"
+				}
+			}
+
+			text_single = {
+				margin = { 10 0 }
+				layoutpolicy_horizontal = expanding
+				visible = "[And(Not(CombatWindow.IsCombatInPursuitPhase), GreaterThan_int32(CombatMaaItem.GetTerrainBonus, '(int32)0'))]"
+				text = "COMBAT_WINDOW_MAA_TT_TERRAIN_GOOD"
+			}
+
+
+			text_single = {
+				margin = { 10 0 }
+				layoutpolicy_horizontal = expanding
+				visible = "[And(Not(CombatWindow.IsCombatInPursuitPhase), LessThan_int32(CombatMaaItem.GetTerrainBonus, '(int32)0'))]"
+				text = "COMBAT_WINDOW_MAA_TT_TERRAIN_BAD"
+			}
+
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				text_single = {
+					margin = { 6 0 }
+					layoutpolicy_horizontal = expanding
+					visible = "[And(Not(CombatWindow.IsCombatInPursuitPhase), LessThan_CFixedPoint(CombatMaaItem.GetCountered, '(CFixedPoint)1'))]"
+					text = "COMBAT_WINDOW_MAA_TT_EFFICIENCY"
+				}
+
+				flowcontainer = {
+					layoutpolicy_horizontal = expanding
+					visible = "[And( DataModelHasItems(CombatMaaItem.GetCounteredByMaa), Not( CombatWindow.IsCombatInPursuitPhase ) )]"
+					margin = { 10 0 }
+					margin_left = 30
+					direction = vertical
+					datamodel = "[CombatMaaItem.GetCounteredByMaa]"
+
+					item = {
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							text = "COMBAT_WINDOW_MAA_TT_COUNTERED_BY"
+						}
+					}
+				}
+			}
+
+			flowcontainer = {
+				layoutpolicy_horizontal = expanding
+				visible = "[And( DataModelHasItems(CombatMaaItem.GetCountersMaa), Not( CombatWindow.IsCombatInPursuitPhase ) )]"
+				margin = { 10 0 }
+				direction = vertical
+				datamodel = "[CombatMaaItem.GetCountersMaa]"
+
+				item = {
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						text = "COMBAT_WINDOW_MAA_TT_COUNTERS"
+					}
+				}
+			}
+
+			text_single = {
+				margin = { 10 0 }
+				layoutpolicy_horizontal = expanding
+				# TODO_CODE_EP3: Get actual title?
+				datacontext = "[GetNullLandedTitle]"
+
+				datacontext = "[CombatWindow.GetCombat.GetProvince]"
+				visible = "[And(And(CombatWindow.IsCombatInPursuitPhase, GreaterThan_CFixedPoint(MenAtArmsType.GetStat(GetPlayer, Province.Self, Title.Self, 'screen'), '(CFixedPoint)0')), Not( CombatSide.IsStillFighting ) )]"
+
+				text = "COMBAT_WINDOW_MAA_TT_SCREEN"
+			}
+
+			text_single = {
+				margin = { 10 0 }
+				layoutpolicy_horizontal = expanding
+				# TODO_CODE_EP3: Get actual title?
+				datacontext = "[GetNullLandedTitle]"
+
+				datacontext = "[CombatWindow.GetCombat.GetProvince]"
+				visible = "[And( And(CombatWindow.IsCombatInPursuitPhase, GreaterThan_CFixedPoint(MenAtArmsType.GetStat(GetPlayer, Province.Self, Title.Self, 'pursuit'), '(CFixedPoint)0')), CombatSide.IsStillFighting )]"
+
+				text = "COMBAT_WINDOW_MAA_TT_PURSUIT"
+			}
+		}
+	}
+}
+
+
+types Big_Battle {
+	type container_text_maa = container {
+		ignoreinvisible = yes
+		text_maa = {}
+		text_maa_compact = {}
+	}
+	type text_maa = widget {
+		block "visible_big" {
+			visible = "[LessThanOrEqualTo_int32(PdxGuiWidget.AccessParent.AccessParent.GetChildrenCount, '(int32)5')]"
+		}
+		# background = { using = Background_Area_Border_Solid }
+		block "datacontext" {
+			datacontext = "[CombatMaaItem.GetMenAtArmsType]"
+		}
+		block "size" {
+			size = { 590 95 }
+		}
+
+		icon = {
+			size = { 100% 100% }
+			texture = "gfx/interface/colors/black.dds"
+		}
+
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			block "right_progressbar_bg" {}
+
+			widget = {
+				size = { 0 0 }
+				layoutpolicy_vertical = expanding
+				layoutpolicy_horizontal = expanding
+				alpha = 0.8
+
+				progressbar = {
+					min = 0
+					block "right_progressbar" {
+						mirror = horizontal
+					}
+					block "levy_progress" {
+						max = "[CombatMaaItem.GetMaxStrength]"
+						value = "[CombatMaaItem.GetCurrentStrength]"
+					}
+					size = { 100% 100% }
+
+					block "progresstexture" {
+						progresstexture = "gfx/interface/progressbars/progress_standard.dds"
+					}
+					noprogresstexture = "gfx/interface/progressbars/progress_red_bg.dds"
+					spriteType = Corneredtiled
+					spriteborder = { 6 6 }
+
+					icon = {
+						name = "overlay"
+						texture = "gfx/interface/progressbars/progress_overlay.dds"
+						spriteType = Corneredstretched
+						spriteborder = { 2 2 }
+						size = { 100% 100% }
+					}
+				}
+			}
+
+			widget = {
+				size = { 162 0 }
+			}
+		}
+
+		widget = {
+			size = { 500 100% }
+			scissor = yes
+			block "right_status" {
+				position = { -510 0 }
+			}
+
+			flowcontainer = {
+				margin = { 10 15 }
+				ignoreinvisible = yes
+				direction = vertical
+				block "parentanchor" {
+					parentanchor = right
+				}
+
+				background = {
+					using = Background_Area_Dark
+					alpha = 0.9
+					modify_texture = {
+						name = "mask"
+						texture = "gfx/interface/component_masks/mask_fade_horizontal.dds"
+						spriteType = Corneredstretched
+						spriteborder = { 0 0 }
+						alpha = 0.8
+						blend_mode = alphamultiply
+						block "image_right" {}
+					}
+				}
+
+				block "levy" {}
+
+				text_single = {
+					visible = "[And(Not(CombatWindow.IsCombatInPursuitPhase), GreaterThan_int32(CombatMaaItem.GetTerrainBonus, '(int32)0'))]"
+					text = "COMBAT_WINDOW_MAA_TT_TERRAIN_GOOD"
+				}
+
+				text_single = {
+					visible = "[And(Not(CombatWindow.IsCombatInPursuitPhase), LessThan_int32(CombatMaaItem.GetTerrainBonus, '(int32)0'))]"
+					text = "COMBAT_WINDOW_MAA_TT_TERRAIN_BAD"
+				}
+
+				flowcontainer = {
+					ignoreinvisible = yes
+					direction = vertical
+
+					text_single = {
+						visible = "[And(Not(CombatWindow.IsCombatInPursuitPhase), LessThan_CFixedPoint(CombatMaaItem.GetCountered, '(CFixedPoint)1'))]"
+						text = "COMBAT_WINDOW_MAA_TT_EFFICIENCY"
+					}
+
+					flowcontainer = {
+						visible = "[And( DataModelHasItems(CombatMaaItem.GetCounteredByMaa), Not( CombatWindow.IsCombatInPursuitPhase ) )]"
+						margin = { 10 0 }
+						margin_left = 30
+						direction = vertical
+						datamodel = "[CombatMaaItem.GetCounteredByMaa]"
+
+						item = {
+							text_single = {
+								layoutpolicy_horizontal = expanding
+								text = "COMBAT_WINDOW_MAA_TT_COUNTERED_BY"
+							}
+						}
+					}
+				}
+
+				flowcontainer = {
+					visible = "[And( DataModelHasItems(CombatMaaItem.GetCountersMaa), Not( CombatWindow.IsCombatInPursuitPhase ) )]"
+					direction = vertical
+					datamodel = "[CombatMaaItem.GetCountersMaa]"
+
+					item = {
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							text = "COMBAT_WINDOW_MAA_TT_COUNTERS"
+						}
+					}
+				}
+
+				text_single = {
+					# TODO_CODE_EP3: Get actual title?
+					datacontext = "[GetNullLandedTitle]"
+
+					datacontext = "[CombatWindow.GetCombat.GetProvince]"
+					visible = "[And(And(CombatWindow.IsCombatInPursuitPhase, GreaterThan_CFixedPoint(MenAtArmsType.GetStat(GetPlayer, Province.Self, Title.Self,'screen'), '(CFixedPoint)0')), Not( CombatSide.IsStillFighting ) )]"
+
+					text = "COMBAT_WINDOW_MAA_TT_SCREEN"
+				}
+
+				text_single = {
+					# TODO_CODE_EP3: Get actual title?
+					datacontext = "[GetNullLandedTitle]"
+
+					datacontext = "[CombatWindow.GetCombat.GetProvince]"
+					visible = "[And( And(CombatWindow.IsCombatInPursuitPhase, GreaterThan_CFixedPoint(MenAtArmsType.GetStat(GetPlayer, Province.Self, Title.Self, 'pursuit'), '(CFixedPoint)0')), CombatSide.IsStillFighting )]"
+
+					text = "COMBAT_WINDOW_MAA_TT_PURSUIT"
+				}
+			}
+		}
+
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			# spacing = 15
+			margin = { 3 0 }
+			block "right" {
+				# margin_right = 20
+			}
+
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				hbox = {
+				    layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					spacing = 15
+					margin = { 15 0 }
+					block "right" {}
+
+					block "levy_icon" {}
+
+					container = {
+						block "levy" {}
+						icon_maa_combat = {
+							visible = "[And(CombatWindow.IsCombatInPursuitPhase, Not(CombatMaaItem.IsGoodAftermath(CombatSide.IsStillFighting)))]"
+
+							blockoverride "glow"
+							{
+								visible = no
+
+							}
+						}
+
+						icon_maa_combat = {
+							visible = "[And(CombatWindow.IsCombatInPursuitPhase, CombatMaaItem.IsGoodAftermath(CombatSide.IsStillFighting))]"
+
+							blockoverride "glow"
+							{
+								using = Color_Green
+
+							}
+						}
+
+						icon_maa_combat = {
+							visible = "[And(EqualTo_int32(CombatMaaItem.GetPerformance, '(int32)3'), Not(CombatWindow.IsCombatInPursuitPhase))]"
+
+							blockoverride "glow"
+							{
+								using = Color_Red
+
+							}
+						}
+
+						icon_maa_combat = {
+							visible = "[And(EqualTo_int32(CombatMaaItem.GetPerformance, '(int32)2'), Not(CombatWindow.IsCombatInPursuitPhase))]"
+
+							blockoverride "glow"
+							{
+								using = Color_Bright_Yellow
+
+							}
+						}
+
+						icon_maa_combat = {
+							visible = "[And(EqualTo_int32(CombatMaaItem.GetPerformance, '(int32)1'), Not(CombatWindow.IsCombatInPursuitPhase))]"
+
+							blockoverride "glow"
+							{
+								using = Color_Green
+
+							}
+						}
+
+						icon_maa_combat = {
+							visible = "[And(EqualTo_int32(CombatMaaItem.GetPerformance, '(int32)0'), Not(CombatWindow.IsCombatInPursuitPhase))]"
+
+							blockoverride "glow"
+							{
+								visible = no
+
+							}
+						}
+					}
+
+					text_single = {
+						block "compact" {}
+						align = nobaseline
+						default_format = "#high"
+						using = Font_Size_Medium
+
+						block "levy_name" {
+							raw_text = "[MenAtArmsType.GetNameNoTooltip]"
+						}
+						max_width = 250
+					}
+
+					vbox_maa_stats_numbers = {
+						datacontext = "[GetNullLandedTitle]"
+						block "show_compact" {
+							visible = no
+						}
+						block "levy" {}
+						margin = { -15 0 }
+						layoutpolicy_horizontal = expanding
+
+						blockoverride "stat_icon_size" {
+							size = { 35 35 }
+							enabled = no
+						}
+						blockoverride "siege_stat"
+						{
+							text = "COMBAT_REGIMENT_SIEGE"
+						}
+						blockoverride "siege_tt"
+						{
+							visible = no
+							tooltip = "COMBAT_REGIMENT_SIEGE_TT"
+						}
+						blockoverride "damage_stat"
+						{
+							text = "[CombatMaaItem.GetStat( 'damage' )|0]"
+							using = Font_Size_Small
+						}
+						blockoverride "damage_tt"
+						{
+							tooltip = "COMBAT_REGIMENT_DAMAGE_TT"
+						}
+						blockoverride "toughness_stat"
+						{
+							text = "[CombatMaaItem.GetStat( 'toughness' )|0]"
+							using = Font_Size_Small
+						}
+						blockoverride "toughness_tt"
+						{
+							tooltip = "COMBAT_REGIMENT_TOUGHNESS_TT"
+						}
+						blockoverride "pursuit_stat"
+						{
+							text = "[CombatMaaItem.GetStat( 'pursuit' )|0]"
+							using = Font_Size_Small
+						}
+						blockoverride "pursuit_tt"
+						{
+							tooltip = "COMBAT_REGIMENT_PURSUIT_TT"
+							# fade out if 0
+							alpha = "[Select_float(And(GreaterThan_CFixedPoint(CombatMaaItem.GetStat( 'pursuit' ),'(CFixedPoint)0'), CombatWindow.IsCombatInPursuitPhase), '(float)1.0','(float)0.4')]"
+						}
+						blockoverride "screen_stat"
+						{
+							text = "[CombatMaaItem.GetStat( 'screen' )|0]"
+							using = Font_Size_Small
+						}
+						blockoverride "screen_tt"
+						{
+							tooltip = "COMBAT_REGIMENT_SCREEN_TT"
+							# fade out if 0
+							alpha = "[Select_float(And(GreaterThan_CFixedPoint(CombatMaaItem.GetStat( 'screen' ),'(CFixedPoint)0'), CombatWindow.IsCombatInPursuitPhase), '(float)1.0','(float)0.4')]"
+						}
+					}
+
+					expand = { }
+
+					text_single = {
+						size = { 60 45 }
+						autoresize = no
+						block "size_align" {
+							align = right|nobaseline
+						}
+						default_format = "#high;bold"
+						alpha = 0.9
+						margin = { 5 0 }
+						using = Font_Size_Medium
+
+						block "levy_size" {
+							raw_text = "[CombatMaaItem.GetCurrentStrength]"
+						}
+					}
+				}
+
+				expand = { }
+
+				widget = {
+					layoutpolicy_horizontal = expanding
+					size = { 0 45 }
+					block "compact" {}
+					scissor = yes
+					block "levy" {}
+
+					vbox_maa_stats_numbers = {
+						datacontext = "[GetNullLandedTitle]"
+						margin = { -15 0 }
+						layoutpolicy_horizontal = expanding
+
+						blockoverride "stat_icon_size" {
+							size = { 35 35 }
+							enabled = no
+						}
+						blockoverride "siege_stat"
+						{
+							text = "COMBAT_REGIMENT_SIEGE"
+						}
+						blockoverride "siege_tt"
+						{
+							visible = no
+							tooltip = "COMBAT_REGIMENT_SIEGE_TT"
+						}
+						blockoverride "damage_stat"
+						{
+							text = "[CombatMaaItem.GetStat( 'damage' )|0]"
+							using = Font_Size_Small
+						}
+						blockoverride "damage_tt"
+						{
+							tooltip = "COMBAT_REGIMENT_DAMAGE_TT"
+						}
+						blockoverride "toughness_stat"
+						{
+							text = "[CombatMaaItem.GetStat( 'toughness' )|0]"
+							using = Font_Size_Small
+						}
+						blockoverride "toughness_tt"
+						{
+							tooltip = "COMBAT_REGIMENT_TOUGHNESS_TT"
+						}
+						blockoverride "pursuit_stat"
+						{
+							text = "[CombatMaaItem.GetStat( 'pursuit' )|0]"
+							using = Font_Size_Small
+						}
+						blockoverride "pursuit_tt"
+						{
+							tooltip = "COMBAT_REGIMENT_PURSUIT_TT"
+							# fade out if 0
+							alpha = "[Select_float(And(GreaterThan_CFixedPoint(CombatMaaItem.GetStat( 'pursuit' ),'(CFixedPoint)0'), CombatWindow.IsCombatInPursuitPhase), '(float)1.0','(float)0.4')]"
+						}
+						blockoverride "screen_stat"
+						{
+							text = "[CombatMaaItem.GetStat( 'screen' )|0]"
+							using = Font_Size_Small
+						}
+						blockoverride "screen_tt"
+						{
+							tooltip = "COMBAT_REGIMENT_SCREEN_TT"
+							# fade out if 0
+							alpha = "[Select_float(And(GreaterThan_CFixedPoint(CombatMaaItem.GetStat( 'screen' ),'(CFixedPoint)0'), CombatWindow.IsCombatInPursuitPhase), '(float)1.0','(float)0.4')]"
+						}
+					}
+				}
+			}
+
+			text_single = {
+				align = nobaseline
+				visible = no
+				margin_left = -15
+				block "levy_max" {
+					raw_text = "/[CombatMaaItem.GetMaxStrength]"
+				}
+			}
+
+			margin_widget = {
+				size = { 160 0 }
+				margin = { 0 3 }
+				layoutpolicy_vertical = expanding
+
+				widget = {
+					size = { 100% 100% }
+					scissor = yes
+					icon = {
+						size = { 160 90 }
+						block "compact_image" {}
+						block "image_right" {}
+
+						block "levy_bg" {
+							texture = "[MenAtArmsType.GetHorizontalImage]"
+							tooltipwidget = {
+								maa_tooltip_widget = {
+								}
+							}
+						}
+
+						text_single = {
+							position = { 5 25 }
+							background = { using = Background_Area_Dark margin = { 5 0 } }
+							block "show_compact" {
+								visible = no
+							}
+							align = nobaseline
+							# default_format = "#high"
+							# using = Font_Size_Small
+							fontsize = 14
+
+							block "levy_name" {
+								raw_text = "[MenAtArmsType.GetNameNoTooltip]"
+							}
+							max_width = 250
+						}
+					}
+				}
+			}
+		}
+	}
+
+	type text_maa_compact = text_maa {
+		block "visible_compact" {
+			visible = "[GreaterThan_int32(PdxGuiWidget.AccessParent.AccessParent.GetChildrenCount, '(int32)5')]"
+		}
+		blockoverride "size" {
+			size = { 590 45 }
+		}
+		blockoverride "compact" {
+			visible = no
+		}
+		blockoverride "show_compact" {
+		}
+		blockoverride "compact_image" {
+			position = { 0 -5 }
+		}
+	}
+
+	type levies_maa = container_text_maa {
+		visible = "[GreaterThan_CFixedPoint(ArmyComposition.GetMaxNumberOfLevies, '(CFixedPoint)0')]"
+		blockoverride "datacontext" {
+
+		}
+		blockoverride "levy" {
+			visible = no
+		}
+
+		blockoverride "levy_name" {
+			raw_text = "LEVIES_LABEL"
+		}
+		blockoverride "levy_size" {
+			raw_text = "[ArmyComposition.GetCurrentNumberOfLevies]"
+		}
+		blockoverride "levy_max" {
+			raw_text = "/[ArmyComposition.GetMaxNumberOfLevies]"
+		}
+		blockoverride "levy_icon" {
+			icon = {
+				size = { 40 40 }
+				texture = "gfx/interface/icons/icon_soldier.dds"
+			}
+		}
+		blockoverride "levy_bg" {
+			texture = "gfx/interface/illustrations/men_at_arms_big/levies.dds"
+
+		}
+	}
+
+	type flowcontainer_reinforcements = flowcontainer {
+		ignoreinvisible = yes
+		spacing = 10
+
+		text_single = {
+			raw_text = "Reinforcements:"
+			visible = "[Or(GreaterThan_CFixedPoint(GuiScope.SetRoot( Character.MakeScope).AddScope('province', CombatWindow.GetCombat.GetProvince.MakeScope ).ScriptValue('reinforcements_close_by'), '(CFixedPoint)0'), GreaterThan_CFixedPoint(GuiScope.SetRoot( Character.MakeScope).AddScope('province', CombatWindow.GetCombat.GetProvince.MakeScope ).ScriptValue('reinforcements_nearby'), '(CFixedPoint)0'))]"
+		}
+
+		flowcontainer = {
+		    ignoreinvisible = yes
+			spacing = 10
+			block "order" {}
+			# direction = vertical
+
+			text_single = {
+				visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot( Character.MakeScope).AddScope('province', CombatWindow.GetCombat.GetProvince.MakeScope ).ScriptValue('reinforcements_close_by'), '(CFixedPoint)0')]"
+				raw_text = "[GuiScope.SetRoot( Character.MakeScope).AddScope('province', CombatWindow.GetCombat.GetProvince.MakeScope ).ScriptValue('reinforcements_close_by')|v0] close"
+			}
+
+			text_single = {
+				visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot( Character.MakeScope).AddScope('province', CombatWindow.GetCombat.GetProvince.MakeScope ).ScriptValue('reinforcements_nearby'), '(CFixedPoint)0')]"
+				raw_text = "[GuiScope.SetRoot( Character.MakeScope).AddScope('province', CombatWindow.GetCombat.GetProvince.MakeScope ).ScriptValue('reinforcements_nearby')|v0] nearby"
+			}
+		}
+	}
+
+	type knight_portrait = portrait_body {
+		datacontext = "[Scope.GetCharacter]"
+
+		blockoverride "portrait_button"
+		{
+			block "portrait_texture" {
+				portrait_texture = "[Character.GetPortrait('environment_combat_window', 'camera_body_left', 'throne_room_one_handed_passive_1', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+			}
+			mask = "gfx/portraits/portrait_mask_blank.dds"
+
+			portrait_scale = { -1 1 }
+			portrait_offset = { 1 0 }
+		}
+
+		text_label_center = {
+			margin_right = 5
+			parentanchor = center
+			position = { 0 50 }
+			background = { using = Background_Area_Solid }
+			raw_text = "@skill_prowess_icon![Character.GetProwess]"
+			default_format = "#high"
+		}
+
+		blockoverride "coa" {}
+		blockoverride "opinion_box" {}
+		blockoverride "status_icons" {}
+	}
+}

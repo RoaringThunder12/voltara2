@@ -1,0 +1,318 @@
+﻿
+ansf_create_family_interaction = {
+	icon = icon_dynasty
+	category = interaction_category_friendly
+	desc = ansf_create_family_interaction_desc
+	common_interaction = no
+	use_diplomatic_range = no
+	
+	is_shown = {
+ scope:recipient = { NOT = { has_trait = voltara_slave } }
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		NOT = { has_game_rule = ansf_create_family_deactivated }
+		scope:actor = {
+			is_ai = no
+			NOT = { this = scope:recipient }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			exists = location
+			NOT = { ansf_is_bastard = yes }
+			custom_description = {
+				text = ansf_over_fifty
+				subject = scope:recipient
+				age <= 65
+			}
+			custom_description = {
+				text = ansf_must_have_dynasty
+				subject = scope:recipient
+				has_dynasty = yes
+			}
+			custom_description = {
+				text = ansf_must_have_court
+				subject = scope:recipient
+				OR = {
+					is_playable_character = yes
+					is_courtier = yes
+				}
+			}
+			custom_description = {
+				text = ansf_belongs_other_player
+				subject = scope:recipient
+				NOT = {
+					any_player = {
+						NOT = { this = scope:actor }
+						OR = {
+							dynasty = scope:recipient.dynasty
+							scope:recipient = { target_is_liege_or_above = prev }
+						}
+					}
+				}
+			}
+		}
+		trigger_if = {
+			limit = { has_game_rule = ansf_create_family_regular }
+			custom_description = {
+				text = ansf_already_used_family_decision
+				subject = scope:recipient
+				NOT = {
+					scope:recipient.house = { has_variable = ansf_reflected_on_family }
+				}
+			}
+		}
+	}
+	
+	on_accept = {
+		if = {
+			limit = { scope:custom_family = yes }
+			scope:recipient = {
+				custom_tooltip = ansf_create_family_start_tt
+				save_scope_as = target
+				if = {  
+					limit = { is_playable_character = yes }
+					save_scope_as = target_liege
+				}
+				else = {
+					liege = { save_scope_as = target_liege }
+				}
+				custom_tooltip = ansf_family_will_join_liege_tt
+			}
+			scope:actor = {
+				trigger_event = ansf.1001
+			}
+		}
+		else = {
+			scope:recipient = {
+				# display tooltips for what family members will be generated
+				ansf_display_random_family_tooltips = yes
+				
+				# remember if we're creating either parent
+				if = {
+					limit = {
+						OR = {
+							NOT = { exists = mother }
+							NOT = { exists = father }
+						}
+					}
+					save_scope_value_as = {
+						name = will_make_parents
+						value = flag:yes
+					}
+				}
+				
+				# now start the event
+				save_scope_as = target
+				set_variable = { name = target value = scope:recipient }
+				if = {  
+					limit = { is_playable_character = yes }
+					save_scope_as = target_liege
+				}
+				else = {
+					liege = { save_scope_as = target_liege }
+				}
+				custom_tooltip = ansf_family_will_join_liege_tt
+				
+				house = {
+					set_variable = {
+						name = ansf_reflected_on_family
+						value = yes
+					}
+				}
+				
+				hidden_effect = {
+					ansf_create_dummy_characters = yes
+					ansf_load_traits = yes
+				}
+				
+				if = {
+					limit = { has_no_father_or_real_father = yes }
+					trigger_event = ansf.1002
+				}
+				else_if = {
+					limit = { NOT = { exists = mother } }
+					trigger_event = ansf.1003
+				}
+				else = {
+					trigger_event = ansf.1004
+				}
+			}
+		}
+	}
+	
+	auto_accept = yes
+	
+	options_heading = ANSF_CREATE_FAMILY_OPTIONS
+	
+	send_option = {
+		flag = custom_family
+		localization = ANSF_CUSTOM_FAMILY
+		current_description = {
+			desc = "ANSF_CUSTOM_FAMILY_INFO"
+		}
+	}
+	
+	send_option = {
+		flag = random_family
+		localization = ANSF_RANDOM_FAMILY
+		current_description = {
+			desc = "ANSF_RANDOM_FAMILY_INFO"
+		}
+		is_valid = {
+			custom_description = {
+				text = ansf_already_has_large_family
+				subject = scope:recipient
+				scope:recipient = {
+					OR = {
+						NOT = { exists = mother }
+						has_no_father_or_real_father = yes
+						any_sibling = {
+							even_if_dead = yes
+							count < 3
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	send_options_exclusive = yes
+	
+	ai_will_do = {
+		base = 0
+	}
+}
+
+ansf_create_spouse_interaction = {
+	icon = icon_marriage
+	category = interaction_category_friendly
+	desc = ansf_create_spouse_interaction_desc
+	common_interaction = no
+	use_diplomatic_range = no
+	
+	is_shown = {
+ scope:recipient = { NOT = { has_trait = voltara_slave } }
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		NOT = { has_game_rule = ansf_create_family_deactivated }
+		scope:actor = { is_ai = no }
+	}
+	
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			is_adult = yes
+			is_married = no
+			exists = location
+			custom_description = {
+				text = ansf_cannot_marry
+				subject = scope:recipient
+				can_marry_common_trigger = yes
+			}
+			custom_description = {
+				text = ansf_must_have_dynasty
+				subject = scope:recipient
+				has_dynasty = yes
+			}
+			custom_description = {
+				text = ansf_must_have_court
+				subject = scope:recipient
+				OR = {
+					is_playable_character = yes
+					is_courtier = yes
+				}
+			}
+			custom_description = {
+				text = ansf_belongs_other_player
+				subject = scope:recipient
+				NOT = {
+					any_player = {
+						NOT = { this = scope:actor }
+						OR = {
+							dynasty = scope:recipient.dynasty
+							scope:recipient = { target_is_liege_or_above = prev }
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	on_accept = {
+		ansf_create_dummy_characters = yes
+		ansf_load_traits = yes
+		if = {
+			limit = { scope:custom_spouse_option = yes }
+			scope:recipient = {
+				custom_tooltip = ansf_will_create_custom_spouse_tt
+				save_scope_as = target
+				if = {  
+					limit = { is_playable_character = yes }
+					save_scope_as = target_liege
+				}
+				else = {
+					liege = { save_scope_as = target_liege }
+				}
+				custom_tooltip = ansf_spouse_will_join_liege_tt
+				
+				scope:actor = {
+					set_variable = {
+						name = target
+						value = scope:recipient
+					}
+					
+					trigger_event = ansf.2200
+				}
+			}
+		}
+		else = {
+			scope:recipient = {
+				custom_tooltip = ansf_will_create_random_spouse_tt
+				save_scope_as = target
+				if = {  
+					limit = { is_playable_character = yes }
+					save_scope_as = target_liege
+				}
+				else = {
+					liege = { save_scope_as = target_liege }
+				}
+				custom_tooltip = ansf_spouse_will_join_liege_tt
+				
+				set_variable = {
+					name = target
+					value = scope:recipient
+				}
+				
+				trigger_event = ansf.2200
+			}
+		}
+	}
+	
+	auto_accept = yes
+	
+	options_heading = ANSF_CREATE_FAMILY_OPTIONS
+	
+	send_option = {
+		flag = custom_spouse_option
+		localization = ANSF_CUSTOM_SPOUSE
+		current_description = {
+			desc = "ANSF_CUSTOM_SPOUSE_INFO"
+		}
+	}
+	
+	send_option = {
+		flag = random_spouse_option
+		localization = ANSF_RANDOM_SPOUSE
+		current_description = {
+			desc = "ANSF_RANDOM_SPOUSE_INFO"
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+	}	
+}
+

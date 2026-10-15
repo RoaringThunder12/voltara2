@@ -1,0 +1,121 @@
+﻿##############################
+## GM1 custom_loc
+##############################
+#------------------------------
+# interaction-related
+#------------------------------
+
+# based on ./common/customizable_localization/00_interactions_custom_loc.txt/ImprisonCharacterDeclineSummary
+DemandPrisonerInteractionDeclineSummary = {
+	type = character
+
+	text = {
+		trigger = {
+			has_global_variable = rv_is_loaded
+		}
+		localization_key = DEMAND_PRISONER_DECLINED_SUMMARY_RV
+	}
+
+	text = {
+		fallback = yes
+		localization_key = DEMAND_PRISONER_DECLINED_DEFAULT
+	}
+}
+
+#------------------------------
+# script-effects-related
+#------------------------------
+
+ChangeImprisonerGetWarInvolvement = {
+	type = character
+
+	text = {
+		trigger = {
+			is_at_war_with = scope:second
+			any_character_war = { NOT = { is_war_leader = prev } }
+		}
+		localization_key = CHANGE_IMPRISONER_INVOLVEMENT_WAR_PARTICIPANT
+	}
+
+	text = {
+		trigger = {
+			is_at_war_with = scope:second
+			any_character_war = { is_war_leader = prev }
+		}
+		localization_key = CHANGE_IMPRISONER_INVOLVEMENT_WAR_LEADER
+	}
+
+	random_valid = yes
+}
+
+#------------------------------
+# current-situation-related
+#------------------------------
+
+GetTransferPrisonerBarterCostValue = {
+	type = character
+
+	text = {
+		trigger = {
+			scope:second ?= {
+				OR = {
+					is_at_war_with = prev
+					has_strong_claim_on = prev.primary_title
+				}
+			}
+		}
+		localization_key = TRANSFER_PRISONER_CURRENT_SITUATION_EXTORTIONATE_GOLD
+	}
+
+	text = {
+		trigger = {
+			scope:second ?= {
+				NOR = {
+					is_at_war_with = prev
+					has_strong_claim_on = prev.primary_title
+				}
+			}
+		}
+		localization_key = TRANSFER_PRISONER_CURRENT_SITUATION_GOLD
+	}
+
+	text = {
+		fallback = yes
+		localization_key = TRANSFER_PRISONER_CURRENT_SITUATION_GOLD
+	}
+}
+
+GetTransferPrisonerCurrentGoldValue = {
+	type = character
+
+	text = {
+		trigger = {
+			scope:second ?= {
+				OR = {
+					is_at_war_with = prev
+					has_strong_claim_on = prev.primary_title
+				}
+			}
+			root.current_gold_value >= scope:second.increased_barter_cost_value
+		}
+		localization_key = TRANSFER_PRISONER_CURRENT_SITUATION_EXTORTIONATE_GOLD
+	}
+
+	text = {
+		trigger = {
+			scope:second ?= {
+				NOR = {
+					is_at_war_with = prev
+					has_strong_claim_on = prev.primary_title
+				}
+			}
+			root.current_gold_value >= scope:second.barter_cost_value
+		}
+		localization_key = TRANSFER_PRISONER_CURRENT_SITUATION_GOLD
+	}
+
+	text = {
+		fallback = yes
+		localization_key = TRANSFER_PRISONER_CURRENT_SITUATION_CURRENT_GOLD
+	}
+}

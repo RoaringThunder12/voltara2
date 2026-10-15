@@ -1,0 +1,10 @@
+﻿
+voltara_keeper_succession = {
+ law_group_type = succession_order_laws
+ can_keep = { has_government = voltara_keeper_government }
+ can_have = { has_government = voltara_keeper_government }
+ can_pass = { always = no }
+ should_start_with = { has_government = voltara_keeper_government }
+ succession = { order_of_succession = inheritance traversal_order = children rank = oldest title_division = single_heir }
+ flag = can_designate_heirs
+}

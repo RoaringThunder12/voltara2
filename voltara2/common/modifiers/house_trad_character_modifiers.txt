@@ -1,0 +1,287 @@
+﻿blacksheep = {
+	icon = family_negative
+	dynasty_house_opinion = -15
+}
+
+# Replaced by Artifact Sword
+gift_valor = {
+	icon = prowess_positive
+	prowess = 2
+}
+
+# Replaced by Artifact Armor
+gift_honor = {
+	icon = social_positive
+	prowess = 2
+}
+
+gift_duty = {
+	icon = dog_positive
+	vassal_opinion = 5
+	# To compensate for lack of artifact and 20-year expiration
+	# Removed; Will do this via perk points instead
+	monthly_martial_lifestyle_xp_gain_mult = 0.2
+}
+
+# Replaced by Artifact Trinket (Ring)
+gift_justice = {
+	icon = prison_positive
+	diplomacy = 2
+}
+
+# Replaced by Artifact Dagger
+gift_vengeance = {
+	icon = blood_positive
+	prowess = 2
+}
+
+# Replaced by Artifact Necklace
+gift_pride = {
+	icon = drink_positive
+	different_culture_opinion = 10
+}
+
+# Replaced by Artifact Crown
+gift_respect = {
+	icon = prestige_positive
+	powerful_vassal_opinion = 10
+}
+
+# Replaced by Artifact Sword
+gift_power = {
+	icon = dread_positive
+	knight_limit = 2
+}
+
+# Replaced by Artifact Trinket (Ring)
+gift_influence = {
+	icon = letter_positive
+	stewardship = 2
+}
+
+gift_guile = {
+	icon = intrigue_positive
+#	intimidated_vassal_tax_contribution_mult = 0.05
+	cowed_vassal_tax_contribution_mult = 0.10
+	# To compensate for lack of artifact and 20-year expiration
+	# Removed; Will do this via perk points instead
+#	monthly_intrigue_lifestyle_xp_gain_mult = 0.2
+}
+
+# Replaced by Artifact Dagger
+gift_survival = {
+	icon = spoon_positive
+	prowess = 1
+	intrigue = 1
+}
+
+# Replaced by Artifact Trinket (Shield)
+gift_vigilance = {
+	icon = county_modifier_control_positive
+	martial = 1
+	prowess = 1
+	retreat_losses = -0.10
+}
+
+# gift_peace = {
+# 	icon = asatru_raven_positive
+
+# }
+# Not needed. Using vanilla Pet Dog story cycles.
+
+gift_fortune = {
+	icon = stewardship_positive
+	men_at_arms_maintenance = -0.05
+	mercenary_hire_cost_mult = -0.10
+	# To compensate for lack of artifact and 20-year expiration
+	# Removed; Will do this via perk points instead
+	monthly_stewardship_lifestyle_xp_gain_mult = 0.2
+}
+
+# Replaced by Artifact Trinket (Manuscript)
+gift_knowledge = {
+	icon = learning_positive
+	build_gold_cost = -0.05
+}
+
+# Replaced by Artifact Trinket (Book)
+gift_truth = {
+	icon = stress_positive
+	intrigue = 1
+	learning = 1
+}
+
+# Replaced by Artifact Regalia (Cloak)
+gift_wisdom = {
+	icon = county_modifier_opinion_positive
+	tribal_government_opinion = 10
+	short_reign_duration_mult = -0.10
+}
+
+# Replaced by Artifact Regalia (Vestments)
+gift_devotion = {
+	icon = piety_positive
+	learning = 2
+}
+
+gift_family = {
+	icon = family_positive
+	attraction_opinion = 20
+	# To compensate for lack of artifact and 20-year expiration
+	# Removed; Will do this via perk points instead
+	monthly_diplomacy_lifestyle_xp_gain_mult = 0.2
+}
+
+# Replaced by Artifact Trinket (Wool Shirt)
+gift_compassion = {
+	icon = fertility_positive
+	negate_health_penalty_add = 0.5
+}
+
+gift_joy = {
+	icon = love_positive
+	county_opinion_add = 5
+	general_opinion = 5
+	# To compensate for lack of artifact and 20-year expiration
+	monthly_diplomacy_lifestyle_xp_gain_mult = 0.10
+	monthly_stewardship_lifestyle_xp_gain_mult = 0.10
+}
+
+gift_distinction = {
+	icon = magic_positive
+	diplomacy = 2
+}
+
+resolve_valor = {
+	icon = prowess_positive
+	martial = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_honor = {
+	icon = social_positive
+	martial = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_duty = {
+	icon = dog_positive
+	martial = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_justice = {
+	icon = prison_positive
+	martial = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_vengeance = {
+	icon = blood_positive
+	intrigue = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_pride = {
+	icon = drink_positive
+	diplomacy = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_respect = {
+	icon = prestige_positive
+	diplomacy = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_power = {
+	icon = dread_positive
+	intrigue = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_influence = {
+	icon = letter_positive
+	intrigue = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_guile = {
+	icon = intrigue_positive
+	intrigue = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_survival = {
+	icon = spoon_positive
+	intrigue = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_vigilance = {
+	icon = county_modifier_control_positive
+	intrigue = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_peace = {
+	icon = asatru_raven_positive
+	diplomacy = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_fortune = {
+	icon = stewardship_positive
+	stewardship = 2
+	negate_health_penalty_add = 0.5
+}
+
+
+resolve_knowledge = {
+	icon = learning_positive
+	learning = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_truth = {
+	icon = stress_positive
+	intrigue = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_wisdom = {
+	icon = county_modifier_opinion_positive_positive
+	diplomacy = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_devotion = {
+	icon = piety_positive
+	martial = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_family = {
+	icon = family_positive
+	intrigue = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_compassion = {
+	icon = fertility_positive
+	diplomacy = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_joy = {
+	icon = love_positive
+	stewardship = 2
+	negate_health_penalty_add = 0.5
+}
+
+resolve_distinction = {
+	icon = magic_positive
+	intrigue = 2
+	negate_health_penalty_add = 0.5
+}
+

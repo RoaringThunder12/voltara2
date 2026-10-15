@@ -1,0 +1,187 @@
+﻿accou_debug_log_quick_marriage_ai_accept_modifier_mismatches_effect = {
+	# Use vanilla marriage_ai_accept_modifier to check if the marriage will be accepted
+	clear_saved_scope = marriage_ai_accepted
+	random = {
+		chance = 0
+		marriage_ai_accept_modifier = yes
+		modifier = {
+			factor = 100
+		}
+		save_temporary_scope_value_as = {
+			name = marriage_ai_accepted
+			value = yes
+		}
+	}
+
+	# Compare scope:marriage_ai_accepted and scope:quick_marriage_ai_accept_modifier
+	if = {
+		limit = {
+			exists = scope:marriage_ai_accepted
+			scope:quick_marriage_ai_accept_modifier <= -1
+		}
+		accou_debug_log_2_effect = {
+			MSG = accou_debug_msg_quick_marriage_ai_accept_modifier_fn
+			NAME1 = courtier TYPE1 = flag:character
+			NAME2 = quick_marriage_ai_accept_modifier TYPE2 = flag:value
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = { exists = scope:marriage_ai_accepted }
+			scope:quick_marriage_ai_accept_modifier >= 1
+		}
+		accou_debug_log_2_effect = {
+			MSG = accou_debug_msg_quick_marriage_ai_accept_modifier_fp
+			NAME1 = courtier TYPE1 = flag:character
+			NAME2 = quick_marriage_ai_accept_modifier TYPE2 = flag:value
+		}
+	}
+	else = {
+		accou_debug_log_effect = { MSG = accou_debug_msg_quick_marriage_ai_accept_modifier_ok }
+	}
+}
+
+accou_debug_log_quick_invite_ai_accept_modifier_mismatches_effect = {
+	# Use vanilla invite_to_court_interaction to check if the invite will be accepted
+	clear_saved_scope = invite_ai_accepted
+	if = {
+		limit = {
+			scope:actor = {
+				is_character_interaction_potentially_accepted = {
+					interaction = invite_to_court_interaction
+					recipient = scope:recipient
+				}
+			}
+		}
+		save_temporary_scope_value_as = {
+			name = invite_ai_accepted
+			value = yes
+		}
+	}
+
+	# Compare scope:invite_ai_accepted and scope:quick_invite_ai_accept_modifier
+	if = {
+		limit = {
+			exists = scope:invite_ai_accepted
+			scope:quick_invite_ai_accept_modifier <= -1
+		}
+		accou_debug_log_1_effect = {
+			MSG = accou_debug_msg_quick_invite_ai_accept_modifier_fn
+			NAME1 = quick_invite_ai_accept_modifier TYPE1 = flag:value
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = { exists = scope:invite_ai_accepted }
+			scope:quick_invite_ai_accept_modifier >= 1
+		}
+		accou_debug_log_1_effect = {
+			MSG = accou_debug_msg_quick_invite_ai_accept_modifier_fp
+			NAME1 = quick_invite_ai_accept_modifier TYPE1 = flag:value
+		}
+	}
+	else = {
+		accou_debug_log_effect = { MSG = accou_debug_msg_quick_invite_ai_accept_modifier_ok }
+	}
+}
+
+accou_debug_log_effect = {
+	if = {
+		limit = { debug_only = yes }
+		debug_log = $MSG$
+	}
+}
+
+accou_debug_log_1_effect = {
+	if = {
+		limit = { debug_only = yes }
+
+		accou_debug_set_scope_variable_effect = { NAME = $NAME1$ TYPE = $TYPE1$ }
+		debug_log = $MSG$
+		accou_debug_remove_scope_variable_effect = { NAME = $NAME1$ TYPE = $TYPE1$ }
+	}
+}
+
+accou_debug_log_2_effect = {
+	if = {
+		limit = { debug_only = yes }
+
+		accou_debug_set_scope_variable_effect = { NAME = $NAME1$ TYPE = $TYPE1$ }
+		accou_debug_set_scope_variable_effect = { NAME = $NAME2$ TYPE = $TYPE2$ }
+		debug_log = $MSG$
+		accou_debug_remove_scope_variable_effect = { NAME = $NAME1$ TYPE = $TYPE1$ }
+		accou_debug_remove_scope_variable_effect = { NAME = $NAME2$ TYPE = $TYPE2$ }
+	}
+}
+
+accou_debug_log_3_effect = {
+	if = {
+		limit = { debug_only = yes }
+
+		accou_debug_set_scope_variable_effect = { NAME = $NAME1$ TYPE = $TYPE1$ }
+		accou_debug_set_scope_variable_effect = { NAME = $NAME2$ TYPE = $TYPE2$ }
+		accou_debug_set_scope_variable_effect = { NAME = $NAME3$ TYPE = $TYPE3$ }
+		debug_log = $MSG$
+		accou_debug_remove_scope_variable_effect = { NAME = $NAME1$ TYPE = $TYPE1$ }
+		accou_debug_remove_scope_variable_effect = { NAME = $NAME2$ TYPE = $TYPE2$ }
+		accou_debug_remove_scope_variable_effect = { NAME = $NAME3$ TYPE = $TYPE3$ }
+	}
+}
+
+accou_debug_log_4_effect = {
+	if = {
+		limit = { debug_only = yes }
+
+		accou_debug_set_scope_variable_effect = { NAME = $NAME1$ TYPE = $TYPE1$ }
+		accou_debug_set_scope_variable_effect = { NAME = $NAME2$ TYPE = $TYPE2$ }
+		accou_debug_set_scope_variable_effect = { NAME = $NAME3$ TYPE = $TYPE3$ }
+		accou_debug_set_scope_variable_effect = { NAME = $NAME4$ TYPE = $TYPE4$ }
+		debug_log = $MSG$
+		accou_debug_remove_scope_variable_effect = { NAME = $NAME1$ TYPE = $TYPE1$ }
+		accou_debug_remove_scope_variable_effect = { NAME = $NAME2$ TYPE = $TYPE2$ }
+		accou_debug_remove_scope_variable_effect = { NAME = $NAME3$ TYPE = $TYPE3$ }
+		accou_debug_remove_scope_variable_effect = { NAME = $NAME4$ TYPE = $TYPE4$ }
+	}
+}
+
+accou_debug_log_5_effect = {
+	if = {
+		limit = { debug_only = yes }
+
+		accou_debug_set_scope_variable_effect = { NAME = $NAME1$ TYPE = $TYPE1$ }
+		accou_debug_set_scope_variable_effect = { NAME = $NAME2$ TYPE = $TYPE2$ }
+		accou_debug_set_scope_variable_effect = { NAME = $NAME3$ TYPE = $TYPE3$ }
+		accou_debug_set_scope_variable_effect = { NAME = $NAME4$ TYPE = $TYPE4$ }
+		accou_debug_set_scope_variable_effect = { NAME = $NAME5$ TYPE = $TYPE5$ }
+		debug_log = $MSG$
+		accou_debug_remove_scope_variable_effect = { NAME = $NAME1$ TYPE = $TYPE1$ }
+		accou_debug_remove_scope_variable_effect = { NAME = $NAME2$ TYPE = $TYPE2$ }
+		accou_debug_remove_scope_variable_effect = { NAME = $NAME3$ TYPE = $TYPE3$ }
+		accou_debug_remove_scope_variable_effect = { NAME = $NAME4$ TYPE = $TYPE4$ }
+		accou_debug_remove_scope_variable_effect = { NAME = $NAME5$ TYPE = $TYPE5$ }
+	}
+}
+
+accou_debug_set_scope_variable_effect = {
+	if = {
+		limit = {
+			$TYPE$ != flag:variable
+			exists = scope:$NAME$
+			trigger_if = {
+				limit = { $TYPE$ = flag:boolean }
+				scope:$NAME$ = yes
+			}
+		}
+		set_variable = { name = $NAME$ value = scope:$NAME$ }
+	}
+}
+
+accou_debug_remove_scope_variable_effect = {
+	if = {
+		limit = {
+			$TYPE$ != flag:variable
+			has_variable = $NAME$
+		}
+		remove_variable = $NAME$
+	}
+}

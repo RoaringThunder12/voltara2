@@ -1,0 +1,132 @@
+﻿nameplates = {
+	scope = character
+
+	is_shown = {
+		has_variable = nameplates
+	}
+
+	effect = {
+		toggle_sgui = { var = nameplates }
+	}
+}
+
+is_duel = {
+	scope = character
+
+	is_shown = {
+		has_variable = engaged_in_single_combat
+	}
+}
+
+is_attacker = {
+	scope = character
+
+	is_shown = {
+		has_variable = sc_attacker_duel_success_score
+	}
+}
+
+is_defender = {
+	scope = character
+
+	is_shown = {
+		has_variable = sc_defender_duel_success_score
+	}
+}
+
+extra_duel_info = {
+	scope = character
+
+	is_shown = {
+		has_variable = extra_duel_info
+	}
+
+	effect = {
+		toggle_sgui = { var = extra_duel_info }
+	}
+}
+
+duel_icons = {
+	scope = character
+
+	is_shown = {
+		NOT = {
+			has_variable = duel_icons
+		}
+	}
+
+	effect = {
+		toggle_sgui = { var = duel_icons }
+	}
+}
+
+is_counterer = {
+	scope = character
+
+	is_shown = {
+		exists = scope:bg_counterer
+		# scope:bg_counterer = root
+	}
+}
+
+bg_winning = {
+	scope = character
+
+	saved_scopes = { target }
+
+	is_shown = {
+		exists = var:bg_current_score
+
+		# if you're the defender and it's round 4, you might win
+		trigger_if = {
+			limit = {
+				exists = var:bg_current_round
+				var:bg_current_round >= 4
+			}
+			always = yes
+		}
+		# if you're the attacker, you might lose
+		trigger_else_if = {
+			limit = {
+				scope:target = {
+					exists = var:bg_current_round
+					var:bg_current_round >= 4
+				}
+			}
+			always = no
+		}
+		# otherwise, compare score
+		trigger_else = {
+			var:bg_current_score > scope:target.var:bg_current_score
+		}
+	}
+}
+
+bg_losing = {
+	scope = character
+
+	saved_scopes = { target }
+
+	is_shown = {
+		exists = var:bg_current_score
+		var:bg_current_score < scope:target.var:bg_current_score
+	}
+}
+
+boardgame_overlay = {
+	is_shown = {
+		NOT = { has_variable = boardgame_overlay }
+		has_variable = engaged_in_board_game
+	}
+
+	effect = {
+		toggle_sgui = { var = boardgame_overlay }
+	}
+}
+
+# error suppression
+boardgame_errors = {
+	effect = {
+		set_variable = nameplates_mod_version
+	}
+}

@@ -1,0 +1,472 @@
+﻿is_house_trad_compatible = {
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_valor } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_valor }
+
+			$house_2$ = { has_house_modifier = trad_honor }
+			$house_2$ = { has_house_modifier = trad_vengeance }
+			$house_2$ = { has_house_modifier = trad_power }
+			$house_2$ = { has_house_modifier = trad_distinction }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_honor } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_honor }
+
+			$house_2$ = { has_house_modifier = trad_valor }
+			$house_2$ = { has_house_modifier = trad_duty }
+			$house_2$ = { has_house_modifier = trad_justice }
+			$house_2$ = { has_house_modifier = trad_vigilance }
+			$house_2$ = { has_house_modifier = trad_truth }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_duty } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_duty }
+
+			$house_2$ = { has_house_modifier = trad_honor }
+			$house_2$ = { has_house_modifier = trad_justice }
+			$house_2$ = { has_house_modifier = trad_vigilance }
+			$house_2$ = { has_house_modifier = trad_devotion }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_justice } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_justice }
+
+			$house_2$ = { has_house_modifier = trad_honor }
+			$house_2$ = { has_house_modifier = trad_duty }
+			$house_2$ = { has_house_modifier = trad_vengeance }
+			$house_2$ = { has_house_modifier = trad_truth }
+			$house_2$ = { has_house_modifier = trad_wisdom }
+			$house_2$ = { has_house_modifier = trad_devotion }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_vengeance } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_vengeance }
+
+			$house_2$ = { has_house_modifier = trad_valor }
+			$house_2$ = { has_house_modifier = trad_justice }
+			$house_2$ = { has_house_modifier = trad_respect }
+			$house_2$ = { has_house_modifier = trad_pride }
+			$house_2$ = { has_house_modifier = trad_power }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_pride } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_pride }
+
+			$house_2$ = { has_house_modifier = trad_vengeance }
+			$house_2$ = { has_house_modifier = trad_respect }
+			$house_2$ = { has_house_modifier = trad_power }
+			$house_2$ = { has_house_modifier = trad_influence }
+			$house_2$ = { has_house_modifier = trad_distinction }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_respect } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_respect }
+
+			$house_2$ = { has_house_modifier = trad_vengeance }
+			$house_2$ = { has_house_modifier = trad_pride }
+			$house_2$ = { has_house_modifier = trad_power }
+			$house_2$ = { has_house_modifier = trad_influence }
+			$house_2$ = { has_house_modifier = trad_distinction }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_power } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_power }
+
+			$house_2$ = { has_house_modifier = trad_valor }
+			$house_2$ = { has_house_modifier = trad_vengeance }
+			$house_2$ = { has_house_modifier = trad_pride }
+			$house_2$ = { has_house_modifier = trad_respect }
+			$house_2$ = { has_house_modifier = trad_influence }
+			$house_2$ = { has_house_modifier = trad_guile }
+			$house_2$ = { has_house_modifier = trad_distinction }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_influence } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_influence }
+
+			$house_2$ = { has_house_modifier = trad_pride }
+			$house_2$ = { has_house_modifier = trad_respect }
+			$house_2$ = { has_house_modifier = trad_power }
+			$house_2$ = { has_house_modifier = trad_guile }
+			$house_2$ = { has_house_modifier = trad_fortune }
+			$house_2$ = { has_house_modifier = trad_distinction }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_guile } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_guile }
+
+			$house_2$ = { has_house_modifier = trad_vengeance }
+			$house_2$ = { has_house_modifier = trad_power }
+			$house_2$ = { has_house_modifier = trad_influence }
+			$house_2$ = { has_house_modifier = trad_survival }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_survival } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_survival }
+
+			$house_2$ = { has_house_modifier = trad_guile }
+			$house_2$ = { has_house_modifier = trad_vigilance }
+			$house_2$ = { has_house_modifier = trad_peace }
+			$house_2$ = { has_house_modifier = trad_family }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_vigilance } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_vigilance }
+
+			$house_2$ = { has_house_modifier = trad_honor }
+			$house_2$ = { has_house_modifier = trad_duty }
+			$house_2$ = { has_house_modifier = trad_survival }
+			$house_2$ = { has_house_modifier = trad_peace }
+			$house_2$ = { has_house_modifier = trad_devotion }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_peace } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_peace }
+
+			$house_2$ = { has_house_modifier = trad_vigilance }
+			$house_2$ = { has_house_modifier = trad_fortune }
+			$house_2$ = { has_house_modifier = trad_wisdom }
+			$house_2$ = { has_house_modifier = trad_family }
+			$house_2$ = { has_house_modifier = trad_compassion }
+			$house_2$ = { has_house_modifier = trad_joy }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_fortune } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_fortune }
+
+			$house_2$ = { has_house_modifier = trad_influence }
+			$house_2$ = { has_house_modifier = trad_peace }
+			$house_2$ = { has_house_modifier = trad_family }
+			$house_2$ = { has_house_modifier = trad_joy }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_knowledge } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_knowledge }
+
+			$house_2$ = { has_house_modifier = trad_truth }
+			$house_2$ = { has_house_modifier = trad_wisdom }
+			$house_2$ = { has_house_modifier = trad_devotion }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_truth } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_truth }
+
+			$house_2$ = { has_house_modifier = trad_honor }
+			$house_2$ = { has_house_modifier = trad_justice }
+			$house_2$ = { has_house_modifier = trad_knowledge }
+			$house_2$ = { has_house_modifier = trad_wisdom }
+			$house_2$ = { has_house_modifier = trad_distinction }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_wisdom } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_wisdom }
+
+			$house_2$ = { has_house_modifier = trad_justice }
+			$house_2$ = { has_house_modifier = trad_peace }
+			$house_2$ = { has_house_modifier = trad_knowledge }
+			$house_2$ = { has_house_modifier = trad_truth }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_devotion } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_devotion }
+
+			$house_2$ = { has_house_modifier = trad_justice }
+			$house_2$ = { has_house_modifier = trad_duty }
+			$house_2$ = { has_house_modifier = trad_vigilance }
+			$house_2$ = { has_house_modifier = trad_knowledge }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_family } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_family }
+
+			$house_2$ = { has_house_modifier = trad_survival }
+			$house_2$ = { has_house_modifier = trad_peace }
+			$house_2$ = { has_house_modifier = trad_fortune }
+			$house_2$ = { has_house_modifier = trad_compassion }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_compassion } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_compassion }
+
+			$house_2$ = { has_house_modifier = trad_peace }
+			$house_2$ = { has_house_modifier = trad_family }
+			$house_2$ = { has_house_modifier = trad_joy }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_joy } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_joy }
+
+			$house_2$ = { has_house_modifier = trad_peace }
+			$house_2$ = { has_house_modifier = trad_fortune }
+			$house_2$ = { has_house_modifier = trad_compassion }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_distinction } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_distinction  }
+
+			$house_2$ = { has_house_modifier = trad_valor}
+			$house_2$ = { has_house_modifier = trad_pride }
+			$house_2$ = { has_house_modifier = trad_respect }
+			$house_2$ = { has_house_modifier = trad_power }
+			$house_2$ = { has_house_modifier = trad_influence }
+			$house_2$ = { has_house_modifier = trad_truth }
+		}
+	}
+}
+
+is_house_trad_conflict = {
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_valor } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_survival }
+			$house_2$ = { has_house_modifier = trad_peace }
+			$house_2$ = { has_house_modifier = trad_knowledge }
+			$house_2$ = { has_house_modifier = trad_wisdom }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_honor } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_influence }
+			$house_2$ = { has_house_modifier = trad_guile }
+			$house_2$ = { has_house_modifier = trad_survival }
+			$house_2$ = { has_house_modifier = trad_fortune }
+			$house_2$ = { has_house_modifier = trad_joy }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_duty } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_pride }
+			$house_2$ = { has_house_modifier = trad_power }
+			$house_2$ = { has_house_modifier = trad_influence }
+			$house_2$ = { has_house_modifier = trad_guile }
+			$house_2$ = { has_house_modifier = trad_joy }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_justice } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_influence }
+			$house_2$ = { has_house_modifier = trad_guile }
+			$house_2$ = { has_house_modifier = trad_compassion }
+			$house_2$ = { has_house_modifier = trad_joy }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_vengeance } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_peace }
+			$house_2$ = { has_house_modifier = trad_wisdom }
+			$house_2$ = { has_house_modifier = trad_compassion }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_pride } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_duty }
+			$house_2$ = { has_house_modifier = trad_survival }
+			$house_2$ = { has_house_modifier = trad_devotion }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_respect } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_peace }
+			$house_2$ = { has_house_modifier = trad_knowledge }
+			$house_2$ = { has_house_modifier = trad_devotion }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_power } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_duty }
+			$house_2$ = { has_house_modifier = trad_peace }
+			$house_2$ = { has_house_modifier = trad_knowledge }
+			$house_2$ = { has_house_modifier = trad_wisdom }
+			$house_2$ = { has_house_modifier = trad_devotion }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_influence } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_honor }
+			$house_2$ = { has_house_modifier = trad_duty }
+			$house_2$ = { has_house_modifier = trad_justice }
+			$house_2$ = { has_house_modifier = trad_survival }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_guile } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_honor }
+			$house_2$ = { has_house_modifier = trad_duty }
+			$house_2$ = { has_house_modifier = trad_justice }
+			$house_2$ = { has_house_modifier = trad_vigilance }
+			$house_2$ = { has_house_modifier = trad_peace }
+			$house_2$ = { has_house_modifier = trad_truth }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_survival } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_valor }
+			$house_2$ = { has_house_modifier = trad_honor }
+			$house_2$ = { has_house_modifier = trad_pride }
+			$house_2$ = { has_house_modifier = trad_influence }
+			$house_2$ = { has_house_modifier = trad_distinction }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_vigilance } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_guile }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_peace } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_valor }
+			$house_2$ = { has_house_modifier = trad_vengeance }
+			$house_2$ = { has_house_modifier = trad_respect }
+			$house_2$ = { has_house_modifier = trad_power }
+			$house_2$ = { has_house_modifier = trad_guile }
+			$house_2$ = { has_house_modifier = trad_distinction }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_fortune } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_honor }
+			$house_2$ = { has_house_modifier = trad_knowledge }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_knowledge } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_valor }
+			$house_2$ = { has_house_modifier = trad_respect }
+			$house_2$ = { has_house_modifier = trad_power }
+			$house_2$ = { has_house_modifier = trad_fortune }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_truth } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_guile }
+			$house_2$ = { has_house_modifier = trad_devotion }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_wisdom } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_valor }
+			$house_2$ = { has_house_modifier = trad_vengeance }
+			$house_2$ = { has_house_modifier = trad_power }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_devotion } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_pride }
+			$house_2$ = { has_house_modifier = trad_respect }
+			$house_2$ = { has_house_modifier = trad_power }
+			$house_2$ = { has_house_modifier = trad_truth }
+			$house_2$ = { has_house_modifier = trad_distinction }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_family } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_joy }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_compassion } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_justice }
+			$house_2$ = { has_house_modifier = trad_vengeance }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_joy } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_honor }
+			$house_2$ = { has_house_modifier = trad_duty }
+			$house_2$ = { has_house_modifier = trad_justice }
+			$house_2$ = { has_house_modifier = trad_family }
+		}
+	}
+	trigger_if = {
+		limit = { $house_1$ = { has_house_modifier = trad_distinction } }
+		OR = {
+			$house_2$ = { has_house_modifier = trad_survival }
+			$house_2$ = { has_house_modifier = trad_peace }
+			$house_2$ = { has_house_modifier = trad_devotion }
+		}
+	}
+}
+
+is_crosslineal = { #Can only be used as part of 00_marriage_scripted_modifiers.txt
+	OR = {
+		AND = {
+			NOT = { always = scope:matrilineal }
+			scope:secondary_recipient = { is_female = yes }
+			OR = {
+				has_realm_law = female_only_law
+				has_realm_law = female_preference_law
+			}
+		}
+		AND = {
+			always = scope:matrilineal
+			scope:secondary_recipient = { is_male = yes }
+			OR = {
+				has_realm_law = male_only_law
+				has_realm_law = male_preference_law
+			}
+		}
+	}
+}

@@ -1,0 +1,62 @@
+﻿# Manuscript household characters. Adult birth years are gameplay estimates.
+19062001 = {
+ name = "vsh_ilyra"
+ culture = voltara_culture_22
+ rite = voltara_order_rite_23
+ female = yes
+ trait = patient
+ trait = compassionate
+ trait = diligent
+ trait = education_learning_2
+ learning = 14
+ stewardship = 12
+ diplomacy = 10
+ 3739.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060001 }
+}
+
+19062002 = {
+ name = "vsh_senna"
+ culture = voltara_culture_22
+ rite = voltara_order_rite_23
+ female = yes
+ trait = diligent
+ trait = honest
+ trait = patient
+ trait = education_stewardship_3
+ learning = 12
+ stewardship = 12
+ diplomacy = 10
+ 3727.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060029 }
+}
+
+19062003 = {
+ name = "vsh_pel"
+ culture = voltara_culture_22
+ rite = voltara_order_rite_23
+ trait = humble
+ trait = diligent
+ trait = gregarious
+ trait = education_diplomacy_2
+ learning = 9
+ stewardship = 12
+ diplomacy = 10
+ 3751.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060029 }
+}
+
+19062004 = {
+ name = "vsh_joren"
+ culture = voltara_culture_22
+ rite = voltara_order_rite_23
+ trait = honest
+ trait = brave
+ trait = diligent
+ trait = education_stewardship_2
+ learning = 10
+ stewardship = 12
+ diplomacy = 10
+ 3742.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060029 }
+}

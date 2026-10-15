@@ -1,0 +1,76 @@
+﻿# Government definitions adapted from AGOT 0.5.2.1.
+lp_feudal_government = {
+	government_rules = {
+		create_cadet_branches = yes
+		rulers_should_have_dynasty = yes
+		dynasty_named_realms = yes
+		legitimacy = yes
+		allow_accolades = yes
+		court_generate_spouses = no
+	}
+
+	royal_court = any
+
+	court_generate_commanders = no
+
+	primary_holding = castle_holding
+	valid_holdings = { castle_holding city_holding church_holding }
+	required_county_holdings = { castle_holding }
+
+	can_get_government = { voltara_in_hegemony = yes NOT = { voltara_keeper_member = yes } }
+
+	vassal_contract_group = feudal_vassal
+
+	ai = {
+		use_legends = yes
+	}
+
+	flags = {
+		government_is_feudal
+		government_is_settled
+		government_uses_crown_authority
+		government_uses_domain_limit
+		government_is_lp_feudal
+		government_is_settled
+		government_is_default #For grouping governments that should use the regular lifestyle perks.
+	}
+	color = rgb{ 130 100 100 }
+}
+voltara_keeper_government = {
+	government_rules = {
+		create_cadet_branches = no
+		rulers_should_have_dynasty = no
+		dynasty_named_realms = no
+		court_generate_spouses = no
+		allow_accolades = yes
+	}
+
+	court_generate_commanders = no
+
+	primary_holding = castle_holding
+	required_county_holdings = { castle_holding }
+	valid_holdings = { castle_holding city_holding church_holding }
+
+	can_get_government = { voltara_keeper_realm = yes }
+	character_modifier = {
+		monthly_dread = 0.5 #scary man
+		army_maintenance_mult = -0.6 #army don't get a regular soldier salary
+		men_at_arms_maintenance = -0.7 #army don't get a regular soldier salary
+		martial_per_prestige_level = 2 #famous smart stronkly
+		prowess_per_prestige_level = 2 #famous stronk
+		holy_order_hire_cost_mult = 1000
+		# Make it more likely for the NW AI to start wars against wildlings
+		ai_war_chance = 2
+		ai_war_cooldown = -0.5
+	}
+
+	vassal_contract_group = voltara_keeper_vassal
+
+	flags = {
+		government_is_nw
+		government_is_settled
+		government_is_default #For grouping governments that should use the regular lifestyle perks.
+	}
+
+	color = hsv{ 0.9 0.0 0.22 }
+}

@@ -1,0 +1,15 @@
+﻿# These are used for the trait editing system - displayed as traits, but they actually alter other things like secrets and educations focuses
+
+ansf_virago = { shown_in_ruler_designer = no }
+ansf_secret_witch = { shown_in_ruler_designer = no }
+ansf_secret_deviant = { shown_in_ruler_designer = no }
+ansf_secret_cannibal = { shown_in_ruler_designer = no }
+ansf_secret_sodomite = { shown_in_ruler_designer = no }
+ansf_secret_incestuous = { shown_in_ruler_designer = no }
+ansf_diplomatic_focus = { shown_in_ruler_designer = no }
+ansf_martial_focus = { shown_in_ruler_designer = no }
+ansf_stewardship_focus = { shown_in_ruler_designer = no }
+ansf_intrigue_focus = { shown_in_ruler_designer = no }
+ansf_learning_focus = { shown_in_ruler_designer = no }
+
+

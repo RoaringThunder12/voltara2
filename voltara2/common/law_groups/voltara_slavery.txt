@@ -1,0 +1,5 @@
+﻿voltara_slavery_laws = {
+ default = voltara_slavery_banned cumulative = no flag = realm_law flag = realm_law_no_number
+ can_have_group = { is_landed = yes NOT = { voltara_is_ruins_placeholder = yes } }
+ can_change_law_group = { is_landed = yes }
+}

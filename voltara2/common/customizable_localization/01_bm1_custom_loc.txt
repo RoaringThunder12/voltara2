@@ -1,0 +1,174 @@
+﻿##############################
+## BM1 customizable_localization
+##############################
+
+GetImprisoner = {
+	type = character
+
+	text = {
+		setup_scope = {
+			imprisoner = { save_scope_as = imprisoner }
+		}
+		trigger = {
+			is_imprisoned = yes
+		}
+		localization_key = GET_IMPRISONER
+	}
+}
+
+GetImprisonerNoTooltip = {
+	type = character
+
+	text = {
+		setup_scope = {
+			imprisoner = { save_scope_as = imprisoner }
+		}
+		trigger = {
+			is_imprisoned = yes
+		}
+		localization_key = GET_IMPRISONER_NO_TOOLTIP
+	}
+}
+
+
+GetImprisonerPossessive = {
+	type = character
+
+	text = {
+		setup_scope = {
+			imprisoner = { save_scope_as = imprisoner }
+		}
+		trigger = {
+			is_imprisoned = yes
+		}
+		localization_key = GET_IMPRISONER_POSSESSIVE
+	}
+}
+
+GetImprisonerPossessiveNoTooltip = {
+	type = character
+
+	text = {
+		setup_scope = {
+			imprisoner = { save_scope_as = imprisoner }
+		}
+		trigger = {
+			is_imprisoned = yes
+		}
+		localization_key = GET_IMPRISONER_POSSESSIVE_NO_TOOLTIP
+	}
+}
+
+GetImprisonerShort = {
+	type = character
+
+	text = {
+		setup_scope = {
+			imprisoner = { save_scope_as = imprisoner }
+		}
+		trigger = {
+			is_imprisoned = yes
+		}
+		localization_key = GET_IMPRISONER_SHORT
+	}
+}
+
+GetImprisonerShortNoTooltip = {
+	type = character
+
+	text = {
+		setup_scope = {
+			imprisoner = { save_scope_as = imprisoner }
+		}
+		trigger = {
+			is_imprisoned = yes
+		}
+		localization_key = GET_IMPRISONER_SHORT_NO_TOOLTIP
+	}
+}
+
+GetImprisonerShortPossessive = {
+	type = character
+
+	text = {
+		setup_scope = {
+			imprisoner = { save_scope_as = imprisoner }
+		}
+		trigger = {
+			is_imprisoned = yes
+		}
+		localization_key = GET_IMPRISONER_SHORT_POSSESSIVE
+	}
+}
+
+GetImprisonerShortPossessiveNoTooltip = {
+	type = character
+
+	text = {
+		setup_scope = {
+			imprisoner = { save_scope_as = imprisoner }
+		}
+		trigger = {
+			is_imprisoned = yes
+		}
+		localization_key = GET_IMPRISONER_SHORT_POSSESSIVE_NO_TOOLTIP
+	}
+}
+
+GetImprisonerPronoun = {
+	type = character
+
+	text = {
+		setup_scope = {
+			imprisoner = { save_scope_as = imprisoner }
+		}
+		trigger = {
+			is_imprisoned = yes
+		}
+		localization_key = GET_IMPRISONER_PRONOUN
+	}
+}
+
+
+GetImprisonerPronounPossessive = {
+	type = character
+
+	text = {
+		setup_scope = {
+			imprisoner = { save_scope_as = imprisoner }
+		}
+		trigger = {
+			is_imprisoned = yes
+		}
+		localization_key = GET_IMPRISONER_PRONOUN_POSSESSIVE
+	}
+}
+
+
+GetImprisonerPronounObjective = {
+	type = character
+
+	text = {
+		setup_scope = {
+			imprisoner = { save_scope_as = imprisoner }
+		}
+		trigger = {
+			is_imprisoned = yes
+		}
+		localization_key = GET_IMPRISONER_PRONOUN_OBJECTIVE
+	}
+}
+
+GetImprisonerPrimaryTitleTierIcon = {
+	type = character
+
+	text = {
+		setup_scope = {
+			imprisoner = { save_scope_as = imprisoner }
+		}
+		trigger = {
+			is_imprisoned = yes
+		}
+		localization_key = GET_IMPRISONER_PRIMARY_TITLE_TIER_ICON
+	}
+}

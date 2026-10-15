@@ -1,0 +1,32 @@
+pdxmesh = {
+	name = "nalanda_university_mesh"
+	file = "nalanda_university.mesh"
+
+	meshsettings = {
+		name = "nalanda_university"
+		index = 0
+		texture_diffuse = "building_indian_atlas_diffuse.dds"
+		texture_normal = "building_indian_atlas_normal.dds"
+		texture_specular = "building_indian_atlas_properties.dds"
+		texture = { file = "nalanda_university.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "nalanda_university_decal"
+		index = 0
+		texture_diffuse = "ep2_building_special_canterbury_decal_01_diffuse.dds"
+		texture_normal = "ep2_building_special_canterbury_decal_01_normal.dds"
+		texture_specular = "ep2_building_special_canterbury_decal_01_properties.dds"
+		shader = "decal_local"
+		shader_file = "gfx/FX/pdxmesh_decal.shader"
+		subpass = "LocalDecals"
+	}
+
+}
+
+entity = {
+	name = "nalanda_university_entity"
+	pdxmesh = "nalanda_university_mesh"
+}

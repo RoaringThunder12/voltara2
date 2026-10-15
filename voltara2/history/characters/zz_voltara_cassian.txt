@@ -1,0 +1,525 @@
+﻿19060001 = {
+ name = "vc_name_cassian" dynasty = 9900021 culture = voltara_culture_22 rite = voltara_order_rite_23
+ father = 19060006
+ mother = 19060007
+ trait = just
+ trait = compassionate
+ trait = patient
+ trait = education_diplomacy_4
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3746.1.1 = { birth = yes }
+ 3773.1.1 = { add_spouse = 19060002 }
+ 3781.1.1 = { effect = { change_government = lp_feudal_government } }
+}
+
+19060002 = {
+ name = "vc_name_adriana" dynasty = 19061001 culture = voltara_culture_45 rite = voltara_order_rite_23
+ female = yes
+ father = 19060012
+ mother = 19060013
+ trait = brave
+ trait = diligent
+ trait = family_first
+ trait = education_diplomacy_3
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3752.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060001 }
+}
+
+19060003 = {
+ name = "vc_name_octavian" dynasty = 9900021 culture = voltara_culture_22 rite = voltara_order_rite_23
+ father = 19060006
+ mother = 19060007
+ trait = ambitious
+ trait = arrogant
+ trait = brave
+ trait = education_martial_4
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3750.1.1 = { birth = yes }
+ 3781.1.1 = { effect = { change_government = feudal_government } }
+}
+
+19060004 = {
+ name = "vc_name_leon" dynasty = 9900021 culture = voltara_culture_22 rite = voltara_order_rite_23
+ father = 19060001
+ mother = 19060002
+ trait = charming
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3775.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060001 }
+}
+
+19060005 = {
+ name = "vc_name_nora" dynasty = 9900021 culture = voltara_culture_22 rite = voltara_order_rite_23
+ female = yes
+ father = 19060001
+ mother = 19060002
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3779.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060001 }
+}
+
+19060006 = {
+ name = "vc_name_marcus" dynasty = 9900021 culture = voltara_culture_22 rite = voltara_order_rite_23
+ father = 19060008
+ mother = 19060009
+ trait = brave
+ trait = just
+ trait = stubborn
+ trait = education_martial_3
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3717.1.1 = { birth = yes }
+ 3745.1.1 = { add_spouse = 19060007 }
+ 3771.1.1 = { death = yes }
+}
+
+19060007 = {
+ name = "vc_name_rayna" dynasty = 19061002 culture = voltara_culture_30 rite = voltara_order_rite_23
+ female = yes
+ mother = 19060011
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3722.1.1 = { birth = yes }
+ 3750.1.1 = { death = yes }
+}
+
+19060008 = {
+ name = "vc_name_lucian" dynasty = 9900021 culture = voltara_culture_22 rite = voltara_order_rite_23
+ father = 19060010
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3690.1.1 = { birth = yes }
+ 3716.1.1 = { add_spouse = 19060009 }
+ 3747.1.1 = { death = yes }
+}
+
+19060009 = {
+ name = "vc_name_aveline" dynasty = 19061003 culture = voltara_culture_46 rite = voltara_order_rite_23
+ female = yes
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3693.1.1 = { birth = yes }
+ 3759.1.1 = { death = yes }
+}
+
+19060010 = {
+ name = "vc_name_harold" dynasty = 9900021 culture = voltara_culture_22 rite = voltara_order_rite_23
+ father = 19060045
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3664.1.1 = { birth = yes }
+ 3722.1.1 = { death = yes }
+}
+
+19060011 = {
+ name = "vc_name_nissa" dynasty = 19061001 culture = voltara_culture_45 rite = voltara_order_rite_23
+ female = yes
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3695.1.1 = { birth = yes }
+ 3757.1.1 = { death = yes }
+}
+
+19060012 = {
+ name = "vc_name_aldren" dynasty = 19061001 culture = voltara_culture_45 rite = voltara_order_rite_23
+ trait = arrogant
+ trait = brave
+ trait = stubborn
+ trait = education_martial_3
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3723.1.1 = { birth = yes }
+ 3746.1.1 = { add_spouse = 19060013 }
+ 3781.1.1 = { effect = { change_government = feudal_government } }
+}
+
+19060013 = {
+ name = "vc_name_elayne_marroway" dynasty = 19061004 culture = voltara_culture_22 rite = voltara_order_rite_23
+ female = yes
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3726.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060012 }
+}
+
+19060014 = {
+ name = "vc_name_garrick" dynasty = 19061001 culture = voltara_culture_45 rite = voltara_order_rite_23
+ father = 19060012
+ mother = 19060013
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3747.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060012 }
+}
+
+19060015 = {
+ name = "vc_name_corren" dynasty = 19061001 culture = voltara_culture_45 rite = voltara_order_rite_23
+ father = 19060012
+ mother = 19060013
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3750.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060012 }
+}
+
+19060016 = {
+ name = "vc_name_tomas_bryndale" dynasty = 19061001 culture = voltara_culture_45 rite = voltara_order_rite_23
+ father = 19060012
+ mother = 19060013
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3757.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060012 }
+}
+
+19060017 = {
+ name = "vc_name_symon" dynasty = 19061001 culture = voltara_culture_45 rite = voltara_order_rite_23
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3728.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060012 }
+}
+
+19060018 = {
+ name = "vc_name_alaric" dynasty = 19061005 culture = voltara_culture_33 rite = voltara_order_rite_23
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3720.1.1 = { birth = yes }
+ 3744.1.1 = { add_spouse = 19060019 }
+ 3781.1.1 = { effect = { change_government = feudal_government } }
+}
+
+19060019 = {
+ name = "vc_name_maerra" dynasty = 19061005 culture = voltara_culture_33 rite = voltara_order_rite_23
+ female = yes
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3722.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060018 }
+}
+
+19060020 = {
+ name = "vc_name_helena" dynasty = 19061005 culture = voltara_culture_33 rite = voltara_order_rite_23
+ female = yes
+ father = 19060018
+ mother = 19060019
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3745.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060018 }
+}
+
+19060021 = {
+ name = "vc_name_edric_thornfall" dynasty = 19061005 culture = voltara_culture_33 rite = voltara_order_rite_23
+ father = 19060018
+ mother = 19060019
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3748.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060018 }
+}
+
+19060022 = {
+ name = "vc_name_garran" dynasty = 19061005 culture = voltara_culture_33 rite = voltara_order_rite_23
+ father = 19060018
+ mother = 19060019
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3751.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060018 }
+}
+
+19060023 = {
+ name = "vc_name_elayne_thornfall" dynasty = 19061005 culture = voltara_culture_33 rite = voltara_order_rite_23
+ female = yes
+ father = 19060018
+ mother = 19060019
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3754.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060018 }
+}
+
+19060024 = {
+ name = "vc_name_ormand" dynasty = 19061006 culture = voltara_culture_22 rite = voltara_order_rite_23
+ trait = greedy
+ trait = gregarious
+ trait = ambitious
+ trait = education_stewardship_3
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3727.1.1 = { birth = yes }
+ 3755.1.1 = { add_spouse = 19060025 }
+ 3781.1.1 = { effect = { change_government = feudal_government } }
+}
+
+19060025 = {
+ name = "vc_name_marithe" dynasty = 19061006 culture = voltara_culture_22 rite = voltara_order_rite_23
+ female = yes
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3732.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060024 }
+}
+
+19060026 = {
+ name = "vc_name_elaine" dynasty = 19061006 culture = voltara_culture_22 rite = voltara_order_rite_23
+ female = yes
+ father = 19060024
+ mother = 19060025
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3757.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060024 }
+}
+
+19060027 = {
+ name = "vc_name_rovan" dynasty = 19061006 culture = voltara_culture_22 rite = voltara_order_rite_23
+ father = 19060024
+ mother = 19060025
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3761.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060024 }
+}
+
+19060028 = {
+ name = "vc_name_orion" dynasty = 19061007 culture = voltara_southorion rite = voltara_order_rite_23
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3725.1.1 = { birth = yes }
+ 3773.1.1 = { death = yes }
+}
+
+19060029 = {
+ name = "vc_name_marques" dynasty = 19061007 culture = voltara_southorion rite = voltara_order_rite_23
+ father = 19060028
+ trait = just
+ trait = diligent
+ trait = generous
+ trait = education_stewardship_4
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3750.1.1 = { birth = yes }
+ 3781.1.1 = { effect = { change_government = feudal_government } }
+}
+
+19060030 = {
+ name = "vc_name_maurice" dynasty = 19061007 culture = voltara_culture_22 rite = voltara_order_rite_23
+ trait = brave
+ trait = diligent
+ trait = stubborn
+ trait = education_martial_3
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3734.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060029 }
+}
+
+19060031 = {
+ name = "vc_name_maxwell" dynasty = 19061008 culture = voltara_culture_22 rite = voltara_order_rite_23
+ trait = greedy
+ trait = callous
+ trait = ambitious
+ trait = education_stewardship_3
+ trait = voltara_slaver
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3736.1.1 = { birth = yes }
+ 3781.1.1 = { effect = { change_government = feudal_government } }
+}
+
+19060032 = {
+ name = "vc_name_isabella" dynasty = 19061008 culture = voltara_culture_22 rite = voltara_order_rite_23
+ female = yes
+ trait = ambitious
+ trait = gregarious
+ trait = diligent
+ trait = education_diplomacy_3
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3755.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060031 }
+}
+
+19060033 = {
+ name = "vc_name_caledor" dynasty = 19061009 culture = voltara_culture_22 rite = voltara_order_rite_23
+ trait = deceitful
+ trait = zealous
+ trait = patient
+ trait = education_learning_4
+ trait = vt_ek_education_magic_3
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3724.1.1 = { birth = yes }
+ 3781.1.1 = { effect = { change_government = feudal_government } }
+}
+
+19060034 = {
+ name = "vc_name_lucius" dynasty = 19061010 culture = voltara_culture_22 rite = voltara_order_rite_23
+ trait = brave
+ trait = loyal
+ trait = diligent
+ trait = education_martial_4
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3732.1.1 = { birth = yes }
+ 3781.1.1 = { effect = { change_government = feudal_government } }
+}
+
+19060035 = {
+ name = "vc_name_virelda" dynasty = 19061011 culture = voltara_culture_22 rite = voltara_order_rite_23
+ female = yes
+ trait = brave
+ trait = ambitious
+ trait = diligent
+ trait = education_martial_3
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3739.1.1 = { birth = yes }
+ 3781.1.1 = { effect = { change_government = feudal_government } }
+}
+
+19060036 = {
+ name = "vc_name_seraphina" dynasty = 19061003 culture = voltara_culture_46 rite = voltara_order_rite_23
+ female = yes
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3756.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 9900038 }
+}
+
+19060037 = {
+ name = "vc_name_nathaniel" dynasty = 19061003 culture = voltara_culture_46 rite = voltara_order_rite_23
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3753.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 9900038 }
+}
+
+19060038 = {
+ name = "vc_name_caela" dynasty = 19061003 culture = voltara_culture_46 rite = voltara_order_rite_23
+ female = yes
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3740.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 9900038 }
+}
+
+19060039 = {
+ name = "vc_name_edric_crane" dynasty = 19061012 culture = voltara_culture_22 rite = voltara_order_rite_23
+ trait = brave
+ trait = loyal
+ trait = diligent
+ trait = education_martial_3
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3756.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060001 }
+}
+
+19060040 = {
+ name = "vc_name_tomas_devlin" dynasty = 19061013 culture = voltara_culture_22 rite = voltara_order_rite_23
+ trait = brave
+ trait = loyal
+ trait = stubborn
+ trait = education_martial_4
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3730.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060001 }
+}
+
+19060041 = {
+ name = "vc_name_edmund" dynasty = 19061014 culture = voltara_culture_22 rite = voltara_order_rite_23
+ trait = brave
+ trait = stubborn
+ trait = honest
+ trait = education_martial_3
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3724.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060001 }
+}
+
+19060042 = {
+ name = "vc_name_thorne" dynasty = 19061015 culture = voltara_culture_22 rite = voltara_order_rite_23
+ trait = just
+ trait = compassionate
+ trait = diligent
+ trait = education_learning_4
+ trait = vt_ek_education_magic_3
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3728.1.1 = { birth = yes }
+ 3758.1.1 = { add_spouse = 19060043 }
+ 3781.1.1 = { employer = 19060001 }
+}
+
+19060043 = {
+ name = "vc_name_lyssan" dynasty = 19061015 culture = voltara_culture_22 rite = voltara_order_rite_23
+ female = yes
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3730.1.1 = { birth = yes }
+ 3775.1.1 = { death = yes }
+}
+
+19060044 = {
+ name = "vc_name_elira" dynasty = 19061015 culture = voltara_culture_22 rite = voltara_order_rite_23
+ female = yes
+ father = 19060042
+ mother = 19060043
+ trait = brave
+ trait = just
+ trait = impatient
+ trait = education_learning_3
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3761.1.1 = { birth = yes }
+ 3781.1.1 = { employer = 19060001 }
+}
+
+19060045 = {
+ name = "vc_name_maximus" dynasty = 9900021 culture = voltara_culture_22 rite = voltara_order_rite_23
+ trait = just
+ trait = diligent
+ trait = temperate
+ diplomacy = 10 martial = 10 stewardship = 10 intrigue = 8 learning = 10 prowess = 10
+ 3638.1.1 = { birth = yes }
+ 3694.1.1 = { death = yes }
+}

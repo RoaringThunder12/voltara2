@@ -1,0 +1,133 @@
+﻿namespace = house_vendetta
+
+house_vendetta.0001 = {
+	type = character_event
+	hidden = yes
+#declare_house_rival = {
+	trigger = {
+		has_trait = vengeful
+		NOT = { has_character_modifier = blacksheep }
+	}
+
+	immediate = {
+		house = {
+			# Secret Murders
+			every_in_list = {
+				variable = killed_house_members
+				limit = {
+					#is_close_family_of = root
+					OR = {
+						death_reason = death_accident
+						death_reason = death_murder
+						death_reason = death_hunting_accident
+						death_reason = death_hunting_mysterious
+						death_reason = death_mysterious
+					}
+					killer = {
+						is_alive = yes
+						any_secret = {
+							secret_target = PREV
+							is_known_by = ROOT
+						}
+					}
+					killer = {
+						NOT = {
+	#						any_relation = {
+	#							has_relation_flag = {
+	#								target = ROOT
+	#								relation = rival
+	#							}
+	#						}
+							any_relation = {
+								type = rival
+								this = ROOT
+							}
+	#						any_relation = {
+	#							has_relation_flag = {
+	#								target = ROOT
+	#								relation = nemesis
+	#							}
+	#						}
+							any_relation = {
+								type = nemesis
+								this = ROOT
+							}
+						} # OR
+					}
+				} # Limit
+				killer = { set_relation_rival = ROOT }
+			} # Variable List
+			# Public Knowledge
+			every_in_list = {
+				variable = killed_house_members
+				limit = {
+					NOT = {
+						death_reason = death_accident
+						death_reason = death_murder
+						death_reason = death_hunting_accident
+						death_reason = death_hunting_mysterious
+						death_reason = death_mysterious
+					}
+					killer = { is_alive = yes }
+					killer = {
+						NOT = {
+	#						any_relation = {
+	#							has_relation_flag = {
+	#								target = ROOT
+	#								relation = rival
+	#							}
+	#						}
+							any_relation = {
+								type = rival
+								this = ROOT
+							}
+	#						any_relation = {
+	#							has_relation_flag = {
+	#								target = ROOT
+	#								relation = nemesis
+	#							}
+	#						}
+							any_relation = {
+								type = nemesis
+								this = ROOT
+							}
+						} # OR
+					}
+				} # Limit
+				killer = { set_relation_rival = ROOT }
+			} # Variable List
+		} # House scope where the list is stored
+	} # Effect
+}
+
+house_vendetta.0002 = {
+	type = character_event
+	title = house_vendetta.0001.t
+	desc = house_vendetta.0001.desc
+
+	theme = rival_relation
+
+	left_portrait = {
+		character = ROOT
+		animation = anger
+	}
+
+	right_portrait = {
+		character = scope:murdered_relative.killer
+		animation = fear
+	}
+
+	immediate = {
+#		set_relation_rival = scope:murdered_relative.killer
+		progress_towards_nemesis_effect = {
+			CHARACTER = scope:murdered_relative.killer
+			REASON = house_vengeance_vendetta
+			OPINION = 0
+		}
+	}
+
+	option = {
+		name = house_vendetta.0001.a
+	}
+}
+

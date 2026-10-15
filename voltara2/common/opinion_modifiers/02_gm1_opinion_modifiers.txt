@@ -1,0 +1,39 @@
+﻿##############################
+## GM1 opinion_modifiers
+##############################
+
+# Values based on ./common/opinion_modifiers/00_prison_opinions.txt/demanded_recruitment
+demanded_transfer_prisoner = {
+	opinion = -15
+	years = 10
+	decaying = yes
+}
+
+# Values based on ./common/opinion_modifiers/05_dlc_bp2_opinions.txt/vassal_refused_hostage_demand_opinion
+refused_transfer_prisoner = {
+	opinion = -15
+	monthly_change = 0.1
+	decaying = yes
+}
+
+# based on ./common/opinion_modifiers/00_prison_opinions.txt/imprisoned_me
+transferred_me = {
+	opinion = -30
+	years = 10
+	decaying = yes
+}
+
+# based on ./common/opinion_modifiers/00_religious_opinion.txt/destroyed_papacy_opinion - old
+transferred_me_different_faith = {
+	opinion = -40
+	monthly_change = 0.05 # years = 40
+	decaying = yes
+}
+
+# based on ./common/opinion_modifiers/00_opinion_modifiers.txt/imprisoned_family_member - old
+transferred_family_member = {
+	opinion = -15
+	monthly_change = 0.05 # years = 20
+	decaying = yes
+	stacking = yes # Added.
+}

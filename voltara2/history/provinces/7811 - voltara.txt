@@ -1,6 +1,11 @@
 ﻿7811 = {
+ 
+ 
+
 # Provisional holding layout; source culture/faith retained.
-culture = voltara_culture_44
-rite = voltara_khaotism_rite
-holding = church_holding
+
+
+
+
+ culture = voltara_culture_20 rite = voltara_mud_and_flame holding = none
 }

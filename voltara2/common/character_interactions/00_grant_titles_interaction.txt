@@ -33,6 +33,8 @@ is_valid = {
 	# recipient character receiving the titles
 
 	is_shown = {
+ scope:recipient = { NOT = { has_trait = voltara_slave } }
+
  # Voltara: ruins are colonized through the county panel, not character diplomacy.
  scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
  scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }

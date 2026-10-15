@@ -1,0 +1,18 @@
+﻿
+on_game_start_after_lobby = { on_actions = { voltara_hegemony_start } }
+voltara_hegemony_start = {
+ effect = {
+  if = { limit = { NOT = { has_global_variable = voltara_hegemony_initialized } }
+   title:h_voltara_severos.holder ?= {
+    change_government = lp_feudal_government
+    add_realm_law_skip_effects = single_heir_succession_law
+    every_vassal_or_below = {
+     limit = { OR = { has_government = feudal_government has_government = administrative_government has_government = lp_feudal_government } }
+     change_government = lp_feudal_government
+    }
+   }
+   title:k_voltara_22.holder ?= { voltara_keeper_maintenance = yes trigger_event = { id = voltara_keepers.1 days = 1 } }
+   set_global_variable = { name = voltara_hegemony_initialized value = yes }
+  }
+ }
+}

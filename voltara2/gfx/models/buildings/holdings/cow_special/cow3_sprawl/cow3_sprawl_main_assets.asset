@@ -1,0 +1,178 @@
+########################
+### COW ASSETS BELOW ###
+########################
+
+#Tribal COW Walls
+entity = {
+	name = tribal_cow_entity
+	attach = { city_center = western_tribal_cow_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_5
+	attach = { city_center = western_walls_05_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_6
+	attach = { city_center = western_walls_06_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_7
+	attach = { city_center = western_walls_07_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_indian_05
+	attach = { city_center = india_walls_05_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_indian_06
+	attach = { city_center = india_walls_06_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_indian_07
+	attach = { city_center = india_walls_07_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_med_5
+	attach = { city_center = mediterranean_walls_05_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_med_6
+	attach = { city_center = mediterranean_walls_06_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+
+entity = {
+	name = burge_sprawl_med_7
+	attach = { city_center = mediterranean_walls_07_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_iberia_5
+	attach = { city_center = fp2_building_iberian_wall_05_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_iberia_6
+	attach = { city_center = fp2_building_iberian_wall_06_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_iberia_7
+	attach = { city_center = fp2_building_iberian_wall_07_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_mena_5
+	attach = { city_center = mena_walls_05_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_mena_6
+	attach = { city_center = mena_walls_06_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_mena_7
+	attach = { city_center = mena_walls_07_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_persia_5
+	attach = { city_center = fp3_building_persian_walls_05_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_persia_6
+	attach = { city_center = fp3_building_persian_walls_06_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#DONE
+entity = {
+	name = burge_sprawl_persia_7
+	attach = { city_center = fp3_building_persian_walls_07_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#Baghdad
+entity = {
+	name = baghdad_burge_sprawl
+	attach = { city_center = circle_city_05_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#Jerusalem
+entity = {
+	name = jerusalem_burge_sprawl
+	attach = { city_center = building_special_jerusalem_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#Genoa
+entity = {
+	name = burge_sprawl_genoa
+	attach = { city_center = mediterranean_walls_05_genoa_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#Rome
+entity = {
+	name = rome_burge_sprawl
+	attach = { city_center = mediterranean_walls_05_rome_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#London
+entity = {
+	name = london_burge_sprawl
+	attach = { city_center = western_walls_05_london_entity}
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#Paris
+entity = {
+	name = paris_burge_sprawl
+	attach = { city_center = western_walls_05_paris_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#Thessaloniki
+entity = {
+	name = thes_burge_sprawl
+	attach = { city_center = mediterranean_walls_05_thes_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#Marrakesh
+entity = {
+	name = burge_sprawl_marra
+	attach = { city_center = walls_05_marrakesh_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#Marrakesh variant for Medieval Arts
+entity = {
+	name = burge_sprawl_marra2
+	attach = { city_center = walls_05_marrakesh2_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}
+#Toledo Sprawl
+entity = {
+	name = toledo_sprawl_entity
+	attach = { city_center = iberian_toledo_entity }
+	locator = { name = city_center position = { 0 0 0 } }
+}

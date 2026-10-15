@@ -1,0 +1,149 @@
+﻿##############################
+## GM1 scripted_triggers
+##############################
+#------------------------------
+# interaction-related
+#------------------------------
+
+# ROOT (character)
+gm1_valid_prisoner_for_interaction_trigger = {
+ NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins }
+
+	is_imprisoned = yes
+	#is_imprisoned_by = $IMPRISONER$
+	cannot_release_former_regent_whilst_old_regent_holds_power_trigger = {
+		PRISONER = this
+		REGENT = var:imprisoned_by_diarch
+	}
+}
+
+# ROOT (character)
+# This is basically for tooltip.
+gm1_valid_prisoner_for_interaction_trigger_basic = {
+ NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins }
+
+	is_available_quick = { alive = yes incapable = no }
+ NOT = { exists = involved_activity }
+	is_under_ongoing_interaction = no
+	is_being_tortured = no
+	health > dying_health
+}
+
+# ROOT (character)
+# BENEFACTOR (character)
+gm1_valid_prisoner_for_transfer_interaction_trigger_highlighted = {
+	gm1_valid_prisoner_for_interaction_trigger = yes
+	gm1_valid_prisoner_for_interaction_trigger_basic = yes
+
+	$BENEFACTOR$ = {
+		OR = {
+			is_at_war_with = prev
+			AND = {
+				has_revoke_title_reason = prev
+				has_claim_on_held_title_trigger = {
+					CHARACTER = prev
+				}
+			}
+		}
+	}
+}
+
+# ROOT
+# BENEFACTOR
+gm1_valid_prisoner_for_transfer_interaction_trigger_strict = {
+	gm1_valid_prisoner_for_interaction_trigger_basic = yes
+	has_recently_undergone_interaction = no
+	OR = {
+		$BENEFACTOR$ = {
+			NOT = { likes_character_trigger = { CHARACTER = prev } }
+		}
+		has_any_bad_relationship_with_character_trigger = {
+			CHARACTER = $BENEFACTOR$
+		}
+		has_any_worst_bad_relationship_with_character_trigger = {
+			CHARACTER = $BENEFACTOR$
+		}
+	}
+	is_of_major_or_minor_interest_trigger = {
+		CHARACTER = $BENEFACTOR$
+	}
+	## Don't bother with insignificant fucks.
+	has_no_real_status_trigger = no
+	has_no_particular_noble_roots_trigger = no
+}
+
+# ROOT
+# BENEFACTOR
+gm1_valid_prisoner_for_ransom_interaction_trigger_strict = {
+	gm1_valid_prisoner_for_interaction_trigger_basic = yes
+
+	## We block out the original ransomables to avoid- 
+	## conflict with the vanilla ransom_interaction.
+	
+	## This is for the originally non-ransomable.
+	NOR = {
+		liege ?= $BENEFACTOR$
+		is_close_family_of = $BENEFACTOR$
+		dynasty ?= $BENEFACTOR$.dynasty
+		any_spouse = {
+			OR = {
+				is_close_family_of = $BENEFACTOR$
+				dynasty ?= $BENEFACTOR$.dynasty
+			}
+		}
+		has_relation_lover = $BENEFACTOR$
+		has_relation_friend = $BENEFACTOR$
+	}
+}
+
+# based on ./common/scripted_triggers/05_bp2_hostage_triggers.txt/bp2_valid_hostage_action_shared_trigger
+gm1_valid_prisoner_recipient_for_transfer_interaction_action_trigger = {
+	# Don't inform of unimportant cases
+	NOR = {
+		is_at_war_with = root
+		is_consort_of = root
+	}
+}
+
+# based on ./common/scripted_triggers/05_bp2_hostage_triggers.txt/bp2_valid_hostage_offer_action_trigger
+gm1_valid_prisoner_recipient_for_offer_interaction_action_trigger = {
+	gm1_valid_prisoner_recipient_for_transfer_interaction_action_trigger = yes
+	# Only care about actual threats
+	#has_any_cb_on = root
+	#save_temporary_scope_as = warden
+
+	## Ensure that the target is not a brokeass or at least have something to give.
+	OR = {
+		current_gold_value >= 25
+		root = { NOT = { has_hook = prev } }
+	}
+	## Ensure that you have at least one prisoner that's a brokeass and can be traded.
+	root = {
+		any_prisoner = {
+			count >= 1
+			gm1_valid_prisoner_for_interaction_trigger = yes
+			gm1_valid_prisoner_for_interaction_trigger_basic = yes
+			NOT = { is_at_war_with = root }
+			OR = {
+				AND = {
+					OR = {
+						is_ruler = yes
+						is_pool_guest = yes
+					}
+					current_gold_value > prisoner_barter_value
+				}
+				AND = {
+					is_ruler = no
+					exists = liege
+					liege = { current_gold_value > prisoner_barter_value }
+				}
+			}
+			save_temporary_scope_as = secondary_actor
+		}
+		is_character_interaction_potentially_accepted = {
+			interaction = offer_prisoner_interaction
+			recipient = prev
+			secondary_actor = scope:secondary_actor
+		}
+	}
+}

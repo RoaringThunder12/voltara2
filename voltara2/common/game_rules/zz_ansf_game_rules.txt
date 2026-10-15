@@ -1,0 +1,33 @@
+﻿
+ansf_decision_limitations = {
+	
+	categories = {
+		ansf
+	}
+	
+	default = ansf_decision_normal_restrictions
+	
+	ansf_decision_no_restriction = { flag = GG_can_change_rule }
+	
+	ansf_decision_once_per_house = { flag = GG_can_change_rule }
+	
+	ansf_decision_normal_restrictions = { flag = GG_can_change_rule }
+	
+	ansf_decision_deactivated = { flag = GG_can_change_rule }
+}
+
+ansf_create_family_limitations = {
+	
+	categories = {
+		ansf
+	}
+	
+	default = ansf_create_family_deactivated
+	
+	ansf_create_family_no_restriction = { flag = GG_can_change_rule	}
+	
+	ansf_create_family_regular = { flag = GG_can_change_rule }
+	
+	ansf_create_family_deactivated = { flag = GG_can_change_rule }
+}
+

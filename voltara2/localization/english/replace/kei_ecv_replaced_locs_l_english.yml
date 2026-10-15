@@ -1,0 +1,12 @@
+﻿l_english:
+ABSOLUTE_COUNTY_CONTROL: "@dread_icon!"
+HOLDING_VIEW_HOLDER: "[holder|E]"
+HOLDING_VIEW_LESSEE: "[lessee|E]"
+HOLDING_OCCUPIED: "[occupied|E] by [CHARACTER.GetName]"
+LEGEND_OWNER_DESCRIPTION: "[AddTextIf(Legend.GetOwner.IsValid, 'Owner: ')][Legend.GetOwner.GetShortUIName|U]"
+
+COUNTY_CONTROL_TOOLTIP_HEADER: "[county_control|E]: [County.GetControlLevelOutOfMax]"
+COUNTY_DEVELOPMENT_TOOLTIP_HEADER: "[development|E]: [County.GetDevelopmentLevel]/[EmptyScope.ScriptValue('max_development_level')]"
+COUNTY_OPINION_TOOLTIP: "[county_opinion|E] of [County.GetCount.GetUIName]"
+
+CONTROL_PROGRESS: "Monthly Change"

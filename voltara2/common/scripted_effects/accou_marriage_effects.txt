@@ -1,0 +1,153 @@
+﻿accou_arrange_marriage_on_accept_effect = {
+	marriage_interaction_on_accept_effect = yes
+
+	scope:actor = {
+		if = {
+			limit = {
+				is_target_in_variable_list = {
+					name = contact_list_marriage
+					target = scope:recipient
+				}
+			}
+			remove_list_variable = {
+				name = contact_list_marriage
+				target = scope:recipient
+			}
+		}
+	}
+}
+
+accou_get_nearby_rulers_effect = {
+	if = {
+		limit = { is_landed = yes }
+		top_liege ?= { save_temporary_scope_as = top_liege }
+	}
+	else_if = {
+		limit = { exists = capital_province }
+		capital_province.county.holder.top_liege ?= { save_temporary_scope_as = top_liege }
+	}
+
+	scope:top_liege ?= {
+		add_to_temporary_list = temp_rulers
+		every_vassal_or_below = {
+			add_to_temporary_list = temp_rulers
+		}
+		every_neighboring_and_across_water_top_liege_realm_owner = {
+			add_to_temporary_list = temp_rulers
+			every_vassal_or_below = {
+				add_to_temporary_list = temp_rulers
+			}
+		}
+	}
+	every_independent_ruler = {
+		limit = { accou_is_landless_ruler_trigger = yes }
+		add_to_temporary_list = temp_rulers
+	}
+
+	if = {
+		limit = { is_ai = no }
+		save_temporary_scope_value_as = {
+			name = search_range
+			value = accou_search_range_player_value
+		}
+	}
+	else_if = {
+		limit = { is_landed = no }
+		save_temporary_scope_value_as = {
+			name = search_range
+			value = accou_search_range_landless_ai_value
+		}
+	}
+	else = {
+		save_temporary_scope_value_as = {
+			name = search_range
+			value = accou_search_range_ai_value
+		}
+	}
+
+	capital_province ?= {
+		save_temporary_scope_as = capital_province
+		every_in_list = {
+			list = temp_rulers
+			limit = {
+				accou_is_playable_character_within_range_trigger = {
+					LOCATION = scope:capital_province
+					RANGE = scope:search_range
+				}
+			}
+			add_to_temporary_list = $RULERS$
+		}
+	}
+}
+
+accou_get_nearby_characters_effect = {
+	save_temporary_scope_as = character
+
+	# For every nearby ruler
+	every_in_list = {
+		list = $RULERS$
+
+		# Add the ruler
+		if = {
+			limit = { $PREDICATE$ = yes }
+			add_to_temporary_list = $CHARACTERS$
+		}
+
+		# Add every courtier or guest of this ruler
+		every_courtier_or_guest = {
+			limit = { $PREDICATE$ = yes }
+			add_to_temporary_list = $CHARACTERS$
+		}
+
+		# Add every pool character in the pool of this ruler's capital province
+		if = {
+			limit = { exists = capital_province }
+			save_temporary_scope_as = ruler
+			every_pool_character = {
+				province = scope:ruler.capital_province
+				limit = { $PREDICATE$ = yes }
+				add_to_temporary_list = $CHARACTERS$
+			}
+		}
+	}
+}
+
+accou_get_ruler_with_royal_court_effect = {
+	clear_saved_scope = ruler_with_royal_court
+	if = {
+		limit = { has_royal_court = yes }
+		save_temporary_scope_as = ruler_with_royal_court
+	}
+	else = {
+		liege ?= {
+			if = {
+				limit = { has_royal_court = yes }
+				save_temporary_scope_as = ruler_with_royal_court
+			}
+			else = {
+				liege ?= {
+					if = {
+						limit = { has_royal_court = yes }
+						save_temporary_scope_as = ruler_with_royal_court
+					}
+					else = {
+						liege ?= {
+							if = {
+								limit = { has_royal_court = yes }
+								save_temporary_scope_as = ruler_with_royal_court
+							}
+							else = {
+								liege ?= {
+									if = {
+										limit = { has_royal_court = yes }
+										save_temporary_scope_as = ruler_with_royal_court
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,312 @@
+﻿risk_injury_header = {
+	type = character
+
+	text = {
+		localization_key = risk_injury_none
+		trigger = { sc_attacker_injury_check_UI <= 0 }
+	}
+	text = {
+		localization_key = risk_injury_low
+		trigger = { sc_attacker_injury_check_UI > 0  sc_attacker_injury_check_UI < 0.25 }
+	}
+	text = {
+		localization_key = risk_injury_medium
+		trigger = { sc_attacker_injury_check_UI >=0.25  sc_attacker_injury_check_UI < 0.50 }
+	}
+	text = {
+		localization_key = risk_injury_high
+		trigger = { sc_attacker_injury_check_UI >= 0.50  sc_attacker_injury_check_UI < 0.75 }
+	}
+	text = {
+		localization_key = risk_injury_very_high
+		trigger = { sc_attacker_injury_check_UI >= 0.75 }
+	}
+}
+
+risk_compared = {
+	type = character
+
+	text = {
+		localization_key = risk_higher
+		trigger = { attacker_risk_check > var:sc_attacker_duel_success_score }
+	}
+	text = {
+		localization_key = risk_equal
+		trigger = { attacker_risk_check = var:sc_attacker_duel_success_score }
+	}
+	text = {
+		localization_key = risk_lower
+		trigger = { attacker_risk_check < var:sc_attacker_duel_success_score }
+	}
+}
+
+risk_chance_to_die = {
+	type = character
+
+	text = {
+		localization_key = risk_no_chance
+		trigger = { attacker_risk_check <= var:sc_attacker_duel_success_score }
+	}
+	text = {
+		localization_key = risk_to_lose
+		trigger = { attacker_risk_check > var:sc_attacker_duel_success_score }
+	}
+}
+
+
+
+risk_injury_header_def = {
+	type = character
+
+	text = {
+		localization_key = risk_injury_none
+		trigger = { sc_defender_injury_check_UI <= 0 }
+	}
+	text = {
+		localization_key = risk_injury_low
+		trigger = { sc_defender_injury_check_UI > 0  sc_defender_injury_check_UI < 0.25 }
+	}
+	text = {
+		localization_key = risk_injury_medium
+		trigger = { sc_defender_injury_check_UI >=0.25  sc_defender_injury_check_UI < 0.50 }
+	}
+	text = {
+		localization_key = risk_injury_high
+		trigger = { sc_defender_injury_check_UI >= 0.50  sc_defender_injury_check_UI < 0.75 }
+	}
+	text = {
+		localization_key = risk_injury_very_high
+		trigger = { sc_defender_injury_check_UI >= 0.75 }
+	}
+}
+
+risk_compared_def = {
+	type = character
+
+	text = {
+		localization_key = risk_higher
+		trigger = { defender_risk_check > var:sc_defender_duel_success_score }
+	}
+	text = {
+		localization_key = risk_equal
+		trigger = { defender_risk_check = var:sc_defender_duel_success_score }
+	}
+	text = {
+		localization_key = risk_lower
+		trigger = { defender_risk_check < var:sc_defender_duel_success_score }
+	}
+}
+
+risk_chance_to_die_def = {
+	type = character
+
+	text = {
+		localization_key = risk_no_chance
+		trigger = { defender_risk_check <= var:sc_defender_duel_success_score }
+	}
+	text = {
+		localization_key = risk_to_lose_def
+		trigger = { defender_risk_check > var:sc_defender_duel_success_score }
+	}
+}
+
+score_compared = {
+	type = character
+
+	text = {
+		localization_key = risk_equal
+		trigger = { success_check = 0 }
+	}
+
+	text = {
+		localization_key = risk_higher
+		trigger = { success_check > 0 }
+	}
+	text = {
+		localization_key = risk_lower
+		trigger = { success_check < 0 }
+	}
+}
+
+duel_success_none = {
+	type = character
+
+	text = {
+		localization_key = no_icon
+		trigger = { has_variable = duel_icons }
+	}
+
+	text = {
+		localization_key = duel_success_none_icon
+		fallback = yes
+	}
+}
+
+duel_success_low = {
+	type = character
+
+	text = {
+		localization_key = no_icon
+		trigger = { has_variable = duel_icons }
+	}
+
+	text = {
+		localization_key = duel_success_low_icon
+		fallback = yes
+	}
+}
+
+duel_success_medium = {
+	type = character
+
+	text = {
+		localization_key = no_icon
+		trigger = { has_variable = duel_icons }
+	}
+
+	text = {
+		localization_key = duel_success_medium_icon
+		fallback = yes
+	}
+}
+
+duel_success_high = {
+	type = character
+
+	text = {
+		localization_key = no_icon
+		trigger = { has_variable = duel_icons }
+	}
+
+	text = {
+		localization_key = duel_success_high_icon
+		fallback = yes
+	}
+}
+
+duel_success_very_high = {
+	type = character
+
+	text = {
+		localization_key = no_icon
+		trigger = { has_variable = duel_icons }
+	}
+
+	text = {
+		localization_key = duel_success_very_high_icon
+		fallback = yes
+	}
+}
+
+injury_risk_none = {
+	type = character
+
+	text = {
+		localization_key = no_icon
+		trigger = { has_variable = duel_icons }
+	}
+
+	text = {
+		localization_key = injury_risk_none_icon
+		fallback = yes
+	}
+}
+
+injury_risk_low = {
+	type = character
+
+	text = {
+		localization_key = no_icon
+		trigger = { has_variable = duel_icons }
+	}
+
+	text = {
+		localization_key = injury_risk_low_icon
+		fallback = yes
+	}
+}
+
+injury_risk_medium = {
+	type = character
+
+	text = {
+		localization_key = no_icon
+		trigger = { has_variable = duel_icons }
+	}
+
+	text = {
+		localization_key = injury_risk_medium_icon
+		fallback = yes
+	}
+}
+
+injury_risk_high = {
+	type = character
+
+	text = {
+		localization_key = no_icon
+		trigger = { has_variable = duel_icons }
+	}
+
+	text = {
+		localization_key = injury_risk_high_icon
+		fallback = yes
+	}
+}
+
+injury_risk_very_high = {
+	type = character
+
+	text = {
+		localization_key = no_icon
+		trigger = { has_variable = duel_icons }
+	}
+
+	text = {
+		localization_key = injury_risk_very_high_icon
+		fallback = yes
+	}
+}
+
+health_plus = {
+	type = character
+
+	text = {
+		localization_key = no_icon
+		trigger = { has_variable = duel_icons }
+	}
+
+	text = {
+		localization_key = health_plus_icon
+		fallback = yes
+	}
+}
+
+# ideally, this should check whether the enemy has Trusting trait, but I couldn't make it work
+chance_outcome = {
+	type = character
+
+	text = {
+		localization_key = no_icon
+		trigger = { has_variable = duel_icons }
+	}
+
+	text = {
+		localization_key = chance_outcome_icon
+		fallback = yes
+	}
+}
+
+snek_icon = {
+	type = character
+
+	text = {
+		localization_key = no_icon
+		trigger = { has_variable = duel_icons }
+	}
+
+	text = {
+		localization_key = snek_icon_icon
+		fallback = yes
+	}
+}

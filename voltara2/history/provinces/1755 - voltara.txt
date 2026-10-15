@@ -1,6 +1,9 @@
 ﻿1755 = {
+ culture = voltara_culture_21
+ rite = voltara_embers_of_khaos
+
 # Provisional holding layout; source culture/faith retained.
-culture = voltara_culture_44
-religion = voltara_faith_0
-holding = church_holding
+
+
+holding = none
 }

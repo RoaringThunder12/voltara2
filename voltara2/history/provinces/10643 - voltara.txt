@@ -1,6 +1,8 @@
 ﻿10643 = {
 # Provisional holding layout; source culture/faith retained.
-culture = voltara_culture_20
-rite = voltara_mud_and_flame
-holding = church_holding
+
+
+
+
+ culture = voltara_giants religion = voltara_faith_0 holding = none
 }

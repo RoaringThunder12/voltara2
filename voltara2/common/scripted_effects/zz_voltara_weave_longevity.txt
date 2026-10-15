@@ -1,0 +1,11 @@
+﻿# Do not remove blindness or incapability: those may result from wounds or spells.
+voltara_clear_lifespan_age_ailments_effect = {
+ if = {
+  limit = { voltara_has_protected_lifespan_trigger = yes }
+  if = { limit = { has_trait = infirm } remove_trait = infirm }
+  if = { limit = { has_trait = clouded_eyes } remove_trait = clouded_eyes }
+  if = { limit = { has_trait = faltering_heart } remove_trait = faltering_heart }
+  if = { limit = { has_trait = withering_mind } remove_trait = withering_mind }
+  if = { limit = { has_trait = fragile_bones } remove_trait = fragile_bones }
+ }
+}

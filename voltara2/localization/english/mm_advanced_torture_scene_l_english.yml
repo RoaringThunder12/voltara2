@@ -1,0 +1,68 @@
+﻿l_english:
+ advanced_torture.scene.proceed:0 "Let it begin."
+
+ advanced_torture.7001.t:0 "Lashings"
+ advanced_torture.7001.desc:0 "The guards drag [advanced_torture_prisoner.GetShortUIName] to a damp post in the dungeon. Straps are tightened around [advanced_torture_prisoner.GetHerHis] wrists as the whip is slowly uncoiled across the stone."
+
+ advanced_torture.7002.t:0 "Branding Iron"
+ advanced_torture.7002.desc:0 "The brazier burns in the chamber. One jailer takes the iron and leaves it among the coals until the metal begins to glow. [advanced_torture_prisoner.GetShortUIName] understands the punishment before feeling it."
+
+ advanced_torture.7003.t:0 "Foot Stocks"
+ advanced_torture.7003.desc:0 "The stocks open with a heavy creak. The guards force [advanced_torture_prisoner.GetShortUIName] to sit on the cold stone and place [advanced_torture_prisoner.GetHerHis] ankles between the worn beams."
+
+ advanced_torture.7004.t:0 "Walk of Shame"
+ advanced_torture.7004.desc:0 "The cell door opens. The guards prepare [advanced_torture_prisoner.GetShortUIName] to be shown before others, not as a noble or an honorable prisoner, but as a living warning."
+
+ advanced_torture.7011.t:0 "Bastinado"
+ advanced_torture.7011.desc:0 "[advanced_torture_prisoner.GetShortUIName]'s feet are firmly restrained. The rods are placed beside the bench, ready to turn every future step into a memory of punishment."
+
+ advanced_torture.7012.t:0 "Water Torment"
+ advanced_torture.7012.desc:0 "The jailers prepare a soaked cloth and several jugs of water. [advanced_torture_prisoner.GetShortUIName] is tilted backward, face exposed and hands held by chains."
+
+ advanced_torture.7013.t:0 "Compression Cords"
+ advanced_torture.7013.desc:0 "The cords are unrolled across a small table. They look harmless, but the guards handle them with the precision of those who know a blade is not required to cause pain."
+
+ advanced_torture.7014.t:0 "Strappado"
+ advanced_torture.7014.desc:0 "The rope hangs from an old pulley. The guards bind [advanced_torture_prisoner.GetShortUIName]'s hands behind [advanced_torture_prisoner.GetHerHim] and test the weight of the mechanism before hoisting [advanced_torture_prisoner.GetHerHim]."
+
+ advanced_torture.7015.t:0 "Thumbscrew"
+ advanced_torture.7015.desc:0 "The small iron device is placed on the table. [advanced_torture_prisoner.GetShortUIName] looks down at [advanced_torture_prisoner.GetHerHis] own hands while the jailers prepare the screw with unsettling calm."
+
+ advanced_torture.7016.t:0 "Short Stretching Bench"
+ advanced_torture.7016.desc:0 "The bench lacks the grandeur of the rack, but its straps are firm and close. [advanced_torture_prisoner.GetShortUIName] is laid upon the wood, wrists and ankles prepared for tension."
+
+ advanced_torture.7021.t:0 "Rack of Tension"
+ advanced_torture.7021.desc:0 "The rack dominates the chamber like a machine of obedience. The guards bind [advanced_torture_prisoner.GetShortUIName] by wrists and ankles while the mechanism awaits the first turn."
+
+ advanced_torture.7022.t:0 "Wedged Boot"
+ advanced_torture.7022.desc:0 "[advanced_torture_prisoner.GetShortUIName]'s leg is placed inside the wooden and iron boot. The wedges rest nearby, ready to be driven in blow by blow."
+
+ advanced_torture.7023.t:0 "Rat Torment"
+ advanced_torture.7023.desc:0 "The jailers bring a sealed container from which uneasy scratching can be heard. [advanced_torture_prisoner.GetShortUIName] tenses at the movement inside."
+
+ advanced_torture.7024.t:0 "Enucleation"
+ advanced_torture.7024.desc:0 "The instruments are laid beneath the cold light of the dungeon. The guards hold [advanced_torture_prisoner.GetShortUIName]'s head in place, preventing any attempt to look away."
+
+ advanced_torture.7025.t:0 "Leg Amputation"
+ advanced_torture.7025.desc:0 "The chamber is prepared as a room of punishment and mutilation. The straps are tightened and the instruments are arranged beside [advanced_torture_prisoner.GetShortUIName]."
+
+ advanced_torture.7026.t:0 "Nail Cleaner"
+ advanced_torture.7026.desc:0 "The stilettos are lined across the table like needles of cold metal. The guards force [advanced_torture_prisoner.GetShortUIName]'s hands forward."
+
+ advanced_torture.7031.t:0 "Brazen Bull"
+ advanced_torture.7031.desc:0 "The bronze bull waits in silence. The braziers are stoked around the hollow figure while [advanced_torture_prisoner.GetShortUIName] is led toward the metal opening."
+
+ advanced_torture.7032.t:0 "Judas Cradle"
+ advanced_torture.7032.desc:0 "The cradle is placed at the center of the chamber. Ropes are passed through the pulleys and [advanced_torture_prisoner.GetShortUIName] is slowly raised above the instrument."
+
+ advanced_torture.7033.t:0 "Pear of Anguish"
+ advanced_torture.7033.desc:0 "The instrument is shown before being used. Its mechanism opens and closes in small movements, enough for [advanced_torture_prisoner.GetShortUIName] to understand what is coming."
+
+ advanced_torture.7034.t:0 "Iron Spider"
+ advanced_torture.7034.desc:0 "The iron spider is heated near the brazier. Its points reflect a reddish light while the guards restrain [advanced_torture_prisoner.GetShortUIName]."
+
+ advanced_torture.7035.t:0 "Torture Chair"
+ advanced_torture.7035.desc:0 "The spiked chair waits motionless. It requires no complex mechanism: only straps, weight, and time. The guards push [advanced_torture_prisoner.GetShortUIName] toward it."
+
+ advanced_torture.7036.t:0 "Skull Crusher"
+ advanced_torture.7036.desc:0 "The instrument is placed on the table with a dry iron sound. The jailers prepare the screw while [advanced_torture_prisoner.GetShortUIName] is forced to kneel."

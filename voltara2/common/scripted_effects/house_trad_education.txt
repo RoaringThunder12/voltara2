@@ -1,0 +1,1268 @@
+﻿replace_random_personality_trait = {
+	# Favors removing traits neither parents have.
+	random_list = {
+		1 = {
+			trigger = { has_trait = brave }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = brave } } }
+			remove_trait = brave
+		}
+		1 = {
+			trigger = { has_trait = craven }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = craven } } }
+			remove_trait = craven
+		}
+		1 = {
+			trigger = { has_trait = calm }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = calm } } }
+			remove_trait = calm
+		}
+		1 = {
+			trigger = { has_trait = wrathful }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = wrathful } } }
+			remove_trait = wrathful
+		}
+		1 = {
+			trigger = { has_trait = chaste }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = chaste } } }
+			remove_trait = chaste
+		}
+		1 = {
+			trigger = { has_trait = lustful }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = lustful } } }
+			remove_trait = lustful
+		}
+		1 = {
+			trigger = { has_trait = content }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = content } } }
+			remove_trait = content
+		}
+		1 = {
+			trigger = { has_trait = ambitious }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = ambitious } } }
+			remove_trait = ambitious
+		}
+		1 = {
+			trigger = { has_trait = diligent }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = diligent } } }
+			remove_trait = diligent
+		}
+		1 = {
+			trigger = { has_trait = lazy }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = lazy } } }
+			remove_trait = lazy
+		}
+		1 = {
+			trigger = { has_trait = fickle }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = fickle } } }
+			remove_trait = fickle
+		}
+		1 = {
+			trigger = { has_trait = stubborn }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = stubborn } } }
+			remove_trait = stubborn
+		}
+		1 = {
+			trigger = { has_trait = forgiving }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = forgiving } } }
+			remove_trait = forgiving
+		}
+		1 = {
+			trigger = { has_trait = vengeful }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = vengeful } } }
+			remove_trait = vengeful
+		}
+		1 = {
+			trigger = { has_trait = generous }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = generous } } }
+			remove_trait = generous
+		}
+		1 = {
+			trigger = { has_trait = greedy }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = greedy } } }
+			remove_trait = greedy
+		}
+		1 = {
+			trigger = { has_trait = gregarious }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = gregarious } } }
+			remove_trait = gregarious
+		}
+		1 = {
+			trigger = { has_trait = shy }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = shy } } }
+			remove_trait = shy
+		}
+		1 = {
+			trigger = { has_trait = honest }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = honest } } }
+			remove_trait = honest
+		}
+		1 = {
+			trigger = { has_trait = deceitful }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = deceitful } } }
+			remove_trait = deceitful
+		}
+		1 = {
+			trigger = { has_trait = humble }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = humble } } }
+			remove_trait = humble
+		}
+		1 = {
+			trigger = { has_trait = arrogant }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = arrogant } } }
+			remove_trait = arrogant
+		}
+		1 = {
+			trigger = { has_trait = just }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = just } } }
+			remove_trait = just
+		}
+		1 = {
+			trigger = { has_trait = arbitrary }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = arbitrary } } }
+			remove_trait = arbitrary
+		}
+		1 = {
+			trigger = { has_trait = patient }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = patient } } }
+			remove_trait = patient
+		}
+		1 = {
+			trigger = { has_trait = impatient }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = impatient } } }
+			remove_trait = impatient
+		}
+		1 = {
+			trigger = { has_trait = temperate }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = temperate } } }
+			remove_trait = temperate
+		}
+		1 = {
+			trigger = { has_trait = gluttonous }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = gluttonous } } }
+			remove_trait = gluttonous
+		}
+		1 = {
+			trigger = { has_trait = trusting }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = trusting } } }
+			remove_trait = trusting
+		}
+		1 = {
+			trigger = { has_trait = paranoid }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = paranoid } } }
+			remove_trait = paranoid
+		}
+		1 = {
+			trigger = { has_trait = zealous }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = zealous } } }
+			remove_trait = zealous
+		}
+		1 = {
+			trigger = { has_trait = cynical }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = cynical } } }
+			remove_trait = cynical
+		}
+		1 = {
+			trigger = { has_trait = compassionate }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = compassionate } } }
+			remove_trait = compassionate
+		}
+		1 = {
+			trigger = { has_trait = callous }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = callous } } }
+			remove_trait = callous
+		}
+		1 = {
+			trigger = { has_trait = sadistic }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = sadistic } } }
+			remove_trait = sadistic
+		}
+		1 = {
+			trigger = { has_trait = eccentric }
+			modifier = { factor = 10 NOT = { any_parent = { has_trait = eccentric } } }
+			remove_trait = eccentric
+		}
+	}
+	#Add new trait once the above list removes one at random
+	random_list = {
+		30 = {
+			add_trait = $t1$
+			house_trait_weight = { trait = $t1$ }
+		}
+		30 = {
+			add_trait = $t2$
+			house_trait_weight = { trait = $t2$ }
+		}
+		30 = {
+			add_trait = $t3$
+			house_trait_weight = { trait = $t3$ }
+		}
+	}
+}
+
+house_teach_new_value = {
+	random_list = {
+		25 = {
+			trigger = { NOT = { has_trait = $t1$ } }
+			scope:guardian = {
+				send_interface_toast = {
+					left_icon = scope:guardian
+					right_icon = scope:personality_child
+					title = house_trad.5001.$tradition$
+
+					scope:personality_child = { add_trait = $t1$ }
+				}
+			}
+
+			house_trait_weight = { trait = $t1$ }
+		}
+		25 = {
+			trigger = { NOT = { has_trait = $t2$ } }
+			scope:guardian = {
+				send_interface_toast = {
+					left_icon = scope:guardian
+					right_icon = scope:personality_child
+					title = house_trad.5001.$tradition$
+
+					scope:personality_child = { add_trait = $t2$ }
+				}
+			}
+
+			house_trait_weight = { trait = $t2$ }
+		}
+		25 = {
+			trigger = { NOT = { has_trait = $t3$ } }
+			scope:guardian = {
+				send_interface_toast = {
+					left_icon = scope:guardian
+					right_icon = scope:personality_child
+					title = house_trad.5001.$tradition$
+
+					scope:personality_child = { add_trait = $t3$ }
+				}
+			}
+
+			house_trait_weight = { trait = $t3$ }
+		}
+		50 = {
+			# Nothing Happens
+			scope:guardian = {
+				send_interface_toast = {
+					left_icon = scope:guardian
+					right_icon = scope:personality_child
+					title = house_trad.5001.$tradition$
+
+					custom_tooltip = child_resist_lesson
+				}
+			}
+			modifier = {
+				add = -5
+				scope:guardian = { $skill_1$ >= 10 }
+			}
+			modifier = {
+				add = -5
+				scope:guardian = { $skill_1$ >= 15 }
+			}
+			modifier = {
+				add = -5
+				scope:guardian = { $skill_1$ >= 20 }
+			}
+			modifier = {
+				add = -5
+				scope:guardian = { $skill_2$ >= 10 }
+			}
+			modifier = {
+				add = -5
+				scope:guardian = { $skill_2$ >= 15 }
+			}
+			modifier = {
+				add = -5
+				scope:guardian = { $skill_2$ >= 20 }
+			}
+			modifier = {
+				factor = 0.8
+				scope:guardian = { learning >= 12 }
+			}
+			modifier = {
+				factor = 0.8
+				scope:guardian = { learning >= 15 }
+			}
+			modifier = {
+				factor = 0.8
+				scope:guardian = { learning >= 20 }
+			}
+			modifier = { factor = 0.5 scope:guardian = { OR = { has_trait = patient has_trait = stubborn } } }
+			modifier = { factor = 0.5 scope:guardian = { has_trait = wrathful } }
+			modifier = { factor = 0.5 scope:guardian = { has_trait = gregarious } }
+			modifier = { # Teaching values of child's own house
+				add = -20
+				scope:personality_child.house = scope:guardian.house
+				any_parent = {
+					opinion = {
+						target = scope:personality_child
+						value > 35
+					}
+				}
+			}
+			modifier = { # Teaching values of guardian's house.
+				add = -20
+				NOT = { scope:personality_child.house = scope:guardian.house }
+				scope:guardian = {
+					reverse_opinion = {
+						target = scope:personality_child
+						value > 35
+					}
+				}
+			}
+			parents_affection = { factor = 0.5 }
+		} # Nothing Option
+	} # Random List
+}
+
+house_unteach_bad_habit = {
+	random_list = {
+		50 = {
+			deblack_$tradition$ = yes
+			modifier = {
+				factor = 1.5
+				opinion = {
+					target = scope:guardian
+					value >= 35
+				}
+			}
+			modifier = {
+				factor = 1.5
+				opinion = {
+					target = scope:guardian
+					value >= 60
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait_compatibility = {
+					target = scope:guardian
+					value >= medium_positive_trait_compatibility
+				}
+			}
+		}
+		50 = {
+			# Nothing Happens
+			scope:guardian = {
+				send_interface_toast = {
+					left_icon = scope:guardian
+					right_icon = scope:personality_child
+					title = house_trad.5001.$tradition$
+
+					custom_tooltip = child_resist_lesson
+				}
+			}
+			# Easy Child
+			modifier = { factor = 0.5 has_trait = curious }
+			# Difficult Child
+			modifier = { factor = 1.5 OR = { has_trait = arrogant has_trait = rowdy has_trait = impatient } }					
+			# Resistant Child
+			modifier = { add = 10 has_trait = stubborn }
+			modifier = { add = 10 has_trait = deceitful }
+			modifier = { add = 10 has_trait = lazy }
+			# Good Teacher
+			modifier = { factor = 0.5 scope:guardian = { OR = { has_trait = patient has_trait = stubborn } } }
+			modifier = { factor = 0.5 scope:guardian = { has_trait = wrathful } } # Scary teachers demand obedience
+			modifier = { factor = 0.5 scope:guardian = { has_trait = gregarious } }
+			modifier = { add = -10 scope:guardian = { learning >= 12 } }
+			modifier = { add = -10 scope:guardian = { learning >= 15 } }
+			modifier = { add = -10 scope:guardian = { learning >= 20 } }
+			# Parental modifiers
+			modifier = { add = -20 any_parent = {
+				opinion = { target = scope:personality_child value > 35 } } } # At least one who cares
+			parents_affection = { factor = 0.5 }
+		}
+	}
+}
+house_hone_skills = {
+	random_list = {
+		30 = {
+			scope:guardian = {
+				send_interface_toast = {
+					left_icon = scope:guardian
+					right_icon = scope:personality_child
+					title = house_trad.5001.$tradition$
+
+					scope:personality_child = { add_$skill_1$_skill = 1 }
+				}
+			}
+			# Child's Skills
+			modifier = {
+				factor = 2
+				scope:personality_child = { $skill_1$ <= 3 }
+			}
+			modifier = {
+				factor = 1.5
+				scope:personality_child = { $skill_1$ <= 6 }
+			}
+			modifier = {
+				factor = 0.2
+				scope:personality_child = { $skill_1$ >= 8 }
+			}
+			# Educator's Skills
+			modifier = {
+				factor = 1.5
+				scope:guardian = { $skill_1$ >= 12 }
+			}
+			modifier = {
+				factor = 1.5
+				scope:guardian = { $skill_1$ >= 18 }
+			}
+			modifier = {
+				factor = 1.5
+				scope:guardian = { $skill_1$ >= 24 }
+			}
+		}
+		20 = {
+			scope:guardian = {
+				send_interface_toast = {
+					left_icon = scope:guardian
+					right_icon = scope:personality_child
+					title = house_trad.5001.$tradition$
+
+					scope:personality_child = { add_$skill_2$_skill = 1 }
+				}
+			}
+			# Child's Skills
+			modifier = {
+				factor = 2
+				scope:personality_child = { $skill_2$ <= 3 }
+			}
+			modifier = {
+				factor = 1.5
+				scope:personality_child = { $skill_2$ <= 6 }
+			}
+			modifier = {
+				factor = 0.2
+				scope:personality_child = { $skill_2$ >= 8 }
+			}
+			# Educator's Skills
+			modifier = {
+				factor = 1.5
+				scope:guardian = { $skill_2$ >= 12 }
+			}
+			modifier = {
+				factor = 1.5
+				scope:guardian = { $skill_2$ >= 18 }
+			}
+			modifier = {
+				factor = 1.5
+				scope:guardian = { $skill_2$ >= 24 }
+			}
+		}
+		50 = {
+			# Nothing Happens
+			scope:guardian = {
+				send_interface_toast = {
+					left_icon = scope:guardian
+					right_icon = scope:personality_child
+					title = house_trad.5001.$tradition$
+
+					custom_tooltip = child_resist_lesson
+				}
+			}
+			modifier = {
+				factor = 0.8
+				opinion = {
+					target = scope:guardian
+					value >= 35
+				}
+			}
+			modifier = {
+				factor = 0.8
+				opinion = {
+					target = scope:guardian
+					value >= 60
+				}
+			}
+			modifier = {
+				factor = 0.8
+				trait_compatibility = {
+					target = scope:guardian
+					value >= medium_positive_trait_compatibility
+				}
+			}
+			# Easy Child
+			modifier = { factor = 0.5 has_trait = curious }
+			# Studious Child
+			modifier = { factor = 0.5 has_trait = diligent }
+			# Difficult Child
+			modifier = { factor = 1.5 OR = { has_trait = arrogant has_trait = rowdy has_trait = impatient } }					
+			# Resistant Child
+			modifier = { add = 10 has_trait = stubborn }
+			modifier = { add = 10 has_trait = deceitful }
+			modifier = { add = 10 has_trait = lazy }
+			# Good Teacher
+			modifier = { factor = 0.5 scope:guardian = { OR = { has_trait = patient has_trait = stubborn } } }
+			modifier = { factor = 0.5 scope:guardian = { has_trait = wrathful } } # Scary teachers demand obedience
+			modifier = { factor = 0.5 scope:guardian = { has_trait = gregarious } }
+			modifier = { add = -10 scope:guardian = { learning >= 12 } }
+			modifier = { add = -10 scope:guardian = { learning >= 15 } }
+			modifier = { add = -10 scope:guardian = { learning >= 20 } }
+		}
+	} # Random List
+}
+
+prefer_education = {
+	# Begin Education Code Bloc
+	if = {
+		limit = {
+			NOR = {
+				has_trait = $t1$
+				has_trait = $t2$
+				has_trait = $t3$
+			}
+			# Only dominant gender receives household education pressures 
+			is_dominant_gender = yes 
+		}
+		random_list = {
+			80 = {
+				set_focus = education_$education$
+				#remove_character_flag = parent_meddling
+			}
+			20 = { } # Nothing Happens
+		}
+	} # Education Preference for Valor tradition 
+	else_if = { # Convincing Blacksheep to follow education
+		limit = {
+			# Only dominant gender receives household education pressures 
+			is_dominant_gender = yes 
+		}
+		random_list = {
+			20 = {
+				set_focus = education_$education$
+				#remove_character_flag = parent_meddling
+				modifier = {
+					add = 100
+					any_relation = {
+						type = guardian
+						has_trait_rank = {
+							trait = education_$education$
+							rank > 0
+						}
+					}
+				}
+			}
+			80 = {
+				modifier = {
+					add = -40
+					father = {
+						has_trait_rank = {
+							trait = education_$education$
+							rank > 0
+						}
+					}
+				}
+				modifier = {
+					add = -40
+					mother = {
+						has_trait_rank = {
+							trait = education_$education$
+							rank > 0
+						}
+					}
+				} 
+				# High Pressure Family
+			} # Nothing Happens
+		} # Random List
+	} # Else Bloc
+}
+
+take_after_parent = {
+	# Take a trait after the parent/guardian that the child doesn't already have.
+	random_list = {
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = brave
+						has_trait = craven
+					}
+					$parent$ = { has_trait = brave }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = brave
+				}
+			}
+			add_trait = brave
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = craven
+						has_trait = brave
+					}
+					$parent$ = { has_trait = craven }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = craven
+				}
+			}
+			add_trait = craven
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = calm
+						has_trait = wrathful
+					}
+					$parent$ = { has_trait = calm }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = calm
+				}
+			}
+			add_trait = calm
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = wrathful
+						has_trait = calm
+					}
+					$parent$ = { has_trait = wrathful }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = wrathful
+				}
+			}
+			add_trait = wrathful
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = chaste
+						has_trait = lustful
+					}
+					$parent$ = { has_trait = chaste }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = chaste
+				}
+			}
+			add_trait = chaste
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = lustful
+						has_trait = chaste
+					}
+					$parent$ = { has_trait = lustful }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = lustful
+				}
+			}
+			add_trait = lustful
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = content
+						has_trait = ambitious
+					}
+					$parent$ = { has_trait = content }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = content
+				}
+			}
+			add_trait = content
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = ambitious
+						has_trait = content
+					}
+					$parent$ = { has_trait = ambitious }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = ambitious
+				}
+			}
+			add_trait = ambitious
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = diligent
+						has_trait = lazy
+					}
+					$parent$ = { has_trait = diligent }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = diligent
+				}
+			}
+			add_trait = diligent
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = lazy
+						has_trait = diligent
+					}
+					$parent$ = { has_trait = lazy }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = lazy
+				}
+			}
+			add_trait = lazy
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = fickle
+						has_trait = stubborn
+						has_trait = eccentric
+					}
+					$parent$ = { has_trait = fickle }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = fickle
+				}
+			}
+			add_trait = fickle
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = stubborn
+						has_trait = fickle
+						has_trait = eccentric
+					}
+					$parent$ = { has_trait = stubborn }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = stubborn
+				}
+			}
+			add_trait = stubborn
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = eccentric
+						has_trait = stubborn
+						has_trait = fickle
+					}
+					$parent$ = { has_trait = eccentric }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = eccentric
+				}
+			}
+			add_trait = eccentric
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = forgiving
+						has_trait = vengeful
+					}
+					$parent$ = { has_trait = forgiving }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = forgiving
+				}
+			}
+			add_trait = forgiving
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = vengeful
+						has_trait = forgiving
+					}
+					$parent$ = { has_trait = vengeful }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = vengeful
+				}
+			}
+			add_trait = vengeful
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = generous
+						has_trait = greedy
+					}
+					$parent$ = { has_trait = generous }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = generous
+				}
+			}
+			add_trait = generous
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = greedy
+						has_trait = generous
+					}
+					$parent$ = { has_trait = greedy }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = greedy
+				}
+			}
+			add_trait = greedy
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = gregarious
+						has_trait = shy
+					}
+					$parent$ = { has_trait = gregarious }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = gregarious
+				}
+			}
+			add_trait = gregarious
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = shy
+						has_trait = gregarious
+					}
+					$parent$ = { has_trait = shy }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = shy
+				}
+			}
+			add_trait = shy
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = honest
+						has_trait = deceitful
+					}
+					$parent$ = { has_trait = honest }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = honest
+				}
+			}
+			add_trait = honest
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = deceitful
+						has_trait = honest
+					}
+					$parent$ = { has_trait = deceitful }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = deceitful
+				}
+			}
+			add_trait = deceitful
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = humble
+						has_trait = arrogant
+					}
+					$parent$ = { has_trait = humble }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = humble
+				}
+			}
+			add_trait = humble
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = arrogant
+						has_trait = humble
+					}
+					$parent$ = { has_trait = arrogant }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = arrogant
+				}
+			}
+			add_trait = arrogant
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = just
+						has_trait = arbitrary
+					}
+					$parent$ = { has_trait = just }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = just
+				}
+			}
+			add_trait = just
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = arbitrary
+						has_trait = just
+					}
+					$parent$ = { has_trait = arbitrary }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = arbitrary
+				}
+			}
+			add_trait = arbitrary
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = patient
+						has_trait = impatient
+					}
+					$parent$ = { has_trait = patient }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = patient
+				}
+			}
+			add_trait = patient
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = impatient
+						has_trait = patient
+					}
+					$parent$ = { has_trait = impatient }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = impatient
+				}
+			}
+			add_trait = impatient
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = temperate
+						has_trait = gluttonous
+					}
+					$parent$ = { has_trait = temperate }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = temperate
+				}
+			}
+			add_trait = temperate
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = gluttonous
+						has_trait = temperate
+					}
+					$parent$ = { has_trait = gluttonous }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = gluttonous
+				}
+			}
+			add_trait = gluttonous
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = trusting
+						has_trait = paranoid
+					}
+					$parent$ = { has_trait = trusting }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = trusting
+				}
+			}
+			add_trait = trusting
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = paranoid
+						has_trait = trusting
+					}
+					$parent$ = { has_trait = paranoid }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = paranoid
+				}
+			}
+			add_trait = paranoid
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = zealous
+						has_trait = cynical
+					}
+					$parent$ = { has_trait = zealous }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = zealous
+				}
+			}
+			add_trait = zealous
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = cynical
+						has_trait = zealous
+					}
+					$parent$ = { has_trait = cynical }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = cynical
+				}
+			}
+			add_trait = cynical
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = compassionate
+						has_trait = sadistic
+						has_trait = callous
+					}
+					$parent$ = { has_trait = compassionate }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = compassionate
+				}
+			}
+			add_trait = compassionate
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = sadistic
+						has_trait = callous
+						has_trait = compassionate
+					}
+					$parent$ = { has_trait = callous }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = callous
+				}
+			}
+			add_trait = callous
+		}
+		1 = {
+			trigger = { 
+				AND = {
+					NOT = {
+						has_trait = callous
+						has_trait = sadistic
+						has_trait = compassionate
+					}
+					$parent$ = { has_trait = sadistic }
+				}
+			}
+			modifier = {
+				factor = 2
+				any_parent = {
+					NOT = { THIS = $parent$ }
+					has_trait = sadistic
+				}
+			}
+			add_trait = sadistic
+		}
+	}
+}

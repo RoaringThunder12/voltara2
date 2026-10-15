@@ -1,0 +1,12 @@
+﻿
+on_release_from_prison = {
+ events = {
+  advanced_torture.9001
+ }
+}
+
+on_death = {
+ events = {
+  advanced_torture.9002
+ }
+}

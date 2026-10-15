@@ -1,0 +1,323 @@
+﻿accou_event_frequency_player = {
+	categories = {
+		accou_active_courtiers tweaks historicity
+	}
+
+	default = accou_event_frequency_player_1y
+
+	accou_event_frequency_player_q = {
+		flag = GG_can_change_rule
+	}
+
+	accou_event_frequency_player_1y = {
+		flag = GG_can_change_rule
+	}
+
+	accou_event_frequency_player_3y = {
+		flag = GG_can_change_rule
+	}
+
+	accou_event_frequency_player_5y = {
+		flag = GG_can_change_rule
+	}
+
+	accou_event_frequency_player_never = {
+		flag = GG_can_change_rule
+	}
+}
+
+accou_event_frequency_ai = {
+	categories = {
+		accou_active_courtiers tweaks historicity
+	}
+
+	default = accou_event_frequency_ai_3y
+
+	accou_event_frequency_ai_1y = {
+		flag = GG_can_change_rule
+	}
+
+	accou_event_frequency_ai_3y = {
+		flag = GG_can_change_rule
+	}
+
+	accou_event_frequency_ai_5y = {
+		flag = GG_can_change_rule
+	}
+
+	accou_event_frequency_ai_never = {
+		flag = GG_can_change_rule
+	}
+}
+
+accou_invite_event_frequency_player = {
+	categories = {
+		accou_active_courtiers tweaks historicity
+	}
+
+	default = accou_invite_event_frequency_player_1y
+
+	accou_invite_event_frequency_player_q = {
+		flag = GG_can_change_rule
+	}
+
+	accou_invite_event_frequency_player_1y = {
+		flag = GG_can_change_rule
+	}
+
+	accou_invite_event_frequency_player_3y = {
+		flag = GG_can_change_rule
+	}
+
+	accou_invite_event_frequency_player_5y = {
+		flag = GG_can_change_rule
+	}
+
+	accou_invite_event_frequency_player_never = {
+		flag = GG_can_change_rule
+	}
+}
+
+accou_invite_event_frequency_ai = {
+	categories = {
+		accou_active_courtiers tweaks historicity
+	}
+
+	default = accou_invite_event_frequency_ai_5y
+
+	accou_invite_event_frequency_ai_1y = {
+		flag = GG_can_change_rule
+	}
+
+	accou_invite_event_frequency_ai_3y = {
+		flag = GG_can_change_rule
+	}
+
+	accou_invite_event_frequency_ai_5y = {
+		flag = GG_can_change_rule
+	}
+
+	accou_invite_event_frequency_ai_never = {
+		flag = GG_can_change_rule
+	}
+}
+
+accou_guardian_events = {
+	categories = {
+		accou_active_courtiers tweaks historicity
+	}
+
+	default = accou_guardian_events_enabled
+
+	accou_guardian_events_enabled = {
+		flag = GG_can_change_rule
+	}
+
+	accou_guardian_events_disabled = {
+		flag = GG_can_change_rule
+	}
+}
+
+accou_courtier_events = {
+	categories = {
+		accou_active_courtiers tweaks historicity
+	}
+
+	default = accou_courtier_events_enabled
+
+	accou_courtier_events_enabled = {
+		flag = GG_can_change_rule
+	}
+
+	accou_courtier_events_disabled = {
+		flag = GG_can_change_rule
+	}
+}
+
+accou_marriage_candidate_quality_threshold = {
+	categories = {
+		accou_active_courtiers tweaks
+	}
+
+	default = accou_marriage_candidate_quality_threshold_medium
+
+	accou_marriage_candidate_quality_threshold_very_high = {
+		flag = GG_can_change_rule
+	}
+
+	accou_marriage_candidate_quality_threshold_high = {
+		flag = GG_can_change_rule
+	}
+
+	accou_marriage_candidate_quality_threshold_medium = {
+		flag = GG_can_change_rule
+	}
+
+	accou_marriage_candidate_quality_threshold_low = {
+		flag = GG_can_change_rule
+	}
+
+	accou_marriage_candidate_quality_threshold_very_low = {
+		flag = GG_can_change_rule
+	}
+}
+
+accou_invite_candidate_quality_threshold = {
+	categories = {
+		accou_active_courtiers tweaks
+	}
+
+	default = accou_invite_candidate_quality_threshold_medium
+
+	accou_invite_candidate_quality_threshold_very_high = {
+		flag = GG_can_change_rule
+	}
+
+	accou_invite_candidate_quality_threshold_high = {
+		flag = GG_can_change_rule
+	}
+
+	accou_invite_candidate_quality_threshold_medium = {
+		flag = GG_can_change_rule
+	}
+
+	accou_invite_candidate_quality_threshold_low = {
+		flag = GG_can_change_rule
+	}
+
+	accou_invite_candidate_quality_threshold_very_low = {
+		flag = GG_can_change_rule
+	}
+}
+
+accou_guardian_candidate_quality_threshold = {
+	categories = {
+		accou_active_courtiers tweaks
+	}
+
+	default = accou_guardian_candidate_quality_threshold_medium
+
+	accou_guardian_candidate_quality_threshold_very_high = {
+		flag = GG_can_change_rule
+	}
+
+	accou_guardian_candidate_quality_threshold_high = {
+		flag = GG_can_change_rule
+	}
+
+	accou_guardian_candidate_quality_threshold_medium = {
+		flag = GG_can_change_rule
+	}
+
+	accou_guardian_candidate_quality_threshold_low = {
+		flag = GG_can_change_rule
+	}
+
+	accou_guardian_candidate_quality_threshold_very_low = {
+		flag = GG_can_change_rule
+	}
+}
+
+accou_search_range_player = {
+	categories = {
+		accou_active_courtiers tweaks historicity
+	}
+
+	default = accou_search_range_player_massive
+
+	accou_search_range_player_small = {
+		flag = GG_can_change_rule
+	}
+
+	accou_search_range_player_medium = {
+		flag = GG_can_change_rule
+	}
+
+	accou_search_range_player_large = {
+		flag = GG_can_change_rule
+	}
+
+	accou_search_range_player_huge = {
+		flag = GG_can_change_rule
+	}
+
+	accou_search_range_player_massive = {
+		flag = GG_can_change_rule
+	}
+
+	accou_search_range_player_all = {
+		flag = GG_can_change_rule
+	}
+}
+
+accou_search_range_ai = {
+	categories = {
+		accou_active_courtiers tweaks historicity
+	}
+
+	default = accou_search_range_ai_large
+
+	accou_search_range_ai_medium = {
+		flag = GG_can_change_rule
+	}
+
+	accou_search_range_ai_large = {
+		flag = GG_can_change_rule
+	}
+
+	accou_search_range_ai_huge = {
+		flag = GG_can_change_rule
+	}
+}
+
+accou_wrong_gender_marriage_requests = {
+	categories = {
+		accou_active_courtiers tweaks historicity
+	}
+
+	default = accou_wrong_gender_marriage_requests_highborn_only
+
+	accou_wrong_gender_marriage_requests_not_allowed = {
+		flag = GG_can_change_rule
+	}
+
+	accou_wrong_gender_marriage_requests_highborn_only = {
+		flag = GG_can_change_rule
+	}
+
+	accou_wrong_gender_marriage_requests_allowed = {
+		flag = GG_can_change_rule
+	}
+}
+
+accou_marriage_requests_for_players_lovers = {
+	categories = {
+		accou_active_courtiers tweaks
+	}
+
+	default = accou_marriage_requests_for_players_lovers_allowed
+
+	accou_marriage_requests_for_players_lovers_not_allowed = {
+		flag = GG_can_change_rule
+	}
+
+	accou_marriage_requests_for_players_lovers_allowed = {
+		flag = GG_can_change_rule
+	}
+}
+
+accou_marriage_ai_acceptance_check = {
+	categories = {
+		accou_active_courtiers tweaks
+	}
+
+	default = accou_marriage_ai_acceptance_check_quick
+
+	accou_marriage_ai_acceptance_check_original = {
+		flag = GG_can_change_rule
+	}
+
+	accou_marriage_ai_acceptance_check_quick = {
+		flag = GG_can_change_rule
+	}
+}

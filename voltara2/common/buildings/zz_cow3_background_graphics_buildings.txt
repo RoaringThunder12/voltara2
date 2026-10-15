@@ -1,0 +1,2062 @@
+﻿# These buildings are only for showing background graphics, e.g. the walls around holdings
+#
+# MA city sprawl (merged from Medieval Arts). Only when MA is active; COW3 zzz_MA file overrides MA's copy.
+# COW burge/wall graphics below use NOT exists MA_active where MA provides its own model for that province.
+
+#Rome
+rome_sprawl2 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "sprawl_rome2_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        #Either Late Medieval or the capital of an Emperor
+        always = no
+        OR = {
+            scope:holder = {
+                highest_held_title_tier >= tier_empire
+                always = no
+            }
+            has_building_or_higher = "castle_04"
+        }
+    }
+}
+rome_sprawl = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "sprawl_rome1_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+    }
+}
+#Cairo
+cairo_sprawl4 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "sprawl_cairo4_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        has_building_or_higher = "castle_03"
+        county.development_level >= 50
+    }
+}
+cairo_sprawl3 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "sprawl_cairo3_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        has_building_or_higher = "castle_03"
+    }
+}
+cairo_sprawl2 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "sprawl_cairo2_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        OR = {
+            has_building_or_higher = "castle_02"
+            has_variable = MA_fatimid_cairo_already #Since in 1066 cairo is still castle_01
+        }
+    }
+}
+cairo_sprawl1 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "sprawl_cairo1_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+    }
+}
+#City of the Army (Itil)
+ordu_sprawl = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "ordu_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+    }
+}
+#Devagiri/Daulatabad
+devagiri_sprawl3 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "devagiri3_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        county.development_level >= 40
+    }
+}
+devagiri_sprawl2 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "devagiri2_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        county.development_level >= 20
+    }
+}
+devagiri_sprawl1 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "devagiri1_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+    }
+}
+#Nalanda
+MA_nalanda_university = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "nalanda_university_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        has_building_or_higher = "nalanda_university"
+    }
+}
+#Patna - Pataliputra
+patna_sprawl2 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "sprawl_patna2_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        county.development_level >= 40
+    }
+}
+patna_sprawl1 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "sprawl_patna1_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+    }
+}
+#Chittorgarh
+chittorgarh_sprawl = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "chittorgarh_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        always = no
+    }
+}
+#Tanjavur
+tanjavur_sprawl = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "tanjavur_sprawl_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        has_building_or_higher = "brihadeeswarar_temple_01"
+        always = no
+    }
+}
+#Delhi
+delhi_sprawl4 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "delhi4_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        has_building_or_higher = "castle_04"
+    }
+}
+delhi_sprawl3 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "delhi3_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        has_building_or_higher = "castle_03"
+    }
+}
+delhi_sprawl2 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "delhi2_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        OR = {
+            has_building_or_higher = "castle_02"
+        }
+    }
+}
+delhi_sprawl1 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "delhi1_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+    }
+}
+#Turnovo
+turnovo_sprawl2 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "turnovo_sprawl2_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        county.development_level >= 30
+    }
+}
+turnovo_sprawl1 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "turnovo_sprawl1_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+    }
+}
+#Orange Theater
+orange_sprawl2 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "orange_theater2_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        always = no
+    }
+}
+orange_sprawl1 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "orange_theater1_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        always = no
+    }
+}
+#Anuradhapura
+anuradhapura_sprawl = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "sprawl_anuradhapura_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+    }
+}
+#Kofuku-ji
+kofuku_ji_sprawl = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "kofuku_ji_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        has_building_or_higher = "kofuku_ji_01"
+    }
+}
+#Palermo
+palermo_sprawl4 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "palermo4_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        county.development_level >= 60
+    }
+}
+palermo_sprawl3 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "palermo3_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        county.development_level >= 40
+    }
+}
+palermo_sprawl2 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "palermo2_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+        OR = {
+            has_building_or_higher = "castle_02"
+            has_variable = MA_kalsa_already #Since in 1066 Balarm is still castle_01
+        }
+    }
+}
+palermo_sprawl1 = {
+    is_graphical_background = yes
+    asset = {
+        type = pdxmesh
+        name = "palermo1_mesh"
+    }
+    is_enabled = {
+        exists = global_var:MA_active_global_variable
+        always = no
+    }
+}
+
+# No Walls
+walls_00 = {
+	is_graphical_background = yes
+
+	asset = {
+		type = pdxmesh
+		name = "western_walls_00_mesh"
+	}
+
+	is_enabled = {
+		OR = {
+			AND = {
+				is_county_capital = no
+				fort_level < 1
+			}
+			# Using the no_wall holding graphics for cities with special walls so that they don't have double walls
+			# has_building_or_higher = "city_wall_of_toledo_01"			
+			has_building_or_higher = "roman_wall_of_lugo_01"
+			has_building_or_higher = "kano_walls_01"
+			has_building_or_higher = "jaisalmer_fort_01"
+			has_building_or_higher = "temples_angkor_01" #NOTE: the model gives its own unique set of walls to Angkor
+			# Herders shouldn't have walls
+			scope:holder = {
+				government_has_flag = government_is_herder
+			} 			
+			AND = {
+				OR = {
+					this = province:2333
+					this = province:1527
+					this = province:2006
+					this = province:4828
+					this = province:5910
+					this = province:496
+					this = province:1919
+					this = province:750
+					this = province:490
+					this = province:6053
+					this = province:4125
+					this = province:1995
+					AND = {
+						this = province:4578
+						OR = {
+							has_province_modifier = city_of_wonder_modifier
+							has_province_modifier = city_of_wonder_NO_modifier						
+							has_province_modifier = city_of_wonder_2_modifier
+							has_province_modifier = city_of_wonder_2_NO_modifier
+							has_province_modifier = city_of_wonder_3_modifier
+							has_province_modifier = city_of_wonder_3_NO_modifier
+						}
+					}
+				}
+				exists = global_var:MA_active_global_variable
+			}	
+		}
+	}
+}
+
+# Any city that must be sieged gets the basic walls
+walls_01_tribal = {
+	is_graphical_background = yes
+
+	
+	#Base Tribal Walls:
+	asset = {
+		type = pdxmesh
+		names = {
+			"tribal_walls_01_a_mesh"
+		}
+	}
+	#Specific Tribal Walls:
+	#Emishi:
+	asset = {
+		type = pdxmesh
+		names = {
+			"building_emishi_wall_01_mesh"
+		}
+		requires_dlc_flag = north_pacific_attire
+		#Emishi GFX:
+		graphical_cultures = { emishi_building_gfx amuric_building_gfx }
+	}
+	is_enabled = {	
+		OR = {
+			is_county_capital = yes
+			fort_level > 0
+		}		
+		OR = {
+			AND = {
+				NOT = { this = province:3805 }
+				exists = global_var:MA_active_global_variable				
+				NOR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				}
+			}			
+			AND = {
+				NOT = { exists = global_var:MA_active_global_variable }
+				NOR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				}
+			}
+			AND = {
+				OR = {
+					this = province:2575				
+					this = province:6053
+					this = province:4125
+					this = province:6042
+					this = province:4828
+					this = province:1365
+					this = province:547
+					this = province:4500
+					this = province:2088
+				}
+				exists = global_var:MA_active_global_variable
+				OR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				
+				}
+			}	
+			this = province:496
+			this = province:3284
+		}
+		NOR = {
+			# disabling this level of walled graphics for holdings with special walls and other fortifications so that they always look appropriately fortified. Note: If any of these buildings are given unique 3D assets, this should be looked at again.
+			has_building_or_higher = "palisades_01"
+			has_building_or_higher = "curtain_walls_01"
+			has_building_or_higher = "hill_forts_01"
+			has_building_or_higher = "ramparts_01"
+			has_building_or_higher = "watchtowers_01"
+			has_building_or_higher = "temple_citadel_01"
+			has_building_or_higher = "theodosian_walls_01"
+			has_building_or_higher = "walls_of_benin_01"
+			has_building_or_higher = "walls_of_genoa_01"
+			has_building_or_higher = "aurelian_walls_01"
+			has_building_or_higher = "city_wall_of_toledo_01"
+			has_building_or_higher = "roman_wall_of_lugo_01"
+		}
+		# Nomads use custom walls
+		scope:holder = { NOT = { government_has_flag = government_is_nomadic } }
+	}
+}
+
+# Here the Fort Level building chains take control of the visuals
+walls_01 = {
+	is_graphical_background = yes
+
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_regions = { graphical_western graphical_mediterranean graphical_india }
+	}
+
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_01_a_mesh"
+			"mena_walls_01_b_mesh"
+
+		}
+		graphical_regions = { graphical_mena graphical_steppe }
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		graphical_regions = { graphical_western graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"fp1_norse_walls_01_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_mena }
+		names = {
+			"fp1_norse_walls_01_mena_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"fp2_building_iberian_wall_01_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"fp3_building_persian_walls_01_a_01_mesh"
+		}
+	}
+
+
+	#Emishi:
+	asset = {
+		type = pdxmesh
+		names = {
+			"building_emishi_wall_01_mesh"
+		}
+		requires_dlc_flag = north_pacific_attire
+		#Emishi GFX:
+		graphical_cultures = { emishi_building_gfx amuric_building_gfx }
+		#In all graphical regions:
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+	}
+
+
+	# TGP Southeast Asia
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { southeast_asian_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_se_asia_wall_01_mesh"
+		}
+	}
+	# TGP China
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { chinese_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_chinese_wall_01_mesh"
+		}
+	}
+	# TGP Japan
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { japanese_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_japanese_wall_01_mesh"
+		}
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { steppe_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_chinese_wall_01_mesh"
+		}
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = khans_of_the_steppe
+		graphical_cultures = { steppe_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		governments = { nomad_government }
+		names = {
+			"mpo_mongol_wall_01_mesh"
+		}
+	}
+
+	is_enabled = {	
+		OR = {
+			# These buildings will trigger the visual "upgrade" to this wall asset
+			has_building_or_higher = "palisades_01"
+			has_building_or_higher = "curtain_walls_01"
+			has_building_or_higher = "hill_forts_01"
+			has_building_or_higher = "ramparts_01"
+			has_building_or_higher = "watchtowers_01"
+			has_building_or_higher = "temple_citadel_01"
+			scope:holder = {
+				government_has_flag = government_is_nomadic
+				root = { fort_level = 1 }
+			}
+		}
+		OR = {
+			AND = {
+				NOT = { this = province:3805 }
+				exists = global_var:MA_active_global_variable				
+				NOR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				}
+			}			
+			AND = {
+				NOT = { exists = global_var:MA_active_global_variable }
+				NOR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				}
+			}
+			AND = {
+				OR = {
+					this = province:2575				
+					this = province:6053
+					this = province:4125
+					this = province:6042
+					this = province:4828
+					this = province:1365
+					this = province:547
+					this = province:4500
+					this = province:2088
+				}
+				exists = global_var:MA_active_global_variable
+				OR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				
+				}
+			}	
+			this = province:496
+			this = province:3284
+		}
+		NOR = {
+			# Disabling this level of walled graphics for holdings with special walls and other fortifications so that they always look appropriately fortified. Note: If any of these buildings are given unique 3D assets, this should be looked at again.
+			has_building_or_higher = "palisades_02"
+			has_building_or_higher = "curtain_walls_02"
+			has_building_or_higher = "hill_forts_02"
+			has_building_or_higher = "ramparts_02"
+			has_building_or_higher = "watchtowers_02"
+			has_building_or_higher = "temple_citadel_02"
+			has_building_or_higher = "theodosian_walls_01"
+			has_building_or_higher = "walls_of_benin_01"
+			has_building_or_higher = "walls_of_genoa_01"
+			has_building_or_higher = "aurelian_walls_01"
+			has_building_or_higher = "city_wall_of_toledo_01"
+			has_building_or_higher = "roman_wall_of_lugo_01"
+		}
+	}
+}
+
+walls_02 = {
+	is_graphical_background = yes
+
+
+	asset = {
+		type = pdxmesh
+		graphical_regions = { graphical_western graphical_mediterranean graphical_india }
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		graphical_regions = { graphical_mena graphical_steppe }
+		names = {
+			"mena_walls_02_a_mesh"
+			"mena_walls_02_a_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"fp1_norse_walls_02_mesh"
+		}
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_mena }
+		names = {
+			"fp1_norse_walls_02_mena_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"fp2_building_iberian_wall_02_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"fp3_building_persian_walls_02_a_01_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		graphical_cultures = { byzantine_building_gfx caucasian_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"ep3_byzantine_walls_02_mesh"
+		}
+	}
+
+	
+
+	#Emishi:
+	asset = {
+		type = pdxmesh
+		names = {
+			"building_emishi_wall_02_mesh"
+		}
+		requires_dlc_flag = north_pacific_attire
+		#Emishi GFX:
+		graphical_cultures = { emishi_building_gfx amuric_building_gfx }
+		#In all graphical regions:
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+	} #Above Japan due to falling back to Japanese
+
+	# TGP Southeast Asia
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { southeast_asian_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_se_asia_wall_02_mesh"
+		}
+	}
+	# TGP China
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { chinese_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_chinese_wall_02_mesh"
+		}
+	}
+	# TGP Japan
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { japanese_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_japanese_wall_02_mesh"
+		}
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		governments = { steppe_admin_government celestial_government meritocratic_government }
+		graphical_cultures = { steppe_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_chinese_wall_02_mesh"
+		}
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = khans_of_the_steppe
+		graphical_cultures = { steppe_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		governments = { nomad_government }
+		names = {
+			"mpo_mongol_wall_02_mesh"
+		}
+	}
+
+	is_enabled = {
+		OR = {
+			# These buildings will trigger the visual "upgrade" to this wall asset
+			has_building_or_higher = "palisades_02"
+			has_building_or_higher = "curtain_walls_02"
+			has_building_or_higher = "hill_forts_02"
+			has_building_or_higher = "ramparts_02"
+			has_building_or_higher = "watchtowers_02"
+			has_building_or_higher = "temple_citadel_02"
+			scope:holder = {
+				government_has_flag = government_is_nomadic
+				root = { fort_level = 2 }
+			}
+		}
+		OR = {
+			AND = {
+				NOT = { this = province:3805 }
+				exists = global_var:MA_active_global_variable				
+				NOR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				}
+			}			
+			AND = {
+				NOT = { exists = global_var:MA_active_global_variable }
+				NOR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				}
+			}
+			AND = {
+				OR = {
+					this = province:2575				
+					this = province:6053
+					this = province:4125
+					this = province:6042
+					this = province:4828
+					this = province:1365
+					this = province:547
+					this = province:4500
+					this = province:2088
+				}
+				exists = global_var:MA_active_global_variable
+				OR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				
+				}
+			}	
+			this = province:496
+			this = province:3284
+		}
+		NOR = {
+			# Disabling this level of walled graphics for holdings with special walls and other fortifications so that they always look appropriately fortified. Note: If any of these buildings are given unique 3D assets, this should be looked at again.
+			has_building_or_higher = "curtain_walls_03"
+			has_building_or_higher = "hill_forts_03"
+			has_building_or_higher = "ramparts_03"
+			has_building_or_higher = "watchtowers_03"
+			has_building_or_higher = "temple_citadel_03"
+			has_building_or_higher = "theodosian_walls_01"
+			has_building_or_higher = "walls_of_benin_01"
+			has_building_or_higher = "walls_of_genoa_01"
+			has_building_or_higher = "aurelian_walls_01"
+			has_building_or_higher = "city_wall_of_toledo_01"
+			has_building_or_higher = "roman_wall_of_lugo_01"
+		}
+	}
+}
+
+walls_03 = {
+	is_graphical_background = yes
+
+	asset = {
+		type = pdxmesh
+		graphical_regions = { graphical_western }
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		graphical_regions = { graphical_mediterranean }
+		names = {
+			"mediterranean_walls_03_a_mesh"
+			"mediterranean_walls_03_a_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		graphical_regions = { graphical_mena graphical_steppe }
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		graphical_regions = { graphical_india }
+		names = {
+			"india_walls_03_a_mesh"
+			"india_walls_03_a_mesh"
+		}
+	}
+
+	#Emishi:
+	asset = {
+		type = pdxmesh
+		names = {
+			"building_emishi_wall_03_mesh"
+		}
+		requires_dlc_flag = north_pacific_attire
+		#Emishi GFX:
+		graphical_cultures = { emishi_building_gfx amuric_building_gfx }
+		#In all graphical regions:
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"fp2_building_iberian_wall_03_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"fp3_building_persian_walls_03_a_01_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		graphical_cultures = { byzantine_building_gfx caucasian_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"ep3_byzantine_walls_03_mesh"
+		}
+	}
+	# TGP Southeast Asia
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { southeast_asian_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_se_asia_wall_03_mesh"
+		}
+	}
+	# TGP China
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { chinese_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_chinese_wall_03_mesh"
+		}
+	}
+	# TGP Japan
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { japanese_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_japanese_wall_03_mesh"
+		}
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { steppe_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_chinese_wall_03_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = khans_of_the_steppe
+		graphical_cultures = { steppe_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		governments = { nomad_government }
+		names = {
+			"mpo_mongol_wall_03_mesh"
+		}
+	}
+
+	is_enabled = {		
+		scope:holder = {
+			NOT = { government_has_flag = government_is_tribal }
+		}
+		OR = {
+			# These buildings will trigger the visual "upgrade" to this wall asset
+			has_building_or_higher = "curtain_walls_03"
+			has_building_or_higher = "hill_forts_03"
+			has_building_or_higher = "ramparts_03"
+			has_building_or_higher = "watchtowers_03"
+			has_building_or_higher = "temple_citadel_03"
+			has_building_or_higher = "walls_of_benin_01"
+			has_building_or_higher = "walls_of_genoa_01"
+			has_building_or_higher = "aurelian_walls_01"
+			scope:holder = {
+				government_has_flag = government_is_nomadic
+				root = { fort_level = 3 }
+			}
+		}
+		OR = {
+			AND = {
+				NOT = { this = province:3805 }
+				exists = global_var:MA_active_global_variable				
+				NOR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				}
+			}			
+			AND = {
+				NOT = { exists = global_var:MA_active_global_variable }
+				NOR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				}
+			}
+			AND = {
+				OR = {
+					this = province:2575				
+					this = province:6053
+					this = province:4125
+					this = province:6042
+					this = province:4828
+					this = province:1365
+					this = province:547
+					this = province:4500
+					this = province:2088
+					this = province:547
+				}
+				exists = global_var:MA_active_global_variable
+				OR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				
+				}
+			}	
+			this = province:496
+			this = province:3284
+		}
+		NOR = {
+			# Disabling this level of walled graphics for holdings with special walls and other fortifications so that they always look appropriately fortified. Note: If any of these buildings are given unique 3D assets, this should be looked at again.
+			has_building_or_higher = "curtain_walls_06"
+			has_building_or_higher = "hill_forts_06"
+			has_building_or_higher = "ramparts_06"
+			has_building_or_higher = "watchtowers_06"
+			has_building_or_higher = "temple_citadel_04"
+			has_building_or_higher = "theodosian_walls_01"
+			has_building_or_higher = "city_wall_of_toledo_01"
+			has_building_or_higher = "roman_wall_of_lugo_01"
+		}
+	}
+}
+
+walls_04 = {
+	is_graphical_background = yes
+
+	asset = {
+		type = pdxmesh
+		graphical_regions = { graphical_western }
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		graphical_regions = { graphical_mediterranean }
+		names = {
+			"mediterranean_walls_04_a_mesh"
+			"mediterranean_walls_04_a_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		graphical_regions = { graphical_mena graphical_steppe }
+		names = {
+			"mena_walls_04_a_mesh"
+			"mena_walls_04_a_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		graphical_regions = { graphical_india }
+		names = {
+			"india_walls_04_a_mesh"
+			"india_walls_04_a_mesh"
+		}
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"building_emishi_wall_04_mesh"
+		}
+		requires_dlc_flag = north_pacific_attire
+		#Emishi GFX:
+		graphical_cultures = { emishi_building_gfx amuric_building_gfx }
+		#In all graphical regions:
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"fp2_building_iberian_wall_04_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"fp3_building_persian_walls_04_a_01_mesh"
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		graphical_cultures = { byzantine_building_gfx caucasian_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"ep3_byzantine_walls_04_mesh"
+		}
+	}
+	# TGP Southeast Asia
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { southeast_asian_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_se_asia_wall_04_mesh"
+		}
+	}
+	# TGP China
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { chinese_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_chinese_wall_04_mesh"
+		}
+	}
+	# TGP Japan
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { japanese_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_japanese_wall_04_mesh"
+		}
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { steppe_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		names = {
+			"tgp_building_chinese_wall_04_mesh"
+		}
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = khans_of_the_steppe
+		graphical_cultures = { steppe_building_gfx }
+		graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia }
+		governments = { nomad_government }
+		names = {
+			"mpo_mongol_wall_04_mesh"
+		}
+	}
+
+	is_enabled = {
+		scope:holder = {
+			NOT = { government_has_flag = government_is_tribal }
+		}
+		OR = {
+			# These buildings will trigger the visual "upgrade" to this wall asset
+			has_building_or_higher = "curtain_walls_06"
+			has_building_or_higher = "hill_forts_06"
+			has_building_or_higher = "ramparts_06"
+			has_building_or_higher = "watchtowers_06"
+			has_building_or_higher = "temple_citadel_04"
+			has_building_or_higher = "theodosian_walls_01"
+			scope:holder = {
+				government_has_flag = government_is_nomadic
+				root = { fort_level >= 4 }
+			}
+		}
+		OR = {
+			AND = {
+				NOT = { this = province:3805 }
+				exists = global_var:MA_active_global_variable				
+				NOR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				}
+			}			
+			AND = {
+				NOT = { exists = global_var:MA_active_global_variable }
+				NOR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				}
+			}
+			AND = {
+				OR = {
+					this = province:2575				
+					this = province:6053
+					this = province:4125
+					this = province:6042
+					this = province:4828
+					this = province:1365
+					this = province:547
+					this = province:4500
+					this = province:2088
+				}
+				exists = global_var:MA_active_global_variable
+				OR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				
+				}
+			}	
+			this = province:496
+			this = province:3284
+		}
+	}
+}
+
+## COW3 Sprawl Graphics
+
+toledo_sprawl = {
+	is_graphical_background = yes
+
+	asset = {
+		type = entity
+		name = "toledo_sprawl_entity"
+	}
+
+	is_enabled = { 
+		NOT = { exists = global_var:MA_active_global_variable }
+		has_building_or_higher = "city_wall_of_toledo_01"
+	}
+}
+
+jerusalem_burge_sprawl = {
+	is_graphical_background = yes
+	asset = {
+		type = entity
+		name = jerusalem_burge_sprawl
+	}
+	is_enabled = {  
+		OR = {
+			has_province_modifier = city_of_wonder_modifier
+			has_province_modifier = city_of_wonder_NO_modifier
+			has_province_modifier = city_of_wonder_2_modifier
+			has_province_modifier = city_of_wonder_3_modifier
+			has_province_modifier = city_of_wonder_2_NO_modifier
+			has_province_modifier = city_of_wonder_3_NO_modifier
+		}
+		this = province:5965
+	}
+}
+
+
+
+baghdad_burge_sprawl = {
+	is_graphical_background = yes
+	asset = {
+		type = entity
+		name = baghdad_burge_sprawl
+	}
+	is_enabled = {
+		NOT = { exists = global_var:MA_active_global_variable }
+		OR = {
+			has_province_modifier = city_of_wonder_modifier
+			has_province_modifier = city_of_wonder_NO_modifier
+			has_province_modifier = city_of_wonder_2_modifier
+			has_province_modifier = city_of_wonder_3_modifier
+			has_province_modifier = city_of_wonder_2_NO_modifier
+			has_province_modifier = city_of_wonder_3_NO_modifier
+		}
+		this = province:4828
+	}
+}
+
+london_burge_sprawl = {
+	is_graphical_background = yes
+	asset = {
+		type = entity
+		name = london_burge_sprawl
+	}
+	is_enabled = {
+		NOT = { exists = global_var:MA_active_global_variable }
+		OR = {
+			has_province_modifier = city_of_wonder_modifier
+			has_province_modifier = city_of_wonder_NO_modifier
+			has_province_modifier = city_of_wonder_2_modifier
+			has_province_modifier = city_of_wonder_3_modifier
+			has_province_modifier = city_of_wonder_2_NO_modifier
+			has_province_modifier = city_of_wonder_3_NO_modifier
+		}
+		this = province:1527
+	}
+}
+
+paris_burge_sprawl = {
+	is_graphical_background = yes
+	asset = {
+		type = entity
+		name = paris_burge_sprawl
+	}
+	is_enabled = {  
+		NOT = { exists = global_var:MA_active_global_variable }
+		OR = {
+			has_province_modifier = city_of_wonder_modifier
+			has_province_modifier = city_of_wonder_NO_modifier
+			has_province_modifier = city_of_wonder_2_modifier
+			has_province_modifier = city_of_wonder_2_NO_modifier
+			has_province_modifier = city_of_wonder_3_modifier
+			has_province_modifier = city_of_wonder_3_NO_modifier
+		}
+		OR = {
+			this = province:2333
+			this = province:2115
+		}
+	}
+}
+
+rome_burge_sprawl = {
+	is_graphical_background = yes
+	asset = {
+		type = entity
+		name = rome_burge_sprawl
+	}
+	is_enabled = {
+		NOT = { exists = global_var:MA_active_global_variable }
+		OR = {
+			has_province_modifier = city_of_wonder_modifier
+			has_province_modifier = city_of_wonder_NO_modifier
+			has_province_modifier = city_of_wonder_2_modifier
+			has_province_modifier = city_of_wonder_2_NO_modifier
+			has_province_modifier = city_of_wonder_3_modifier
+			has_province_modifier = city_of_wonder_3_NO_modifier
+		}
+		this = province:2575
+	}
+}
+
+thes_burge_sprawl = {
+	is_graphical_background = yes
+	asset = {
+		type = entity
+		name = thes_burge_sprawl
+	}
+	is_enabled = {
+		NOT = { exists = global_var:MA_active_global_variable }
+		OR = {
+			has_province_modifier = city_of_wonder_modifier
+			has_province_modifier = city_of_wonder_NO_modifier
+			has_province_modifier = city_of_wonder_2_modifier
+			has_province_modifier = city_of_wonder_2_NO_modifier
+			has_province_modifier = city_of_wonder_3_modifier
+			has_province_modifier = city_of_wonder_3_NO_modifier
+		}
+		this = province:490
+	}
+}
+
+burge_sprawl_marrakesh = {
+	is_graphical_background = yes
+	asset = {
+		type = entity
+		name = burge_sprawl_marra
+	}
+	is_enabled = {
+		NOT = { exists = global_var:MA_active_global_variable }
+		OR = {
+			has_province_modifier = city_of_wonder_modifier
+			has_province_modifier = city_of_wonder_NO_modifier
+			has_province_modifier = city_of_wonder_2_modifier
+			has_province_modifier = city_of_wonder_2_NO_modifier
+			has_province_modifier = city_of_wonder_3_modifier
+			has_province_modifier = city_of_wonder_3_NO_modifier
+		}
+		this = province:4718
+	}
+}
+
+burge_sprawl_marrakesh2 = {
+	is_graphical_background = yes
+	asset = {
+		type = entity
+		name = burge_sprawl_marra2
+	}
+	is_enabled = {
+		exists = global_var:MA_active_global_variable
+		OR = {
+			has_province_modifier = city_of_wonder_modifier
+			has_province_modifier = city_of_wonder_NO_modifier
+			has_province_modifier = city_of_wonder_2_modifier
+			has_province_modifier = city_of_wonder_2_NO_modifier
+			has_province_modifier = city_of_wonder_3_modifier
+			has_province_modifier = city_of_wonder_3_NO_modifier
+		}
+		this = province:4718
+	}
+}
+
+burge_sprawl_genoa = {
+	is_graphical_background = yes
+	asset = {
+		type = entity
+		name = burge_sprawl_genoa
+	}
+	is_enabled = {
+		exists = global_var:MA_active_global_variable
+		OR = {
+			has_province_modifier = city_of_wonder_modifier
+			has_province_modifier = city_of_wonder_NO_modifier
+			has_province_modifier = city_of_wonder_2_modifier
+			has_province_modifier = city_of_wonder_2_NO_modifier
+			has_province_modifier = city_of_wonder_3_modifier
+			has_province_modifier = city_of_wonder_3_NO_modifier
+		}
+		this = province:2466
+	}
+}
+
+tribal_burge_sprawl = {
+	is_graphical_background = yes
+    
+	asset = {
+		type = entity
+		name = tribal_cow_entity
+	}
+	is_enabled = {
+		scope:holder = {
+			government_has_flag = government_is_tribal
+		}
+		OR = {
+			has_province_modifier = city_of_wonder_modifier
+			has_province_modifier = city_of_wonder_NO_modifier
+			has_province_modifier = city_of_wonder_2_modifier
+			has_province_modifier = city_of_wonder_2_NO_modifier
+			has_province_modifier = city_of_wonder_3_modifier
+			has_province_modifier = city_of_wonder_3_NO_modifier
+		}
+		# NOT = { always = no }		
+		NOT = { this = province:2333 }
+		# NOT = { always = no	}		
+		NOT = { this = province:1527 }
+		# NOT = { always = no }		
+		NOT = { this = province:2575 }
+		# NOT = { always = no }		
+		NOT = { this = province:496 }
+		# NOT = { always = no }		
+		NOT = { this = province:4718 }
+		# NOT = { always = no}		
+		NOT = { this = province:2115 }
+		# NOT = { always = no}		
+		NOT = { this = province:490 }
+		# NOT = { always = no }		
+		NOT = { this = province:4828 }
+		# NOT = { always = no }		
+		NOT = { this = province:5965 }
+		NOT = { this = province:2466 }
+		# NOT = { always = no }		
+		NOT = { this = province:4394 }
+		NOR = {
+			has_building_or_higher = "walls_of_genoa_01"
+			has_building_or_higher = "theodosian_walls_01"
+			has_building_or_higher = "aurelian_walls_01"
+			has_building_or_higher = "city_wall_of_toledo_01"
+			has_building_or_higher = "roman_wall_of_lugo_01"
+		}
+	}
+}
+
+burge_sprawl_5 = {
+	is_graphical_background = yes
+
+	asset = {
+		type = entity
+		name = burge_sprawl_5
+	}
+	asset = {
+		type = entity
+		graphical_cultures = { western_building_gfx norse_building_gfx }
+		graphical_regions = { graphical_western graphical_mediterranean graphical_steppe }
+		name = burge_sprawl_5
+	}
+
+	asset = {
+		type = entity
+		graphical_cultures = { mediterranean_building_gfx byzantine_building_gfx }
+		graphical_regions = { graphical_western graphical_mediterranean graphical_steppe graphical_mena }
+		name = burge_sprawl_med_5
+	}
+
+	asset = {
+		type = entity
+		graphical_cultures = { mena_building_gfx steppe_building_gfx }
+		graphical_regions = { graphical_mediterranean graphical_mena }
+		name = burge_sprawl_mena_5
+	}
+
+	asset = {
+		type = entity
+		graphical_cultures = { indian_building_gfx }
+		graphical_regions = { graphical_mena graphical_steppe graphical_india }
+		name = burge_sprawl_indian_05
+	}
+
+	asset = {
+		type = entity
+		requires_dlc_flag = the_fate_of_iberia
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+		name = burge_sprawl_iberia_5
+	}
+
+	asset = {
+		type = entity
+		requires_dlc_flag = legacy_of_persia
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_mena graphical_india  graphical_steppe graphical_mediterranean }
+		name = burge_sprawl_persia_5
+	}
+	# TGP Southeast Asia
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { southeast_asian_building_gfx }
+		graphical_regions = { graphical_east_asia graphical_india }
+		names = {
+			"tgp_building_se_asia_wall_04_mesh"
+		}
+	}
+	# TGP China
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { chinese_building_gfx }
+		graphical_regions = { graphical_east_asia graphical_steppe }
+		names = {
+			"tgp_building_chinese_wall_05_mesh"
+		}
+	}
+	# TGP Japan
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { japanese_building_gfx }
+		graphical_regions = { graphical_east_asia graphical_steppe }
+		names = {
+			"tgp_building_japanese_wall_05_mesh"
+		}
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { steppe_building_gfx }
+		governments = { steppe_admin_government celestial_government meritocratic_government }
+		graphical_regions = { graphical_east_asia }
+		names = {
+			"tgp_building_chinese_wall_05_mesh"
+		}
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = khans_of_the_steppe
+		graphical_cultures = { steppe_building_gfx }
+		graphical_regions = { graphical_steppe }
+		governments = { nomad_government }
+		names = {
+			"mpo_mongol_wall_04_mesh"
+		}
+	}
+
+	is_enabled = {
+		scope:holder = {
+			NOT = { government_has_flag = government_is_tribal }
+		}
+		OR = {
+			has_province_modifier = city_of_wonder_modifier
+			has_province_modifier = city_of_wonder_NO_modifier
+		}
+		NOR = {
+			has_province_modifier = city_of_wonder_2_modifier
+			has_province_modifier = city_of_wonder_2_NO_modifier
+			has_province_modifier = city_of_wonder_3_modifier
+			has_province_modifier = city_of_wonder_3_NO_modifier
+		}
+		# NOT = { always = no }		
+		NOT = { this = province:2333 }
+		# NOT = { always = no	}		
+		NOT = { this = province:1527 }
+		# NOT = { always = no }		
+		NOT = { this = province:2575 }
+		# NOT = { always = no }		
+		NOT = { this = province:496 }
+		# NOT = { always = no }		
+		NOT = { this = province:4718 }
+		# NOT = { always = no}		
+		NOT = { this = province:2115 }
+		# NOT = { always = no}		
+		NOT = { this = province:490 }
+		# NOT = { always = no }		
+		NOT = { this = province:4828 }
+		# NOT = { always = no }		
+		NOT = { this = province:5965 }
+		NOT = { this = province:2466 }
+		# NOT = { always = no }		
+		NOT = { this = province:4394 }
+		NOT = { this = province:3284 }
+		NOT = { this = province:3284 }
+		NOR = {
+			has_building_or_higher = "walls_of_genoa_01"
+			has_building_or_higher = "theodosian_walls_01"
+			has_building_or_higher = "aurelian_walls_01"
+			has_building_or_higher = "city_wall_of_toledo_01"
+			has_building_or_higher = "roman_wall_of_lugo_01"
+		}
+	}
+}
+
+burge_sprawl_6 = {
+	is_graphical_background = yes
+
+	asset = {
+		type = entity
+		name = burge_sprawl_6
+	}
+	asset = {
+		type = entity
+		graphical_cultures = { western_building_gfx norse_building_gfx }
+		graphical_regions = { graphical_western graphical_mediterranean graphical_steppe }
+		name = burge_sprawl_6
+	}
+
+	asset = {
+		type = entity
+		graphical_cultures = { mediterranean_building_gfx byzantine_building_gfx }
+		graphical_regions = { graphical_western graphical_mediterranean graphical_steppe graphical_mena }
+		name = burge_sprawl_med_6
+	}
+
+	asset = {
+		type = entity
+		graphical_cultures = { mena_building_gfx steppe_building_gfx }
+		graphical_regions = { graphical_mediterranean graphical_mena }
+		name = burge_sprawl_mena_6
+	}
+
+	asset = {
+		type = entity
+		graphical_cultures = { indian_building_gfx }
+		graphical_regions = { graphical_mena graphical_steppe graphical_india }
+		name = burge_sprawl_indian_06
+	}
+
+	asset = {
+		type = entity
+		requires_dlc_flag = the_fate_of_iberia
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+		name = burge_sprawl_iberia_6
+	}
+
+	asset = {
+		type = entity
+		requires_dlc_flag = legacy_of_persia
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_mena graphical_india  graphical_steppe graphical_mediterranean }
+		name = burge_sprawl_persia_6
+	}
+	# TGP Southeast Asia
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { southeast_asian_building_gfx }
+		graphical_regions = { graphical_east_asia graphical_india }
+		names = {
+			"tgp_building_se_asia_wall_04_mesh"
+		}
+	}
+	# TGP China
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { chinese_building_gfx }
+		graphical_regions = { graphical_east_asia graphical_steppe }
+		names = {
+			"tgp_building_chinese_wall_05_mesh"
+		}
+	}
+	# TGP Japan
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { japanese_building_gfx }
+		graphical_regions = { graphical_east_asia graphical_steppe }
+		names = {
+			"tgp_building_japanese_wall_05_mesh"
+		}
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { steppe_building_gfx }
+		governments = { steppe_admin_government celestial_government meritocratic_government }
+		graphical_regions = { graphical_east_asia }
+		names = {
+			"tgp_building_chinese_wall_05_mesh"
+		}
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = khans_of_the_steppe
+		graphical_cultures = { steppe_building_gfx }
+		graphical_regions = { graphical_steppe }
+		governments = { nomad_government }
+		names = {
+			"mpo_mongol_wall_04_mesh"
+		}
+	}
+
+	is_enabled = {
+		scope:holder = {
+			NOT = { government_has_flag = government_is_tribal }
+		}
+		OR = {
+			has_province_modifier = city_of_wonder_2_modifier
+			has_province_modifier = city_of_wonder_2_NO_modifier
+		}
+		NOR = {
+			has_province_modifier = city_of_wonder_modifier
+			has_province_modifier = city_of_wonder_NO_modifier
+			has_province_modifier = city_of_wonder_3_modifier
+			has_province_modifier = city_of_wonder_3_NO_modifier
+		}
+		# NOT = { always = no }		
+		NOT = { this = province:2333 }
+		# NOT = { always = no	}		
+		NOT = { this = province:1527 }
+		# NOT = { always = no }		
+		NOT = { this = province:2575 }
+		# NOT = { always = no }		
+		NOT = { this = province:496 }
+		# NOT = { always = no }		
+		NOT = { this = province:4718 }
+		# NOT = { always = no}		
+		NOT = { this = province:2115 }
+		# NOT = { always = no}		
+		NOT = { this = province:490 }
+		# NOT = { always = no }		
+		NOT = { this = province:4828 }
+		# NOT = { always = no }		
+		NOT = { this = province:5965 }
+		NOT = { this = province:2466 }
+		# NOT = { always = no }		
+		NOT = { this = province:4394 }
+		NOT = { this = province:3284 }
+		NOR = {
+			has_building_or_higher = "walls_of_genoa_01"
+			has_building_or_higher = "theodosian_walls_01"
+			has_building_or_higher = "aurelian_walls_01"
+			has_building_or_higher = "city_wall_of_toledo_01"
+			has_building_or_higher = "roman_wall_of_lugo_01"
+		}
+	}
+}
+
+burge_sprawl_7 = {
+	is_graphical_background = yes
+
+	asset = {
+		type = entity
+		name = burge_sprawl_7
+	}
+	asset = {
+		type = entity
+		graphical_cultures = { western_building_gfx norse_building_gfx }
+		graphical_regions = { graphical_western graphical_mediterranean graphical_steppe }
+		name = burge_sprawl_7
+	}
+
+	asset = {
+		type = entity
+		graphical_cultures = { mediterranean_building_gfx byzantine_building_gfx }
+		graphical_regions = { graphical_western graphical_mediterranean graphical_steppe graphical_mena }
+		name = burge_sprawl_med_7
+	}
+
+	asset = {
+		type = entity
+		graphical_cultures = { mena_building_gfx steppe_building_gfx }
+		graphical_regions = { graphical_mediterranean graphical_mena }
+		name = burge_sprawl_mena_7
+	}
+
+	asset = {
+		type = entity
+		graphical_cultures = { indian_building_gfx }
+		graphical_regions = { graphical_mena graphical_steppe graphical_india }
+		name = burge_sprawl_indian_07
+	}
+
+	asset = {
+		type = entity
+		requires_dlc_flag = the_fate_of_iberia
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+		name = burge_sprawl_iberia_7
+	}
+
+	asset = {
+		type = entity
+		requires_dlc_flag = legacy_of_persia
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_mena graphical_india  graphical_steppe graphical_mediterranean }
+		name = burge_sprawl_persia_7
+	}
+
+	# TGP Southeast Asia
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { southeast_asian_building_gfx }
+		graphical_regions = { graphical_east_asia graphical_india }
+		names = {
+			"tgp_building_se_asia_wall_04_mesh"
+		}
+	}
+	# TGP China
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { chinese_building_gfx }
+		graphical_regions = { graphical_east_asia graphical_steppe }
+		names = {
+			"tgp_building_chinese_wall_05_mesh"
+		}
+	}
+	# TGP Japan
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { japanese_building_gfx }
+		graphical_regions = { graphical_east_asia graphical_steppe }
+		names = {
+			"tgp_building_japanese_wall_05_mesh"
+		}
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = all_under_heaven
+		graphical_cultures = { steppe_building_gfx }
+		governments = { steppe_admin_government celestial_government meritocratic_government }
+		graphical_regions = { graphical_east_asia }
+		names = {
+			"tgp_building_chinese_wall_05_mesh"
+		}
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = khans_of_the_steppe
+		graphical_cultures = { steppe_building_gfx }
+		graphical_regions = { graphical_steppe }
+		governments = { nomad_government }
+		names = {
+			"mpo_mongol_wall_04_mesh"
+		}
+	}
+
+	is_enabled = {
+		scope:holder = {
+			NOT = { government_has_flag = government_is_tribal }
+		}
+		OR = {
+			has_province_modifier = city_of_wonder_3_modifier
+			has_province_modifier = city_of_wonder_3_NO_modifier
+		}
+		NOR = {
+			has_province_modifier = city_of_wonder_modifier
+			has_province_modifier = city_of_wonder_NO_modifier
+			has_province_modifier = city_of_wonder_2_modifier
+			has_province_modifier = city_of_wonder_2_NO_modifier
+		}
+		# NOT = { always = no }		
+		NOT = { this = province:2333 }
+		# NOT = { always = no	}		
+		NOT = { this = province:1527 }
+		# NOT = { always = no }		
+		NOT = { this = province:2575 }
+		# NOT = { always = no }		
+		NOT = { this = province:496 }
+		# NOT = { always = no }		
+		NOT = { this = province:4718 }
+		# NOT = { always = no}		
+		NOT = { this = province:2115 }
+		# NOT = { always = no}		
+		NOT = { this = province:490 }
+		# NOT = { always = no }		
+		NOT = { this = province:4828 }
+		# NOT = { always = no }		
+		NOT = { this = province:5965 }
+		NOT = { this = province:2466 }
+		# NOT = { always = no }		
+		NOT = { this = province:4394 }
+		NOT = { this = province:3284 }
+		NOR = {
+			has_building_or_higher = "walls_of_genoa_01"
+			has_building_or_higher = "theodosian_walls_01"
+			has_building_or_higher = "aurelian_walls_01"
+			has_building_or_higher = "city_wall_of_toledo_01"
+			has_building_or_higher = "roman_wall_of_lugo_01"
+		}
+	}
+}

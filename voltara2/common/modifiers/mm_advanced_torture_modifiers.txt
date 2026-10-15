@@ -1,0 +1,45 @@
+﻿advanced_torture_cooldown = {
+ icon = health_negative
+}
+
+advanced_torture_recently_tortured = {
+ icon = health_negative
+ health = -0.5
+ prowess = -1
+ diplomacy = -1
+ general_opinion = -5
+}
+
+advanced_torture_recovery_minor = {
+ icon = health_negative
+ health = -0.10
+ prowess = -1
+ general_opinion = -3
+}
+
+advanced_torture_recovery_medium = {
+ icon = health_negative
+ health = -0.25
+ prowess = -2
+ diplomacy = -1
+ martial = -1
+ intrigue = -1
+ general_opinion = -8
+}
+
+advanced_torture_recovery_severe = {
+ icon = health_negative
+ health = -0.50
+ prowess = -4
+ diplomacy = -2
+ martial = -2
+ intrigue = -2
+ stewardship = -1
+ learning = -1
+ general_opinion = -15
+}
+
+advanced_torture_tortured_to_survive = {
+ icon = health_positive
+ health = 3.0
+}

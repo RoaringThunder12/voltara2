@@ -1,0 +1,371 @@
+﻿advanced_torture_can_torture_prisoner_trigger = {
+ exists = scope:advanced_torture_prisoner
+
+ scope:advanced_torture_prisoner = {
+  is_alive = yes
+  is_imprisoned = yes
+  NOT = { has_character_modifier = advanced_torture_cooldown }
+ }
+}
+
+advanced_torture_can_pay_light_torture_trigger = {
+ OR = {
+  prestige >= 150
+
+  AND = {
+   has_trait = sadistic
+   prestige >= 75
+  }
+ }
+}
+
+advanced_torture_can_pay_medium_torture_trigger = {
+ OR = {
+  prestige >= 275
+
+  AND = {
+   has_trait = sadistic
+   prestige >= 140
+  }
+ }
+}
+
+advanced_torture_can_pay_strong_torture_trigger = {
+ OR = {
+  prestige >= 425
+
+  AND = {
+   has_trait = sadistic
+   prestige >= 215
+  }
+ }
+}
+
+advanced_torture_can_pay_sadistic_torture_trigger = {
+ OR = {
+  prestige >= 600
+
+  AND = {
+   has_trait = sadistic
+   prestige >= 300
+  }
+ }
+}
+
+advanced_torture_sadistic_tortures_available_trigger = {
+ has_trait = sadistic
+ advanced_torture_can_torture_prisoner_trigger = yes
+}
+
+
+
+advanced_torture_cultural_tortures_available_trigger = {
+ OR = {
+  advanced_torture_is_culture_scandinavian_trigger = yes
+  advanced_torture_is_culture_celtic_trigger = yes
+  advanced_torture_is_culture_east_slavic_trigger = yes
+  advanced_torture_is_culture_west_slavic_trigger = yes
+  advanced_torture_is_culture_baltic_trigger = yes
+  advanced_torture_is_culture_balto_finnic_sami_trigger = yes
+  advanced_torture_is_culture_steppe_turkic_trigger = yes
+  advanced_torture_is_culture_berber_north_african_trigger = yes
+  advanced_torture_is_culture_west_african_sahelian_trigger = yes
+  advanced_torture_is_culture_nubian_horn_african_trigger = yes
+  advanced_torture_is_culture_frankish_french_trigger = yes
+  advanced_torture_is_culture_west_germanic_trigger = yes
+  advanced_torture_is_culture_christian_iberian_trigger = yes
+  advanced_torture_is_culture_latin_italian_trigger = yes
+  advanced_torture_is_culture_byzantine_greek_trigger = yes
+  advanced_torture_is_culture_arabic_trigger = yes
+  advanced_torture_is_culture_iranian_persian_trigger = yes
+  advanced_torture_is_culture_north_indian_trigger = yes
+  advanced_torture_is_culture_dravidian_south_indian_trigger = yes
+  advanced_torture_is_culture_sinitic_chinese_trigger = yes
+  advanced_torture_is_culture_mongolian_trigger = yes
+  advanced_torture_is_culture_armenian_caucasian_trigger = yes
+  advanced_torture_is_culture_north_caucasian_alan_trigger = yes
+  advanced_torture_is_culture_magyar_hungarian_trigger = yes
+  advanced_torture_is_culture_vlach_carpathian_trigger = yes
+  advanced_torture_is_culture_albanian_trigger = yes
+  advanced_torture_is_culture_syriac_assyrian_trigger = yes
+  advanced_torture_is_culture_jewish_trigger = yes
+  advanced_torture_is_culture_black_sea_pontic_trigger = yes
+  advanced_torture_is_culture_japonic_trigger = yes
+ }
+}
+
+advanced_torture_is_culture_scandinavian_trigger = {
+ OR = {
+  culture = culture:swedish
+  culture = culture:norwegian
+  culture = culture:danish
+ }
+}
+
+advanced_torture_is_culture_celtic_trigger = {
+ OR = {
+  culture = culture:gaelic
+  culture = culture:welsh
+  culture = culture:breton
+  culture = culture:cornish
+  culture = culture:cumbrian
+ }
+}
+
+advanced_torture_is_culture_east_slavic_trigger = {
+ OR = {
+  culture = culture:ilmenian
+  culture = culture:severian
+  culture = culture:volhynian
+ }
+}
+
+advanced_torture_is_culture_west_slavic_trigger = {
+ OR = {
+  culture = culture:czech
+  culture = culture:polish
+  culture = culture:polabian
+  culture = culture:slovien
+  culture = culture:carantanian
+ }
+}
+
+advanced_torture_is_culture_baltic_trigger = {
+ OR = {
+  culture = culture:lithuanian
+  culture = culture:prussian
+ }
+}
+
+advanced_torture_is_culture_balto_finnic_sami_trigger = {
+ OR = {
+  culture = culture:sami
+  culture = culture:estonian
+  culture = culture:karelian
+  culture = culture:vepsian
+ }
+}
+
+advanced_torture_is_culture_steppe_turkic_trigger = {
+ OR = {
+  culture = culture:pecheneg
+  culture = culture:cuman
+  culture = culture:khazar
+  culture = culture:bolghar
+  culture = culture:bashkir
+  culture = culture:avar
+  culture = culture:karluk
+  culture = culture:kimek
+  culture = culture:kipchak
+  culture = culture:kirghiz
+  culture = culture:uyghur
+  culture = culture:yughur
+  culture = culture:turkmen
+  culture = culture:kazak
+ }
+}
+
+advanced_torture_is_culture_berber_north_african_trigger = {
+ OR = {
+  culture = culture:baranis
+  culture = culture:guanches
+  culture = culture:zaghawa
+  culture = culture:maghrebi
+ }
+}
+
+advanced_torture_is_culture_west_african_sahelian_trigger = {
+ OR = {
+  culture = culture:bozo
+  culture = culture:mossi
+  culture = culture:serer
+  culture = culture:wolof
+  culture = culture:bobo
+  culture = culture:gur
+  culture = culture:marka
+  culture = culture:mel
+  culture = culture:kru
+  culture = culture:guan
+ }
+}
+
+advanced_torture_is_culture_nubian_horn_african_trigger = {
+ OR = {
+  culture = culture:nubian
+  culture = culture:welayta
+  culture = culture:daju
+  culture = culture:beja
+  culture = culture:afar
+ }
+}
+
+advanced_torture_is_culture_frankish_french_trigger = {
+ OR = {
+  culture = culture:frankish
+  culture = culture:french
+  culture = culture:norman
+  culture = culture:occitan
+ }
+}
+
+advanced_torture_is_culture_west_germanic_trigger = {
+ OR = {
+  culture = culture:saxon
+  culture = culture:franconian
+  culture = culture:swabian
+  culture = culture:bavarian
+  culture = culture:frisian
+  culture = culture:dutch
+  culture = culture:german
+  culture = culture:old_saxon
+  culture = culture:anglo_saxon
+ }
+}
+
+advanced_torture_is_culture_christian_iberian_trigger = {
+ OR = {
+  culture = culture:castilian
+  culture = culture:catalan
+  culture = culture:portuguese
+  culture = culture:visigothic
+  culture = culture:asturleonese
+  culture = culture:aragonese
+  culture = culture:basque
+ }
+}
+
+advanced_torture_is_culture_latin_italian_trigger = {
+ OR = {
+  culture = culture:italian
+  culture = culture:roman
+  culture = culture:cisalpine
+  culture = culture:sardinian
+  culture = culture:sicilian
+  culture = culture:lombard
+  culture = culture:langobard
+ }
+}
+
+advanced_torture_is_culture_byzantine_greek_trigger = {
+ OR = {
+  culture = culture:greek
+ }
+}
+
+advanced_torture_is_culture_arabic_trigger = {
+ OR = {
+  culture = culture:bedouin
+  culture = culture:levantine
+  culture = culture:egyptian
+  culture = culture:yemeni
+ }
+}
+
+advanced_torture_is_culture_iranian_persian_trigger = {
+ OR = {
+  culture = culture:persian
+  culture = culture:tajik
+  culture = culture:daylamite
+  culture = culture:kurdish
+  culture = culture:sogdian
+  culture = culture:baloch
+ }
+}
+
+advanced_torture_is_culture_north_indian_trigger = {
+ OR = {
+  culture = culture:hindustani
+  culture = culture:punjabi
+  culture = culture:rajput
+  culture = culture:sindhi
+  culture = culture:kashmiri
+  culture = culture:nepali
+ }
+}
+
+advanced_torture_is_culture_dravidian_south_indian_trigger = {
+ OR = {
+  culture = culture:tamil
+  culture = culture:telugu
+  culture = culture:kannada
+  culture = culture:gond
+ }
+}
+
+advanced_torture_is_culture_sinitic_chinese_trigger = {
+ OR = {
+  culture = culture:han
+  culture = culture:khitan
+  culture = culture:shatuo
+  culture = culture:hlai
+  culture = culture:yi
+ }
+}
+
+advanced_torture_is_culture_mongolian_trigger = {
+ OR = {
+  culture = culture:mongol
+ }
+}
+
+advanced_torture_is_culture_armenian_caucasian_trigger = {
+ OR = {
+  culture = culture:armenian
+  culture = culture:georgian
+ }
+}
+
+advanced_torture_is_culture_north_caucasian_alan_trigger = {
+ OR = {
+  culture = culture:alan
+ }
+}
+
+advanced_torture_is_culture_magyar_hungarian_trigger = {
+ OR = {
+  culture = culture:mogyer
+  culture = culture:hungarian
+ }
+}
+
+advanced_torture_is_culture_vlach_carpathian_trigger = {
+ OR = {
+  culture = culture:vlach
+ }
+}
+
+advanced_torture_is_culture_albanian_trigger = {
+ OR = {
+  culture = culture:albanian
+ }
+}
+
+advanced_torture_is_culture_syriac_assyrian_trigger = {
+ OR = {
+  culture = culture:assyrian
+ }
+}
+
+advanced_torture_is_culture_jewish_trigger = {
+ OR = {
+  culture = culture:ashkenazi
+  culture = culture:sephardi
+  culture = culture:radhanite
+  culture = culture:hebrew
+ }
+}
+
+advanced_torture_is_culture_black_sea_pontic_trigger = {
+ OR = {
+  culture = culture:pontic
+  culture = culture:gothic
+ }
+}
+
+advanced_torture_is_culture_japonic_trigger = {
+ OR = {
+  culture = culture:japanese
+  culture = culture:ainu
+  culture = culture:ryukyuan
+ }
+}

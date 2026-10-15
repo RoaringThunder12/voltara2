@@ -1,0 +1,51 @@
+﻿cow_add_city_of_wonder_modifier_effect = {
+	add_province_modifier = city_of_wonder_modifier
+}
+
+cow_add_city_of_wonder_2_modifier_effect = {
+	cow_promote_city_of_wonder_1_to_2_effect = yes
+}
+
+cow_add_city_of_wonder_3_modifier_effect = {
+	cow_promote_city_of_wonder_2_to_3_effect = yes
+}
+
+cow_promote_city_of_wonder_1_to_2_effect = {
+	remove_province_modifier = city_of_wonder_modifier
+	add_province_modifier = city_of_wonder_2_modifier
+}
+
+cow_promote_city_of_wonder_2_to_3_effect = {
+	remove_province_modifier = city_of_wonder_2_modifier
+	add_province_modifier = city_of_wonder_3_modifier
+}
+
+cow_promote_city_of_wonder_1_to_3_effect = {
+	remove_province_modifier = city_of_wonder_modifier
+	remove_province_modifier = city_of_wonder_2_modifier
+	add_province_modifier = city_of_wonder_3_modifier
+}
+
+cow_remove_city_of_wonder_modifier_effect = {
+	remove_province_modifier = city_of_wonder_modifier
+}
+
+cow_remove_city_of_wonder_2_modifier_effect = {
+	remove_province_modifier = city_of_wonder_2_modifier
+}
+
+cow_remove_city_of_wonder_3_modifier_effect = {
+	remove_province_modifier = city_of_wonder_3_modifier
+}
+
+cow_add_city_of_wonder_NO_modifier_effect = {
+	add_province_modifier = city_of_wonder_NO_modifier
+}
+
+cow_add_city_of_wonder_2_NO_modifier_effect = {
+	add_province_modifier = city_of_wonder_2_NO_modifier
+}
+
+cow_add_city_of_wonder_3_NO_modifier_effect = {
+	add_province_modifier = city_of_wonder_3_NO_modifier
+}

@@ -1,0 +1,156 @@
+﻿jdb_bc_get_commander_flavor_text_retreat = {
+	random_list = {
+		10 = {
+			set_variable = {
+				name =  jdb_bc_commander_flavor_text_retreat
+				value = flag:jdb_bc_commander_flavor_text_retreat_fallback
+				days = 21
+			}
+		}
+		10 = {
+			set_variable = {
+				name =  jdb_bc_commander_flavor_text_retreat
+				value = flag:jdb_bc_commander_flavor_text_retreat
+				days = 21
+			}
+		}
+		10 = {
+			trigger = {
+				has_personality_dominant_trigger = yes
+			}
+			set_variable = {
+				name =  jdb_bc_commander_flavor_text_retreat
+				value = flag:jdb_bc_commander_flavor_text_retreat_dominant
+				days = 21
+			}
+		}
+		1 = {
+			modifier = {
+				OR = {
+					has_trait = bastard
+					has_trait = bastard_founder
+				}
+				add = 10
+			}
+			set_variable = {
+				name =  jdb_bc_commander_flavor_text_retreat
+				value = flag:jdb_bc_commander_flavor_text_retreat_we_need_more_allies
+				days = 21
+			}
+		}
+		4 = {
+			trigger = {
+				commanding_army = { is_raid_army = no }
+				OR = {
+					has_trait = zealous
+					has_trait = order_member
+					is_clergy = yes
+				}
+			}
+			set_variable = {
+				name =  jdb_bc_commander_flavor_text_retreat
+				value = flag:jdb_bc_commander_flavor_text_retreat_zeal_forsaken
+				days = 21
+			}
+		}
+	}
+}
+
+jdb_bc_get_commander_flavor_text_siege = {
+	random_list = {
+		10 = {
+			set_variable = {
+				name =  jdb_bc_commander_flavor_text_siege
+				value = flag:jdb_bc_commander_flavor_text_siege_tear_walls
+				days = 21
+			}
+		}
+		10 = {
+			set_variable = {
+				name =  jdb_bc_commander_flavor_text_siege
+				value = flag:jdb_bc_commander_flavor_text_siege_archers
+				days = 21
+			}
+		}
+		10 = {
+			trigger = {
+				has_personality_malicious_trigger = yes
+				commanding_army = {
+					OR = {
+						location.county.holder ?= { is_at_war_with = scope:army.army_owner }
+						location.county.holder ?= {
+							any_liege_or_above = {
+								is_at_war_with = scope:army.army_owner
+							}
+						}
+					}
+				}
+			}
+			set_variable = {
+				name =  jdb_bc_commander_flavor_text_siege
+				value = flag:jdb_bc_commander_flavor_text_siege_burn_them
+				days = 21
+			}
+		}
+		10 = {
+			trigger = {
+				OR = {
+					has_trait = impatient
+					has_trait = reckless
+					has_trait = reaver
+					has_trait = aggressive_attacker
+					has_trait = wrathful
+				}
+			}
+			set_variable = {
+				name =  jdb_bc_commander_flavor_text_siege
+				value = flag:jdb_bc_commander_flavor_text_siege_storm_gate
+				days = 21
+			}
+		}
+		10 = {
+			trigger = {
+				OR = {
+					has_trait = military_engineer
+					has_trait = architect
+				}
+			}
+			set_variable = {
+				name =  jdb_bc_commander_flavor_text_siege
+				value = flag:jdb_bc_commander_flavor_text_siege_towers
+				days = 21
+			}
+		}
+		8 = {
+			trigger = {
+				has_personality_dominant_trigger = yes
+				commanding_army = {
+					army_commander = army_owner
+					OR = {
+						location.county.holder ?= {
+							any_character_war = {
+								primary_attacker = scope:army.army_owner
+								primary_defender = prev
+								using_de_jure_cb_trigger = yes
+							}
+						}
+						location.county.holder ?= {
+							any_liege_or_above = {
+								any_character_war = {
+									primary_attacker = scope:army.army_owner
+									primary_defender = prev
+									using_de_jure_cb_trigger = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			set_variable = {
+				name =  jdb_bc_commander_flavor_text_siege
+				value = flag:jdb_bc_commander_flavor_text_siege_mine
+				days = 21
+			}
+		}
+	}
+}

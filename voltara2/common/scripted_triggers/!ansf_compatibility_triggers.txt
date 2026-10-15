@@ -1,0 +1,26 @@
+﻿# this is added for LMF & ANSF3 compatibility with AGOT
+
+agot_is_wildling_culture = { always = yes }
+
+is_human = { always = yes }
+agot_is_available_for_anything = { always = yes }
+agot_would_cheat_trigger = { always = yes }
+agot_can_add_paramour = { always = yes }
+agot_can_be_paramour = { always = yes }
+agot_can_have_paramour = { always = yes }
+allow_naming_of_dragon_trigger = { $DRAGON$ = root }
+agot_canon_children_should_block_pregnancy_trigger = { always = yes }
+title_uses_legitimate_house_mechanic = { always = no }
+agot_is_indirect_female_heir = { always = no }
+agot_has_traits_preventing_knighthood_trigger = { always = yes }
+agot_has_clergy_trait = { always = no }
+
+
+use_agot_historical_weighted_outcomes = {
+	always = no
+}
+
+use_agot_historical_outcomes = {
+	always = no
+}
+

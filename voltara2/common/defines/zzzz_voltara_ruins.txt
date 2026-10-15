@@ -1,4 +1,6 @@
 ﻿NGovernment = { GOVERNMENT_TYPES = {
+ "lp_feudal_government"
+ "voltara_keeper_government"
  "administrative_government"
  "celestial_government"
  "clan_government"

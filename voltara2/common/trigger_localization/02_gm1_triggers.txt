@@ -1,0 +1,15 @@
+﻿##############################
+## GM1 scripted_triggers
+##############################
+
+is_allied_in_war_with_target_trigger = {
+	global_not = ALREADY_ALLIES_IN_WAR_WITH_TARGET_TRIGGER
+}
+
+is_under_ongoing_interaction_trigger = {
+	global = ALREADY_UNDER_ONGOING_INTERACTION_TRIGGER
+}
+
+has_recently_undergone_interaction_trigger = {
+	global = RECENTLY_UNDERGONE_INTERACTION_TRIGGER
+}

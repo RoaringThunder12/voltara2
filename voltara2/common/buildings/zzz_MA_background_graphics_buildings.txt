@@ -1,0 +1,3 @@
+﻿# COW3 replaces Medieval Arts' zzz_MA_background_graphics_buildings.txt when COW3 loads after MA.
+# Keep this file intentionally empty of building definitions so MA's stock file does not win.
+# Merged MA sprawl, walls, and COW3 burge logic: zz_cow3_background_graphics_buildings.txt

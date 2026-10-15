@@ -1,0 +1,377 @@
+﻿##############################
+## GM1 script_values
+##############################
+
+# based on ./common/script_values/05/bp2_hostage_values.txt/hostage_value
+prisoner_ransom_value = {
+	value = 0
+
+	if = {
+		limit = {
+			is_ruler = no
+			exists = liege
+		}
+		if = {
+			limit = { 
+				imprisoner ?= { dynasty ?= { has_dynasty_perk = fp1_pillage_legacy_3 } }
+				liege.current_gold_value >= increased_ransom_cost_value
+			}
+			add = increased_ransom_cost_value
+		}
+		else_if = {
+			limit = { 
+				imprisoner ?= { NOT = { dynasty ?= { has_dynasty_perk = fp1_pillage_legacy_3 } } } 
+				liege.current_gold_value >= ransom_cost_value
+			}
+			add = ransom_cost_value
+		}
+		else = {
+			add = liege.current_gold_value
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				is_ruler = yes
+				is_pool_guest = yes
+			}
+		}
+		if = {
+			limit = { 
+				imprisoner ?= { dynasty ?= { has_dynasty_perk = fp1_pillage_legacy_3 } }
+				current_gold_value >= increased_ransom_cost_value
+			}
+			add = increased_ransom_cost_value
+		}
+		else_if = {
+			limit = { 
+				imprisoner ?= { NOT = { dynasty ?= { has_dynasty_perk = fp1_pillage_legacy_3 } } } 
+				current_gold_value >= ransom_cost_value
+			}
+			add = ransom_cost_value
+		}
+		else = {
+			add = current_gold_value
+		}
+	}
+}
+
+# based on ./common/script_values/05/bp2_hostage_values.txt/hostage_value
+prisoner_barter_value = {
+	value = prisoner_ransom_value
+
+	### Dynasty Level Difference
+	add = {
+		if = {
+			limit = {
+				exists = dynasty
+				imprisoner ?= { exists = dynasty }
+			}
+			if = {
+				limit = { dynasty.dynasty_prestige_level > imprisoner.dynasty.dynasty_prestige_level }
+				value = 20
+				multiply = {
+					value = dynasty.dynasty_prestige_level
+					subtract = imprisoner.dynasty.dynasty_prestige_level
+					min = 1
+				}
+			}
+			else_if = {
+				limit = { dynasty.dynasty_prestige_level < imprisoner.dynasty.dynasty_prestige_level }
+				value = -20
+				multiply = {
+					value = imprisoner.dynasty.dynasty_prestige_level
+					subtract = dynasty.dynasty_prestige_level
+					min = 1
+				}
+			}
+		}
+	}
+
+	### Tier Level Difference
+	add = {
+		if = {
+			limit = {
+				exists = primary_title
+				imprisoner ?= { exists = primary_title }
+			}
+			if = {
+				limit = { highest_held_title_tier > imprisoner.highest_held_title_tier }
+				value = 20
+				multiply = {
+					value = highest_held_title_tier
+					subtract = imprisoner.highest_held_title_tier
+					min = 1
+				}
+			}
+			else_if = {
+				limit = { highest_held_title_tier < imprisoner.highest_held_title_tier }
+				value = -20
+				multiply = {
+					value = imprisoner.highest_held_title_tier
+					subtract = highest_held_title_tier
+					min = 1
+				}
+			}
+		}	
+	}
+
+	### Prestige Level Difference
+	add = {
+		if = {
+			limit = { prestige_level > imprisoner.prestige_level }
+			value = 20
+			multiply = {
+				value = prestige_level
+				subtract = imprisoner.prestige_level
+				min = 1
+			}
+		}
+		else_if = {
+			limit = { prestige_level < imprisoner.prestige_level }
+			value = 20
+				multiply = {
+					value = imprisoner.prestige_level
+					subtract = prestige_level
+					min = 1
+				}
+		}
+	}
+
+	### Prisoner Independece
+	add = {
+		if = {
+			limit = { is_independent_ruler = yes }
+			value = 20
+		}
+		else_if = {
+			limit = { is_independent_ruler = no }
+			value = -20
+		}
+	}
+	
+	### Prisoner Neighboring
+	add = {
+		if = {
+			limit = { character_is_land_realm_neighbor = imprisoner }
+			value = 20
+		}
+		else_if = {
+			limit = { NOT = { character_is_land_realm_neighbor = imprisoner } }
+			value = -20
+		}
+	}
+
+	### Prisoner Faith
+	### Prisoner is a Head of Faith.
+	add = {
+		if = {
+			limit = {
+				OR = {
+					exists = faith
+					imprisoner ?= { exists = faith }
+				}
+			}
+			if = {
+				limit = { is_head_of_faith_of = { CHARACTER = this } }
+				value = 100
+			}
+			if = {
+				limit = { imprisoner = { is_head_of_faith_of = { CHARACTER = prev } } }
+				multiply = 5
+			}
+		}
+	}
+
+	### Prisoner Realm
+	### Prisoner is their Liege.
+	add = {
+		if = {
+			limit = { imprisoner ?= { exists = liege } }
+			if = {
+				limit = { is_liege_or_above_of = imprisoner }
+				value = -50
+			}
+		}
+	}
+
+	### Prisoner is their Direct Vassal.
+	add = {
+		if = {
+			limit = { exists = liege }
+			if = {
+				limit = { is_vassal_of = imprisoner }
+				value = -20
+			}
+			if = {
+				limit = { is_powerful_vassal_of = imprisoner }
+				multiply = 2
+			}
+			if = {
+				limit = { imprisoner ?= { is_rightful_liege_of = prev } }
+				multiply = 2
+			}
+			if = {
+				limit = { imprisoner ?= { has_imprisonment_reason = prev } }
+				multiply = -1
+			}
+		}
+	}
+
+	### Prisoner Military Strength
+	add = {
+		### Both are close in power.
+		if = {
+			limit = {
+				NOR = {
+					interaction_current_strength_ninety_percent_value > imprisoner.current_military_strength
+					current_military_strength < imprisoner.interaction_current_strength_ninety_percent_value
+				}
+			}
+			add = -10
+		}
+		### Prisoner is more powerful.
+		if = {
+			limit = { interaction_current_strength_ninety_percent_value > imprisoner.current_military_strength }
+			add = {
+				value = current_military_strength 					# 1828
+				divide = {
+					value = imprisoner.current_military_strength	# 1382
+					min = 1
+				}													# 1828 / 1382 = 1.32
+				subtract = 1									 	# 1.32 - 1 = 0.32
+				multiply = -50 										# 0.32 * -50 = -16
+				max = 50
+				min = -50
+			}
+		}
+		### Prisoner is less powerful.
+		if = {
+			limit = { current_military_strength < imprisoner.interaction_current_strength_ninety_percent_value }
+			add = {
+				value = imprisoner.current_military_strength 		# 1828
+				divide = {
+					value = current_military_strength				# 1382
+					min = 1
+				}													# 1828 / 1382 = 1.32
+				subtract = 1									 	# 1.32 - 1 = 0.32
+				multiply = 50 										# 0.32 * 50 = 16
+				max = 50
+				min = -50
+			}
+		}
+		### Both allies' Military Strength
+		if = {
+			limit = {
+				#### Some allies must exist.
+				OR = {
+					any_ally = { exists = this }
+					imprisoner ?= { any_ally = { exists = this } }
+				}
+				#### Strength with allies must be greater than enemies base strength.
+				OR = {
+					interaction_current_strength_ninety_percent_value >= imprisoner.interaction_current_strength_with_allies_value
+					interaction_current_strength_with_allies_value >= imprisoner.interaction_current_strength_ninety_percent_value
+				}
+			}
+			add = {
+				value = {
+					value = 0
+					imprisoner ?= {
+						every_ally = { add = current_military_strength } 		# 1828
+					}
+				}
+				divide = {
+					value = 0
+					every_ally = { add = current_military_strength } 			# 1382
+					min = 1
+				}																# 1828 / 1382 = 1.32
+				subtract = 1 													# 1.32 - 1 = 0.32
+				multiply = -100													# 0.32 * -100 = 32
+				divide = 2 														# 32 / 2 = -16
+				max = 25
+				min = -25
+			}
+		}
+	}
+	
+	### Imprisoner Line of Succession
+	add = {
+		if = {
+			limit = { imprisoner ?= { exists = primary_title } }
+			value = 0
+			if = {
+				limit = {
+					imprisoner.primary_title ?= {
+						place_in_line_of_succession = { 
+							target = prev
+							value == 1 
+						}
+					}
+				}
+				add = 4
+			}
+			else_if = {
+				limit = {
+					imprisoner.primary_title ?= {
+						place_in_line_of_succession = { 
+							target = prev
+							value == 2 
+						}
+					}
+				}
+				add = 3
+			}
+			else_if = {
+				limit = {
+					imprisoner.primary_title ?= {
+						place_in_line_of_succession = { 
+							target = prev
+							value == 3
+						}
+					}
+				}
+				add = 2
+			}
+			multiply = 5
+		}
+	}
+	
+	### Imprisoner have casus belli against the prisoner. They can't wage war against their own prisoner.
+	add = {
+		if = {
+			limit = { imprisoner ?= { has_any_cb_on = prev } }
+			value = -15
+			if = {
+				limit = { imprisoner ?= { is_at_war_with = prev } }
+				multiply = 1
+			}
+		}
+	}
+
+	### They have claims against the prisoner
+	add = {
+		if = {
+			limit = { imprisoner ?= { has_claim_on_held_title_trigger = { CHARACTER = prev } } }
+			value = 0
+			every_held_title = {
+				limit = { prev.imprisoner = { has_claim_on = prev } }
+				add = {
+					value = 5
+					#### Strong claims are worth more.
+					if = {
+						limit = { prev.imprisoner = { has_strong_claim_on = prev } }
+						multiply = 2
+					}
+					#### Higher titles are worth more.
+					multiply = {
+						value = tier
+						subtract = 1
+						min = 1
+					}
+				}
+			}
+		}
+	}
+	ceiling = yes
+}

@@ -1,0 +1,534 @@
+﻿advanced_torture_init_torture_variables_effect = {
+ if = {
+  limit = {
+   NOT = { has_variable = advanced_torture_tortures_total }
+  }
+
+  set_variable = {
+   name = advanced_torture_tortures_total
+   value = 0
+  }
+ }
+
+ if = {
+  limit = {
+   NOT = { has_variable = advanced_torture_eye_tortures }
+  }
+
+  set_variable = {
+   name = advanced_torture_eye_tortures
+   value = 0
+  }
+ }
+
+ if = {
+  limit = {
+   NOT = { has_variable = advanced_torture_leg_tortures }
+  }
+
+  set_variable = {
+   name = advanced_torture_leg_tortures
+   value = 0
+  }
+ }
+
+ if = {
+  limit = {
+   NOT = { has_variable = advanced_torture_disfigure_tortures }
+  }
+
+  set_variable = {
+   name = advanced_torture_disfigure_tortures
+   value = 0
+  }
+ }
+
+ if = {
+  limit = {
+   NOT = { has_variable = advanced_torture_scar_tortures }
+  }
+
+  set_variable = {
+   name = advanced_torture_scar_tortures
+   value = 0
+  }
+ }
+
+ if = {
+  limit = {
+   NOT = { has_variable = advanced_torture_maim_tortures }
+  }
+
+  set_variable = {
+   name = advanced_torture_maim_tortures
+   value = 0
+  }
+ }
+
+ if = {
+  limit = {
+   NOT = { has_variable = advanced_torture_blind_tortures }
+  }
+
+  set_variable = {
+   name = advanced_torture_blind_tortures
+   value = 0
+  }
+ }
+
+ if = {
+  limit = {
+   NOT = { has_variable = advanced_torture_minor_tortures }
+  }
+
+  set_variable = {
+   name = advanced_torture_minor_tortures
+   value = 0
+  }
+ }
+
+ if = {
+  limit = {
+   NOT = { has_variable = advanced_torture_medium_tortures }
+  }
+
+  set_variable = {
+   name = advanced_torture_medium_tortures
+   value = 0
+  }
+ }
+
+ if = {
+  limit = {
+   NOT = { has_variable = advanced_torture_severe_tortures }
+  }
+
+  set_variable = {
+   name = advanced_torture_severe_tortures
+   value = 0
+  }
+ }
+
+ if = {
+  limit = {
+   NOT = { has_variable = advanced_torture_secret_reveals }
+  }
+
+  set_variable = {
+   name = advanced_torture_secret_reveals
+   value = 0
+  }
+ }
+
+ if = {
+  limit = {
+   NOT = { has_variable = advanced_torture_strong_tortures }
+  }
+
+  set_variable = {
+   name = advanced_torture_strong_tortures
+   value = 0
+  }
+ }
+
+ if = {
+  limit = {
+   NOT = { has_variable = advanced_torture_sadistic_tortures }
+  }
+
+  set_variable = {
+   name = advanced_torture_sadistic_tortures
+   value = 0
+  }
+ }
+}
+
+advanced_torture_initialize_sadism_threshold_effect = {
+ if = {
+  limit = {
+   NOT = { has_character_flag = advanced_torture_sadism_threshold_set }
+  }
+
+  add_character_flag = advanced_torture_sadism_threshold_set
+
+  random_list = {
+   20 = {
+    add_character_flag = advanced_torture_sadism_threshold_3
+   }
+
+   20 = {
+    add_character_flag = advanced_torture_sadism_threshold_4
+   }
+
+   20 = {
+    add_character_flag = advanced_torture_sadism_threshold_5
+   }
+
+   20 = {
+    add_character_flag = advanced_torture_sadism_threshold_6
+   }
+
+   20 = {
+    add_character_flag = advanced_torture_sadism_threshold_7
+   }
+  }
+ }
+}
+
+advanced_torture_check_sadism_progression_effect = {
+ if = {
+  limit = {
+   NOT = { has_trait = sadistic }
+   NOT = { has_character_flag = advanced_torture_sadism_trait_event_fired }
+
+   OR = {
+    AND = {
+     has_character_flag = advanced_torture_sadism_threshold_3
+     var:advanced_torture_strong_tortures >= 3
+    }
+
+    AND = {
+     has_character_flag = advanced_torture_sadism_threshold_4
+     var:advanced_torture_strong_tortures >= 4
+    }
+
+    AND = {
+     has_character_flag = advanced_torture_sadism_threshold_5
+     var:advanced_torture_strong_tortures >= 5
+    }
+
+    AND = {
+     has_character_flag = advanced_torture_sadism_threshold_6
+     var:advanced_torture_strong_tortures >= 6
+    }
+
+    AND = {
+     has_character_flag = advanced_torture_sadism_threshold_7
+     var:advanced_torture_strong_tortures >= 7
+    }
+   }
+  }
+
+  add_character_flag = advanced_torture_sadism_trait_event_fired
+
+  trigger_event = {
+   id = advanced_torture.5500
+  }
+ }
+}
+
+
+
+advanced_torture_initialize_torturer_threshold_effect = {
+ if = {
+  limit = {
+   NOT = { has_trait = torturer }
+   NOT = { has_character_flag = advanced_torture_torturer_threshold_set }
+  }
+
+  add_character_flag = advanced_torture_torturer_threshold_set
+
+  random_list = {
+   10 = { add_character_flag = advanced_torture_torturer_threshold_4 }
+   15 = { add_character_flag = advanced_torture_torturer_threshold_5 }
+   20 = { add_character_flag = advanced_torture_torturer_threshold_6 }
+   20 = { add_character_flag = advanced_torture_torturer_threshold_7 }
+   15 = { add_character_flag = advanced_torture_torturer_threshold_8 }
+   10 = { add_character_flag = advanced_torture_torturer_threshold_9 }
+   10 = { add_character_flag = advanced_torture_torturer_threshold_10 }
+  }
+ }
+}
+
+advanced_torture_check_torturer_progression_effect = {
+ if = {
+  limit = {
+   NOT = { has_trait = torturer }
+   has_variable = advanced_torture_tortures_total
+  }
+
+  advanced_torture_initialize_torturer_threshold_effect = yes
+
+  if = {
+   limit = {
+    OR = {
+     AND = { has_character_flag = advanced_torture_torturer_threshold_4 var:advanced_torture_tortures_total >= 4 }
+     AND = { has_character_flag = advanced_torture_torturer_threshold_5 var:advanced_torture_tortures_total >= 5 }
+     AND = { has_character_flag = advanced_torture_torturer_threshold_6 var:advanced_torture_tortures_total >= 6 }
+     AND = { has_character_flag = advanced_torture_torturer_threshold_7 var:advanced_torture_tortures_total >= 7 }
+     AND = { has_character_flag = advanced_torture_torturer_threshold_8 var:advanced_torture_tortures_total >= 8 }
+     AND = { has_character_flag = advanced_torture_torturer_threshold_9 var:advanced_torture_tortures_total >= 9 }
+     AND = { has_character_flag = advanced_torture_torturer_threshold_10 var:advanced_torture_tortures_total >= 10 }
+    }
+   }
+
+   add_trait = torturer
+  }
+ }
+}
+
+advanced_torture_record_light_category_torture_effect = {
+ advanced_torture_init_torture_variables_effect = yes
+
+ change_variable = {
+  name = advanced_torture_tortures_total
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_minor_tortures
+  add = 1
+ }
+
+ advanced_torture_check_torturer_progression_effect = yes
+ advanced_torture_apply_tortured_to_survive_if_torturer_effect = yes
+ advanced_torture_check_torture_nickname_effect = yes
+}
+
+advanced_torture_record_branding_torture_effect = {
+ advanced_torture_init_torture_variables_effect = yes
+
+ change_variable = {
+  name = advanced_torture_tortures_total
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_minor_tortures
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_scar_tortures
+  add = 1
+ }
+
+ advanced_torture_check_torturer_progression_effect = yes
+ advanced_torture_apply_tortured_to_survive_if_torturer_effect = yes
+ advanced_torture_check_torture_nickname_effect = yes
+}
+
+advanced_torture_record_medium_category_torture_effect = {
+ advanced_torture_init_torture_variables_effect = yes
+
+ change_variable = {
+  name = advanced_torture_tortures_total
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_medium_tortures
+  add = 1
+ }
+
+ advanced_torture_check_torturer_progression_effect = yes
+ advanced_torture_apply_tortured_to_survive_if_torturer_effect = yes
+ advanced_torture_check_torture_nickname_effect = yes
+}
+
+advanced_torture_record_strong_category_torture_effect = {
+ advanced_torture_init_torture_variables_effect = yes
+ advanced_torture_initialize_sadism_threshold_effect = yes
+
+ change_variable = {
+  name = advanced_torture_tortures_total
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_severe_tortures
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_strong_tortures
+  add = 1
+ }
+
+ advanced_torture_check_sadism_progression_effect = yes
+ advanced_torture_check_torturer_progression_effect = yes
+ advanced_torture_apply_tortured_to_survive_if_torturer_effect = yes
+ advanced_torture_check_torture_nickname_effect = yes
+}
+
+advanced_torture_record_enucleation_torture_effect = {
+ advanced_torture_init_torture_variables_effect = yes
+ advanced_torture_initialize_sadism_threshold_effect = yes
+
+ change_variable = {
+  name = advanced_torture_tortures_total
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_severe_tortures
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_strong_tortures
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_eye_tortures
+  add = 1
+ }
+
+ advanced_torture_check_sadism_progression_effect = yes
+ advanced_torture_check_torturer_progression_effect = yes
+ advanced_torture_apply_tortured_to_survive_if_torturer_effect = yes
+ advanced_torture_check_torture_nickname_effect = yes
+}
+
+advanced_torture_record_leg_amputation_torture_effect = {
+ advanced_torture_init_torture_variables_effect = yes
+ advanced_torture_initialize_sadism_threshold_effect = yes
+
+ change_variable = {
+  name = advanced_torture_tortures_total
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_severe_tortures
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_strong_tortures
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_leg_tortures
+  add = 1
+ }
+
+ advanced_torture_check_sadism_progression_effect = yes
+ advanced_torture_check_torturer_progression_effect = yes
+ advanced_torture_apply_tortured_to_survive_if_torturer_effect = yes
+ advanced_torture_check_torture_nickname_effect = yes
+}
+
+advanced_torture_record_sadistic_category_torture_effect = {
+ advanced_torture_init_torture_variables_effect = yes
+
+ change_variable = {
+  name = advanced_torture_tortures_total
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_severe_tortures
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_sadistic_tortures
+  add = 1
+ }
+
+ advanced_torture_check_torturer_progression_effect = yes
+ advanced_torture_apply_tortured_to_survive_if_torturer_effect = yes
+ advanced_torture_check_torture_nickname_effect = yes
+}
+
+advanced_torture_record_eye_torture_effect = {
+ advanced_torture_record_enucleation_torture_effect = yes
+}
+
+advanced_torture_record_leg_torture_effect = {
+ advanced_torture_record_leg_amputation_torture_effect = yes
+}
+
+advanced_torture_record_disfigure_torture_effect = {
+ advanced_torture_init_torture_variables_effect = yes
+
+ change_variable = {
+  name = advanced_torture_tortures_total
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_disfigure_tortures
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_medium_tortures
+  add = 1
+ }
+
+ advanced_torture_check_torturer_progression_effect = yes
+ advanced_torture_apply_tortured_to_survive_if_torturer_effect = yes
+ advanced_torture_check_torture_nickname_effect = yes
+}
+
+advanced_torture_record_scar_torture_effect = {
+ advanced_torture_record_branding_torture_effect = yes
+}
+
+advanced_torture_record_maim_torture_effect = {
+ advanced_torture_init_torture_variables_effect = yes
+ advanced_torture_initialize_sadism_threshold_effect = yes
+
+ change_variable = {
+  name = advanced_torture_tortures_total
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_maim_tortures
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_severe_tortures
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_strong_tortures
+  add = 1
+ }
+
+ advanced_torture_check_sadism_progression_effect = yes
+ advanced_torture_check_torturer_progression_effect = yes
+ advanced_torture_apply_tortured_to_survive_if_torturer_effect = yes
+ advanced_torture_check_torture_nickname_effect = yes
+}
+
+advanced_torture_record_blind_torture_effect = {
+ advanced_torture_init_torture_variables_effect = yes
+ advanced_torture_initialize_sadism_threshold_effect = yes
+
+ change_variable = {
+  name = advanced_torture_tortures_total
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_blind_tortures
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_severe_tortures
+  add = 1
+ }
+
+ change_variable = {
+  name = advanced_torture_strong_tortures
+  add = 1
+ }
+
+ advanced_torture_check_sadism_progression_effect = yes
+ advanced_torture_check_torturer_progression_effect = yes
+ advanced_torture_apply_tortured_to_survive_if_torturer_effect = yes
+ advanced_torture_check_torture_nickname_effect = yes
+}
+
+advanced_torture_record_minor_torture_effect = {
+ advanced_torture_record_light_category_torture_effect = yes
+}

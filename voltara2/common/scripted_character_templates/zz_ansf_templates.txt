@@ -1,0 +1,561 @@
+﻿olympia_diplomat_template = {
+	random_traits = no
+	
+	random_traits_list = {
+		count = 1
+		education_diplomacy_3  = {}
+		education_diplomacy_4  = {}
+	}
+	#Personality trait 3
+	random_traits_list = {
+		count = 3
+		lustful = {}
+		deceitful = {}
+		brave = {}
+		gregarious = {}
+		ambitious = {}
+		vengeful = {}
+		gluttonous = {}
+		temperate  = {}
+		greedy = {}
+		generous = {}
+		lazy = {}
+		diligent = {}
+		wrathful = {}
+		calm = {}
+		patient = {}
+		impatient = {}
+		arrogant = {}
+		honest = {}
+		arbitrary = {}
+		just = {}
+		paranoid = {}
+		trusting = {}
+		compassionate = {}
+		callous = {}
+		sadistic = {}
+		stubborn = {}
+		fickle = {}
+		eccentric = {}
+		forgiving = {}
+	}
+	diplomacy = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	random_traits_list = {
+		count = { 0 1 }
+		beauty_good_1 = {}
+		physique_good_1 = {}
+		fecund = {}
+		intellect_bad_1 = {}
+		physique_bad_1 = {}
+	}
+	random_traits_list = { #Lifestyle
+		count = 1
+		lifestyle_reveler = {}
+		lifestyle_poet = {}
+		shrewd = {}
+		diplomat = {}
+		family_first = {}
+		august = {}
+		avaricious = {}
+		schemer = {}
+	}
+	random_traits_list = { #Stress
+		count = 1
+		drunkard = {}
+		rakish = {}
+		profligate = {}
+		improvident = {}
+		contrite = {}
+		comfort_eater = {}
+		inappetetic = {}
+		journaller = {}
+		confider = {}
+	}
+}
+
+olympia_martial_template = {
+	random_traits = no
+	
+	random_traits_list = {
+		count = 1
+		education_martial_3  = {}
+		education_martial_4  = {}
+	}
+	#Personality trait 3
+	random_traits_list = {
+		count = 3
+		lustful = {}
+		deceitful = {}
+		brave = {}
+		gregarious = {}
+		ambitious = {}
+		vengeful = {}
+		gluttonous = {}
+		temperate  = {}
+		greedy = {}
+		generous = {}
+		lazy = {}
+		diligent = {}
+		wrathful = {}
+		calm = {}
+		patient = {}
+		impatient = {}
+		arrogant = {}
+		honest = {}
+		arbitrary = {}
+		just = {}
+		paranoid = {}
+		trusting = {}
+		compassionate = {}
+		callous = {}
+		sadistic = {}
+		stubborn = {}
+		fickle = {}
+		eccentric = {}
+		forgiving = {}
+	}
+	martial = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	random_traits_list = {
+		count = { 0 1 }
+		beauty_good_1 = {}
+		physique_good_1 = {}
+		fecund = {}
+		beauty_bad_1 = {}
+		intellect_bad_1 = {}
+	}
+	random_traits_list = { #Lifestyle
+		count = 1
+		lifestyle_blademaster = {}
+		lifestyle_hunter = {}
+		strong = {}
+		strategist = {}
+		overseer = {}
+		gallant = {}
+		whole_of_body = {}
+	}
+	random_traits_list = { #Stress
+		count = 1
+		drunkard = {}
+		rakish = {}
+		irritable = {}
+		comfort_eater = {}
+		confider = {}
+		athletic = {}
+	}
+	random_traits_list = {
+		count = 1
+		logistician = {}
+		military_engineer = {}
+		aggressive_attacker = {}
+		unyielding_defender = {}
+		flexible_leader = {}
+		reckless = {}
+		open_terrain_expert = {}
+		rough_terrain_expert = {}
+		cautious_leader = {}
+		organizer = {}
+	}
+}
+
+olympia_stewardship_template = {
+	random_traits = no
+	
+	random_traits_list = {
+		count = 1
+		education_stewardship_3  = {}
+		education_stewardship_4  = {}
+	}
+	#Personality trait 3
+	random_traits_list = {
+		count = 3
+		lustful = {}
+		deceitful = {}
+		brave = {}
+		gregarious = {}
+		ambitious = {}
+		vengeful = {}
+		gluttonous = {}
+		temperate  = {}
+		greedy = {}
+		generous = {}
+		lazy = {}
+		diligent = {}
+		wrathful = {}
+		calm = {}
+		patient = {}
+		impatient = {}
+		arrogant = {}
+		honest = {}
+		arbitrary = {}
+		just = {}
+		paranoid = {}
+		trusting = {}
+		compassionate = {}
+		callous = {}
+		sadistic = {}
+		stubborn = {}
+		fickle = {}
+		eccentric = {}
+		forgiving = {}
+	}
+	stewardship = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	random_traits_list = {
+		count = { 0 1 }
+		beauty_good_1 = {}
+		intellect_good_1 = {}
+		physique_good_1 = {}
+		fecund = {}
+		beauty_bad_1 = {}
+		physique_bad_1 = {}
+	}
+	random_traits_list = { #Lifestyle
+		count = 1
+		lifestyle_poet = {}
+		lifestyle_herbalist = {}
+		shrewd = {}
+		diplomat = {}
+		architect = {}
+		administrator = {}
+		avaricious = {}
+		erudite = {}
+	}
+	random_traits_list = { #Stress
+		count = 1
+		drunkard = {}
+		rakish = {}
+		reclusive = {}
+		irritable = {}
+		profligate = {}
+		contrite = {}
+		comfort_eater = {}
+		inappetetic = {}
+		journaller = {}
+		confider = {}
+	}
+}
+
+olympia_intrigue_template = {
+	random_traits = no
+	
+	random_traits_list = {
+		count = 1
+		education_intrigue_3  = {}
+		education_intrigue_4  = {}
+	}
+	#Personality trait 3
+	random_traits_list = {
+		count = 3
+		lustful = {}
+		deceitful = {}
+		brave = {}
+		gregarious = {}
+		ambitious = {}
+		vengeful = {}
+		gluttonous = {}
+		temperate  = {}
+		greedy = {}
+		generous = {}
+		lazy = {}
+		diligent = {}
+		wrathful = {}
+		calm = {}
+		patient = {}
+		impatient = {}
+		arrogant = {}
+		honest = {}
+		arbitrary = {}
+		just = {}
+		paranoid = {}
+		trusting = {}
+		compassionate = {}
+		callous = {}
+		sadistic = {}
+		stubborn = {}
+		fickle = {}
+		eccentric = {}
+		forgiving = {}
+	}
+	intrigue = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	random_traits_list = {
+		count = { 0 1 }
+		beauty_good_1 = {}
+		intellect_good_1 = {}
+		fecund = {}
+		infertile = {}
+		beauty_bad_1 = {}
+		physique_bad_1 = {}
+	}
+	random_traits_list = { #Lifestyle
+		count = 1
+		lifestyle_poet = {}
+		lifestyle_herbalist = {}
+		shrewd = {}
+		overseer = {}
+		schemer = {}
+		seducer = {}
+		torturer = {}
+	}
+	random_traits_list = { #Stress
+		count = 1
+		rakish = {}
+		profligate = {}
+		improvident = {}
+		comfort_eater = {}
+		inappetetic = {}
+		journaller = {}
+		confider = {}
+		athletic = {}
+	}
+}
+
+olympia_learning_template = {
+	random_traits = no
+	
+	random_traits_list = {
+		count = 1
+		education_learning_3  = {}
+		education_learning_4  = {}
+	}
+	#Personality trait 3
+	random_traits_list = {
+		count = 3
+		lustful = {}
+		deceitful = {}
+		brave = {}
+		gregarious = {}
+		ambitious = {}
+		vengeful = {}
+		gluttonous = {}
+		temperate  = {}
+		greedy = {}
+		generous = {}
+		lazy = {}
+		diligent = {}
+		wrathful = {}
+		calm = {}
+		patient = {}
+		impatient = {}
+		arrogant = {}
+		honest = {}
+		arbitrary = {}
+		just = {}
+		paranoid = {}
+		trusting = {}
+		compassionate = {}
+		callous = {}
+		sadistic = {}
+		stubborn = {}
+		fickle = {}
+		eccentric = {}
+		forgiving = {}
+	}
+	learning = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	random_traits_list = {
+		count = { 0 1 }
+		intellect_good_1 = {}
+		fecund = {}
+		infertile = {}
+		beauty_bad_1 = {}
+		physique_bad_1 = {}
+	}
+	random_traits_list = { #Lifestyle
+		count = 1
+		lifestyle_poet = {}
+		lifestyle_herbalist = {}
+		shrewd = {}
+		architect = {}
+		erudite = {}
+		theologian = {}
+		lifestyle_physician = {}
+	}
+	random_traits_list = { #Stress
+		count = 1
+		reclusive = {}
+		irritable = {}
+		profligate = {}
+		improvident = {}
+		contrite = {}
+		comfort_eater = {}
+		inappetetic = {}
+		journaller = {}
+		confider = {}
+	}
+}
+
+olympia_lowborn_female = {
+	random_traits = no
+	
+	random_traits_list = {
+		count = 1
+		education_diplomacy_3  = {}
+		education_diplomacy_4  = {}
+	}
+	#Personality trait 3
+	random_traits_list = {
+		count = 3
+		lustful = {}
+		deceitful = {}
+		brave = {}
+		gregarious = {}
+		ambitious = {}
+		vengeful = {}
+		gluttonous = {}
+		temperate  = {}
+		greedy = {}
+		generous = {}
+		lazy = {}
+		diligent = {}
+		wrathful = {}
+		calm = {}
+		patient = {}
+		impatient = {}
+		arrogant = {}
+		honest = {}
+		arbitrary = {}
+		just = {}
+		paranoid = {}
+		trusting = {}
+		compassionate = {}
+		callous = {}
+		sadistic = {}
+		stubborn = {}
+		fickle = {}
+		eccentric = {}
+		forgiving = {}
+	}
+	trait = beauty_good_2
+	diplomacy = {
+		min_template_decent_skill
+		max_template_high_skill
+	}
+	stewardship = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	intrigue = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	random_traits_list = { #Lifestyle
+		count = 1
+		lifestyle_reveler = {}
+		lifestyle_herbalist = {}
+		lifestyle_gardener = {}
+		lifestyle_poet = {}
+		shrewd = {}
+		diplomat = {}
+		family_first = {}
+	}
+	random_traits_list = { #Stress
+		count = 1
+		rakish = {}
+		profligate = {}
+		improvident = {}
+		contrite = {}
+		journaller = {}
+		confider = {}
+	}
+}
+
+olympia_lowborn_male = {
+	random_traits = no
+	
+	random_traits_list = {
+		count = 1
+		education_martial_3  = {}
+		education_martial_4  = {}
+	}
+	#Personality trait 3
+	random_traits_list = {
+		count = 3
+		lustful = {}
+		deceitful = {}
+		brave = {}
+		gregarious = {}
+		ambitious = {}
+		vengeful = {}
+		gluttonous = {}
+		temperate  = {}
+		greedy = {}
+		generous = {}
+		lazy = {}
+		diligent = {}
+		wrathful = {}
+		calm = {}
+		patient = {}
+		impatient = {}
+		arrogant = {}
+		honest = {}
+		arbitrary = {}
+		just = {}
+		paranoid = {}
+		trusting = {}
+		compassionate = {}
+		callous = {}
+		sadistic = {}
+		stubborn = {}
+		fickle = {}
+		eccentric = {}
+		forgiving = {}
+	}
+	trait = physique_good_2
+	martial = {
+		min_template_decent_skill
+		max_template_high_skill
+	}
+	stewardship = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	diplomacy = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	prowess = { 10 15 }
+	random_traits_list = { #Lifestyle
+		count = 1
+		lifestyle_blademaster = {}
+		lifestyle_hunter = {}
+		strong = {}
+		strategist = {}
+		overseer = {}
+		gallant = {}
+		whole_of_body = {}
+	}
+	random_traits_list = { #Stress
+		count = 1
+		rakish = {}
+		comfort_eater = {}
+		confider = {}
+		athletic = {}
+	}
+	random_traits_list = {
+		count = 1
+		logistician = {}
+		military_engineer = {}
+		aggressive_attacker = {}
+		unyielding_defender = {}
+		flexible_leader = {}
+		reckless = {}
+		open_terrain_expert = {}
+		rough_terrain_expert = {}
+		cautious_leader = {}
+		organizer = {}
+	}
+}
+

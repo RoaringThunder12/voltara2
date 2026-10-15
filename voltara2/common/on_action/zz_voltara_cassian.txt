@@ -1,0 +1,29 @@
+﻿on_game_start_after_lobby = { on_actions = { voltara_cassian_start } }
+voltara_cassian_start = { effect = {
+ if = { limit = { NOT = { has_global_variable = voltara_cassian_initialized } }
+  character:19060001 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government } }
+ character:9900022 = { if = { limit = { is_alive = yes is_landed = yes } voltara_keeper_maintenance = yes } }
+ character:9900038 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+ character:9910291 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+ character:9910309 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+ character:9910314 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+ character:9910329 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+ character:9910416 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+ character:9910438 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+ character:19060003 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+ character:19060012 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+ character:19060018 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+ character:19060024 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+ character:19060029 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+ character:19060031 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+ character:19060033 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+ character:19060034 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+ character:19060035 = { if = { limit = { is_alive = yes is_landed = yes } change_government = lp_feudal_government add_realm_law_skip_effects = single_heir_succession_law } }
+  character:19060001 = {
+   assign_councillor_type = { type = councillor_chancellor target = character:19060033 }
+   assign_councillor_type = { type = councillor_steward target = character:19060029 }
+   assign_councillor_type = { type = councillor_marshal target = character:19060034 }
+  }
+  set_global_variable = { name = voltara_cassian_initialized value = yes }
+ }
+} }

@@ -1,0 +1,16 @@
+﻿##############################
+## OM1 scripted_effects
+##############################
+
+#------------------------------
+# rescue_and_vengeance
+#------------------------------
+
+gain_rescue_cb_effect = {
+	global = GAIN_A_RESCUE_CB
+	first = I_GAIN_A_RESCUE_CB
+	third = CHARACTER_GAIN_A_RESCUE_CB
+	global_past = GAINED_A_RESCUE_CB
+	first_past = I_GAINED_A_RESCUE_CB
+	third_past = CHARACTER_GAINED_A_RESCUE_CB
+}

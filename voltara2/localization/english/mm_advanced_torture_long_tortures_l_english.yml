@@ -1,0 +1,111 @@
+﻿l_english:
+ advanced_torture_long_sleep_3_tt:0 "You will begin three days of sleep deprivation. The prisoner will be exhausted and may break before it ends."
+ advanced_torture_long_sleep_5_tt:0 "You will begin five days of sleep deprivation. The risk of mental and physical harm will be greater."
+ advanced_torture_long_sleep_7_tt:0 "You will begin seven days of sleep deprivation. The consequences may be severe."
+ advanced_torture_long_sleep_10_tt:0 "You will begin ten days of sleep deprivation. If the prisoner accumulates twenty or more days without sleep, they will inevitably die."
+
+ advanced_torture_long_dark_cell_15_tt:0 "You will lock the prisoner in a dark cell for fifteen days. Isolation may break their spirit."
+ advanced_torture_long_dark_cell_30_tt:0 "You will lock the prisoner in a dark cell for thirty days. Isolation may draw out secrets or pleas."
+ advanced_torture_long_dark_cell_60_tt:0 "You will lock the prisoner in a dark cell for sixty days. Mental harm will be very high."
+ advanced_torture_long_dark_cell_90_tt:0 "You will lock the prisoner in a dark cell for ninety days. Around day fifty-seven, they may break, beg, or reveal a secret."
+
+ advanced_torture_long_starvation_5_tt:0 "You will deprive the prisoner of sufficient food for five days. Their body will begin to weaken."
+ advanced_torture_long_starvation_15_tt:0 "You will deprive the prisoner of sufficient food for fifteen days. Hunger may break both body and will."
+ advanced_torture_long_starvation_30_tt:0 "You will deprive the prisoner of sufficient food for thirty days. The consequences may become permanent."
+ advanced_torture_long_starvation_50_tt:0 "You will deprive the prisoner of sufficient food for fifty days. Survival will be uncertain and the harm will be extreme."
+
+ advanced_torture_long_suspension_1_tt:0 "You will suspend the prisoner for one day. The pain will be intense, though still controlled."
+ advanced_torture_long_suspension_3_tt:0 "You will suspend the prisoner for three days. Their limbs will begin to fail."
+ advanced_torture_long_suspension_5_tt:0 "You will suspend the prisoner for five days. The physical damage may be severe."
+ advanced_torture_long_suspension_7_tt:0 "You will suspend the prisoner for seven days. The torture may leave them ruined."
+
+ advanced_torture.6001.t:0 "Prolonged Tortures"
+ advanced_torture.6001.desc:0 "Not every torment ends in a single session. Some require days of confinement, waiting, exhaustion, and fear. The prisoner will suffer not only the pain of the moment, but also the uncertainty of not knowing when it will end."
+ advanced_torture.6001.sleep_deprivation:0 "Sleep Deprivation"
+ advanced_torture.6001.dark_cell:0 "Dark Cell"
+ advanced_torture.6001.starvation:0 "Hunger and Thirst"
+ advanced_torture.6001.prolonged_suspension:0 "Prolonged Suspension"
+
+ advanced_torture.6002.t:0 "Sleep Deprivation"
+ advanced_torture.6002.desc:0 "Sleep deprivation needs no blades or braziers. Light, noise, questions, footsteps in the dark, and hands waking the prisoner whenever their body tries to surrender are enough. Choose how long the vigil will be stretched."
+ advanced_torture.6002.three_days:0 "Three days"
+ advanced_torture.6002.five_days:0 "Five days"
+ advanced_torture.6002.seven_days:0 "Seven days"
+ advanced_torture.6002.ten_days:0 "Ten days"
+
+ advanced_torture.6003.t:0 "Dark Cell"
+ advanced_torture.6003.desc:0 "The dark cell does not punish all at once. It punishes through absence: no light, no clear voices, no certainty of passing days. Inside, even a small silence can sound like a threat."
+ advanced_torture.6003.fifteen_days:0 "Fifteen days"
+ advanced_torture.6003.thirty_days:0 "Thirty days"
+ advanced_torture.6003.sixty_days:0 "Sixty days"
+ advanced_torture.6003.ninety_days:0 "Ninety days"
+
+ advanced_torture.6004.t:0 "Hunger and Thirst"
+ advanced_torture.6004.desc:0 "Hunger does not scream at first. It settles slowly, tightens the belly, dries the mouth, and turns every smell, every water jug, and every removed tray into a cruel promise."
+ advanced_torture.6004.five_days:0 "Five days"
+ advanced_torture.6004.fifteen_days:0 "Fifteen days"
+ advanced_torture.6004.thirty_days:0 "Thirty days"
+ advanced_torture.6004.fifty_days:0 "Fifty days"
+
+ advanced_torture.6005.t:0 "Prolonged Suspension"
+ advanced_torture.6005.desc:0 "The ropes tighten until the feet barely touch the floor, or leave it entirely. At first, the body hurts. Then the shoulders, the breath, the nerves, the waiting, and the certainty that no one will lower the prisoner until you command it."
+ advanced_torture.6005.one_day:0 "One day"
+ advanced_torture.6005.three_days:0 "Three days"
+ advanced_torture.6005.five_days:0 "Five days"
+ advanced_torture.6005.seven_days:0 "Seven days"
+
+ advanced_torture.6201.t:0 "The Sleeplessness Ends"
+ advanced_torture.6201.desc:0 "After days without true rest, [advanced_torture_prisoner.GetShortUIName] can barely hold their gaze steady. Their answers arrive late, their hands tremble, and every blink seems like a defeat. The body still lives, but the mind has been dragged to the edge of breaking."
+ advanced_torture.6201.a:0 "Let them sleep, if they still can."
+
+ advanced_torture.6202.t:0 "The Cell Opens"
+ advanced_torture.6202.desc:0 "When the door opens again, [advanced_torture_prisoner.GetShortUIName] emerges from the darkness weakened in body and worn down in will. The light hurts their eyes like an accusation, and for a moment they seem unable to tell freedom, punishment, and dream apart."
+ advanced_torture.6202.a:0 "Darkness teaches obedience."
+
+ advanced_torture.6203.t:0 "Hunger and Thirst"
+ advanced_torture.6203.desc:0 "The days of deprivation have reduced [advanced_torture_prisoner.GetShortUIName] to an exhausted shadow. Hunger and thirst left no clean marks, but they did leave a weakness that will not be easily forgotten."
+ advanced_torture.6203.a:0 "Need can be a chain as well."
+
+ advanced_torture.6204.t:0 "The Suspension Ends"
+ advanced_torture.6204.desc:0 "The prolonged suspension has ended. [advanced_torture_prisoner.GetShortUIName] falls with a damaged body, trembling limbs, and an expression that needs no words."
+ advanced_torture.6204.a:0 "Let them remember every moment."
+
+ advanced_torture.6301.t:0 "Broken by Wakefulness"
+ advanced_torture.6301.desc:0 "[advanced_torture_prisoner.GetShortUIName] no longer knows whether they are speaking to you, to their jailers, or to the shadows moving on the walls. Between senseless phrases and broken pleas, names, fears, and half-truths escape. They can still endure more, but something inside has already broken."
+ advanced_torture.6301.release:0 "Release them from the vigil"
+ advanced_torture.6301.continue:0 "Let it continue"
+ advanced_torture.6301.extend:0 "Add three more days"
+
+ advanced_torture.6302.t:0 "A Voice in the Darkness"
+ advanced_torture.6302.desc:0 "An unrecognizable voice rises from the dark cell. [advanced_torture_prisoner.GetShortUIName] begs, confesses, contradicts themselves, and promises anything in exchange for a crack of light. The darkness has not finished its work, but it has opened deep fractures."
+ advanced_torture.6302.release:0 "Open the door"
+ advanced_torture.6302.continue:0 "Let them remain in darkness"
+ advanced_torture.6302.extend:0 "Add fifteen more days"
+
+ advanced_torture.6303.t:0 "The Plea of Hunger"
+ advanced_torture.6303.desc:0 "[advanced_torture_prisoner.GetShortUIName]'s voice is little more than a dry thread. They ask for water, food, or death; at times they offer secrets, at times they accuse ghosts. Hunger has turned every word into desperate coin."
+ advanced_torture.6303.release:0 "Feed them and release them"
+ advanced_torture.6303.continue:0 "Let hunger keep speaking"
+ advanced_torture.6303.extend:0 "Add five more days"
+
+ advanced_torture.6304.t:0 "Ropes and Confessions"
+ advanced_torture.6304.desc:0 "The ropes have done their work slowly. [advanced_torture_prisoner.GetShortUIName] no longer curses or defies; they only breathe with difficulty, beg to be lowered, and let slip words they might never have spoken on their feet."
+ advanced_torture.6304.release:0 "Lower them"
+ advanced_torture.6304.continue:0 "Let them hang"
+ advanced_torture.6304.extend:0 "Add one more day"
+
+ advanced_torture.6401.t:0 "The Vigil Begins"
+ advanced_torture.6401.desc:0 "The order is given quietly, but the guards understand it well. [advanced_torture_prisoner.GetTitledFirstName] will be kept awake by torchlight, shouted commands, cold water and sudden hands at the shoulder. Each time sleep comes close, someone will be there to tear it away."
+ advanced_torture.6401.a:0 "Let no one let [advanced_torture_prisoner.GetHerHim] sleep"
+
+ advanced_torture.6402.t:0 "The Door is Sealed"
+ advanced_torture.6402.desc:0 "The cell is prepared without ceremony. The last light is taken away, the door is closed, and the guards are told to answer no plea unless it comes by your command. In the darkness, [advanced_torture_prisoner.GetTitledFirstName] will have only hunger, silence and imagination for company."
+ advanced_torture.6402.a:0 "Leave [advanced_torture_prisoner.GetHerHim] to the dark"
+
+ advanced_torture.6403.t:0 "Rations Withdrawn"
+ advanced_torture.6403.desc:0 "The gaolers remove the trays before they can become comfort. Water is measured, food is denied, and every cup carried past the bars becomes another instrument of obedience. [advanced_torture_prisoner.GetTitledFirstNamePossessive] body will learn your patience before it learns mercy."
+ advanced_torture.6403.a:0 "Let hunger do its work"
+
+ advanced_torture.6404.t:0 "Raised on the Ropes"
+ advanced_torture.6404.desc:0 "The ropes bite into flesh as [advanced_torture_prisoner.GetTitledFirstName] is lifted until standing is impossible and resting is worse. The guards are ordered to watch the knots, not the screams. The torment will end only when your order reaches the dungeon."
+ advanced_torture.6404.a:0 "Keep [advanced_torture_prisoner.GetHerHim] hanging"

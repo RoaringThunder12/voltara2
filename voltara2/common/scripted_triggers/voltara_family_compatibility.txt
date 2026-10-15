@@ -1,0 +1,6 @@
+﻿is_great_aunt_uncle_of = { save_temporary_scope_as = vt_relation_subject $CHARACTER$ = { any_parent = { even_if_dead = yes is_nibling_of = scope:vt_relation_subject } } }
+is_great_nibling_of = { any_parent = { even_if_dead = yes is_nibling_of = $CHARACTER$ } }
+is_sibling_in_law_of = { save_temporary_scope_as = vt_relation_subject OR = { any_spouse = { is_sibling_of = $CHARACTER$ } $CHARACTER$ = { any_spouse = { is_sibling_of = scope:vt_relation_subject } } } }
+is_cousin_in_law_of = { save_temporary_scope_as = vt_relation_subject OR = { any_spouse = { is_cousin_of = $CHARACTER$ } $CHARACTER$ = { any_spouse = { is_cousin_of = scope:vt_relation_subject } } } }
+is_aunt_uncle_in_law_of = { save_temporary_scope_as = vt_relation_subject OR = { any_spouse = { is_uncle_or_aunt_of = $CHARACTER$ } $CHARACTER$ = { any_spouse = { is_nibling_of = scope:vt_relation_subject } } } }
+is_nibling_in_law_of = { save_temporary_scope_as = vt_relation_subject OR = { any_spouse = { is_nibling_of = $CHARACTER$ } $CHARACTER$ = { any_spouse = { is_uncle_or_aunt_of = scope:vt_relation_subject } } } }

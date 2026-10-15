@@ -1,0 +1,45 @@
+﻿advanced_torture_interaction = {
+	interface_priority = 30
+	common_interaction = no
+	icon = advanced_torture_interaction
+
+	category = interaction_category_prison
+
+	desc = advanced_torture_interaction_desc
+	auto_accept = yes
+
+	is_shown = {
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		scope:recipient = { is_imprisoned_by = scope:actor }
+		scope:recipient = { age >= 12 }
+		scope:actor = { age >= 12 }
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			prestige >= 50
+		}
+
+		scope:recipient = {
+			NOT = { has_character_modifier = advanced_torture_cooldown }
+		}
+	}
+
+	on_accept = {
+		scope:recipient = {
+			save_scope_as = advanced_torture_prisoner
+		}
+
+		scope:actor = {
+			trigger_event = {
+				id = advanced_torture.0001
+			}
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+}

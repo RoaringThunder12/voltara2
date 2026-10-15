@@ -1,0 +1,274 @@
+﻿advanced_torture_clear_last_result_text_flags_effect = {
+ if = {
+  limit = { has_character_flag = advanced_torture_result_variant_01 }
+  remove_character_flag = advanced_torture_result_variant_01
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_variant_02 }
+  remove_character_flag = advanced_torture_result_variant_02
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_variant_03 }
+  remove_character_flag = advanced_torture_result_variant_03
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_simple_whipping }
+  remove_character_flag = advanced_torture_result_simple_whipping
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_branding_iron }
+  remove_character_flag = advanced_torture_result_branding_iron
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_stocks }
+  remove_character_flag = advanced_torture_result_stocks
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_walk_of_shame }
+  remove_character_flag = advanced_torture_result_walk_of_shame
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_bastinado }
+  remove_character_flag = advanced_torture_result_bastinado
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_water_torment }
+  remove_character_flag = advanced_torture_result_water_torment
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_compression_cords }
+  remove_character_flag = advanced_torture_result_compression_cords
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_strappado }
+  remove_character_flag = advanced_torture_result_strappado
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_thumbscrew }
+  remove_character_flag = advanced_torture_result_thumbscrew
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_short_stretching_bench }
+  remove_character_flag = advanced_torture_result_short_stretching_bench
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_rack }
+  remove_character_flag = advanced_torture_result_rack
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_wedged_boot }
+  remove_character_flag = advanced_torture_result_wedged_boot
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_rats }
+  remove_character_flag = advanced_torture_result_rats
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_enucleation }
+  remove_character_flag = advanced_torture_result_enucleation
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_leg_amputation }
+  remove_character_flag = advanced_torture_result_leg_amputation
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_nail_cleaner }
+  remove_character_flag = advanced_torture_result_nail_cleaner
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_phalaris_bull }
+  remove_character_flag = advanced_torture_result_phalaris_bull
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_judas_cradle }
+  remove_character_flag = advanced_torture_result_judas_cradle
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_pear_of_anguish }
+  remove_character_flag = advanced_torture_result_pear_of_anguish
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_iron_spider }
+  remove_character_flag = advanced_torture_result_iron_spider
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_torture_chair }
+  remove_character_flag = advanced_torture_result_torture_chair
+ }
+
+ if = {
+  limit = { has_character_flag = advanced_torture_result_skull_crusher }
+  remove_character_flag = advanced_torture_result_skull_crusher
+ }
+}
+
+advanced_torture_set_random_result_variant_effect = {
+ random_list = {
+  33 = {
+   add_character_flag = advanced_torture_result_variant_01
+  }
+
+  33 = {
+   add_character_flag = advanced_torture_result_variant_02
+  }
+
+  34 = {
+   add_character_flag = advanced_torture_result_variant_03
+  }
+ }
+}
+
+advanced_torture_set_result_text_simple_whipping_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_simple_whipping
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_branding_iron_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_branding_iron
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_walk_of_shame_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_walk_of_shame
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_bastinado_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_bastinado
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_water_torment_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_water_torment
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_compression_cords_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_compression_cords
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_strappado_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_strappado
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_thumbscrew_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_thumbscrew
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_short_stretching_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_short_stretching_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_rack_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_rack
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_wedged_boot_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_wedged_boot
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_rats_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_rats
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_enucleation_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_enucleation
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_leg_amputation_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_leg_amputation
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_nail_cleaner_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_nail_cleaner
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_phalaris_bull_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_phalaris_bull
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_judas_cradle_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_judas_cradle
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_pear_of_anguish_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_pear_of_anguish
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_iron_spider_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_iron_spider
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_torture_chair_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_torture_chair
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_set_result_text_skull_crusher_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_skull_crusher
+ advanced_torture_set_random_result_variant_effect = yes
+}

@@ -1,0 +1,2078 @@
+﻿advanced_torture_clear_cultural_result_text_flags_effect = {
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_drakkar_stocks } remove_character_flag = advanced_torture_result_cultural_drakkar_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_broken_oath_ring } remove_character_flag = advanced_torture_result_cultural_broken_oath_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_viking_sail_rope } remove_character_flag = advanced_torture_result_cultural_viking_sail_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_thing_stones } remove_character_flag = advanced_torture_result_cultural_thing_stones }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_runes_under_skin } remove_character_flag = advanced_torture_result_cultural_runes_under_skin }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_bard_knot } remove_character_flag = advanced_torture_result_cultural_bard_knot }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_peat_stocks } remove_character_flag = advanced_torture_result_cultural_peat_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_blackthorn_needles } remove_character_flag = advanced_torture_result_cultural_blackthorn_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_clan_stone } remove_character_flag = advanced_torture_result_cultural_clan_stone }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_oath_circle } remove_character_flag = advanced_torture_result_cultural_oath_circle }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_veche_rod } remove_character_flag = advanced_torture_result_cultural_veche_rod }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_birch_ring } remove_character_flag = advanced_torture_result_cultural_birch_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_slavic_winter_stocks } remove_character_flag = advanced_torture_result_cultural_slavic_winter_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_rural_smith_tongs } remove_character_flag = advanced_torture_result_cultural_rural_smith_tongs }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_boyar_bench } remove_character_flag = advanced_torture_result_cultural_boyar_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_burgh_pillory } remove_character_flag = advanced_torture_result_cultural_burgh_pillory }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_ducal_market_rope } remove_character_flag = advanced_torture_result_cultural_ducal_market_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_castellan_oak_bench } remove_character_flag = advanced_torture_result_cultural_castellan_oak_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_council_rod } remove_character_flag = advanced_torture_result_cultural_council_rod }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_march_iron_ring } remove_character_flag = advanced_torture_result_cultural_march_iron_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_broken_amber_collar } remove_character_flag = advanced_torture_result_cultural_broken_amber_collar }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_sacred_grove_stocks } remove_character_flag = advanced_torture_result_cultural_sacred_grove_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_resin_needles } remove_character_flag = advanced_torture_result_cultural_resin_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_baltic_linen_rope } remove_character_flag = advanced_torture_result_cultural_baltic_linen_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_thunder_stone } remove_character_flag = advanced_torture_result_cultural_thunder_stone }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_shaman_drum } remove_character_flag = advanced_torture_result_cultural_shaman_drum }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_reindeer_rope } remove_character_flag = advanced_torture_result_cultural_reindeer_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_antler_bones } remove_character_flag = advanced_torture_result_cultural_antler_bones }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_bark_stocks } remove_character_flag = advanced_torture_result_cultural_bark_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_dry_ice_needles } remove_character_flag = advanced_torture_result_cultural_dry_ice_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_composite_bow_cord } remove_character_flag = advanced_torture_result_cultural_composite_bow_cord }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_steppe_rider_bridle } remove_character_flag = advanced_torture_result_cultural_steppe_rider_bridle }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_curved_saddle_ring } remove_character_flag = advanced_torture_result_cultural_curved_saddle_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_camp_stake } remove_character_flag = advanced_torture_result_cultural_camp_stake }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_solar_horse_brand } remove_character_flag = advanced_torture_result_cultural_solar_horse_brand }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_atlas_thorn_veil } remove_character_flag = advanced_torture_result_cultural_atlas_thorn_veil }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_dry_leather_ring } remove_character_flag = advanced_torture_result_cultural_dry_leather_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_oasis_stone } remove_character_flag = advanced_torture_result_cultural_oasis_stone }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_palm_needles } remove_character_flag = advanced_torture_result_cultural_palm_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_caravan_rope } remove_character_flag = advanced_torture_result_cultural_caravan_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_silenced_griot_bench } remove_character_flag = advanced_torture_result_cultural_silenced_griot_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_ritual_iron_mask } remove_character_flag = advanced_torture_result_cultural_ritual_iron_mask }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_market_rope } remove_character_flag = advanced_torture_result_cultural_market_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_ivory_needles } remove_character_flag = advanced_torture_result_cultural_ivory_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_punishment_mortar } remove_character_flag = advanced_torture_result_cultural_punishment_mortar }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_aksum_cross } remove_character_flag = advanced_torture_result_cultural_aksum_cross }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_cracked_ivory_stocks } remove_character_flag = advanced_torture_result_cultural_cracked_ivory_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_blue_nile_spear } remove_character_flag = advanced_torture_result_cultural_blue_nile_spear }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_monastery_stone } remove_character_flag = advanced_torture_result_cultural_monastery_stone }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_red_leather_strap } remove_character_flag = advanced_torture_result_cultural_red_leather_strap }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_disloyal_vassal_bench } remove_character_flag = advanced_torture_result_cultural_disloyal_vassal_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_oath_gauntlet } remove_character_flag = advanced_torture_result_cultural_oath_gauntlet }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_herald_rope } remove_character_flag = advanced_torture_result_cultural_herald_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_frankish_shield_press } remove_character_flag = advanced_torture_result_cultural_frankish_shield_press }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_count_court_stocks } remove_character_flag = advanced_torture_result_cultural_count_court_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_landgrave_gag } remove_character_flag = advanced_torture_result_cultural_landgrave_gag }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_german_oak_ring } remove_character_flag = advanced_torture_result_cultural_german_oak_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_burgh_bench } remove_character_flag = advanced_torture_result_cultural_burgh_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_ducal_smith_hammer } remove_character_flag = advanced_torture_result_cultural_ducal_smith_hammer }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_saxon_oath_stocks } remove_character_flag = advanced_torture_result_cultural_saxon_oath_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_alcazar_rope } remove_character_flag = advanced_torture_result_cultural_alcazar_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_merino_bench } remove_character_flag = advanced_torture_result_cultural_merino_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_reconquest_ring } remove_character_flag = advanced_torture_result_cultural_reconquest_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_fuero_stocks } remove_character_flag = advanced_torture_result_cultural_fuero_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_esparto_needles } remove_character_flag = advanced_torture_result_cultural_esparto_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_notary_press } remove_character_flag = advanced_torture_result_cultural_notary_press }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_campanile_rope } remove_character_flag = advanced_torture_result_cultural_campanile_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_podesta_bench } remove_character_flag = advanced_torture_result_cultural_podesta_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_wax_mask } remove_character_flag = advanced_torture_result_cultural_wax_mask }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_patrician_ring } remove_character_flag = advanced_torture_result_cultural_patrician_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_strategos_table } remove_character_flag = advanced_torture_result_cultural_strategos_table }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_hippodrome_rope } remove_character_flag = advanced_torture_result_cultural_hippodrome_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_imperial_bronze_mask } remove_character_flag = advanced_torture_result_cultural_imperial_bronze_mask }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_parchment_needles } remove_character_flag = advanced_torture_result_cultural_parchment_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_palace_stocks } remove_character_flag = advanced_torture_result_cultural_palace_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_qadi_rope } remove_character_flag = advanced_torture_result_cultural_qadi_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_souk_bench } remove_character_flag = advanced_torture_result_cultural_souk_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_calligraphy_ring } remove_character_flag = advanced_torture_result_cultural_calligraphy_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_reed_needles } remove_character_flag = advanced_torture_result_cultural_reed_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_poet_gag } remove_character_flag = advanced_torture_result_cultural_poet_gag }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_satrap_frame } remove_character_flag = advanced_torture_result_cultural_satrap_frame }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_saffron_needles } remove_character_flag = advanced_torture_result_cultural_saffron_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_walled_garden_rope } remove_character_flag = advanced_torture_result_cultural_walled_garden_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_persian_silver_ring } remove_character_flag = advanced_torture_result_cultural_persian_silver_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_vizier_bench } remove_character_flag = advanced_torture_result_cultural_vizier_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_raja_stocks } remove_character_flag = advanced_torture_result_cultural_raja_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_ceremonial_elephant_rope } remove_character_flag = advanced_torture_result_cultural_ceremonial_elephant_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_sandalwood_needles } remove_character_flag = advanced_torture_result_cultural_sandalwood_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_red_palace_bench } remove_character_flag = advanced_torture_result_cultural_red_palace_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_monsoon_ring } remove_character_flag = advanced_torture_result_cultural_monsoon_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_stone_temple_press } remove_character_flag = advanced_torture_result_cultural_stone_temple_press }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_braided_coconut_rope } remove_character_flag = advanced_torture_result_cultural_braided_coconut_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_tamarind_needles } remove_character_flag = advanced_torture_result_cultural_tamarind_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_spice_port_bench } remove_character_flag = advanced_torture_result_cultural_spice_port_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_southern_bronze_ring } remove_character_flag = advanced_torture_result_cultural_southern_bronze_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_magistrate_table } remove_character_flag = advanced_torture_result_cultural_magistrate_table }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_imperial_seal_rope } remove_character_flag = advanced_torture_result_cultural_imperial_seal_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_fine_bamboo_needles } remove_character_flag = advanced_torture_result_cultural_fine_bamboo_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_examination_bench } remove_character_flag = advanced_torture_result_cultural_examination_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_jade_ring } remove_character_flag = advanced_torture_result_cultural_jade_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_tumen_lasso } remove_character_flag = advanced_torture_result_cultural_tumen_lasso }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_mongol_saddle_stocks } remove_character_flag = advanced_torture_result_cultural_mongol_saddle_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_braided_mane_rope } remove_character_flag = advanced_torture_result_cultural_braided_mane_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_white_standard_ring } remove_character_flag = advanced_torture_result_cultural_white_standard_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_nomad_camp_stake } remove_character_flag = advanced_torture_result_cultural_nomad_camp_stake }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_caucasian_monastery_stone } remove_character_flag = advanced_torture_result_cultural_caucasian_monastery_stone }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_nakharar_rope } remove_character_flag = advanced_torture_result_cultural_nakharar_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_pomegranate_needles } remove_character_flag = advanced_torture_result_cultural_pomegranate_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_mountain_fortress_stocks } remove_character_flag = advanced_torture_result_cultural_mountain_fortress_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_armenian_bronze_ring } remove_character_flag = advanced_torture_result_cultural_armenian_bronze_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_caucasian_pass_bridle } remove_character_flag = advanced_torture_result_cultural_caucasian_pass_bridle }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_alan_rider_bench } remove_character_flag = advanced_torture_result_cultural_alan_rider_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_throat_iron_ring } remove_character_flag = advanced_torture_result_cultural_throat_iron_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_watchtower_rope } remove_character_flag = advanced_torture_result_cultural_watchtower_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_mountain_bone_needles } remove_character_flag = advanced_torture_result_cultural_mountain_bone_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_magyar_rider_bridle } remove_character_flag = advanced_torture_result_cultural_magyar_rider_bridle }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_horn_bow_rope } remove_character_flag = advanced_torture_result_cultural_horn_bow_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_pannonian_plain_stocks } remove_character_flag = advanced_torture_result_cultural_pannonian_plain_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_tribal_oath_ring } remove_character_flag = advanced_torture_result_cultural_tribal_oath_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_ispan_bench } remove_character_flag = advanced_torture_result_cultural_ispan_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_carpathian_stocks } remove_character_flag = advanced_torture_result_cultural_carpathian_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_vlach_shepherd_rope } remove_character_flag = advanced_torture_result_cultural_vlach_shepherd_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_vlach_boyar_bench } remove_character_flag = advanced_torture_result_cultural_vlach_boyar_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_mountain_pass_iron_ring } remove_character_flag = advanced_torture_result_cultural_mountain_pass_iron_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_juniper_needles } remove_character_flag = advanced_torture_result_cultural_juniper_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_besa_rope } remove_character_flag = advanced_torture_result_cultural_besa_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_gorge_stocks } remove_character_flag = advanced_torture_result_cultural_gorge_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_albanian_clan_stone } remove_character_flag = advanced_torture_result_cultural_albanian_clan_stone }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_wild_olive_needles } remove_character_flag = advanced_torture_result_cultural_wild_olive_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_mountain_shepherd_ring } remove_character_flag = advanced_torture_result_cultural_mountain_shepherd_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_syriac_scribe_bench } remove_character_flag = advanced_torture_result_cultural_syriac_scribe_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_desert_monastery_rope } remove_character_flag = advanced_torture_result_cultural_desert_monastery_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_parchment_ring } remove_character_flag = advanced_torture_result_cultural_parchment_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_euphrates_reed_needles } remove_character_flag = advanced_torture_result_cultural_euphrates_reed_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_mud_tower_stocks } remove_character_flag = advanced_torture_result_cultural_mud_tower_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_wandering_merchant_rope } remove_character_flag = advanced_torture_result_cultural_wandering_merchant_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_aljama_scribe_bench } remove_character_flag = advanced_torture_result_cultural_aljama_scribe_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_community_seal_ring } remove_character_flag = advanced_torture_result_cultural_community_seal_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_hebrew_reed_needles } remove_character_flag = advanced_torture_result_cultural_hebrew_reed_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_rabbinic_court_stocks } remove_character_flag = advanced_torture_result_cultural_rabbinic_court_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_euxine_ring } remove_character_flag = advanced_torture_result_cultural_euxine_ring }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_pontic_rope } remove_character_flag = advanced_torture_result_cultural_pontic_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_black_sea_route_stocks } remove_character_flag = advanced_torture_result_cultural_black_sea_route_stocks }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_merchant_bridle } remove_character_flag = advanced_torture_result_cultural_merchant_bridle }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_bosporus_silver_needles } remove_character_flag = advanced_torture_result_cultural_bosporus_silver_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_daimyo_bench } remove_character_flag = advanced_torture_result_cultural_daimyo_bench }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_tatami_rope } remove_character_flag = advanced_torture_result_cultural_tatami_rope }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_samurai_oath_gag } remove_character_flag = advanced_torture_result_cultural_samurai_oath_gag }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_lacquered_bamboo_needles } remove_character_flag = advanced_torture_result_cultural_lacquered_bamboo_needles }
+ if = { limit = { has_character_flag = advanced_torture_result_cultural_dojo_stocks } remove_character_flag = advanced_torture_result_cultural_dojo_stocks }
+}
+
+advanced_torture_set_result_text_cultural_drakkar_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_drakkar_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_drakkar_stocks_effect = {
+ advanced_torture_set_result_text_cultural_drakkar_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_broken_oath_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_broken_oath_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_broken_oath_ring_effect = {
+ advanced_torture_set_result_text_cultural_broken_oath_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_viking_sail_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_viking_sail_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_viking_sail_rope_effect = {
+ advanced_torture_set_result_text_cultural_viking_sail_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_thing_stones_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_thing_stones
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_thing_stones_effect = {
+ advanced_torture_set_result_text_cultural_thing_stones_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_runes_under_skin_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_runes_under_skin
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_runes_under_skin_effect = {
+ advanced_torture_set_result_text_cultural_runes_under_skin_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_bard_knot_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_bard_knot
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_bard_knot_effect = {
+ advanced_torture_set_result_text_cultural_bard_knot_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_peat_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_peat_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_peat_stocks_effect = {
+ advanced_torture_set_result_text_cultural_peat_stocks_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_blackthorn_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_blackthorn_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_blackthorn_needles_effect = {
+ advanced_torture_set_result_text_cultural_blackthorn_needles_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_clan_stone_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_clan_stone
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_clan_stone_effect = {
+ advanced_torture_set_result_text_cultural_clan_stone_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_oath_circle_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_oath_circle
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_oath_circle_effect = {
+ advanced_torture_set_result_text_cultural_oath_circle_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_veche_rod_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_veche_rod
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_veche_rod_effect = {
+ advanced_torture_set_result_text_cultural_veche_rod_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_birch_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_birch_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_birch_ring_effect = {
+ advanced_torture_set_result_text_cultural_birch_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_slavic_winter_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_slavic_winter_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_slavic_winter_stocks_effect = {
+ advanced_torture_set_result_text_cultural_slavic_winter_stocks_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_rural_smith_tongs_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_rural_smith_tongs
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_rural_smith_tongs_effect = {
+ advanced_torture_set_result_text_cultural_rural_smith_tongs_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_boyar_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_boyar_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_boyar_bench_effect = {
+ advanced_torture_set_result_text_cultural_boyar_bench_effect = yes
+ advanced_torture_apply_strong_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_burgh_pillory_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_burgh_pillory
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_burgh_pillory_effect = {
+ advanced_torture_set_result_text_cultural_burgh_pillory_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_ducal_market_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_ducal_market_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_ducal_market_rope_effect = {
+ advanced_torture_set_result_text_cultural_ducal_market_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_castellan_oak_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_castellan_oak_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_castellan_oak_bench_effect = {
+ advanced_torture_set_result_text_cultural_castellan_oak_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_council_rod_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_council_rod
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_council_rod_effect = {
+ advanced_torture_set_result_text_cultural_council_rod_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_march_iron_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_march_iron_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_march_iron_ring_effect = {
+ advanced_torture_set_result_text_cultural_march_iron_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_broken_amber_collar_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_broken_amber_collar
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_broken_amber_collar_effect = {
+ advanced_torture_set_result_text_cultural_broken_amber_collar_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_sacred_grove_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_sacred_grove_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_sacred_grove_stocks_effect = {
+ advanced_torture_set_result_text_cultural_sacred_grove_stocks_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_resin_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_resin_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_resin_needles_effect = {
+ advanced_torture_set_result_text_cultural_resin_needles_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_baltic_linen_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_baltic_linen_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_baltic_linen_rope_effect = {
+ advanced_torture_set_result_text_cultural_baltic_linen_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_thunder_stone_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_thunder_stone
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_thunder_stone_effect = {
+ advanced_torture_set_result_text_cultural_thunder_stone_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_shaman_drum_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_shaman_drum
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_shaman_drum_effect = {
+ advanced_torture_set_result_text_cultural_shaman_drum_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_reindeer_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_reindeer_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_reindeer_rope_effect = {
+ advanced_torture_set_result_text_cultural_reindeer_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_antler_bones_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_antler_bones
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_antler_bones_effect = {
+ advanced_torture_set_result_text_cultural_antler_bones_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_bark_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_bark_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_bark_stocks_effect = {
+ advanced_torture_set_result_text_cultural_bark_stocks_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_dry_ice_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_dry_ice_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_dry_ice_needles_effect = {
+ advanced_torture_set_result_text_cultural_dry_ice_needles_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_composite_bow_cord_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_composite_bow_cord
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_composite_bow_cord_effect = {
+ advanced_torture_set_result_text_cultural_composite_bow_cord_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_steppe_rider_bridle_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_steppe_rider_bridle
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_steppe_rider_bridle_effect = {
+ advanced_torture_set_result_text_cultural_steppe_rider_bridle_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_curved_saddle_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_curved_saddle_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_curved_saddle_ring_effect = {
+ advanced_torture_set_result_text_cultural_curved_saddle_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_camp_stake_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_camp_stake
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_camp_stake_effect = {
+ advanced_torture_set_result_text_cultural_camp_stake_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_solar_horse_brand_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_solar_horse_brand
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_solar_horse_brand_effect = {
+ advanced_torture_set_result_text_cultural_solar_horse_brand_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_atlas_thorn_veil_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_atlas_thorn_veil
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_atlas_thorn_veil_effect = {
+ advanced_torture_set_result_text_cultural_atlas_thorn_veil_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_dry_leather_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_dry_leather_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_dry_leather_ring_effect = {
+ advanced_torture_set_result_text_cultural_dry_leather_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_oasis_stone_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_oasis_stone
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_oasis_stone_effect = {
+ advanced_torture_set_result_text_cultural_oasis_stone_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_palm_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_palm_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_palm_needles_effect = {
+ advanced_torture_set_result_text_cultural_palm_needles_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_caravan_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_caravan_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_caravan_rope_effect = {
+ advanced_torture_set_result_text_cultural_caravan_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_silenced_griot_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_silenced_griot_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_silenced_griot_bench_effect = {
+ advanced_torture_set_result_text_cultural_silenced_griot_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_ritual_iron_mask_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_ritual_iron_mask
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_ritual_iron_mask_effect = {
+ advanced_torture_set_result_text_cultural_ritual_iron_mask_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_market_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_market_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_market_rope_effect = {
+ advanced_torture_set_result_text_cultural_market_rope_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_ivory_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_ivory_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_ivory_needles_effect = {
+ advanced_torture_set_result_text_cultural_ivory_needles_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_punishment_mortar_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_punishment_mortar
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_punishment_mortar_effect = {
+ advanced_torture_set_result_text_cultural_punishment_mortar_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_aksum_cross_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_aksum_cross
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_aksum_cross_effect = {
+ advanced_torture_set_result_text_cultural_aksum_cross_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_cracked_ivory_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_cracked_ivory_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_cracked_ivory_stocks_effect = {
+ advanced_torture_set_result_text_cultural_cracked_ivory_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_blue_nile_spear_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_blue_nile_spear
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_blue_nile_spear_effect = {
+ advanced_torture_set_result_text_cultural_blue_nile_spear_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_monastery_stone_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_monastery_stone
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_monastery_stone_effect = {
+ advanced_torture_set_result_text_cultural_monastery_stone_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_red_leather_strap_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_red_leather_strap
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_red_leather_strap_effect = {
+ advanced_torture_set_result_text_cultural_red_leather_strap_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_disloyal_vassal_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_disloyal_vassal_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_disloyal_vassal_bench_effect = {
+ advanced_torture_set_result_text_cultural_disloyal_vassal_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_oath_gauntlet_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_oath_gauntlet
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_oath_gauntlet_effect = {
+ advanced_torture_set_result_text_cultural_oath_gauntlet_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_herald_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_herald_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_herald_rope_effect = {
+ advanced_torture_set_result_text_cultural_herald_rope_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_frankish_shield_press_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_frankish_shield_press
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_frankish_shield_press_effect = {
+ advanced_torture_set_result_text_cultural_frankish_shield_press_effect = yes
+ advanced_torture_apply_strong_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_count_court_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_count_court_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_count_court_stocks_effect = {
+ advanced_torture_set_result_text_cultural_count_court_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_landgrave_gag_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_landgrave_gag
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_landgrave_gag_effect = {
+ advanced_torture_set_result_text_cultural_landgrave_gag_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_german_oak_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_german_oak_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_german_oak_ring_effect = {
+ advanced_torture_set_result_text_cultural_german_oak_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_burgh_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_burgh_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_burgh_bench_effect = {
+ advanced_torture_set_result_text_cultural_burgh_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_ducal_smith_hammer_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_ducal_smith_hammer
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_ducal_smith_hammer_effect = {
+ advanced_torture_set_result_text_cultural_ducal_smith_hammer_effect = yes
+ advanced_torture_apply_strong_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_saxon_oath_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_saxon_oath_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_saxon_oath_stocks_effect = {
+ advanced_torture_set_result_text_cultural_saxon_oath_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_alcazar_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_alcazar_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_alcazar_rope_effect = {
+ advanced_torture_set_result_text_cultural_alcazar_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_merino_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_merino_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_merino_bench_effect = {
+ advanced_torture_set_result_text_cultural_merino_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_reconquest_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_reconquest_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_reconquest_ring_effect = {
+ advanced_torture_set_result_text_cultural_reconquest_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_fuero_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_fuero_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_fuero_stocks_effect = {
+ advanced_torture_set_result_text_cultural_fuero_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_esparto_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_esparto_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_esparto_needles_effect = {
+ advanced_torture_set_result_text_cultural_esparto_needles_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_notary_press_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_notary_press
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_notary_press_effect = {
+ advanced_torture_set_result_text_cultural_notary_press_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_campanile_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_campanile_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_campanile_rope_effect = {
+ advanced_torture_set_result_text_cultural_campanile_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_podesta_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_podesta_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_podesta_bench_effect = {
+ advanced_torture_set_result_text_cultural_podesta_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_wax_mask_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_wax_mask
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_wax_mask_effect = {
+ advanced_torture_set_result_text_cultural_wax_mask_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_patrician_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_patrician_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_patrician_ring_effect = {
+ advanced_torture_set_result_text_cultural_patrician_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_strategos_table_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_strategos_table
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_strategos_table_effect = {
+ advanced_torture_set_result_text_cultural_strategos_table_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_hippodrome_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_hippodrome_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_hippodrome_rope_effect = {
+ advanced_torture_set_result_text_cultural_hippodrome_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_imperial_bronze_mask_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_imperial_bronze_mask
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_imperial_bronze_mask_effect = {
+ advanced_torture_set_result_text_cultural_imperial_bronze_mask_effect = yes
+ advanced_torture_apply_strong_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_parchment_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_parchment_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_parchment_needles_effect = {
+ advanced_torture_set_result_text_cultural_parchment_needles_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_palace_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_palace_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_palace_stocks_effect = {
+ advanced_torture_set_result_text_cultural_palace_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_qadi_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_qadi_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_qadi_rope_effect = {
+ advanced_torture_set_result_text_cultural_qadi_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_souk_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_souk_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_souk_bench_effect = {
+ advanced_torture_set_result_text_cultural_souk_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_calligraphy_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_calligraphy_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_calligraphy_ring_effect = {
+ advanced_torture_set_result_text_cultural_calligraphy_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_reed_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_reed_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_reed_needles_effect = {
+ advanced_torture_set_result_text_cultural_reed_needles_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_poet_gag_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_poet_gag
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_poet_gag_effect = {
+ advanced_torture_set_result_text_cultural_poet_gag_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_satrap_frame_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_satrap_frame
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_satrap_frame_effect = {
+ advanced_torture_set_result_text_cultural_satrap_frame_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_saffron_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_saffron_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_saffron_needles_effect = {
+ advanced_torture_set_result_text_cultural_saffron_needles_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_walled_garden_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_walled_garden_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_walled_garden_rope_effect = {
+ advanced_torture_set_result_text_cultural_walled_garden_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_persian_silver_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_persian_silver_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_persian_silver_ring_effect = {
+ advanced_torture_set_result_text_cultural_persian_silver_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_vizier_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_vizier_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_vizier_bench_effect = {
+ advanced_torture_set_result_text_cultural_vizier_bench_effect = yes
+ advanced_torture_apply_strong_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_raja_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_raja_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_raja_stocks_effect = {
+ advanced_torture_set_result_text_cultural_raja_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_ceremonial_elephant_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_ceremonial_elephant_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_ceremonial_elephant_rope_effect = {
+ advanced_torture_set_result_text_cultural_ceremonial_elephant_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_sandalwood_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_sandalwood_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_sandalwood_needles_effect = {
+ advanced_torture_set_result_text_cultural_sandalwood_needles_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_red_palace_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_red_palace_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_red_palace_bench_effect = {
+ advanced_torture_set_result_text_cultural_red_palace_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_monsoon_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_monsoon_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_monsoon_ring_effect = {
+ advanced_torture_set_result_text_cultural_monsoon_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_stone_temple_press_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_stone_temple_press
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_stone_temple_press_effect = {
+ advanced_torture_set_result_text_cultural_stone_temple_press_effect = yes
+ advanced_torture_apply_strong_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_braided_coconut_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_braided_coconut_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_braided_coconut_rope_effect = {
+ advanced_torture_set_result_text_cultural_braided_coconut_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_tamarind_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_tamarind_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_tamarind_needles_effect = {
+ advanced_torture_set_result_text_cultural_tamarind_needles_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_spice_port_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_spice_port_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_spice_port_bench_effect = {
+ advanced_torture_set_result_text_cultural_spice_port_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_southern_bronze_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_southern_bronze_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_southern_bronze_ring_effect = {
+ advanced_torture_set_result_text_cultural_southern_bronze_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_magistrate_table_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_magistrate_table
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_magistrate_table_effect = {
+ advanced_torture_set_result_text_cultural_magistrate_table_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_imperial_seal_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_imperial_seal_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_imperial_seal_rope_effect = {
+ advanced_torture_set_result_text_cultural_imperial_seal_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_fine_bamboo_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_fine_bamboo_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_fine_bamboo_needles_effect = {
+ advanced_torture_set_result_text_cultural_fine_bamboo_needles_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_examination_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_examination_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_examination_bench_effect = {
+ advanced_torture_set_result_text_cultural_examination_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_jade_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_jade_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_jade_ring_effect = {
+ advanced_torture_set_result_text_cultural_jade_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_tumen_lasso_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_tumen_lasso
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_tumen_lasso_effect = {
+ advanced_torture_set_result_text_cultural_tumen_lasso_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_mongol_saddle_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_mongol_saddle_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_mongol_saddle_stocks_effect = {
+ advanced_torture_set_result_text_cultural_mongol_saddle_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_braided_mane_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_braided_mane_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_braided_mane_rope_effect = {
+ advanced_torture_set_result_text_cultural_braided_mane_rope_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_white_standard_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_white_standard_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_white_standard_ring_effect = {
+ advanced_torture_set_result_text_cultural_white_standard_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_nomad_camp_stake_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_nomad_camp_stake
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_nomad_camp_stake_effect = {
+ advanced_torture_set_result_text_cultural_nomad_camp_stake_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_caucasian_monastery_stone_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_caucasian_monastery_stone
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_caucasian_monastery_stone_effect = {
+ advanced_torture_set_result_text_cultural_caucasian_monastery_stone_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_nakharar_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_nakharar_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_nakharar_rope_effect = {
+ advanced_torture_set_result_text_cultural_nakharar_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_pomegranate_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_pomegranate_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_pomegranate_needles_effect = {
+ advanced_torture_set_result_text_cultural_pomegranate_needles_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_mountain_fortress_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_mountain_fortress_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_mountain_fortress_stocks_effect = {
+ advanced_torture_set_result_text_cultural_mountain_fortress_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_armenian_bronze_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_armenian_bronze_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_armenian_bronze_ring_effect = {
+ advanced_torture_set_result_text_cultural_armenian_bronze_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_caucasian_pass_bridle_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_caucasian_pass_bridle
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_caucasian_pass_bridle_effect = {
+ advanced_torture_set_result_text_cultural_caucasian_pass_bridle_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_alan_rider_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_alan_rider_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_alan_rider_bench_effect = {
+ advanced_torture_set_result_text_cultural_alan_rider_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_throat_iron_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_throat_iron_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_throat_iron_ring_effect = {
+ advanced_torture_set_result_text_cultural_throat_iron_ring_effect = yes
+ advanced_torture_apply_strong_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_watchtower_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_watchtower_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_watchtower_rope_effect = {
+ advanced_torture_set_result_text_cultural_watchtower_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_mountain_bone_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_mountain_bone_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_mountain_bone_needles_effect = {
+ advanced_torture_set_result_text_cultural_mountain_bone_needles_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_magyar_rider_bridle_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_magyar_rider_bridle
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_magyar_rider_bridle_effect = {
+ advanced_torture_set_result_text_cultural_magyar_rider_bridle_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_horn_bow_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_horn_bow_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_horn_bow_rope_effect = {
+ advanced_torture_set_result_text_cultural_horn_bow_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_pannonian_plain_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_pannonian_plain_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_pannonian_plain_stocks_effect = {
+ advanced_torture_set_result_text_cultural_pannonian_plain_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_tribal_oath_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_tribal_oath_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_tribal_oath_ring_effect = {
+ advanced_torture_set_result_text_cultural_tribal_oath_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_ispan_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_ispan_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_ispan_bench_effect = {
+ advanced_torture_set_result_text_cultural_ispan_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_carpathian_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_carpathian_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_carpathian_stocks_effect = {
+ advanced_torture_set_result_text_cultural_carpathian_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_vlach_shepherd_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_vlach_shepherd_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_vlach_shepherd_rope_effect = {
+ advanced_torture_set_result_text_cultural_vlach_shepherd_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_vlach_boyar_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_vlach_boyar_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_vlach_boyar_bench_effect = {
+ advanced_torture_set_result_text_cultural_vlach_boyar_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_mountain_pass_iron_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_mountain_pass_iron_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_mountain_pass_iron_ring_effect = {
+ advanced_torture_set_result_text_cultural_mountain_pass_iron_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_juniper_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_juniper_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_juniper_needles_effect = {
+ advanced_torture_set_result_text_cultural_juniper_needles_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_besa_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_besa_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_besa_rope_effect = {
+ advanced_torture_set_result_text_cultural_besa_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_gorge_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_gorge_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_gorge_stocks_effect = {
+ advanced_torture_set_result_text_cultural_gorge_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_albanian_clan_stone_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_albanian_clan_stone
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_albanian_clan_stone_effect = {
+ advanced_torture_set_result_text_cultural_albanian_clan_stone_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_wild_olive_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_wild_olive_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_wild_olive_needles_effect = {
+ advanced_torture_set_result_text_cultural_wild_olive_needles_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_mountain_shepherd_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_mountain_shepherd_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_mountain_shepherd_ring_effect = {
+ advanced_torture_set_result_text_cultural_mountain_shepherd_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_syriac_scribe_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_syriac_scribe_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_syriac_scribe_bench_effect = {
+ advanced_torture_set_result_text_cultural_syriac_scribe_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_desert_monastery_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_desert_monastery_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_desert_monastery_rope_effect = {
+ advanced_torture_set_result_text_cultural_desert_monastery_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_parchment_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_parchment_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_parchment_ring_effect = {
+ advanced_torture_set_result_text_cultural_parchment_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_euphrates_reed_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_euphrates_reed_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_euphrates_reed_needles_effect = {
+ advanced_torture_set_result_text_cultural_euphrates_reed_needles_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_mud_tower_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_mud_tower_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_mud_tower_stocks_effect = {
+ advanced_torture_set_result_text_cultural_mud_tower_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_wandering_merchant_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_wandering_merchant_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_wandering_merchant_rope_effect = {
+ advanced_torture_set_result_text_cultural_wandering_merchant_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_aljama_scribe_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_aljama_scribe_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_aljama_scribe_bench_effect = {
+ advanced_torture_set_result_text_cultural_aljama_scribe_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_community_seal_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_community_seal_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_community_seal_ring_effect = {
+ advanced_torture_set_result_text_cultural_community_seal_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_hebrew_reed_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_hebrew_reed_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_hebrew_reed_needles_effect = {
+ advanced_torture_set_result_text_cultural_hebrew_reed_needles_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_rabbinic_court_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_rabbinic_court_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_rabbinic_court_stocks_effect = {
+ advanced_torture_set_result_text_cultural_rabbinic_court_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_euxine_ring_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_euxine_ring
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_euxine_ring_effect = {
+ advanced_torture_set_result_text_cultural_euxine_ring_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_pontic_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_pontic_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_pontic_rope_effect = {
+ advanced_torture_set_result_text_cultural_pontic_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_black_sea_route_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_black_sea_route_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_black_sea_route_stocks_effect = {
+ advanced_torture_set_result_text_cultural_black_sea_route_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_merchant_bridle_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_merchant_bridle
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_merchant_bridle_effect = {
+ advanced_torture_set_result_text_cultural_merchant_bridle_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_bosporus_silver_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_bosporus_silver_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_bosporus_silver_needles_effect = {
+ advanced_torture_set_result_text_cultural_bosporus_silver_needles_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_daimyo_bench_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_daimyo_bench
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_daimyo_bench_effect = {
+ advanced_torture_set_result_text_cultural_daimyo_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_tatami_rope_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_tatami_rope
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_tatami_rope_effect = {
+ advanced_torture_set_result_text_cultural_tatami_rope_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_samurai_oath_gag_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_samurai_oath_gag
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_samurai_oath_gag_effect = {
+ advanced_torture_set_result_text_cultural_samurai_oath_gag_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_lacquered_bamboo_needles_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_lacquered_bamboo_needles
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_lacquered_bamboo_needles_effect = {
+ advanced_torture_set_result_text_cultural_lacquered_bamboo_needles_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_set_result_text_cultural_dojo_stocks_effect = {
+ advanced_torture_clear_last_result_text_flags_effect = yes
+ advanced_torture_clear_cultural_result_text_flags_effect = yes
+ add_character_flag = advanced_torture_result_cultural_dojo_stocks
+ advanced_torture_set_random_result_variant_effect = yes
+}
+
+advanced_torture_cultural_dojo_stocks_effect = {
+ advanced_torture_set_result_text_cultural_dojo_stocks_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_open_cultural_tortures_effect = {
+ if = {
+  limit = { advanced_torture_is_culture_scandinavian_trigger = yes }
+  trigger_event = { id = advanced_torture.8101 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_celtic_trigger = yes }
+  trigger_event = { id = advanced_torture.8102 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_east_slavic_trigger = yes }
+  trigger_event = { id = advanced_torture.8103 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_west_slavic_trigger = yes }
+  trigger_event = { id = advanced_torture.8104 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_baltic_trigger = yes }
+  trigger_event = { id = advanced_torture.8105 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_balto_finnic_sami_trigger = yes }
+  trigger_event = { id = advanced_torture.8106 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_steppe_turkic_trigger = yes }
+  trigger_event = { id = advanced_torture.8107 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_berber_north_african_trigger = yes }
+  trigger_event = { id = advanced_torture.8108 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_west_african_sahelian_trigger = yes }
+  trigger_event = { id = advanced_torture.8109 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_nubian_horn_african_trigger = yes }
+  trigger_event = { id = advanced_torture.8110 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_frankish_french_trigger = yes }
+  trigger_event = { id = advanced_torture.8111 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_west_germanic_trigger = yes }
+  trigger_event = { id = advanced_torture.8112 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_christian_iberian_trigger = yes }
+  trigger_event = { id = advanced_torture.8113 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_latin_italian_trigger = yes }
+  trigger_event = { id = advanced_torture.8114 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_byzantine_greek_trigger = yes }
+  trigger_event = { id = advanced_torture.8115 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_arabic_trigger = yes }
+  trigger_event = { id = advanced_torture.8116 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_iranian_persian_trigger = yes }
+  trigger_event = { id = advanced_torture.8117 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_north_indian_trigger = yes }
+  trigger_event = { id = advanced_torture.8118 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_dravidian_south_indian_trigger = yes }
+  trigger_event = { id = advanced_torture.8119 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_sinitic_chinese_trigger = yes }
+  trigger_event = { id = advanced_torture.8120 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_mongolian_trigger = yes }
+  trigger_event = { id = advanced_torture.8121 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_armenian_caucasian_trigger = yes }
+  trigger_event = { id = advanced_torture.8122 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_north_caucasian_alan_trigger = yes }
+  trigger_event = { id = advanced_torture.8123 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_magyar_hungarian_trigger = yes }
+  trigger_event = { id = advanced_torture.8124 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_vlach_carpathian_trigger = yes }
+  trigger_event = { id = advanced_torture.8125 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_albanian_trigger = yes }
+  trigger_event = { id = advanced_torture.8126 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_syriac_assyrian_trigger = yes }
+  trigger_event = { id = advanced_torture.8127 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_jewish_trigger = yes }
+  trigger_event = { id = advanced_torture.8128 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_black_sea_pontic_trigger = yes }
+  trigger_event = { id = advanced_torture.8129 }
+ }
+ else_if = {
+  limit = { advanced_torture_is_culture_japonic_trigger = yes }
+  trigger_event = { id = advanced_torture.8130 }
+ }
+ else = {
+  trigger_event = { id = advanced_torture.0005 }
+ }
+}

@@ -1,6 +1,8 @@
 ﻿11111 = {
 # Provisional holding layout; source culture/faith retained.
-culture = voltara_culture_20
-rite = voltara_mud_and_flame
-holding = city_holding
+
+
+
+
+ culture = voltara_ironcoil_naga rite = voltara_first_cavern holding = none
 }

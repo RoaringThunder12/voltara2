@@ -1,6 +1,9 @@
 ﻿2483 = {
+ culture = voltara_culture_39
+ rite = voltara_tidal_memory
+
 # Provisional holding layout; source culture/faith retained.
-culture = voltara_culture_44
-religion = voltara_faith_0
-holding = church_holding
+
+
+holding = none
 }

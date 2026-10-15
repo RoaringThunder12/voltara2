@@ -1,0 +1,63 @@
+## Holding Manager
+# steam ID: 2633505646
+types kECV_compat_holding_manager_types
+{
+    # From gui/window_county_view.gui
+    type kECV_compat__holding_manager__holding_buttons = flowcontainer {
+        visible = "[kei_Compat_IsModLoaded_Holding_Manager]"
+        ignoreinvisible = yes
+        using = kECV_buildings_top_bar_spacing
+        kECV_compat__holding_manager__button = {
+			datacontext = "[GetScriptedGui('hm_replace_holder_button')]"
+            blockoverride "icon" { texture = "gfx/interface/icons/flat_icons/revert.dds" }
+        }
+        kECV_compat__holding_manager__button = {
+			datacontext = "[GetScriptedGui('hm_make_castle_button')]"
+            blockoverride "icon" { texture = "gfx/interface/icons/holding_types_tab/castle_holding.dds" }
+        }
+        kECV_compat__holding_manager__button = {
+			datacontext = "[GetScriptedGui('hm_make_temple_button')]"
+            blockoverride "icon" { texture = "gfx/interface/icons/holding_types_tab/church_holding.dds" }
+        }
+        kECV_compat__holding_manager__button = {
+			datacontext = "[GetScriptedGui('hm_make_city_button')]"
+            blockoverride "icon" { texture = "gfx/interface/icons/holding_types_tab/city_holding.dds" }
+        }
+        kECV_compat__holding_manager__button = {
+			datacontext = "[GetScriptedGui('hm_build_all_button')]"
+            blockoverride "icon" { texture = "gfx/interface/icons/flat_icons/menu.dds" }
+        }
+        kECV_compat__holding_manager__button = {
+			datacontext = "[GetScriptedGui('hm_upgrade_all_button')]"
+            blockoverride "icon" { texture = "gfx/interface/icons/flat_icons/star.dds" }
+        }
+        kECV_compat__holding_manager__button = {
+			datacontext = "[GetScriptedGui('hm_remove_all_button')]"
+            blockoverride "icon" { texture = "gfx/interface/icons/flat_icons/clear.dds" }
+        }
+        kECV_compat__holding_manager__button = {
+			datacontext = "[GetScriptedGui('hm_remove_special_buildings_button')]"
+            blockoverride "icon" { texture = "gfx/interface/icons/flat_icons/data_system.dds" }
+        }
+        kECV_compat__holding_manager__button = {
+			datacontext = "[GetScriptedGui('hm_add_slot_button')]"
+            blockoverride "icon" { texture = "gfx/interface/icons/flat_icons/plus.dds" }
+        }
+    }
+
+    type kECV_compat__holding_manager__button = button_standard {
+        name = "gui_hm_replace_holder_button"
+        visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('gui_holding', HoldingView.GetProvince.MakeScope).End)]"
+        enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('gui_holding', HoldingView.GetProvince.MakeScope).End)]"
+        onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('gui_holding', HoldingView.GetProvince.MakeScope).End)]"
+        tooltip = "[ScriptedGui.BuildTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('gui_holding', HoldingView.GetProvince.MakeScope).End)]"
+        size = { 35 35 }
+        block "building_buttons_background" {}
+        button_icon = {
+            size = { 85% 85% }
+            parentanchor = center
+            alwaystransparent = yes
+            block "icon" {}
+        }
+    }
+}

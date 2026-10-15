@@ -1,0 +1,14 @@
+﻿l_english:
+ jdb_bc_commander_flavor_text_retreat_dominant:0 "Damn those bastards! Retreat!!"
+ jdb_bc_commander_flavor_text_retreat_zeal_forsaken:0 "[ROOT.Char.GetFaith.WarGodName|U] why have you forsaken us?"
+ jdb_bc_commander_flavor_text_retreat_fallback:0 "Fallback!!"
+ jdb_bc_commander_flavor_text_retreat:0 "Retreat! Retreat!!"
+ jdb_bc_commander_flavor_text_retreat_we_need_more_allies:0 "We need more allies!"
+ jdb_bc_commander_flavor_text_siege_tear_walls:0 "Tear these walls!"
+ jdb_bc_commander_flavor_text_siege_archers:0 "Archers, Loose!"
+ jdb_bc_commander_flavor_text_siege_burn_them:0 "Burn them!"
+ jdb_bc_commander_flavor_text_siege_storm_gate:0 "Storm the gate!"
+ jdb_bc_commander_flavor_text_siege_towers:0 "Siege towers, Forward!"
+ jdb_bc_commander_flavor_text_siege_mine:0 "I will take what is rightfully mine. Archers, Loose!"
+
+ jdb_bc_battle_stance:1 "Random Commander Stance #weak (Battleground Commanders)#!"

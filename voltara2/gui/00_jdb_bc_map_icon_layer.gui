@@ -1,0 +1,606 @@
+﻿types MapIcons {
+	type widget_combat_icon = widget {
+		name = "combat_widget"
+		datacontext = "[ProvinceIcon.GetCombatIcon]"
+		datacontext = "[CombatMapIcon.GetCombat]"
+
+		# jdb
+		widget = {
+			size = { 300 90 }
+			parentanchor = hcenter
+			position = { 0 -85 }
+			allow_outside = yes
+
+			background = {
+				texture = "[Combat.GetProvince.GetTerrain.GetIllustration]"
+				alpha = 0.8
+				using = Mask_Rough_Edges
+
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_seamless_torn_edge_horizontal.dds"
+					blend_mode = alphamultiply
+					alpha = 0.95
+				}
+			}
+
+			widget = {
+				datacontext = "[Combat.GetLeftSideResult.GetCommander]"
+				visible = "[Character.IsValid]"
+				parentanchor = bottom|left
+				position = { 0 -24 }
+				size = { 85 90 }
+
+				portrait_head_small = {
+					name = "portrait_left_commander"
+                    visible = "[Character.IsValid]"
+					size = { 100% 100% }
+					blockoverride "opinion_box" {}
+					blockoverride "status_icons" {}
+
+					blockoverride "portrait_texture"
+					{
+						portrait_texture = "[Character.GetAnimatedPortrait('environment_head', 'camera_head', 'jdb_bc_battle_stance', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+					}
+				}
+
+				widget = {
+					name = "left_commander_name_plate"
+					visible = "[Character.IsValid]"
+					parentanchor = bottom|hcenter
+		
+					size = { 110 30 }
+					position = { 0 24 }
+					using = Background_Letter
+					alpha = 0.9
+		
+					text_multi = {
+						min_width = 94
+						max_width = 94
+						min_height = 28
+						max_height = 28
+		
+						position = { 8 1 }
+		
+						text = "[Character.GetShortUINameNotMeNoTooltip]"
+						default_format = "#light_background"
+						align = vcenter|nobaseline|center
+						using = Font_Size_Small
+						using = Font_Type_Flavor
+						using = Text_Light_Background_Overrides
+					}
+				}
+			}
+
+			widget = {
+				datacontext = "[Combat.GetRightSideResult.GetCommander]"
+				visible = "[Character.IsValid]"
+				parentanchor = bottom|right
+				position = { 0 -24 }
+				size = { 85 90 }
+
+				portrait_head_small = {
+					name = "portrait_right_commander"
+                    visible = "[Character.IsValid]"
+					size = { 100% 100% }
+					blockoverride "opinion_box" {}
+					blockoverride "status_icons" {}
+
+					blockoverride "portrait_texture"
+					{
+						portrait_texture = "[Character.GetAnimatedPortrait('environment_head', 'camera_head', 'jdb_bc_battle_stance', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+					}
+
+					blockoverride "portrait_transformation"
+					{
+						portrait_scale = { -1 1 }
+						portrait_offset = { 1 0 }
+					}
+
+					blockoverride "coa" {
+						coa_realm_tiny = {
+							visible = "[Character.HasLandedTitles]"
+							parentanchor = bottom|right
+							position = { -3 -2 }
+							scale = 0.85
+						}
+					}
+				}
+
+				widget = {
+					name = "right_commander_name_plate"
+					visible = "[Character.IsValid]"
+					parentanchor = bottom|hcenter
+		
+					size = { 110 30 }
+					position = { 0 24 }
+					using = Background_Letter
+					alpha = 0.9
+		
+					text_multi = {
+						min_width = 94
+						max_width = 94
+						min_height = 28
+						max_height = 28
+		
+						position = { 8 1 }
+		
+						text = "[Character.GetShortUINameNotMeNoTooltip]"
+						default_format = "#light_background"
+						align = vcenter|nobaseline|center
+						using = Font_Size_Small
+						using = Font_Type_Flavor
+						using = Text_Light_Background_Overrides
+					}
+				}
+			}
+		}
+		# jdb end
+
+		button_group = {
+			parentanchor = hcenter
+			onclick = "[CombatMapIcon.OnClick]"
+			tooltip = "COMBAT_ON_MAP_TOOLTIP"
+			using = tooltip_below
+
+			container = {
+				position = { 0 6 }
+
+				button_normal = {
+					name = "left_side_bg"
+					visible = "[CombatMapIcon.LeftIsPlayer]"
+					texture = "gfx/interface/icons/map_icons/army_bg_me.dds"
+					size = { 82 27 }
+					framesize = { 164 54 }
+					frame = 4
+				}
+
+				button_normal = {
+					name = "left_side_bg_ally"
+					visible = "[CombatMapIcon.LeftIsAlly]"
+					texture = "gfx/interface/icons/map_icons/army_bg_ally.dds"
+					size = { 82 27 }
+					framesize = { 164 54 }
+					frame = 4
+				}
+
+				button_normal = {
+					name = "left_side_bg_neutral"
+					visible = "[CombatMapIcon.LeftIsNeutral]"
+					texture = "gfx/interface/icons/map_icons/army_bg_neutral.dds"
+					size = { 82 27 }
+					framesize = { 164 54 }
+					frame = 4
+				}
+
+				button_normal = {
+					name = "left_side_bg_enemyl"
+					visible = "[Or( CombatMapIcon.LeftIsEnemy, CombatMapIcon.LeftIsHostile )]"
+					texture = "gfx/interface/icons/map_icons/army_bg_enemy.dds"
+					size = { 82 27 }
+					framesize = { 164 54 }
+					frame = 4
+				}
+			}
+
+			container = {
+				position = { 80 6 }
+
+				button = {
+					name = "right_side_bg_me"
+					visible = "[CombatMapIcon.RightIsPlayer]"
+					texture = "gfx/interface/icons/map_icons/army_bg_me.dds"
+					mirror = horizontal
+					size = { 82 27 }
+					framesize = { 164 54 }
+					frame = 4
+				}
+
+				button = {
+					name = "right_side_bg_ally"
+					visible = "[CombatMapIcon.RightIsAlly]"
+					texture = "gfx/interface/icons/map_icons/army_bg_ally.dds"
+					mirror = horizontal
+					size = { 82 27 }
+					framesize = { 164 54 }
+					frame = 4
+				}
+
+				button = {
+					name = "right_side_bg_neutral"
+					visible = "[CombatMapIcon.RightIsNeutral]"
+					texture = "gfx/interface/icons/map_icons/army_bg_neutral.dds"
+					mirror = horizontal
+					size = { 82 27 }
+					framesize = { 164 54 }
+					frame = 4
+				}
+
+				button = {
+					name = "right_side_bg"
+					visible = "[Or( CombatMapIcon.RightIsEnemy, CombatMapIcon.RightIsHostile )]"
+					texture = "gfx/interface/icons/map_icons/army_bg_enemy.dds"
+					mirror = horizontal
+					size = { 82 27 }
+					framesize = { 164 54 }
+					frame = 4
+				}
+			}
+
+			progressbar = {
+				name = "power_progressbar"
+				parentanchor = top|hcenter
+				position = { 0 30 }
+				size = { 150 12 }
+				progresstexture = "gfx/interface/progressbars/onmap_progress_blue.dds"
+
+				noprogresstexture = "gfx/interface/progressbars/onmap_progress_red.dds"
+				value = "[Combat.GetPowerSlider]"
+				direction = horizontal
+				alwaystransparent = yes
+
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_rough_edges.dds"
+					spriteType = Corneredtiled
+					spriteborder = { 160 0 }
+					blend_mode = alphamultiply
+					texture_density = 2
+				}
+			}
+
+			button = {
+				name = "combat_icon"
+				parentanchor = center
+				alwaystransparent = no
+				texture = "gfx/interface/icons/map_icons/combat_map_icon.dds"
+				size = { 40 40 }
+			}
+		}
+
+		background = {
+			name = "unit_highlight"
+			visible = "[CombatMapIcon.IsSelected]"
+			texture = "gfx/interface/icons/map_icons/army_selected.dds"
+			spriteType = Corneredtiled
+			spriteborder = { 20 5 }
+			margin_left = -38
+			margin_right = -26
+			margin_top = -6
+			margin_bottom = -2
+		}
+
+		coa_realm_small = {
+			name = "left_realm_flag"
+			parentanchor = hcenter
+			position = { -92 1 }
+			datacontext = "[Combat.GetLeftSideResult.GetMainParticipant]"
+			using = tooltip_below
+		}
+
+		coa_realm_small = {
+			name = "right_realm_flag"
+			parentanchor = hcenter
+			position = { 92 1 }
+			datacontext = "[Combat.GetRightSideResult.GetMainParticipant]"
+			using = tooltip_below
+		}
+
+		flowcontainer = {
+			parentanchor = hcenter
+			position = { -42 8 }
+
+			text_single = {
+				name = "soldiers_left"
+				parentanchor = vcenter
+				text = "[Combat.GetLeftSide.GetCurrentFightingMen|0]"
+				default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+				snap_to_pixels = no
+				max_width = 40
+				fontsize_min = 12
+				align = nobaseline
+			}
+
+			icon = {
+				name = "unit_quality_left"
+				texture = "gfx/interface/icons/army_quality_icon.dds"
+				framesize = { 32 32 }
+				size = { 22 22 }
+				frame = "[Combat.GetLeftSide.GetComposition.CalcQualityLevel]"
+			}
+		}
+
+		flowcontainer = {
+			parentanchor = hcenter
+			position = { 45 8 }
+
+			text_single = {
+				name = "soldiers_right"
+				text = "[Combat.GetRightSide.GetCurrentFightingMen|0]"
+				default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+				snap_to_pixels = no
+				max_width = 40
+				fontsize_min = 12
+				align = nobaseline
+			}
+
+			icon = {
+				name = "unit_quality_right"
+				texture = "gfx/interface/icons/army_quality_icon.dds"
+				framesize = { 32 32 }
+				size = { 22 22 }
+				frame = "[Combat.GetRightSide.GetComposition.CalcQualityLevel]"
+			}
+		}
+	}
+
+	type widget_combat_icon_small = widget {
+		name = "combat_widget"
+		datacontext = "[ProvinceIcon.GetCombatIcon]"
+		datacontext = "[CombatMapIcon.GetCombat]"
+
+		# jdb
+		widget = {
+			size = { 300 90 }
+			parentanchor = hcenter
+			position = { 0 -80 }
+			allow_outside = yes
+
+			background = {
+				texture = "[Combat.GetProvince.GetTerrain.GetIllustration]"
+				alpha = 0.8
+				using = Mask_Rough_Edges
+
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_seamless_torn_edge_horizontal.dds"
+					blend_mode = alphamultiply
+					alpha = 0.95
+				}
+			}
+
+			widget = {
+				datacontext = "[Combat.GetLeftSideResult.GetCommander]"
+				visible = "[Character.IsValid]"
+				parentanchor = bottom|left
+				position = { 0 -24 }
+				size = { 85 90 }
+
+				portrait_head_small = {
+					name = "portrait_left_commander"
+                    visible = "[Character.IsValid]"
+					size = { 100% 100% }
+					blockoverride "opinion_box" {}
+					blockoverride "status_icons" {}
+
+					blockoverride "portrait_texture"
+					{
+						portrait_texture = "[Character.GetAnimatedPortrait('environment_head', 'camera_head', 'jdb_bc_battle_stance', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+					}
+				}
+
+				widget = {
+					name = "left_commander_name_plate"
+					visible = "[Character.IsValid]"
+					parentanchor = bottom|hcenter
+		
+					size = { 110 30 }
+					position = { 0 24 }
+					using = Background_Letter
+					alpha = 0.9
+		
+					text_multi = {
+						min_width = 94
+						max_width = 94
+						min_height = 28
+						max_height = 28
+		
+						position = { 8 1 }
+		
+						text = "[Character.GetShortUINameNotMeNoTooltip]"
+						default_format = "#light_background"
+						align = vcenter|nobaseline|center
+						using = Font_Size_Small
+						using = Font_Type_Flavor
+						using = Text_Light_Background_Overrides
+					}
+				}
+			}
+
+			widget = {
+				datacontext = "[Combat.GetRightSideResult.GetCommander]"
+				visible = "[Character.IsValid]"
+				parentanchor = bottom|right
+				position = { 0 -24 }
+				size = { 85 90 }
+
+				portrait_head_small = {
+					name = "portrait_right_commander"
+                    visible = "[Character.IsValid]"
+					size = { 100% 100% }
+					blockoverride "opinion_box" {}
+					blockoverride "status_icons" {}
+
+					blockoverride "portrait_texture"
+					{
+						portrait_texture = "[Character.GetAnimatedPortrait('environment_head', 'camera_head', 'jdb_bc_battle_stance', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+					}
+
+					blockoverride "portrait_transformation"
+					{
+						portrait_scale = { -1 1 }
+						portrait_offset = { 1 0 }
+					}
+
+					blockoverride "coa" {
+						coa_realm_tiny = {
+							visible = "[Character.HasLandedTitles]"
+							parentanchor = bottom|right
+							position = { -3 -2 }
+							scale = 0.85
+						}
+					}
+				}
+
+				widget = {
+					name = "right_commander_name_plate"
+					visible = "[Character.IsValid]"
+					parentanchor = bottom|hcenter
+		
+					size = { 110 30 }
+					position = { 0 24 }
+					using = Background_Letter
+					alpha = 0.9
+		
+					text_multi = {
+						min_width = 94
+						max_width = 94
+						min_height = 28
+						max_height = 28
+		
+						position = { 8 1 }
+		
+						text = "[Character.GetShortUINameNotMeNoTooltip]"
+						default_format = "#light_background"
+						align = vcenter|nobaseline|center
+						using = Font_Size_Small
+						using = Font_Type_Flavor
+						using = Text_Light_Background_Overrides
+					}
+				}
+			}
+		}
+		# jdb end
+
+		button_group = {
+			parentanchor = hcenter
+			onclick = "[CombatMapIcon.OnClick]"
+			tooltip = "COMBAT_ON_MAP_TOOLTIP"
+			using = tooltip_below
+
+			background = {
+				using = Background_Area_Light
+				spriteType = Corneredtiled
+				spriteborder = { 20 5 }
+				margin = { 10 3 }
+				margin_top = -10
+			}
+
+			container = {
+				position = { 0 6 }
+
+				button_normal = {
+					name = "left_side_bg_neutral"
+					texture = "gfx/interface/icons/map_icons/army_bg_neutral.dds"
+					size = { 82 27 }
+					framesize = { 164 54 }
+					frame = 4
+				}
+			}
+
+			container = {
+				position = { 80 6 }
+
+				button = {
+					name = "right_side_bg_neutral"
+					texture = "gfx/interface/icons/map_icons/army_bg_neutral.dds"
+					mirror = horizontal
+					size = { 82 27 }
+					framesize = { 164 54 }
+					frame = 4
+				}
+			}
+
+			progressbar = {
+				name = "power_progressbar"
+				parentanchor = top|hcenter
+				position = { 0 30 }
+				size = { 156 10 }
+				progresstexture = "gfx/interface/progressbars/onmap_progress_blue.dds"
+
+				noprogresstexture = "gfx/interface/progressbars/onmap_progress_red.dds"
+				value = "[Combat.GetPowerSlider]"
+				direction = horizontal
+				alwaystransparent = yes
+			}
+
+			button = {
+				name = "combat_icon"
+				parentanchor = center
+				alwaystransparent = no
+				texture = "gfx/interface/icons/map_icons/combat_map_icon.dds"
+				size = { 40 40 }
+			}
+		}
+
+		background = {
+			name = "unit_highlight"
+			visible = "[CombatMapIcon.IsSelected]"
+			texture = "gfx/interface/icons/map_icons/army_selected.dds"
+			spriteType = Corneredtiled
+			spriteborder = { 20 5 }
+			margin_left = -34
+			margin_right = -24
+			margin_top = -7
+			margin_bottom = -3
+		}
+
+		coa_realm_tiny = {
+			name = "left_realm_flag"
+			parentanchor = hcenter
+			position = { -88 3 }
+			datacontext = "[Combat.GetLeftSideResult.GetMainParticipant]"
+			using = tooltip_below
+		}
+
+		coa_realm_tiny = {
+			name = "right_realm_flag"
+			parentanchor = hcenter
+			position = { 88 3 }
+			datacontext = "[Combat.GetRightSideResult.GetMainParticipant]"
+			using = tooltip_below
+		}
+
+		flowcontainer = {
+			parentanchor = hcenter
+			position = { -42 5 }
+
+			text_single = {
+				name = "soldiers_left"
+				parentanchor = vcenter
+				text = "[Combat.GetLeftSide.GetCurrentFightingMen|0]"
+				default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+				snap_to_pixels = no
+				max_width = 40
+				fontsize_min = 12
+			}
+
+			icon = {
+				name = "unit_quality_left"
+				texture = "gfx/interface/icons/army_quality_icon.dds"
+				framesize = { 32 32 }
+				size = { 22 22 }
+				frame = "[Combat.GetLeftSide.GetComposition.CalcQualityLevel]"
+			}
+		}
+
+		flowcontainer = {
+			parentanchor = hcenter
+			position = { 45 5 }
+
+			text_single = {
+				name = "soldiers_right"
+				text = "[Combat.GetRightSide.GetCurrentFightingMen|0]"
+				default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+				snap_to_pixels = no
+				max_width = 40
+				fontsize_min = 12
+			}
+
+			icon = {
+				name = "unit_quality_right"
+				texture = "gfx/interface/icons/army_quality_icon.dds"
+				framesize = { 32 32 }
+				size = { 22 22 }
+				frame = "[Combat.GetRightSide.GetComposition.CalcQualityLevel]"
+			}
+		}
+	}
+}

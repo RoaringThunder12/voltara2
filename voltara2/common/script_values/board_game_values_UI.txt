@@ -1,0 +1,41 @@
+﻿
+chess_progress = {
+	value = 0
+	if = {
+		limit = { exists = var:bg_current_score }
+		add = var:bg_current_score
+	}
+	divide = 11
+
+	multiply = 100
+}
+
+chess_progress_right = {
+	value = 100
+	subtract = chess_progress
+}
+
+bg_current_round_pie = {
+	value = 0
+
+	if = {
+		limit = { exists = var:bg_current_round }
+		add = var:bg_current_round
+	}
+
+	divide = 4
+	multiply = 100
+}
+
+bg_tally = {
+	value = 0
+
+	if = {
+		limit = { exists = var:bg_win_tally }
+		add = var:bg_win_tally
+	}
+	if = {
+		limit = { exists = var:bg_loss_tally }
+		subtract = var:bg_loss_tally
+	}
+}

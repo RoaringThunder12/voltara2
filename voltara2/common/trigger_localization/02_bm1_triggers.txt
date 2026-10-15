@@ -1,0 +1,41 @@
+﻿##############################
+## BM1 scripted_triggers
+##############################
+
+can_add_relevant_hook_trigger = {
+	global = CAN_ADD_RELEVANT_HOOK_TRIGGER
+	first = CHARACTER_CAN_ADD_RELEVANT_HOOK_TRIGGER
+	third = CHARACTER_CAN_ADD_RELEVANT_HOOK_TRIGGER
+	global_not = NOT_CAN_ADD_RELEVANT_HOOK_TRIGGER
+	first_not = NOT_CHARACTER_CAN_ADD_RELEVANT_HOOK_TRIGGER
+	third_not = NOT_CHARACTER_CAN_ADD_RELEVANT_HOOK_TRIGGER
+}
+
+# PDX bug - remove when fixed
+
+has_prisoners = {
+	global = HAS_PRISONERS_TRIGGER
+	first = I_HAVE_PRISONERS_TRIGGER
+	third = THEY_HAVE_PRISONERS_TRIGGER
+	global_not = HAS_NO_PRISONERS_TRIGGER
+	first_not = I_HAVE_NO_PRISONERS_TRIGGER
+	third_not = THEY_HAVE_NO_PRISONERS_TRIGGER
+}
+
+any_prisoner = {
+	global = ANY_PRISONER
+	first = ANY_PRISONER_FIRST
+	third = ANY_PRISONER_THIRD
+}
+
+any_prisoner_all = {
+	global = ALL_PRISONER
+	first = ALL_PRISONER_FIRST
+	third = ALL_PRISONER_THIRD
+}
+
+any_prisoner_count = {
+	global = COUNT_EQ_PRISONER
+	first = COUNT_EQ_PRISONER_FIRST
+	third = COUNT_EQ_PRISONER_THIRD
+}

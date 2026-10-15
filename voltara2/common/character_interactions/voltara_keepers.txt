@@ -1,0 +1,27 @@
+﻿
+voltara_send_to_keepers = {
+ category = interaction_category_prison icon = prison common_interaction = yes
+ desc = voltara_send_to_keepers_desc
+ is_shown = {
+  scope:actor = { voltara_in_hegemony = yes }
+  scope:recipient = { is_imprisoned_by = scope:actor is_landed = no NOT = { voltara_is_ruins_placeholder = yes } NOT = { voltara_keeper_member = yes } }
+ }
+ is_valid_showing_failures_only = { exists = title:k_voltara_22.holder scope:recipient = { is_adult = yes is_alive = yes } }
+ auto_accept = yes
+ on_accept = { scope:recipient = { voltara_take_keeper_vows = yes } }
+ ai_targets = { ai_recipients = prisoners }
+ ai_frequency = 12 ai_will_do = { base = 20 }
+}
+voltara_ask_keeper_vows = {
+ category = interaction_category_friendly icon = religion common_interaction = yes
+ desc = voltara_ask_keeper_vows_desc
+ is_shown = {
+  scope:actor = { voltara_in_hegemony = yes }
+  scope:recipient = { is_courtier_of = scope:actor is_landed = no NOT = { voltara_is_ruins_placeholder = yes } NOT = { voltara_keeper_member = yes } }
+ }
+ is_valid_showing_failures_only = { exists = title:k_voltara_22.holder scope:recipient = { is_adult = yes is_alive = yes is_imprisoned = no } }
+ on_accept = { scope:recipient = { voltara_take_keeper_vows = yes } }
+ ai_accept = { base = 20 modifier = { add = 30 scope:recipient = { has_trait = brave } } modifier = { add = -50 scope:recipient = { has_trait = ambitious } } }
+ ai_targets = { ai_recipients = courtiers }
+ ai_frequency = 24 ai_will_do = { base = 5 }
+}

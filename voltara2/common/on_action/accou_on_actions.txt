@@ -1,0 +1,62 @@
+﻿# character having its birthday in root scope
+# tested after age has increased
+on_birthday = {
+	on_actions = {
+		accou_guardian_child
+	}
+}
+
+accou_guardian_child = {
+	trigger = {
+		is_adult = no
+		OR = {
+			is_courtier = yes
+			is_hostage = yes
+		}
+		age >= childhood_education_start_age
+		num_of_relation_guardian = 0
+	}
+	effect = {
+		save_scope_as = child
+
+		# Determine ruler
+		if = {
+			limit = { exists = warden }
+			warden = { save_temporary_scope_as = ruler }
+		}
+		else_if = {
+			limit = { exists = liege }
+			liege = { save_temporary_scope_as = ruler }
+		}
+
+		# Trigger ruler on_action
+		if = {
+			limit = {
+				exists = scope:ruler
+				NOT = { is_close_family_of = scope:ruler }
+			}
+			scope:ruler = {
+				trigger_event = {
+					on_action = accou_guardian_ruler
+				}
+			}
+		}
+	}
+}
+
+accou_guardian_ruler = {
+	trigger = {
+		highest_held_title_tier >= tier_county
+		basic_is_valid_for_yearly_events_trigger = yes
+	}
+	events = {
+		delay = { days = { 5 60 } }
+		accou_guardian.0001 # Courtier Suggests a Guardian
+	}
+	effect = {
+		#accou_debug_log_1_effect = {
+		#	MSG = accou_debug_msg_guardian_ruler
+		#	NAME1 = child TYPE1 = flag:character
+		#}
+	}
+}

@@ -1,0 +1,39 @@
+﻿grab_knights = {
+    effect = {
+        clear_variable_list = attacker_knights
+        clear_variable_list = defender_knights
+        if = {
+            limit = {
+                exists = combat_attacker
+            }
+            every_combat_side = {
+                ordered_side_knight = {
+                    order_by = prowess
+                    min = 0
+                    if = {
+                        limit = {
+                            prev = {
+                                is_combat_side_attacker = yes
+                            }
+                        }
+                        root = {
+                            add_to_variable_list = {
+                                name = attacker_knights
+                                target = prev
+                            }
+                        }
+                    }
+                    else = {
+                        root = {
+                            add_to_variable_list = {
+                                name = defender_knights
+                                target = prev
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

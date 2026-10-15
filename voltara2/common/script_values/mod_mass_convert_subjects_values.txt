@@ -1,0 +1,197 @@
+﻿# count how many of which type can be converted to display it on the decision screen
+# (thanks "MrFunEGUY" for the code check of "religiously_protected")
+
+
+mod_convert_direct_vassals_number = {
+	value = 0
+    every_vassal = { # direct vassals
+        limit = { NOT = { vassal_contract_has_flag = religiously_protected } }
+        if = {
+            limit = {
+                root = {
+                    is_character_interaction_potentially_accepted = {
+                        recipient = prev
+                        interaction = demand_conversion_vassal_ruler_interaction
+                    }
+                }
+            }
+            add = 1
+        }
+    }
+}
+ 
+mod_convert_indirect_vassals_number = {
+	value = 0
+    every_vassal_or_below = { # all vassals
+        limit = { NOT = { vassal_contract_has_flag = religiously_protected } }
+        if = {
+            limit = {
+                exists = liege
+                NOT = {
+                    liege = root # filter for indirect vassals, so ones we are not the liege of
+                }
+                root = {
+                    is_character_interaction_potentially_accepted = {
+                        recipient = prev
+                        interaction = demand_conversion_vassal_ruler_interaction
+                    }
+                }
+            }
+            add = 1
+        }
+    }
+}
+
+mod_convert_tributaries_number = {
+    value = 0
+    every_tributary = {
+        if = {
+            limit = {
+                root = {
+                    is_character_interaction_potentially_accepted = {
+                        recipient = prev
+                        interaction = demand_conversion_vassal_ruler_interaction
+                    }
+                }
+            }
+            add = 1
+        }
+    }
+}
+
+mod_convert_courtiers_number = {
+	value = 0
+    every_courtier = {
+        if = {
+            limit = {
+                root = {
+                    is_character_interaction_potentially_accepted = {
+                        recipient = prev
+                        interaction = ask_for_conversion_courtier_interaction
+                    }
+                }
+            }
+            add = 1
+        }
+    }
+}
+
+mod_convert_house_number = {
+	value = 0
+    if = {
+        limit = {
+            exists = house
+        }
+        house = {
+            every_house_member = {
+                if = {
+                    limit = {
+                        root = {
+                            is_character_interaction_potentially_accepted = {
+                                recipient = prev
+                                interaction = demand_conversion_interaction
+                            }
+                        }
+                    }
+                    add = 1
+                }
+            }
+        }
+    }
+}
+# Fixed cutoff counts mirror the original candidate sets; no GUI state is read.
+mdc_convert_direct_vassals_80_number = {
+	value = 0
+    every_vassal = { # direct vassals
+        limit = { NOT = { vassal_contract_has_flag = religiously_protected } }
+        if = {
+            limit = {
+                root = {
+                    mdc_vassal_conversion_cutoff_query = { RECIPIENT = prev MINIMUM = 80 }
+                }
+            }
+            add = 1
+        }
+    }
+}
+
+mdc_convert_direct_vassals_100_number = {
+	value = 0
+    every_vassal = { # direct vassals
+        limit = { NOT = { vassal_contract_has_flag = religiously_protected } }
+        if = {
+            limit = {
+                root = {
+                    mdc_vassal_conversion_cutoff_query = { RECIPIENT = prev MINIMUM = 100 }
+                }
+            }
+            add = 1
+        }
+    }
+}
+
+mdc_convert_indirect_vassals_80_number = {
+	value = 0
+    every_vassal_or_below = { # all vassals
+        limit = { NOT = { vassal_contract_has_flag = religiously_protected } }
+        if = {
+            limit = {
+                exists = liege
+                NOT = {
+                    liege = root # filter for indirect vassals, so ones we are not the liege of
+                }
+                root = {
+                    mdc_vassal_conversion_cutoff_query = { RECIPIENT = prev MINIMUM = 80 }
+                }
+            }
+            add = 1
+        }
+    }
+}
+
+mdc_convert_indirect_vassals_100_number = {
+	value = 0
+    every_vassal_or_below = { # all vassals
+        limit = { NOT = { vassal_contract_has_flag = religiously_protected } }
+        if = {
+            limit = {
+                exists = liege
+                NOT = {
+                    liege = root # filter for indirect vassals, so ones we are not the liege of
+                }
+                root = {
+                    mdc_vassal_conversion_cutoff_query = { RECIPIENT = prev MINIMUM = 100 }
+                }
+            }
+            add = 1
+        }
+    }
+}
+
+mdc_convert_tributaries_80_number = {
+    value = 0
+    every_tributary = {
+        if = {
+            limit = {
+                root = {
+                    mdc_vassal_conversion_cutoff_query = { RECIPIENT = prev MINIMUM = 80 }
+                }
+            }
+            add = 1
+        }
+    }
+}
+
+mdc_convert_tributaries_100_number = {
+    value = 0
+    every_tributary = {
+        if = {
+            limit = {
+                root = {
+                    mdc_vassal_conversion_cutoff_query = { RECIPIENT = prev MINIMUM = 100 }
+                }
+            }
+            add = 1
+        }
+    }
+}

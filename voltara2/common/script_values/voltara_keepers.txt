@@ -1,0 +1,9 @@
+﻿
+voltara_keeper_election_score = {
+ value = 10 add = martial add = diplomacy add = prowess
+ if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 25 } } add = 10 }
+ if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 50 } } add = 20 }
+ if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 100 } } add = 30 }
+ if = { limit = { has_trait = just } add = 15 }
+ if = { limit = { has_trait = brave } add = 15 }
+}

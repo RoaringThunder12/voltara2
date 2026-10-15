@@ -1,0 +1,226 @@
+﻿accou_guardian_candidate_quality_value = {
+	# Aptitude to generate education points
+	# Average value is ~12
+	value = accou_guardian_candidate_education_points_aptitude_value
+
+	# May convert the ward to the liege's faith (10)
+	if = {
+		limit = {
+			scope:child = {
+				faith != scope:liege.faith
+			}
+			faith = scope:liege.faith
+		}
+		add = 10
+	}
+
+	# May convert the ward to the liege's culture (10)
+	if = {
+		limit = {
+			scope:child = {
+				culture != scope:liege.culture
+			}
+			culture = scope:liege.culture
+		}
+		add = 10
+	}
+
+	# Will acquire 25% more education points, max 3 (see cultural_traditions_education_boost_effect)
+	if = {
+		limit = {
+			culture = { has_cultural_parameter = guardian_education_better_outcomes }
+		}
+		add = 10
+	}
+
+	# May acquire additional skill points during childhood (see childhood_education.9004)
+	if = {
+		limit = {
+			has_perk = pedagogy_perk
+		}
+		add = 10
+	}
+
+	# Chance to gain a secondary education trait (see dynasty_perk_secondary_education_trait_effect)
+	if = {
+		limit = {
+			dynasty ?= { has_dynasty_perk = fp2_urbanism_legacy_2 }
+		}
+		add = 5
+	}
+
+	# Will transfer commander traits (see post_education_bonuses_effect)
+	if = {
+		limit = {
+			culture = { has_cultural_parameter = guardians_can_transfer_commander_traits }
+			scope:child = {
+				accou_has_education_focus_trigger = { FOCUS = education_martial }
+			}
+		}
+		add = {
+			value = number_of_commander_traits
+			multiply = 5
+		}
+	}
+
+	# Chance to gain education_martial_prowess trait (see coming_of_age.0003)
+	if = {
+		limit = {
+			accou_is_innovation_knighthood_better_guardians_trigger = yes
+			culture = { has_innovation = innovation_knighthood }
+			scope:child = {
+				accou_has_education_focus_trigger = { FOCUS = education_martial }
+				NOT = { culture = { has_innovation = innovation_knighthood } }
+			}
+		}
+		add = 5
+	}
+
+	# Chance to gain lifestyle_mystic trait (see coming_of_age.0001)
+	if = {
+		limit = {
+			rite = { rite_has_parameter = tenet_esotericism_mystic_education }
+			scope:child = {
+				accou_has_education_focus_trigger = { FOCUS = education_learning }
+				NOT = { rite = { rite_has_parameter = tenet_esotericism_mystic_education } }
+			}
+		}
+		add = 5
+	}
+}
+
+# Guardian candidate aptitude to generate education points
+# for their ward during childhood events, see education_point_acquisition_support_effect
+accou_guardian_candidate_education_points_aptitude_value = {
+	value = 0
+
+	# Educator traits (-30 to 30)
+	add = {
+		value = accou_educator_traits_character_value
+		multiply = 10
+	}
+
+	# Child focus skill (0 to ~30)
+	add = accou_child_focus_skill_value
+
+	# Learning skill (0 to ~15)
+	add = {
+		value = learning
+		multiply = 0.5
+	}
+
+	# Cultural parameters (10)
+	# It's not additive in the vanilla effect (probably a bug), but here it's additive
+	# because otherwise all educators of such a culture would have equal quality
+	if = {
+		limit = {
+			culture = { has_cultural_parameter = better_ward_education }
+		}
+		add = 10
+	}
+
+	round = yes
+}
+
+accou_educator_traits_character_value = {
+	value = 0
+
+	# Positive
+	if = {
+		limit = { has_trait = intellect_good_3 }
+		add = 3
+	}
+	else_if = {
+		limit = { has_trait = intellect_good_2 }
+		add = 2
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = intellect_good_1
+				has_trait = shrewd
+			}
+		}
+		add = 1
+	}
+
+	# Negative
+	if = {
+		limit = { has_trait = intellect_bad_3 }
+		add = -3
+	}
+	else_if = {
+		limit = { has_trait = intellect_bad_2 }
+		add = -2
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = intellect_bad_1
+				has_trait = dull
+			}
+		}
+		add = -1
+	}
+}
+
+accou_child_focus_skill_value = {
+	scope:child = {
+		if = {
+			limit = {
+				accou_has_education_focus_trigger = { FOCUS = education_diplomacy }
+			}
+			value = prev.diplomacy
+		}
+		else_if = {
+			limit = {
+				accou_has_education_focus_trigger = { FOCUS = education_martial }
+			}
+			value = prev.martial
+		}
+		else_if = {
+			limit = {
+				accou_has_education_focus_trigger = { FOCUS = education_stewardship }
+			}
+			value = prev.stewardship
+		}
+		else_if = {
+			limit = {
+				accou_has_education_focus_trigger = { FOCUS = education_intrigue }
+			}
+			value = prev.intrigue
+		}
+		else_if = {
+			limit = {
+				accou_has_education_focus_trigger = { FOCUS = education_learning }
+			}
+			value = prev.learning
+		}
+	}
+}
+
+accou_guardian_candidate_quality_threshold_value = {
+	if = {
+		limit = { has_game_rule = accou_guardian_candidate_quality_threshold_very_high }
+		value = 30
+	}
+	else_if = {
+		limit = { has_game_rule = accou_guardian_candidate_quality_threshold_high }
+		value = 20
+	}
+	else_if = {
+		limit = { has_game_rule = accou_guardian_candidate_quality_threshold_medium }
+		value = 10
+	}
+	else_if = {
+		limit = { has_game_rule = accou_guardian_candidate_quality_threshold_low }
+		value = 0
+	}
+	else_if = {
+		limit = { has_game_rule = accou_guardian_candidate_quality_threshold_very_low }
+		value = -10
+	}
+	else = {
+		value = 10
+	}
+}

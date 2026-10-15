@@ -1,0 +1,32 @@
+﻿# scope : province
+V_kECV_province_non_modifiers_holding_status_count = {
+    # Terrain
+    value = 1
+
+    # Regiment
+    if = {
+        limit = { has_stationed_regiment = yes }
+        add = 1
+    }
+
+    if = {
+        limit = {
+            OR = {
+                has_province_modifier = winter_mild_modifier
+                has_province_modifier = winter_normal_modifier
+                has_province_modifier = winter_harsh_modifier
+            }
+        }
+        add = 1
+    }
+
+    # Plagues
+    every_province_epidemic = {
+        add = 1
+    }
+
+    # Legends
+    every_province_legend = {
+        add = 1
+    }
+}

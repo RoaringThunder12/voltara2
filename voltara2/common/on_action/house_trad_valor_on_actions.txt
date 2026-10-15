@@ -1,0 +1,41 @@
+﻿# # Called from code once a quarter for "playable" (count+) characters.
+# # Root is the character
+# # scope:quarter is which quarter it's for, from 1 to 4. Note that scope:quarter = 1 isn't necessarily in Q1 by calendar time
+
+# quarterly_playable_pulse = {
+# 	on_actions = {
+# 		setup_family_at_war
+# 	}
+# }
+
+# WIP
+# on_war_started = {
+# 	on_actions = {
+# 		setup_family_at_war
+# 	}
+# }
+
+# setup_family_at_war = {
+# 	# trigger = {
+# 	# 	is_at_war = yes
+# 	# 	is_commanding_army = yes
+# 	# 	NOT = {
+# 	# 		has_character_flag = child_participating_in_war
+# 	# 		has_character_flag = denied_child_from_war
+# 	# 	}
+# 	# } # Trigger
+# 	effect = {
+# 		scope:attacker = {
+# 			if = {
+# 				limit = { NOT = { any_owned_story = { story_type = story_family_at_war } } }
+# 				create_story = story_family_at_war
+# 			}
+# 		} # Attacker
+# 		scope:defender = {
+# 			if = {
+# 				limit = { NOT = { any_owned_story = { story_type = story_family_at_war } } }
+# 				create_story = story_family_at_war
+# 			}
+# 		} # Defender
+# 	} # Effect
+# }

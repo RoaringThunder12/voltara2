@@ -1,6 +1,9 @@
 ﻿1778 = {
+ culture = voltara_culture_39
+ rite = voltara_tidal_memory
+
 # Provisional holding layout; source culture/faith retained.
-culture = voltara_culture_44
-rite = voltara_order_rite_25
-holding = castle_holding
+
+
+holding = none
 }

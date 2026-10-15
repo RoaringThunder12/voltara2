@@ -1,0 +1,146 @@
+﻿
+voltara_take_keeper_vows = {
+ if = { limit = { has_trait = voltara_slave } voltara_free_character = yes }
+ if = { limit = { is_imprisoned = yes } release_from_prison = yes }
+ add_trait = voltara_oathkeeper
+ # Existing spouses remain family; the vow prevents new marriages and inheritance.
+ every_claim = { prev = { remove_claim = prev } }
+ title:k_voltara_22.holder = { add_courtier = prev }
+}
+voltara_keeper_election = {
+ save_scope_as = keeper_old_commander
+ every_courtier = { limit = { voltara_keeper_candidate = yes } add_to_temporary_list = keeper_candidates }
+ every_vassal_or_below = {
+  if = { limit = { voltara_keeper_candidate = yes } add_to_temporary_list = keeper_candidates }
+  every_courtier = { limit = { voltara_keeper_candidate = yes } add_to_temporary_list = keeper_candidates }
+ }
+ # AGOT's election method: shortlist by merit, then weighted selection.
+ ordered_in_list = {
+  list = keeper_candidates order_by = voltara_keeper_election_score max = 5 check_range_bounds = no
+  add_to_temporary_list = keeper_shortlist
+ }
+ random_in_list = {
+  list = keeper_shortlist
+  weight = { base = 0 modifier = { add = voltara_keeper_election_score } }
+  save_scope_as = keeper_successor
+ }
+ if = {
+  limit = { NOT = { exists = scope:keeper_successor } }
+  create_character = {
+   age = 35 gender_female_chance = 50 employer = root culture = root.culture faith = root.faith random_traits = yes
+   save_scope_as = keeper_successor
+  }
+ }
+ scope:keeper_successor = {
+  set_variable = { name = voltara_keeper_saved_xp value = 0 }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 1 } } set_variable = { name = voltara_keeper_saved_xp value = 1 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 2 } } set_variable = { name = voltara_keeper_saved_xp value = 2 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 3 } } set_variable = { name = voltara_keeper_saved_xp value = 3 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 4 } } set_variable = { name = voltara_keeper_saved_xp value = 4 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 5 } } set_variable = { name = voltara_keeper_saved_xp value = 5 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 6 } } set_variable = { name = voltara_keeper_saved_xp value = 6 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 7 } } set_variable = { name = voltara_keeper_saved_xp value = 7 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 8 } } set_variable = { name = voltara_keeper_saved_xp value = 8 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 9 } } set_variable = { name = voltara_keeper_saved_xp value = 9 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 10 } } set_variable = { name = voltara_keeper_saved_xp value = 10 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 11 } } set_variable = { name = voltara_keeper_saved_xp value = 11 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 12 } } set_variable = { name = voltara_keeper_saved_xp value = 12 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 13 } } set_variable = { name = voltara_keeper_saved_xp value = 13 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 14 } } set_variable = { name = voltara_keeper_saved_xp value = 14 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 15 } } set_variable = { name = voltara_keeper_saved_xp value = 15 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 16 } } set_variable = { name = voltara_keeper_saved_xp value = 16 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 17 } } set_variable = { name = voltara_keeper_saved_xp value = 17 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 18 } } set_variable = { name = voltara_keeper_saved_xp value = 18 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 19 } } set_variable = { name = voltara_keeper_saved_xp value = 19 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 20 } } set_variable = { name = voltara_keeper_saved_xp value = 20 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 21 } } set_variable = { name = voltara_keeper_saved_xp value = 21 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 22 } } set_variable = { name = voltara_keeper_saved_xp value = 22 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 23 } } set_variable = { name = voltara_keeper_saved_xp value = 23 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 24 } } set_variable = { name = voltara_keeper_saved_xp value = 24 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 25 } } set_variable = { name = voltara_keeper_saved_xp value = 25 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 26 } } set_variable = { name = voltara_keeper_saved_xp value = 26 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 27 } } set_variable = { name = voltara_keeper_saved_xp value = 27 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 28 } } set_variable = { name = voltara_keeper_saved_xp value = 28 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 29 } } set_variable = { name = voltara_keeper_saved_xp value = 29 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 30 } } set_variable = { name = voltara_keeper_saved_xp value = 30 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 31 } } set_variable = { name = voltara_keeper_saved_xp value = 31 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 32 } } set_variable = { name = voltara_keeper_saved_xp value = 32 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 33 } } set_variable = { name = voltara_keeper_saved_xp value = 33 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 34 } } set_variable = { name = voltara_keeper_saved_xp value = 34 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 35 } } set_variable = { name = voltara_keeper_saved_xp value = 35 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 36 } } set_variable = { name = voltara_keeper_saved_xp value = 36 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 37 } } set_variable = { name = voltara_keeper_saved_xp value = 37 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 38 } } set_variable = { name = voltara_keeper_saved_xp value = 38 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 39 } } set_variable = { name = voltara_keeper_saved_xp value = 39 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 40 } } set_variable = { name = voltara_keeper_saved_xp value = 40 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 41 } } set_variable = { name = voltara_keeper_saved_xp value = 41 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 42 } } set_variable = { name = voltara_keeper_saved_xp value = 42 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 43 } } set_variable = { name = voltara_keeper_saved_xp value = 43 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 44 } } set_variable = { name = voltara_keeper_saved_xp value = 44 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 45 } } set_variable = { name = voltara_keeper_saved_xp value = 45 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 46 } } set_variable = { name = voltara_keeper_saved_xp value = 46 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 47 } } set_variable = { name = voltara_keeper_saved_xp value = 47 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 48 } } set_variable = { name = voltara_keeper_saved_xp value = 48 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 49 } } set_variable = { name = voltara_keeper_saved_xp value = 49 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 50 } } set_variable = { name = voltara_keeper_saved_xp value = 50 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 51 } } set_variable = { name = voltara_keeper_saved_xp value = 51 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 52 } } set_variable = { name = voltara_keeper_saved_xp value = 52 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 53 } } set_variable = { name = voltara_keeper_saved_xp value = 53 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 54 } } set_variable = { name = voltara_keeper_saved_xp value = 54 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 55 } } set_variable = { name = voltara_keeper_saved_xp value = 55 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 56 } } set_variable = { name = voltara_keeper_saved_xp value = 56 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 57 } } set_variable = { name = voltara_keeper_saved_xp value = 57 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 58 } } set_variable = { name = voltara_keeper_saved_xp value = 58 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 59 } } set_variable = { name = voltara_keeper_saved_xp value = 59 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 60 } } set_variable = { name = voltara_keeper_saved_xp value = 60 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 61 } } set_variable = { name = voltara_keeper_saved_xp value = 61 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 62 } } set_variable = { name = voltara_keeper_saved_xp value = 62 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 63 } } set_variable = { name = voltara_keeper_saved_xp value = 63 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 64 } } set_variable = { name = voltara_keeper_saved_xp value = 64 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 65 } } set_variable = { name = voltara_keeper_saved_xp value = 65 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 66 } } set_variable = { name = voltara_keeper_saved_xp value = 66 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 67 } } set_variable = { name = voltara_keeper_saved_xp value = 67 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 68 } } set_variable = { name = voltara_keeper_saved_xp value = 68 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 69 } } set_variable = { name = voltara_keeper_saved_xp value = 69 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 70 } } set_variable = { name = voltara_keeper_saved_xp value = 70 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 71 } } set_variable = { name = voltara_keeper_saved_xp value = 71 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 72 } } set_variable = { name = voltara_keeper_saved_xp value = 72 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 73 } } set_variable = { name = voltara_keeper_saved_xp value = 73 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 74 } } set_variable = { name = voltara_keeper_saved_xp value = 74 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 75 } } set_variable = { name = voltara_keeper_saved_xp value = 75 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 76 } } set_variable = { name = voltara_keeper_saved_xp value = 76 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 77 } } set_variable = { name = voltara_keeper_saved_xp value = 77 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 78 } } set_variable = { name = voltara_keeper_saved_xp value = 78 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 79 } } set_variable = { name = voltara_keeper_saved_xp value = 79 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 80 } } set_variable = { name = voltara_keeper_saved_xp value = 80 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 81 } } set_variable = { name = voltara_keeper_saved_xp value = 81 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 82 } } set_variable = { name = voltara_keeper_saved_xp value = 82 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 83 } } set_variable = { name = voltara_keeper_saved_xp value = 83 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 84 } } set_variable = { name = voltara_keeper_saved_xp value = 84 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 85 } } set_variable = { name = voltara_keeper_saved_xp value = 85 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 86 } } set_variable = { name = voltara_keeper_saved_xp value = 86 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 87 } } set_variable = { name = voltara_keeper_saved_xp value = 87 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 88 } } set_variable = { name = voltara_keeper_saved_xp value = 88 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 89 } } set_variable = { name = voltara_keeper_saved_xp value = 89 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 90 } } set_variable = { name = voltara_keeper_saved_xp value = 90 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 91 } } set_variable = { name = voltara_keeper_saved_xp value = 91 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 92 } } set_variable = { name = voltara_keeper_saved_xp value = 92 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 93 } } set_variable = { name = voltara_keeper_saved_xp value = 93 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 94 } } set_variable = { name = voltara_keeper_saved_xp value = 94 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 95 } } set_variable = { name = voltara_keeper_saved_xp value = 95 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 96 } } set_variable = { name = voltara_keeper_saved_xp value = 96 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 97 } } set_variable = { name = voltara_keeper_saved_xp value = 97 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 98 } } set_variable = { name = voltara_keeper_saved_xp value = 98 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 99 } } set_variable = { name = voltara_keeper_saved_xp value = 99 } }
+if = { limit = { has_trait_xp = { trait = voltara_oathkeeper value >= 100 } } set_variable = { name = voltara_keeper_saved_xp value = 100 } }
+remove_trait = voltara_oathkeeper add_trait = voltara_keeper_elect
+  trigger_event = { id = voltara_keepers.2 days = 1 }
+ }
+ add_realm_law_skip_effects = voltara_keeper_succession
+ set_designated_heir_unsafe = scope:keeper_successor
+}
+voltara_keeper_maintenance = {
+ add_trait = voltara_oathkeeper
+ if = { limit = { is_landed = yes } change_government = voltara_keeper_government add_realm_law_skip_effects = voltara_keeper_succession }
+ every_courtier = { add_trait = voltara_oathkeeper }
+}

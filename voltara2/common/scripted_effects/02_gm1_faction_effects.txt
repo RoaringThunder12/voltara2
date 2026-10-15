@@ -1,0 +1,48 @@
+﻿##############################
+## GM1 scripted_effects
+##############################
+
+# based on ./common/scripted_effects/00_faction_effects.txt/imprisonment_retribution_start_faction_war_if_valid
+# I hate how strongly coupled this is that I had to redo it, unlike bp2 hostages.
+# Whoever PDX designer that made this originally, shame on you.
+## IMPRISONER (character)
+## PRISONER (character)
+transfer_prisoner_start_faction_war_if_valid = {
+	$IMPRISONER$ = { save_scope_as = imprisoner }
+	$PRISONER$ = { save_scope_as = prisoner }
+
+	scope:prisoner = {
+		if = {
+			limit = { is_a_faction_member = yes }
+			joined_faction = {
+				save_scope_as = retaliating_faction
+				
+				if = {
+					limit = {
+						faction_power > faction_power_threshold
+						NOT = {	faction_is_type = populist_faction }
+					}
+					if = {
+						limit = { faction_is_type = claimant_faction }
+						special_title = { save_scope_as = target_title }
+						faction_start_war = { title = scope:target_title }
+					}
+					else = {
+						faction_start_war = {}
+					}
+					
+					every_faction_member = {
+						trigger_event = gm1_faction_demand.9001
+					}
+				}
+			}
+		}
+	}
+
+	scope:imprisoner = {
+		if = {
+			limit = { exists = scope:retaliating_faction }
+			custom_tooltip = CHANGE_IMPRISONER_FACTION_RETALIATION_WARNING
+		}
+	}
+}

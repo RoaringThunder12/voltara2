@@ -1,0 +1,17 @@
+﻿##############################
+## BM1 customizable_localization
+##############################
+
+l_english:
+ GET_IMPRISONER: "[imprisoner.GetUIName]"
+ GET_IMPRISONER_NO_TOOLTIP: "[imprisoner.GetUINameNoTooltip]"
+ GET_IMPRISONER_POSSESSIVE: "[imprisoner.GetUINamePossessive]"
+ GET_IMPRISONER_POSSESSIVE_NO_TOOLTIP: "[imprisoner.GetUINamePossessiveNoTooltip]"
+ GET_IMPRISONER_SHORT: "[imprisoner.GetShortUIName]"
+ GET_IMPRISONER_SHORT_NO_TOOLTIP: "[imprisoner.GetShortUINameNoTooltip]"
+ GET_IMPRISONER_SHORT_POSSESSIVE: "[imprisoner.GetShortUINamePossessive]"
+ GET_IMPRISONER_SHORT_POSSESSIVE_NO_TOOLTIP: "[imprisoner.GetShortUINamePossessiveNoTooltip]"
+ GET_IMPRISONER_PRONOUN: "[imprisoner.GetSheHe]"
+ GET_IMPRISONER_PRONOUN_POSSESSIVE: "[imprisoner.GetHerHis]"
+ GET_IMPRISONER_PRONOUN_OBJECTIVE: "[imprisoner.GetHerHim]"
+ GET_IMPRISONER_PRIMARY_TITLE_TIER_ICON: "[imprisoner.Custom('GetPrimaryTitleTierIcon')]"

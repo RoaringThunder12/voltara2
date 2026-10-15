@@ -1,0 +1,30 @@
+﻿voltara_set_abandoned_identity = {
+ set_county_culture = culture:voltara_culture_44
+ set_county_faith = faith:voltara_faith_0
+}
+voltara_reconsolidate_ruins = {
+ voltara_ensure_ruins_keeper = yes
+ every_county = {
+  limit = {
+   # A real expedition/outpost belongs to its colonizer until abandoned.
+   NOT = { has_variable = voltara_expedition_owner }
+   NOT = { title_province = { has_holding_type = voltara_settlement_holding } }
+   OR = {
+    AND = { exists = holder holder = { voltara_is_ruins_placeholder = yes } }
+    has_variable = voltara_ruin_state
+    title_province = { OR = { has_holding_type = voltara_ruin_holding has_holding_type = voltara_wasteland_holding } }
+   }
+  }
+  if = { limit = { NOT = { has_variable = voltara_ruin_state } }
+   save_scope_value_as = { name = ruins_mode value = flag:ruin }
+   voltara_convert_ruin_county = yes
+  }
+  if = { limit = { NOT = { holder = global_var:voltara_ruins_keeper } }
+   create_title_and_vassal_change = { type = granted save_scope_as = consolidate_ruins_change add_claim_on_loss = no }
+   change_title_holder = { holder = global_var:voltara_ruins_keeper change = scope:consolidate_ruins_change take_baronies = yes }
+   resolve_title_and_vassal_change = scope:consolidate_ruins_change
+  }
+  voltara_set_abandoned_identity = yes
+ }
+ voltara_ensure_ruins_realm = yes
+}

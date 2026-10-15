@@ -1,0 +1,63 @@
+﻿l_korean:
+great_empire_victory_desc:0 "All [vassals|e] of both realms will be called to arms to preserve their [empire|E].  This is a total war and cannot end in a white peace.\n\n[defender.GetPrimaryTitle.GetName|U] is completely shattered, every title in the realm is destroyed, and the devastated regions of its former empire transition to a period of anarchy."
+great_empire_victory_desc_attacker:0 "All [vassals|e] of both realms will be called to arms to preserve their [empire|E].  This is a total war and cannot end in a white peace.\n\n[defender.GetPrimaryTitle.GetName|U] is completely shattered, every title in the realm is destroyed, and the devastated regions of its former empire transition to a period of anarchy."
+great_empire_victory_desc_defender:0 "All [vassals|e] of both realms will be called to arms to preserve their [empire|E].  This is a total war and cannot end in a white peace.\n\n[attacker.GetPrimaryTitle.GetName|U] is completely shattered, every title in the realm is destroyed, and the devastated regions of its former empire transition to a period of anarchy."
+
+great_empire_defeat_desc:0 "All [vassals|e] of both realms will be called to arms to preserve their [empire|E].  This is a total war and cannot end in a white peace.\n\n[attacker.GetPrimaryTitle.GetName|U] is completely shattered, every title in the realm is destroyed, and the devastated regions of its former empire transition to a period of anarchy."
+great_empire_defeat_desc_attacker:0 "All [vassals|e] of both realms will be called to arms to preserve their [empire|E].  This is a total war and cannot end in a white peace.\n\n[attacker.GetPrimaryTitle.GetName|U] is completely shattered, every title in the realm is destroyed, and the devastated regions of its former empire transition to a period of anarchy."
+great_empire_defeat_desc_defender:0 "All [vassals|e] of both realms will be called to arms to preserve their [empire|E].  This is a total war and cannot end in a white peace.\n\n[defender.GetPrimaryTitle.GetName|U] is completely shattered, every title in the realm is destroyed, and the devastated regions of its former empire transition to a period of anarchy."
+
+great_empire_war.0001.title:0 "The Fall of an Empire"
+great_empire_war.0001.desc:0 "[defender.GetPrimaryTitle.GetName|U] has been completely shattered and has descended into a period of total anarchy. \n\nAll that remains are weak, scattered tribal-like warlords fighting over what remains of their once, great empire.  \n\nSome are trying to rebuild, while others are raiding and pillaging their neighbors for the little that is left.  \n\nMany will surely die in the years to come from this period of strife and the inevitable attempts to reunify the realm."
+great_empire_war.0001.a:0 "What have we done..."
+great_empire_war.0002.desc:0 "[attacker.GetPrimaryTitle.GetName|U] has been completely shattered and has descended into a period of total anarchy. \n\nAll that remains are weak, scattered tribal-like warlords fighting over what remains of their once, great empire.  \n\nSome are trying to rebuild, while others are raiding and pillaging their neighbors for the little that is left.  \n\nMany will surely die in the years to come from this period of strife and the inevitable attempts to reunify the realm."
+
+great_empire_war.0003.title:0 "A Clash of Two Empires" 
+great_empire_war.0003.desc:0 "A state of total war now exists between [attacker.GetPrimaryTitle.GetName|U] and [defender.GetPrimaryTitle.GetName|U].\n\nScattered reports of massive-scale troop movements along the borders are arriving.  The court descends into chaos, and your council is in a panic.\n\nThousands of knights are being gathered from all across the realm, and an emergency war council has been convened.\n\nHundreds of vassals begin to muster their troops and bannermen to prepare for a conflict of unparalleled scale and destruction.\n\nNaturally, we will have to sacrifice everything to win this war.  Many will die, and many more will suffer in the years to come.\n\nThere can only be one victor..."
+great_empire_war.0003.a:0 "Call the banners!"
+ 
+trait_victor_of_a_great_empire_war:0 "Victor of a Great Empire War"
+trait_victor_of_a_great_empire_war_desc:0 "This character has emerged victorious in a Great Empire War."
+
+great_empire_war_modifier:0 "Fighting in a Great Empire War"
+great_empire_war_modifier_desc:1 "This character is fighting in a Great Empire War!"
+
+rule_great_empire_mode_game_rules:0 "#Clickable #Bold Great Empire Wars#!#!: Casus Belli"
+setting_great_empire_only:0 "Enabled"
+setting_great_empire_only_desc:0 "Rulers can declare a Great Empire War to wage total war and shatter another empire completely."
+setting_great_empire_both:0 "Disabled"
+setting_great_empire_both_desc:0 ""
+
+rule_great_empire_call_game_rules:0 "#Clickable #Bold Great Empire Wars#!#!: Call to Arms"
+setting_all_vassals:0 "Enabled"
+setting_all_vassals_desc:0 "All vassals, including vassals of vassals, are called to war."
+setting_direct_only:0 "Enabled"
+setting_direct_only_desc:0 "All direct vassals of both empires are called to arms to fight for the survival of their realm."
+setting_no_vassals:0 "Disabled"
+setting_no_vassals_desc:0 ""
+
+rule_great_empire_tribalism_game_rules:0 "#Clickable #Bold Great Empire Wars#!#!: Tribalism"
+setting_shattered_tribalism:0 "Enabled"
+setting_shattered_tribalism_desc:0 "All former vassals of a defeated empire revert back to tribalism, creating a new period of strife and infighting."
+setting_shattered_only:0 "Disabled"
+setting_shattered_only_desc:0 ""
+ 
+rule_great_empire_shattering_game_rules:0 "#Clickable #Bold Great Empire Wars#!#!: Shattering"
+setting_full_shatter:0 "Full Shatter"
+setting_full_shatter_desc:0 "All titles in the defeated realm are destroyed, including Empires, Kingdoms, and Duchies."
+setting_partial_shatter:0 "Partial Shatter"
+setting_partial_shatter_desc:0 "Most top-level titles in the realm are destroyed (Empires and Kingdoms)."
+setting_minimal_shatter:0 "Minimal Shatter"
+setting_minimal_shatter_desc:0 "Only the highest level title in the realm is destroyed."
+ 
+rule_great_empire_heresy_game_rules:0 "#Clickable #Bold Great Empire Wars#!#!: Heresy"
+setting_religious_chaos:0 "Religious Chaos"
+setting_religious_chaos_desc:0 "A heresy outbreak will appear for the defeated empire's faith, as well as a fervor decrease."
+setting_religious_unity:0 "Religious Unity"
+setting_religious_unity_desc:0 "No fervor decrease or heresy outbreak will spawn for the defeated empire's faith."
+ 
+rule_great_empire_restrictions_game_rules:0 "#Clickable #Bold Great Empire Wars#!#!: Restrictions"
+setting_full_restrictions:0 "Enabled"
+setting_full_restrictions_desc:0 "Great Empire Wars can only be declared once per lifetime and require the Exalted Among Men fame level."
+setting_partial_restrictions:0 "No Restrictions"
+setting_partial_restrictions_desc:0 "Great Empire Wars can be declared unlimited times per lifetime and do not require a fame level."

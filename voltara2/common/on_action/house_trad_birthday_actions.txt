@@ -1,0 +1,134 @@
+﻿on_birthday = {
+	on_actions = {
+		on_house_tradition_birthdays
+		house_valor_child_prowess
+		house_vendetta_maintenance
+	}
+}
+
+on_house_tradition_birthdays = {
+	first_valid_on_action = {
+		house_trad_child_rolemodel
+		house_trad_educator_1st_lesson
+		house_trad_child_take_after_parent
+		house_trad_educator_2nd_lesson
+		house_trad_child_of_age
+		house_valor_adult_cleanup
+		house_valor_adult_cleanup2
+	}
+}
+
+
+# Shifted to avoid interfering with education setting event at 6th
+#on_5th_birthday = {
+house_trad_child_rolemodel = {
+	trigger = {
+		age = 6
+		exists = dynasty
+	}
+	events = {
+		house_trad.1001
+	}
+}
+
+# Shifted to avoid interfering with witch event at 15th
+#on_14th_birthday = {
+house_trad_child_of_age = {
+	trigger = {
+		age = 15
+		exists = dynasty
+	}
+	events = {
+		house_trad.2001
+	}
+}
+
+house_trad_educator_1st_lesson = {
+	trigger = {
+		age = 9
+	}
+	events = {
+		house_trad.5001
+	}
+}
+
+house_trad_child_take_after_parent = {
+	trigger = {
+		age = 10
+	}
+	events = {
+		house_trad.6001
+	}
+}
+
+house_trad_educator_2nd_lesson = {
+	trigger = {
+		age = 12
+	}
+	events = {
+		house_trad.5001
+	}
+}
+
+house_valor_child_prowess = {
+	trigger = {
+		is_adult = no
+		age >= 5
+		is_lowborn = no
+		OR = {			
+			house = { has_house_modifier = trad_valor }
+			# Non-Valor children can learn weapons too, given the right conditions.
+			has_character_flag = parent_approved_weapon_training
+			has_character_flag = training_weapons_in_secret
+			has_character_flag = battle_tested
+			# Look into Shieldmaiden events and how the flag fp1_dreams_of_shieldpersondom works.
+		}
+	}
+	events = {
+		house_valor.0001
+	}
+}
+
+house_valor_adult_cleanup = {
+	trigger = {
+		# is_adult = yes
+		age = 16
+		is_lowborn = no
+		OR = {
+			house = { has_house_modifier = trad_valor }
+			has_character_flag = parent_approved_weapon_training
+			has_character_flag = training_weapons_in_secret
+			has_character_flag = battle_tested
+		}
+	}
+	events = {
+		house_valor.0002
+	}
+}
+
+#As of 1.18 and possibly another recent version, frequently breaks on adulthood, leaving the childhood version of the trait unremoved.
+#house_valor_adult_cleanup2 = {
+#	trigger = {
+#		# is_adult = yes
+#		age = 18
+#		OR = {
+#			exists = var:valor_education_score	# catch-all cleanup.
+#			has_trait = valor_child_prowess
+#		}
+#	}
+#	events = {
+#		house_valor.0002
+#	}
+#}
+
+house_vendetta_maintenance = {
+	trigger = {
+		is_adult = yes
+		is_lowborn = no
+		house = { has_house_modifier = trad_vengeance }
+#		num_of_relation_rival <= 0
+	}
+	events = {
+		house_vendetta.0001
+	}
+}

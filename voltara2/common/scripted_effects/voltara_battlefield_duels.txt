@@ -1,0 +1,4 @@
+﻿voltara_battlefield_duel_cleanup = {
+ scope:voltara_duel_challenger ?= { remove_character_flag = voltara_battle_duel_busy add_character_flag = { flag = voltara_battle_duel_cooldown days = 30 } }
+ scope:voltara_duel_opponent ?= { remove_character_flag = voltara_battle_duel_busy add_character_flag = { flag = voltara_battle_duel_cooldown days = 30 } }
+}

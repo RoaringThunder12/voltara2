@@ -1,6 +1,9 @@
 ﻿673 = {
+ culture = voltara_culture_44
+ religion = voltara_faith_0
+
 # Provisional holding layout; source culture/faith retained.
-culture = voltara_culture_0
-rite = voltara_khaotism_rite
+
+
 holding = castle_holding
 }

@@ -1,0 +1,139 @@
+## Princes of Darkness
+# steam ID: 2216659254
+
+template kECV_compat__princes_of_darkness__on_show_effect
+{
+    on_start = "[GetScriptedGui('incompatible_building_clean_gui').Execute(GuiScope.SetRoot(HoldingView.GetHolder.MakeScope).AddScope('province', HoldingView.GetProvince.MakeScope).End)]"
+}
+
+types kECV_compat_princes_of_darkness_types
+{
+    # From gui/window_county_view.gui
+    type kECV_compat__princes_of_darkness__construct_holding_buttons = widget {
+        visible = "[kei_Compat_IsModLoaded_PrincesOfDarkness]"
+        size = { 100% 100% }
+        button_standard_big = {
+            size = { 100% 100% }
+            name = "construct_holding"
+            visible = "[And(Not(GetScriptedGui('can_construct_tribal_holding').IsShown( GuiScope.SetRoot( HoldingView.GetHolder.MakeScope ).End )), And(Not(HoldingView.HasHolding), Not(HoldingView.IsBeingConstructed)))]"
+            text = "CREATE_NEW_HOLDING_BUTTON"
+            onclick = "[HoldingView.OnConstructHoldingClick]"
+            tooltip = "[HoldingView.GetHoldingConstructionTooltip]"
+            enabled = "[HoldingView.CanNewHoldingBeConstructed]"
+
+            highlight_icon = {
+                size = { 44 44 }
+                parentanchor = left|vcenter
+                position = { 7 0 }
+                texture = "gfx/interface/icons/vassal_stances/builder.dds"
+            }
+        }
+
+        button_standard_big = {
+            size = { 100% 100% }
+            name = "construct_holding_werewolf"
+            visible = "[And(GetScriptedGui('can_construct_tribal_holding').IsShown( GuiScope.SetRoot( HoldingView.GetHolder.MakeScope ).End ), And(Not(HoldingView.HasHolding), Not(HoldingView.IsBeingConstructed)))]"
+            text = "CREATE_NEW_HOLDING_BUTTON"
+            tooltip = "[HoldingView.GetHoldingConstructionTooltip]"
+            enabled = "[And(HoldingView.CanNewHoldingBeConstructed, Not(HoldingView.IsSelectingHoldingType))]"
+            onclick = "[GetScriptedGui('construct_tribal_holding').Execute(GuiScope.SetRoot(HoldingView.GetProvince.MakeScope).End)]"
+
+            highlight_icon = {
+                size = { 44 44 }
+                parentanchor = left|vcenter
+                position = { 7 0 }
+                texture = "gfx/interface/icons/vassal_stances/builder.dds"
+            }
+        }
+    }
+
+    type kECV_compat__princes_of_darkness__button_move_capital = button_move_capital {
+        visible = "[And(kei_Compat_IsModLoaded_PrincesOfDarkness, HoldingView.PotentialSetRealmCapital)]"
+        datacontext = "[HoldingView.GetTitle]"
+        datacontext = "[HoldingView.GetHolder]"
+        onclick = "[Character.OpenPlayerInteractionWithTargetTitle('rcm_override_interaction', Title.Self)]"
+        tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('rcm_override_interaction', Title.Self)]"
+        enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('rcm_override_interaction', Title.Self)]"		
+    }
+
+    type kECV_compat__princes_of_darkness__button_round_move_capital = button_round {
+        visible = "[And(kei_Compat_IsModLoaded_PrincesOfDarkness, HoldingView.PotentialSetRealmCapital)]"
+        datacontext = "[HoldingView.GetTitle]"
+        datacontext = "[HoldingView.GetHolder]"
+        onclick = "[Character.OpenPlayerInteractionWithTargetTitle('rcm_override_interaction', Title.Self)]"
+        tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('rcm_override_interaction', Title.Self)]"
+        enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('rcm_override_interaction', Title.Self)]"	
+
+        button_move_capital = {
+            size = { 75% 75% }
+            parentanchor = center
+            alwaystransparent = yes
+        }
+    }
+
+    type kECV_compat__princes_of_darkness__change_holding_types_buttons = flowcontainer {
+        visible = "[kei_Compat_IsModLoaded_PrincesOfDarkness]"
+        ignoreinvisible = yes
+        using = kECV_buildings_top_bar_spacing
+
+        kECV_change_holding_type_button = {
+            visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('feudalize_city_holding_interaction', Title.Self) )]"
+            enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('feudalize_city_holding_interaction', Title.Self)]"
+            tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('feudalize_city_holding_interaction', Title.Self)]"
+            onclick = "[Character.OpenPlayerInteractionWithTargetTitle('feudalize_city_holding_interaction', Title.Self)]"
+
+            blockoverride "source_type" { texture = "gfx/interface/icons/holding_types_tab/city_holding.dds" }
+            blockoverride "target_type" { texture = "gfx/interface/icons/holding_types_tab/castle_holding.dds" }
+        }
+
+        kECV_change_holding_type_button = {
+            visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('theocratize_city_holding_interaction', Title.Self) )]"
+            enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('theocratize_city_holding_interaction', Title.Self)]"
+            tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('theocratize_city_holding_interaction', Title.Self)]"
+            onclick = "[Character.OpenPlayerInteractionWithTargetTitle('theocratize_city_holding_interaction', Title.Self)]"
+
+            blockoverride "source_type" { texture = "gfx/interface/icons/holding_types_tab/city_holding.dds" }
+            blockoverride "target_type" { texture = "gfx/interface/icons/holding_types_tab/church_holding.dds" }
+        }
+
+        kECV_change_holding_type_button = {
+            visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('feudalize_church_holding_interaction', Title.Self) )]"
+            enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('feudalize_church_holding_interaction', Title.Self)]"
+            tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('feudalize_church_holding_interaction', Title.Self)]"
+            onclick = "[Character.OpenPlayerInteractionWithTargetTitle('feudalize_church_holding_interaction', Title.Self)]"
+
+            blockoverride "source_type" { texture = "gfx/interface/icons/holding_types_tab/church_holding.dds" }
+            blockoverride "target_type" { texture = "gfx/interface/icons/holding_types_tab/castle_holding.dds" }
+        }
+
+        kECV_change_holding_type_button = {
+            visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('republicanise_church_holding_interaction', Title.Self) )]"
+            enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('republicanise_church_holding_interaction', Title.Self)]"
+            tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('republicanise_church_holding_interaction', Title.Self)]"
+            onclick = "[Character.OpenPlayerInteractionWithTargetTitle('republicanise_church_holding_interaction', Title.Self)]"
+
+            blockoverride "source_type" { texture = "gfx/interface/icons/holding_types_tab/church_holding.dds" }
+            blockoverride "target_type" { texture = "gfx/interface/icons/holding_types_tab/city_holding.dds" }
+        }
+
+        kECV_change_holding_type_button = {
+            visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('republicanise_castle_holding_interaction', Title.Self) )]"
+            enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('republicanise_castle_holding_interaction', Title.Self)]"
+            tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('republicanise_castle_holding_interaction', Title.Self)]"
+            onclick = "[Character.OpenPlayerInteractionWithTargetTitle('republicanise_castle_holding_interaction', Title.Self)]"
+
+            blockoverride "source_type" { texture = "gfx/interface/icons/holding_types_tab/castle_holding.dds" }
+            blockoverride "target_type" { texture = "gfx/interface/icons/holding_types_tab/city_holding.dds" }
+        }
+
+        kECV_change_holding_type_button = {
+            visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('theocratize_castle_holding_interaction', Title.Self) )]"
+            enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('theocratize_castle_holding_interaction', Title.Self)]"
+            tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('theocratize_castle_holding_interaction', Title.Self)]"
+            onclick = "[Character.OpenPlayerInteractionWithTargetTitle('theocratize_castle_holding_interaction', Title.Self)]"
+						
+            blockoverride "source_type" { texture = "gfx/interface/icons/holding_types_tab/castle_holding.dds" }
+            blockoverride "target_type" { texture = "gfx/interface/icons/holding_types_tab/church_holding.dds" }
+        }
+    }
+}

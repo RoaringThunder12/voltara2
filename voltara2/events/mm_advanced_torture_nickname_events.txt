@@ -1,0 +1,155 @@
+﻿namespace = advanced_torture
+
+advanced_torture.2001 = {
+ type = character_event
+ theme = prison
+
+ title = advanced_torture.2001.t
+ desc = advanced_torture.2001.desc
+
+ left_portrait = root
+
+ option = {
+  name = advanced_torture.2001.a
+ }
+}
+
+advanced_torture.2002 = {
+ type = character_event
+ theme = prison
+
+ title = advanced_torture.2002.t
+ desc = advanced_torture.2002.desc
+
+ left_portrait = root
+
+ option = {
+  name = advanced_torture.2002.a
+ }
+}
+
+advanced_torture.2003 = {
+ type = character_event
+ theme = prison
+
+ title = advanced_torture.2003.t
+ desc = advanced_torture.2003.desc
+
+ left_portrait = root
+
+ option = {
+  name = advanced_torture.2003.a
+ }
+}
+
+advanced_torture.2004 = {
+ type = character_event
+ theme = prison
+
+ title = advanced_torture.2004.t
+ desc = advanced_torture.2004.desc
+
+ left_portrait = root
+
+ option = {
+  name = advanced_torture.2004.a
+ }
+}
+
+advanced_torture.2005 = {
+ type = character_event
+ theme = prison
+
+ title = advanced_torture.2005.t
+ desc = advanced_torture.2005.desc
+
+ left_portrait = root
+
+ option = {
+  name = advanced_torture.2005.a
+ }
+}
+
+advanced_torture.2006 = {
+ type = character_event
+ theme = prison
+
+ title = advanced_torture.2006.t
+ desc = advanced_torture.2006.desc
+
+ left_portrait = root
+
+ option = {
+  name = advanced_torture.2006.a
+ }
+}
+
+advanced_torture.2007 = {
+ type = character_event
+ theme = prison
+
+ title = advanced_torture.2007.t
+ desc = advanced_torture.2007.desc
+
+ left_portrait = root
+
+ option = {
+  name = advanced_torture.2007.a
+ }
+}
+
+advanced_torture.2008 = {
+ type = character_event
+ theme = prison
+
+ title = advanced_torture.2008.t
+ desc = advanced_torture.2008.desc
+
+ left_portrait = root
+
+ option = {
+  name = advanced_torture.2008.a
+ }
+}
+
+advanced_torture.2009 = {
+ type = character_event
+ theme = prison
+
+ title = advanced_torture.2009.t
+ desc = advanced_torture.2009.desc
+
+ left_portrait = root
+
+ option = {
+  name = advanced_torture.2009.a
+ }
+}
+
+advanced_torture.2010 = {
+ type = character_event
+ theme = prison
+
+ title = advanced_torture.2010.t
+ desc = advanced_torture.2010.desc
+
+ left_portrait = root
+
+ option = {
+  name = advanced_torture.2010.a
+ }
+}
+
+advanced_torture.2011 = {
+ type = character_event
+ theme = prison
+
+ title = advanced_torture.2011.t
+ desc = advanced_torture.2011.desc
+
+ left_portrait = root
+
+ option = {
+  name = advanced_torture.2011.a
+ }
+}

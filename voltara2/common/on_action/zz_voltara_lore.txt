@@ -2,8 +2,8 @@
 voltara_lore_initialization = {
     effect = {
         if = {
-            limit = { NOT = { has_global_variable = voltara_lore_initialized } exists = character:9900021 }
-            character:9900021 = {
+            limit = { NOT = { has_global_variable = voltara_lore_initialized } exists = character:19060001 }
+            character:19060001 = {
                 if = {
                     limit = { is_alive = yes }
                     create_artifact = {
@@ -13,7 +13,7 @@ voltara_lore_initialization = {
                         history = { type = created_before_history } decaying = no
                         save_scope_as = voltara_new_heirloom
                     }
-                    scope:voltara_new_heirloom = { equip_artifact_to_owner = yes }
+                    
                     create_artifact = {
                         name = vl_ring_name description = vl_ring_desc
                         type = voltara_ring_type visuals = ring template = voltara_heirloom_template

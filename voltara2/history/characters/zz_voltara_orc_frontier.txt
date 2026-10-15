@@ -1,0 +1,477 @@
+﻿19030004 = { name = "Doreas" culture = voltara_culture_19 rite = voltara_order_rite_23 trait = education_martial_2 trait = ambitious 3743.1.1 = { birth = yes } }
+19030010 = { name = "Theron" culture = voltara_culture_19 rite = voltara_order_rite_23 trait = education_martial_2 trait = ambitious 3743.1.1 = { birth = yes } }
+19030030 = { name = "Myrion" culture = voltara_culture_19 rite = voltara_order_rite_23 trait = education_martial_2 trait = ambitious 3743.1.1 = { birth = yes } }
+19030031 = { name = "Kyros" culture = voltara_culture_19 rite = voltara_order_rite_23 trait = education_martial_2 trait = ambitious 3743.1.1 = { birth = yes } }
+19030032 = { name = "Leontes" culture = voltara_culture_19 rite = voltara_order_rite_23 trait = education_martial_2 trait = ambitious 3743.1.1 = { birth = yes } }
+19030033 = { name = "Phileas" culture = voltara_culture_19 rite = voltara_order_rite_23 trait = education_martial_2 trait = ambitious 3743.1.1 = { birth = yes } }
+19030034 = { name = "Ariston" culture = voltara_culture_19 rite = voltara_order_rite_23 trait = education_martial_2 trait = ambitious 3743.1.1 = { birth = yes } }
+19030053 = { name = "Damon" culture = voltara_culture_19 rite = voltara_order_rite_23 trait = education_martial_2 trait = ambitious 3743.1.1 = { birth = yes } }
+19030054 = { name = "Nereon" culture = voltara_culture_19 rite = voltara_order_rite_23 trait = education_martial_2 trait = ambitious 3743.1.1 = { birth = yes } }
+19030055 = { name = "Timaeus" culture = voltara_culture_19 rite = voltara_order_rite_23 trait = education_martial_2 trait = ambitious 3743.1.1 = { birth = yes } }
+19030056 = { name = "Eryx" culture = voltara_culture_19 rite = voltara_order_rite_23 trait = education_martial_2 trait = ambitious 3743.1.1 = { birth = yes } }
+19030057 = { name = "Menon" culture = voltara_culture_19 rite = voltara_order_rite_23 trait = education_martial_2 trait = ambitious 3743.1.1 = { birth = yes } }
+19030066 = { name = "Soreas" culture = voltara_culture_19 rite = voltara_order_rite_23 trait = education_martial_2 trait = ambitious 3743.1.1 = { birth = yes } }
+19030067 = { name = "Lykon" culture = voltara_culture_19 rite = voltara_order_rite_23 trait = education_martial_2 trait = ambitious 3743.1.1 = { birth = yes } }
+19031014 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Gorzak" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031015 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Urzog" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031016 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Morgath" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031017 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Drazhuk" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031018 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Azrog" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031019 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Thurgash" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031020 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Kroth" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031021 = { dna = voltara_giant_reference trait = education_martial_2 trait = brave trait = stubborn trait = giant  name = "Hrond" culture = voltara_giants religion = voltara_faith_0 3742.1.1 = { birth = yes } }
+19031022 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Borzag" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031023 = { dna = voltara_giant_reference trait = education_martial_2 trait = brave trait = stubborn trait = giant  name = "Garm" culture = voltara_giants religion = voltara_faith_0 3742.1.1 = { birth = yes } }
+19031024 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Rugnar" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031025 = { dna = voltara_naga_reference trait = education_martial_2 trait = brave trait = stubborn trait = physique_good_1 trait = voltara_lifespan_1  name = "Ssarok" culture = voltara_ironcoil_naga rite = voltara_first_cavern 3742.1.1 = { birth = yes } }
+19031026 = { dna = voltara_naga_reference trait = education_martial_2 trait = brave trait = stubborn trait = physique_good_1 trait = voltara_lifespan_1  name = "Thessak" culture = voltara_ironcoil_naga rite = voltara_first_cavern 3742.1.1 = { birth = yes } }
+19031027 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Zargul" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031028 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Ghorak" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031029 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Durgoth" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031030 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Gorzak Ashfist" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031031 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Urzog Ashfist" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031032 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Morgath Ashfist" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031033 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Drazhuk Ashfist" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031034 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Azrog Ashfist" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031035 = { dna = voltara_giant_reference trait = education_martial_2 trait = brave trait = stubborn trait = giant  name = "Thol" culture = voltara_giants religion = voltara_faith_0 3742.1.1 = { birth = yes } }
+19031036 = { dna = voltara_giant_reference trait = education_martial_2 trait = brave trait = stubborn trait = giant  name = "Brunn" culture = voltara_giants religion = voltara_faith_0 3742.1.1 = { birth = yes } }
+19031037 = { dna = voltara_giant_reference trait = education_martial_2 trait = brave trait = stubborn trait = giant  name = "Hrogar" culture = voltara_giants religion = voltara_faith_0 3742.1.1 = { birth = yes } }
+19031038 = { dna = voltara_naga_reference trait = education_martial_2 trait = brave trait = stubborn trait = physique_good_1 trait = voltara_lifespan_1  name = "Vashkar" culture = voltara_ironcoil_naga rite = voltara_first_cavern 3742.1.1 = { birth = yes } }
+19031039 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Thurgash Ashfist" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031040 = { dna = voltara_naga_reference trait = education_martial_2 trait = brave trait = stubborn trait = physique_good_1 trait = voltara_lifespan_1  name = "Isshar" culture = voltara_ironcoil_naga rite = voltara_first_cavern 3742.1.1 = { birth = yes } }
+19031041 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Kroth Ashfist" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031042 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Borzag Ashfist" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031043 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Rugnar Ashfist" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031044 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Zargul Ashfist" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031045 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Ghorak Ashfist" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031046 = { dna = voltara_naga_reference trait = education_martial_2 trait = brave trait = stubborn trait = physique_good_1 trait = voltara_lifespan_1  name = "Kessath" culture = voltara_ironcoil_naga rite = voltara_first_cavern 3742.1.1 = { birth = yes } }
+19031047 = { dna = voltara_naga_reference trait = education_martial_2 trait = brave trait = stubborn trait = physique_good_1 trait = voltara_lifespan_1  name = "Sarkesh" culture = voltara_ironcoil_naga rite = voltara_first_cavern 3742.1.1 = { birth = yes } }
+19031048 = { dna = voltara_naga_reference trait = education_martial_2 trait = brave trait = stubborn trait = physique_good_1 trait = voltara_lifespan_1  name = "Nashrok" culture = voltara_ironcoil_naga rite = voltara_first_cavern 3742.1.1 = { birth = yes } }
+19031049 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Durgoth Ashfist" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031050 = { dna = voltara_giant_reference trait = education_martial_2 trait = brave trait = stubborn trait = giant  name = "Uld" culture = voltara_giants religion = voltara_faith_0 3742.1.1 = { birth = yes } }
+19031051 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Gorzak Blacktusk" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031052 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Urzog Blacktusk" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031053 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Morgath Blacktusk" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031054 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Drazhuk Blacktusk" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031055 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Azrog Blacktusk" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031056 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Thurgash Blacktusk" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031057 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Kroth Blacktusk" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031058 = { dna = voltara_giant_reference trait = education_martial_2 trait = brave trait = stubborn trait = giant  name = "Skarn" culture = voltara_giants religion = voltara_faith_0 3742.1.1 = { birth = yes } }
+19031059 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Borzag Blacktusk" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031060 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Rugnar Blacktusk" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031061 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Zargul Blacktusk" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031062 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Ghorak Blacktusk" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031063 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Durgoth Blacktusk" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031064 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Gorzak Flintjaw" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031065 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Urzog Flintjaw" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031066 = { dna = voltara_naga_reference trait = education_martial_2 trait = brave trait = stubborn trait = physique_good_1 trait = voltara_lifespan_1  name = "Vesshan" culture = voltara_ironcoil_naga rite = voltara_first_cavern 3742.1.1 = { birth = yes } }
+19031067 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Morgath Flintjaw" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031068 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Drazhuk Flintjaw" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031069 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Azrog Flintjaw" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031070 = { dna = voltara_giant_reference trait = education_martial_2 trait = brave trait = stubborn trait = giant  name = "Rok" culture = voltara_giants religion = voltara_faith_0 3742.1.1 = { birth = yes } }
+19031071 = { dna = voltara_giant_reference trait = education_martial_2 trait = brave trait = stubborn trait = giant  name = "Varn" culture = voltara_giants religion = voltara_faith_0 3742.1.1 = { birth = yes } }
+19031072 = { dna = voltara_naga_reference trait = education_martial_2 trait = brave trait = stubborn trait = physique_good_1 trait = voltara_lifespan_1  name = "Shessir" culture = voltara_ironcoil_naga rite = voltara_first_cavern 3742.1.1 = { birth = yes } }
+19031073 = { dna = voltara_giant_reference trait = education_martial_2 trait = brave trait = stubborn trait = giant  name = "Thrum" culture = voltara_giants religion = voltara_faith_0 3742.1.1 = { birth = yes } }
+19031074 = { dna = voltara_naga_reference trait = education_martial_2 trait = brave trait = stubborn trait = physique_good_1 trait = voltara_lifespan_1  name = "Ashrak" culture = voltara_ironcoil_naga rite = voltara_first_cavern 3742.1.1 = { birth = yes } }
+19031075 = { dna = voltara_naga_reference trait = education_martial_2 trait = brave trait = stubborn trait = physique_good_1 trait = voltara_lifespan_1  name = "Sethkar" culture = voltara_ironcoil_naga rite = voltara_first_cavern 3742.1.1 = { birth = yes } }
+19031076 = { dna = voltara_naga_reference trait = education_martial_2 trait = brave trait = stubborn trait = physique_good_1 trait = voltara_lifespan_1  name = "Ussan" culture = voltara_ironcoil_naga rite = voltara_first_cavern 3742.1.1 = { birth = yes } }
+19031077 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Thurgash Flintjaw" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031078 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Kroth Flintjaw" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031079 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Borzag Flintjaw" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031080 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Rugnar Flintjaw" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031081 = { dna = voltara_giant_reference trait = education_martial_2 trait = brave trait = stubborn trait = giant  name = "Hald" culture = voltara_giants religion = voltara_faith_0 3742.1.1 = { birth = yes } }
+19031082 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Zargul Flintjaw" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031083 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Ghorak Flintjaw" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031084 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Durgoth Flintjaw" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031085 = { dna = voltara_giant_reference trait = education_martial_2 trait = brave trait = stubborn trait = giant  name = "Grond" culture = voltara_giants religion = voltara_faith_0 3742.1.1 = { birth = yes } }
+19031086 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Gorzak Redscar" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031087 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Urzog Redscar" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031088 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Morgath Redscar" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031089 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver trait = vt_ek_education_magic_2 trait = voltara_orc_shaman  name = "Drazhuk Redscar" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19031090 = { dna = voltara_orc_reference trait = education_martial_2 trait = brave trait = stubborn trait = voltara_slaver  name = "Azrog Redscar" culture = voltara_culture_20 rite = voltara_mud_and_flame 3742.1.1 = { birth = yes } }
+19040000 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040001 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040010 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040011 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040020 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040021 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040030 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040031 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040040 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040041 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040050 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040051 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040060 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040061 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040080 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040081 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040100 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040101 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040130 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040131 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040140 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040141 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040150 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040151 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040160 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040161 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040170 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040171 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040180 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040181 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040190 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040191 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040200 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040201 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040250 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040251 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040270 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040271 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040280 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040281 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040290 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040291 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040300 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040301 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040310 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040311 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040350 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040351 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040370 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040371 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040380 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040381 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040390 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040391 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040400 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040401 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040410 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040411 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040420 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040421 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040430 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040431 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040450 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040451 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040460 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040461 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040470 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040471 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040480 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040481 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040490 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040491 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040500 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040501 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040510 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040511 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040530 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040531 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040540 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040541 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040550 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040551 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040630 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040631 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040640 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040641 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040650 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040651 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040660 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040661 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040680 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040681 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040690 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040691 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040700 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040701 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040720 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040721 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040730 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040731 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040740 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040741 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040750 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040751 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040760 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040761 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040770 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040771 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040780 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040781 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040790 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040791 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040800 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040801 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040810 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040811 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040820 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040821 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040830 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040831 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040840 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040841 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040850 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040851 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040860 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040861 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040870 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040871 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040880 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040881 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040890 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040891 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040900 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040901 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040910 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040911 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040920 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040921 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040930 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040931 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040940 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040941 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19040960 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19040961 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041000 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041001 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041020 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041021 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041030 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041031 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041050 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041051 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041060 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041061 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041070 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041071 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041090 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041091 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041100 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041101 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041110 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041111 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041120 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041121 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041130 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041131 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041140 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041141 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041150 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041151 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041160 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041161 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041170 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041171 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041180 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041181 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041190 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041191 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041200 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041201 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041220 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041221 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041240 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041241 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041250 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041251 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041260 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041261 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041270 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041271 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041280 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041281 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041290 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041291 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041300 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041301 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041310 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041311 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041320 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041321 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041330 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041331 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041340 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041341 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041350 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041351 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041370 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041371 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041380 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041381 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041390 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041391 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041400 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041401 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041410 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041411 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041420 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041421 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041430 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041431 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041440 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041441 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041450 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041451 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041460 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041461 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041470 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041471 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041480 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041481 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041490 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041491 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041500 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041501 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041510 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041511 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041520 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041521 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041580 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041581 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041590 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041591 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041600 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041601 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041610 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041611 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041620 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041621 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041630 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041631 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041640 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041641 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041650 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041651 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041660 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041661 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041670 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041671 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041680 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041681 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041690 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041691 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041700 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041701 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041710 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041711 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041730 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041731 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041740 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041741 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041750 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041751 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041770 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041771 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041780 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041781 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041790 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041791 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041800 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041801 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041810 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041811 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041820 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041821 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041830 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041831 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041840 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041841 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041930 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041931 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041940 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041941 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041950 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041951 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041960 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041961 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041970 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041971 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041980 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041981 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19041990 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19041991 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042000 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042001 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042010 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042011 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042020 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042021 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042030 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042031 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042040 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042041 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042050 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042051 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042060 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042061 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042070 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042071 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042080 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042081 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042090 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042091 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042100 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042101 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042110 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042111 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042120 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042121 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042130 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042131 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042140 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042141 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042150 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042151 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042160 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042161 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042170 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042171 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042180 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042181 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042190 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042191 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042200 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042201 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042210 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042211 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042240 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042241 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042250 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042251 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042260 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042261 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042270 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042271 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042280 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042281 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042290 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042291 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042300 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042301 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042310 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042311 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042320 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042321 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042330 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042331 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042340 = { name = "Saren" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042341 = { name = "Zikka" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042350 = { name = "Talia" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042351 = { name = "Mogri" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042360 = { name = "Farid" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042361 = { name = "Tek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042370 = { name = "Nessa" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042371 = { name = "Nikka" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042380 = { name = "Joran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042381 = { name = "Brek" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042390 = { name = "Amara" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042391 = { name = "Zug" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042400 = { name = "Daran" culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042401 = { name = "Rik" culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19042410 = { name = "Mira" female = yes culture = voltara_southorion religion = voltara_faith_0 trait = diligent 3753.1.1 = { birth = yes } }
+19042411 = { name = "Vek" female = yes culture = voltara_culture_21 rite = voltara_embers_of_khaos dna = voltara_goblin_reference trait = diligent 3753.1.1 = { birth = yes } }
+19050000 = { name = "Maren" culture = voltara_culture_46 religion = voltara_faith_0 trait = diligent 3752.1.1 = { birth = yes } }
+19050001 = { name = "Torren" culture = voltara_culture_46 religion = voltara_faith_0 trait = diligent 3752.1.1 = { birth = yes } }
+19050010 = { name = "Elian" culture = voltara_culture_46 religion = voltara_faith_0 trait = diligent 3752.1.1 = { birth = yes } }
+19050011 = { name = "Sera" culture = voltara_culture_46 religion = voltara_faith_0 trait = diligent 3752.1.1 = { birth = yes } }

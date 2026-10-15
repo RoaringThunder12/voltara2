@@ -1,0 +1,17 @@
+﻿
+voltara_oathkeeper = {
+ category = lifestyle
+ icon = devoted.dds
+ same_opinion = 10 ai_honor = 15
+ flag = can_not_marry
+ inheritance_blocker = all claim_inheritance_blocker = all
+ track = {
+  0 = { }
+  25 = { martial = 1 prowess = 1 }
+  50 = { martial = 2 prowess = 2 monthly_prestige = 0.1 }
+  100 = { martial = 3 prowess = 4 monthly_prestige = 0.25 }
+ }
+}
+voltara_keeper_elect = {
+ category = fame icon = devoted.dds flag = can_not_marry
+}

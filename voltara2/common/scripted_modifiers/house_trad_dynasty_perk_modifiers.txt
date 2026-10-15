@@ -1,0 +1,164 @@
+﻿house_trad_adventure_legacy_weight = {
+	modifier = {
+		factor = 20
+		OR = {
+			house = { has_house_modifier = trad_valor }
+			house = { has_house_modifier = trad_influence }
+		}
+	}
+	modifier = {
+		factor = 5
+		house = { has_house_modifier = trad_truth }
+	}
+}
+
+house_trad_pillage_legacy_weight = {
+	modifier = {
+		factor = 20
+		OR = {
+			house = { has_house_modifier = trad_valor }
+			house = { has_house_modifier = trad_fortune }
+			house = { has_house_modifier = trad_respect }
+		}
+	}
+}
+
+house_trad_warfare_legacy_weight = {
+	modifier = {
+		factor = 20
+		OR = {
+			house = { has_house_modifier = trad_valor }
+			house = { has_house_modifier = trad_honor }
+			house = { has_house_modifier = trad_duty }
+			house = { has_house_modifier = trad_vigilance }
+		}
+	}
+}
+
+house_trad_law_legacy_weight = {
+	modifier = {
+		factor = 20
+		OR = {
+			house = { has_house_modifier = trad_justice }
+			house = { has_house_modifier = trad_vengeance }
+			house = { has_house_modifier = trad_vigilance }
+		}
+	}
+	modifier = {
+		factor = 10
+		OR = {
+			house = { has_house_modifier = trad_honor }
+			house = { has_house_modifier = trad_duty }
+			house = { has_house_modifier = trad_pride }
+			house = { has_house_modifier = trad_power }
+			house = { has_house_modifier = trad_respect }
+			house = { has_house_modifier = trad_truth }
+			house = { has_house_modifier = trad_peace }
+		}
+	}
+	modifier = {
+		add = 1000
+		dynasty = dynasty:100072 # Alfred the Great of Wessex
+	}
+	modifier = {
+		add = 500
+		dynasty = dynasty:25061 # Carolingnian Dynasty
+	}
+}
+
+house_trad_guile_legacy_weight = {
+	modifier = {
+		factor = 20
+		OR = {
+			house = { has_house_modifier = trad_vengeance }
+			house = { has_house_modifier = trad_respect }
+			house = { has_house_modifier = trad_guile }
+			house = { has_house_modifier = trad_survival }
+		}
+	}
+	modifier = {
+		factor = 10
+		OR = {
+			house = { has_house_modifier = trad_power }
+			house = { has_house_modifier = trad_influence }
+			house = { has_house_modifier = trad_family }
+		}
+	}
+}
+
+house_trad_blood_legacy_weight = {
+	modifier = {
+		factor = 10
+		OR = {
+			house = { has_house_modifier = trad_family }
+			house = { has_house_modifier = trad_wisdom }
+		}
+	}
+	modifier = {
+		factor = 5
+		OR = {
+			house = { has_house_modifier = trad_pride }
+			house = { has_house_modifier = trad_survival }
+			house = { has_house_modifier = trad_knowledge }
+			house = { has_house_modifier = trad_peace }
+		}
+	}
+}
+
+house_trad_erudition_legacy_weight = {
+	modifier = {
+		factor = 20
+		OR = {
+			house = { has_house_modifier = trad_knowledge }
+			house = { has_house_modifier = trad_truth }
+			house = { has_house_modifier = trad_devotion }
+		}
+	}
+	modifier = {
+		factor = 10
+		OR = {
+			house = { has_house_modifier = trad_wisdom }
+			house = { has_house_modifier = trad_peace }
+		}
+	}
+}
+
+house_trad_glory_legacy_weight = {
+	modifier = {
+		factor = 20
+		OR = {
+			house = { has_house_modifier = trad_pride }
+			house = { has_house_modifier = trad_power }
+			house = { has_house_modifier = trad_respect }
+			house = { has_house_modifier = trad_influence }
+		}
+	}
+	modifier = {
+		factor = 10
+		OR = {
+			house = { has_house_modifier = trad_valor }
+		}
+	}
+	modifier = {
+		add = 1000
+		dynasty = dynasty:25061 # Carolingnian Dynasty
+	}
+}
+
+house_trad_kin_legacy_weight = {
+	modifier = {
+		factor = 20
+		OR = {
+			house = { has_house_modifier = trad_family }
+			house = { has_house_modifier = trad_peace }
+		}
+	}
+	modifier = {
+		factor = 10
+		OR = {
+			house = { has_house_modifier = trad_pride }
+			house = { has_house_modifier = trad_survival }
+		}
+	}
+}
+

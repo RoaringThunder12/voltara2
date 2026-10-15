@@ -35,6 +35,8 @@ is_valid = {
 	}
 
 	is_shown = {
+ scope:recipient = { NOT = { has_trait = voltara_slave } }
+
  # Voltara: ruins are colonized through the county panel, not character diplomacy.
  scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
  scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
@@ -403,6 +405,8 @@ is_valid = {
 	}
 
 	is_shown = {
+ scope:recipient = { NOT = { has_trait = voltara_slave } }
+
  # Voltara: ruins are colonized through the county panel, not character diplomacy.
  scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
  scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
@@ -623,6 +627,10 @@ is_valid = {
 	desc = invite_to_court_interaction_desc
 
 	is_shown = {
+ scope:recipient = { NOT = { voltara_keeper_member = yes } }
+
+ scope:recipient = { NOT = { has_trait = voltara_slave } }
+
  # Voltara: ruins are colonized through the county panel, not character diplomacy.
  scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
  scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }

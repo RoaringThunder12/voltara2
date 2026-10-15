@@ -1,0 +1,35 @@
+﻿accou_accepted_my_marriage_request_opinion = {
+	opinion = 20
+	decaying = yes
+	years = 5
+}
+
+accou_rejected_my_marriage_request_opinion = {
+	opinion = -20
+	decaying = yes
+	years = 5
+}
+
+accou_accepted_my_invite_recommendation_opinion = {
+	opinion = 10
+	decaying = yes
+	years = 5
+}
+
+accou_declined_my_invite_recommendation_opinion = {
+	opinion = -10
+	decaying = yes
+	years = 5
+}
+
+accou_accepted_my_guardian_suggestion_opinion = {
+	opinion = 5
+	decaying = yes
+	years = 5
+}
+
+accou_declined_my_guardian_suggestion_opinion = {
+	opinion = -5
+	decaying = yes
+	years = 5
+}

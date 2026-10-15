@@ -1,0 +1,146 @@
+﻿##############################
+## BM1 script_values
+##############################
+
+# based on ./common/script_values/05/bp2_hostage_values.txt/actor_current_military_strength
+interaction_actor_current_military_strength = {
+	value = {
+		add = scope:actor.current_military_strength
+	}
+}
+
+# based on ./common/script_values/05/bp2_hostage_values.txt/recipient_current_military_strength
+interaction_recipient_current_military_strength = {
+	value = {
+		add = scope:recipient.current_military_strength
+	}
+}
+
+# based on ./common/script_values/05/bp2_hostage_values.txt/actor_ally_military_strength
+interaction_actor_ally_military_strength = {
+	value = 0
+	scope:actor = {
+		every_ally = { add = current_military_strength }
+	}
+}
+
+# based on ./common/script_values/05/bp2_hostage_values.txt/recipient_ally_military_strength
+interaction_recipient_ally_military_strength = {
+	value = 0
+	scope:recipient = {
+		every_ally = { add = current_military_strength }
+	}
+}
+
+# based on ./common/script_values/05/bp2_hostage_values.txt/current_strength_ninety_percent_value
+interaction_current_strength_ninety_percent_value = {
+	value = current_military_strength
+	multiply = 0.9
+}
+
+# based on ./common/script_values/05/bp2_hostage_values.txt/current_strength_seventy_five_percent_value
+interaction_current_strength_seventy_five_percent_value = {
+	value = current_military_strength
+	multiply = 0.7
+}
+
+# based on ./common/script_values/05/bp2_hostage_values.txt/current_strength_with_allies_value
+interaction_current_strength_with_allies_value = {
+	value = current_military_strength
+	every_ally = { add = current_military_strength }
+}
+
+# based on ./common/script_values/05/bp2_hostage_values.txt/current_allies_strength_value
+interaction_current_allies_strength_value = {
+	value = 0
+	every_ally = { add = current_military_strength }
+}
+
+# based on ./common/script_values/05/bp2_hostage_values.txt/current_strength_with_allies_fifty_percent_value
+interaction_current_strength_with_allies_fifty_percent_value = {
+	value = interaction_current_strength_with_allies_value
+	multiply = 0.5
+}
+
+# based on ./common/script_values/05/bp2_hostage_values.txt/current_strength_with_allies_seventy_five_percent_value
+interaction_current_strength_with_allies_seventy_five_percent_value = {
+	value = interaction_current_strength_with_allies_value
+	multiply = 0.7
+}
+
+# based on ./common/script_values/00_interaction_values.txt/offer_hostage_military_strength_value
+increased_interaction_military_strength_value = {
+	value = current_military_strength
+	multiply = 1.5
+}
+
+# based on ./common/script_values/00_interaction_values.txt/demand_hostage_military_strength_value
+halved_interaction_military_strength_value = {
+	value = current_military_strength
+	multiply = 0.65
+}
+
+# based on ./common/script_values/00_interaction_values.txt/hostage_tier_check_value
+interaction_tier_check_value = {
+	value = highest_held_title_tier
+	subtract = 1
+	min = tier_county
+}
+
+# based on ./common/script_values/00_interaction_values.txt/ransom_cost
+barter_cost = {
+	value = ransom_cost
+	multiply = 1.5
+}
+
+# based on ./common/script_values/00_interaction_values.txt/ransom_cost_value
+barter_cost_value = {
+	value = barter_cost
+
+	if = {
+		limit = { is_imprisoned = yes }
+		# FP2 DLC - Some cultures are better at ransoming than others.
+		if = {
+			limit = {
+				imprisoner ?= { culture ?= { has_cultural_parameter = can_demand_higher_ransoms_from_lower_tiers } }
+				# Kings and emperors are already worth more, so we just boost landless and ducal-tier or below.
+				OR = {
+					NOT = { exists = liege }
+					highest_held_title_tier <= tier_duchy
+				}
+			}
+			multiply = 1.5
+		}
+		# FP1 DLC - Some dynasty are better at ransoming than others.
+		if = {
+			limit = { imprisoner ?= { dynasty ?= { has_dynasty_perk = fp1_pillage_legacy_3 } } }
+			multiply = 1.5
+		}
+	}
+}
+
+# based on ./common/script_values/00_interaction_values.txt/increased_ransom_const_value
+increased_barter_cost_value = {
+	value = {
+		add = barter_cost_value
+		multiply = 1.5
+	}
+}
+
+# based on ./common/script_values/00_interaction_values.txt/half_ransom_cost_value
+half_barter_cost_value = {
+	value = {
+		add = barter_cost_value
+		divide = 2
+		min = 1
+	}
+}
+
+# based on ./common/script_values/00_interaction_values.txt/half_increased_ransom_cost
+half_increased_barter_cost_value = {
+	value = {
+		add = increased_barter_cost_value
+		divide = 2
+		min = 1
+	}
+}

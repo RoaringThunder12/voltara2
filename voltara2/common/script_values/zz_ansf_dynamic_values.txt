@@ -1,0 +1,865 @@
+﻿
+age_minus_childbirth_start = {
+	value = age
+	if = {
+		limit = { is_female = yes }
+		subtract = define:NChildbirth|MIN_FEMALE_REPRODUCTION_AGE
+	}
+	else = {
+		subtract = define:NChildbirth|MIN_MALE_REPRODUCTION_AGE
+	}
+}
+
+age_including_death_age = {
+	if = {
+		limit = { is_alive = no }
+		add = days_since_death
+		divide = 365
+		floor = yes
+	}
+	add = age
+}
+
+age_including_death_minus_childbirth_start = {
+	if = {
+		limit = { is_alive = no }
+		add = days_since_death
+		divide = 365
+		floor = yes
+	}
+	add = age
+	if = {
+		limit = { is_female = yes }
+		subtract = define:NChildbirth|MIN_FEMALE_REPRODUCTION_AGE
+	}
+	else = {
+		subtract = define:NChildbirth|MIN_MALE_REPRODUCTION_AGE
+	}
+}
+
+age_including_death_plus_childbirth_start = {
+	if = {
+		limit = { is_alive = no }
+		add = days_since_death
+		divide = 365
+		floor = yes
+	}
+	add = age
+	if = {
+		limit = { is_female = yes }
+		add = define:NChildbirth|MIN_FEMALE_REPRODUCTION_AGE
+	}
+	else = {
+		add = define:NChildbirth|MIN_MALE_REPRODUCTION_AGE
+	}
+}
+
+age_in_days = {
+	value = age
+	multiply = 365
+}
+
+years_since_death = {
+	add = days_since_death
+	divide = 365
+	floor = yes
+}
+
+years_since_fertility = {
+	value = age
+	subtract = define:NChildbirth|MAX_FEMALE_REPRODUCTION_AGE
+	min = 0
+}
+
+years_since_fertility_including_death = {
+	value = age
+	if = {
+		limit = { is_alive = no }
+		add = days_since_death
+		divide = 365
+		floor = yes
+	}
+	subtract = define:NChildbirth|MAX_FEMALE_REPRODUCTION_AGE
+	min = 0
+}
+
+age_ansf_family_member_exact = {
+	add = scope:source_parent.age
+}
+
+age_root_exact = {
+	value = root.age
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_target_minus_one = {
+	value = scope:target.age
+	subtract = 1
+}
+
+age_root_minus_five = {
+	value = root.age
+	subtract = 5
+	if = {
+		limit = { root = { is_female = yes } }
+		min = define:NChildbirth|MIN_MALE_REPRODUCTION_AGE
+	}
+	else = {
+		min = define:NChildbirth|MIN_FEMALE_REPRODUCTION_AGE
+	}
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_bastard_parent_minus_five = {
+	value = scope:ansf_bastard_parent.age_including_death_age
+	subtract = 5
+	if = {
+		limit = {
+			scope:ansf_bastard_parent = { is_male = yes }
+		}
+		min = define:NChildbirth|MIN_FEMALE_REPRODUCTION_AGE
+	}
+	else = {
+		min = define:NChildbirth|MIN_MALE_REPRODUCTION_AGE
+	}
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_root_minus_ten = {
+	value = root.age
+	subtract = 10
+	if = {
+		limit = { root = { is_female = yes } }
+		min = define:NChildbirth|MIN_MALE_REPRODUCTION_AGE
+	}
+	else = {
+		min = define:NChildbirth|MIN_FEMALE_REPRODUCTION_AGE
+	}
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_root_plus_ten = {
+	value = root.age
+	add = 10
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+eldest_legit_children_age = {
+	value = 0
+	if = {
+		limit = { exists = scope:eldest_legitimate_child }
+		value = scope:eldest_legitimate_child.age_including_death_age
+		add = 1
+	}
+}
+
+eldest_legit_halfsibling_age = {
+	value = 0
+	if = {
+		limit = { exists = scope:mother_father_eldest_child }
+		value = scope:mother_father_eldest_child.age_including_death_age
+		subtract = 1
+	}
+}
+
+age_min_restriction_via_eldest_legit_children = {
+	value = 0
+	add = eldest_legit_children_age
+	if = {
+		limit = {
+			scope:ansf_bastard_parent = { is_male = yes }
+		}
+		add = define:NChildbirth|MIN_FEMALE_REPRODUCTION_AGE
+	}
+	else = {
+		add = define:NChildbirth|MIN_MALE_REPRODUCTION_AGE
+	}
+}
+
+age_min_restriction_via_bastard_parent = {
+	value = scope:ansf_bastard_parent.age
+	if = {
+		limit = {
+			scope:ansf_bastard_parent = { is_male = yes }
+		}
+		value = define:NChildbirth|MIN_FEMALE_REPRODUCTION_AGE
+	}
+	else = {
+		subtract = 10
+		min = define:NChildbirth|MIN_MALE_REPRODUCTION_AGE
+	}
+}
+
+age_max_restriction_via_bastard_parent = {
+	value = scope:ansf_bastard_parent.age
+	if = {
+		limit = {
+			scope:ansf_bastard_parent = { is_female = yes }
+		}
+		add = 25
+	}
+}
+
+age_otherparent_min = {
+	value = age_min_restriction_via_bastard_parent
+	if = {
+		limit = {
+			exists = root.var:is_former_spouse
+			age_min_restriction_via_eldest_legit_children > age_min_restriction_via_bastard_parent
+		}
+		value = age_min_restriction_via_eldest_legit_children
+	}
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_otherparent_max = {
+	value = age_max_restriction_via_bastard_parent
+	if = {
+		limit = { age_otherparent_min > age_max_restriction_via_bastard_parent }
+		value = age_otherparent_min
+	}
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_min_restriction_via_bastard_parent_and_otherparent = {
+	value = 0
+	if = {
+		limit = {
+			scope:ansf_bastard_parent = { is_alive = no }
+		}
+		value = scope:ansf_bastard_parent.years_since_death
+	}
+	if = {
+		limit = {
+			scope:ansf_bastard_parent = {
+				is_female = yes
+				age > define:NChildbirth|MAX_FEMALE_REPRODUCTION_AGE
+				OR = {
+					is_alive = yes
+					years_since_fertility > years_since_death
+				}
+			}
+		}
+		value = scope:ansf_bastard_parent.years_since_fertility
+	}
+	else_if = {
+		limit = {
+			scope:ansf_bastard_otherparent = {
+				is_female = yes
+				age > define:NChildbirth|MAX_FEMALE_REPRODUCTION_AGE
+				OR = {
+					scope:ansf_bastard_parent = { is_alive = yes }
+					years_since_fertility > scope:ansf_bastard_parent.years_since_death
+				}
+			}
+		}
+		value = scope:ansf_bastard_otherparent.years_since_fertility
+	}
+}
+
+age_halfsibling_min = {
+	value = age_min_restriction_via_bastard_parent_and_otherparent
+	if = {
+		limit = {
+			exists = root.var:is_former_spouse
+			eldest_legit_children_age > age_min_restriction_via_bastard_parent_and_otherparent
+		}
+		value = eldest_legit_children_age
+	}
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_halfsibling_max = {
+	value = 0
+	if = {
+		limit = {
+			scope:ansf_bastard_parent.age < scope:ansf_bastard_otherparent.age
+		}
+		add = {
+			add = scope:ansf_bastard_parent.age
+			if = {
+				limit = { scope:ansf_bastard_parent = { is_female = yes } }
+				subtract = define:NChildbirth|MIN_FEMALE_REPRODUCTION_AGE
+			}
+			else = {
+				subtract = define:NChildbirth|MIN_MALE_REPRODUCTION_AGE
+			}
+		}
+	}
+	else = {
+		add = {
+			add = scope:ansf_bastard_otherparent.age
+			if = {
+				limit = { scope:ansf_bastard_otherparent = { is_female = yes } }
+				subtract = define:NChildbirth|MIN_FEMALE_REPRODUCTION_AGE
+			}
+			else = {
+				subtract = define:NChildbirth|MIN_MALE_REPRODUCTION_AGE
+			}
+		}
+	}
+	min = age_halfsibling_min
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_compared_to_target_plus_four = {
+	add = root.var:target.age
+	add = 4
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_plus_4 = {
+	value = age
+	add = 4
+}
+
+age_compared_to_target_plus_ten = {
+	add = scope:target.age
+	add = 10
+	min = 18
+}
+
+age_compared_to_target_plus_childbirth_start = {
+	add = scope:target.age
+	if = {
+		limit = { scope:target = { is_female = yes } }
+		add = define:NChildbirth|MIN_FEMALE_REPRODUCTION_AGE
+	}
+	else = {
+		add = define:NChildbirth|MIN_MALE_REPRODUCTION_AGE
+	}
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_compared_to_target_plus_twenty = {
+	add = scope:target.age
+	add = 20
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_compared_to_target_plus_thirty = {
+	add = scope:target.age
+	add = 30
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_compared_to_target_father = {
+	add = scope:target.father.age_including_death_age
+	min = age_compared_to_target_plus_childbirth_start
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_legitimate_sibling_min = {
+	value = 0
+	if = {
+		limit = {
+			scope:target.mother = { is_alive = no }
+		}
+		value = scope:target.mother.years_since_death
+	}
+	if = {
+		limit = {
+			scope:target.father = { is_alive = no }
+			OR = {
+				scope:target.mother = { is_alive = yes }
+				scope:target.father.years_since_death > scope:target.mother.years_since_death
+			}
+		}
+		value = scope:target.father.years_since_death
+	}
+	if = {
+		limit = {
+			scope:target.mother = {
+				age > define:NChildbirth|MAX_FEMALE_REPRODUCTION_AGE
+				OR = {
+					is_alive = yes
+					years_since_fertility > years_since_death
+				}
+				OR = {
+					scope:target.father = { is_alive = yes }
+					years_since_fertility > scope:target.father.years_since_death
+				}
+			}
+		}
+		value = scope:target.mother.years_since_fertility
+	}
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_legitimate_sibling_max = {
+	value = scope:target.mother.age_including_death_age
+	subtract = define:NChildbirth|MIN_FEMALE_REPRODUCTION_AGE
+	if = {
+		limit = {
+			OR = {
+				AND = {
+					exists = scope:is_existing_dynasty
+					scope:target = {
+						NOT = { has_trait = bastard_founder }
+					}
+				}
+				exists = root.var:is_maiden
+			}
+		}
+		max = age_target_minus_one
+	}
+	if = {
+		limit = {
+			eldest_legit_halfsibling_age > 0
+			OR = {
+				NOT = { exists = scope:is_existing_dynasty }
+				scope:target = { has_trait = bastard_founder }
+				eldest_legit_halfsibling_age > age_target_minus_one
+			}
+		}
+		max = eldest_legit_halfsibling_age
+	}
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_player_child_min = {
+	value = 0
+	if = {
+		limit = {
+			scope:ansf_mother = { is_alive = no }
+		}
+		value = scope:ansf_mother.years_since_death
+	}
+	if = {
+		limit = {
+			scope:ansf_father = { is_alive = no }
+			OR = {
+				scope:ansf_mother = { is_alive = yes }
+				scope:ansf_father.years_since_death > scope:ansf_mother.years_since_death
+			}
+		}
+		value = scope:ansf_father.years_since_death
+	}
+	if = {
+		limit = {
+			scope:ansf_mother = {
+				age > define:NChildbirth|MAX_FEMALE_REPRODUCTION_AGE
+				OR = {
+					is_alive = yes
+					years_since_fertility > years_since_death
+				}
+				OR = {
+					scope:ansf_father = { is_alive = yes }
+					years_since_fertility > scope:ansf_father.years_since_death
+				}
+			}
+		}
+		value = scope:ansf_mother.years_since_fertility
+	}
+	if = {
+		limit = { exists = root.var:is_former_spouse }
+		min = eldest_legit_children_age
+	}
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+age_player_child_max = {
+	value = 0
+	if = {
+		limit = {
+			scope:ansf_mother.age_including_death_age < scope:ansf_father.age_including_death_age
+			scope:ansf_mother.age_including_death_age > define:NChildbirth|MIN_FEMALE_REPRODUCTION_AGE
+		}
+		add = scope:ansf_mother.age_including_death_age
+		subtract = define:NChildbirth|MIN_FEMALE_REPRODUCTION_AGE
+	}
+	else_if = {
+		limit = { scope:ansf_father.age_including_death_age > define:NChildbirth|MIN_MALE_REPRODUCTION_AGE }
+		add = scope:ansf_father.age_including_death_age
+		subtract = define:NChildbirth|MIN_MALE_REPRODUCTION_AGE
+	}
+	if = {
+		limit = {
+			exists = scope:mother_father_eldest_child
+			scope:mother_father_eldest_child.age_including_death_age > 0
+		}
+		max = eldest_legit_halfsibling_age
+	}
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+target_spouse_in_law_min_age = {
+	add = 35
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}	
+}
+
+target_spouse_father_in_law_max_age = {
+	add = 50
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}	
+}
+
+target_spouse_mother_in_law_max_age_range = {
+	if = {
+		limit = {
+			root = { has_variable = actual_father_in_law }
+		}
+		value = root.var:actual_father_in_law.age
+	}
+	else = {
+		value = 50
+	}
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+target_spouse_min_age = {
+	add = adulthood_start_age
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}	
+}
+
+target_spouse_lowborn_male_min_age = {
+	add = 18
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}	
+}
+
+target_spouse_lowborn_female_max_age = {
+	add = scope:target.age
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}	
+}
+
+target_spouse_lowborn_male_max_age = {
+	add = root.var:target.age
+	add = 10
+	min = 18
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}	
+}
+
+target_spouse_max_age_range = {
+	if = {
+		limit = {
+			root = {
+				has_variable = actual_father_in_law
+				has_variable = actual_mother_in_law
+				var:actual_mother_in_law.age <= var:actual_father_in_law.age
+			}
+		}
+		add = root.var:actual_mother_in_law.age
+	}
+	else_if = {
+		limit = {
+			root = {
+				has_variable = actual_father_in_law
+				has_variable = actual_mother_in_law
+			}
+		}
+		add = root.var:actual_father_in_law.age
+	}
+	else_if = {
+		limit = {
+			root = { has_variable = actual_father_in_law }
+		}
+		add = root.var:actual_father_in_law.age
+	}
+	else_if = {
+		limit = {
+			root = { has_variable = actual_mother_in_law }
+		}
+		add = root.var:actual_mother_in_law.age
+	}
+	else = {
+		add = 35
+	}
+	if = {
+		limit = {
+			root.var:target = { is_male = yes }
+		}
+		subtract = define:NCharacter|FEMALE_ADULT_AGE
+		min = define:NCharacter|FEMALE_ADULT_AGE
+	}
+	else = {
+		subtract = define:NCharacter|MALE_ADULT_AGE
+		min = define:NCharacter|MALE_ADULT_AGE
+	}
+	max = {
+		add = root.var:target.age
+		add = 4
+	}
+	if = {
+		limit = {
+			root = {
+				NOT = { has_variable = ansf_family_character_randomize_age }
+				has_variable = ansf_family_character_age
+				has_variable = ansf_family_character_generate
+			}
+		}
+		value = root.var:ansf_family_character_age
+	}
+}
+
+target_spouse_max_age_range_forecast = {
+	if = {
+		limit = {
+			has_variable = actual_father_in_law
+			has_variable = actual_mother_in_law
+			var:actual_mother_in_law.age <= var:actual_father_in_law.age
+		}
+		add = var:actual_mother_in_law.age
+	}
+	else_if = {
+		limit = {
+			has_variable = actual_father_in_law
+			has_variable = actual_mother_in_law
+		}
+		add = var:actual_father_in_law.age
+	}
+	else_if = {
+		limit = {
+			has_variable = actual_father_in_law
+		}
+		add = var:actual_father_in_law.age
+	}
+	else_if = {
+		limit = {
+			has_variable = actual_mother_in_law
+		}
+		add = var:actual_mother_in_law.age
+	}
+	else = {
+		add = 35
+	}
+	if = {
+		limit = {
+			var:target = { is_male = yes }
+		}
+		subtract = define:NCharacter|FEMALE_ADULT_AGE
+		min = define:NCharacter|FEMALE_ADULT_AGE
+	}
+	else = {
+		subtract = define:NCharacter|MALE_ADULT_AGE
+		min = define:NCharacter|MALE_ADULT_AGE
+	}
+	max = {
+		add = var:target.age
+		add = 4
+	}
+}
+

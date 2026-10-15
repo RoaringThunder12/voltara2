@@ -1,0 +1,329 @@
+﻿##############################
+## OM1 scripted_effects
+##############################
+
+#------------------------------
+# rescue_and_vengeance
+#------------------------------
+
+# ATTACKER (character)
+# DEFENDER (character)
+# TARGET (character)
+rv_rescue_imprisoned_character_cb_effect = {
+	$ATTACKER$ = {
+		add_to_variable_list = {
+			name = rv_declined_prisoner_list
+			target = $TARGET$
+		}
+	}
+
+	$TARGET$ = {
+		add_to_variable_list = {
+			name = rv_demanded_me_list
+			target = $ATTACKER$
+		}
+
+		## Prevent this prisoner from being hostile interacted.
+		add_character_flag = {
+			flag = is_being_tortured
+			years = 10
+		}
+	}
+
+	if = {
+		limit = {}
+		open_interaction_window = {
+			interaction = rv_declare_private_war_interaction
+			actor = $ATTACKER$
+			recipient = $DEFENDER$
+		}
+	}
+}
+
+# based on ./common/scripted_effects/00_prison_effects.txt/imprison_character_effect
+## PRISONER (character)
+## DEFENDER (character)
+## ATTACKER (character)
+rv_rescue_imprisoned_character_effect = {
+	if = {
+		limit = {
+			$PRISONER$ = {
+				is_imprisoned = yes
+				is_imprisoned_by = $DEFENDER$
+			}
+		}
+
+		$PRISONER$ = {
+			## Rescue and Revenge
+			remove_list_variable = {
+				name = rv_demanded_me_list
+				target = $ATTACKER$
+			}
+			## -----
+			
+			### We won't modify on_release_from_prison for compatibiity.
+			### Adding a escaped_from_prison_flag flag does the following:
+			### - release_from_prison_memory prevented from being created
+			### - imprisoned_me -> imprisoned_me_past in prison.0001
+			custom_description = {
+				text = "move_prison_tooltip_effect"
+
+				if = {
+					limit = { has_character_modifier = allowed_to_go_outside }
+					remove_character_modifier = allowed_to_go_outside
+				}
+				if = {
+					limit = { has_character_modifier = moldy_gruel_diet }
+					remove_character_modifier = moldy_gruel_diet
+				}
+				if = {
+					limit = { has_character_flag = is_being_tortured }
+					remove_character_flag = is_being_tortured
+				}
+
+				add_character_flag = {
+					flag = escaped_from_prison_flag
+					days = 1
+				}
+				add_character_flag = {
+					flag = block_for_prison_release_notification
+					days = 1
+				}
+				release_from_prison = yes
+				remove_character_flag = escaped_from_prison_flag
+				## -----
+				if = {
+					limit = { has_character_flag = under_prison_transfer }
+					remove_character_flag = under_prison_transfer
+				}
+				add_character_flag = {
+					flag = recently_prison_transferred
+					years = 3
+				}
+			}
+
+			### MEMORY
+			create_character_memory = {
+				type = change_imprisoner_prisoner_memory
+				participants = {
+					old_imprisoner = $DEFENDER$
+					new_imprisoner = $ATTACKER$
+				}
+			}
+		}
+
+		$DEFENDER$ = {
+			disband_all_schemes_effect = {
+				CHARACTER = this
+				TARGET = $PRISONER$
+			}
+
+			custom_description = {
+				text = "release_prisoner_tooltip_effect"
+				subject = this
+				object = $PRISONER$
+			}
+
+			### MEMORY
+			create_character_memory = {
+				type = change_imprisoner_old_imprisoner_memory
+				participants = {
+					prisoner = $PRISONER$
+					new_imprisoner = $ATTACKER$
+				}
+			}
+
+			## BP2 WARDS AND WARDENS
+			imprison_remove_ward_guardian_effect = {
+				IMPRISONER = this
+				PRISONER = $PRISONER$
+			}
+		}
+
+		$ATTACKER$ = {
+			## Rescue and Revenge
+			remove_list_variable = {
+				name = rv_declined_prisoner_list
+				target = $PRISONER$
+			}
+
+			## -----
+			disband_all_schemes_effect = {
+				CHARACTER = this
+				TARGET = $PRISONER$
+			}
+
+			if = {
+				limit = {
+					$PRISONER$ = {
+						exists = liege
+						OR = {
+							is_landed = yes
+							is_close_or_extended_family_of = liege
+							is_spouse_of = liege
+						}
+					}
+				}
+				imprison = {
+					target = $PRISONER$
+					type = house_arrest
+				}
+			}
+			else = {
+				imprison = {
+					target = $PRISONER$
+					type = dungeon
+				}
+			}
+
+			### OPINIONS
+			### Enabled with 'default penalties' game rule on. But disabled on `limited penalties`.
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							$DEFENDER$ = { is_ai = yes }
+							$ATTACKER$ = { is_ai = yes }
+						}
+						has_game_rule = transfer_prisoner_default_interaction_penalties
+					}
+				}
+				if = {
+					limit = {
+						$PRISONER$ = {
+							has_opinion_modifier = {
+								target = $ATTACKER$
+								modifier = imprisoned_me_past
+							}
+						}
+					}
+					hidden_effect = {
+						$PRISONER$ = {
+							remove_opinion = {
+								target = $ATTACKER$
+								modifier = imprisoned_me
+							}
+						}
+					}
+				}
+
+				reverse_add_opinion = {
+					target = $PRISONER$
+					modifier = imprisoned_me
+				}
+
+				### Rescue and Vengeance Opinion Modifiers
+				
+			}
+
+			## PENALTIES
+			## Enabled with 'default penalties' game rule on.
+			### Enabled with 'default penalties' game rule on. But disabled on `limited penalties`.
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							$DEFENDER$ = { is_ai = yes }
+							$ATTACKER$ = { is_ai = yes }
+						}
+						has_game_rule = transfer_prisoner_default_interaction_penalties
+					}
+				}
+				change_imprisoner_consequences_lover_effect = {
+					CHARACTER = $ATTACKER$
+					TARGET = $PRISONER$
+				}
+				change_imprisoner_consequences_head_of_faith_effect = {
+					CHARACTER = $ATTACKER$
+					TARGET = $PRISONER$
+				}
+				change_imprisoner_consequences_vassal_effect = {
+					CHARACTER = $ATTACKER$
+					TARGET = $PRISONER$
+				}
+				ub_rescue_imprisoned_consequences_family_effect = {
+					CHARACTER = $ATTACKER$
+					TARGET = $PRISONER$
+				}
+				change_imprisoner_consequences_clan_effect = {
+					CHARACTER = $ATTACKER$
+					TARGET = $PRISONER$
+				}
+			}
+
+			### MEMORY
+			create_character_memory = {
+				type = change_imprisoner_new_imprisoner_memory
+				participants = {
+					prisoner = $PRISONER$
+					old_imprisoner = $DEFENDER$
+				}
+			}
+
+			## BP2 WARDS AND WARDENS
+			imprison_remove_ward_guardian_effect = {
+				IMPRISONER = $ATTACKER$
+				PRISONER = $PRISONER$
+			}
+		}
+	}
+}
+
+# based on ./common/scripted_effects/00_prison_effects.txt/imprison_character_effect
+# CHARACTER (character)
+# TARGET (character)
+ub_rescue_imprisoned_consequences_family_effect = {
+	## Create a family list for the prisoner.
+	hidden_effect = {
+		$TARGET$ = {
+			every_close_or_extended_family_member = {
+				add_to_temporary_list = prisoner_family_list
+			}
+		}
+	}
+
+	$TARGET$ = {
+		if = {
+			limit = {
+				any_in_list = {
+					list = prisoner_family_list
+					count > 0
+				}
+			}
+			every_in_list ={
+				list = prisoner_family_list
+				limit = { NOT = { $CHARACTER$ = this } }
+				custom = all_close_family_and_spouses
+	
+	
+				## The prisoner family opinion towards the new imprisoner.
+				if = {
+					limit = { $TARGET$ = { is_in_prison_type = house_arrest } }
+					add_opinion = {
+						target = $CHARACTER$
+						modifier = imprisoned_family_member
+					}
+				}
+				else_if = {
+					limit = { $TARGET$ = { is_in_prison_type = dungeon } }
+					add_opinion = {
+						target = $CHARACTER$
+						modifier = imprisoned_family_member_dungeon
+					}
+				}
+			}
+		}
+
+		### Rescue and Vengeance Opinion Modifiers
+		hidden_effect = {
+			every_relation = {
+				
+				
+				
+				
+				
+				
+			}
+		}
+	}
+}

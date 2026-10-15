@@ -4,6 +4,7 @@
 
 # Will this character suffer age-related health issues, factoring how healthy they actually are vs. what their age is?
 age_ranked_health_vulnerability_threshold_trigger = {
+	voltara_has_protected_lifespan_trigger = no
 	OR = {
 		# If you're already having problems...
 		has_trait = infirm

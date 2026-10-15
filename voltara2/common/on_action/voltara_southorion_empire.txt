@@ -10,4 +10,6 @@ voltara_southorion_empire_start = { effect = {
   } change_liege = { liege = scope:voltara_invasion_emperor change = scope:voltara_invasion_union } }
   resolve_title_and_vassal_change = scope:voltara_invasion_union
  }
+
+ voltara_apply_tribal_southron_update = yes
 } }

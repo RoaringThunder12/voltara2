@@ -1,0 +1,35 @@
+﻿voltara_seek_battlefield_duel = {
+ icon = declare_war_interaction interface_priority = 200 category = interaction_category_diplomacy
+ common_interaction = yes use_diplomatic_range = no
+ desc = voltara_seek_battlefield_duel_desc
+ is_shown = {
+  scope:actor = { is_ai = no }
+  scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+  scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+  voltara_duel_opposing_battle_sides = yes
+ }
+ is_valid_showing_failures_only = {
+  scope:actor = { voltara_battlefield_duelist_ready = yes }
+  scope:recipient = { voltara_battlefield_duelist_ready = yes }
+  custom_tooltip = { text = voltara_duel_same_battle_tt voltara_duel_opposing_battle_sides = yes }
+ }
+ auto_accept = yes
+ on_accept = {
+  if = { limit = {
+   voltara_duel_opposing_battle_sides = yes
+   scope:actor = { voltara_battlefield_duelist_ready = yes }
+   scope:recipient = { voltara_battlefield_duelist_ready = yes }
+  }
+   scope:actor = { if = { limit = { NOT = { has_variable = voltara_duel_overlay_initialized } } set_variable = extra_duel_info set_variable = duel_icons set_variable = voltara_duel_overlay_initialized } save_scope_as = voltara_duel_challenger add_character_flag = { flag = voltara_battle_duel_busy days = 30 } }
+   scope:recipient = { save_scope_as = voltara_duel_opponent add_character_flag = { flag = voltara_battle_duel_busy days = 30 } }
+   scope:actor = {
+    configure_start_single_combat_effect = {
+     SC_INITIATOR = scope:actor SC_ATTACKER = scope:actor SC_DEFENDER = scope:recipient
+     FATALITY = no FIXED = no LOCALE = battlefield
+     OUTPUT_EVENT = voltara_battlefield_duel.1 INVALIDATION_EVENT = voltara_battlefield_duel.9
+    }
+   }
+  }
+ }
+ ai_will_do = { base = 0 }
+}

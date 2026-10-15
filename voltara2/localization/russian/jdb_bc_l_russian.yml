@@ -1,0 +1,14 @@
+﻿l_russian:
+ jdb_bc_commander_flavor_text_retreat_dominant:0 "Чёрт бы побрал этих ублюдков! Отступаем!"
+ jdb_bc_commander_flavor_text_retreat_zeal_forsaken:0 "[ROOT.Char.GetFaith.WarGodName|U] почему ты покинул нас?"
+ jdb_bc_commander_flavor_text_retreat_fallback:0 "Отступаем!"
+ jdb_bc_commander_flavor_text_retreat:0 "Отступаем! Отступаем!"
+ jdb_bc_commander_flavor_text_retreat_we_need_more_allies:0 "Нам нужно подкрепление!"
+ jdb_bc_commander_flavor_text_siege_tear_walls:0 "Разрушьте эти стены!"
+ jdb_bc_commander_flavor_text_siege_archers:0 "Лучники, огонь!"
+ jdb_bc_commander_flavor_text_siege_burn_them:0 "Сжечь их!"
+ jdb_bc_commander_flavor_text_siege_storm_gate:0 "Штурмуйте ворота!"
+ jdb_bc_commander_flavor_text_siege_towers:0 "Осадные башни, вперёд!"
+ jdb_bc_commander_flavor_text_siege_mine:0 "Я заберу то, что принадлежит мне по праву. Лучники, огонь!"
+
+ jdb_bc_battle_stance:1 "Random Commander Stance #weak (Battleground Commanders)#!"

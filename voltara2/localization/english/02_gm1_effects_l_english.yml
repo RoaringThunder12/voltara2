@@ -1,0 +1,21 @@
+﻿##############################
+## GM1 scripted_effects
+##############################
+
+l_english:
+ RELEASE_PRISONER_TOOLTIP_EFFECT: "Releases [TARGET_CHARACTER.GetShortUIName]"
+ CHARACTER_RELEASE_PRISONER_TOOLTIP_EFFECT: "[CHARACTER.GetShortUINameNoFormat|U] release[_s(CHARACTER)] [TARGET_CHARACTER.GetShortUIName]"
+ RELEASED_PRISONER_TOOLTIP_EFFECT: "Released [TARGET_CHARACTER.GetShortUIName]"
+ CHARACTER_RELEASED_PRISONER_TOOLTIP_EFFECT: "[CHARACTER.GetShortUINameNoFormat|U] released [TARGET_CHARACTER.GetShortUIName]"
+ MOVE_PRISON_TOOLTIP_EFFECT: "Moves [prison|E]"
+ CHARACTER_MOVE_PRISON_TOOLTIP_EFFECT: "[CHARACTER.GetShortUINameNoFormat|U] move[_s(CHARACTER)] [prison|E]"
+ MOVED_PRISON_TOOLTIP_EFFECT: "Moved [prison|E]"
+ CHARACTER_MOVED_PRISON_TOOLTIP_EFFECT: "[CHARACTER.GetShortUINameNoFormat|U] moved [prison|E]"
+ 
+ CHANGE_IMPRISONER_COURT_CHAPLAIN_TOOLTIP_EFFECT: "[Select_CString( CHARACTER.IsLocalPlayer, '@alert_icon! #alert_trial', '@alert_icon!' )] [TARGET_CHARACTER.GetTitledFirstName|U] [CharAreIs(TARGET_CHARACTER)] [CHARACTER.GetShortUINamePossessiveNoFormat] [Concept( 'realm_priest', TARGET_CHARACTER.GetCouncillorPosition( 'councillor_court_chaplain' ).GetPositionName )|E][Select_CString( CHARACTER.IsLocalPlayer, '#!', '' )]"
+ CHANGE_IMPRISONER_HEAD_OF_FAITH_TOOLTIP_EFFECT: "[Select_CString( CHARACTER.IsLocalPlayer, '@warning_icon! #X', '@alert_icon!' )] [TARGET_CHARACTER.GetTitledFirstName|U] [CharAreIs(TARGET_CHARACTER)] [CHARACTER.GetShortUINamePossessiveNoFormat] [head_of_faith|E][Select_CString( CHARACTER.IsLocalPlayer, '#!', '' )]"
+ CHANGE_IMPRISONER_VASSAL_TOOLTIP_EFFECT: "[Select_CString( CHARACTER.IsLocalPlayer, '@alert_icon! #alert_trial', '@alert_icon!' )] [TARGET_CHARACTER.GetTitledFirstName|U] [CharAreIs(TARGET_CHARACTER)] [CHARACTER.GetShortUINamePossessiveNoFormat] [vassal|E][Select_CString( CHARACTER.IsLocalPlayer, '#!', '' )]"
+ CHANGE_IMPRISONER_WAR_TOOLTIP_EFFECT: "[CHARACTER.Custom2('ChangeImprisonerGetWarInvolvement', TARGET_CHARACTER.Self)]"
+
+# LIST
+ all_war_allies: "[THIS.GetCharacter.GetShortUINamePossessive|U] in [war|E]"

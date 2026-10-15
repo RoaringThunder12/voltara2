@@ -16,6 +16,9 @@ is_valid = {
 	desc = declare_war_desc
 
 	is_shown = {
+ scope:actor = { trigger_if = { limit = { voltara_keeper_realm = yes } scope:recipient = { OR = { culture = culture:voltara_southorion culture = culture:voltara_desert_southron } } } }
+ scope:recipient = { trigger_if = { limit = { voltara_keeper_realm = yes } scope:actor = { NOT = { voltara_in_hegemony = yes } } } }
+
  # Voltara: ruins are colonized through the county panel, not character diplomacy.
  scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
  scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }

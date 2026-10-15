@@ -1,0 +1,2166 @@
+﻿namespace = house_valor
+
+# Children learn about weapons
+house_valor.0001 = {
+	type = character_event
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				# All Valor children will learn about weapons unless they're bookworms.
+				NOT = { has_focus = education_learning }
+				is_dominant_gender = yes
+				# Only dominant gender receives household pressure for training
+			}
+			# Non-dominant gender or battle-tested children are exceptions.
+			has_character_flag = parent_approved_weapon_training
+			has_character_flag = training_weapons_in_secret
+			has_character_flag = seen_battle
+			# Look into Shieldmaiden events and how the flag fp1_dreams_of_shieldpersondom works.
+		}
+	}
+	immediate = {
+		# Converted code bloc into scripted_effect so it can be reused elsewhere.
+		house_valor_education = yes
+	} # Immediate
+}
+
+# Translating childhood training to real skill
+house_valor.0002 = {
+	type = character_event
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = {
+				exists = var:valor_education_score
+				# There is no good workaround without overriding the coming_of_age_event.txt and have inconsistent Prowess education messaging.
+				# NOT = culture = { has_innovation = innovation_knighthood }					
+			}
+			if = {
+				limit = {
+					var:valor_education_score <= 1000
+				}
+				set_trait_rank = {
+					trait = valor_child_prowess
+					rank = 0
+				}
+				set_trait_rank = {
+					trait = education_martial_prowess
+					rank = 0
+				}
+				set_variable = {
+					name = education_prowess_variable
+					value = 0
+				}
+			}
+			else_if = {
+				limit = {
+					var:valor_education_score >= 1000
+					var:valor_education_score < 2000
+				}
+				set_trait_rank = {
+					trait = valor_child_prowess
+					rank = 0
+				}
+				set_trait_rank = {
+					trait = education_martial_prowess
+					rank = 1
+				}
+				set_variable = {
+					name = education_prowess_variable
+					value = 3
+				}
+			}
+			else_if = {
+				limit = {
+					var:valor_education_score >= 2000
+					var:valor_education_score < 3000
+				}
+				set_trait_rank = {
+					trait = valor_child_prowess
+					rank = 0
+				}
+				set_trait_rank = {
+					trait = education_martial_prowess
+					rank = 2
+				}
+				set_variable = {
+					name = education_prowess_variable
+					value = education_level_1
+				}
+			}
+			else_if = {
+				limit = {
+					var:valor_education_score >= 3000
+					var:valor_education_score < 4000
+				}
+				set_trait_rank = {
+					trait = valor_child_prowess
+					rank = 0
+				}
+				set_trait_rank = {
+					trait = education_martial_prowess
+					rank = 3
+				}
+				set_variable = {
+					name = education_prowess_variable
+					value = education_level_2
+				}
+			}
+			else_if = {
+				# Need to use else_if in case the child didn't have the education score setup, such as at 5 years old or is ineligible
+				limit = {
+					var:valor_education_score >= 4000
+				}
+				set_trait_rank = {
+					trait = valor_child_prowess
+					rank = 0
+				}
+				set_trait_rank = {
+					trait = education_martial_prowess
+					rank = 4
+				}
+				set_variable = {
+					name = education_prowess_variable
+					value = education_level_3 # education_level_3 is Rank 4
+				}
+			}
+			remove_variable = education_prowess_variable
+		} # Has Knighthood Innovation
+		remove_variable = valor_education_score
+	} # Immediate
+}
+
+# Child Volunteers for War
+# 2000 = Setup Event
+# 2001 = Actual event if eligible child identified
+house_valor.2000 = {
+	hidden = yes
+
+	immediate = {
+		# This avoids event spam from story_cycle daily checks while the game is unpaused.
+		save_scope_as = parent
+		add_character_flag = waiting_house_valor_2000_response
+
+		# Find oldest eligible child
+		every_child = {
+			limit = {
+				is_ai = yes
+				is_landed = no
+				is_adult = no
+				is_imprisoned = no
+				OR = {
+					is_dominant_gender = yes
+					has_character_flag = parent_approved_weapon_training
+					has_character_flag = seen_battle
+				}
+				OR = {
+					AND = {
+						house = { has_house_modifier = trad_valor }
+						age >= 8
+					}
+					AND = {
+						age >= 11
+						OR = {
+							has_focus = education_martial
+							has_trait = brave
+						}
+					}
+				}
+				NOT = { has_trait = craven }
+			}
+			if = {
+				limit = { exists = scope:eldest_eligible_child }
+				if = {
+					limit = { age > scope:eldest_eligible_child.age }
+					save_scope_as = eldest_eligible_child
+				}
+			}
+			else = {
+				save_scope_as = eldest_eligible_child
+			}
+		}
+		if = {
+			limit = {
+				scope:eldest_eligible_child = { has_trait = twin }
+			}
+			scope:eldest_eligible_child = {
+				random_sibling = {
+					limit = {
+						is_ai = yes
+						is_landed = no
+						is_adult = no
+						has_trait = twin
+						is_imprisoned = no
+						age = PREV.age
+						NOT = { has_trait = craven }
+						OR = {
+							is_dominant_gender = yes
+							has_character_flag = parent_approved_weapon_training
+							has_character_flag = seen_battle
+						}
+					}
+					save_scope_as = eligible_child_twin
+				}
+			}
+		}
+		# Find oldest eligible sibling
+		every_sibling = {
+			limit = {
+				is_ai = yes
+				is_landed = no
+				is_adult = no
+				is_imprisoned = no
+				OR = {
+					is_dominant_gender = yes
+					has_character_flag = parent_approved_weapon_training
+					has_character_flag = seen_battle
+				}
+				OR = {
+					AND = {
+						house = { has_house_modifier = trad_valor }
+						age >= 8
+					}
+					AND = {
+						age >= 11
+						OR = {
+							has_focus = education_martial
+							has_trait = brave
+						}
+					}
+				}
+				NOT = { has_trait = craven }
+			}
+			if = {
+				limit = { exists = scope:eldest_eligible_sibling }
+				if = {
+					limit = { age > scope:eldest_eligible_sibling.age }
+					save_scope_as = eldest_eligible_sibling
+				}
+			}
+			else = {
+				save_scope_as = eldest_eligible_sibling
+			}
+		}
+		if = {
+			limit = {
+				scope:eldest_eligible_sibling = { has_trait = twin }
+			}
+			scope:eldest_eligible_sibling = {
+				random_sibling = {
+					limit = {
+						NOT = { THIS = ROOT }
+						is_ai = yes
+						is_landed = no
+						is_adult = no
+						has_trait = twin
+						is_imprisoned = no
+						age = PREV.age
+						NOT = { has_trait = craven }
+						OR = {
+							is_dominant_gender = yes
+							has_character_flag = parent_approved_weapon_training
+							has_character_flag = seen_battle
+						}
+					}
+					save_scope_as = eligible_sibling_twin
+				}
+			}
+		}
+
+		# Find eligible norm-breaking princess.
+		if = {
+			limit = {
+				any_child = {
+					is_ai = yes
+					is_landed = no
+					is_adult = no
+					is_imprisoned = no
+					age >= 11
+					has_character_flag = training_weapons_in_secret
+				}
+			}
+			random_child = {
+				limit = {
+					is_ai = yes
+					is_landed = no
+					is_adult = no
+					is_imprisoned = no
+					age >= 11
+					has_character_flag = training_weapons_in_secret
+				}
+				save_scope_as = warrior_princess
+			}
+		}
+		else_if = {
+			limit = {
+				has_realm_law = male_only_law
+				has_realm_law = male_preference_law
+				# Not using is_dominant_gender trigger because it's unclear if a female-dominanted society would have "butch" males the same way as masculine females in a male-dominated society.
+				# Also, since IRL is male-dominated maintaining female/princess storyline for this event is much more flavorable and relateable than enabling the reverse with twice the coding effort.
+				any_child = {
+					is_ai = yes
+					is_landed = no
+					is_female = yes
+					is_adult = no
+					is_imprisoned = no
+					age >= 11
+					NOT = { has_trait = craven }
+				}
+			}
+			random_child = {
+				limit = {
+					is_ai = yes
+					is_landed = no
+					is_female = yes
+					is_adult = no
+					is_imprisoned = no
+					age >= 11
+					has_trait = brave
+				}
+				save_temporary_scope_as = brave_girl
+			}
+			random_child = {
+				limit = {
+					is_ai = yes
+					is_landed = no
+					is_female = yes
+					is_adult = no
+					is_imprisoned = no
+					age >= 11
+					NOT = { #Should be NOR? I think NOR is supported 1.18?
+						has_trait = craven
+						has_trait = beauty_good
+					}
+					has_sexuality = homosexual
+				}
+				# Butch personalities are more likely to correlate with these activities worthy of dedicated random_list weight,
+				# That's not to say lipstick/femmes won't participate; They're subsumed by the next bloc and treated as normal.
+				save_temporary_scope_as = butch
+			}
+			random_child = {
+				limit = {
+					is_ai = yes
+					is_landed = no
+					is_female = yes
+					is_adult = no
+					is_imprisoned = no
+					age >= 11
+					NOT = {
+						has_trait = craven
+						has_trait = brave
+					}
+				}
+				save_temporary_scope_as = rise_to_the_occassion
+			}
+
+			random_list = {
+				0 = {
+					scope:brave_girl = {
+						save_scope_as = warrior_princess
+					}
+					modifier = {
+						add = 180 # 90% chance if no one else
+						exists = scope:brave_girl
+					}
+				}
+				0 = {
+					scope:butch = {
+						save_scope_as = warrior_princess
+					}
+					modifier = {
+						add = 60 # 75% chance if no one else
+						exists = scope:butch
+					}
+				}
+				0 = {
+					scope:rise_to_the_occassion = {
+						save_scope_as = warrior_princess
+					}
+					modifier = {
+						add = 5 # 20% chance if no one else
+						exists = scope:rise_to_the_occassion
+					}
+				}
+				20 = {
+					# Nothing Happens
+				}
+			}
+		}
+		ROOT = { save_scope_as = left_role }
+
+		# Setup options
+		random_list = {
+			0 = {
+				# Child Volunteers
+				set_variable = {
+					name = child_volunteer_option
+					value = 1
+				}
+				scope:eldest_eligible_child = {
+					if = {
+						limit = {
+							mother = {
+								is_alive = yes
+								NOT = { THIS = ROOT }
+							}
+						}
+						mother = {
+							save_scope_as = right_role
+							save_scope_as = other_parent
+						}
+						save_scope_as = lower_center_role
+					}
+					else_if = {
+						limit = {
+							father = {
+								is_alive = yes
+								NOT = { THIS = ROOT }
+							}
+						}
+						father = {
+							save_scope_as = right_role
+							save_scope_as = other_parent
+						}
+						save_scope_as = lower_center_role
+					}
+					else_if = {
+						limit = { ROOT.primary_spouse = { is_alive = yes } } # Spouse could be different from mother
+						ROOT.primary_spouse = {
+							save_scope_as = right_role
+							save_scope_as = other_parent
+						}
+						save_scope_as = lower_center_role
+					}
+					else = {
+						save_scope_as = right_role
+					}
+				}
+				trigger_event = house_valor.2001
+				modifier = {
+					add = 50
+					exists = scope:eldest_eligible_child
+				}
+			}
+			0 = {
+				# Twin Children Volunteer
+				set_variable = {
+					name = child_volunteer_option
+					value = 2
+				}
+				scope:eldest_eligible_child = {
+					if = {
+						limit = {
+							mother = {
+								is_alive = yes
+								NOT = { THIS = ROOT }
+							}
+						}
+						mother = {
+							save_scope_as = right_role
+							save_scope_as = other_parent
+						}
+						save_scope_as = lower_center_role
+						scope:eligible_child_twin = { save_scope_as = lower_right_role }
+					}
+					else_if = {
+						limit = {
+							father = {
+								is_alive = yes
+								NOT = { THIS = ROOT }
+							}
+						}
+						father = {
+							save_scope_as = right_role
+							save_scope_as = other_parent
+						}
+						save_scope_as = lower_center_role
+						scope:eligible_child_twin = { save_scope_as = lower_right_role }
+					}
+					else_if = {
+						limit = { ROOT.primary_spouse = { is_alive = yes } } # Spouse could be different from mother
+						ROOT.primary_spouse = {
+							save_scope_as = right_role
+							save_scope_as = other_parent
+						}
+						save_scope_as = lower_center_role
+						scope:eligible_child_twin = { save_scope_as = lower_right_role }
+					}
+					else = {
+						save_scope_as = left_role
+						scope:eligible_child_twin = { save_scope_as = right_role }
+					}
+				}
+				trigger_event = house_valor.2001
+				modifier = {
+					add = 50
+					exists = scope:eligible_child_twin
+				}
+				modifier = {
+					add = 200
+					AND = {
+						exists = scope:eligible_child_twin
+						scope:eligible_child_twin = { has_trait = brave }
+					}
+				}
+				modifier = {
+					add = 100
+					AND = {
+						exists = scope:eligible_child_twin
+						scope:eligible_child_twin = { has_trait = rowdy }
+					}
+				}
+				modifier = {
+					add = 200
+					AND = {
+						exists = scope:eligible_child_twin
+						scope:eligible_child_twin = { has_focus = education_martial }
+					}
+				}
+			}
+			0 = {
+				# Sibling Volunteers
+				set_variable = {
+					name = child_volunteer_option
+					value = 3
+				}
+				scope:eldest_eligible_sibling = {
+					if = {
+						limit = { any_parent = { is_alive = yes } }
+						random_parent = {
+							limit = { is_alive = yes }
+							save_scope_as = right_role
+							save_scope_as = other_parent
+						}
+						save_scope_as = lower_center_role
+					}
+					else_if = {
+						limit = { ROOT.primary_spouse = { is_alive = yes } } # Spouse could be different from mother
+						ROOT.primary_spouse = {
+							save_scope_as = right_role
+							save_scope_as = other_parent
+						}
+						save_scope_as = lower_center_role
+					}
+					else = {
+						save_scope_as = right_role
+					}
+				}
+				trigger_event = house_valor.2001
+				modifier = {
+					add = 50
+					exists = scope:eldest_eligible_sibling
+				}
+			}
+			0 = {
+				# Twin Sibling Volunteer
+				set_variable = {
+					name = child_volunteer_option
+					value = 4
+				}
+				scope:eldest_eligible_sibling = {
+					if = {
+						limit = { any_parent = { is_alive = yes } }
+						random_parent = {
+							limit = { is_alive = yes }
+							save_scope_as = right_role
+							save_scope_as = other_parent
+						}
+						save_scope_as = lower_center_role
+						scope:eligible_sibling_twin = { save_scope_as = lower_right_role }
+					}
+					else_if = {
+						limit = { ROOT.primary_spouse = { is_alive = yes } } # Spouse could be different from mother
+						ROOT.primary_spouse = {
+							save_scope_as = right_role
+							save_scope_as = other_parent
+						}
+						save_scope_as = lower_center_role
+						scope:eligible_sibling_twin = { save_scope_as = lower_right_role }
+					}
+					else = {
+						save_scope_as = left_role
+						scope:eligible_sibling_twin = { save_scope_as = right_role }
+					}
+				}
+				trigger_event = house_valor.2001
+				modifier = {
+					add = 50
+					exists = scope:eligible_sibling_twin
+				}
+				modifier = {
+					add = 200
+					AND = {
+						exists = scope:eligible_sibling_twin
+						scope:eligible_sibling_twin = { has_trait = brave }
+					}
+				}
+				modifier = {
+					add = 100
+					AND = {
+						exists = scope:eligible_sibling_twin
+						scope:eligible_sibling_twin = { has_trait = rowdy }
+					}
+				}
+				modifier = {
+					add = 200
+					AND = {
+						exists = scope:eligible_sibling_twin
+						scope:eligible_sibling_twin = { has_focus = education_martial }
+					}
+				}
+			}
+			0 = {
+				# Princess steps up when no one else would.
+				set_variable = {
+					name = child_volunteer_option
+					value = 5
+				}
+				# Warrior Princess should always get featured.
+				scope:warrior_princess = { save_scope_as = right_role }
+				if = {
+					limit = {
+						any_parent = {
+							NOT = { THIS = ROOT }
+							is_alive = yes 
+						}
+					}
+					random_parent = {
+						limit = {
+							NOT = { THIS = ROOT }
+							is_alive = yes 
+						}
+						save_scope_as = other_parent
+					}
+				}
+				else_if = {
+					limit = { ROOT.primary_spouse = { is_alive = yes } }
+					ROOT.primary_spouse = { save_scope_as = other_parent }
+				}
+				trigger_event = house_valor.2001
+				modifier = {
+					add = 100
+					exists = scope:warrior_princess
+					NOT = {
+						exists = scope:eldest_eligible_child
+						exists = scope:eldest_eligible_sibling
+					}
+				}
+			}
+			0 = {
+				# Flat chance of simply nothing happening for non-Valor families
+				# Reusing flag for simplicity. Update if differentiation needed.
+				add_character_flag = denied_child_from_war
+				remove_character_flag = waiting_house_valor_2000_response
+				modifier = {
+					add = 200
+					NOT = { house = { has_house_modifier = trad_valor } }
+				}
+			}
+			0 = {
+				# Flag instructs Story Cycle to check back next year.
+				add_character_flag = no_eligible_child
+				remove_character_flag = waiting_house_valor_2000_response
+				modifier = {
+					add = 100
+					NOT = {
+						exists = scope:eldest_eligible_child
+						exists = scope:eldest_eligible_sibling
+						exists = scope:warrior_princess
+					}
+				}
+			}
+		} # Random List
+
+		# Child Taking command of the castle
+		# AND = {
+		# 	is_defender_in_war = yes
+		# 	any_child = {
+		# 		is_adult = no
+		# 		age >= 11
+		# 		has_character_flag = training_weapons_in_secret
+		# 	}
+		# }
+	} # immediate
+}
+
+house_valor.2001 = {
+	type = character_event
+	title = house_valor.2001.t
+	#desc = house_valor.2002.desc
+	theme = war
+
+	left_portrait = {
+		character = scope:left_role
+		# triggered_outfit = {
+		# 	trigger = {
+		# 		scope:right_role = {
+		# 			OR = {
+		# 				THIS = scope:eldest_eligible_child
+		# 				THIS = scope:eligible_child_twin
+		# 				THIS = scope:eldest_eligible_sibling
+		# 				THIS = scope:eligible_sibling_twin
+		# 			}
+		# 		}
+		# 	}
+		# 	outfit_tags = { soldier_outfit }
+		# }
+	}
+	right_portrait = {
+		character = scope:right_role
+		# triggered_outfit = {
+		# 	trigger = {
+		# 		scope:right_role = {
+		# 			OR = {
+		# 				THIS = scope:eldest_eligible_child
+		# 				THIS = scope:eligible_child_twin
+		# 				THIS = scope:eldest_eligible_sibling
+		# 				THIS = scope:eligible_sibling_twin
+		# 			}
+		# 		}
+		# 	}
+		# 	outfit_tags = { soldier_outfit }
+		#}
+		triggered_animation = {
+			trigger = {
+				scope:right_role = scope:other_parent
+				OR = {
+					scope:other_parent = { house = { has_house_modifier = trad_valor } }
+					scope:other_parent = { has_trait = brave }
+					scope:other_parent = { has_trait = education_martial }
+				}
+			}
+			animation = personality_bold
+		}
+		triggered_animation = {
+			trigger = {
+				scope:right_role = scope:other_parent
+				NOT = {
+					scope:other_parent = { house = { has_house_modifier = trad_valor } }
+					scope:other_parent = { has_trait = brave }
+					scope:other_parent = { has_trait = education_martial }
+				}
+			}
+			animation = worry
+		}
+	}
+	lower_center_portrait = {
+		character = scope:lower_center_role
+		# triggered_outfit = {
+		# 	trigger = { always = yes }
+		# 	outfit_tags = { soldier_outfit }
+		# }
+	}
+	lower_right_portrait = {
+		character = scope:lower_right_role
+		# triggered_outfit = {
+		# 	trigger = { always = yes }
+		# 	outfit_tags = { soldier_outfit }
+		# }
+	}
+
+	desc = { 
+		# Scene Description
+		desc = house_valor.2001.desc
+		desc = new_paragraph
+		# Children Running towards Player
+		triggered_desc = {
+			trigger = { var:child_volunteer_option = 1 is_female = no }
+			desc = house_valor.2001.desc.child.father
+		}
+		triggered_desc = {
+			trigger = { var:child_volunteer_option = 1 is_female = yes }
+			desc = house_valor.2001.desc.child.mother
+		}
+		triggered_desc = {
+			trigger = { var:child_volunteer_option = 2 is_female = no }
+			desc = house_valor.2001.desc.childtwin.father
+		}
+		triggered_desc = {
+			trigger = { var:child_volunteer_option = 2 is_female = yes }
+			desc = house_valor.2001.desc.childtwin.mother
+		}
+		triggered_desc = {
+			trigger = { var:child_volunteer_option = 3 is_female = no }
+			desc = house_valor.2001.desc.sibling.brother
+		}
+		triggered_desc = {
+			trigger = { var:child_volunteer_option = 3 is_female = yes }
+			desc = house_valor.2001.desc.sibling.sister
+		}
+		triggered_desc = {
+			trigger = { var:child_volunteer_option = 4 is_female = no }
+			desc = house_valor.2001.desc.siblingtwin.brother
+		}
+		triggered_desc = {
+			trigger = { var:child_volunteer_option = 4 is_female = yes }
+			desc = house_valor.2001.desc.siblingtwin.sister
+		}
+		triggered_desc = {
+			trigger = { var:child_volunteer_option = 5 is_female = no }
+			desc = house_valor.2001.desc.princess.father
+		}
+		triggered_desc = {
+			trigger = { var:child_volunteer_option = 5 is_female = yes }
+			desc = house_valor.2001.desc.princess.mother
+		}
+
+		# Other parent intercedes, if alive.
+		desc = new_paragraph
+		triggered_desc = {
+			trigger = {
+				var:child_volunteer_option = 1
+				exists = scope:other_parent
+				NOT = {
+					scope:other_parent = {
+						house = { has_house_modifier = trad_valor }
+						NOT = {
+							has_trait = craven
+							has_trait = paranoid
+						}
+					}
+					scope:other_parent = { has_trait = brave }
+					scope:other_parent = { has_trait = education_martial }
+				}
+			}
+			desc = house_valor.2001.desc.otherparent.against.child
+		}
+		triggered_desc = {
+			trigger = {
+				var:child_volunteer_option = 1
+				exists = scope:other_parent
+				OR = {
+					scope:other_parent = {
+						house = { has_house_modifier = trad_valor }
+						NOT = {
+							has_trait = craven
+							has_trait = paranoid
+						}
+					}
+					scope:other_parent = { has_trait = brave }
+					scope:other_parent = { has_trait = education_martial }
+				}
+			}
+			desc = house_valor.2001.desc.otherparent.support.child
+		}
+		triggered_desc = {
+			trigger = {
+				var:child_volunteer_option = 3
+				exists = scope:other_parent
+				NOT = {
+					scope:other_parent = {
+						house = { has_house_modifier = trad_valor }
+						NOT = {
+							has_trait = craven
+							has_trait = paranoid
+						}
+					}
+					scope:other_parent = { has_trait = brave }
+					scope:other_parent = { has_trait = education_martial }
+				}
+			}
+			desc = house_valor.2001.desc.otherparent.against.sibling
+		}
+		triggered_desc = {
+			trigger = {
+				var:child_volunteer_option = 3
+				exists = scope:other_parent
+				OR = {
+					scope:other_parent = {
+						house = { has_house_modifier = trad_valor }
+						NOT = {
+							has_trait = craven
+							has_trait = paranoid
+						}
+					}
+					scope:other_parent = { has_trait = brave }
+					scope:other_parent = { has_trait = education_martial }
+				}
+			}
+			desc = house_valor.2001.desc.otherparent.support.sibling
+		}
+		triggered_desc = {
+			trigger = {
+				OR = {
+					var:child_volunteer_option = 2
+					var:child_volunteer_option = 4
+				}
+				exists = scope:other_parent
+				NOT = {
+					scope:other_parent = {
+						house = { has_house_modifier = trad_valor }
+						NOT = {
+							has_trait = craven
+							has_trait = paranoid
+						}
+					}
+					scope:other_parent = { has_trait = brave }
+					scope:other_parent = { has_trait = education_martial }
+				}
+			}
+			desc = house_valor.2001.desc.otherparent.against.twins
+		}
+		triggered_desc = {
+			trigger = {
+				OR = {
+					var:child_volunteer_option = 2
+					var:child_volunteer_option = 4
+				}
+				exists = scope:other_parent
+				OR = {
+					scope:other_parent = {
+						house = { has_house_modifier = trad_valor }
+						NOT = {
+							has_trait = craven
+							has_trait = paranoid
+						}
+					}
+					scope:other_parent = { has_trait = brave }
+					scope:other_parent = { has_trait = education_martial }
+				}
+			}
+			desc = house_valor.2001.desc.otherparent.support.twins
+		}
+		triggered_desc = {
+			trigger = {
+				var:child_volunteer_option = 5
+				exists = scope:other_parent
+				NOT = {
+					scope:other_parent = {
+						house = { has_house_modifier = trad_valor }
+						NOT = {
+							has_trait = craven
+							has_trait = paranoid
+						}
+					}
+					scope:other_parent = { has_trait = brave }
+					scope:other_parent = { has_trait = education_martial }
+				}
+			}
+			desc = house_valor.2001.desc.otherparent.against.princess
+		}
+		triggered_desc = {
+			trigger = {
+				var:child_volunteer_option = 5
+				exists = scope:other_parent
+				OR = {
+					scope:other_parent = {
+						house = { has_house_modifier = trad_valor }
+						NOT = {
+							has_trait = craven
+							has_trait = paranoid
+						}
+					}
+					scope:other_parent = { has_trait = brave }
+					scope:other_parent = { has_trait = education_martial }
+				}
+			}
+			desc = house_valor.2001.desc.otherparent.support.princess
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { var:child_volunteer_option = 1 }
+			scope:eldest_eligible_child = { add_character_flag = is_currently_varangian }
+		}
+		if = {
+			limit = { var:child_volunteer_option = 2 }
+			scope:eldest_eligible_child = { add_character_flag = is_currently_varangian }
+			scope:eligible_child_twin = { add_character_flag = is_currently_varangian }
+		}
+		if = {
+			limit = { var:child_volunteer_option = 3 }
+			scope:eldest_eligible_sibling = { add_character_flag = is_currently_varangian }
+		}
+		if = {
+			limit = { var:child_volunteer_option = 4 }
+			scope:eldest_eligible_sibling = { add_character_flag = is_currently_varangian }
+			scope:eligible_sibling_twin = { add_character_flag = is_currently_varangian }
+		}
+		if = {
+			limit = { var:child_volunteer_option = 5 }
+			scope:warrior_princess = { add_character_flag = is_currently_varangian }
+		}
+	}
+
+	option = {
+		# Take Eldest Child
+		name = house_valor.2001.option.child
+		trigger = {
+			OR = {
+				var:child_volunteer_option = 1
+				var:child_volunteer_option = 2
+			}
+		}
+		add_character_flag = child_participating_in_war
+		scope:eldest_eligible_child = {
+			create_story = story_battle_child
+			save_scope_as = preferred_child
+		}
+		custom_tooltip = house_valor.2001.tt.preferred_child
+		reverse_add_opinion = {
+			modifier = pleased_opinion
+			opinion = 15
+			target = scope:preferred_child
+		}
+		if = {
+			limit = { exists = scope:eligible_child_twin }
+			scope:eligible_child_twin = {
+				save_scope_as = rejected_child
+			}
+			custom_tooltip = house_valor.2001.tt.rejected_child
+			trigger_event = house_valor.2002 # Single Rejection
+		}
+		else_if = {
+			limit = { exists = scope:warrior_princess }
+			trigger_event = house_valor.2020 # Princess wants to join
+		}
+		else = {
+			# Removes if single volunteer is approved as there would be no follow-ups
+			remove_character_flag = waiting_house_valor_2000_response
+		}
+	}
+
+	option = {
+		# Take Eldest Child's Twin
+		name = house_valor.2001.option.childtwin
+		trigger = { var:child_volunteer_option = 2 }
+		add_character_flag = child_participating_in_war
+		scope:eligible_child_twin = {
+			create_story = story_battle_child
+			save_scope_as = preferred_child
+		}
+		scope:eldest_eligible_child = {
+			save_scope_as = rejected_child
+		}
+		custom_tooltip = house_valor.2001.tt.preferred_child
+		custom_tooltip = house_valor.2001.tt.rejected_child
+		reverse_add_opinion = {
+			modifier = pleased_opinion
+			opinion = 15
+			target = scope:preferred_child
+		}
+		trigger_event = house_valor.2002 # Single Rejection
+	}
+
+	option = {
+		# Take Both Twin Children
+		name = house_valor.2001.option.childtwinboth
+		trigger = { var:child_volunteer_option = 2 }
+		add_character_flag = child_participating_in_war
+
+		scope:eldest_eligible_child = {
+			create_story = story_battle_child
+			save_temporary_scope_as = twin1
+		}
+		scope:eligible_child_twin = {
+			create_story = story_battle_child
+			save_temporary_scope_as = twin2
+		}
+		custom_tooltip = house_valor.2001.tt.bothtwins
+		reverse_add_opinion = {
+			modifier = pleased_opinion
+			opinion = 15
+			target = scope:twin1
+		}
+		reverse_add_opinion = {
+			modifier = pleased_opinion
+			opinion = 15
+			target = scope:twin2
+		}
+		trigger_event = house_valor.2020 # Princess wants to join
+	}
+
+	option = {
+		# Take Eldest Sibling
+		name = house_valor.2001.option.sibling
+		trigger = {
+			OR = {
+				var:child_volunteer_option = 3
+				var:child_volunteer_option = 4
+			}
+		}
+		add_character_flag = child_participating_in_war
+		scope:eldest_eligible_sibling = {
+			create_story = story_battle_child
+			save_scope_as = preferred_child
+		}
+		custom_tooltip = house_valor.2001.tt.preferred_child
+		reverse_add_opinion = {
+			modifier = pleased_opinion
+			opinion = 15
+			target = scope:preferred_child
+		}
+		if = {
+			limit = { exists = scope:eligible_sibling_twin }
+			scope:eligible_sibling_twin = {
+				save_scope_as = rejected_child
+			}
+			custom_tooltip = house_valor.2001.tt.rejected_child
+			trigger_event = house_valor.2002 # Single Rejection
+		}
+		else_if = {
+			limit = { exists = scope:warrior_princess }
+			trigger_event = house_valor.2020 # Princess wants to join
+		}
+		else = {
+			# Removes if single volunteer is approved as there would be no follow-ups
+			remove_character_flag = waiting_house_valor_2000_response
+		}
+	}
+
+	option = {
+		# Take Eldest Sibling's Twin
+		name = house_valor.2001.option.siblingtwin
+		trigger = { var:child_volunteer_option = 4 }
+		add_character_flag = child_participating_in_war
+		scope:eligible_sibling_twin = {
+			create_story = story_battle_child
+			save_scope_as = preferred_child
+		}
+		scope:eldest_eligible_sibling = {
+			save_scope_as = rejected_child
+		}
+		custom_tooltip = house_valor.2001.tt.preferred_child
+		custom_tooltip = house_valor.2001.tt.rejected_child
+		reverse_add_opinion = {
+			modifier = pleased_opinion
+			opinion = 15
+			target = scope:preferred_child
+		}
+		trigger_event = house_valor.2002 # Single Rejection
+	}
+
+	option = {
+		# Take Both Twin Siblings
+		name = house_valor.2001.option.siblingtwinboth
+		trigger = { var:child_volunteer_option = 4 }
+		add_character_flag = child_participating_in_war
+
+		scope:eldest_eligible_sibling = {
+			create_story = story_battle_child
+			save_temporary_scope_as = twin1
+		}
+		scope:eligible_sibling_twin = {
+			create_story = story_battle_child
+			save_temporary_scope_as = twin2
+		}
+		custom_tooltip = house_valor.2001.tt.bothtwins
+		reverse_add_opinion = {
+			modifier = pleased_opinion
+			opinion = 15
+			target = scope:twin1
+		}
+		reverse_add_opinion = {
+			modifier = pleased_opinion
+			opinion = 15
+			target = scope:twin2
+		}
+		trigger_event = house_valor.2020 # Princess wants to join
+	}
+
+	option = {
+		name = house_valor.2001.option.princess
+		trigger = { var:child_volunteer_option = 5 }
+		add_character_flag = child_participating_in_war
+		scope:warrior_princess = {
+			# If approved by parent, goes through standard story cycle.
+			# Warrior Princess story cycle only if she's going against parents wishes to do it.
+			create_story = story_battle_child
+		}
+		custom_tooltip = house_valor.2001.tt.princess
+		reverse_add_opinion = {
+			modifier = pleased_opinion
+			opinion = 15
+			target = scope:warrior_princess
+		}
+		remove_character_flag = waiting_house_valor_2000_response
+	}
+
+	option = {
+		name = house_valor.2001.option.denied
+		trigger = { always = yes }
+		# add_character_flag = denied_child_from_war	# Resolve this in the next event
+		if = {
+			limit = { var:child_volunteer_option = 1 }
+			scope:eldest_eligible_child = { save_scope_as = rejected_child }
+			trigger_event = house_valor.2002 # Single Rejection
+		}
+		else_if = {
+			limit = { var:child_volunteer_option = 3 }
+			scope:eldest_eligible_sibling = { save_scope_as = rejected_child }
+			trigger_event = house_valor.2002 # Single Rejection
+		}
+		else_if = {
+			limit = { var:child_volunteer_option = 2 }
+			scope:eldest_eligible_child = { save_scope_as = twin1 }			
+			scope:eligible_child_twin = { save_scope_as = twin2 }
+			trigger_event = house_valor.2003 # Both Rejected
+		}
+		else_if = {
+			limit = { var:child_volunteer_option = 4 }
+			scope:eldest_eligible_sibling = { save_scope_as = twin1 }			
+			scope:eligible_sibling_twin = { save_scope_as = twin2 }
+			trigger_event = house_valor.2003 # Both Rejected
+		}
+		else_if = {
+			limit = { var:child_volunteer_option = 5 }
+			trigger_event = house_valor.2004 # Rejected Princess
+		}
+	}
+
+	after = {
+		# Flag should be removed from any possible follow-up event, not as a blanket After effect
+		# remove_character_flag = waiting_house_valor_2000_response
+	}
+}
+
+# Single Rejection
+house_valor.2002 = {
+	type = character_event
+	title = house_valor.2001.t
+	#desc = house_valor.2002.desc
+	theme = war
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { is_parent_of = scope:rejected_child is_female = no }
+				desc = house_valor.2002.desc.1.father
+			}
+			triggered_desc = {
+				trigger = { is_parent_of = scope:rejected_child is_female = yes }
+				desc = house_valor.2002.desc.1.mother
+			}
+			triggered_desc = {
+				trigger = { is_sibling_of = scope:rejected_child is_female = no }
+				desc = house_valor.2002.desc.1.brother
+			}
+			triggered_desc = {
+				trigger = { is_sibling_of = scope:rejected_child is_female = yes }
+				desc = house_valor.2002.desc.1.sister
+			}
+			# Fallback option; shouldn't happen.
+			desc = house_valor.2002.desc.1.name
+		}
+		desc = house_valor.2002.desc.2
+		triggered_desc = {
+			trigger = {
+				NOT = { exists = scope:preferred_child }
+			}
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:rejected_child = { has_character_flag = seen_battle }
+						}
+						desc = house_valor.2002.desc.rebut.experience
+					}
+					triggered_desc = {
+						trigger = {
+							scope:rejected_child = {
+								OR = {
+									prowess >= 12
+									has_trait_rank = {
+										trait = valor_child_prowess
+										rank >= 2
+									}
+								}
+							}
+						}
+						desc = house_valor.2002.desc.rebut.skill
+					}
+					triggered_desc = {
+						trigger = {
+							scope:rejected_child = {
+								OR = {
+									house = { has_house_modifier = trad_valor }
+									has_trait = brave
+								}
+							}
+						}
+						desc = house_valor.2002.desc.rebut.valor
+					}
+					# Fallback option
+					desc = house_valor.2002.desc.rebut
+				} # First Valid
+				desc = new_paragraph
+				desc = house_valor.2002.desc.3
+			}
+		} # Triggered desc if no twin
+		triggered_desc = {
+			trigger = { exists = scope:preferred_child }
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:rejected_child = { has_character_flag = seen_battle }
+							scope:preferred_child = { NOT = { has_character_flag = seen_battle } }
+						}
+						desc = house_valor.2002.desc.rebut.twin.experience
+					}
+					triggered_desc = {
+						trigger = {
+							scope:rejected_child = { has_focus = education_martial }
+							scope:preferred_child = { NOT = { has_focus = education_martial } }
+						}
+						desc = house_valor.2002.desc.rebut.twin.experience
+					}
+					triggered_desc = {
+						trigger = {
+							scope:rejected_child = {
+								OR = {
+									prowess >= 12
+									has_trait_rank = {
+										trait = valor_child_prowess
+										rank >= 2
+									}
+								}
+								prowess_diff = {
+									target = scope:preferred_child
+									value > 0
+								}
+							}
+						}
+						desc = house_valor.2002.desc.rebut.twin.skill.better
+					}
+					triggered_desc = {
+						trigger = {
+							OR = {
+								AND = {
+									scope:rejected_child = { OR = { has_trait = brave has_trait = arrogant } }
+									scope:preferred_child = { NOT = { has_trait = brave } }
+								}
+								AND = {
+									scope:rejected_child = { has_trait = giant }
+									scope:preferred_child = { NOT = { has_trait = giant } }
+								}
+								AND = {
+									scope:rejected_child = {
+										OR = {
+											has_trait = physique_good
+											has_trait = strong
+										}
+									}
+									scope:preferred_child = {
+										NOT = {
+											has_trait = physique_good
+											has_trait = strong
+										}
+									}
+								}
+								AND = {
+									scope:rejected_child = {
+										NOT = {
+											has_trait = physique_bad
+											has_trait = weak
+										}
+									}
+									scope:preferred_child = {
+										OR = {
+											has_trait = physique_bad
+											has_trait = weak
+										}
+									}
+								}
+								AND = {
+									scope:rejected_child = {
+										NOT = {
+											has_trait = dwarf
+											has_trait = clubfooted
+											has_trait = hunchbacked
+											has_trait = wheezing
+											has_trait = spindly
+											has_trait = bleeder
+										}
+									}
+									scope:preferred_child = {
+										OR = {
+											has_trait = dwarf
+											has_trait = clubfooted
+											has_trait = hunchbacked
+											has_trait = wheezing
+											has_trait = spindly
+											has_trait = bleeder
+										}
+									}
+								}
+							} # Main OR scope
+						} # Trigger
+						desc = house_valor.2002.desc.rebut.twin.betterfit
+					}
+					triggered_desc = {
+						trigger = {
+							scope:rejected_child = {
+								OR = {
+									prowess >= 12
+									has_trait_rank = {
+										trait = valor_child_prowess
+										rank >= 2
+									}
+								}
+							}
+						}
+						desc = house_valor.2002.desc.rebut.twin.skill
+					}
+					# Fallback option
+					desc = house_valor.2002.desc.rebut.twin
+				} # First Valid
+				desc = new_paragraph
+				desc = house_valor.2002.desc.3
+			}
+		} # Triggered desc if twin is participating
+	}
+
+	immediate = {
+		#If secretly training, expose secret here.
+	}
+
+	left_portrait = {
+		character = ROOT
+	}
+	right_portrait = {
+		character = scope:rejected_child
+		# triggered_outfit = {
+		# 	trigger = { always = yes }
+		# 	outfit_tags = { soldier_outfit }
+		# }
+	}
+
+	option = {
+		name = house_valor.2002.option.persuade_diplo
+		trigger = { diplomacy >= 15 }
+		skill = diplomacy
+		add_internal_flag = special
+
+		add_character_flag = denied_child_from_war
+		custom_tooltip = house_valor.2002.tt.persuade_diplo
+		hidden_effect = {
+			# Hidden due to tooltip verbiage confusion.
+			capital_province = {
+				add_province_modifier = {
+					modifier = fledgling_lord
+					years = 2
+				}
+			}
+			# county_modifier modifies the abstract title, province modifier modifiers the physical land
+		}
+		scope:rejected_child = {
+			# Education level thresholds are values 7/11/15 for ranks 2/3/4
+			if = {
+				limit = { exists = var:education_diplomacy_variable }
+				change_variable = {
+					name = education_diplomacy_variable
+					add = education_medium_bonus
+				}
+				# add_character_modifier = { modifier = studying_diplomacy years = 2 }
+			}
+			if = {
+				limit = { exists = var:education_stewardship_variable }
+				change_variable = {
+					name = education_stewardship_variable
+					add = education_medium_bonus
+				}
+				# add_character_modifier = { modifier = studying_stewardship years = 2 }
+			}
+			# In either case, the child is actively administering the land and should be studying stewardship.
+			add_character_modifier = { modifier = studying_stewardship years = 2 }
+		} # Rejected Child Scope
+		reverse_add_opinion = {
+			modifier = pleased_opinion
+			opinion = 15
+			target = scope:rejected_child
+		}
+	}
+	option = {
+		name = house_valor.2002.option.persuade_martial
+		trigger = {
+			scope:rejected_child = {
+				NOT = { has_focus = education_martial }
+			}
+		}
+
+		add_character_flag = denied_child_from_war
+		custom_tooltip = house_valor.2002.tt.persuade_martial
+		# Hidden; Set_focus does not have properly localized tooltips.
+		hidden_effect = {
+			scope:rejected_child = { set_focus = education_martial }
+		}
+		if = {
+			limit = {
+				scope:rejected_child = {
+					OR = {
+						prowess >= 12
+						has_trait_rank = {
+							trait = valor_child_prowess
+							rank >= 2
+						}
+					}
+				}
+			}
+			# Child feels his skills and efforts are insulted
+			reverse_add_opinion = {
+				modifier = insult_opinion
+				opinion = -15
+				target = scope:rejected_child
+			}
+		}
+		else = {
+			reverse_add_opinion = {
+				modifier = pleased_opinion
+				opinion = 15
+				target = scope:rejected_child
+			}
+		}
+		# If twin exists, develop rivalry
+		if = {
+			limit = { exists = scope:preferred_child }
+			# Too Verbose, using custom tooltip instead
+			hidden_effect = {
+				scope:rejected_child = {
+					progress_towards_rival_effect = {
+						CHARACTER = scope:preferred_child
+						OPINION = no
+					}
+					add_opinion = {
+						modifier = bitter_rivalry_opinion
+						opinion = -15
+						target = scope:preferred_child
+					}
+					reverse_add_opinion = {
+						modifier = bitter_rivalry_opinion
+						opinion = -15
+						target = scope:preferred_child
+					}
+				}
+			} # Hidden Effect
+			custom_tooltip = house_valor.tt.twin_rivalry
+		} # Twins develop rivalry
+	}
+	option = {
+		name = house_valor.2002.option.persuade_prowess
+		trigger = {
+			scope:rejected_child = {
+				NOT = {
+					# Already training prowess
+					AND = {
+						house = { has_house_modifier = trad_valor }
+						is_dominant_gender = yes
+						NOT = { has_focus = education_learning }
+					}
+					has_character_flag = parent_approved_weapon_training
+					has_character_flag = seen_battle
+				}
+			}
+		}
+
+		add_character_flag = denied_child_from_war
+		custom_tooltip = house_valor.2002.tt.persuade_prowess
+		# Add more effects to differentiate between Valor and non-Valor children?
+		scope:rejected_child = { add_character_flag = parent_approved_weapon_training }
+		# If twin exists, develop rivalry
+		if = {
+			limit = { exists = scope:preferred_child }
+			# Too Verbose, using custom tooltip instead
+			hidden_effect = {
+				scope:rejected_child = {
+					progress_towards_rival_effect = {
+						CHARACTER = scope:preferred_child
+						OPINION = no
+					}
+					add_opinion = {
+						modifier = bitter_rivalry_opinion
+						opinion = -15
+						target = scope:preferred_child
+					}
+					reverse_add_opinion = {
+						modifier = bitter_rivalry_opinion
+						opinion = -15
+						target = scope:preferred_child
+					}
+				}
+			} # Hidden Effect
+			custom_tooltip = house_valor.tt.twin_rivalry
+		} # Twins develop rivalry
+		reverse_add_opinion = {
+			modifier = pleased_opinion
+			opinion = 15
+			target = scope:rejected_child
+		}
+	}
+	option = {
+		name = house_valor.2002.option.persuade_command
+
+		add_character_flag = denied_child_from_war
+		# If parent convinces child now is not the time while selecting one over the other, develop rivalry with the twin
+		# Otherwise, develops rivalry with parent
+		progress_towards_rival_effect = {
+			CHARACTER = scope:rejected_child
+			OPINION = no
+			# "no" is an option to not add opinion. "yes" means both receives opinion.
+			# See 00_relation_effects.txt scritped effect
+			# Selecting No because vanilla code uses "Hatred" descriptor for the opinion, which sounds too strong.
+		}
+		hidden_effect = {
+			add_opinion = {
+				modifier = angry_opinion
+				opinion = -15
+				target = scope:rejected_child
+			}
+		} # Hidden Opinions
+		reverse_add_opinion = {
+			modifier = refusal_opinion #angry_opinion
+			opinion = -15
+			target = scope:rejected_child
+		}
+		# If twin exists, develop rivalry
+		if = {
+			limit = { exists = scope:preferred_child }
+			# Too Verbose, using custom tooltip instead
+			hidden_effect = {
+				scope:rejected_child = {
+					progress_towards_rival_effect = {
+						CHARACTER = scope:preferred_child
+						OPINION = no
+					}
+					add_opinion = {
+						modifier = bitter_rivalry_opinion
+						opinion = -15
+						target = scope:preferred_child
+					}
+					reverse_add_opinion = {
+						modifier = bitter_rivalry_opinion
+						opinion = -15
+						target = scope:preferred_child
+					}
+				}
+			} # Hidden Effect
+			custom_tooltip = house_valor.tt.twin_rivalry
+		} # Twins develop rivalry
+	}
+	option = {
+		name = house_valor.2002.option.relent
+
+		add_character_flag = child_participating_in_war
+
+		scope:rejected_child = {
+			create_story = story_battle_child
+		}
+		custom_tooltip = house_valor.2002.tt.relent
+		# # Deliberately only enable progress to friend when accepting after rejecting for now. This dynamic seems to make sense.
+		# progress_towards_friend_effect = {
+		# 	CHARACTER = scope:rejected_child
+		# 	OPINION = no
+		# 	# "no" is an option to not add opinion. "yes" means both receives opinion.
+		# 	# See 00_relation_effects.txt scritped effect
+		# 	# Selecting No because vanilla code uses "Hatred" descriptor for the opinion, which sounds too strong.
+		# }
+		reverse_add_opinion = {
+			modifier = pleased_opinion
+			opinion = 15
+			target = scope:rejected_child
+		}
+	}
+
+	after = {
+		remove_character_flag = waiting_house_valor_2000_response
+		scope:eldest_eligible_child = {
+			if = {
+				limit = { NOT = { any_owned_story = { story_type = story_battle_child } } }
+				remove_character_flag = is_currently_varangian
+			}
+		}
+		# scope:eligible_child_twin = {
+		# 	if = {
+		# 		limit = { NOT = { any_owned_story = { story_type = story_battle_child } } }
+		# 		remove_character_flag = is_currently_varangian
+		# 	}
+		# }
+		scope:eldest_eligible_sibling = {
+			if = {
+				limit = { NOT = { any_owned_story = { story_type = story_battle_child } } }
+				remove_character_flag = is_currently_varangian
+			}
+		}
+		# scope:eligible_sibling_twin = {
+		# 	if = {
+		# 		limit = { NOT = { any_owned_story = { story_type = story_battle_child } } }
+		# 		remove_character_flag = is_currently_varangian
+		# 	}
+		# }
+		scope:warrior_princess = {
+			if = {
+				limit = { NOT = { any_owned_story = { story_type = story_battle_child } } }
+				remove_character_flag = is_currently_varangian
+			}
+		}
+	}
+}
+
+# Reject Both Twins
+house_valor.2003 = {
+	type = character_event
+	title = house_valor.2001.t
+	#desc = house_valor.2002.desc
+	theme = war
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { is_parent_of = scope:twin1 is_female = no }
+				desc = house_valor.2002.desc.1.father
+			}
+			triggered_desc = {
+				trigger = { is_parent_of = scope:twin1 is_female = yes }
+				desc = house_valor.2002.desc.1.mother
+			}
+			triggered_desc = {
+				trigger = { is_sibling_of = scope:twin1 is_female = no }
+				desc = house_valor.2002.desc.1.brother
+			}
+			triggered_desc = {
+				trigger = { is_sibling_of = scope:twin1 is_female = yes }
+				desc = house_valor.2002.desc.1.sister
+			}
+			# Fallback option; shouldn't happen.
+			desc = house_valor.2002.desc.1.name
+		}
+		desc = house_valor.2003.desc.2
+		desc = new_paragraph
+		# More skilled twin boasts swordsmanship
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:twin1 = {
+						prowess_diff = {
+							target = scope:twin2
+							value > 0
+						}
+					}
+				}
+				desc = house_valor.2003.desc.swords.twin1
+			}
+			desc = house_valor.2003.desc.swords.twin2
+		}
+		desc = new_paragraph
+		# Less skilled twin talks about armor
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:twin1 = {
+						prowess_diff = {
+							target = scope:twin2
+							value < 0
+						}
+					}
+				}
+				desc = house_valor.2003.desc.armor.twin1
+			}
+			desc = house_valor.2003.desc.armor.twin2
+		}
+		desc = new_paragraph
+		desc = house_valor.2003.desc.3
+	}
+
+	left_portrait = {
+		character = scope:twin1
+		# triggered_outfit = {
+		# 	trigger = { always = yes }
+		# 	outfit_tags = { soldier_outfit }
+		# }
+	}
+
+	right_portrait = {
+		character = scope:twin2
+		# triggered_outfit = {
+		# 	trigger = { always = yes }
+		# 	outfit_tags = { soldier_outfit }
+		# }
+	}
+
+	option = {
+		name = house_valor.2002.option.persuade_diplo
+		trigger = { diplomacy >= 15 }
+		skill = diplomacy
+		add_internal_flag = special
+
+		add_character_flag = denied_child_from_war
+		custom_tooltip = house_valor.2003.tt.persuade_diplo
+		hidden_effect = {
+			# Hidden due to tooltip verbiage confusion.
+			capital_province = {
+				add_province_modifier = {
+					modifier = fledgling_lord2
+					years = 2
+				}
+			}
+			# county_modifier modifies the abstract title, province modifier modifiers the physical land
+		}
+		scope:twin1 = {
+			# Education level thresholds are values 7/11/15 for ranks 2/3/4
+			if = {
+				limit = { exists = var:education_diplomacy_variable }
+				change_variable = {
+					name = education_diplomacy_variable
+					add = education_medium_bonus
+				}
+				# add_character_modifier = { modifier = studying_diplomacy years = 2 }
+			}
+			if = {
+				limit = { exists = var:education_stewardship_variable }
+				change_variable = {
+					name = education_stewardship_variable
+					add = education_medium_bonus
+				}
+				# add_character_modifier = { modifier = studying_stewardship years = 2 }
+			}
+			# In either case, the child is actively administering the land and should be studying stewardship.
+			add_character_modifier = { modifier = studying_stewardship years = 2 }
+			add_opinion = {
+				modifier = pleased_opinion
+				opinion = 15
+				target = scope:parent
+			}
+		} # 1st Twin Scope
+		scope:twin2 = {
+			# Education level thresholds are values 7/11/15 for ranks 2/3/4
+			if = {
+				limit = { exists = var:education_diplomacy_variable }
+				change_variable = {
+					name = education_diplomacy_variable
+					add = education_medium_bonus
+				}
+				# add_character_modifier = { modifier = studying_diplomacy years = 2 }
+			}
+			if = {
+				limit = { exists = var:education_stewardship_variable }
+				change_variable = {
+					name = education_stewardship_variable
+					add = education_medium_bonus
+				}
+				# add_character_modifier = { modifier = studying_stewardship years = 2 }
+			}
+			# In either case, the child is actively administering the land and should be studying stewardship.
+			add_character_modifier = { modifier = studying_stewardship years = 2 }
+			add_opinion = {
+				modifier = pleased_opinion
+				opinion = 15
+				target = scope:parent
+			}
+			# Must be in this order for correct visual formatting. Not sure why in-game tooltip doesn't follow the order they are coded.
+			custom_tooltip = house_valor.2003.tt.twinfriendship
+		} # 2nd Twin Scope
+		scope:twin1 = {
+			progress_towards_friend_effect = {
+				CHARACTER = scope:twin2
+				OPINION = no
+			}
+		}
+	}
+	option = {
+		name = house_valor.2002.option.persuade_martial
+		trigger = {
+			OR = {
+				scope:twin1 = { NOT = { has_focus = education_martial } }
+				scope:twin2 = { NOT = { has_focus = education_martial } }
+			}
+		}
+
+		add_character_flag = denied_child_from_war
+		custom_tooltip = house_valor.2003.tt.persuade_martial
+		# Hidden; Set_focus does not have properly localized tooltips.
+		hidden_effect = {
+			scope:twin1 = { set_focus = education_martial }
+			scope:twin2 = { set_focus = education_martial }
+		}
+		if = {
+			limit = {
+				scope:twin1 = {
+					OR = {
+						prowess >= 12
+						has_trait_rank = {
+							trait = valor_child_prowess
+							rank >= 2
+						}
+					}
+				}
+			}
+			# Child feels his skills and effort are insulted
+			reverse_add_opinion = {
+				modifier = insult_opinion
+				opinion = -15
+				target = scope:twin1
+			}
+		}
+		else = {
+			reverse_add_opinion = {
+				modifier = pleased_opinion
+				opinion = 15
+				target = scope:rejected_child
+			}
+		}
+		if = {
+			limit = {
+				scope:twin2 = {
+					OR = {
+						prowess >= 12
+						has_trait_rank = {
+							trait = valor_child_prowess
+							rank >= 2
+						}
+					}
+				}
+			}
+			# Child feels his skills and effort are insulted
+			reverse_add_opinion = {
+				modifier = insult_opinion
+				opinion = -15
+				target = scope:twin2
+			}
+		}
+		else = {
+			reverse_add_opinion = {
+				modifier = pleased_opinion
+				opinion = 15
+				target = scope:rejected_child
+			}
+		}
+		scope:twin1 = {
+			progress_towards_friend_effect = {
+				CHARACTER = scope:twin2
+				OPINION = no
+			}
+		}
+	}
+	option = {
+		name = house_valor.2002.option.persuade_prowess
+		trigger = {
+			OR = {
+				scope:twin1 = {
+					NOT = {
+						# Already training prowess
+						AND = {
+							house = { has_house_modifier = trad_valor }
+							is_dominant_gender = yes
+							NOT = { has_focus = education_learning }
+						}
+						has_character_flag = parent_approved_weapon_training
+						has_character_flag = seen_battle
+					}
+				}
+				scope:twin2 = {
+					NOT = {
+						# Already training prowess
+						AND = {
+							house = { has_house_modifier = trad_valor }
+							is_dominant_gender = yes
+							NOT = { has_focus = education_learning }
+						}
+						has_character_flag = parent_approved_weapon_training
+						has_character_flag = seen_battle
+					}
+				}
+			}
+		}
+
+		add_character_flag = denied_child_from_war
+		custom_tooltip = house_valor.2003.tt.persuade_prowess
+		# Add more effects to differentiate between Valor and non-Valor children?
+		scope:twin1 = { add_character_flag = parent_approved_weapon_training }
+		scope:twin2 = { add_character_flag = parent_approved_weapon_training }
+		if = {
+			limit = {
+				scope:twin1 = {
+					OR = {
+						prowess >= 12
+						has_trait_rank = {
+							trait = valor_child_prowess
+							rank >= 2
+						}
+					}
+				}
+			}
+			# Child feels his skills and effort are insulted
+			reverse_add_opinion = {
+				modifier = insult_opinion
+				opinion = -15
+				target = scope:twin1
+			}
+		}
+		else = {
+			reverse_add_opinion = {
+				modifier = pleased_opinion
+				opinion = 15
+				target = scope:rejected_child
+			}
+		}
+		if = {
+			limit = {
+				scope:twin2 = {
+					OR = {
+						prowess >= 12
+						has_trait_rank = {
+							trait = valor_child_prowess
+							rank >= 2
+						}
+					}
+				}
+			}
+			# Child feels his skills and effort are insulted
+			reverse_add_opinion = {
+				modifier = insult_opinion
+				opinion = -15
+				target = scope:twin2
+			}
+		}
+		else = {
+			reverse_add_opinion = {
+				modifier = pleased_opinion
+				opinion = 15
+				target = scope:rejected_child
+			}
+		}
+		scope:twin1 = {
+			progress_towards_friend_effect = {
+				CHARACTER = scope:twin2
+				OPINION = no
+			}
+		}
+	}
+	option = {
+		name = house_valor.2002.option.persuade_command
+
+		add_character_flag = denied_child_from_war
+		progress_towards_rival_effect = {
+			CHARACTER = scope:twin1
+			OPINION = no
+			# "no" is an option to not add opinion. "yes" means both receives opinion.
+			# See 00_relation_effects.txt scritped effect
+			# Selecting No because vanilla code uses "Hatred" descriptor for the opinion, which sounds too strong.
+		}
+		hidden_effect = {
+			add_opinion = {
+				modifier = angry_opinion
+				opinion = -15
+				target = scope:twin1
+			}
+		} # Hidden Opinions
+		reverse_add_opinion = {
+			modifier = refusal_opinion #angry_opinion
+			opinion = -15
+			target = scope:twin1
+		}
+		progress_towards_rival_effect = {
+			CHARACTER = scope:twin2
+			OPINION = no
+			# "no" is an option to not add opinion. "yes" means both receives opinion.
+			# See 00_relation_effects.txt scritped effect
+			# Selecting No because vanilla code uses "Hatred" descriptor for the opinion, which sounds too strong.
+		}
+		hidden_effect = {
+			add_opinion = {
+				modifier = angry_opinion
+				opinion = -15
+				target = scope:twin2
+			}
+		} # Hidden Opinions
+		reverse_add_opinion = {
+			modifier = refusal_opinion #angry_opinion
+			opinion = -15
+			target = scope:twin2
+		}
+	}
+	option = {
+		name = house_valor.2003.option.relent
+
+		add_character_flag = child_participating_in_war
+
+		scope:twin1 = {
+			create_story = story_battle_child
+		}
+		scope:twin2 = {
+			create_story = story_battle_child
+		}
+		custom_tooltip = house_valor.2001.tt.bothtwins
+		# # Deliberately only enable progress to friend when accepting after rejecting for now. This dynamic seems to make sense.
+		# progress_towards_friend_effect = {
+		# 	CHARACTER = scope:rejected_child
+		# 	OPINION = no
+		# 	# "no" is an option to not add opinion. "yes" means both receives opinion.
+		# 	# See 00_relation_effects.txt scritped effect
+		# 	# Selecting No because vanilla code uses "Hatred" descriptor for the opinion, which sounds too strong.
+		# }
+		reverse_add_opinion = {
+			modifier = pleased_opinion
+			opinion = 15
+			target = scope:twin1
+		}
+		reverse_add_opinion = {
+			modifier = pleased_opinion
+			opinion = 15
+			target = scope:twin2
+		}
+	}
+
+	after = {
+		remove_character_flag = waiting_house_valor_2000_response
+		scope:eldest_eligible_child = {
+			if = {
+				limit = { NOT = { any_owned_story = { story_type = story_battle_child } } }
+				remove_character_flag = is_currently_varangian
+			}
+		}
+		scope:eligible_child_twin = {
+			if = {
+				limit = { NOT = { any_owned_story = { story_type = story_battle_child } } }
+				remove_character_flag = is_currently_varangian
+			}
+		}
+		scope:eldest_eligible_sibling = {
+			if = {
+				limit = { NOT = { any_owned_story = { story_type = story_battle_child } } }
+				remove_character_flag = is_currently_varangian
+			}
+		}
+		scope:eligible_sibling_twin = {
+			if = {
+				limit = { NOT = { any_owned_story = { story_type = story_battle_child } } }
+				remove_character_flag = is_currently_varangian
+			}
+		}
+		# scope:warrior_princess = {
+		# 	if = {
+		# 		limit = { NOT = { any_owned_story = { story_type = story_battle_child } } }
+		# 		remove_character_flag = is_currently_varangian
+		# 	}
+		# }
+	}
+}
+
+# Princess wants to join
+house_valor.2020 = { type = character_event hidden = yes immediate = { remove_character_flag = waiting_house_valor_2000_response } }
+house_valor.2004 = { type = character_event hidden = yes immediate = { remove_character_flag = waiting_house_valor_2000_response } }
+
+
+## Young warrior nicknames
+#### Gender Neutral ####
+# the Manslayer
+# Bloodrain (kills with such ferocity that blood splatters around him like rain)
+#
+# Twin blades of (House)
+
+#### Female ####
+# Warrior Princess
+# the Widow
+# the Raven
+#
+
+
+# Can appoint a Knight as bodyguard (which is very likely to upset the child being "babied"), 
+# or Intrigue courtier to watch in secret (intrigue vs child to be discovered/upset him), 
+# or a non-cynical Learning courtier to pray for the child (no chance of upsetting child) 
+#   - Shaman with rituals if unreformed religion
+#    that has no influence ont he outcome but in the event the child was successful the child would be seen as "Touched by Light", "Holy", earn Holy Warrior, etc. and may turn the child zealous

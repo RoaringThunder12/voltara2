@@ -1,0 +1,2 @@
+﻿on_game_start = { on_actions = { voltara_cow_startup } }
+voltara_cow_startup = { effect = { trigger_event = { on_action = zz_upgrade_cow_on_actions days = 2 } } }

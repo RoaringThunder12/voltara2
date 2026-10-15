@@ -1,0 +1,58 @@
+﻿reinforcements_close_by = {
+    scope:province = {
+        every_neighboring_province = {
+            every_army_in_location = {
+                limit = {
+                    army_owner = {
+                        is_friendly_to_me = yes
+                    }
+                }
+                add = army_size
+            }
+        }
+    }
+}
+
+reinforcements_nearby = {
+    scope:province = {
+        county = {
+            every_county_province = {
+                limit = {
+                    NOR = {
+                        this = scope:province
+                        any_neighboring_province = {
+                            this = scope:province
+                        }
+                    }
+                }
+                every_army_in_location = {
+                    limit = {
+                        army_owner = {
+                            is_friendly_to_me = yes
+                        }
+                    }
+                    add = army_size
+                }
+            }
+            every_neighboring_county = {
+                every_county_province = {
+                    limit = {
+                        NOT = {
+                            any_neighboring_province = {
+                                this = scope:province
+                            }
+                        }
+                    }
+                    every_army_in_location = {
+                        limit = {
+                            army_owner = {
+                                is_friendly_to_me = yes
+                            }
+                        }
+                        add = army_size
+                    }
+                }
+            }
+        }
+    }
+}

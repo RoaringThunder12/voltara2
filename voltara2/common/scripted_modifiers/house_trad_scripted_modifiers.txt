@@ -1,0 +1,792 @@
+﻿house_trait_weight = {
+	modifier = { # Nature
+		exists = father
+		father = { has_trait = $trait$ }
+		factor = 1.5
+	}
+	modifier = { # Nurture
+		exists = father
+		father = {
+			has_trait = $trait$
+			is_in_the_same_court_as = ROOT
+		}
+		factor = 2
+	}
+	modifier = { # Nature
+		exists = mother
+		mother = { has_trait = $trait$ }
+		factor = 1.5
+	}
+	modifier = { # Nurture
+		exists = mother
+		mother = {
+			has_trait = $trait$
+			is_in_the_same_court_as = ROOT
+		}
+		factor = 2
+	}
+	modifier = {
+		any_relation = {
+			type = guardian
+			has_trait = $trait$
+		}
+		factor = 3
+	}
+	modifier = {
+		AND = { # Entrusted to a teacher of different values
+			any_relation = {
+				type = guardian
+				has_trait = $trait$
+			}
+			OR = {
+				NOT = { # Entrusted to Foreign Court
+					any_close_family_member = {
+						is_in_the_same_court_as = ROOT
+					}
+				}
+				any_relation = { 
+				# Entrusted to Blacksheep to teach the one thing he's good at. 
+				# In practice this often means equal weighted random assignment.
+					type = guardian
+					has_trait = $trait$
+					house = ROOT.house
+					has_character_modifier = blacksheep
+				}
+			}
+		}
+		factor = 3
+	}
+	# any_house_member does not appear to work as a modifier
+	modifier = { # Nature
+		exists = father
+		exists = father.father
+		father.father = { has_trait = $trait$ }
+		factor = 1.5
+	}
+	modifier = { # Nurture
+		exists = father
+		exists = father.father
+		father.father = {
+			has_trait = $trait$
+			is_in_the_same_court_as = ROOT
+		}
+		factor = 2
+	}
+	modifier = { # Nature
+		exists = father
+		exists = father.mother
+		father.mother = { has_trait = $trait$ }
+		factor = 1.5
+	}
+	modifier = { # Nurture
+		exists = father
+		exists = father.mother
+		father.mother = {
+			has_trait = $trait$
+			is_in_the_same_court_as = ROOT
+		}
+		factor = 2
+	}
+	modifier = { # Nature
+		exists = mother
+		exists = mother.father
+		mother.father = { has_trait = $trait$ }
+		factor = 1.5
+	}
+	modifier = { # Nurture
+		exists = mother
+		exists = mother.father
+		mother.father = {
+			has_trait = $trait$
+			is_in_the_same_court_as = ROOT
+		}
+		factor = 2
+	}
+	modifier = { # Nature
+		exists = mother
+		exists = mother.mother
+		mother.mother = { has_trait = $trait$ }
+		factor = 1.5
+	}
+	modifier = { # Nurture
+		exists = mother
+		exists = mother.mother
+		mother.mother = {
+			has_trait = $trait$
+			is_in_the_same_court_as = ROOT
+		}
+		factor = 2
+	}
+	modifier = {
+		any_close_family_member = {
+			house = ROOT.house
+			has_trait = $trait$
+			is_sibling_of = ROOT
+		}
+		factor = 2
+	}
+	modifier = {
+		any_close_or_extended_family_member = {
+			house = ROOT.house
+			has_trait = $trait$
+			is_uncle_or_aunt_of = ROOT
+			is_in_the_same_court_as = ROOT
+		}
+		factor = 2
+	}
+	modifier = {
+		any_close_or_extended_family_member = {
+			house = ROOT.house
+			has_trait = $trait$
+			is_cousin_of = ROOT
+			is_in_the_same_court_as = ROOT
+		}
+		factor = 2
+	}
+	modifier = {
+		any_close_or_extended_family_member = {
+			house = ROOT.house
+			has_trait = $trait$
+			is_nibling_of = ROOT
+			is_in_the_same_court_as = ROOT
+		}
+		factor = 2
+	}
+}
+
+blacksheep_trait_weight = {
+	modifier = {
+		father = { has_trait = $trait$ }
+		factor = $weight$
+	}
+	modifier = {
+		NOT = { real_father = father }
+		real_father = { has_trait = $trait$ }
+		factor = $weight$
+	}
+	modifier = {
+		mother = { has_trait = $trait$ }
+		factor = $weight$
+	}
+	modifier = {
+		OR = {
+			any_relation = {
+				type = guardian
+				has_trait = $trait$
+			}
+		}
+		factor = $weight$
+	}
+}
+
+orphan_trait_weight = {
+	modifier = {
+		any_relation = {
+			type = guardian
+			has_trait = $trait$
+		}
+		factor = 2
+	}
+	modifier = {
+		any_courtier = {
+			has_trait = $trait$
+		}
+		factor = 2
+	}
+}
+
+unwelcomed_child = { 
+	# For Blacksheep Event options
+	modifier = {
+		factor = 2
+		has_trait = child_of_concubine_male
+	}
+	modifier = {
+		factor = 2
+		has_trait = child_of_concubine_female
+	}
+	modifier = {
+		factor = 5
+		has_trait = bastard
+	}
+	modifier = {
+		factor = 5
+		has_trait = wild_oat
+	}
+	modifier = {
+		factor = 10
+		has_trait = disinherited
+	}
+	modifier = {
+		factor = 10
+		has_trait = denounced
+	}
+}
+
+bad_father = {
+	#exists = father
+	# Hated by Spouse
+	modifier = {
+ exists = father
+		factor = 2
+		#exists = mother
+		any_parent = { is_alive = yes count = 2 }
+		mother = { opinion = { target = PREV.father value <= 0 } }
+	}
+	modifier = {
+ exists = father
+		factor = 2
+		exists = mother
+		any_parent = { is_alive = yes count = 2 }
+		mother = { opinion = { target = PREV.father value <= -40 } }
+	}	
+	modifier = {
+ exists = father
+		factor = 5
+		father = {
+			OR = {
+				# Fornication is specifically excluded; premarital sex is illegal but not cheating
+				#  even if governed by the same religious doctrine.
+				has_trait = adulterer
+				has_trait = rakish
+				any_secret = {
+					secret_type = secret_lover
+				}
+			}
+		}
+	}
+	modifier = {
+ exists = father
+		factor = 2
+		father = {
+			OR = {
+				# Lack of love between parents and disappearing for trysts in the context of 
+				#  medieval society necesssitates some level of cheating and shady/irreputable behavior.
+				# Not political commentary on nuclear family in a modern setting.
+				has_trait = sodomite
+				any_secret = {
+					secret_type = secret_homosexual
+				}
+			}
+		}
+	}
+	modifier = {
+ exists = father factor = 3 father = { has_trait = sadistic }	}
+	modifier = {
+ exists = father factor = 3 father = { has_trait = seducer }	}
+	modifier = {
+ exists = father factor = 2 father = { has_trait = drunkard }	}
+	modifier = {
+ exists = father factor = 2 father = { has_trait = contrite }	}
+	modifier = {
+ exists = father factor = 2 father = { has_trait = reclusive }	}
+	modifier = {
+ exists = father factor = 2 father = { has_trait = hashishiyah }	}
+	modifier = {
+ exists = father
+		factor = 2
+		father = { OR = { has_trait = wrathful has_trait = irritable } }
+	}
+	modifier = {
+ exists = father
+		factor = 2
+		father = { OR = { has_trait = improvident has_trait = profligate } }
+	}
+	modifier = {
+ exists = father
+		factor = 2
+		father = {
+			OR = { # Melancholic
+				has_trait = depressed_1
+				has_trait = depressed_genetic
+			}
+		}
+	}
+	modifier = {
+ exists = father
+		factor = 2
+		father = {
+			OR = { # Epilepsy
+				has_trait = possessed_1
+				has_trait = possessed_genetic
+			}
+		}
+	}
+	modifier = {
+ exists = father
+		factor = 3
+		father = {
+			OR = { # Schizophrenia
+				has_trait = lunatic_1
+				has_trait = lunatic_genetic
+				has_trait = incapable
+			}
+		}
+	}
+}
+
+bad_mother = {
+	#exists = mother
+	# Hated by Spouse
+	modifier = {
+ exists = mother
+		factor = 2
+		#exists = father
+		any_parent = { is_alive = yes count = 2 }
+		father = { opinion = { target = PREV.mother value <= 0 } }
+	}
+	modifier = {
+ exists = mother
+		factor = 2
+		exists = father
+		any_parent = { is_alive = yes count = 2 }
+		father = { opinion = { target = PREV.mother value <= -40 } }
+	}
+	modifier = {
+ exists = mother
+		factor = 5
+		mother = {
+			OR = {
+				# Fornication is specifically excluded; premarital sex is illegal but not cheating
+				#  even if governed by the same religious doctrine.
+				has_trait = adulterer
+				has_trait = rakish
+				any_secret = {
+					secret_type = secret_lover
+				}
+			}
+		}
+	}
+	modifier = {
+ exists = mother
+		factor = 2
+		mother = {
+			OR = {
+				# Lack of love between parents and disappearing for trysts in the context of 
+				#  medieval society necesssitates some level of cheating and shady/irreputable behavior.
+				# Not political commentary on nuclear family in a modern setting.
+				has_trait = sodomite
+				any_secret = {
+					secret_type = secret_homosexual
+				}
+			}
+		}
+	}
+	modifier = {
+ exists = mother factor = 3 mother = { has_trait = sadistic }	}
+	modifier = {
+ exists = mother factor = 3 mother = { has_trait = seducer }	}
+	modifier = {
+ exists = mother factor = 2 mother = { has_trait = drunkard }	}
+	modifier = {
+ exists = mother factor = 2 mother = { has_trait = contrite }	}
+	modifier = {
+ exists = mother factor = 2 mother = { has_trait = reclusive }	}
+	modifier = {
+ exists = mother factor = 2 mother = { has_trait = hashishiyah }	}
+	modifier = {
+ exists = mother
+		factor = 2
+		mother = { OR = { has_trait = wrathful has_trait = irritable } }
+	}
+	modifier = {
+ exists = mother
+		factor = 2
+		mother = { OR = { has_trait = improvident has_trait = profligate } }
+	}
+	modifier = {
+ exists = mother
+		factor = 2
+		mother = {
+			OR = { # Melancholic
+				has_trait = depressed_1
+				has_trait = depressed_genetic
+			}
+		}
+	}
+	modifier = {
+ exists = mother
+		factor = 2
+		mother = {
+			OR = { # Epilepsy
+				has_trait = possessed_1
+				has_trait = possessed_genetic
+			}
+		}
+	}
+	modifier = {
+ exists = mother
+		factor = 3
+		mother = {
+			OR = { # Schizophrenia
+				has_trait = lunatic_1
+				has_trait = lunatic_genetic
+				has_trait = incapable
+			}
+		}
+	}
+}
+
+parents_affection = {
+	# Input $FACTOR$ to determine whether loving parents encourage or discourage the option.
+	modifier = {
+		any_parent = {
+			opinion = {
+				target = scope:personality_child
+				value > 50
+			}
+			count = all
+		}
+		factor = $factor$
+	} # Decent Parents
+	modifier = {
+		any_parent = {
+			opinion = {
+				target = scope:personality_child
+				value > 70
+			}
+			count = all
+		}
+		factor = $factor$
+	} # Good Parents
+	modifier = {
+		any_parent = {
+			opinion = {
+				target = scope:personality_child
+				value > 90
+			}
+			count = all
+		}
+		factor = $factor$
+	} # Loving Parents
+}
+
+stress_aversion = {
+	modifier = { factor = 0.5 stress_level >= 1 }
+	modifier = { factor = 0.2 stress_level >= 2 }
+	modifier = { factor = 0 stress_level >= 3 }
+}
+
+house_trad_5k_difficulty_modifier = {
+	# Fail chance of 10
+	modifier = { add = -2 scope:guardian = { learning >= 12 } }
+	modifier = { add = -2 scope:guardian = { learning >= 18 } }
+	modifier = {
+		add = -2
+		trait_compatibility = {
+			target = scope:guardian
+			value >= low_positive_trait_compatibility
+		}
+	}
+	modifier = {
+		add = -2
+		trait_compatibility = {
+			target = scope:guardian 
+			value >= medium_positive_trait_compatibility
+		}
+	}
+	modifier = {
+		add = -2 
+		trait_compatibility = {
+			target = scope:guardian
+			value >= high_positive_trait_compatibility
+		}
+	}
+}
+house_trad_5k_leave_child_alone_modifier = {
+	#Base chance of 10
+	modifier = { add = -8 house = scope:personality_child.house }
+	modifier = { add = 30 has_character_modifier = blacksheep }
+	modifier = { factor = 2 has_trait = lazy }
+	modifier = { factor = 1.5 has_trait = arbitrary }
+	modifier = { factor = 0.2 stress <= 45 }
+	modifier = { factor = 5 stress_level >= 1 }
+	modifier = { factor = 100 stress_level >= 3 }
+}
+
+new_cadet_trad_modifier = {
+	# Encourage cadet branch to have different traditions.
+	modifier = {
+		dynasty = father.dynasty
+		father.house = { has_house_modifier = trad_$tradition$ }
+		factor = 0.2
+	}
+	modifier = {
+		dynasty = mother.dynasty
+		mother.house = { has_house_modifier = trad_$tradition$ }
+		factor = 0.2
+	}
+	# modifier = {
+	# 	# Dynasty Head
+	# 	dynasty.dynast.house = { has_house_modifier = trad_$tradition$ }
+	# 	factor = 0.2
+	# } # Redundant with any_dynasty_member check.
+	modifier = {
+		dynasty = {
+			any_dynasty_member = {
+				house = { has_house_modifier = trad_$tradition$ }
+			}
+		}
+		factor = 0.1
+	}
+}
+
+# new_cadet_trad_modifier = {
+	# modifier = {
+	# dynasty.any_house = { has_house_modifier = trad_$tradition$ }
+	# 	factor = 0.5
+	# } # To be tested
+
+	# Can't get SWITCH to work.
+	# modifier = {
+	# 	add = {
+	# 		#value = 1
+	# 		switch = {
+	# 			trigger = $tradition$
+	# 			valor = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_power }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_pride }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_respect }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			honor = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_valor }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_duty }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_vigilance }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			duty = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_honor }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_vigilance }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_devotion }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			justice = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_honor }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_vengeance }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_respect }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			vengeance = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_justice }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_respect }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_power }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			pride = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_valor }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_respect }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_power }
+	# 						}
+	# 					}
+	# 					add = 0.5
+	# 				}
+	# 			}
+	# 			respect = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_valor }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_pride }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_power }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			power = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_valor }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_pride }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_respect }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			influence = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_power }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_respect }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_guile }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			guile = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_vengeance }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_influence }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_survival }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			survival = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_peace }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_vigilance }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			vigilance = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_duty }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_survival }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_devotion }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			peace = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_wisdom }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_compassion }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			fortune = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_duty }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_vigilance }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_devotion }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			knowledge = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_vigilance }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_truth }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_devotion }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			truth = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_knowledge }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			wisdom = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_knowledge }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_vigilance }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			devotion = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_duty }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_vigilance }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_fortune }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			family = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_peace }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_compassion }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			compassion = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_peace }
+	# 							dynasty.dynast.house = { has_house_modifier = trad_family }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 			joy = {
+	# 				if = {
+	# 					limit = {
+	# 						OR = {
+	# 							dynasty.dynast.house = { has_house_modifier = trad_compassion }
+	# 						}
+	# 					}
+	# 					add = -0.5
+	# 				}
+	# 			}
+	# 		} # Switch
+	# 	} # Scripted Factor
+	# } # Scripted Modifier
+# }

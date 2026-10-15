@@ -1,0 +1,582 @@
+﻿house_valor_education = {
+	if = {
+		limit = { exists = var:valor_education_score }
+		if = {
+			limit = { NOT = { has_character_flag = training_weapons_in_secret } }
+			random_relation = {
+				type = guardian
+				save_scope_as = educator
+			}
+			if = {
+				limit = { father = { prowess_diff = { target = ROOT.mother value > 0 } } }
+				father = { save_scope_as = parent }
+			}
+			else = {
+				mother = { save_scope_as = parent }
+				# They don't need to be alive; that's the guardian's job.
+				# Dead parents can still either pass on influence by genes or inspire children ty train harder by reputation
+				#  or those around them would directly or subconsciously encourage the child in this regard
+			}
+			if = {
+				limit = { exists = scope:parent }
+				if = {	# Passive exp should be low; Bulk of the exp should come from educator/education.
+					limit = { scope:parent = { prowess_diff = { target = ROOT value >= 4 } } }
+					change_variable = { name = valor_education_score add = 10 }
+				}
+				if = {
+					limit = { scope:parent = { prowess_diff = { target = ROOT value >= 7 } } }
+					change_variable = { name = valor_education_score add = 10 }
+				}
+				if = {
+					limit = { scope:parent = { prowess_diff = { target = ROOT value >= 10 } } }
+					change_variable = { name = valor_education_score add = 10 }
+				}
+				if = {
+					limit = { scope:parent = { prowess_diff = { target = ROOT value >= 12 } } }
+					change_variable = { name = valor_education_score add = 10 }
+				}
+				if = {
+					limit = { scope:parent = { prowess_diff = { target = ROOT value >= 15 } } }
+					change_variable = { name = valor_education_score add = 10 }
+				}
+			} # Parents Exists; Not a generated/first gen character.
+		} # Not Training in Secret
+		# else = {
+			# Code for setting up best friend or sibling that's secretly doing the training
+			# Relevant events not yet implemented
+		# }
+		if = {
+			limit = { has_trait = lazy }
+			change_variable = { name = valor_education_score multiply = 0.95 }
+		}
+		random_list = {
+			10 = {
+				change_variable = { name = valor_education_score add = 200 }
+				modifier = { factor = 2 has_trait = physique_good_3 }
+				modifier = { factor = 0 has_trait = physique_bad_1 }
+				modifier = { factor = 0 has_trait = physique_bad_2 }
+				modifier = { factor = 0 has_trait = physique_bad_3 }
+				modifier = { factor = 0 has_trait = dwarf }
+				modifier = { factor = 0 has_trait = spindly }
+				modifier = { factor = 0 has_trait = wheezing }
+				modifier = { factor = 0 has_trait = hunchbacked }
+				modifier = { factor = 0 has_trait = bleeder }
+				modifier = { add = -10 has_trait = pensive }
+				modifier = { add = 10 has_trait = brave }
+				# Being scared of battle does not automatically mean no chance of good swordsmanship in a controlled, safe environment
+				modifier = { add = -5 has_trait = craven }
+			}
+			30 = {
+				change_variable = { name = valor_education_score add = 150 }
+				modifier = { factor = 2 has_trait = physique_good_2 }
+				modifier = { factor = 2 has_trait = physique_good_3 }
+				modifier = { add = -10 has_trait = physique_bad_2 }
+				modifier = { add = -15 has_trait = physique_bad_3 }
+				modifier = { factor = 0.5 has_trait = dwarf }
+				modifier = { factor = 0.5 has_trait = spindly }
+				modifier = { factor = 0.5 has_trait = wheezing }
+				modifier = { factor = 0.5 has_trait = hunchbacked }
+				modifier = { factor = 0.5 has_trait = bleeder }
+				modifier = { add = 15 has_trait = brave }
+			}
+			35 = {
+				change_variable = { name = valor_education_score add = 100 }
+				modifier = { factor = 1.5 has_trait = physique_good_1 }
+				modifier = { factor = 1.5 has_trait = physique_good_2 }
+				modifier = { factor = 1.5 has_trait = physique_bad_1 }
+				modifier = { factor = 1.5 has_trait = physique_bad_2 }
+				modifier = { factor = 1.5 has_trait = dwarf }
+				# Being scared of battle does not automatically mean no chance of good swordsmanship in a controlled, safe environment
+				modifier = { add = 10 has_trait = craven }
+			}
+			15 = {
+				change_variable = { name = valor_education_score add = 50 }
+				modifier = { factor = 2 has_trait = physique_bad_2 }
+				modifier = { factor = 2 has_trait = physique_bad_3 }
+				modifier = { factor = 0.5 has_trait = physique_good_2 }
+				modifier = { factor = 0.5 has_trait = physique_good_3 }
+				modifier = { factor = 1.5 has_trait = dwarf }
+				modifier = { factor = 0 has_trait = brave }
+			}
+			10 = {
+				change_variable = { name = valor_education_score add = 25 }
+				modifier = { factor = 2 has_trait = physique_bad_3 }
+				modifier = { factor = 0.5 has_trait = physique_good_1 }
+				modifier = { factor = 0.5 has_trait = physique_good_2 }
+				modifier = { factor = 0.5 has_trait = physique_good_3 }
+				modifier = { factor = 0 has_trait = pensive } # Pensive aren't always bookworms, and being willing to contemplate on training is a plus
+				modifier = { factor = 0 has_trait = brave }
+			}
+		}
+		if = {
+			limit = { has_trait = rowdy }
+			change_variable = { name = valor_education_score add = 25 }
+		}
+		if = {
+			limit = { has_focus = education_martial }
+			change_variable = { name = valor_education_score add = 75 }
+		}
+		# Redundant. The Story Cycle can track all this.
+		# if = {
+		# 	limit = { has_character_flag = is_army_brat }
+		# 	# Flag for child asking parent to particpate in war. Most experience should be actual battles fought, but flat annual XP bonus to reward long-lasting wars.
+		# 	change_variable = { name = valor_education_score add = 100 }
+		# }
+		if = {
+			limit = { exists = scope:educator }
+			if = {
+				limit = { scope:educator = { prowess_diff = { target = ROOT value >= 4 } } }
+				change_variable = { name = valor_education_score add = 30 }
+			}
+			if = {
+				limit = { scope:educator = { prowess_diff = { target = ROOT value >= 7 } } }
+				change_variable = { name = valor_education_score add = 25 }
+			}
+			if = {
+				limit = { scope:educator = { prowess_diff = { target = ROOT value >= 10 } } }
+				change_variable = { name = valor_education_score add = 20 }
+			}
+			if = {
+				limit = { scope:educator = { prowess_diff = { target = ROOT value >= 12 } } }
+				change_variable = { name = valor_education_score add = 15 }
+			}
+			if = {
+				limit = { scope:educator = { prowess_diff = { target = ROOT value >= 15 } } }
+				change_variable = { name = valor_education_score add = 10 }
+			}
+			if = {
+				limit = {
+					scope:educator = {
+						has_trait = lifestyle_blademaster
+						has_trait_xp = {
+							TRAIT = lifestyle_blademaster
+							value < 50
+						}
+					}
+				}
+				change_variable = { name = valor_education_score add = 10 }
+			}
+			if = {
+				limit = {
+					scope:educator = {
+						has_trait = lifestyle_blademaster
+						has_trait_xp = {
+							TRAIT = lifestyle_blademaster
+							value >= 50
+							value < 100
+						}
+					}
+				}
+				change_variable = { name = valor_education_score add = 20 }
+			}
+			if = {
+				limit = {
+					scope:educator = {
+						has_trait = lifestyle_blademaster
+						has_trait_xp = {
+							TRAIT = lifestyle_blademaster
+							value >= 100
+						}
+					}
+				}
+				change_variable = { name = valor_education_score add = 30 }
+			}
+			if = {
+				limit = { scope:educator = { has_trait = education_martial_prowess } }
+				change_variable = { name = valor_education_score add = 10 }
+			}
+			if = {
+				limit = { scope:educator = { has_trait = education_martial } }
+				change_variable = { name = valor_education_score add = 5 }
+			}
+			if = {
+				limit = { exists = var:education_martial_variable }
+				change_variable = { name = valor_education_score add = var:education_martial_variable }
+			}
+		} # Has Educator
+		if = {
+			limit = { has_trait = diligent }
+			change_variable = { name = valor_education_score multiply = 1.05 }
+		}
+	} # Has valor_education_score
+	else = {
+		set_variable = {
+			name = valor_education_score
+			value = 0
+		}			
+	}
+	if = {
+		limit = {
+			var:valor_education_score <= 1000
+		}
+		set_trait_rank = {
+			trait = valor_child_prowess
+			rank = 0
+		}
+		set_variable = {
+			name = education_prowess_variable
+			value = 0
+		}
+	}
+	else_if = {
+		limit = {
+			var:valor_education_score >= 1000
+			var:valor_education_score < 2000
+		}
+		set_trait_rank = {
+			trait = valor_child_prowess
+			rank = 1
+		}
+		set_variable = {
+			name = education_prowess_variable
+			value = 3
+		}
+	}
+	else_if = {
+		limit = {
+			var:valor_education_score >= 2000
+			var:valor_education_score < 3000
+		}
+		set_trait_rank = {
+			trait = valor_child_prowess
+			rank = 2
+		}
+		set_variable = {
+			name = education_prowess_variable
+			value = education_level_1
+		}
+	}
+	else_if = {
+		limit = {
+			var:valor_education_score >= 3000
+			var:valor_education_score < 4000
+		}
+		set_trait_rank = {
+			trait = valor_child_prowess
+			rank = 3
+		}
+		set_variable = {
+			name = education_prowess_variable
+			value = education_level_2
+		}
+	}
+	else_if = {
+		# Need to use else_if in case the child didn't have the education score setup, such as at 5 years old or is ineligible
+		limit = {
+			var:valor_education_score >= 4000
+		}
+		set_trait_rank = {
+			trait = valor_child_prowess
+			rank = 4
+		}
+		set_variable = {
+			name = education_prowess_variable
+			value = education_level_3 # education_level_3 is Rank 4
+		}
+	}
+}
+
+
+# Abstracting 10 years of education at adulthood.
+house_valor_education_abstract = {
+	if = {
+		limit = { NOT = { exists = var:valor_education_score } }
+		set_variable = {
+			name = valor_education_score
+			value = 0
+		}			
+	}
+	# if = {
+	# 	limit = { exists = var:valor_education_score }
+		if = {
+			limit = { NOT = { has_character_flag = training_weapons_in_secret } }
+			random_relation = {
+				type = guardian
+				save_scope_as = educator
+			}
+			if = {
+				limit = { father = { prowess_diff = { target = ROOT.mother value > 0 } } }
+				father = { save_scope_as = parent }
+			}
+			else = {
+				mother = { save_scope_as = parent }
+				# They don't need to be alive; that's the guardian's job.
+				# Dead parents can still either pass on influence by genes or inspire children ty train harder by reputation
+				#  or those around them would directly or subconsciously encourage the child in this regard
+			}
+			if = {
+				limit = { exists = scope:parent }
+				if = {	# Passive exp should be low; Bulk of the exp should come from educator/education.
+					limit = { scope:parent = { prowess_diff = { target = ROOT value >= 4 } } }
+					change_variable = { name = valor_education_score add = 100 }
+				}
+				if = {
+					limit = { scope:parent = { prowess_diff = { target = ROOT value >= 7 } } }
+					change_variable = { name = valor_education_score add = 100 }
+				}
+				if = {
+					limit = { scope:parent = { prowess_diff = { target = ROOT value >= 10 } } }
+					change_variable = { name = valor_education_score add = 100 }
+				}
+				if = {
+					limit = { scope:parent = { prowess_diff = { target = ROOT value >= 12 } } }
+					change_variable = { name = valor_education_score add = 100 }
+				}
+				if = {
+					limit = { scope:parent = { prowess_diff = { target = ROOT value >= 15 } } }
+					change_variable = { name = valor_education_score add = 100 }
+				}
+			} # Parents Exists; Not a generated/first gen character.
+		} # Not Training in Secret
+		# else = {
+			# Code for setting up best friend or sibling that's secretly doing the training
+			# Relevant events not yet implemented
+		# }
+		if = {
+			limit = { has_trait = lazy }
+			change_variable = { name = valor_education_score multiply = 0.66 }
+		}
+		random_list = {
+			10 = {
+				change_variable = { name = valor_education_score add = 2000 }
+				modifier = { factor = 2 has_trait = physique_good_3 }
+				modifier = { factor = 0 has_trait = physique_bad_1 }
+				modifier = { factor = 0 has_trait = physique_bad_2 }
+				modifier = { factor = 0 has_trait = physique_bad_3 }
+				modifier = { factor = 0 has_trait = dwarf }
+				modifier = { factor = 0 has_trait = spindly }
+				modifier = { factor = 0 has_trait = wheezing }
+				modifier = { factor = 0 has_trait = hunchbacked }
+				modifier = { factor = 0 has_trait = bleeder }
+				modifier = { add = -10 has_trait = pensive }
+				modifier = { add = 10 has_trait = brave }
+				# Being scared of battle does not automatically mean no chance of good swordsmanship in a controlled, safe environment
+				modifier = { add = -5 has_trait = craven }
+			}
+			30 = {
+				change_variable = { name = valor_education_score add = 1500 }
+				modifier = { factor = 2 has_trait = physique_good_2 }
+				modifier = { factor = 2 has_trait = physique_good_3 }
+				modifier = { add = -10 has_trait = physique_bad_2 }
+				modifier = { add = -15 has_trait = physique_bad_3 }
+				modifier = { factor = 0.5 has_trait = dwarf }
+				modifier = { factor = 0.5 has_trait = spindly }
+				modifier = { factor = 0.5 has_trait = wheezing }
+				modifier = { factor = 0.5 has_trait = hunchbacked }
+				modifier = { factor = 0.5 has_trait = bleeder }
+				modifier = { add = 15 has_trait = brave }
+			}
+			35 = {
+				change_variable = { name = valor_education_score add = 1000 }
+				modifier = { factor = 1.5 has_trait = physique_good_1 }
+				modifier = { factor = 1.5 has_trait = physique_good_2 }
+				modifier = { factor = 1.5 has_trait = physique_bad_1 }
+				modifier = { factor = 1.5 has_trait = physique_bad_2 }
+				modifier = { factor = 1.5 has_trait = dwarf }
+				# Being scared of battle does not automatically mean no chance of good swordsmanship in a controlled, safe environment
+				modifier = { add = 10 has_trait = craven }
+			}
+			15 = {
+				change_variable = { name = valor_education_score add = 750 }
+				modifier = { factor = 2 has_trait = physique_bad_2 }
+				modifier = { factor = 2 has_trait = physique_bad_3 }
+				modifier = { factor = 0.5 has_trait = physique_good_2 }
+				modifier = { factor = 0.5 has_trait = physique_good_3 }
+				modifier = { factor = 1.5 has_trait = dwarf }
+				modifier = { factor = 0 has_trait = brave }
+			}
+			10 = {
+				change_variable = { name = valor_education_score add = 500 }
+				modifier = { factor = 2 has_trait = physique_bad_3 }
+				modifier = { factor = 0.5 has_trait = physique_good_1 }
+				modifier = { factor = 0.5 has_trait = physique_good_2 }
+				modifier = { factor = 0.5 has_trait = physique_good_3 }
+				modifier = { factor = 0 has_trait = pensive } # Pensive aren't always bookworms, and being willing to contemplate on training is a plus
+				modifier = { factor = 0 has_trait = brave }
+			}
+		}
+		if = {
+			limit = { has_trait = rowdy }
+			change_variable = { name = valor_education_score add = 250 }
+		}
+		if = {
+			limit = { has_focus = education_martial }
+			change_variable = { name = valor_education_score add = 750 }
+		}
+		# Redundant. The Story Cycle can track all this.
+		# if = {
+		# 	limit = { has_character_flag = is_army_brat }
+		# 	# Flag for child asking parent to particpate in war. Most experience should be actual battles fought, but flat annual XP bonus to reward long-lasting wars.
+		# 	change_variable = { name = valor_education_score add = 100 }
+		# }
+		if = {
+			limit = { exists = scope:educator }
+			if = {
+				limit = { scope:educator = { prowess_diff = { target = ROOT value >= 4 } } }
+				change_variable = { name = valor_education_score add = 300 }
+			}
+			if = {
+				limit = { scope:educator = { prowess_diff = { target = ROOT value >= 7 } } }
+				change_variable = { name = valor_education_score add = 250 }
+			}
+			if = {
+				limit = { scope:educator = { prowess_diff = { target = ROOT value >= 10 } } }
+				change_variable = { name = valor_education_score add = 200 }
+			}
+			if = {
+				limit = { scope:educator = { prowess_diff = { target = ROOT value >= 12 } } }
+				change_variable = { name = valor_education_score add = 150 }
+			}
+			if = {
+				limit = { scope:educator = { prowess_diff = { target = ROOT value >= 15 } } }
+				change_variable = { name = valor_education_score add = 100 }
+			}
+			if = {
+				limit = {
+					scope:educator = {
+						has_trait = lifestyle_blademaster
+						has_trait_xp = {
+							TRAIT = lifestyle_blademaster
+							value < 50
+						}
+					}
+				}
+				change_variable = { name = valor_education_score add = 100 }
+			}
+			if = {
+				limit = {
+					scope:educator = {
+						has_trait = lifestyle_blademaster
+						has_trait_xp = {
+							TRAIT = lifestyle_blademaster
+							value >= 50
+							value < 100
+						}
+					}
+				}
+				change_variable = { name = valor_education_score add = 200 }
+			}
+			if = {
+				limit = {
+					scope:educator = {
+						has_trait = lifestyle_blademaster
+						has_trait_xp = {
+							TRAIT = lifestyle_blademaster
+							value >= 100
+						}
+					}
+				}
+				change_variable = { name = valor_education_score add = 300 }
+			}
+			if = {
+				limit = { scope:educator = { has_trait = education_martial_prowess } }
+				change_variable = { name = valor_education_score add = 100 }
+			}
+			if = {
+				limit = { scope:educator = { has_trait = education_martial } }
+				change_variable = { name = valor_education_score add = 50 }
+			}
+			# if = {
+			# 	limit = { exists = var:education_martial_variable }
+			# 	change_variable = { name = valor_education_score add = var:education_martial_variable }
+			# }
+			# Replaced by educator_skill_effect in the abstraction
+			set_variable = {
+				name = educator_skill_effect
+				value = {
+					value = scope:educator.prowess
+					multiply = 2
+				}
+			}
+			change_variable = {
+				name = educator_skill_effect
+ 				add = scope:educator.learning
+			}
+			change_variable = { name = educator_skill_effect multiply = 100 }
+			change_variable = { name = valor_education_score add = var:educator_skill_effect }
+		} # Has Educator
+		if = {
+			limit = { has_trait = diligent }
+			change_variable = { name = valor_education_score multiply = 1.25 }
+			if = {
+				limit = { var:valor_education_score < 2000 }
+				set_variable = { name = valor_education_score value = 2500 }
+			}
+		}
+	# } # Has valor_education_score
+	# else = {
+	# 	set_variable = {
+	# 		name = valor_education_score
+	# 		value = 0
+	# 	}			
+	# }
+	if = {
+		limit = {
+			var:valor_education_score <= 1000
+		}
+#		set_trait_rank = {
+#			trait = valor_child_prowess
+#			rank = 0
+#		}
+		set_variable = {
+			name = education_prowess_variable
+			value = 0
+		}
+	}
+	else_if = {
+		limit = {
+			var:valor_education_score >= 1000
+			var:valor_education_score < 2000
+		}
+#		set_trait_rank = {
+#			trait = valor_child_prowess
+#			rank = 1
+#		}
+		set_variable = {
+			name = education_prowess_variable
+			value = 3
+		}
+	}
+	else_if = {
+		limit = {
+			var:valor_education_score >= 2000
+			var:valor_education_score < 3000
+		}
+#		set_trait_rank = {
+#			trait = valor_child_prowess
+#			rank = 2
+#		}
+		set_variable = {
+			name = education_prowess_variable
+			value = education_level_1
+		}
+	}
+	else_if = {
+		limit = {
+			var:valor_education_score >= 3000
+			var:valor_education_score < 4000
+		}
+#		set_trait_rank = {
+#			trait = valor_child_prowess
+#			rank = 3
+#		}
+		set_variable = {
+			name = education_prowess_variable
+			value = education_level_2
+		}
+	}
+	else_if = {
+		# Need to use else_if in case the child didn't have the education score setup, such as at 5 years old or is ineligible
+		limit = {
+			var:valor_education_score >= 4000
+		}
+#		set_trait_rank = {
+#			trait = valor_child_prowess
+#			rank = 4
+#		}
+		set_variable = {
+			name = education_prowess_variable
+			value = education_level_3 # education_level_3 is Rank 4
+		}
+	}
+}

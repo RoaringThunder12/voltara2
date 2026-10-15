@@ -1,0 +1,103 @@
+﻿on_death = { on_actions = { on_killed } } 
+# Fire a custom on_action, to avoid using the effect block of vanilla on_actions, which would override the vanilla version and cause problems
+
+on_killed = {
+	trigger = {
+		exists = scope:killer
+		NOT = { house = scope:killer.house }
+#		house = { has_house_modifier = trad_vengeance }
+# Should always be tracking; any new cadet house could potentially vow for vengeance. Future features may be able to leverage this, too.
+	}
+	effect = {
+		house = {
+			add_to_variable_list = {
+				name = killed_house_members
+				target = ROOT
+			}
+			every_in_list = {
+				variable = killed_house_members
+				limit = {
+					OR = {
+						killer = { is_alive = no }
+						killer = { house = PREV.house }
+					}
+				}
+				PREV = {
+					remove_list_variable = {
+						name = killed_house_members
+						target = PREV
+					}
+				} # PREV
+			} # Every In List
+		} # House
+	} # Effect
+} # on_killed
+
+## Sample Code block to set house relations. Cap at quarrelling/rivaling if house member killed?
+## Valid Relationship tiers: 	feud	rivalry		quarrel		neutral		cordial		friendly		amity
+#				house = {
+#					set_house_relation = {
+#						target = root.house
+#						level = rivalry
+#						description = house_relation_friendly_reason_cadet_branch_permission_desc
+#					}
+#				}
+
+#					house = {
+#						change_house_relation_effect = {
+#							HOUSE = root.house
+#							VALUE = house_relation_damage_minor_value
+#							REASON = sake_insult
+#							CHAR = root
+#							TARGET_CHAR = scope:clumsy_oaf
+#							TITLE = scope:dummy_gender
+#						}
+#					}
+
+
+
+# Might be hard coded to vanilla relationship death/removal.
+# on_remove_relation_rival = { on_actions = { find_new_rival }
+# on_death_relation_rival = { on_actions = { find_new_rival }
+
+# Doesn't seem to work
+find_new_rival = {
+	trigger = { house = { has_house_modifier = trad_vengeance } }
+	effect = {
+		house = {
+			random_in_list = {
+				variable = killed_house_members
+				limit = {
+					killer = { is_alive = yes }
+					killer = {
+						NOT = {
+	#						any_relation = {
+	#							has_relation_flag = {
+	#								target = ROOT
+	#								relation = rival
+	#							}
+	#						}
+							any_relation = {
+								type = rival
+								this = ROOT
+							}
+	#						any_relation = {
+	#							has_relation_flag = {
+	#								target = ROOT
+	#								relation = nemesis
+	#							}
+	#						}
+							any_relation = {
+								type = nemesis
+								this = ROOT
+							}
+						} # OR
+					}
+				} # Limit
+				save_scope_as = murdered_relative
+			}
+		}
+		#set_relation_rival = scope:murdered_relative.killer
+		trigger_event = house_vendetta.0002
+	}
+}

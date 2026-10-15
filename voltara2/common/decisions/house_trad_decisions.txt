@@ -1,0 +1,169 @@
+﻿establish_house_traditions_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
+
+	decision_group_type = major
+	ai_check_interval = 24
+	
+	is_shown = {
+ NOR = { has_trait = voltara_ruins_keeper has_trait = dragon has_government = voltara_ruins_government }
+
+		exists = house
+
+		exists = house.house_head
+		is_house_head = yes
+		primary_title.tier > tier_barony
+		NOR = {
+			has_government = holy_order_government
+			has_government = theocracy_government
+			AND = {
+				faith = { has_doctrine = doctrine_theocracy_temporal }
+				has_council_position = councillor_court_chaplain
+			}
+		}
+		house = {
+			NOT = {
+				has_house_modifier = trad_valor
+				has_house_modifier = trad_honor
+				has_house_modifier = trad_duty
+				has_house_modifier = trad_justice
+				has_house_modifier = trad_vengeance
+				has_house_modifier = trad_pride
+				has_house_modifier = trad_respect	#authority
+				has_house_modifier = trad_power
+				has_house_modifier = trad_influence
+				has_house_modifier = trad_guile
+				has_house_modifier = trad_survival	#perseverance
+				has_house_modifier = trad_vigilance
+				has_house_modifier = trad_peace
+				has_house_modifier = trad_fortune
+				has_house_modifier = trad_knowledge
+				has_house_modifier = trad_truth
+				has_house_modifier = trad_wisdom
+				has_house_modifier = trad_devotion
+				has_house_modifier = trad_family
+				has_house_modifier = trad_compassion
+				has_house_modifier = trad_joy
+				has_house_modifier = trad_distinction
+				has_house_modifier = trad_freedom
+			}
+		}
+	}
+
+	is_valid = {
+		# custom_description = {
+		# 	text = establish_house_traditions_validate
+		# }
+	}
+	is_valid_showing_failures_only = {
+		#is_available_adult = yes
+		is_adult = yes
+		custom_tooltip = {
+			text = establish_house_traditions_validate
+			OR = {
+				is_landed_or_landless_administrative = yes
+				# any_held_title = { is_noble_family_title = yes }		# Seems to be redundant.
+				# government_has_flag = government_is_administrative	# Seems to be redundant.
+				AND = {
+					is_playable_character = yes # To include landless, but for House Tradition purposes its only Estate Holders & Legitimist camps.
+					has_realm_law = camp_purpose_legitimists
+				}
+			}
+		}
+	}
+
+	effect = {
+		# Adopt traditions event
+		show_as_tooltip = {
+			custom_tooltip = establish_house_traditions_effect_1
+		}
+		show_as_tooltip = {
+			custom_tooltip = establish_house_traditions_effect_2
+		}
+		show_as_tooltip = {
+			custom_tooltip = establish_house_traditions_effect_3
+		}
+		trigger_event = house_trad.0001
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+demand_fealty_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/character_view/throneroom_west.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 24
+	
+	is_shown = {
+ NOR = { has_trait = voltara_ruins_keeper has_trait = dragon has_government = voltara_ruins_government }
+
+		is_landed = yes
+		exists = house
+
+		#exists = house.house_head
+		primary_title.tier > tier_barony
+		NOR = {
+			has_government = holy_order_government
+			has_government = theocracy_government
+			AND = {
+				faith = { has_doctrine = doctrine_theocracy_temporal }
+				has_council_position = councillor_court_chaplain
+			}
+		}
+		house = {
+			has_house_modifier = trad_respect	#authority
+		}
+		NOT = { has_character_flag = has_demanded_fealty_from_vassals }
+	}
+
+	is_valid = {
+		# custom_description = {
+		# 	test = establish_house_traditions_effect
+		# }
+	}
+	is_valid_showing_failures_only = {
+		#is_available_adult = yes
+		#is_adult = yes
+		age >= 10
+		is_landed = yes
+	}
+
+	effect = {
+		# Demand Fealty event
+		add_character_flag = {
+			flag = has_demanded_fealty_from_vassals
+			#years = max
+		}
+		show_as_tooltip = {
+			custom_tooltip = demand_fealty_decision_effect_1
+		}
+		show_as_tooltip = {
+			custom_tooltip = demand_fealty_decision_effect_2
+		}
+		show_as_tooltip = {
+			custom_tooltip = demand_fealty_decision_effect_3
+		}
+		trigger_event = {
+			id = house_respect.0001
+			days = 7 
+		}
+	}
+	
+	ai_potential = {
+		always = no # The AI realm will likely collapse from factions with this decision.
+		# any_targeting_faction = {
+		# 	faction_power >= 60 # Direct percentage as whole number
+		# }
+	}
+	ai_will_do = {
+		base = 100
+	}
+}

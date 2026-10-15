@@ -1,0 +1,17 @@
+﻿l_english:
+ house_traditions_settings_decision:0 "House Traditions Mod Settings"
+ house_traditions_settings_decision_tooltip:0 "Open the menu for configuring House Traditions Mod Settings."
+ house_traditions_settings_decision_desc:0 "Open the menu for configuring House Traditions Mod Settings."
+ house_traditions_settings_effect_1:0 "Currently, there is only the option to toggle 'Marriage Compatibility' calculations between different houses."
+ house_traditions_settings_decision_confirm:0 "Open the Menu."
+
+ house_trad_settings.0001.t:0 "House Traditions Mod Settings"
+ house_trad_settings.0001.desc:0 "This menu is for the collection of settings for the House Traditions Mod. Currently, there is only the option to toggle 'Marriage Compatibility' calculations between different houses, which is inconsistently causing performance issues for some players when using the 'Find Spouse' tool. This feature was intended to impose significant, but not outright prohibitive restrictions for conventionally incompatible Houses, for example, an Honorable house may be less inclined to accept marriage propositions from a house that values Guile. Turning it off will fall back to vanilla marriage arrangements which for the most part the AI only looks at prestige and is highly random beyond that. Please turn it off only if the 'Find Spouse' performance issue is detrimental to your enjoyment of the game.\n\nIf you are satisfied with the setting and are 100% sure you won't change your mind, you can select the second to last option to PERMANENTLY hide the House Traditions Mod Settings menu from the game so that no longer takes up space in your Decisions menu."
+
+ house_trad_settings.0001.on_desc:0 "Marriage Compatibility is currently #P ON#."
+ house_trad_settings.0001.off_desc:0 "Marriage Compatibility is currently #N OFF#."
+
+ house_trad_settings.0001.on:0 "Enable Marriage Compatibility"
+ house_trad_settings.0001.off:0 "Disable Marriage Compatibility"
+ house_trad_settings.0001.hide:0 "Permanently Hide this Menu"
+ house_trad_settings.0001.cancel:0 "Close this Menu with No Change"

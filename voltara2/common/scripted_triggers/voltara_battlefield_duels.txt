@@ -1,0 +1,43 @@
+﻿voltara_duel_opposing_battle_sides = {
+ scope:actor != scope:recipient
+ OR = {
+AND = {
+  exists = scope:actor.commanding_army.involved_combat_side
+  exists = scope:recipient.commanding_army.involved_combat_side
+  scope:actor.commanding_army = { is_army_in_combat = yes }
+  scope:recipient.commanding_army = { is_army_in_combat = yes }
+  scope:actor.commanding_army.involved_combat_side.enemy_side = { this = scope:recipient.commanding_army.involved_combat_side }
+ }
+AND = {
+  exists = scope:actor.commanding_army.involved_combat_side
+  exists = scope:recipient.knight_army.involved_combat_side
+  scope:actor.commanding_army = { is_army_in_combat = yes }
+  scope:recipient.knight_army = { is_army_in_combat = yes }
+  scope:actor.commanding_army.involved_combat_side.enemy_side = { this = scope:recipient.knight_army.involved_combat_side }
+ }
+AND = {
+  exists = scope:actor.knight_army.involved_combat_side
+  exists = scope:recipient.commanding_army.involved_combat_side
+  scope:actor.knight_army = { is_army_in_combat = yes }
+  scope:recipient.commanding_army = { is_army_in_combat = yes }
+  scope:actor.knight_army.involved_combat_side.enemy_side = { this = scope:recipient.commanding_army.involved_combat_side }
+ }
+AND = {
+  exists = scope:actor.knight_army.involved_combat_side
+  exists = scope:recipient.knight_army.involved_combat_side
+  scope:actor.knight_army = { is_army_in_combat = yes }
+  scope:recipient.knight_army = { is_army_in_combat = yes }
+  scope:actor.knight_army.involved_combat_side.enemy_side = { this = scope:recipient.knight_army.involved_combat_side }
+ }
+ }
+}
+voltara_battlefield_duelist_ready = {
+ is_alive = yes is_adult = yes is_imprisoned = no
+ NOR = {
+  has_trait = incapable has_trait = dragon
+  has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins
+  has_variable = engaged_in_single_combat
+  has_character_flag = voltara_battle_duel_busy
+  has_character_flag = voltara_battle_duel_cooldown
+ }
+}

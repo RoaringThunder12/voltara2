@@ -1,0 +1,23 @@
+﻿
+namespace = voltara_mega_wars
+voltara_mega_wars.1 = {
+ type = character_event
+ title = voltara_mega_wars.1.t desc = voltara_mega_wars.1.desc
+ theme = war
+ left_portrait = { character = root }
+ trigger = { primary_title = { exists = var:voltara_mw_war } }
+ option = {
+  name = voltara_mega_wars.1.loyal
+  voltara_mw_join_crown = yes
+  ai_chance = { base = 60 modifier = { add = 40 has_trait = loyal } modifier = { add = -30 has_trait = ambitious } }
+ }
+ option = {
+  name = voltara_mega_wars.1.rebel
+  voltara_mw_join_opposition = yes
+  ai_chance = { base = 10 modifier = { add = 30 has_trait = ambitious } modifier = { factor = 0 has_trait = loyal } }
+ }
+ option = {
+  name = voltara_mega_wars.1.neutral
+  ai_chance = { base = 30 modifier = { add = 30 has_trait = craven } }
+ }
+}

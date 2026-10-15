@@ -1,0 +1,22 @@
+﻿voltara_ironcoil_traits = {
+ if = { limit = { culture = culture:voltara_ironcoil_naga }
+  if = { limit = { NOT = { has_trait = physique_good } } add_trait = physique_good_1 }
+  if = { limit = { NOR = { has_trait = voltara_lifespan_1 has_trait = voltara_lifespan_2 has_trait = voltara_lifespan_3 has_trait = voltara_lifespan_4 } } add_trait = voltara_lifespan_1 }
+ }
+}
+voltara_orc_spiritual_life = {
+ if = { limit = { culture = culture:voltara_culture_20 is_adult = yes NOT = { has_character_flag = voltara_orc_shaman_checked } }
+  add_character_flag = voltara_orc_shaman_checked
+  if = { limit = { NOT = { has_trait = education_magic } }
+   random = { chance = 30 add_trait = vt_ek_education_magic_2 add_trait = voltara_orc_shaman voltara_initialize_threadbinder = yes }
+  }
+ }
+}
+
+voltara_orc_undead_opinions = {
+ save_scope_as = voltara_orc_observer
+ every_living_character = { limit = { OR = { has_trait = supernatural_vampire has_trait = vampire_character vt_ek_is_undead = yes } }
+  save_scope_as = voltara_undead_target
+  scope:voltara_orc_observer = { add_opinion = { target = scope:voltara_undead_target modifier = voltara_orc_abhors_undeath years = 2 } }
+ }
+}

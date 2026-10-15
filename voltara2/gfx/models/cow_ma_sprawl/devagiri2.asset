@@ -1,0 +1,32 @@
+pdxmesh = {
+	name = "devagiri2_mesh"
+	file = "devagiri2.mesh"
+
+	meshsettings = {
+		name = "devagiri_city2_decal"
+		index = 0
+		texture_diffuse = "aurelian_walls_decal.dds"
+		texture_normal = "fp3_building_special_great_wall_of_gorgan_01_b_normal.dds"
+		texture_specular = "fp3_building_special_great_wall_of_gorgan_01_b_properties.dds"
+		shader = "decal_local"
+		shader_file = "gfx/FX/pdxmesh_decal.shader"
+		subpass = "LocalDecals"
+	}
+
+	meshsettings = {
+		name = "devagiri_city2"
+		index = 0
+		texture_diffuse = "building_indian_atlas_diffuse.dds"
+		texture_normal = "building_indian_atlas_normal.dds"
+		texture_specular = "building_indian_atlas_properties.dds"
+		texture = { file = "devagiri.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+}
+
+entity = {
+	name = "devagiri2_entity"
+	pdxmesh = "devagiri2_mesh"
+}

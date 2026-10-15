@@ -1,0 +1,57 @@
+﻿# Character scope — shared burge limit checks (upgrade / important actions)
+cow_has_city_of_wonder_province_trigger = {
+	OR = {
+		has_province_modifier = city_of_wonder_modifier
+		has_province_modifier = city_of_wonder_2_modifier
+		has_province_modifier = city_of_wonder_3_modifier
+	}
+}
+
+cow_meets_1_burge_limit_for_upgrade_trigger = {
+	AND = {
+		any_held_title = {
+			count <= 1
+			tier = tier_barony
+			title_province = { cow_has_city_of_wonder_province_trigger = yes }
+		}
+		top_liege = {
+			any_sub_realm_barony = {
+				title_province = { cow_has_city_of_wonder_province_trigger = yes }
+				count <= 2
+			}
+		}
+	}
+}
+
+cow_meets_2_burge_limit_for_upgrade_trigger = {
+	AND = {
+		any_held_title = {
+			count <= 2
+			tier = tier_barony
+			title_province = { cow_has_city_of_wonder_province_trigger = yes }
+		}
+		top_liege = {
+			any_sub_realm_barony = {
+				title_province = { cow_has_city_of_wonder_province_trigger = yes }
+				count <= 5
+			}
+		}
+	}
+}
+
+cow_meets_5_burge_limit_for_upgrade_trigger = {
+	AND = {
+		has_game_rule = 5_burge_limit
+		any_held_title = {
+			count <= 5
+			tier = tier_barony
+			title_province = { cow_has_city_of_wonder_province_trigger = yes }
+		}
+		top_liege = {
+			any_sub_realm_barony = {
+				title_province = { cow_has_city_of_wonder_province_trigger = yes }
+				count <= 9
+			}
+		}
+	}
+}

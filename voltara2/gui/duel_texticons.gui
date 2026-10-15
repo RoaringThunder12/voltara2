@@ -1,0 +1,160 @@
+texticon = {
+	icon = health_green
+	iconsize = {
+		texture = "gfx/health_green.dds"
+		size = { 20 20 }
+		offset = { -4 4 }
+		fontsize = 16
+	}
+}
+
+texticon = {
+	icon = health_positive
+	iconsize = {
+		texture = "gfx/health_positive.dds"
+		size = { 20 20 }
+		offset = { -4 4 }
+		fontsize = 16
+	}
+}
+
+texticon = {
+	icon = health_plus
+	iconsize = {
+		texture = "gfx/health_plus.dds"
+		size = { 20 20 }
+		offset = { -4 4 }
+		fontsize = 16
+	}
+}
+
+texticon = {
+	icon = health_yellow
+	iconsize = {
+		texture = "gfx/health_yellow.dds"
+		size = { 20 20 }
+		offset = { -4 4 }
+		fontsize = 16
+	}
+}
+
+texticon = {
+	icon = health_negative
+	iconsize = {
+		texture = "gfx/health_negative.dds"
+		size = { 20 20 }
+		offset = { -4 4 }
+		fontsize = 16
+	}
+}
+
+texticon = {
+	icon = health_black
+	iconsize = {
+		texture = "gfx/health_black.dds"
+		size = { 20 20 }
+		offset = { -4 4 }
+		fontsize = 16
+	}
+}
+
+texticon = {
+	icon = health_broken
+	iconsize = {
+		texture = "gfx/health_broken.dds"
+		size = { 20 20 }
+		offset = { -4 4 }
+		fontsize = 16
+	}
+}
+
+
+texticon = {
+	icon = prowess_triple
+	iconsize = {
+		texture = "gfx/prowess_triple.dds"
+		size = { 20 20 }
+		offset = { -4 4 }
+		fontsize = 16
+	}
+}
+
+texticon = {
+	icon = prowess_blue
+	iconsize = {
+		texture = "gfx/prowess_blue.dds"
+		size = { 20 20 }
+		offset = { -4 4 }
+		fontsize = 16
+	}
+}
+
+texticon = {
+	icon = prowess_double
+	iconsize = {
+		texture = "gfx/prowess_double.dds"
+		size = { 25 25 }
+		offset = { 0 6 }
+		fontsize = 16
+	}
+}
+
+texticon = {
+	icon = prowess_positive
+	iconsize = {
+		texture = "gfx/prowess_positive.dds"
+		size = { 25 25 }
+		offset = { 0 6 }
+		fontsize = 16
+	}
+}
+
+texticon = {
+	icon = prowess_yellow
+	iconsize = {
+		texture = "gfx/prowess_yellow.dds"
+		size = { 25 25 }
+		offset = { 0 6 }
+		fontsize = 16
+	}
+}
+
+texticon = {
+	icon = prowess_negative
+	iconsize = {
+		texture = "gfx/prowess_dagger.dds"
+		size = { 25 25 }
+		offset = { 0 6 }
+		fontsize = 16
+	}
+}
+
+texticon = {
+	icon = prowess_none
+	iconsize = {
+		texture = "gfx/prowess_none.dds"
+		size = { 25 25 }
+		offset = { 0 6 }
+		fontsize = 16
+	}
+}
+
+texticon = {
+	icon = dice_red_green
+	iconsize = {
+		texture = "gfx/dice_red_green.dds"
+		size = { 25 25 }
+		offset = { 0 6 }
+		fontsize = 16
+	}
+}
+
+texticon = {
+	icon = snek
+	iconsize = {
+		texture = "gfx/snek.dds"
+		size = { 21 24 }
+		offset = { 0 6 }
+		fontsize = 16
+	}
+}

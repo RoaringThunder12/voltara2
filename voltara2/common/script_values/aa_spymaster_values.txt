@@ -1,0 +1,208 @@
+﻿#66DA58E3C5598527FF5577EAE481B3B4F09D3770
+
+#9F3977B1B54F483416BE52013BECBC25EB6C510C
+spymaster_disrupt_schemes_modifier_final_scale = {
+	add = spymaster_disrupt_schemes_hostile_scheme_resistance_base
+	add = spymaster_disrupt_schemes_modifier_base_scale
+	add = spymaster_disrupt_schemes_court_of_shadows_modifier_scale
+	add = spymaster_disrupt_schemes_erudition_legacy_5_modifier_scale
+	add = spymaster_disrupt_schemes_family_business_modifier_scale
+	add = spymaster_disrupt_schemes_consulted_house_modifier_scale
+	add = spymaster_disrupt_schemes_spy_master_trait_discovery_modifier_scale
+	add = spymaster_disrupt_schemes_determination_modifier_scale
+}
+
+#5BC6BB6762CBBC1DD66649F03F66A305F4E221DB
+spymaster_disrupt_schemes_total_modifier = {
+	add = spymaster_disrupt_schemes_scheme_discovery_modifier
+	add = spymaster_disrupt_schemes_court_of_shadows_scheme_discovery_modifier_scale
+	add = spymaster_disrupt_schemes_erudition_legacy_5_discovery_modifier_scale
+	add = spymaster_disrupt_schemes_family_business_discovery_modifier_scale
+	add = spymaster_disrupt_schemes_consulted_house_discovery_modifier_scale
+	add = spymaster_disrupt_schemes_spy_master_trait_modifier_scale
+	add = spymaster_disrupt_schemes_determination_discovery_modifier_scale
+}
+
+#AA91C1C7EA4C2346CB38EF4150ECB1C21CBE5032
+spymaster_espionage_modifier_final_scale = {
+	add = spymaster_espionage_modifier_base_scale
+	add = spymaster_espionage_legacy_bonus
+	add = spymaster_espionage_family_business_bonus
+	add = spymaster_espionage_consulted_house_bonus
+	add = spymaster_espionage_court_type_bonus
+	add = spymaster_espionage_spy_master_trait_bonus
+	add = spymaster_espionage_determination_support_schemes_scale
+}
+
+#A80077026B3A19CAF2413B539534FA08104771F7
+spymaster_espionage_success_chance_total = {
+	add = spymaster_espionage_success_chance_base
+	add = spymaster_espionage_success_chance_modifier_base_scale
+	add = spymaster_espionage_success_chance_legacy_bonus
+	add = spymaster_espionage_success_chance_family_business_bonus
+	add = spymaster_espionage_success_chance_court_type_bonus
+	add = spymaster_espionage_success_chance_spy_master_trait_bonus
+	add = spymaster_espionage_consulted_house_bonus
+	add = spymaster_espionage_determination_support_schemes_bonus
+}
+
+# ========================= New value ===============================================
+
+spymaster_find_secrets_spy_master_monthly_increase = {
+	add = spymaster_find_secrets_base_total
+	if = {
+		limit = {
+			has_trait_xp = { trait = lifestyle_spymaster value >= 100 }
+		}
+		multiply = spy_master_task_spy_master_3_value
+	}
+	else_if = {
+		limit = {
+			has_trait_xp = { trait = lifestyle_spymaster value >= 50 }
+		}
+		multiply = spy_master_task_spy_master_2_value
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_spymaster
+		}
+		multiply = spy_master_task_spy_master_1_value
+	}
+}
+
+spy_master_task_spy_master_1_value = 0.05
+spy_master_task_spy_master_2_value = 0.10
+spy_master_task_spy_master_3_value = 0.15
+
+
+spymaster_disrupt_schemes_spy_master_trait_discovery_modifier_scale = {
+	value = 0
+	if = {
+		limit = {
+			has_trait_xp = { trait = lifestyle_spymaster value >= 100 }
+		}
+		add = {
+			value = spymaster_disrupt_schemes_hostile_scheme_resistance_base
+			add = spymaster_disrupt_schemes_modifier_base_scale
+			multiply = spy_master_task_spy_master_3_value
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait_xp = { trait = lifestyle_spymaster value >= 50 }
+		}
+		add = {
+			value = spymaster_disrupt_schemes_hostile_scheme_resistance_base
+			add = spymaster_disrupt_schemes_modifier_base_scale
+			multiply = spy_master_task_spy_master_2_value
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_spymaster
+		}
+		add = {
+			value = spymaster_disrupt_schemes_hostile_scheme_resistance_base
+			add = spymaster_disrupt_schemes_modifier_base_scale
+			multiply = spy_master_task_spy_master_1_value
+		}
+	}
+}
+
+spymaster_disrupt_schemes_spy_master_trait_modifier_scale = {
+	value = 0
+	if = {
+		limit = {
+			has_trait_xp = { trait = lifestyle_spymaster value >= 100 }
+		}
+		add = {
+			add = spymaster_disrupt_schemes_scheme_discovery_modifier
+			multiply = spy_master_task_spy_master_3_value
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait_xp = { trait = lifestyle_spymaster value >= 50 }
+		}
+		add = {
+			add = spymaster_disrupt_schemes_scheme_discovery_modifier
+			multiply = spy_master_task_spy_master_2_value
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_spymaster
+		}
+		add = {
+			add = spymaster_disrupt_schemes_scheme_discovery_modifier
+			multiply = spy_master_task_spy_master_1_value
+		}
+	}
+}
+
+
+spymaster_espionage_spy_master_trait_bonus = {
+	value = 0
+	if = {
+		limit = {
+			has_trait_xp = { trait = lifestyle_spymaster value >= 100 }
+		}
+		add = {
+			add = spymaster_espionage_modifier_base_scale
+			multiply = spy_master_task_spy_master_3_value
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait_xp = { trait = lifestyle_spymaster value >= 50 }
+		}
+		add = {
+			add = spymaster_espionage_modifier_base_scale
+			multiply = spy_master_task_spy_master_2_value
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_spymaster
+		}
+		add = {
+			add = spymaster_espionage_modifier_base_scale
+			multiply = spy_master_task_spy_master_1_value
+		}
+	}
+}
+
+
+spymaster_espionage_success_chance_spy_master_trait_bonus = {
+	value = 0
+	if = {
+		limit = {
+			has_trait_xp = { trait = lifestyle_spymaster value >= 100 }
+		}
+		add = {
+			value = spymaster_espionage_success_chance_base
+			add = spymaster_espionage_success_chance_modifier_base_scale
+			multiply = spy_master_task_spy_master_3_value
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait_xp = { trait = lifestyle_spymaster value >= 50 }
+		}
+		add = {
+			value = spymaster_espionage_success_chance_base
+			add = spymaster_espionage_success_chance_modifier_base_scale
+			multiply = spy_master_task_spy_master_2_value
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_spymaster
+		}
+		add = {
+			value = spymaster_espionage_success_chance_base
+			add = spymaster_espionage_success_chance_modifier_base_scale
+			multiply = spy_master_task_spy_master_1_value
+		}
+	}
+}

@@ -1,0 +1,247 @@
+﻿#92790C4F09FB27A62280408E44DEE1DEA6DD19E1
+
+#6DDD4A93B410EAD05896531F5F394638F77547AD
+marshal_train_commanders_monthly_chance_value = {	
+	value = marshal_train_commanders_monthly_chance_value_base
+	if = {
+		limit = {
+			councillor_liege_has_erudition_legacy_5_perk = yes
+		}
+		add = marshal_train_commanders_monthly_chance_erudition_bonus
+	}
+	if = {
+		limit = {
+			councillor_liege_has_family_business_bonus = yes
+		}
+		add = marshal_train_commanders_monthly_chance_family_business_bonus
+	}
+	if = {
+		limit = {
+			councillor_liege_has_consulted_house_bonus = yes
+		}
+		add = marshal_train_commanders_monthly_chance_consulted_house_bonus
+	}
+	if = {
+		limit = {
+			scope:councillor_liege = {
+				OR = {
+					has_character_modifier = employer_booner_master_of_horse_2_modifier
+					has_character_modifier = employer_booner_master_of_horse_3_modifier
+				}
+			}
+		}
+		add = marshal_train_commanders_monthly_chance_master_of_horse_bonus
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_chancellor
+		}
+		add = marshal_train_commanders_monthly_chance_marshal_lifestyle_trait_bonus
+	}
+}
+
+###increase county control
+
+#AA005F6A6ED1E503491C8E5C651C9A0BAB41FCF8
+marshal_organize_levies_modifier_total = {
+	add = marshal_organize_levies_base
+	add = marshal_organize_levies_skill_base
+	add = marshal_organize_levies_erudition_bonus
+	add = marshal_organize_levies_family_business_bonus
+	add = marshal_organize_levies_consulted_house_bonus
+	add = marshal_organize_levies_pandidakterion_bonus
+	add = marshal_organize_levies_marshal_life_style_trait_bonus 
+}
+
+###Organize levies
+
+#1558D7B49D8A2B1A8813FDD31BCBB7FE70015FD4
+marshal_organize_levies_maintenance_total = {
+	add = marshal_organize_levies_maintenance_base
+	add = marshal_organize_levies_maintenance_skill_base
+	add = marshal_organize_levies_maintenance_erudition_bonus
+	add = marshal_organize_levies_maintenance_family_business_bonus
+	add = marshal_organize_levies_maintenance_consulted_house_bonus
+	add = task_organize_levies_maintenance_pandidakterion_bonus
+	add = marshal_organize_levies_marshal_trait_bonus
+}
+
+#2B4CDB7347B6AA9F0E318BB9DA1BDE5AFC94A2D1
+marshal_overtime_boost_max = {
+	add = marshal_overtime_boost_base
+	add = marshal_manage_guards_max_erudition_bonus
+	add = marshal_manage_guards_max_family_business_bonus
+	add = marshal_manage_guards_max_consulted_house_bonus
+	add = marshal_manage_guards_max_marshal_lifestyle_trait_bonus
+}
+
+#3BC15A577D082972C6609CF959B00BBACFA5F999
+marshal_overtime_decrease_max = {
+	add = marshal_overtime_decrease_base
+	subtract = marshal_manage_guards_max_erudition_bonus
+	subtract = marshal_manage_guards_max_family_business_bonus
+	subtract = marshal_manage_guards_max_consulted_house_bonus
+	subtract = marshal_manage_guards_max_marshal_bonus
+}
+
+# ========================= New value ===============================================
+
+marshal_task_marshal_1_value = 0.05
+marshal_task_marshal_2_value = 0.10
+marshal_task_marshal_3_value = 0.15
+
+marshal_organize_levies_marshal_life_style_trait_bonus = {
+	value = marshal_organize_levies_base
+	add = marshal_organize_levies_skill_base
+	if = {
+		limit = {
+			has_trait_xp = { trait = lifestyle_marshal value >= 100 }
+		}
+		multiply = marshal_task_marshal_3_value
+	}
+	else_if = {
+		limit = {
+			has_trait_xp = { trait = lifestyle_marshal value >= 50 }
+		}
+		multiply = marshal_task_marshal_2_value
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_marshal
+		}
+		multiply = marshal_task_marshal_1_value
+	}
+}
+
+# Marshal lifestyle value
+marshal_train_commanders_monthly_chance_marshal_lifestyle_trait_bonus = {
+	add = marshal_train_commanders_monthly_chance_value_base
+	multiply = {
+		if = {
+			limit = {
+				has_trait_xp = { trait = lifestyle_marshal value >= 100 }
+			}
+			add = marshal_task_marshal_3_value
+		}
+		else_if = {
+			limit = {
+				has_trait_xp = { trait = lifestyle_marshal value >= 50 }
+			}
+			add = marshal_task_marshal_2_value
+		}
+		else_if = {
+			limit = {
+				has_trait = lifestyle_marshal
+			}
+			add = marshal_task_marshal_1_value
+		}
+	}
+}
+
+# Marshal lifestyle value
+marshal_manage_guards_max_marshal_lifestyle_trait_bonus = {
+	add = marshal_overtime_boost_base
+	multiply = {
+		if = {
+			limit = {
+				has_trait_xp = { trait = lifestyle_marshal value >= 100 }
+			}
+			add = marshal_task_marshal_3_value
+		}
+		else_if = {
+			limit = {
+				has_trait_xp = { trait = lifestyle_marshal value >= 50 }
+			}
+			add = marshal_task_marshal_2_value
+		}
+		else_if = {
+			limit = {
+				has_trait = lifestyle_marshal
+			}
+			add = marshal_task_marshal_1_value
+		}
+	}
+}
+
+
+# Trait bonus
+marshal_increase_county_control_marshal_bonus = {
+
+	value = marshal_increase_control_base_total
+	# Add bonus from marshal_3
+	if = {
+		limit = {
+			has_trait_xp = { trait = lifestyle_marshal value >= 100 }
+		}
+		multiply = marshal_task_marshal_3_value
+	}
+	# Add bonus from trait marshal_2
+	else_if = {
+		limit = {
+			has_trait_xp = { trait = lifestyle_marshal value >= 50 }
+		}
+		multiply = marshal_task_marshal_2_value
+	}
+	# Add bonus from trait marshal_1
+	else_if = {
+		limit = {
+			has_trait = lifestyle_marshal
+		}
+		multiply = marshal_task_marshal_1_value
+	}
+}
+
+# Trait bonus
+marshal_organize_levies_marshal_trait_bonus = {
+	add = {
+		value = marshal_organize_levies_maintenance_base
+		add = marshal_organize_levies_maintenance_skill_base
+		multiply = {
+			if = {
+				limit = {
+					has_trait_xp = { trait = lifestyle_marshal value >= 100 }
+				}
+				add = marshal_task_marshal_3_value
+			}
+			else_if = {
+				limit = {
+					has_trait_xp = { trait = lifestyle_marshal value >= 50 }
+				}
+				add = marshal_task_marshal_2_value
+			}
+			else_if = {
+				limit = {
+					has_trait = lifestyle_marshal
+				}
+				add = marshal_task_marshal_1_value
+			}
+		}
+	}
+}
+
+marshal_manage_guards_max_marshal_bonus = {
+	if = {
+		limit = { has_trait = lifestyle_marshal }
+		add = marshal_overtime_boost_base
+		multiply = {
+			if = {
+				limit = {
+					has_trait_xp = { trait = lifestyle_marshal value >= 100 }
+				}
+				add = marshal_task_marshal_3_value
+			}
+			else_if = {
+				limit = {
+					has_trait_xp = { trait = lifestyle_marshal value >= 50 }
+				}
+				add = marshal_task_marshal_2_value
+			}
+			else_if = {
+				limit = {
+					has_trait = lifestyle_marshal
+				}
+				add = marshal_task_marshal_1_value
+			}
+		}
+	}
+}

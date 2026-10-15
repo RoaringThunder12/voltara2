@@ -1,0 +1,43 @@
+﻿great_empire_mode_game_rules = {
+	default = great_empire_only
+
+	great_empire_only = { }
+	
+	great_empire_both = { }
+}
+
+great_empire_call_game_rules = {
+	default = direct_only
+	
+	direct_only = { }
+
+	no_vassals = { }
+
+	# all_vassals = { }
+}
+
+great_empire_shattering_game_rules = {
+	default = full_shatter
+
+	full_shatter = { }
+	
+	partial_shatter = { }
+
+	minimal_shatter = { }
+}
+
+great_empire_tribalism_game_rules = {
+	default = shattered_tribalism
+
+	shattered_tribalism = { }
+	
+	shattered_only = { }
+}
+
+great_empire_restrictions_game_rules = {
+	default = full_restrictions
+
+	full_restrictions = { }
+	
+	partial_restrictions = { }
+}

@@ -1,0 +1,29 @@
+﻿# Shown when an important decision/interaction is available.
+
+#INTERACTIONS
+action_customize_family = {
+	priority = 200
+	type = alert
+	icon = action_take_decision
+	check_create_action = {
+		if = {
+			limit = {
+				NOT = { has_game_rule = ansf_decision_deactivated }
+				house = {
+					NOT = { has_variable = ansf_reflected_on_family }
+				}
+				can_execute_decision = sensible_family_decision
+			}
+			try_create_important_action = {
+				important_action_type = action_customize_family
+				actor = root
+				decision = decision:sensible_family_decision
+			}
+		}
+	}
+
+	effect = {
+		decision:sensible_family_decision = { open_view_data = decision_detail }
+	}
+}
+

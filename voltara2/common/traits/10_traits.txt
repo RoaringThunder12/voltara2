@@ -1,0 +1,565 @@
+﻿lifestyle_chancellor = {
+	icon = chancellor.dds
+
+	diplomacy = 2	
+	liege_opinion = 5
+	category = lifestyle
+
+	ruler_designer_cost = 20
+
+	track = {
+		50 = {
+			diplomacy = 2	
+			liege_opinion = 5
+			monthly_diplomacy_lifestyle_xp_gain_mult = 0.05
+		}
+		100 = {
+			diplomacy = 2
+			liege_opinion = 5
+			monthly_diplomacy_lifestyle_xp_gain_mult = 0.05
+		}
+	}
+
+	name = {
+		first_valid = {
+			#Master chancellor
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_chancellor
+						value >= 100
+					}
+				}
+				desc = trait_chancellor_3
+			}
+			#Chancellor
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_chancellor
+						value >= 50
+					}
+				}
+				desc = trait_chancellor_2
+			}
+			#Chancellor novice
+			desc = trait_chancellor_1
+		}
+	}
+
+	desc = {
+		first_valid = {
+			#The trait can never go higher than the first level if it's not assigned to a character
+			triggered_desc = {
+				trigger = { 
+					NOT = { exists = this } 
+				}
+				desc = IMPROVED_CHANCELLOR_1_EFFECT_DESC
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_chancellor
+						value >= 100
+					}
+				}
+				desc = IMPROVED_CHANCELLOR_3_EFFECT_DESC
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_chancellor
+						value >= 50
+					}
+				}
+				desc = IMPROVED_CHANCELLOR_2_EFFECT_DESC
+			}
+			desc = IMPROVED_CHANCELLOR_1_EFFECT_DESC			
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			#The trait can never go higher than the first level if it's not assigned to a character
+			triggered_desc = {
+				trigger = { 
+					NOT = { exists = this } 
+				}
+				desc = trait_chancellor_1_desc
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_chancellor
+						value >= 100
+					}
+				}
+				desc = trait_chancellor_3_character_desc
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_chancellor
+						value >= 50
+					}
+				}
+				desc = trait_chancellor_2_character_desc
+			}
+			desc = trait_chancellor_1_character_desc			
+		}
+	}
+}
+
+lifestyle_marshal = {	
+	icon = marshal.dds
+
+	martial = 2	
+	liege_opinion = 5
+	category = lifestyle
+
+	ruler_designer_cost = 20
+
+	track = {
+		50 = {
+			martial = 2	
+			liege_opinion = 5
+			monthly_martial_lifestyle_xp_gain_mult = 0.05
+		}
+		100 = {
+			martial = 2
+			liege_opinion = 5
+			monthly_martial_lifestyle_xp_gain_mult = 0.05
+		}
+	}
+
+	name = {
+		first_valid = {
+			#Master marshal
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_marshal
+						value >= 100
+					}
+				}
+				desc = trait_marshal_3
+			}
+			#marshal
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_marshal
+						value >= 50
+					}
+				}
+				desc = trait_marshal_2
+			}
+			#marshal novice
+			desc = trait_marshal_1
+		}
+	}
+
+	desc = {
+		first_valid = {
+			#The trait can never go higher than the first level if it's not assigned to a character
+			triggered_desc = {
+				trigger = { 
+					NOT = { exists = this } 
+				}
+				desc = IMPROVED_MARSHAL_1_EFFECT_DESC
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_marshal
+						value >= 100
+					}
+				}
+				desc = IMPROVED_MARSHAL_3_EFFECT_DESC
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_marshal
+						value >= 50
+					}
+				}
+				desc = IMPROVED_MARSHAL_2_EFFECT_DESC
+			}
+			desc = IMPROVED_MARSHAL_1_EFFECT_DESC			
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			#The trait can never go higher than the first level if it's not assigned to a character
+			triggered_desc = {
+				trigger = { 
+					NOT = { exists = this } 
+				}
+				desc = trait_marshal_1_desc
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_marshal
+						value >= 100
+					}
+				}
+				desc = trait_marshal_3_character_desc
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_marshal
+						value >= 50
+					}
+				}
+				desc = trait_marshal_2_character_desc
+			}
+			desc = trait_marshal_1_character_desc
+		}
+	}
+}
+
+lifestyle_steward = {	
+	icon = steward.dds
+
+	stewardship = 2	
+	liege_opinion = 5
+	category = lifestyle
+
+	ruler_designer_cost = 20
+
+	track = {
+		50 = {
+			stewardship = 2	
+			liege_opinion = 5
+			monthly_stewardship_lifestyle_xp_gain_mult = 0.05
+		}
+		100 = {
+			stewardship = 2
+			liege_opinion = 5
+			monthly_stewardship_lifestyle_xp_gain_mult = 0.05
+		}
+	}
+
+	name = {
+		first_valid = {
+			#Master steward
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_steward
+						value >= 100
+					}
+				}
+				desc = trait_steward_3
+			}
+			#steward
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_steward
+						value >= 50
+					}
+				}
+				desc = trait_steward_2
+			}
+			#steward novice
+			desc = trait_steward_1
+		}
+	}
+
+	desc = {
+		first_valid = {
+			#The trait can never go higher than the first level if it's not assigned to a character
+			triggered_desc = {
+				trigger = { 
+					NOT = { exists = this } 
+				}
+				desc = IMPROVED_STEWARD_1_EFFECT_DESC
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_steward
+						value >= 100
+					}
+				}
+				desc = IMPROVED_STEWARD_3_EFFECT_DESC
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_steward
+						value >= 50
+					}
+				}
+				desc = IMPROVED_STEWARD_2_EFFECT_DESC
+			}
+			desc = IMPROVED_STEWARD_1_EFFECT_DESC			
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			#The trait can never go higher than the first level if it's not assigned to a character
+			triggered_desc = {
+				trigger = { 
+					NOT = { exists = this } 
+				}
+				desc = trait_steward_1_desc
+		
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_steward
+						value >= 100
+					}
+				}
+				desc = trait_steward_3_character_desc
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_steward
+						value >= 50
+					}
+				}
+				desc = trait_steward_2_character_desc
+			}
+			desc = trait_steward_1_character_desc
+		}
+	}
+}
+
+lifestyle_spymaster = {	
+	icon = spymaster.dds
+
+	intrigue = 2	
+	liege_opinion = 5
+	category = lifestyle
+
+	ruler_designer_cost = 20
+
+	track = {
+		50 = {
+			intrigue = 2	
+			liege_opinion = 5
+			monthly_intrigue_lifestyle_xp_gain_mult = 0.05
+		}
+		100 = {
+			intrigue = 2
+			liege_opinion = 5
+			monthly_intrigue_lifestyle_xp_gain_mult = 0.05
+		}
+	}
+
+	name = {
+		first_valid = {
+			#Master spymaster
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_spymaster
+						value >= 100
+					}
+				}
+				desc = trait_spymaster_3
+			}
+			#spymaster
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_spymaster
+						value >= 50
+					}
+				}
+				desc = trait_spymaster_2
+			}
+			#spymaster novice
+			desc = trait_spymaster_1
+		}
+	}
+
+	desc = {
+		first_valid = {
+			#The trait can never go higher than the first level if it's not assigned to a character
+			triggered_desc = {
+				trigger = { 
+					NOT = { exists = this } 
+				}
+				desc = IMPROVED_SPYMASTER_1_EFFECT_DESC
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_spymaster
+						value >= 100
+					}
+				}
+				desc = IMPROVED_SPYMASTER_3_EFFECT_DESC
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_spymaster
+						value >= 50
+					}
+				}
+				desc = IMPROVED_SPYMASTER_2_EFFECT_DESC
+			}
+			desc = IMPROVED_SPYMASTER_1_EFFECT_DESC			
+		}
+		desc = line_break
+		desc = line_break
+		first_valid = {
+			#The trait can never go higher than the first level if it's not assigned to a character
+			triggered_desc = {
+				trigger = { 
+					NOT = { exists = this } 
+				}
+				desc = trait_spymaster_1_desc
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_spymaster
+						value >= 100
+					}
+				}
+				desc = trait_spymaster_3_character_desc
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_spymaster
+						value >= 50
+					}
+				}
+				desc = trait_spymaster_2_character_desc
+			}
+			desc = trait_spymaster_1_character_desc
+		}
+	}
+}
+
+lifestyle_chaplain = {
+	icon = chaplain.dds
+
+	learning = 2	
+	liege_opinion = 5
+	category = lifestyle
+
+	ruler_designer_cost = 20
+
+	track = {
+		50 = {
+			learning = 2	
+			liege_opinion = 5
+			monthly_learning_lifestyle_xp_gain_mult = 0.05
+		}
+		100 = {
+			learning = 2
+			liege_opinion = 5
+			monthly_learning_lifestyle_xp_gain_mult = 0.05
+		}
+	}
+
+	name = {
+		first_valid = {
+			#Master chaplain
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_chaplain
+						value >= 100
+					}
+				}
+				desc = trait_chaplain_3
+			}
+			#chaplain
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_chaplain
+						value >= 50
+					}
+				}
+				desc = trait_chaplain_2
+			}
+			#chaplain novice
+			desc = trait_chaplain_1
+		}
+	}
+
+	desc = {
+		first_valid = {
+			#The trait can never go higher than the first level if it's not assigned to a character
+			triggered_desc = {
+				trigger = { 
+					NOT = { exists = this } 
+				}
+				desc = IMPROVED_CHAPLAIN_1_EFFECT_DESC
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_chaplain
+						value >= 100
+					}
+				}
+				desc = IMPROVED_CHAPLAIN_3_EFFECT_DESC
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_chaplain
+						value >= 50
+					}
+				}
+				desc = IMPROVED_CHAPLAIN_2_EFFECT_DESC
+			}
+			desc = IMPROVED_CHAPLAIN_1_EFFECT_DESC			
+		}
+		desc = line_break
+		desc = line_break
+		#The trait can never go higher than the first level if it's not assigned to a character
+		first_valid = {
+			triggered_desc = {
+				trigger = { 
+					NOT = { exists = this } 
+				}
+				desc = trait_chaplain_1_desc
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_chaplain
+						value >= 100
+					}
+				}
+				desc = trait_chaplain_3_character_desc
+			}
+			triggered_desc = {
+				trigger = { 
+					has_trait_xp = {
+						trait = lifestyle_chaplain
+						value >= 50
+					}
+				}
+				desc = trait_chaplain_2_character_desc
+			}
+			desc = trait_chaplain_1_character_desc
+		}
+	}
+}

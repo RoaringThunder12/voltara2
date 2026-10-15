@@ -1,0 +1,1191 @@
+﻿advanced_torture_force_kill_prisoner_from_torture_effect = {
+ advanced_torture_mark_torture_death_result_effect = yes
+}
+
+advanced_torture_register_long_sleep_days_3_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_sleep_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_sleep_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_sleep_days
+   add = 3
+  }
+ }
+}
+
+advanced_torture_register_long_sleep_days_5_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_sleep_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_sleep_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_sleep_days
+   add = 5
+  }
+ }
+}
+
+advanced_torture_register_long_sleep_days_7_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_sleep_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_sleep_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_sleep_days
+   add = 7
+  }
+ }
+}
+
+advanced_torture_register_long_sleep_days_10_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_sleep_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_sleep_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_sleep_days
+   add = 10
+  }
+ }
+}
+
+advanced_torture_register_long_dark_cell_days_15_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_dark_cell_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_dark_cell_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_dark_cell_days
+   add = 15
+  }
+ }
+}
+
+advanced_torture_register_long_dark_cell_days_30_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_dark_cell_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_dark_cell_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_dark_cell_days
+   add = 30
+  }
+ }
+}
+
+advanced_torture_register_long_dark_cell_days_60_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_dark_cell_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_dark_cell_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_dark_cell_days
+   add = 60
+  }
+ }
+}
+
+advanced_torture_register_long_dark_cell_days_90_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_dark_cell_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_dark_cell_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_dark_cell_days
+   add = 90
+  }
+ }
+}
+
+advanced_torture_register_long_starvation_days_5_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_starvation_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_starvation_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_starvation_days
+   add = 5
+  }
+ }
+}
+
+advanced_torture_register_long_starvation_days_15_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_starvation_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_starvation_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_starvation_days
+   add = 15
+  }
+ }
+}
+
+advanced_torture_register_long_starvation_days_30_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_starvation_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_starvation_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_starvation_days
+   add = 30
+  }
+ }
+}
+
+advanced_torture_register_long_starvation_days_50_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_starvation_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_starvation_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_starvation_days
+   add = 50
+  }
+ }
+}
+
+advanced_torture_register_long_suspension_days_1_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_suspension_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_suspension_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_suspension_days
+   add = 1
+  }
+ }
+}
+
+advanced_torture_register_long_suspension_days_3_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_suspension_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_suspension_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_suspension_days
+   add = 3
+  }
+ }
+}
+
+advanced_torture_register_long_suspension_days_5_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_suspension_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_suspension_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_suspension_days
+   add = 5
+  }
+ }
+}
+
+advanced_torture_register_long_suspension_days_7_effect = {
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    NOT = { has_variable = advanced_torture_long_suspension_days }
+   }
+
+   set_variable = {
+    name = advanced_torture_long_suspension_days
+    value = 0
+   }
+  }
+
+  change_variable = {
+   name = advanced_torture_long_suspension_days
+   add = 7
+  }
+ }
+}
+
+advanced_torture_start_long_sleep_deprivation_3_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_medium_torture_effect = yes
+ advanced_torture_pay_medium_torture_cost_effect = yes
+ add_dread = 6
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_medium_effect = yes
+ advanced_torture_apply_house_relation_damage_medium_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_sleep_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 4
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_sleep_days_3_effect = yes
+ }
+}
+
+advanced_torture_start_long_sleep_deprivation_5_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_medium_torture_effect = yes
+ advanced_torture_pay_medium_torture_cost_effect = yes
+ add_dread = 8
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_medium_effect = yes
+ advanced_torture_apply_house_relation_damage_medium_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_sleep_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 6
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_sleep_days_5_effect = yes
+ }
+}
+
+advanced_torture_start_long_sleep_deprivation_7_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_strong_torture_effect = yes
+ advanced_torture_pay_strong_torture_cost_effect = yes
+ add_dread = 12
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_medium_effect = yes
+ advanced_torture_apply_house_relation_damage_severe_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_sleep_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 8
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_sleep_days_7_effect = yes
+ }
+}
+
+advanced_torture_start_long_sleep_deprivation_10_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_strong_torture_effect = yes
+ advanced_torture_pay_strong_torture_cost_effect = yes
+ add_dread = 16
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_medium_effect = yes
+ advanced_torture_apply_house_relation_damage_severe_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_sleep_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 11
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_sleep_days_10_effect = yes
+ }
+}
+
+advanced_torture_start_long_dark_cell_15_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_medium_torture_effect = yes
+ advanced_torture_pay_medium_torture_cost_effect = yes
+ add_dread = 8
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_medium_effect = yes
+ advanced_torture_apply_house_relation_damage_medium_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_dark_cell_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 16
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_dark_cell_days_15_effect = yes
+ }
+}
+
+advanced_torture_start_long_dark_cell_30_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_medium_torture_effect = yes
+ advanced_torture_pay_medium_torture_cost_effect = yes
+ add_dread = 11
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_medium_effect = yes
+ advanced_torture_apply_house_relation_damage_medium_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_dark_cell_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 31
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_dark_cell_days_30_effect = yes
+ }
+}
+
+advanced_torture_start_long_dark_cell_60_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_strong_torture_effect = yes
+ advanced_torture_pay_strong_torture_cost_effect = yes
+ add_dread = 16
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_medium_effect = yes
+ advanced_torture_apply_house_relation_damage_severe_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_dark_cell_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 61
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_dark_cell_days_60_effect = yes
+ }
+}
+
+advanced_torture_start_long_dark_cell_90_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_strong_torture_effect = yes
+ advanced_torture_pay_strong_torture_cost_effect = yes
+ add_dread = 22
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_medium_effect = yes
+ advanced_torture_apply_house_relation_damage_severe_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_dark_cell_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 91
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_dark_cell_days_90_effect = yes
+ }
+}
+
+advanced_torture_start_long_starvation_5_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_medium_torture_effect = yes
+ advanced_torture_pay_medium_torture_cost_effect = yes
+ add_dread = 7
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_effect = yes
+ advanced_torture_apply_house_relation_damage_medium_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_starvation_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 6
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_starvation_days_5_effect = yes
+ }
+}
+
+advanced_torture_start_long_starvation_15_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_strong_torture_effect = yes
+ advanced_torture_pay_strong_torture_cost_effect = yes
+ add_dread = 13
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_effect = yes
+ advanced_torture_apply_house_relation_damage_severe_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_starvation_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 16
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_starvation_days_15_effect = yes
+ }
+}
+
+advanced_torture_start_long_starvation_30_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_strong_torture_effect = yes
+ advanced_torture_pay_strong_torture_cost_effect = yes
+ add_dread = 20
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_effect = yes
+ advanced_torture_apply_house_relation_damage_severe_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_starvation_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 31
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_starvation_days_30_effect = yes
+ }
+}
+
+advanced_torture_start_long_starvation_50_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_strong_torture_effect = yes
+ advanced_torture_pay_strong_torture_cost_effect = yes
+ add_dread = 30
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_effect = yes
+ advanced_torture_apply_house_relation_damage_severe_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_starvation_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 51
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_starvation_days_50_effect = yes
+ }
+}
+
+advanced_torture_start_long_suspension_1_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_medium_torture_effect = yes
+ advanced_torture_pay_medium_torture_cost_effect = yes
+ add_dread = 7
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_severe_effect = yes
+ advanced_torture_apply_house_relation_damage_medium_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_suspension_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 2
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_suspension_days_1_effect = yes
+ }
+}
+
+advanced_torture_start_long_suspension_3_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_strong_torture_effect = yes
+ advanced_torture_pay_strong_torture_cost_effect = yes
+ add_dread = 13
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_severe_effect = yes
+ advanced_torture_apply_house_relation_damage_severe_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_suspension_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 4
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_suspension_days_3_effect = yes
+ }
+}
+
+advanced_torture_start_long_suspension_5_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_strong_torture_effect = yes
+ advanced_torture_pay_strong_torture_cost_effect = yes
+ add_dread = 18
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_severe_effect = yes
+ advanced_torture_apply_house_relation_damage_severe_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_suspension_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 6
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_suspension_days_5_effect = yes
+ }
+}
+
+advanced_torture_start_long_suspension_7_effect = {
+ advanced_torture_clear_last_torture_flags_effect = yes
+ advanced_torture_mark_last_strong_torture_effect = yes
+ advanced_torture_pay_strong_torture_cost_effect = yes
+ add_dread = 25
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_torture_opinion_severe_effect = yes
+ advanced_torture_apply_house_relation_damage_severe_effect = yes
+
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_suspension_active
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 8
+  }
+
+  add_character_modifier = {
+   modifier = advanced_torture_recently_tortured
+   years = 5
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_suspension_days_7_effect = yes
+ }
+}
+
+advanced_torture_release_long_sleep_deprivation_effect = {
+ if = {
+  limit = {
+   exists = scope:advanced_torture_prisoner
+
+   scope:advanced_torture_prisoner = {
+    is_alive = yes
+    has_character_flag = advanced_torture_long_sleep_active
+   }
+  }
+
+  scope:advanced_torture_prisoner = {
+   remove_character_flag = advanced_torture_long_sleep_active
+   remove_character_modifier = advanced_torture_cooldown
+  }
+
+  advanced_torture_finish_long_sleep_deprivation_effect = yes
+ }
+}
+
+advanced_torture_release_long_dark_cell_effect = {
+ if = {
+  limit = {
+   exists = scope:advanced_torture_prisoner
+
+   scope:advanced_torture_prisoner = {
+    is_alive = yes
+    has_character_flag = advanced_torture_long_dark_cell_active
+   }
+  }
+
+  scope:advanced_torture_prisoner = {
+   remove_character_flag = advanced_torture_long_dark_cell_active
+   remove_character_modifier = advanced_torture_cooldown
+  }
+
+  advanced_torture_finish_long_dark_cell_effect = yes
+ }
+}
+
+advanced_torture_release_long_starvation_effect = {
+ if = {
+  limit = {
+   exists = scope:advanced_torture_prisoner
+
+   scope:advanced_torture_prisoner = {
+    is_alive = yes
+    has_character_flag = advanced_torture_long_starvation_active
+   }
+  }
+
+  scope:advanced_torture_prisoner = {
+   remove_character_flag = advanced_torture_long_starvation_active
+   remove_character_modifier = advanced_torture_cooldown
+  }
+
+  advanced_torture_finish_long_starvation_effect = yes
+ }
+}
+
+advanced_torture_release_long_suspension_effect = {
+ if = {
+  limit = {
+   exists = scope:advanced_torture_prisoner
+
+   scope:advanced_torture_prisoner = {
+    is_alive = yes
+    has_character_flag = advanced_torture_long_suspension_active
+   }
+  }
+
+  scope:advanced_torture_prisoner = {
+   remove_character_flag = advanced_torture_long_suspension_active
+   remove_character_modifier = advanced_torture_cooldown
+  }
+
+  advanced_torture_finish_long_suspension_effect = yes
+ }
+}
+
+advanced_torture_extend_long_sleep_deprivation_effect = {
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_sleep_extend_3
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 4
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_sleep_days_3_effect = yes
+ }
+}
+
+advanced_torture_extend_long_dark_cell_effect = {
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_dark_cell_extend_15
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 16
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_dark_cell_days_15_effect = yes
+ }
+}
+
+advanced_torture_extend_long_starvation_effect = {
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_starvation_extend_5
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 6
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_starvation_days_5_effect = yes
+ }
+}
+
+advanced_torture_extend_long_suspension_effect = {
+ scope:advanced_torture_prisoner = {
+  add_character_flag = advanced_torture_long_suspension_extend_1
+
+  add_character_modifier = {
+   modifier = advanced_torture_cooldown
+   days = 2
+  }
+ }
+
+ hidden_effect = {
+  advanced_torture_register_long_suspension_days_1_effect = yes
+ }
+}
+
+advanced_torture_finish_long_sleep_deprivation_effect = {
+ if = {
+  limit = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+
+  advanced_torture_apply_medium_torture_health_effect = yes
+
+  scope:advanced_torture_prisoner = {
+   if = { limit = { has_character_flag = advanced_torture_long_sleep_active } remove_character_flag = advanced_torture_long_sleep_active }
+   if = { limit = { has_character_modifier = advanced_torture_cooldown } remove_character_modifier = advanced_torture_cooldown }
+  }
+
+  hidden_effect = { advanced_torture_try_secret_reveal_medium_effect = yes }
+
+  if = {
+   limit = { scope:advanced_torture_prisoner = { has_variable = advanced_torture_long_sleep_days var:advanced_torture_long_sleep_days >= 10 } }
+   hidden_effect = { advanced_torture_record_strong_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    random_list = { 30 = {} 70 = { advanced_torture_try_apply_melancholic_effect = yes } }
+    random_list = { 50 = {} 50 = { advanced_torture_try_apply_lunatic_effect = yes } }
+    random_list = { 55 = {} 45 = { advanced_torture_try_apply_withering_mind_effect = yes } }
+    random_list = { 65 = {} 35 = { advanced_torture_try_apply_weak_effect = yes } }
+    random_list = { 75 = {} 25 = { advanced_torture_try_apply_dull_effect = yes } }
+    random_list = { 90 = {} 10 = { advanced_torture_try_apply_incapable_effect = yes } }
+   }
+   advanced_torture_roll_death_35_effect = yes
+  }
+  else_if = {
+   limit = { scope:advanced_torture_prisoner = { has_variable = advanced_torture_long_sleep_days var:advanced_torture_long_sleep_days >= 7 } }
+   hidden_effect = { advanced_torture_record_strong_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    random_list = { 45 = {} 55 = { advanced_torture_try_apply_melancholic_effect = yes } }
+    random_list = { 65 = {} 35 = { advanced_torture_try_apply_lunatic_effect = yes } }
+    random_list = { 65 = {} 35 = { advanced_torture_try_apply_withering_mind_effect = yes } }
+    random_list = { 75 = {} 25 = { advanced_torture_try_apply_weak_effect = yes } }
+    random_list = { 85 = {} 15 = { advanced_torture_try_apply_dull_effect = yes } }
+    random_list = { 95 = {} 5 = { advanced_torture_try_apply_incapable_effect = yes } }
+   }
+   advanced_torture_roll_death_15_effect = yes
+  }
+  else_if = {
+   limit = { scope:advanced_torture_prisoner = { has_variable = advanced_torture_long_sleep_days var:advanced_torture_long_sleep_days >= 5 } }
+   hidden_effect = { advanced_torture_record_medium_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    random_list = { 60 = {} 40 = { advanced_torture_try_apply_melancholic_effect = yes } }
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_lunatic_effect = yes } }
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_withering_mind_effect = yes } }
+    random_list = { 85 = {} 15 = { advanced_torture_try_apply_weak_effect = yes } }
+   }
+  }
+  else = {
+   hidden_effect = { advanced_torture_record_medium_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    random_list = { 75 = {} 25 = { advanced_torture_try_apply_melancholic_effect = yes } }
+    random_list = { 90 = {} 10 = { advanced_torture_try_apply_weak_effect = yes } }
+   }
+  }
+
+  scope:advanced_torture_prisoner = { if = { limit = { has_variable = advanced_torture_long_sleep_days } set_variable = { name = advanced_torture_long_sleep_days value = 0 } } }
+ }
+}
+
+
+
+advanced_torture_finish_long_dark_cell_effect = {
+ if = {
+  limit = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+
+  advanced_torture_apply_medium_torture_health_effect = yes
+
+  scope:advanced_torture_prisoner = {
+   if = { limit = { has_character_flag = advanced_torture_long_dark_cell_active } remove_character_flag = advanced_torture_long_dark_cell_active }
+   if = { limit = { has_character_modifier = advanced_torture_cooldown } remove_character_modifier = advanced_torture_cooldown }
+  }
+
+  hidden_effect = { advanced_torture_try_secret_reveal_medium_effect = yes }
+
+  if = {
+   limit = { scope:advanced_torture_prisoner = { has_variable = advanced_torture_long_dark_cell_days var:advanced_torture_long_dark_cell_days >= 90 } }
+   hidden_effect = { advanced_torture_record_strong_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    random_list = { 35 = {} 65 = { advanced_torture_try_apply_melancholic_effect = yes } }
+    random_list = { 60 = {} 40 = { advanced_torture_try_apply_lunatic_effect = yes } }
+    random_list = { 55 = {} 45 = { advanced_torture_try_apply_withering_mind_effect = yes } }
+    random_list = { 65 = {} 35 = { advanced_torture_try_apply_ill_effect = yes } }
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_pneumonic_effect = yes } }
+    random_list = { 85 = {} 15 = { advanced_torture_try_apply_clouded_eyes_effect = yes } }
+    random_list = { 95 = {} 5 = { advanced_torture_try_apply_incapable_effect = yes } }
+   }
+  }
+  else_if = {
+   limit = { scope:advanced_torture_prisoner = { has_variable = advanced_torture_long_dark_cell_days var:advanced_torture_long_dark_cell_days >= 60 } }
+   hidden_effect = { advanced_torture_record_strong_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    random_list = { 50 = {} 50 = { advanced_torture_try_apply_melancholic_effect = yes } }
+    random_list = { 75 = {} 25 = { advanced_torture_try_apply_lunatic_effect = yes } }
+    random_list = { 70 = {} 30 = { advanced_torture_try_apply_withering_mind_effect = yes } }
+    random_list = { 75 = {} 25 = { advanced_torture_try_apply_ill_effect = yes } }
+    random_list = { 90 = {} 10 = { advanced_torture_try_apply_pneumonic_effect = yes } }
+    random_list = { 90 = {} 10 = { advanced_torture_try_apply_clouded_eyes_effect = yes } }
+   }
+  }
+  else_if = {
+   limit = { scope:advanced_torture_prisoner = { has_variable = advanced_torture_long_dark_cell_days var:advanced_torture_long_dark_cell_days >= 30 } }
+   hidden_effect = { advanced_torture_record_medium_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    random_list = { 65 = {} 35 = { advanced_torture_try_apply_melancholic_effect = yes } }
+    random_list = { 85 = {} 15 = { advanced_torture_try_apply_lunatic_effect = yes } }
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_withering_mind_effect = yes } }
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_ill_effect = yes } }
+    random_list = { 95 = {} 5 = { advanced_torture_try_apply_pneumonic_effect = yes } }
+   }
+  }
+  else = {
+   hidden_effect = { advanced_torture_record_medium_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_melancholic_effect = yes } }
+    random_list = { 90 = {} 10 = { advanced_torture_try_apply_ill_effect = yes } }
+   }
+  }
+
+  scope:advanced_torture_prisoner = { if = { limit = { has_variable = advanced_torture_long_dark_cell_days } set_variable = { name = advanced_torture_long_dark_cell_days value = 0 } } }
+ }
+}
+
+
+
+advanced_torture_finish_long_starvation_effect = {
+ if = {
+  limit = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+
+  advanced_torture_apply_severe_torture_health_effect = yes
+
+  scope:advanced_torture_prisoner = {
+   if = { limit = { has_character_flag = advanced_torture_long_starvation_active } remove_character_flag = advanced_torture_long_starvation_active }
+   if = { limit = { has_character_modifier = advanced_torture_cooldown } remove_character_modifier = advanced_torture_cooldown }
+  }
+
+  hidden_effect = { advanced_torture_try_secret_reveal_severe_effect = yes }
+
+  if = {
+   limit = { scope:advanced_torture_prisoner = { has_variable = advanced_torture_long_starvation_days var:advanced_torture_long_starvation_days >= 50 } }
+   hidden_effect = { advanced_torture_record_strong_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    change_current_weight = -40
+    random_list = { 20 = {} 80 = { advanced_torture_try_apply_weak_effect = yes } }
+    random_list = { 55 = {} 45 = { advanced_torture_try_apply_infirm_effect = yes } }
+    random_list = { 60 = {} 40 = { advanced_torture_try_apply_ill_effect = yes } }
+    random_list = { 75 = {} 25 = { advanced_torture_try_apply_dysentery_effect = yes } }
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_faltering_heart_effect = yes } }
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_melancholic_effect = yes } }
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_lunatic_effect = yes } }
+    random_list = { 90 = {} 10 = { advanced_torture_try_apply_incapable_effect = yes } }
+   }
+   advanced_torture_roll_death_15_effect = yes
+  }
+  else_if = {
+   limit = { scope:advanced_torture_prisoner = { has_variable = advanced_torture_long_starvation_days var:advanced_torture_long_starvation_days >= 30 } }
+   hidden_effect = { advanced_torture_record_strong_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    change_current_weight = -30
+    random_list = { 35 = {} 65 = { advanced_torture_try_apply_weak_effect = yes } }
+    random_list = { 70 = {} 30 = { advanced_torture_try_apply_infirm_effect = yes } }
+    random_list = { 70 = {} 30 = { advanced_torture_try_apply_ill_effect = yes } }
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_dysentery_effect = yes } }
+    random_list = { 90 = {} 10 = { advanced_torture_try_apply_faltering_heart_effect = yes } }
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_melancholic_effect = yes } }
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_lunatic_effect = yes } }
+    random_list = { 95 = {} 5 = { advanced_torture_try_apply_incapable_effect = yes } }
+   }
+  }
+  else_if = {
+   limit = { scope:advanced_torture_prisoner = { has_variable = advanced_torture_long_starvation_days var:advanced_torture_long_starvation_days >= 15 } }
+   hidden_effect = { advanced_torture_record_strong_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    change_current_weight = -20
+    random_list = { 55 = {} 45 = { advanced_torture_try_apply_weak_effect = yes } }
+    random_list = { 85 = {} 15 = { advanced_torture_try_apply_infirm_effect = yes } }
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_ill_effect = yes } }
+    random_list = { 90 = {} 10 = { advanced_torture_try_apply_dysentery_effect = yes } }
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_melancholic_effect = yes } }
+    random_list = { 90 = {} 10 = { advanced_torture_try_apply_lunatic_effect = yes } }
+   }
+  }
+  else = {
+   hidden_effect = { advanced_torture_record_medium_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    change_current_weight = -10
+    random_list = { 75 = {} 25 = { advanced_torture_try_apply_weak_effect = yes } }
+    random_list = { 90 = {} 10 = { advanced_torture_try_apply_ill_effect = yes } }
+    random_list = { 90 = {} 10 = { advanced_torture_try_apply_melancholic_effect = yes } }
+   }
+  }
+
+  scope:advanced_torture_prisoner = { if = { limit = { has_variable = advanced_torture_long_starvation_days } set_variable = { name = advanced_torture_long_starvation_days value = 0 } } }
+ }
+}
+
+
+
+
+advanced_torture_finish_long_suspension_effect = {
+ if = {
+  limit = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+
+  advanced_torture_apply_severe_torture_health_effect = yes
+
+  scope:advanced_torture_prisoner = {
+   if = { limit = { has_character_flag = advanced_torture_long_suspension_active } remove_character_flag = advanced_torture_long_suspension_active }
+   if = { limit = { has_character_modifier = advanced_torture_cooldown } remove_character_modifier = advanced_torture_cooldown }
+  }
+
+  hidden_effect = { advanced_torture_try_secret_reveal_severe_effect = yes }
+
+  if = {
+   limit = { scope:advanced_torture_prisoner = { has_variable = advanced_torture_long_suspension_days var:advanced_torture_long_suspension_days >= 7 } }
+   hidden_effect = { advanced_torture_record_strong_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    advanced_torture_apply_wounded_3_effect = yes
+    random_list = { 35 = {} 65 = { advanced_torture_try_apply_weak_effect = yes } }
+    random_list = { 50 = {} 50 = { advanced_torture_try_apply_infirm_effect = yes } }
+    random_list = { 50 = {} 50 = { advanced_torture_try_apply_scarred_effect = yes } }
+    random_list = { 65 = {} 35 = { advanced_torture_try_apply_fragile_bones_effect = yes } }
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_maimed_effect = yes } }
+   }
+   advanced_torture_roll_death_10_effect = yes
+  }
+  else_if = {
+   limit = { scope:advanced_torture_prisoner = { has_variable = advanced_torture_long_suspension_days var:advanced_torture_long_suspension_days >= 5 } }
+   hidden_effect = { advanced_torture_record_strong_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    random_list = { 20 = { advanced_torture_apply_wounded_2_effect = yes } 80 = { advanced_torture_apply_wounded_3_effect = yes } }
+    random_list = { 50 = {} 50 = { advanced_torture_try_apply_weak_effect = yes } }
+    random_list = { 65 = {} 35 = { advanced_torture_try_apply_infirm_effect = yes } }
+    random_list = { 60 = {} 40 = { advanced_torture_try_apply_scarred_effect = yes } }
+    random_list = { 75 = {} 25 = { advanced_torture_try_apply_fragile_bones_effect = yes } }
+    random_list = { 90 = {} 10 = { advanced_torture_try_apply_maimed_effect = yes } }
+   }
+  }
+  else_if = {
+   limit = { scope:advanced_torture_prisoner = { has_variable = advanced_torture_long_suspension_days var:advanced_torture_long_suspension_days >= 3 } }
+   hidden_effect = { advanced_torture_record_strong_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    random_list = { 40 = { advanced_torture_apply_wounded_2_effect = yes } 60 = { advanced_torture_apply_wounded_3_effect = yes } }
+    random_list = { 65 = {} 35 = { advanced_torture_try_apply_weak_effect = yes } }
+    random_list = { 75 = {} 25 = { advanced_torture_try_apply_infirm_effect = yes } }
+    random_list = { 70 = {} 30 = { advanced_torture_try_apply_scarred_effect = yes } }
+    random_list = { 85 = {} 15 = { advanced_torture_try_apply_fragile_bones_effect = yes } }
+   }
+  }
+  else = {
+   hidden_effect = { advanced_torture_record_medium_category_torture_effect = yes }
+   scope:advanced_torture_prisoner = {
+    random_list = { 70 = { advanced_torture_apply_wounded_2_effect = yes } 30 = { advanced_torture_apply_wounded_3_effect = yes } }
+    random_list = { 80 = {} 20 = { advanced_torture_try_apply_weak_effect = yes } }
+    random_list = { 85 = {} 15 = { advanced_torture_try_apply_scarred_effect = yes } }
+   }
+  }
+
+  scope:advanced_torture_prisoner = { if = { limit = { has_variable = advanced_torture_long_suspension_days } set_variable = { name = advanced_torture_long_suspension_days value = 0 } } }
+ }
+}
+
+

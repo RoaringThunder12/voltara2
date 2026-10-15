@@ -1,0 +1,9 @@
+﻿voltara_shattered_crystal_tower_01 = {
+ type = special
+ construction_time = 730 cost_gold = 600
+ type_icon = "icon_building_ruin.dds"
+ can_construct_potential = { always = no }
+ is_enabled = { NOT = { has_holding_type = voltara_ruin_holding } NOT = { has_holding_type = voltara_wasteland_holding } NOT = { has_holding_type = voltara_settlement_holding } }
+ character_modifier = { learning = 2 monthly_piety = 0.25 }
+ ai_value = { base = 10 }
+}

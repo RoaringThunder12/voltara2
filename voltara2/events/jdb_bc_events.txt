@@ -1,0 +1,23 @@
+﻿namespace = jdb_bc_events
+
+# Delayed flavor text for sieges
+jdb_bc_events.0001 = {
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = {
+				scope:commander = {
+					is_alive = yes
+					commanding_army ?= {
+						scope:army ?= this
+						is_army_in_siege = yes
+					}
+				}
+			}
+			scope:commander = {
+				jdb_bc_get_commander_flavor_text_siege = yes
+			}
+		}
+	}
+}

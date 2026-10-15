@@ -1,0 +1,1316 @@
+﻿# For the Character Generation GUI
+toggle_ansf_regenerate_window = {
+	scope = character
+	
+	effect = {
+		if = {
+			limit = { has_variable = show_ansf_regenerate_window }
+			remove_variable = show_ansf_regenerate_window
+		}
+		else = {
+			set_variable = show_ansf_regenerate_window
+		}
+		if = {
+			limit = {
+				NOT = { exists = global_var:ansf_glow_end }
+			}
+			set_global_variable = {
+				name = ansf_glow_end
+				value = yes
+			}
+		}
+	}
+}
+
+ansf_has_name_ancestor = {
+	scope = character
+	
+	is_valid = {
+		any_ancestor = {
+			even_if_dead = yes
+			is_great_grandparent_of = root
+			sex_same_as = root
+		}
+	}
+}
+
+ansf_has_name_parent = {
+	scope = character
+	
+	is_valid = {
+		any_close_family_member = {
+			even_if_dead = yes
+			OR = {
+				is_grandparent_of = root
+				is_parent_of = root
+			}
+			sex_same_as = root
+		}
+	}
+}
+
+ansf_can_lower_age = {
+	is_valid = {
+		var:ansf_family_character_age > var:ansf_family_character_age_min
+		NOT = { has_variable = ansf_family_character_randomize_age }
+	}
+
+	effect = {
+		change_variable = {
+			name = ansf_family_character_age
+			subtract = 1
+		}
+    }
+}
+
+ansf_can_raise_age = {
+	is_valid = {
+		var:ansf_family_character_age < var:ansf_family_character_age_max
+		NOT = { has_variable = ansf_family_character_randomize_age }
+	}
+
+	effect = {
+		change_variable = {
+			name = ansf_family_character_age
+			add = 1
+		}
+    }
+}
+
+ansf_randomize_age = {
+	scope = character
+
+	effect = {
+		if = {
+			limit = { has_variable = ansf_family_character_randomize_age }
+			remove_variable = ansf_family_character_randomize_age
+		}
+		else = {
+			set_variable = ansf_family_character_randomize_age
+		}
+	}
+}
+
+ansf_make_character_clone = {
+	scope = character
+
+	effect = {
+		if = {
+			limit = { has_variable = ansf_family_character_is_clone }
+			remove_variable = ansf_family_character_is_clone
+		}
+		else = {
+			set_variable = ansf_family_character_is_clone
+			remove_variable ?= ansf_family_character_is_different
+			remove_variable = ansf_family_character_use_mother_dna
+			remove_variable ?= ansf_family_character_use_father_dna
+			set_variable = {
+				name = culture_faith_template
+				value = var:target
+			}
+		}
+	}
+}
+
+ansf_make_character_lowborn = {
+	scope = character
+
+	effect = {
+		if = {
+			limit = { has_variable = ansf_must_be_lowborn }
+			remove_variable = ansf_must_be_lowborn
+		}
+		else = {
+			set_variable = ansf_must_be_lowborn
+			remove_variable ?= ansf_must_not_be_lowborn
+		}
+	}
+}
+
+ansf_make_character_not_lowborn = {
+	scope = character
+
+	effect = {
+		if = {
+			limit = { has_variable = ansf_must_not_be_lowborn }
+			remove_variable = ansf_must_not_be_lowborn
+		}
+		else = {
+			set_variable = ansf_must_not_be_lowborn
+			remove_variable ?= ansf_must_be_lowborn
+		}
+	}
+}
+
+ansf_make_character_different = {
+	scope = character
+
+	effect = {
+		if = {
+			limit = { has_variable = ansf_family_character_is_different }
+			remove_variable = ansf_family_character_is_different
+		}
+		else = {
+			set_variable = ansf_family_character_is_different
+			remove_variable ?= ansf_family_character_is_clone
+		}
+	}
+}
+
+ansf_use_mother_dna_effect = {
+	scope = character
+
+	effect = {
+		if = {
+			limit = { has_variable = ansf_family_character_use_mother_dna }
+			remove_variable = ansf_family_character_use_mother_dna
+		}
+		else = {
+			set_variable = ansf_family_character_use_mother_dna
+			remove_variable ?= ansf_family_character_use_father_dna
+			remove_variable = ansf_family_character_is_clone
+		}
+	}
+}
+
+ansf_use_father_dna_effect = {
+	scope = character
+
+	effect = {
+		if = {
+			limit = { has_variable = ansf_family_character_use_father_dna }
+			remove_variable = ansf_family_character_use_father_dna
+		}
+		else = {
+			set_variable = ansf_family_character_use_father_dna
+			remove_variable ?= ansf_family_character_use_mother_dna
+			remove_variable = ansf_family_character_is_clone
+		}
+	}
+}
+
+ansf_family_martial_education = {
+	scope = character
+
+	effect = {
+		set_variable = ansf_family_character_education_martial
+		remove_variable ?= ansf_family_character_education_diplomacy
+		remove_variable ?= ansf_family_character_education_stewardship
+		remove_variable ?= ansf_family_character_education_intrigue
+		remove_variable ?= ansf_family_character_education_learning
+		remove_variable ?= ansf_family_character_education_random
+	}
+}
+
+ansf_family_diplomacy_education = {
+	scope = character
+
+	effect = {
+		set_variable = ansf_family_character_education_diplomacy
+		remove_variable ?= ansf_family_character_education_martial
+		remove_variable ?= ansf_family_character_education_stewardship
+		remove_variable ?= ansf_family_character_education_intrigue
+		remove_variable ?= ansf_family_character_education_learning
+		remove_variable ?= ansf_family_character_education_random
+	}
+}
+
+ansf_family_stewardship_education = {
+	scope = character
+
+	effect = {
+		set_variable = ansf_family_character_education_stewardship
+		remove_variable ?= ansf_family_character_education_martial
+		remove_variable ?= ansf_family_character_education_diplomacy
+		remove_variable ?= ansf_family_character_education_intrigue
+		remove_variable ?= ansf_family_character_education_learning
+		remove_variable ?= ansf_family_character_education_random
+	}
+}
+
+ansf_family_intrigue_education = {
+	scope = character
+
+	effect = {
+		set_variable = ansf_family_character_education_intrigue
+		remove_variable ?= ansf_family_character_education_martial
+		remove_variable ?= ansf_family_character_education_diplomacy
+		remove_variable ?= ansf_family_character_education_stewardship
+		remove_variable ?= ansf_family_character_education_learning
+		remove_variable ?= ansf_family_character_education_random
+	}
+}
+
+ansf_family_learning_education = {
+	scope = character
+
+	effect = {
+		set_variable = ansf_family_character_education_learning
+		remove_variable ?= ansf_family_character_education_martial
+		remove_variable ?= ansf_family_character_education_diplomacy
+		remove_variable ?= ansf_family_character_education_stewardship
+		remove_variable ?= ansf_family_character_education_intrigue
+		remove_variable ?= ansf_family_character_education_random
+	}
+}
+
+ansf_family_randomize_education = {
+	scope = character
+
+	effect = {
+		set_variable = ansf_family_character_education_random
+		remove_variable ?= ansf_family_character_education_martial
+		remove_variable ?= ansf_family_character_education_diplomacy
+		remove_variable ?= ansf_family_character_education_stewardship
+		remove_variable ?= ansf_family_character_education_intrigue
+		remove_variable ?= ansf_family_character_education_learning
+	}
+}
+
+ansf_change_existing_template = {
+	scope = character
+	
+	effect = {
+		clear_global_variable_list = culture_faith_template
+		every_in_list = {
+			list = potential_culture_faith_template
+			remove_from_list = potential_culture_faith_template
+		}
+		
+		# first add the player's culture and faith combo
+		add_to_global_variable_list = { name = culture_faith_template target = root }
+		
+		# look for appropriate rulers who aren't already in the list
+		every_ruler = {
+			limit = {
+				save_temporary_scope_as = potential_template
+				OR = {
+					culture = root.var:target.culture
+					culture = { has_same_culture_heritage = root.var:target.culture }
+					root.var:target.culture = {
+						cultural_acceptance = {
+							target = scope:potential_template.culture
+							value > 0
+						}
+					}
+				}
+				OR = {
+					faith = root.var:target.faith
+					root.faith = {
+						faith_hostility_level = {
+							target = scope:potential_template.faith
+							value < faith_hostility_prevents_marriage_level
+						}
+					}
+				}
+				in_diplomatic_range = root.var:target
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_in_list = {
+							list = potential_culture_faith_template
+							count > 0
+							culture = prev.culture
+							faith = prev.faith
+						}
+					}
+				}
+				add_to_list = potential_culture_faith_template
+			}
+		}
+		
+		# then give them a bit of order
+		while = {
+			limit = {
+				list_size = { name = potential_culture_faith_template value > 0 }
+			}
+			# order the list roughly in terms of those most closely related/accepted and then by distance
+			ordered_in_list = {
+				list = potential_culture_faith_template
+				limit = { culture = root.var:target.culture }
+				alternative_limit = { culture = { has_same_culture_heritage = root.var:target.culture } }
+				alternative_limit = {
+					location ?= {
+						squared_distance = { target = root.var:target.location value <= 100000 }
+					}
+				}
+				alternative_limit = {
+					location ?= {
+						squared_distance = { target = root.var:target.location value <= 200000 }
+					}
+				}
+				alternative_limit = {
+					location ?= {
+						squared_distance = { target = root.var:target.location value <= 300000 }
+					}
+				}
+				alternative_limit = {
+					location ?= {
+						squared_distance = { target = root.var:target.location value <= 400000 }
+					}
+				}
+				alternative_limit = {
+					location ?= {
+						squared_distance = { target = root.var:target.location value <= 500000 }
+					}
+				}
+				alternative_limit = { always = yes }
+				order_by = "culture.cultural_acceptance(root.culture)"
+				add_to_global_variable_list = { name = culture_faith_template target = this }
+				remove_from_list = potential_culture_faith_template
+				# to add same-culture entries (with a different faith) at the same time
+				every_in_list = {
+					list = potential_culture_faith_template
+					limit = { culture = prev.culture }
+					add_to_global_variable_list = { name = culture_faith_template target = this }
+					remove_from_list = potential_culture_faith_template
+				}	
+			}
+		}
+	}
+}
+
+ansf_set_new_template = {
+	scope = character
+	
+	effect = {
+		set_variable = {
+			name = culture_faith_template
+			value = scope:selection
+		}
+		remove_variable ?= ansf_family_character_is_clone
+	}
+}
+
+ansf_randomize_template = {
+	scope = character
+	
+	effect = {
+		remove_variable ?= culture_faith_template
+	}
+}
+
+ansf_use_changed_settings = {
+	scope = character
+	
+	effect = {
+		if = {
+			limit = { has_variable = ansf_family_character_generate }
+			remove_variable = ansf_family_character_generate
+		}
+		else = {
+			set_variable = ansf_family_character_generate
+		}
+	}
+}
+
+# For the parent selection widget
+ansf_select_parent_char = {
+	scope = character
+	
+	effect = {
+		remove_variable ?= existing_parent
+		set_variable = { name = existing_parent value = scope:selection }
+	}
+}
+
+ansf_close_parent_selection_screen = {
+	scope = character
+	
+	effect = {
+		remove_global_variable ?= ansf_show_possible_parents
+		remove_variable ?= ansf_bastard_parent
+	}
+}
+
+ansf_is_former_spouse = {
+	scope = character
+	
+	is_valid = {
+		scope:player.var:ansf_bastard_parent = {
+			any_former_spouse = {
+				even_if_dead = yes
+				this = root
+			}
+		}
+	}
+}
+
+ansf_is_current_concubine = {
+	scope = character
+	
+	is_valid = {
+		is_concubine_of = scope:player.var:ansf_bastard_parent
+	}
+}
+
+ansf_is_former_concubine = {
+	scope = character
+	
+	is_valid = {
+		NOT = { is_concubine_of = scope:player.var:ansf_bastard_parent }
+		any_child = {
+			even_if_dead = yes
+			has_trait = child_of_concubine_female
+			any_parent = {
+				even_if_dead = yes
+				this = scope:player.var:ansf_bastard_parent
+			}
+		}
+	}
+}
+
+ansf_is_current_lover = {
+	scope = character
+	
+	is_valid = {
+		has_relation_lover = scope:player.var:ansf_bastard_parent
+	}
+}
+
+ansf_is_former_lover = {
+	is_valid = {
+		NOR = {
+			has_relation_lover = scope:player.var:ansf_bastard_parent
+			is_concubine_of = scope:player.var:ansf_bastard_parent
+			scope:player.var:ansf_bastard_parent = {
+				any_former_spouse = {
+					even_if_dead = yes
+					this = root
+				}
+			}
+			any_child = {
+				even_if_dead = yes
+				has_trait = child_of_concubine_female
+				any_parent = {
+					even_if_dead = yes
+					this = scope:player.var:ansf_bastard_parent
+				}
+			}
+		}
+	}
+}
+
+# For the dynasty connection event window
+ansf_select_dynasty_char = {
+	scope = character
+	
+	effect = {
+		remove_variable = potential_relative_1
+		set_variable = {
+			name = potential_relative_1
+			value = scope:selection
+		}
+	}
+}
+
+ansf_selected_dynasty_char = {
+	scope = character
+	
+	is_valid = {
+		scope:player.var:potential_relative_1 = root
+	}
+}
+
+ansf_can_be_bastard_son = {
+	scope = character
+	
+	is_valid = {
+		scope:player = {
+			is_target_in_variable_list = {
+				name = potential_grandparents
+				target = root
+			}
+		}
+		should_be_bastard_trigger = { RELATIVE = scope:player.var:ansf_family_character }
+	}
+}
+
+ansf_can_be_regular_son = {
+	scope = character
+	
+	is_valid = {
+		scope:player = {
+			is_target_in_variable_list = {
+				name = potential_grandparents
+				target = root
+			}
+		}
+		NOT = {
+			should_be_bastard_trigger = { RELATIVE = scope:player.var:ansf_family_character }
+		}
+	}
+}
+
+ansf_can_be_regular_brother = {
+	scope = character
+
+	is_valid = {
+		scope:player = {
+			is_target_in_variable_list = {
+				name = potential_piblings
+				target = root
+			}
+		}
+		NOR = {
+			should_be_fathers_bastard_trigger = { RELATIVE = scope:player.var:ansf_family_character }
+			should_be_legitimate_bastard = { RELATIVE = scope:player.var:ansf_family_character }
+		}
+	}	
+}
+
+ansf_can_be_legit_bastard_brother = {
+	scope = character
+
+	is_valid = {
+		scope:player = {
+			is_target_in_variable_list = {
+				name = potential_piblings
+				target = root
+			}
+		}
+		NOT = {
+			should_be_fathers_bastard_trigger = { RELATIVE = scope:player.var:ansf_family_character }
+		}
+		should_be_legitimate_bastard = { RELATIVE = scope:player.var:ansf_family_character }
+	}
+}
+
+ansf_can_be_bastard_brother = {
+	scope = character
+
+	is_valid = {
+		scope:player = {
+			is_target_in_variable_list = {
+				name = potential_piblings
+				target = root
+			}
+		}
+		should_be_fathers_bastard_trigger = { RELATIVE = scope:player.var:ansf_family_character }
+	}	
+}
+
+# For the group window
+ansf_is_short = {
+	scope = character
+	
+	is_valid = {
+		exists = root
+		age < 13
+	}
+}
+
+ansf_is_tall = {
+	scope = character
+	
+	is_valid = {
+		exists = root
+		age > 12
+	}
+}
+
+# For the Modify Traits GUI
+ansf_can_modify_personality = {
+	scope = character
+	
+	is_valid = {
+		OR = {
+			any_character_trait = { has_trait_category = personality }
+			AND = {
+				number_of_personality_traits < 1
+				age > 3
+			}
+			AND = {
+				number_of_personality_traits < 2
+				age > 8
+			}
+			AND = {
+				number_of_personality_traits < 3
+				age > 12
+			}
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = trait_start
+			value = flag:personality_start
+		}
+	}
+}
+
+ansf_can_modify_education = {
+	scope = character
+	
+	is_valid = {
+		age > 2
+	}
+	
+	effect = {
+		if = {
+			limit = { is_adult = yes }
+			set_variable = {
+				name = trait_start
+				value = flag:education_start
+			}
+		}
+		else = {
+			set_variable = {
+				name = trait_start
+				value = flag:focus_start
+			}
+		}
+	}
+}
+
+ansf_can_modify_lifestyle = {
+	scope = character
+	
+	effect = {
+		set_variable = {
+			name = trait_start
+			value = flag:lifestyle_start
+		}
+	}
+}
+
+ansf_can_modify_physical = {
+	scope = character
+	
+	effect = {
+		set_variable = {
+			name = trait_start
+			value = flag:physical_start
+		}
+	}
+}
+
+ansf_can_modify_childhood = {
+	scope = character
+	
+	is_valid = {
+		age > 2
+	}
+	
+	effect = {
+		set_variable = {
+			name = trait_start
+			value = flag:childhood_start
+		}
+	}
+}
+
+ansf_can_modify_commander = {
+	scope = character
+	
+	is_valid = {
+		OR = {
+			any_character_trait = { has_trait_category = commander }
+			AND = {
+				has_trait = education_martial
+				can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+				age > 23
+			}
+		}
+	}
+
+	effect = {
+		set_variable = {
+			name = trait_start
+			value = flag:commander_start
+		}
+    }
+}
+
+ansf_can_modify_stress = {
+	scope = character
+	
+	effect = {
+		set_variable = {
+			name = trait_start
+			value = flag:stress_start
+		}
+	}
+}
+
+ansf_can_modify_flaws = {
+	scope = character
+	
+	effect = {
+		set_variable = {
+			name = trait_start
+			value = flag:flaw_start
+		}
+	}
+}
+
+ansf_can_modify_special = {
+	scope = character
+	
+	effect = {
+		set_variable = {
+			name = trait_start
+			value = flag:special_start
+		}
+	}
+}
+
+ansf_can_modify_sexuality = {
+	scope = character
+	
+	is_valid = {
+		OR = {
+			has_sexuality = heterosexual
+			has_sexuality = bisexual
+			has_sexuality = homosexual
+			has_sexuality = asexual
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = trait_start
+			value = flag:sexuality_start
+		}
+	}
+}
+
+ansf_use_sexuality_traits_panel = {
+	scope = character
+	
+	is_valid = {
+		var:trait_start ?= flag:sexuality_start
+	}
+}
+
+ansf_current_trait = {
+	scope = character
+	
+	is_valid = {
+		# first check if we're in the right category
+		ansf_filter_gui_traits = yes
+		
+		# then check to make sure the trait is valid for that character
+		ansf_has_scoped_trait = yes
+	}
+	
+	effect = {
+		remove_variable ?= will_add_new_trait
+		if = {
+			limit = {
+				has_variable = current_select_trait
+				var:current_select_trait ?= scope:trait
+			}
+			remove_variable = current_select_trait
+		}
+		else = {
+			set_variable = {
+				name = current_select_trait
+				value = scope:trait
+			}
+			remove_variable ?= will_add_new_trait
+		}		
+	}
+}
+
+ansf_highlight_current_trait = {
+	scope = character
+	
+	is_valid = {
+		var:current_select_trait ?= scope:trait
+	}
+}
+
+ansf_can_add_new_trait = {
+	scope = character
+	
+	is_valid = {
+		trigger_if = {
+			limit = { var:trait_start ?= flag:personality_start }
+			OR = {
+				AND = {
+					number_of_personality_traits < 1
+					age > 3
+				}
+				AND = {
+					number_of_personality_traits < 2
+					age > 8
+				}
+				AND = {
+					number_of_personality_traits < 3
+					age > 12
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = { var:trait_start ?= flag:education_start }
+			is_adult = yes
+			NOT = {
+				any_character_trait = { has_trait_category = education }
+			}
+		}
+		trigger_else_if = {
+			limit = { var:trait_start ?= flag:focus_start }
+			is_adult = no
+			NOR = {
+				has_focus = education_diplomacy
+				has_focus = education_martial
+				has_focus = education_stewardship
+				has_focus = education_intrigue
+				has_focus = education_learning
+			}
+		}
+		trigger_else_if = {
+			limit = { var:trait_start ?= flag:lifestyle_start }
+			is_adult = yes
+			NOT = {
+				any_character_trait = { ansf_is_lifestyle_trait = yes }
+			}
+		}
+		trigger_else_if = {
+			limit = { var:trait_start ?= flag:physical_start }
+			any_character_trait = {
+				count < 2
+				ansf_is_physical_trait = yes
+			}
+		}
+		trigger_else_if = {
+			limit = { var:trait_start ?= flag:childhood_start }
+			is_adult = no
+			NOT = {
+				any_character_trait = { has_trait_category = childhood }
+			}
+		}
+		trigger_else_if = {
+			limit = { var:trait_start ?= flag:commander_start }
+			is_adult = yes
+			NOT = {
+				any_character_trait = { has_trait_category = commander }
+			}
+		}
+		trigger_else_if = {
+			limit = { var:trait_start ?= flag:stress_start }
+			is_adult = yes
+			NOT = {
+				any_character_trait = { ansf_is_stress_trait = yes }
+			}
+		}
+		trigger_else_if = {
+			limit = { var:trait_start ?= flag:flaw_start }
+			always = yes
+		}
+		trigger_else_if = {
+			limit = { var:trait_start ?= flag:special_start }
+			OR = {
+				NOT = { has_trait = celibate }
+				NOT = { has_trait = loyal }
+				ansf_can_add_devoted_trait = yes
+				ansf_can_add_sayyid_trait = yes
+				ansf_can_add_berserker_trait = yes
+				ansf_can_add_viking_trait = yes
+				ansf_can_add_shieldmaiden_trait = yes
+				ansf_can_add_knight_trait = yes
+				ansf_can_add_prowess_education = yes
+				ansf_can_add_gender_commander_modifier = yes
+				ansf_can_add_secret_witch = yes
+				ansf_can_add_secret_deviant = yes
+				ansf_can_add_secret_cannibal = yes
+				ansf_can_add_secret_sodomite = yes
+				ansf_can_add_secret_incestuous = yes
+				AND = {
+					exists = global_var:AGOT_is_loaded
+					NOT = { has_trait = fashionable }
+				}
+			}
+		}
+		trigger_else = {
+			always = yes
+		}
+	}
+	
+	effect = {
+		if = {
+			limit = { has_variable = will_add_new_trait }
+			remove_variable = will_add_new_trait
+		}
+		else = {
+			set_variable = will_add_new_trait
+			remove_variable ?= current_select_trait
+		}
+	}
+}
+
+ansf_checkmark_new_trait = {
+	scope = character
+	
+	is_valid = {
+		has_variable = will_add_new_trait
+	}
+}
+
+ansf_can_change_trait = {
+	scope = character
+	
+	is_valid = {
+		OR = {
+			has_variable = current_select_trait
+			has_variable = will_add_new_trait
+		}
+	}
+}
+
+ansf_remove_trait = {
+	scope = character
+	
+	is_valid = {
+		has_variable = current_select_trait
+		NOR = {
+			var:trait_start = flag:education_start
+			var:trait_start = flag:focus_start
+			var:trait_start = flag:childhood_start
+		}
+	}
+	
+	effect = {
+		ansf_remove_current_select_trait = yes
+		remove_variable = current_select_trait
+		force_character_skill_recalculation = yes
+	}
+}
+
+ansf_change_trait = {
+	scope = character
+	
+	is_valid = {
+		# check if the character does NOT already have the current trait
+		NOT = { ansf_has_scoped_trait = yes }
+		
+		# then filter the traits for the right list
+		ansf_filter_gui_traits = yes
+		
+		# now check for the special cases
+		trigger_if = {
+			limit = { scope:trait = trait:ansf_virago }
+			ansf_can_add_gender_commander_modifier = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:ansf_secret_witch }
+			ansf_can_add_secret_witch = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:ansf_secret_deviant }
+			ansf_can_add_secret_deviant = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:ansf_secret_cannibal }			ansf_can_add_secret_cannibal = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:ansf_secret_sodomite }
+			ansf_can_add_secret_sodomite = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:ansf_secret_incestuous }
+			ansf_can_add_secret_incestuous = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:hashishiyah }
+			can_be_hashishiyah = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:bastard }
+			ansf_can_add_bastard = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:bastard_founder }
+			ansf_can_add_bastard_founder = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:legitimized_bastard }
+			ansf_can_add_legitimized_bastard = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:wild_oat }
+			ansf_can_add_wild_oat = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = { ansf_is_physical_trait = yes } }
+			scope:trait = { ansf_is_addable_physical_trait = yes }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:trait = {
+					OR = {
+						this = trait:adulterer
+						this = trait:fornicator
+						this = trait:murderer
+						this = trait:excommunicated
+						this = trait:decadent
+					}
+				}
+			}
+			is_adult = yes
+		}
+		trigger_else_if = {
+			limit = {
+				scope:trait = {
+					OR = {
+						this = trait:beardless_eunuch
+						this = trait:sodomite
+					}
+				}
+			}
+			is_male = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:eunuch_1 }
+			is_male = yes
+			age > 11
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:devoted }
+			ansf_can_add_devoted_trait = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:sayyid }
+			ansf_can_add_sayyid_trait = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:berserker }
+			ansf_can_add_berserker_trait = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:viking }
+			ansf_can_add_viking_trait = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:shieldmaiden }
+			ansf_can_add_shieldmaiden_trait = yes
+		}
+		trigger_else_if = {
+			limit = { scope:trait = trait:knight }
+			ansf_can_add_knight_trait = yes
+		}
+		trigger_else_if = {
+			limit = {
+				scope:trait = {
+					OR = {
+						this = trait:education_martial_prowess_1
+						this = trait:education_martial_prowess_2
+						this = trait:education_martial_prowess_3
+						this = trait:education_martial_prowess_4
+					}
+				}
+			}
+			ansf_can_add_prowess_education = yes
+		}
+		trigger_else = {
+			always = yes
+		}
+	}
+	
+	effect = {
+		# remove the trait swapping with, if applicable
+		if = {
+			limit = { has_variable = current_select_trait }
+			ansf_remove_current_select_trait = yes
+			remove_variable = current_select_trait
+		}
+		# otherwise just remove the variable that says we're adding a new trait
+		else = {
+			remove_variable ?= will_add_new_trait
+		}
+		
+		# now add the actual trait
+		if = {
+			limit = { scope:trait = trait:ansf_diplomatic_focus }
+			set_focus = education_diplomacy
+			set_variable = { name = education_diplomacy_variable value = age }
+		}
+		else_if = {
+			limit = { scope:trait = trait:ansf_martial_focus }
+			set_focus = education_martial
+			set_variable = { name = education_martial_variable value = age }
+		}
+		else_if = {
+			limit = { scope:trait = trait:ansf_stewardship_focus }
+			set_focus = education_stewardship
+			set_variable = { name = education_stewardship_variable value = age }
+		}
+		else_if = {
+			limit = { scope:trait = trait:ansf_intrigue_focus }
+			set_focus = education_intrigue
+			set_variable = { name = education_intrigue_variable value = age }
+		}
+		else_if = {
+			limit = { scope:trait = trait:ansf_learning_focus }
+			set_focus = education_learning
+			set_variable = { name = education_learning_variable value = age }
+		}		
+		else_if = {
+			limit = { scope:trait = trait:ansf_virago }
+			add_character_modifier = ignores_gender_army_rules
+		}
+		else_if = {
+			limit = { scope:trait = trait:ansf_secret_witch }
+			add_secret = { type = secret_witch }
+		}
+		else_if = {
+			limit = { scope:trait = trait:ansf_secret_deviant }
+			add_secret = { type = secret_deviant }
+		}
+		else_if = {
+			limit = { scope:trait = trait:ansf_secret_cannibal }
+			add_secret = { type = secret_cannibal }
+		}
+		else_if = {
+			limit = { scope:trait = trait:ansf_secret_sodomite }
+			add_secret = { type = secret_homosexual }
+		}
+		else_if = {
+			limit = { scope:trait = trait:ansf_secret_incestuous }
+			add_secret = { type = secret_incest }
+		}
+		else_if = {
+			limit = {
+				scope:trait = {
+					OR = {
+						this = trait:education_martial_prowess_1
+						this = trait:education_martial_prowess_2
+						this = trait:education_martial_prowess_3
+						this = trait:education_martial_prowess_4
+					}
+				}
+			}
+			remove_trait = education_martial_prowess_1
+			remove_trait = education_martial_prowess_2
+			remove_trait = education_martial_prowess_3
+			remove_trait = education_martial_prowess_4
+			add_trait = scope:trait
+		}
+		else = {
+			add_trait = scope:trait
+		}
+		force_character_skill_recalculation = yes
+	}
+}
+
+ansf_clear_current_trait = {
+	scope = character
+	
+	effect = {
+		remove_variable ?= trait_start
+		remove_variable ?= current_select_trait
+		remove_variable ?= will_add_new_trait
+		force_character_skill_recalculation = yes
+		
+		if = {
+			limit = {
+				liege = { has_imprisonment_reason = root }
+			}
+			consume_all_criminal_reasons_effect = {
+				LIEGE = root.liege
+				CRIMINAL = root
+			}
+		}
+	}
+}
+
+ansf_modify_sexuality = {
+	is_valid = {
+		OR = {
+			has_sexuality = heterosexual
+			has_sexuality = bisexual
+			has_sexuality = homosexual
+			has_sexuality = asexual
+		}
+	}
+	
+	effect = {
+		if = {
+			limit = { has_variable = will_add_new_trait }
+			remove_variable = will_add_new_trait
+		}
+		else = {
+			set_variable = will_add_new_trait
+			remove_variable ?= current_select_trait
+		}
+	}
+}
+
+ansf_is_heterosexual = {
+	scope = character
+	
+	is_valid = {
+		has_sexuality = heterosexual
+	}
+}
+
+ansf_is_bisexual = {
+	scope = character
+	
+	is_valid = {
+		has_sexuality = bisexual
+	}
+}
+
+ansf_is_homosexual = {
+	scope = character
+	
+	is_valid = {
+		has_sexuality = homosexual
+	}
+}
+
+ansf_is_asexual = {
+	scope = character
+	
+	is_valid = {
+		has_sexuality = asexual
+	}
+}
+
+ansf_set_heterosexual = {
+	scope = character
+	
+	effect = {
+		set_sexuality = heterosexual
+		remove_variable ?= will_add_new_trait
+	}
+}
+
+ansf_set_bisexual = {
+	scope = character
+	
+	effect = {
+		set_sexuality = bisexual
+		remove_variable ?= will_add_new_trait
+	}
+}
+
+ansf_set_homosexual = {
+	scope = character
+	
+	effect = {
+		set_sexuality = homosexual
+		remove_variable ?= will_add_new_trait
+	}
+}
+
+ansf_set_asexual = {
+	scope = character
+	
+	effect = {
+		set_sexuality = asexual
+		remove_variable ?= will_add_new_trait
+	}
+}
+
+ansf_is_valid_gui_trait = {
+	scope = character
+	
+	is_valid = {
+		always = yes
+	}
+}
+

@@ -1,0 +1,21 @@
+﻿namespace = error_suppression_for_quirky_design
+
+error_suppression_for_quirky_design.0001 = {
+	hidden = yes
+	orphan = yes
+	trigger = {
+		exists = global_var:gm1_is_loaded
+	}
+}
+
+error_suppression_for_quirky_design.0002 = {
+	hidden = yes
+	orphan = yes
+	immediate = {
+		rv_rescue_imprisoned_character_effect = {
+			PRISONER = root
+			ATTACKER = root
+			DEFENDER = root
+		}
+	}
+}

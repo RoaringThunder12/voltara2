@@ -1,0 +1,14 @@
+﻿l_french:
+ jdb_bc_commander_flavor_text_retreat_dominant:0 "Maudit soient les félons ! Repliez-vous !!"
+ jdb_bc_commander_flavor_text_retreat_zeal_forsaken:0 "[ROOT.Char.GetFaith.WarGodName|U] pourquoi nous as-tu abandonnés ?"
+ jdb_bc_commander_flavor_text_retreat_fallback:0 "Replis!!"
+ jdb_bc_commander_flavor_text_retreat:0 "Repliez-vous ! Replis !!"
+ jdb_bc_commander_flavor_text_retreat_we_need_more_allies:0 "Il nous faut plus d'alliés !"
+ jdb_bc_commander_flavor_text_siege_tear_walls:0 "Brisez ces murs !"
+ jdb_bc_commander_flavor_text_siege_archers:0 "Archers, décochez !"
+ jdb_bc_commander_flavor_text_siege_burn_them:0 "Brûlez-les !"
+ jdb_bc_commander_flavor_text_siege_storm_gate:0 "Prenez d'assaut les portes !"
+ jdb_bc_commander_flavor_text_siege_towers:0 "Tours de siège, en avant !"
+ jdb_bc_commander_flavor_text_siege_mine:0 "Je prendrai ce qui me revient de droit. Archers, décochez !"
+
+ jdb_bc_battle_stance:1 "Random Commander Stance #weak (Battleground Commanders)#!"

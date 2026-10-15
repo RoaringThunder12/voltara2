@@ -1,13 +1,23 @@
 ﻿
 voltara_ensure_ruins_keeper = {
- if = { limit = { NOT = { exists = global_var:voltara_ruins_keeper } }
-  create_character = { name = voltara_ruins_realm age = 30 gender = male random_traits = no dynasty = none
-   culture = root.culture faith = root.faith location = root.capital_province
-   trait = voltara_ruins_keeper save_scope_as = ruins_keeper
-  }
-  set_global_variable = { name = voltara_ruins_keeper value = scope:ruins_keeper }
+ if = { limit = { exists = global_var:voltara_ruins_keeper }
+  if = { limit = { global_var:voltara_ruins_keeper = { is_alive = no } } remove_global_variable = voltara_ruins_keeper }
  }
-
+ if = { limit = { NOT = { exists = global_var:voltara_ruins_keeper } }
+  if = { limit = { exists = title:e_voltara_ruins.holder title:e_voltara_ruins.holder = { is_alive = yes voltara_is_ruins_placeholder = yes } }
+   set_global_variable = { name = voltara_ruins_keeper value = title:e_voltara_ruins.holder }
+  }
+  else_if = { limit = { exists = character:19999000 character:19999000 = { is_alive = yes } }
+   set_global_variable = { name = voltara_ruins_keeper value = character:19999000 }
+  }
+  else = {
+   create_character = { name = voltara_ruins_realm age = 30 gender = male random_traits = no dynasty = none
+    culture = culture:voltara_culture_44 faith = faith:voltara_faith_0 location = title:c_voltara_226.title_province
+    trait = voltara_ruins_keeper save_scope_as = ruins_keeper
+   }
+   set_global_variable = { name = voltara_ruins_keeper value = scope:ruins_keeper }
+  }
+ }
  voltara_ensure_ruins_realm = yes
 }
 voltara_convert_ruin_county = {
@@ -20,6 +30,7 @@ voltara_convert_ruin_county = {
   set_variable = { name = voltara_ruin_state value = scope:ruins_mode }
   add_to_global_variable_list = { name = voltara_ruined_counties target = this }
   voltara_name_ruined_county = yes
+  voltara_set_abandoned_identity = yes
   change_development_level = -100
   add_county_modifier = { modifier = voltara_abandoned_county }
   every_county_province = { limit = { has_holding = yes }
@@ -54,6 +65,8 @@ voltara_clear_ruins_selection = {
  }
 }
 voltara_restore_ruin_county = {
+ set_county_culture = holder.culture
+ set_county_rite = holder.rite
  every_county_province = { limit = { has_holding = yes }
   if = { limit = { var:voltara_old_holding ?= flag:city } set_holding_type = city_holding }
   else_if = { limit = { var:voltara_old_holding ?= flag:temple } set_holding_type = church_holding }

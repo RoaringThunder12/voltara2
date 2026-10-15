@@ -1,0 +1,20 @@
+﻿
+voltara_in_hegemony = {
+ OR = {
+  has_title = title:h_voltara_severos
+  top_liege = { has_title = title:h_voltara_severos }
+  primary_title ?= { has_variable = voltara_mw_home }
+  top_liege.primary_title ?= { has_variable = voltara_mw_home }
+ }
+}
+voltara_keeper_realm = {
+ OR = { has_title = title:k_voltara_22 top_liege = { has_title = title:k_voltara_22 } }
+}
+voltara_keeper_member = {
+ OR = { has_trait = voltara_oathkeeper has_trait = voltara_keeper_elect voltara_keeper_realm = yes }
+}
+voltara_keeper_candidate = {
+ is_alive = yes is_adult = yes is_imprisoned = no
+ has_trait = voltara_oathkeeper
+ NOT = { has_trait = incapable }
+}

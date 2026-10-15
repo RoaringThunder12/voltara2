@@ -1,0 +1,22 @@
+﻿copy_var_to_heir = {
+	if = {
+		limit = {
+			has_variable = $var$
+		}
+		player_heir = {
+			set_variable = $var$
+		}
+	}
+}
+
+toggle_sgui = {
+	if = {
+		limit = {
+			has_variable = $var$
+		}
+		remove_variable = $var$
+	}
+	else = {
+		set_variable = $var$
+	}
+}

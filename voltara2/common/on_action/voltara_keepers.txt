@@ -1,0 +1,25 @@
+﻿
+on_death = { on_actions = { voltara_keeper_death } }
+voltara_keeper_death = {
+ trigger = { has_government = voltara_keeper_government }
+ effect = { voltara_keeper_election = yes }
+}
+yearly_playable_pulse = { on_actions = { voltara_keeper_service } }
+voltara_keeper_service = {
+ trigger = { voltara_keeper_realm = yes }
+ effect = {
+  voltara_keeper_maintenance = yes
+  add_trait_xp = { trait = voltara_oathkeeper value = 5 }
+  every_courtier = { add_trait = voltara_oathkeeper add_trait_xp = { trait = voltara_oathkeeper value = 5 } }
+ }
+}
+on_raid_action_completion = { on_actions = { voltara_keeper_raid } }
+voltara_keeper_raid = {
+ trigger = {
+  scope:raider = { voltara_keeper_realm = yes }
+  scope:county = { OR = { culture = culture:voltara_southorion culture = culture:voltara_desert_southron } }
+ }
+ effect = {
+  army_commander ?= { if = { limit = { has_trait = voltara_oathkeeper } add_trait_xp = { trait = voltara_oathkeeper value = 3 } } }
+ }
+}

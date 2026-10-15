@@ -1,0 +1,42 @@
+pdxmesh = {
+	name = "turnovo_sprawl2_mesh"
+	file = "turnovo_sprawl2.mesh"
+
+	meshsettings = {
+		name = "turnovo_sprawl1"
+		index = 0
+		texture_diffuse = "building_mediterranean_atlas_diffuse.dds"
+		texture_normal = "building_mediterranean_atlas_normal.dds"
+		texture_specular = "building_mediterranean_atlas_properties.dds"
+		texture = { file = "turnovo_sprawl.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "turnovo_rocks"
+		index = 0
+		texture_diffuse = "devagiri_fort.dds"
+		texture_normal = "cp6_mont_st_michel_normal.dds"
+		texture_specular = "cp6_mont_st_michel_properties.dds"
+		shader = "snap_to_terrain_alpha_to_coverage"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "turnovo_sprawl2"
+		index = 0
+		texture_diffuse = "building_mediterranean_atlas_diffuse.dds"
+		texture_normal = "building_mediterranean_atlas_normal.dds"
+		texture_specular = "building_mediterranean_atlas_properties.dds"
+		texture = { file = "turnovo_sprawl.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+}
+
+entity = {
+	name = "turnovo_sprawl2_entity"
+	pdxmesh = "turnovo_sprawl2_mesh"
+}

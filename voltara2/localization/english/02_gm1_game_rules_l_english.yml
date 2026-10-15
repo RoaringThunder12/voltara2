@@ -1,0 +1,28 @@
+﻿##############################
+## GM1 game_rules
+##############################
+
+l_english:
+ game_rule_category_gm1_prisoners_and_jailors: "Prisoners and Jailors"
+
+ rule_gm1_prisoners_and_jailors_interaction_restriction: "#color_goldy_yellow Prisoners and Jailors:#! Interaction Restrictions"
+ setting_transfer_prisoner_default_interaction_allowed: "Default"
+ setting_transfer_prisoner_default_interaction_allowed_desc: "The AI, much like the player, is allowed to transfer [prisoners|E] to another [ruler|E]."
+ setting_transfer_prisoner_limited_interaction_allowed: "#high Player Only#!"
+ setting_transfer_prisoner_limited_interaction_allowed_desc: "The AI, unlike the player, is not allowed to transfer [prisoners|E] to another [ruler|E]."
+
+ rule_gm1_prisoners_and_jailors_penalties: "#color_goldy_yellow Prisoners and Jailors:#! Interaction Penalties"
+ setting_transfer_prisoner_default_interaction_penalties: "Default"
+ setting_transfer_prisoner_default_interaction_penalties_desc: "The Player, much like the AI, will receive penalties when transferring [prisoners|E] to another [ruler|E]."
+ setting_transfer_prisoner_limited_interaction_penalties: "#high Limited (Player Only)#!"
+ setting_transfer_prisoner_limited_interaction_penalties_desc: "The Player, unlike the AI, will receive fewer penalties when transferring [prisoners|E] to another [ruler|E]"
+ setting_transfer_prisoner_disabled_interaction_penalties: "#high Disabled (Player Only)#!"
+ setting_transfer_prisoner_disabled_interaction_penalties_desc: "The Player, unlike the AI, will not receive any penalties when transferring [prisoners|E] to another [ruler|E]."
+
+ rule_gm1_prisoners_and_jailors_interaction_acceptance: "#color_goldy_yellow Prisoners and Jailors:#! Interaction Acceptance"
+ setting_transfer_prisoner_default_interaction_acceptance: "Default"
+ setting_transfer_prisoner_default_interaction_acceptance_desc: "The Player's [direct_vassal|E] will always accept any [prisoners|E] demanded from them."
+ setting_transfer_prisoner_limited_interaction_acceptance: "#high Limited#!"
+ setting_transfer_prisoner_limited_interaction_acceptance_desc: "The Player's [direct_vassal|E] might accept some [prisoners|E] offered or demanded from them."
+ setting_transfer_prisoner_always_interaction_acceptance: "#high Always (Player Only)#!"
+ setting_transfer_prisoner_always_interaction_acceptance_desc: "The AI [ruler|E] will always accept any [prisoners|E] offered or demanded from them."
