@@ -1,0 +1,4 @@
+﻿# Character-scope identity only. Diplomacy uses direct native checks.
+voltara_is_ruins_placeholder = {
+ OR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins }
+}

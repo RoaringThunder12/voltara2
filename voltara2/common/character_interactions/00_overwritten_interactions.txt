@@ -18,6 +18,10 @@
 	}
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOR = { 
 			scope:recipient = scope:puppet_or_actor 
 
@@ -43,6 +47,10 @@
 	}
 
 	is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		custom_description = {
 			scope:puppet_or_actor.culture = {
 				NOT = { has_cultural_parameter = cannot_disherit }
@@ -549,6 +557,10 @@ disinherit_children_interaction = {
 	}
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		# DLC checking
 		has_fp2_dlc_trigger = yes
 		# Standard check
@@ -566,6 +578,10 @@ disinherit_children_interaction = {
 	}
 
 	is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:puppet_or_actor = { is_parent_of = scope:recipient }
 
 
@@ -901,6 +917,12 @@ disinherit_children_interaction = {
 
 # Demand an artifact you have a claim on
 demand_artifact_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_diplomacy
 	common_interaction = yes
 	interface_priority = 60
@@ -961,6 +983,10 @@ demand_artifact_interaction = {
 	}
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:recipient != scope:puppet_or_actor
 
 		custom_description = {

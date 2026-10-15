@@ -1,0 +1,25 @@
+﻿voltara_serpent_communion = {
+ main_rite = voltara_first_cavern
+ faith_details = { religion = voltara_serpents_religion color = { 83 152 140 } icon = voltara_22 graphical_faith = pagan_gfx }
+ doctrines = { voltara_cultural_hostility doctrine_no_head }
+}
+voltara_stone_communion = {
+ main_rite = voltara_eternal_legacy
+ faith_details = { religion = voltara_stone_religion color = { 144 119 92 } icon = voltara_26 graphical_faith = pagan_gfx }
+ doctrines = { voltara_cultural_hostility doctrine_no_head }
+}
+voltara_true_weavers = {
+ main_rite = voltara_harmonious_weave
+ faith_details = { religion = voltara_weavers_religion color = { 139 131 199 } icon = voltara_veiled_balance graphical_faith = pagan_gfx }
+ doctrines = { voltara_cultural_hostility doctrine_no_head }
+}
+voltara_orc_old_ways = {
+ main_rite = voltara_mud_and_flame
+ faith_details = { religion = voltara_old_ones_religion color = { 127 148 76 } icon = voltara_folk graphical_faith = pagan_gfx }
+ doctrines = { voltara_cultural_hostility doctrine_no_head }
+}
+voltara_goblin_embers = {
+ main_rite = voltara_embers_of_khaos
+ faith_details = { religion = voltara_embers_religion color = { 203 109 47 } icon = voltara_khaos graphical_faith = pagan_gfx }
+ doctrines = { voltara_cultural_hostility doctrine_no_head }
+}

@@ -1,4 +1,10 @@
 ﻿cof_ekue_lich_blessing_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	common_interaction = yes
 	category = interaction_category_magic
 	desc = cof_ekue_lich_blessing_interaction_desc
@@ -7,6 +13,10 @@
 	can_send_despite_rejection = yes
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:actor = scope:recipient }
 		scope:actor = {
 				has_perk = necromancy_master_perk
@@ -968,12 +978,22 @@
 }
 
 cof_ekue_ascend_lich_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	common_interaction = yes
 	category = interaction_category_magic
 	desc = cof_ekue_ascend_lich_interaction_desc
 	icon = icon_thralldom
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:actor = scope:recipient }
 		scope:actor = {
 				has_perk = necromancy_master_perk

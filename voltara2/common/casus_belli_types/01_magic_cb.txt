@@ -7,6 +7,9 @@
 	mutually_exclusive_titles = { always = yes }
 
 	allowed_for_character = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins }
+
 		#has_perk = master_of_war_perk
 		has_trait = demon2
 		has_trait_xp = {
@@ -21,6 +24,9 @@
 	#}
 	#allowed_for_character_display_regardless = {
 	allowed_against_character = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins }
+
 		NOR = {
 			scope:attacker = {
 				is_vassal_or_below_of = scope:defender
@@ -58,6 +64,10 @@
 		}
 	}
 	valid_to_start = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:attacker = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:defender = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:target = {
 			holder = scope:defender
 			is_titular = no
@@ -450,9 +460,15 @@ against_the_witch_war = {
 	allow_hostages = no
 
 	allowed_for_character = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins }
+
 		always = yes
 	}
 	allowed_against_character = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins }
+
 		always = yes
 	}
 
@@ -522,6 +538,10 @@ against_the_witch_war = {
 		}
 	}
 	valid_to_start = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:attacker = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:defender = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		always = no
 	}
 

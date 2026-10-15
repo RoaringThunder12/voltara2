@@ -67,4 +67,6 @@ voltara_restore_ruin_county = {
  remove_variable = voltara_former_holder change_development_level = 1
  save_scope_as = restored_ruin
  remove_list_global_variable = { name = voltara_ruined_counties target = scope:restored_ruin }
+
+ voltara_restore_ancient_elven_site = yes
 }

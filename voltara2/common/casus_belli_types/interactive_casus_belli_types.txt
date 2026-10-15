@@ -7,6 +7,9 @@
 	mutually_exclusive_titles = { always = yes }
 
 	allowed_for_character = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins }
+
 		OR = {
 			has_game_rule = miv_border_dispute_enabled
 			has_game_rule = miv_border_dispute_kingdom
@@ -38,6 +41,9 @@
 	}
 
 	allowed_against_character = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins }
+
 		scope:defender = {
 			trigger_if = {
 				limit = {
@@ -100,6 +106,10 @@
 	}
 
 	valid_to_start = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:attacker = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:defender = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:target = {
 			tier = tier_county
 			is_landless_type_title = no
@@ -333,6 +343,9 @@ miv_shattered_conquest_cb = {
 	mutually_exclusive_titles = { always = yes }
 
 	allowed_for_character = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins }
+
 		has_game_rule = shattered_conquest_miv_enabled
 		is_landed = yes
 		is_independent_ruler = yes
@@ -342,6 +355,9 @@ miv_shattered_conquest_cb = {
 	}
 
 	allowed_against_character = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins }
+
 		scope:defender = {
 			max_military_strength >= interactive_minimum_vassal_strength
 		}
@@ -385,6 +401,10 @@ miv_shattered_conquest_cb = {
 	}
 
 	valid_to_start = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:attacker = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:defender = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:target = {
 			tier = tier_county
 			is_landless_type_title = no

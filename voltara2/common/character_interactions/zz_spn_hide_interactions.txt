@@ -2,6 +2,12 @@
 
 # ---- Silverback: Stand Over Them (§6.5) ----
 spn_stand_over_them_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites # 2.37: the mod's Supernatural menu (Thomas, 3 Oct)
 	icon = courtier_interaction
 	desc = spn_stand_over_them_interaction_desc
@@ -17,6 +23,10 @@ spn_stand_over_them_interaction = {
 	}
 	ai_frequency = 36
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = {
 			has_trait = spn_champion_silverback
@@ -78,6 +88,12 @@ spn_stand_over_them_interaction = {
 
 # ---- Tundra: Read Them (§6.5). The reveal idiom of 20_spn_secret_effects.txt. ----
 spn_read_them_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites # 2.37: the mod's Supernatural menu (Thomas, 3 Oct)
 	icon = icon_discovered_scheme
 	desc = spn_read_them_interaction_desc
@@ -94,6 +110,10 @@ spn_read_them_interaction = {
 	}
 	ai_frequency = 36
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = {
 			has_trait = spn_champion_tundra
@@ -147,6 +167,12 @@ spn_read_them_interaction = {
 
 # ---- Ask to Unbind the Hide (§8.1). A champion asks a great mage to take the hide's spirit out of him. ----
 spn_ask_to_unbind_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites # 2.37: the mod's Supernatural menu (Thomas, 3 Oct)
 	icon = icon_cross
 	desc = spn_ask_to_unbind_interaction_desc
@@ -155,6 +181,10 @@ spn_ask_to_unbind_interaction = {
 	ai_min_reply_days = 1
 	ai_max_reply_days = 5
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = { spn_is_champion_trigger = yes }
 		scope:recipient = {

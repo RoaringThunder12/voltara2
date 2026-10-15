@@ -2,6 +2,12 @@
 # Werewolf Shapeshift
 
 POD_wereshapeshift_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites
 	interface_priority = 92
 	common_interaction = yes
@@ -9,6 +15,10 @@ POD_wereshapeshift_interaction = {
 	desc = POD_wereshapeshift_interaction_desc
 	
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:actor = scope:recipient 
 		scope:recipient = { is_adult = yes }
 		scope:actor = { is_ai = no }

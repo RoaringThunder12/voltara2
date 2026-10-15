@@ -1,4 +1,10 @@
 ﻿interactive_help_house_member_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	common_interaction = yes
 	interface_priority = 67
 	category = interaction_category_diplomacy
@@ -10,6 +16,10 @@
 	greeting = positive
 	notification_text = join_war_interaction_notification
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = {
 			has_game_rule = help_house_member_miv_disabled
 		}

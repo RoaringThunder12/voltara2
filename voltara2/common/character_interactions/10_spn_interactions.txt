@@ -1,4 +1,10 @@
 ﻿invoke_the_bond = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	icon = vampire_bond
 	ai_maybe = yes
 	ai_min_reply_days = 1
@@ -17,6 +23,10 @@
 	use_diplomatic_range = yes
 	
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = {
 			is_imprisoned = no
@@ -1486,6 +1496,12 @@
 }
 
 spn_compulsion = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	icon = vampire_no_turn
 	ai_maybe = yes
 	ai_min_reply_days = 1
@@ -1507,6 +1523,10 @@ spn_compulsion = {
 
 	# Who sees it
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = { 
 			is_adult = yes 

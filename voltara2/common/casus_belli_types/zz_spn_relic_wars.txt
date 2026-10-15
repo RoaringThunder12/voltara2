@@ -3,12 +3,21 @@
 # player may declare across the world, and the march is the price. Loc: localization/english/spn_relic_l_english.yml.
 
 spn_relic_war = {
+valid_to_start = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:attacker = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:defender = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	icon = artifact_war
 	group = artifact
 	ai_only_against_neighbors = yes
 	allow_hostages = no
 
 	allowed_for_character = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins }
+
 		is_landed = yes
 		OR = {
 			has_trait = archmage
@@ -20,6 +29,9 @@ spn_relic_war = {
 		}
 	}
 	allowed_against_character = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins }
+
 		# 2.38 (§10): three magical items or more, pledged or not; never over one trinket.
 		any_character_artifact = {
 			count >= spn_relic_war_min_items_value

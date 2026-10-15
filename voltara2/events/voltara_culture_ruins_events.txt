@@ -5,6 +5,9 @@ voltara_culture_ruins.1 = {
  immediate = {
   voltara_ensure_ruins_keeper = yes
   save_scope_value_as = { name = ruins_mode value = flag:ruin }
+  title:c_voltara_1172 = { voltara_convert_ruin_county = yes voltara_restore_ancient_elven_site = yes }
+  title:c_voltara_1783 = { voltara_convert_ruin_county = yes voltara_restore_ancient_elven_site = yes }
+  title:c_voltara_116 = { voltara_convert_ruin_county = yes voltara_restore_ancient_elven_site = yes }
   title:c_voltara_101 = { voltara_convert_ruin_county = yes }
   title:c_voltara_10113 = { voltara_convert_ruin_county = yes }
   title:c_voltara_10114 = { voltara_convert_ruin_county = yes }

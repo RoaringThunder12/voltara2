@@ -1,4 +1,10 @@
 ﻿miv_stop_attacker_vassal_war_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	common_interaction = yes
 	interface_priority = 66
 	category = interaction_category_diplomacy
@@ -14,6 +20,10 @@
 	prompt = STOP_VASSAL_WAR_ATTACKER
 	desc = miv_stop_vassal_war_negotiation
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		has_game_rule = miv_ask_to_end_war_enabled
 		NOT = {
 			scope:recipient = scope:actor

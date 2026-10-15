@@ -4,11 +4,21 @@
 # Name Your Successor in the Temple (§5.8). A player Temple Magus names a Magistratus of his chapter. (The order called this
 # a decision; picking a person is an interaction's job, so it is one: the same variable, read the same way.)
 spn_order_name_successor_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites
 	icon = icon_archmage
 	desc = spn_order_name_successor_interaction_desc
 	auto_accept = yes
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = {
 			is_ai = no
@@ -39,11 +49,21 @@ spn_order_name_successor_interaction = {
 # Expel from the Order (§5.10). A Temple Magus casts out a member of his chapter; the member answers in Cast Out (.0192).
 # The AI head does this in the chapter's year (step 10b), so the interaction is for players.
 spn_order_expel_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites
 	icon = icon_archmage
 	desc = spn_order_expel_interaction_desc
 	auto_accept = yes
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = {
 			spn_order_on_trigger = yes
@@ -82,6 +102,12 @@ spn_order_expel_interaction = {
 
 # Heal by Elemental Transference (§5.19). Move a deadly illness out of the recipient into five members who agree to carry it.
 spn_order_transference_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites
 	icon = icon_magic
 	desc = spn_order_transference_interaction_desc
@@ -99,6 +125,10 @@ spn_order_transference_interaction = {
 	}
 	ai_frequency = 36
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = {
 			spn_order_on_trigger = yes
@@ -158,6 +188,12 @@ spn_order_transference_interaction = {
 # Borrow from the Reliquary (§11.6). A demon with a Compact borrows a pledged item from a Temple Magus or the master; a
 # favor is owed, for the prerogative of the day.
 spn_order_demon_borrow_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites
 	icon = artifact
 	desc = spn_order_demon_borrow_interaction_desc
@@ -172,6 +208,10 @@ spn_order_demon_borrow_interaction = {
 	}
 	ai_frequency = 36
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = {
 			is_a_demon_trigger = yes
@@ -245,6 +285,12 @@ spn_order_demon_borrow_interaction = {
 # The Unmaking (§12.7). The Grand Magus and two other seat holders unmake a bound master. The one thing in the mod that
 # targets him by name.
 spn_order_unmaking_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_hostile
 	icon = icon_magic
 	desc = spn_order_unmaking_interaction_desc
@@ -257,6 +303,10 @@ spn_order_unmaking_interaction = {
 	}
 	ai_frequency = 24
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = { global_var:current_archmage_global ?= this }
 		scope:recipient = { has_trait = spn_vade_bound }
@@ -324,11 +374,21 @@ spn_order_unmaking_interaction = {
 # 2.38b: Ask About the Blue Rose (DESIGN-2.38b §8). A prisoner of yours whose membership you know. He names at most two
 # others of his temple and, if you want in, the temple he belongs to.
 spn_order_ask_about_rose_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_prison
 	icon = prison
 	desc = spn_order_ask_about_rose_interaction_desc
 	auto_accept = yes
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = { spn_order_on_trigger = yes }
 		scope:recipient = {

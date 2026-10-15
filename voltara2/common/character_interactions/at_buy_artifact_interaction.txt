@@ -1,6 +1,12 @@
 ﻿# Buy an artifact from another character.
 # Scopes: actor is the buyer, recipient is the artifact owner (seller), target is the artifact.
 at_buy_artifact_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_diplomacy
 	interface_priority = 60
 	common_interaction = yes
@@ -72,6 +78,10 @@ at_buy_artifact_interaction = {
 	}
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:actor != scope:recipient
 		scope:recipient = {
 			has_any_artifact = yes

@@ -1,6 +1,12 @@
 ﻿#Character interactions relating to schemes
 
 start_abduct = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	icon = icon_scheme_abduct
 	interface_priority = 70
 	category = interaction_category_hostile
@@ -20,6 +26,10 @@ start_abduct = {
 	}
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:puppet_or_actor ?= {
 			OR = {
 				has_perk = kidnapper_perk  # Scheme unlocked by the Kidnapper Perk

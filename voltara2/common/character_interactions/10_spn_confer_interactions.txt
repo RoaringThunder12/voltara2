@@ -46,6 +46,10 @@
 	ai_frequency = 4
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor}
 		scope:recipient = {
 			NOR = {
@@ -64,6 +68,10 @@
 	}
 
 	is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:recipient = {
 			NOT = { has_character_flag = vampire_blood_in_system }
 		}
@@ -316,6 +324,10 @@ spn_turn_into_vampire = { #Turn Character Into Vampire
 	ai_frequency = 8
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor}
 		scope:recipient = {
 			spn_has_supernatural_trait = no
@@ -331,6 +343,10 @@ spn_turn_into_vampire = { #Turn Character Into Vampire
 	}
 
 	is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:recipient = {
 			has_character_flag = vampire_blood_in_system
 		}
@@ -578,6 +594,10 @@ spn_offer_gift = { #Offer Gift - begin werewolf turning incubation (consensual)
 	ai_frequency = 36
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor}
 		scope:recipient = {
 			spn_has_supernatural_trait = no
@@ -591,6 +611,10 @@ spn_offer_gift = { #Offer Gift - begin werewolf turning incubation (consensual)
 		}
 	}
 	is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:recipient = {
 			NOT = { has_trait = ww_infected_wound }   # can't offer to someone already incubating a wound
 		}
@@ -794,7 +818,13 @@ spn_offer_gift = { #Offer Gift - begin werewolf turning incubation (consensual)
 }
 
 
-spn_force_gift = { #Force Gift - forcibly begin werewolf turning incubation (hostile)
+spn_force_gift = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+ #Force Gift - forcibly begin werewolf turning incubation (hostile)
 	category = interaction_category_hostile
 	common_interaction = yes
 	icon = werewolf
@@ -815,6 +845,10 @@ spn_force_gift = { #Force Gift - forcibly begin werewolf turning incubation (hos
 	ai_frequency = 12
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = {
 			OR = {
@@ -974,6 +1008,10 @@ spn_turn_into_hybrid = { #Turn Character Into Hybrid
 	ai_frequency = 15
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor}
 		scope:recipient = {
 				has_trait = supernatural_werewolf
@@ -987,6 +1025,10 @@ spn_turn_into_hybrid = { #Turn Character Into Hybrid
 		}
 	}
 	is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:recipient = {
 		has_character_flag = vampire_blood_in_system
 		}
@@ -1661,7 +1703,13 @@ spn_turn_into_hybrid = { #Turn Character Into Hybrid
 	}
 }
 
-spn_turn_into_hunter = { # Train Character as a Hunter
+spn_turn_into_hunter = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+ # Train Character as a Hunter
     category = interaction_category_favorites
     common_interaction = yes
     icon = hunter
@@ -1697,6 +1745,10 @@ spn_turn_into_hunter = { # Train Character as a Hunter
     ai_frequency = 36
 
     is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
         NOT = { scope:recipient = scope:actor}
         scope:recipient = {
             NOR = { 
@@ -2403,6 +2455,10 @@ spn_ask_to_turn_into_vampire = { #Ask Character to Turn You Into Vampire
 	desc = spn_ask_to_turn_into_vampire_interaction_desc
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor}
 		scope:actor = {
 			spn_has_supernatural_trait = no
@@ -2412,6 +2468,10 @@ spn_ask_to_turn_into_vampire = { #Ask Character to Turn You Into Vampire
 	}
 
 	is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:actor = {
 			NOT = { has_character_flag = changed_mind_on_immortality }
 			NOT = { has_character_flag = vampire_blood_in_system }
@@ -2798,6 +2858,10 @@ spn_ask_to_not_turn_into_vampire = { #Ask Character to Not Turn You Into Vampire
 	desc = spn_ask_to_not_turn_into_vampire_interaction_desc
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor}
 		scope:actor = {
 			spn_has_supernatural_trait = no
@@ -2808,6 +2872,10 @@ spn_ask_to_not_turn_into_vampire = { #Ask Character to Not Turn You Into Vampire
 	}
 
 	is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:actor = {
 			NOT = { has_character_flag = changed_mind_on_immortality }
 			#NOT = { has_character_flag = vampire_blood_in_system }
@@ -3005,6 +3073,10 @@ spn_ask_for_gift = { #Ask a werewolf to claw you - begin turning incubation (con
 	desc = spn_ask_for_gift_interaction_desc
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor}
 		scope:actor = {
 			spn_has_supernatural_trait = no
@@ -3013,6 +3085,10 @@ spn_ask_for_gift = { #Ask a werewolf to claw you - begin turning incubation (con
 		}
 	}
 	is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:actor = {
 			NOT = { has_trait = ww_infected_wound }   # can't ask if already incubating a wound
 		}
@@ -3113,13 +3189,23 @@ spn_ask_for_gift = { #Ask a werewolf to claw you - begin turning incubation (con
 	}
 }
 
-spn_ask_to_turn_into_hybrid = { #Ask Character to Make You Into Hybrid
+spn_ask_to_turn_into_hybrid = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+ #Ask Character to Make You Into Hybrid
 	category = interaction_category_favorites
 	common_interaction = yes
 	icon = hybrid
 	desc = spn_ask_to_turn_into_hybrid_interaction_desc
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor}
 		#scope:actor = {
 		#	has_trait = supernatural_hybrid
@@ -3579,13 +3665,23 @@ spn_ask_to_turn_into_hybrid = { #Ask Character to Make You Into Hybrid
 	}
 }
 
-spn_ask_to_turn_into_hunter = { #Ask Character to Train You As a Hunter
+spn_ask_to_turn_into_hunter = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+ #Ask Character to Train You As a Hunter
 	category = interaction_category_favorites
 	common_interaction = yes
 	icon = hunter
 	desc = spn_ask_to_turn_into_hunter_interaction_desc
 
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor}
 		scope:actor = {
 			NOR = { has_trait = supernatural_hunter

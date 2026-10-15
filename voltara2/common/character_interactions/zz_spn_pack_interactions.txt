@@ -3,6 +3,12 @@
 
 # ---- Invite to the Pack (§13.2) ----
 spn_invite_to_pack_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites # 2.37: the mod's Supernatural menu (Thomas, 3 Oct)
 	icon = guest
 	desc = spn_invite_to_pack_interaction_desc
@@ -27,6 +33,10 @@ spn_invite_to_pack_interaction = {
 	}
 	ai_frequency = 24
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		spn_packs_on_trigger = yes
 		scope:actor = { spn_is_alpha_trigger = yes }
@@ -134,6 +144,12 @@ spn_invite_to_pack_interaction = {
 
 # ---- Challenge (§13.5). A brawl, no swords. A player recipient must answer. ----
 spn_challenge_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites # 2.37: the mod's Supernatural menu (Thomas, 3 Oct)
 	icon = icon_combat
 	desc = spn_challenge_interaction_desc
@@ -165,6 +181,10 @@ spn_challenge_interaction = {
 	}
 	ai_frequency = 24
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = { spn_pack_challenge_shown_trigger = { TARGET = scope:recipient } }
 	}
@@ -383,6 +403,12 @@ spn_challenge_interaction = {
 
 # ---- Ask to Run With [Alpha]'s Pack (§17.3). Leave and join in one step. ----
 spn_ask_to_run_with_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites # 2.37: the mod's Supernatural menu (Thomas, 3 Oct)
 	icon = change_allegiance
 	desc = spn_ask_to_run_with_interaction_desc
@@ -400,6 +426,10 @@ spn_ask_to_run_with_interaction = {
 	}
 	ai_frequency = 24
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		spn_packs_on_trigger = yes
 		scope:actor = {
@@ -562,6 +592,12 @@ spn_ask_to_run_with_interaction = {
 
 # ---- Lure Away (§17.3). An alpha who knows the politics, or stands high, invites another pack's wolf. ----
 spn_lure_away_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites # 2.37: the mod's Supernatural menu (Thomas, 3 Oct)
 	icon = fabricate_hook_interaction
 	desc = spn_lure_away_interaction_desc
@@ -579,6 +615,10 @@ spn_lure_away_interaction = {
 	}
 	ai_frequency = 24
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		spn_packs_on_trigger = yes
 		scope:actor = {

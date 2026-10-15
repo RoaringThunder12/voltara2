@@ -3,6 +3,12 @@
 
 # Name the Witness (§12.6 step 1). The binder asks a courtier, spouse or vassal. The witness is bound too (§12.13).
 spn_vade_witness_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites
 	icon = icon_magic
 	desc = spn_vade_witness_interaction_desc
@@ -14,6 +20,10 @@ spn_vade_witness_interaction = {
 	}
 	ai_frequency = 12
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = {
 			global_var:spn_vade_contract_running ?= this
@@ -78,6 +88,12 @@ spn_vade_witness_interaction = {
 
 # Ask for the Page (§12.5). A Mage asks a champion for the page his worn hide holds. The hides hate the book.
 spn_vade_ask_page_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites
 	icon = icon_magic
 	desc = spn_vade_ask_page_interaction_desc
@@ -90,6 +106,10 @@ spn_vade_ask_page_interaction = {
 	}
 	ai_frequency = 36
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		spn_vade_on_trigger = yes
 		scope:actor = { has_trait = archmage }
@@ -128,6 +148,12 @@ spn_vade_ask_page_interaction = {
 
 # Tear the Hide Away (§12.5). A Mage pulls the page out of a champion's worn hide, by force.
 spn_vade_tear_hide_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_hostile
 	icon = icon_magic
 	desc = spn_vade_tear_hide_interaction_desc
@@ -140,6 +166,10 @@ spn_vade_tear_hide_interaction = {
 	}
 	ai_frequency = 36
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		spn_vade_on_trigger = yes
 		scope:actor = { has_trait = archmage }
@@ -184,6 +214,12 @@ spn_vade_tear_hide_interaction = {
 
 # Send the Golem to Search (§12.4). Your own golem goes looking for the pages; two to five years.
 spn_vade_golem_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites
 	icon = icon_magic
 	desc = spn_vade_golem_interaction_desc
@@ -191,6 +227,10 @@ spn_vade_golem_interaction = {
 	ai_targets = { ai_recipients = courtiers }
 	ai_frequency = 36
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		spn_vade_on_trigger = yes
 		scope:recipient = {

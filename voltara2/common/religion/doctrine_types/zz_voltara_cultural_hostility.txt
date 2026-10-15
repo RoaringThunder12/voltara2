@@ -1,0 +1,11 @@
+﻿# Within each faith, rites remain righteous toward one another.
+voltara_cultural_hostility = {
+ doctrine_group_type = hostility_group index = 6 visible = no
+ special_parameters = { hostility_levels = { same_religion = astray same_family = astray unrelated = hostile } }
+}
+voltara_harmonious_pair = {
+ doctrine_group_type = doctrine_theism index = 2 divergence = 30
+ icon = "doctrine_polytheist"
+ piety_cost = { value = faith_doctrine_cost_mid }
+ special_parameters = { hostility_levels = { unrelated = hostile } }
+}

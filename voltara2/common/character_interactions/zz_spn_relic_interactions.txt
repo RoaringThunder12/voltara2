@@ -3,6 +3,12 @@
 
 # Pledge to the Reliquary (§9.4). Your own item, to your chapter or your coven (asked which when you have both).
 spn_relic_pledge_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites
 	icon = artifact
 	desc = spn_relic_pledge_interaction_desc
@@ -12,6 +18,10 @@ spn_relic_pledge_interaction = {
 	ai_targets = { ai_recipients = self }
 	ai_frequency = 60
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:recipient = scope:actor
 		scope:actor = {
 			OR = {
@@ -71,6 +81,12 @@ spn_relic_pledge_interaction = {
 
 # Take It Back (§9.4). Unpledge an item you pledged that is not out on loan.
 spn_relic_take_back_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites
 	icon = artifact
 	desc = spn_relic_take_back_interaction_desc
@@ -78,6 +94,10 @@ spn_relic_take_back_interaction = {
 	target_filter = actor_artifacts
 	auto_accept = yes
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:recipient = scope:actor
 		scope:actor = {
 			any_character_artifact = { exists = var:spn_pledged_to }
@@ -101,6 +121,12 @@ spn_relic_take_back_interaction = {
 # Ask to Borrow (§9.5). A Magistratus asks a member of his chapter for a pledged item; an Adeptus may ask any member he knows
 # (§5.22). Three years; the owner keeps a claim.
 spn_relic_borrow_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites
 	icon = artifact
 	desc = spn_relic_borrow_interaction_desc
@@ -116,6 +142,10 @@ spn_relic_borrow_interaction = {
 	}
 	ai_frequency = 60
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = {
 			spn_order_on_trigger = yes
@@ -201,6 +231,12 @@ spn_relic_borrow_interaction = {
 
 # Question Under the Glove (§9.3). Your prisoner, while you wear the Glove.
 spn_relic_glove_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_hostile
 	icon = torture_interaction
 	desc = spn_relic_glove_interaction_desc
@@ -208,6 +244,10 @@ spn_relic_glove_interaction = {
 	ai_targets = { ai_recipients = prisoners }
 	ai_frequency = 24
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = {
 			any_equipped_character_artifact = {
@@ -252,6 +292,12 @@ spn_relic_glove_interaction = {
 
 # Call the Dead (§9.3). The Necrophone you wear; once a year; three calls and it cracks.
 spn_relic_necrophone_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites
 	icon = icon_magic
 	desc = spn_relic_necrophone_interaction_desc
@@ -259,6 +305,10 @@ spn_relic_necrophone_interaction = {
 	ai_targets = { ai_recipients = self }
 	ai_frequency = 24
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:recipient = scope:actor
 		scope:actor = {
 			any_equipped_character_artifact = {
@@ -299,6 +349,12 @@ spn_relic_necrophone_interaction = {
 
 # Throw the Powder (§9.3). The trail in the county where you stand goes cold; the Powder is used up.
 spn_relic_powder_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites
 	icon = secret
 	desc = spn_relic_powder_interaction_desc
@@ -306,6 +362,10 @@ spn_relic_powder_interaction = {
 	ai_targets = { ai_recipients = self }
 	ai_frequency = 24
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		scope:recipient = scope:actor
 		scope:actor = {
 			any_equipped_character_artifact = {
@@ -347,6 +407,12 @@ spn_relic_powder_interaction = {
 
 # Bind Our Fates (§9.3). The Mirror Shard you wear; whoever accepts. If either of you is killed, the other dies within a day.
 spn_relic_mirror_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_favorites # 2.38a: the Supernatural menu, with every other relic use
 	icon = icon_magic
 	desc = spn_relic_mirror_interaction_desc
@@ -357,6 +423,10 @@ spn_relic_mirror_interaction = {
 	}
 	ai_frequency = 120
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = {
 			any_equipped_character_artifact = {
@@ -443,12 +513,22 @@ spn_relic_mirror_interaction = {
 
 # Send Zecchia After Their Treasures (§11.3). The hirer names the target; she comes back in ninety days.
 spn_zecchia_send_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
 	category = interaction_category_hostile
 	icon = icon_scheme_steal_back_artifact
 	desc = spn_zecchia_send_interaction_desc
 	auto_accept = yes
 	use_diplomatic_range = yes
 	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = {
 			exists = var:spn_zecchia_count
