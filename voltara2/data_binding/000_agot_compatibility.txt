@@ -1,4 +1,0 @@
-﻿macro = {
-	definition = "ProvinceIsNotHidden"
-	replace_with = "EqualTo_string('1', '0')"
-}
