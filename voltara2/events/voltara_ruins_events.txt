@@ -1,0 +1,54 @@
+﻿namespace = voltara_ruins
+voltara_ruins.1 = { type = character_event title = voltara_ruins.1.t desc = voltara_ruins.1.desc theme = stewardship
+ option = { name = voltara_set_wasteland save_scope_value_as = { name = ruins_mode value = flag:wasteland } voltara_apply_ruins_selection = yes }
+ option = { name = voltara_create_ruins save_scope_value_as = { name = ruins_mode value = flag:ruin } voltara_apply_ruins_selection = yes }
+ option = { name = voltara_ruins_cancel }
+}
+voltara_ruins.10 = { type = character_event title = voltara_ruins.10.t desc = voltara_ruins.10.desc theme = stewardship
+ option = { name = voltara_ruins_survey
+  trigger = { scope:ruin_county = { voltara_ruins_can_settle = yes } }
+  remove_short_term_gold = 250 scope:ruin_county = { set_variable = { name = voltara_expedition_owner value = root } }
+  trigger_event = { id = voltara_ruins.11 days = 90 }
+ }
+ option = { name = voltara_ruins_cancel }
+}
+voltara_ruins.11 = { type = character_event title = voltara_ruins.11.t desc = voltara_ruins.11.desc theme = stewardship
+ option = { name = voltara_ruins_establish
+  trigger = { gold >= 300 scope:ruin_county = { has_variable = voltara_ruin_state var:voltara_expedition_owner = root holder = global_var:voltara_ruins_keeper } }
+  remove_short_term_gold = 300
+  create_title_and_vassal_change = { type = granted save_scope_as = settlement_change add_claim_on_loss = no }
+  scope:ruin_county = {
+   change_title_holder = { holder = root change = scope:settlement_change take_baronies = yes }
+   set_county_culture = root.culture
+   set_county_rite = root.rite
+   title_province = { set_holding_type = voltara_settlement_holding }
+   remove_county_modifier = voltara_abandoned_county
+   add_county_modifier = { modifier = voltara_settlement_county }
+  }
+  resolve_title_and_vassal_change = scope:settlement_change
+  trigger_event = { id = voltara_ruins.12 days = 365 }
+ }
+ option = { name = voltara_ruins_abandon scope:ruin_county = { remove_variable = voltara_expedition_owner } }
+}
+voltara_ruins.12 = { type = character_event title = voltara_ruins.12.t desc = voltara_ruins.12.desc theme = stewardship
+ option = { name = voltara_ruins_rebuild
+  trigger = { gold >= 500 scope:ruin_county = { holder = root has_variable = voltara_ruin_state } }
+  remove_short_term_gold = 500 trigger_event = { id = voltara_ruins.13 days = 730 }
+ }
+ option = { name = voltara_ruins_wait
+  trigger = { scope:ruin_county = { holder = root has_variable = voltara_ruin_state } }
+  trigger_event = { id = voltara_ruins.12 days = 365 }
+ }
+ option = { name = voltara_ruins_cancel
+  trigger = { NOT = { scope:ruin_county = { holder = root has_variable = voltara_ruin_state } } }
+ }
+}
+voltara_ruins.13 = { type = character_event title = voltara_ruins.13.t desc = voltara_ruins.13.desc theme = stewardship
+ immediate = {
+  if = { limit = { scope:ruin_county = { holder = root has_variable = voltara_ruin_state } }
+   scope:ruin_county = { voltara_restore_ruin_county = yes }
+   add_prestige = 200
+  }
+ }
+ option = { name = voltara_ruins_done }
+}

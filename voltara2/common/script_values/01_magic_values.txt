@@ -1,0 +1,272 @@
+﻿######################
+# MAGIC STUFF
+######################
+half_demon_gold_value = {
+	value = 50
+		if = {
+			limit = {
+				highest_held_title_tier=2
+			}
+			add = 50
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier=3
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier=4
+			}
+			add = 200
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier>=5
+			}
+			add = 250
+		}
+}
+
+demon_gold_value = {
+	value = 100
+		if = {
+			limit = {
+				highest_held_title_tier=2
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier=3
+			}
+			add = 200
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier=4
+			}
+			add = 400
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier>=5
+			}
+			add = 500
+		}
+}
+magic_transmutation_value = {
+	value = 100
+	if = {
+		limit = {
+			highest_held_title_tier=2
+		}
+		add = 100
+	}
+	else_if = {
+		limit = {
+			highest_held_title_tier=3
+		}
+		add = 200
+	}
+	else_if = {
+		limit = {
+			highest_held_title_tier=4
+		}
+		add = 400
+	}
+	else_if = {
+		limit = {
+			highest_held_title_tier>=5
+		}
+		add = 500
+	}
+	if = {
+		limit = {
+			has_character_modifier = master_alteration_modifier
+		}
+		multiply = 2
+	}
+}
+greedy_gold_value = {
+	value = 200
+	if = {
+		limit = {
+			highest_held_title_tier=2
+		}
+		add = 100
+	}
+	else_if = {
+		limit = {
+			highest_held_title_tier=3
+		}
+		add = 200
+	}
+	else_if = {
+		limit = {
+			highest_held_title_tier=4
+		}
+		add = 400
+	}
+	else_if = {
+		limit = {
+			highest_held_title_tier>=5
+		}
+		add = 500
+	}
+}
+
+greedy_gold_value2 = {
+	value = 200
+	if = {
+		limit = {
+			highest_held_title_tier=2
+		}
+		add = 100
+	}
+	else_if = {
+		limit = {
+			highest_held_title_tier=3
+		}
+		add = 200
+	}
+	else_if = {
+		limit = {
+			highest_held_title_tier=4
+		}
+		add = 400
+	}
+	else_if = {
+		limit = {
+			highest_held_title_tier>=5
+		}
+		add = 500
+	}
+	multiply = 2
+}
+
+potion_gold_value = {
+	value = 10
+		if = {
+			limit = {
+				highest_held_title_tier=2
+			}
+			add = 10
+		}
+		if = {
+			limit = {
+				highest_held_title_tier=3
+			}
+			add = 30
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier=4
+			}
+			add = 50
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier>=5
+			}
+			add = 90
+		}
+}
+potion_gold_value2 = {
+	value = 10
+		if = {
+			limit = {
+				highest_held_title_tier=2
+			}
+			add = 10
+		}
+		if = {
+			limit = {
+				highest_held_title_tier=3
+			}
+			add = 30
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier=4
+			}
+			add = 90
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier>=5
+			}
+			add = 140
+		}
+		if = {
+			limit = {
+				has_trait = archmage
+				has_trait_xp = {
+					trait = archmage
+					track = alchemy
+					value > 29
+				}
+			}
+			divide = 2
+		}
+}
+create_potion_decision_cooldown = {
+	value = 4
+	if = {
+		limit = {
+			has_trait = archmage
+			has_trait_xp = {
+				trait = archmage
+				track = alchemy
+				value > 69
+			}
+		}
+		add = -1
+	}
+	#else_if = {
+	#	limit = {
+	#		has_trait = archmage
+	#		has_trait_xp = {
+	#			trait = archmage
+	#			track = alchemy
+	#			value > 29
+	#		}
+	#	}
+	#	add = -1
+	#}
+}
+archmage_tax_value = {
+	value = 50
+		if = {
+			limit = {
+				highest_held_title_tier=2
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				highest_held_title_tier=3
+			}
+			add = 150
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier=4
+			}
+			add = 250
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier>=5
+			}
+			add = 350
+		}
+}
+
+dark_priest_pers = {
+	value = root.diplomacy
+	multiply = 2
+	add = 20
+}
+

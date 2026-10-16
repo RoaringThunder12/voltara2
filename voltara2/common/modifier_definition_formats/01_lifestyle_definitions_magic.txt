@@ -1,0 +1,580 @@
+﻿monthly_magic_lifestyle_xp_gain_mult = {
+	decimals = 0
+	percent = yes
+}
+
+monthly_vampire_lifestyle_xp_gain_mult = {
+	decimals = 0
+	percent = yes
+}
+
+monthly_werewolf_lifestyle_xp_gain_mult = {
+	decimals = 0
+	percent = yes
+}
+
+monthly_hybrid_lifestyle_xp_gain_mult = {
+	decimals = 0
+	percent = yes
+}
+
+monthly_hunter_lifestyle_xp_gain_mult= {
+	decimals = 0
+	percent = yes
+}
+
+monthly_demon_lifestyle_xp_gain_mult = {
+	decimals = 0
+	percent = yes
+}
+
+#fake_concept_max_size_add = {
+#	decimals = 0
+	#no_difference_sign = yes
+	#prefix = MOD_DIPLOMACY_PREFIX
+	#color = neutral
+#}
+
+wh_spec1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+wh_spec2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+wh_spec3_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+wh_spec_BH_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+cgm_spec_1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+cgm_spec_2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+cgm_spec_3_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+cgm_spec_4_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+magic_pen_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+magic_pro_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+magic_gain_terrain_advantage = {
+	decimals = 0
+	percent = yes
+	color = good
+}
+
+immortality_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+arcane_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+teach_sorcery_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+yaga_curse_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+yaga_childs_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+yaga_witch_house_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+demon_power_strike_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+demon_domination_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+demon_firestorm_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+demon_army_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+mage_magic_research_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+md_doom_spell_terrain_advantage = {
+	decimals = 0
+	color = good
+}
+md_power_clash_terrain_advantage = {
+	decimals = 0
+	color = good
+}
+md_doom_spell2_terrain_advantage = {
+	decimals = 0
+	color = good
+}
+md_doom_spell3_terrain_advantage = {
+	decimals = 0
+	color = bad
+}
+md_demon_damage_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+md_demon_pc_terrain_advantage = {
+	decimals = 0
+	color = good
+}
+mage_house_learn_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+yaga_childs2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+hells_scepter1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+hells_scepter1_terrain_advantage = {
+	decimals = 0
+	color = good
+}
+hells_scepter2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+hells_scepter4_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+mind_scan_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+domination_range_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+mind_scan_range_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+source4_terrain_cancel_negative_supply = {
+	decimals = 0
+	color = bad
+}
+source4B_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+crown1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+crown2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+crown3_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+crown4_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+dark_champion_train_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+dark_champion_special_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+corruption_chance_terrain_advantage = {
+	decimals = 0
+	percent = yes
+	color = good
+}
+magic_epic_cooldown_terrain_advantage = {
+	decimals = 0
+	color = bad
+}
+blackgrimoire_demonology_terrain_advantage = {
+	decimals = 0
+	percent = yes
+	color = good
+}
+summoning_demonology_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+summoning_demonology2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+summoning_demonology3_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+mage_summit_excluded_terrain_cancel_negative_supply = {
+	decimals = 0
+	color = bad
+}
+immune_for_illness_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+legendary_mage_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+triangulation_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+legendary_mage2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+darkblade_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+reduce_eruption_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+source3_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+blackgrimoire_study_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+mage_summit_discount_terrain_advantage = {
+	decimals = 0
+	percent = yes
+	color = bad
+}
+mage_summit_enables_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+wh2_eso_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+true_source_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+true2_source_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+true2_source_terrain_advantage = {
+	decimals = 0
+	color = good
+}
+true3_source_terrain_advantage = {
+	decimals = 0
+	#percent = yes
+	color = good
+}
+metamagic_source_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+yaga_witch_house2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+yaga_witch_house2_terrain_advantage = {
+	decimals = 0
+	percent = yes
+	color = bad
+}
+cyrographer_terrain_advantage = {
+	decimals = 0
+	percent = no
+	color = bad
+}
+cyrographer_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+#ultimate_spell_terrain_cancel_negative_supply = {
+#	decimals = 0
+#}
+#singularity_unlocks_terrain_cancel_negative_supply = {
+#	decimals = 0
+#}
+magic_catalyst_terrain_advantage = {
+	decimals = 0
+	percent = yes
+	color = good
+}
+magic_catalyst_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+mind_scan_cost_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+fortune_tellers_components_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+convert_to_witchcraft_scheme_chance_advantage = {
+	decimals = 0
+	percent = yes
+	color = good
+}
+msscrol_additional_desc_cancel_negative_supply = {
+	decimals = 0
+}
+use_ac_inter_mod_cancel_negative_supply = {
+	decimals = 0
+}
+rol_special1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+rol_special2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+md_power_clash2_terrain_advantage = {
+	decimals = 0
+	color = bad
+}
+mage_alchemy_terrain_advantage = {
+	decimals = 0
+	percent = yes
+	color = bad
+}
+mage_alchemy2_terrain_advantage = {
+	decimals = 0
+	percent = no
+	color = bad
+}
+mage_alchemy3_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+mage_alchemy4_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+demon0_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+alchemy_archmage_terrain_advantage = {
+	decimals = 0
+	percent = yes
+	color = good
+}
+mage_duel_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+search_artifacts_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+
+ultimate_spell_bonus_terrain_advantage = {
+	decimals = 0
+	percent = yes
+	color = good
+}
+e_power_terrain_advantage = {
+	decimals = 0
+}
+e_fire_terrain_advantage = {
+	decimals = 0
+}
+e_kinetic_terrain_advantage = {
+	decimals = 0
+}
+e_shadow_terrain_advantage = {
+	decimals = 0
+}
+e_shadow_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+e_necrotic_terrain_advantage = {
+	decimals = 0
+}
+e_necrotic2_terrain_advantage = {
+	decimals = 0
+	color = bad
+}
+e_endurance_terrain_advantage = {
+	decimals = 0
+}
+combat_spells_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+custom_spell_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+singularity_duels_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+undetectable_spells_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+immunity_curse_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+immunity_curse2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+immunity_curse3_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+immunity_domination_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+immunity_mind_scan_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+immunity_banish_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+immunity_death_wish_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+immunity_antimagic_seal_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+magic_orb_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+magic_orb_terrain_advantage = {
+	decimals = 0
+	percent = yes
+	color = bad
+}
+magic_orb3_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+master_defence_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+succubus_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+demon1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+demonic_knights_max_size_add = {
+	decimals = 0
+}
+demon2a_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+demon_courtier_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+cm_task_1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+cm_task_2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+mc_archmage_special1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+mc_archmage_special2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+mc_black_mage_special1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+mc_black_mage_special2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+mc_admin_special1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+necromancer2_special1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+necromancer2_special2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+magic_inception_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+antimagic_seal_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+antimagic_seal_terrain2_cancel_negative_supply = {
+	decimals = 0
+}
+antimagic_seal_terrain3_cancel_negative_supply = {
+	decimals = 0
+}
+antimagic_seal_terrain4_cancel_negative_supply = {
+	decimals = 0
+	color = bad
+}
+antimagic_seal_terrain5_cancel_negative_supply = {
+	decimals = 0
+	color = bad
+}
+bloodlust_special_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+witch_special_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+mtriangulation_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+wc_allows_raiding_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+wc_free_triang_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+wc_enemy_steal_artifact_terrain_advantage = {
+	decimals = 0
+	percent = yes
+	color = bad
+}
+wh_crossbow_cover_shot_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+magic_master_defence_1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+magic_master_defence_2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+mr_progress_boost_terrain_advantage = {
+	decimals = 0
+}
+spec_master_alteration_terrain_advantage = {
+	decimals = 0
+	percent = yes
+}
+mr_add_option_terrain_advantage = {
+	decimals = 0
+}
+mr_curse_expert_spec1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+mr_curse_expert_spec2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+valuable_magic_component_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+master_nature_spec1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+master_nature_spec2_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+master_destruction_spec1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+master_destruction_spec1_terrain_advantage = {
+	decimals = 0
+	percent = yes
+	color = bad
+}
+mage_countering_spec1_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+ultimate_spell_control_terrain_cancel_negative_supply = {
+	decimals = 0
+}
+psionic_psycho_surgery_terrain_cancel_negative_supply = {
+	decimals = 0
+}

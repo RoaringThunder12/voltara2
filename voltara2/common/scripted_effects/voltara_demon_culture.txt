@@ -1,0 +1,12 @@
+﻿voltara_demon_culture_setup = {
+ if = { limit = { culture = culture:voltara_demon NOR = { has_trait = demon1 has_trait = demon2 } } add_trait = demon1 }
+ if = {
+  limit = { OR = { has_trait = demon1 has_trait = demon2 } NOT = { has_character_flag = voltara_demon_magic_initialized } }
+  add_character_flag = race_daedra
+  voltara_initialize_threadbinder = yes
+  add_trait = witch
+  if = { limit = { NOT = { has_perk = conjuration_novice_perk } } add_perk = conjuration_novice_perk }
+  if = { limit = { NOT = { has_perk = destruction_novice_perk } } add_perk = destruction_novice_perk }
+  add_character_flag = voltara_demon_magic_initialized
+ }
+}

@@ -1,0 +1,58 @@
+﻿cof_ekue_became_undead_thrall = {
+	categories = { cof_ekue negative death major }
+	icon = "necromancy.dds"
+
+	description = {
+		random_valid = {
+			desc = cof_ekue_became_thrall
+		}
+	}
+
+	second_perspective_description = {
+		random_valid = {
+			desc = cof_ekue_thrall_created_desc_second_perspective_1
+		}
+	}
+
+	third_perspective_description = {
+		random_valid = {
+			desc = cof_ekue_thrall_created_desc_third_perspective_1
+		}
+	}
+
+	participants = { vt_ek_necromancer }
+
+	duration = {
+		years = memory_default_duration
+	}
+}
+
+cof_ekue_steal_face_memory = {
+	categories = { cof_ekue major }
+	icon = "necromancy.dds"
+
+	description = {
+		random_valid = {
+			desc = cof_ekue_steal_face_memory
+		}
+	}
+
+	second_perspective_description = {
+		random_valid = {
+			desc = cof_ekue_steal_face_memory_desc_second_perspective_1
+		}
+	}
+
+	third_perspective_description = {
+		random_valid = {
+			desc = cof_ekue_steal_face_memory_desc_third_perspective_1
+		}
+	}
+
+	participants = { victim }
+
+	duration = {
+		years = memory_default_duration
+	}
+
+}

@@ -1,0 +1,169 @@
+﻿accou_can_be_chancellor_trigger = {
+	# valid_character
+	exists = $COURT_OWNER$
+	trigger_if = { # If the liege has a ministry, we check a separate minister trigger
+		limit = {
+			$COURT_OWNER$ = { tgp_has_access_to_ministry_trigger = yes }
+		}
+		tgp_can_be_a_minister_trigger = { COURT_OWNER = $COURT_OWNER$ }
+	}
+	trigger_else = {
+		can_be_chancellor_trigger = { COURT_OWNER = $COURT_OWNER$ }
+	}
+	tgp_is_ceremonial_liege_trigger = no
+}
+
+accou_can_be_steward_trigger = {
+	# valid_character
+	exists = $COURT_OWNER$
+	trigger_if = { # If the liege has a ministry, we check a separate minister trigger
+		limit = {
+			$COURT_OWNER$ = { tgp_has_access_to_ministry_trigger = yes }
+		}
+		tgp_can_be_a_minister_trigger = { COURT_OWNER = $COURT_OWNER$ }
+	}
+	trigger_else = {
+		can_be_steward_trigger = { COURT_OWNER = $COURT_OWNER$ }
+	}
+	tgp_is_ceremonial_liege_trigger = no
+}
+
+accou_can_be_marshal_trigger = {
+	# valid_character
+	exists = $COURT_OWNER$
+	trigger_if = { # If the liege has a ministry, we check a separate minister trigger
+		limit = {
+			$COURT_OWNER$ = { tgp_has_access_to_ministry_trigger = yes }
+		}
+		tgp_can_be_a_minister_trigger = { COURT_OWNER = $COURT_OWNER$ }
+	}
+	trigger_else = {
+		can_be_marshal_trigger = { COURT_OWNER = $COURT_OWNER$ }
+	}
+	tgp_is_ceremonial_liege_trigger = no
+}
+
+accou_can_be_spymaster_trigger = {
+	# valid_character
+	exists = $COURT_OWNER$
+	trigger_if = { # If the liege has a ministry, we check a separate minister trigger
+		limit = {
+			$COURT_OWNER$ = { tgp_has_access_to_ministry_trigger = yes }
+		}
+		tgp_can_be_a_minister_trigger = { COURT_OWNER = $COURT_OWNER$ }
+	}
+	trigger_else = {
+		can_be_spymaster_trigger = { COURT_OWNER = $COURT_OWNER$ }
+	}
+	# Gender must follow laws in merit based realms
+	trigger_if = {
+		limit = {
+			$COURT_OWNER$ = {
+				is_landed = yes
+				government_has_flag = government_has_merit
+			}
+		}
+		trigger_if = {
+			limit = {
+				$COURT_OWNER$ = {
+					OR = {
+						has_realm_law = male_only_law
+						has_realm_law = male_preference_law
+					}
+				}
+			}
+			is_male = yes
+		}
+		trigger_if = {
+			limit = {
+				$COURT_OWNER$ = {
+					OR = {
+						has_realm_law = female_only_law
+						has_realm_law = female_preference_law
+					}
+				}
+			}
+			is_female = yes
+		}
+	}
+	tgp_is_ceremonial_liege_trigger = no
+}
+
+accou_can_be_court_chaplain_trigger = {
+	# valid_character
+	exists = $COURT_OWNER$
+	trigger_if = { # If the liege has a ministry, we check a separate minister trigger
+		limit = {
+			$COURT_OWNER$ = { tgp_has_access_to_ministry_trigger = yes }
+		}
+		tgp_can_be_a_minister_trigger = { COURT_OWNER = $COURT_OWNER$ }
+	}
+	trigger_else = {
+		can_be_court_chaplain_trigger = { COURT_OWNER = $COURT_OWNER$ }
+	}
+	tgp_is_ceremonial_liege_trigger = no
+}
+
+accou_can_be_kurultai_trigger = {
+	# valid_character
+	exists = $COURT_OWNER$
+	can_be_kurultai_trigger = { 
+		COURT_OWNER = $COURT_OWNER$
+		CP1 = councillor_kurultai_1
+		CP2 = councillor_kurultai_2
+		CP3 = councillor_kurultai_3
+	}
+	NOT = { has_council_position = councillor_kurultai_4 }
+}
+
+accou_can_appoint_chancellor_trigger = {
+	# valid_position
+	NOR = { 
+		government_has_flag = government_is_landless_adventurer 
+		government_has_flag = government_is_nomadic
+	}
+}
+
+accou_can_appoint_steward_trigger = {
+	# valid_position
+	NOR = { 
+		government_has_flag = government_is_landless_adventurer 
+		government_has_flag = government_is_nomadic
+	}
+}
+
+accou_can_appoint_marshal_trigger = {
+	# valid_position
+	NOR = { 
+		government_has_flag = government_is_landless_adventurer 
+		government_has_flag = government_is_nomadic
+	}
+}
+
+accou_can_appoint_spymaster_trigger = {
+	# valid_position
+	NOT = { government_has_flag = government_is_landless_adventurer }
+}
+
+accou_can_appoint_court_chaplain_trigger = {
+	# valid_position
+	NOR = { 
+		government_has_flag = government_is_landless_adventurer 
+		government_has_flag = government_is_nomadic
+	}
+	# can_fire / can_reassign
+	trigger_if = {
+		limit = {
+			tgp_has_access_to_ministry_trigger = no
+		}
+		OR = {
+			can_appoint_own_court_chaplain_trigger = yes
+			NOT = { exists = cp:councillor_court_chaplain }
+		}
+	}
+}
+
+accou_can_appoint_kurultai_trigger = {
+	# valid_position
+	government_has_flag = government_is_nomadic
+}

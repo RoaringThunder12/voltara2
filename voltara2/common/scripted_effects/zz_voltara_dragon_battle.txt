@@ -1,0 +1,381 @@
+﻿dragon_combat_modifier_effect = {
+	$DRAGON$ = {
+		save_scope_as = dragon
+	}
+	if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_ten_dragon_combat }
+		add_character_modifier = {
+			modifier = dragon_combat_modifier_10
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_nine_dragon_combat }
+		add_character_modifier = {
+			modifier = dragon_combat_modifier_9
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_eight_dragon_combat }
+		add_character_modifier = {
+			modifier = dragon_combat_modifier_8
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_seven_dragon_combat }
+		add_character_modifier = {
+			modifier = dragon_combat_modifier_7
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_six_dragon_combat }
+		add_character_modifier = {
+			modifier = dragon_combat_modifier_6
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_five_dragon_combat }
+		add_character_modifier = {
+			modifier = dragon_combat_modifier_5
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_four_dragon_combat }
+		add_character_modifier = {
+			modifier = dragon_combat_modifier_4
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_three_dragon_combat }
+		add_character_modifier = {
+			modifier = dragon_combat_modifier_3
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_two_dragon_combat }
+		add_character_modifier = {
+			modifier = dragon_combat_modifier_2
+			days = 6
+		}
+	}
+	else = {
+		add_character_modifier = {
+			modifier = dragon_combat_modifier_1
+			days = 6
+		}
+	}
+}
+agot_give_dragon_battle_prowess = {
+	if = {
+		limit = {
+			var:current_dragon = {
+				dragon_combat_effectiveness > level_five_dragon_combat
+			}
+		}
+		add_character_modifier = {
+			modifier = dragon_battle_prowess_modifier_5
+			days = 6
+		}
+	}
+	else_if = {
+		limit = {
+			var:current_dragon = {
+				dragon_combat_effectiveness > level_four_dragon_combat
+			}
+		}
+		add_character_modifier = {
+			modifier = dragon_battle_prowess_modifier_4
+			days = 6
+		}
+	}
+	else_if = {
+		limit = {
+			var:current_dragon = {
+				dragon_combat_effectiveness > level_three_dragon_combat
+			}
+		}
+		add_character_modifier = {
+			modifier = dragon_battle_prowess_modifier_3
+			days = 6
+		}
+	}
+	else_if = {
+		limit = {
+			var:current_dragon = {
+				dragon_combat_effectiveness > level_two_dragon_combat
+			}
+		}
+		add_character_modifier = {
+			modifier = dragon_battle_prowess_modifier_2
+			days = 6
+		}
+	}
+	else = {
+		add_character_modifier = {
+			modifier = dragon_battle_prowess_modifier_1
+			days = 6
+		}
+	}
+}
+base_dragon_army_modifier_share_effect = {
+	$DRAGON$ = {
+		save_scope_as = dragon
+	}
+	if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_ten_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_10
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_nine_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_9
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_eight_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_8
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_seven_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_7
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_six_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_6
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_five_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_5
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_four_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_4
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_three_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_3
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_two_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_2
+			days = 6
+		}
+	}
+	else = {
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_1
+			days = 6
+		}
+	}
+}
+base_dragon_army_scorpions_counter_effect = {
+	$DRAGON$ = {
+		save_scope_as = dragon
+	}
+	if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_ten_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_scorpions_counter_10
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_nine_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_scorpions_counter_9
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_eight_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_scorpions_counter_8
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_seven_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_scorpions_counter_7
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_six_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_scorpions_counter_6
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_five_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_scorpions_counter_5
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_four_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_scorpions_counter_4
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_three_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_scorpions_counter_3
+			days = 6
+		}
+	}
+	else_if = {
+		limit = { scope:dragon.dragon_combat_effectiveness > level_two_dragon_combat }
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_scorpions_counter_2
+			days = 6
+		}
+	}
+	else = {
+		add_character_modifier = {
+			modifier = base_dragon_army_modifier_scorpions_counter_1
+			days = 6
+		}
+	}
+}
+voltara_clear_battle_support = {
+remove_all_character_modifier_instances = dragon_battle_prowess_modifier_1
+remove_all_character_modifier_instances = dragon_battle_prowess_modifier_2
+remove_all_character_modifier_instances = dragon_battle_prowess_modifier_3
+remove_all_character_modifier_instances = dragon_battle_prowess_modifier_4
+remove_all_character_modifier_instances = dragon_battle_prowess_modifier_5
+remove_all_character_modifier_instances = base_dragon_army_modifier_1
+remove_all_character_modifier_instances = base_dragon_army_modifier_2
+remove_all_character_modifier_instances = base_dragon_army_modifier_3
+remove_all_character_modifier_instances = base_dragon_army_modifier_4
+remove_all_character_modifier_instances = base_dragon_army_modifier_5
+remove_all_character_modifier_instances = base_dragon_army_modifier_6
+remove_all_character_modifier_instances = base_dragon_army_modifier_7
+remove_all_character_modifier_instances = base_dragon_army_modifier_8
+remove_all_character_modifier_instances = base_dragon_army_modifier_9
+remove_all_character_modifier_instances = base_dragon_army_modifier_10
+remove_all_character_modifier_instances = dragon_combat_modifier_1
+remove_all_character_modifier_instances = dragon_combat_modifier_2
+remove_all_character_modifier_instances = dragon_combat_modifier_3
+remove_all_character_modifier_instances = dragon_combat_modifier_4
+remove_all_character_modifier_instances = dragon_combat_modifier_5
+remove_all_character_modifier_instances = dragon_combat_modifier_6
+remove_all_character_modifier_instances = dragon_combat_modifier_7
+remove_all_character_modifier_instances = dragon_combat_modifier_8
+remove_all_character_modifier_instances = dragon_combat_modifier_9
+remove_all_character_modifier_instances = dragon_combat_modifier_10
+remove_all_character_modifier_instances = base_dragon_army_modifier_scorpions_counter_1
+remove_all_character_modifier_instances = base_dragon_army_modifier_scorpions_counter_2
+remove_all_character_modifier_instances = base_dragon_army_modifier_scorpions_counter_3
+remove_all_character_modifier_instances = base_dragon_army_modifier_scorpions_counter_4
+remove_all_character_modifier_instances = base_dragon_army_modifier_scorpions_counter_5
+remove_all_character_modifier_instances = base_dragon_army_modifier_scorpions_counter_6
+remove_all_character_modifier_instances = base_dragon_army_modifier_scorpions_counter_7
+remove_all_character_modifier_instances = base_dragon_army_modifier_scorpions_counter_8
+remove_all_character_modifier_instances = base_dragon_army_modifier_scorpions_counter_9
+remove_all_character_modifier_instances = base_dragon_army_modifier_scorpions_counter_10
+ remove_character_flag = voltara_dragon_battle_tick
+}
+
+# Character scope: valid healthy rider, present on this exact combat side.
+voltara_dragon_battle_participant = {
+ save_scope_as = voltara_battle_rider
+ var:current_dragon = { save_scope_as = voltara_battle_dragon }
+ agot_give_dragon_battle_prowess = yes
+ scope:combat_side.side_commander ?= {
+ base_dragon_army_modifier_share_effect = { DRAGON = scope:voltara_battle_dragon }
+ if = { limit = { scope:combat_side.enemy_side = { has_maa_of_type = scorpions } }
+ base_dragon_army_scorpions_counter_effect = { DRAGON = scope:voltara_battle_dragon } }
+ }
+ if = { limit = { NOT = { has_character_flag = voltara_dragon_battle_notice } }
+ add_character_flag = { flag = voltara_dragon_battle_notice days = 30 }
+ scope:combat_side = { battle_event = { key = voltara_dragon_joins_battle left_portrait = scope:voltara_battle_rider right_portrait = scope:voltara_battle_dragon } }
+ }
+ # A scorpion hit can drive off or kill a dragon. No global or absent-army counters.
+ if = { limit = { scope:combat_side.enemy_side = { has_maa_of_type = scorpions } }
+ random = { chance = 10
+ scope:voltara_battle_dragon = { add_trait = dragon_wounded_2 }
+ add_character_flag = { flag = voltara_dragon_grounded days = 90 }
+ scope:combat_side = { battle_event = { key = voltara_dragon_scorpion_hit left_portrait = scope:voltara_battle_dragon } }
+ random = { chance = 5 scope:voltara_battle_dragon = { death = { death_reason = death_battle } } }
+ }
+ }
+ if = { limit = { voltara_battle_ready_dragonrider = yes }
+ # Fire pass: native AGOT strength/casualty modifier applies to the side commander.
+ random = { chance = 35
+ scope:combat_side.side_commander ?= { dragon_combat_modifier_effect = { DRAGON = scope:voltara_battle_dragon } }
+ scope:combat_side = { battle_event = { key = voltara_dragon_fire_pass left_portrait = scope:voltara_battle_dragon } }
+ add_trait_xp = { trait = dragonrider track = dragon_training value = 1 }
+ }
+ }
+}
+# Called on the side's commander. Rebuild from only physically present riders.
+voltara_dragon_process_combat_side = {
+ scope:combat_side.side_commander ?= { voltara_clear_battle_support = yes }
+ scope:combat_side = {
+ every_side_commander = { limit = { voltara_battle_ready_dragonrider = yes } voltara_dragon_battle_participant = yes }
+ every_side_knight = { limit = { voltara_battle_ready_dragonrider = yes NOT = { exists = commanding_army } } voltara_dragon_battle_participant = yes }
+ }
+}
+
+voltara_dragon_automatic_encounter = {
+ save_scope_as = voltara_air_attacker
+ scope:combat_side.enemy_side = {
+ random_side_knight = { limit = { voltara_battle_ready_dragonrider = yes NOT = { has_character_flag = voltara_air_duel_cooldown } } save_scope_as = voltara_air_defender }
+ random_side_commander = { limit = { voltara_battle_ready_dragonrider = yes NOT = { has_character_flag = voltara_air_duel_cooldown } } save_scope_as = voltara_air_defender }
+ }
+ if = { limit = { exists = scope:voltara_air_defender }
+ add_character_flag = { flag = voltara_air_duel_cooldown days = 30 }
+ scope:voltara_air_defender = { add_character_flag = { flag = voltara_air_duel_cooldown days = 30 } }
+ random_list = {
+ 100 = { modifier = { factor = scope:voltara_air_attacker.voltara_dragon_combat_power always = yes }
+ scope:voltara_air_attacker = { save_scope_as = voltara_air_winner } scope:voltara_air_defender = { save_scope_as = voltara_air_loser } }
+ 100 = { modifier = { factor = scope:voltara_air_defender.voltara_dragon_combat_power always = yes }
+ scope:voltara_air_defender = { save_scope_as = voltara_air_winner } scope:voltara_air_attacker = { save_scope_as = voltara_air_loser } }
+ }
+ scope:voltara_air_loser = {
+ add_character_flag = { flag = voltara_dragon_grounded days = 90 }
+ add_trait = wounded_1
+ var:current_dragon = { add_trait = dragon_wounded_2 }
+ random = { chance = 10 var:current_dragon = { death = { death_reason = death_battle killer = scope:voltara_air_winner } } }
+ }
+ scope:voltara_air_winner = { add_prestige = 100 add_trait_xp = { trait = dragonrider track = dragon_training value = 5 } }
+ scope:combat_side = { battle_event = { key = voltara_dragon_aerial_victory left_portrait = scope:voltara_air_winner right_portrait = scope:voltara_air_loser } }
+ # Refresh the enemy immediately, so the losing dragon cannot keep its strength.
+ scope:combat_side.enemy_side.side_commander ?= { voltara_clear_battle_support = yes }
+ }
+}

@@ -1,0 +1,253 @@
+﻿# lineage_logic_test = {
+#	picture = {
+#		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+#	}
+
+# 	major = yes
+# 	is_shown = {
+# 		always = no
+# 	}
+# 	is_valid = {
+# 		#always = yes
+# 		trigger_if = {
+# 			# Revive the dynasty if somehow game glitches with no successors to the Dyansty Head but living members.
+# 			NOT = { exists = dynasty.dynast }
+# 			always = yes
+# 		}
+# 		# Don't allow if too closely descended from a recent founder.
+# 		trigger_else = {
+# 			#Parents
+# 			AND = {
+# 				father = { is_house_founder = no }
+# 				mother = { is_house_founder = no }
+
+# 				#Grandparents
+# 				father = {
+# 					father = { is_house_founder = no }
+# 					mother = { is_house_founder = no }
+# 				} # Dad's parents
+# 				mother = {
+# 					father = { is_house_founder = no }
+# 					mother = { is_house_founder = no }
+# 				} # Mom's parents
+# 			} # Parent/Grandparent House Founder Check
+
+# 			# Don't allow creation of cadet branch if it threatens the survival of the parent house
+# 			house = {
+# 				any_house_member = { 		
+# 					is_alive = yes 			
+# 					count >= 25
+# 				}
+# 				any_house_member = { 		
+# 					is_alive = yes
+# 					is_male = yes
+# 					NOT = { has_trait = bastard }
+# 					age < 45
+# 					count >= 8
+# 				}
+# 				any_house_member = { 		
+# 					is_alive = yes
+# 					is_male = yes
+# 					NOT = { has_trait = bastard }
+# 					age < 16
+# 					count >= 4
+# 				}
+# 			}
+# 		}
+
+# 		trigger_if = {
+# 			limit = {
+# 				OR = {
+# 					has_trait = crusader_king
+# 					has_trait = augustus
+# 					has_trait = saoshyant
+# 					has_trait = chakravarti
+# 					has_trait = greatest_of_khans
+# 				}
+# 			}
+# 			always = yes
+# 		}
+# 		trigger_if = {
+# 			limit = {
+# 				primary_title.tier = tier_county
+# 				is_independent_ruler = no
+# 			}
+# 			always = no
+# 		}
+
+# 		trigger_if = {
+# 			limit = {
+# 				primary_title.tier = tier_county
+# 				is_independent_ruler = yes
+# 				max_military_strength > 4000
+# 				OR = {
+# 					prestige_level >= 5
+# 					piety_level >= 5
+# 					AND = {
+# 						prestige_level >= 4
+# 						OR = {
+# 							has_character_modifier = blacksheep
+# 							has_trait = ambitious
+# 							has_trait = arrogant
+# 							has_trait = pure_blooded
+# 							has_any_nickname = yes
+# 							NOT = {
+# 								religion = dynasty.dynast.religion
+# 								religion = house.house_head.religion
+# 								culture = dynasty.dynast.culture
+# 								culture = house.house_head.culture
+# 								#Too easy for just one to be different.
+# 							}
+# 							diplomacy >= 20
+# 							martial >= 20
+# 							stewardship >= 20
+# 							intrigue >= 20
+# 							#learning >= 30	#Scholar focus characters tend to stack learning too easily
+# 						}
+# 					}
+# 				}
+# 			}
+# 			always = yes
+# 		} # Count Trigger
+
+# 		trigger_if = {
+# 			limit = {
+# 				primary_title.tier = tier_duchy
+# 				OR = {
+# 					is_independent_ruler = yes
+# 					NOT = {
+# 						dynasty = liege.dynasty
+# 						dynasty = top_liege.dynasty
+# 					}
+# 				}
+# 				max_military_strength > 4000
+# 				OR = {
+# 					prestige_level >= 5
+# 					piety_level >= 5
+# 					AND = {
+# 						prestige_level >= 4
+# 						OR = {
+# 							has_character_modifier = blacksheep
+# 							has_trait = ambitious
+# 							has_trait = arrogant
+# 							has_trait = pure_blooded
+# 							has_any_nickname = yes
+# 							NOT = {
+# 								religion = dynasty.dynast.religion
+# 								religion = house.house_head.religion
+# 								culture = dynast.dynast.culture
+# 								culture = house.house_head.culture
+# 								#Too easy for just one to be different.
+# 							}
+# 							diplomacy >= 20
+# 							martial >= 20
+# 							stewardship >= 20
+# 							intrigue >= 20
+# 							#learning > 30	#Scholar focus characters tend to stack learning too easily
+# 						}
+# 					}
+# 				}
+# 			}
+# 			always = yes
+# 		} # Duke Trigger
+
+# 		trigger_if = {
+# 			limit = {
+# 				primary_title.tier = tier_kingdom
+# 				is_independent_ruler = no
+# 				NOT = {
+# 					dynasty = liege.dynasty
+# 					dynasty = top_liege.dynasty
+# 				}
+# 				max_military_strength > 4000
+# 				OR = {
+# 					prestige_level >= 4
+# 					piety_level >= 4
+# 					AND = {
+# 						prestige_level >= 3
+# 						OR = {
+# 							has_character_modifier = blacksheep
+# 							has_trait = ambitious
+# 							has_trait = arrogant
+# 							has_trait = pure_blooded
+# 							has_any_nickname = yes
+# 							NOT = {
+# 								religion = dynasty.dynast.religion
+# 								religion = house.house_head.religion
+# 								culture = dynasty.dynast.culture
+# 								culture = house.house_head.culture
+# 								#Too easy for just one to be different.
+# 							}
+# 							diplomacy >= 20
+# 							martial >= 20
+# 							stewardship >= 20
+# 							intrigue >= 20
+# 							#learning > 30	#Scholar focus characters tend to stack learning too easily
+# 						}
+# 					}
+# 				}
+# 			}
+# 			always = yes
+# 		} # Vassal King Trigger
+
+# 		trigger_if = {
+# 			limit = {
+# 				primary_title.tier >= tier_kingdom
+# 				is_independent_ruler = yes
+# 			}
+# 			always = yes
+# 		} # Indie King/Emperor Trigger
+
+# 	} # is_valid bloc
+# 	effect = {
+# 		PRESTIGE = major_prestige_gain
+# 	}
+# 	ai_potential = {
+# 		always = no
+# 	}
+# 	ai_will_do = {
+# 		always = no
+# 	}
+# }
+
+
+# neighbor_logic_test = {
+# 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+# 	major = yes
+
+# 	is_shown = {
+# 		always = no
+# 	}
+# 	is_valid = {
+# 		OR = {
+# 			is_independent_ruler = yes
+# 			NOT = {
+# 				dynasty = liege.dynasty
+# 				dynasty = top_liege.dynasty
+# 			}
+# 		}
+# 		max_military_strength > 4000
+# 		OR = {
+# 			prestige_level >= 5
+# 			piety_level >= 5
+# 			AND = {
+# 				prestige_level >= 4
+# 				OR = {
+# 					has_trait = ambitious
+# 					has_trait = arrogant
+# 					has_any_nickname = yes
+# 				}
+# 			}
+# 		}
+
+# 	} # is_valid bloc
+# 	effect = {
+# 		PRESTIGE = major_prestige_gain
+# 	}
+# 	ai_potential = {
+# 		always = no
+# 	}
+# 	ai_will_do = {
+# 		always = no
+# 	}
+# }

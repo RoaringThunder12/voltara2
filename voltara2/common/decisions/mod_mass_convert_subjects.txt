@@ -1,0 +1,286 @@
+﻿# a decision to mass demand conversion from different type of people. This is just a shortcut for starting this interaction for each of them manually.
+# (thanks "MrFunEGUY" for the code check of "religiously_protected")
+
+# game update 24.9.2024 notes for decisions: 
+# picture = "..." changed to picture = {reference = "..."}
+# and decision_group_type was added (optional, see common\decision_group_types for valid groups)
+
+mod_mass_convert_subjects_decision = {
+  picture = {
+      reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+  }
+	desc = mod_mass_convert_subjects_decision_desc
+  decision_group_type = admin
+    is_shown = {
+ NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins }
+ 
+        OR = {
+            any_vassal = {
+                NOT = { vassal_contract_has_flag = religiously_protected }
+                root = {
+                    is_character_interaction_potentially_accepted = {
+                        recipient = prev
+                        interaction = demand_conversion_vassal_ruler_interaction
+                    }
+                }
+            }
+            any_vassal_or_below = {
+                NOT = { vassal_contract_has_flag = religiously_protected }
+                exists = liege
+                NOT = {
+                    liege = root # filter for indirect vassals, so ones we are not the liege of
+                }
+                root = {
+                    is_character_interaction_potentially_accepted = {
+                        recipient = prev
+                        interaction = demand_conversion_vassal_ruler_interaction
+                    }
+                }
+            }
+            any_tributary = {
+                root = {
+                    is_character_interaction_potentially_accepted = {
+                        recipient = prev
+                        interaction = demand_conversion_vassal_ruler_interaction
+                    }
+                }
+            }
+            any_courtier = {
+                root = {
+                    is_character_interaction_potentially_accepted = {
+                        recipient = prev
+                        interaction = ask_for_conversion_courtier_interaction
+                    }
+                }
+            }
+            AND = {
+                exists = house
+                house = {
+                    any_house_member = {
+                        root = {
+                            is_character_interaction_potentially_accepted = {
+                                recipient = prev
+                                interaction = demand_conversion_interaction
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+ 
+  # Fixed index contract for our widget: direct 0-2, indirect 3-5,
+  # tributaries 6-8 (none/80/100), courtiers 9, house 10. Do not hide items.
+  widget = {
+        gui = "mdc_decision_chance_filter"
+        controller = decision_option_list_controller
+        item = {
+            value = mod_convert_direct_vassals
+            localization = mod_convert_direct_vassals_loc
+            ai_chance = { value = 0 } # unused; player selection uses the native controller
+            is_default = yes
+        }
+        item = {
+            value = mdc_convert_direct_vassals_80
+            localization = mdc_convert_direct_vassals_80_loc
+            ai_chance = { value = 0 } # unused; player selection uses the native controller
+        }
+        item = {
+            value = mdc_convert_direct_vassals_100
+            localization = mdc_convert_direct_vassals_100_loc
+            ai_chance = { value = 0 } # unused; player selection uses the native controller
+        }
+        item = {
+            value = mod_convert_indirect_vassals
+            localization = mod_convert_indirect_vassals_loc
+            ai_chance = { value = 0 } # unused; player selection uses the native controller
+        }
+        item = {
+            value = mdc_convert_indirect_vassals_80
+            localization = mdc_convert_indirect_vassals_80_loc
+            ai_chance = { value = 0 } # unused; player selection uses the native controller
+        }
+        item = {
+            value = mdc_convert_indirect_vassals_100
+            localization = mdc_convert_indirect_vassals_100_loc
+            ai_chance = { value = 0 } # unused; player selection uses the native controller
+        }
+        item = {
+            value = mod_convert_tributaries
+            localization = mod_convert_tributaries_loc
+            ai_chance = { value = 0 } # unused; player selection uses the native controller
+        }
+        item = {
+            value = mdc_convert_tributaries_80
+            localization = mdc_convert_tributaries_80_loc
+            ai_chance = { value = 0 } # unused; player selection uses the native controller
+        }
+        item = {
+            value = mdc_convert_tributaries_100
+            localization = mdc_convert_tributaries_100_loc
+            ai_chance = { value = 0 } # unused; player selection uses the native controller
+        }
+        item = {
+            value = mod_convert_courtiers
+            localization = mod_convert_courtiers_loc
+            ai_chance = { value = 0 } # unused; player selection uses the native controller
+        }
+        item = {
+            value = mod_convert_house
+            localization = mod_convert_house_loc
+            ai_chance = { value = 0 } # unused; player selection uses the native controller
+        }
+  }
+
+
+	effect = {
+        # Explicit preview: sending requests does not guarantee conversion.
+        custom_tooltip = mdc_mass_conversion_requests_effect
+ 
+        if = {
+			limit = {
+                OR = {
+                    scope:mod_convert_direct_vassals ?= yes
+                    scope:mdc_convert_direct_vassals_80 ?= yes
+                    scope:mdc_convert_direct_vassals_100 ?= yes
+                }
+            }
+			every_vassal = { # direct vassals
+                limit = { NOT = { vassal_contract_has_flag = religiously_protected } }
+                if = {
+                    limit = {
+                        root = {
+                            mdc_selected_vassal_conversion_query = {
+                                RECIPIENT = prev
+                            }
+                        }
+                    }
+                    run_interaction = {
+                        interaction = demand_conversion_vassal_ruler_interaction
+                        actor = root
+                        recipient = this
+                        # execute_threshold = decline # does what is written in on_accept, so everyone would accept this way
+                        send_threshold = decline # send the request and then AI will decide like normal 
+                    }
+                }
+            }
+		}
+		else_if = {
+			limit = {
+                OR = {
+                    scope:mod_convert_indirect_vassals ?= yes
+                    scope:mdc_convert_indirect_vassals_80 ?= yes
+                    scope:mdc_convert_indirect_vassals_100 ?= yes
+                }
+            }
+			every_vassal_or_below = { # all vassals
+                limit = { NOT = { vassal_contract_has_flag = religiously_protected } }
+                if = {
+                    limit = {
+                        exists = liege
+                        NOT = {
+                            liege = root # filter for indirect vassals, so ones we are not the liege of
+                        }
+                        root = {
+                            mdc_selected_vassal_conversion_query = {
+                                RECIPIENT = prev
+                            }
+                        }
+                    }
+                    run_interaction = {
+                        interaction = demand_conversion_vassal_ruler_interaction
+                        actor = root
+                        recipient = this
+                        send_threshold = decline # send the request and then AI will decide like normal 
+                    }
+                }
+            }
+		}
+        else_if = {
+            limit = {
+                OR = {
+                    scope:mod_convert_tributaries ?= yes
+                    scope:mdc_convert_tributaries_80 ?= yes
+                    scope:mdc_convert_tributaries_100 ?= yes
+                }
+            }
+            every_tributary = {
+                if = {
+                    limit = {
+                        root = {
+                            mdc_selected_vassal_conversion_query = {
+                                RECIPIENT = prev
+                            }
+                        }
+                    }
+                    run_interaction = {
+                        interaction = demand_conversion_vassal_ruler_interaction
+                        actor = root
+                        recipient = this
+                        send_threshold = decline # send the request and then AI will decide like normal 
+                    }
+                }
+            }
+        }
+		else_if = {
+			limit = { scope:mod_convert_courtiers = yes }
+			every_courtier = {
+                if = {
+                    limit = {
+                        root = {
+                            is_character_interaction_potentially_accepted = {
+                                recipient = prev
+                                interaction = ask_for_conversion_courtier_interaction
+                            }
+                        }
+                    }
+                    run_interaction = {
+                        interaction = ask_for_conversion_courtier_interaction
+                        actor = root
+                        recipient = this
+                        send_threshold = decline # send the request and then AI will decide like normal 
+                    }
+                }
+            }
+		}
+        else_if = {
+			limit = { scope:mod_convert_house = yes }
+			if = {
+                limit = {
+                    exists = house
+                }
+                house = {
+                    every_house_member = {
+                        if = {
+                            limit = {
+                                root = {
+                                    is_character_interaction_potentially_accepted = {
+                                        recipient = prev
+                                        interaction = demand_conversion_interaction
+                                    }
+                                }
+                            }
+                            run_interaction = {
+                                interaction = demand_conversion_interaction
+                                actor = root
+                                recipient = this
+                                send_threshold = decline # send the request and then AI will decide like normal 
+                            }
+                        }
+                    }
+                }
+            }
+		}
+ 
+ 
+ 
+    }
+ 
+ 
+	ai_will_do = {
+		base = 0 #The AI should never do this!
+	}
+    ai_check_interval = 0
+}
+
+

@@ -1,0 +1,2550 @@
+﻿namespace = ek_story_cycle_necromancy_events
+
+### Necromancy
+# Events to become a vt_ek_necromancer, following the decision
+ek_story_cycle_necromancy_events.0001 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0001.t
+    desc = {
+        first_valid = {
+			triggered_desc = {
+				trigger = { faith = { has_doctrine = doctrine_necromancy_crime } }
+				desc = ek_story_cycle_necromancy_events.0001.desc.criminal
+			}
+            triggered_desc = {
+				trigger = { faith = { has_doctrine = doctrine_necromancy_shunned } }
+				desc = ek_story_cycle_necromancy_events.0001.desc.shunned
+			}
+			desc = ek_story_cycle_necromancy_events.0001.desc
+		}
+    }
+    theme = necromancy
+    override_background = { reference  = study }
+
+    left_portrait = {
+        character = root
+    }
+
+    # Do it
+    option = {
+        name = ek_story_cycle_necromancy_events.0001.a
+        custom_tooltip = ek_story_cycle_necromancy_events.0001.a.tt
+
+        add_piety = -500
+
+        stress_impact = {
+            base = minor_stress_gain
+            arrogant = medium_stress_impact_loss
+            humble = medium_stress_impact_gain
+            lazy = medium_stress_impact_gain
+        }
+
+        trigger_event = ek_story_cycle_necromancy_events.0005
+
+        ai_chance = 50
+    }
+
+    # Do it in Secrecy
+    option = {
+        trigger = {
+            faith = { has_doctrine = doctrine_necromancy_shunned }
+		}
+        name = ek_story_cycle_necromancy_events.0001.b
+        custom_tooltip = ek_story_cycle_necromancy_events.0001.b.tt
+        add_character_flag = is_learning_secret_necromancy
+        add_piety = -500
+
+        stress_impact = {
+            base = medium_stress_gain
+            arrogant = medium_stress_impact_loss
+            humble = medium_stress_impact_gain
+            lazy = medium_stress_impact_gain
+        }
+
+        ai_chance = {
+            base = 0
+            modifier = {
+                add = 100
+                faith = { has_doctrine = doctrine_necromancy_shunned }
+            }
+        }
+    }
+
+    # Dont do it
+    option = {
+        name = ek_story_cycle_necromancy_events.0001.c
+        custom_tooltip = ek_story_cycle_necromancy_events.0001.c.tt
+
+        end_story_cycle_learn_necromancy_effect = yes
+
+        ai_chance = 0
+    }   
+}
+
+ek_story_cycle_necromancy_events.0005 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0005.t
+    desc = ek_story_cycle_necromancy_events.0005.desc
+    theme = necromancy
+    override_background = { reference  = study }
+
+    left_portrait = {
+        character = root
+    }
+
+    immediate = {
+        random_owned_story = {
+			limit = { story_type = story_cycle_learn_necromancy }
+			save_scope_as = story
+		}
+        if = {
+            random_relation = {
+                limit = {
+                    is_available_adult = yes
+                    has_trait = vt_ek_necromancer
+                    opinion = { 
+                        target = root
+                        value >= 10
+                    }     
+                }
+                save_scope_as = necromancy_tutor
+             }
+        }
+        else_if = {
+            random_courtier = {
+                limit = {
+                    is_available_adult = yes
+                    has_trait = vt_ek_necromancer
+                    opinion = { 
+                            target = root
+                            value >= 10
+                        }     
+                }
+                save_scope_as = necromancy_tutor
+            }
+        }
+    }   
+
+    # Buy Books
+    option = {
+        name = ek_story_cycle_necromancy_events.0005.a
+        custom_tooltip = ek_story_cycle_necromancy_events.0005.a.tt
+        trigger = { 
+            NOT = { has_character_flag = is_learning_secret_necromancy }
+            short_term_gold >= major_gold_value 
+        }
+        show_as_unavailable = {
+            NOT = { has_character_flag = is_learning_secret_necromancy }
+			short_term_gold < major_gold_value 
+		}  
+
+        remove_short_term_gold = major_gold_value
+
+        custom_tooltip = {
+            text = increased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = 1 } }
+        }
+
+        add_character_flag = has_necromancy_books
+
+        stress_impact = {
+            greedy = medium_stress_impact_gain
+        }        
+
+        ai_chance = 50
+    }
+
+    # Ask someone from your court to tutor you
+    option = {
+        trigger = {
+            exists = scope:necromancy_tutor
+            scope:necromancy_tutor = { is_available = yes }
+        }
+        name = {
+            trigger = { has_character_flag = is_learning_secret_necromancy }
+            text = ek_story_cycle_necromancy_events.0005.b.secret
+        }
+        name = {
+            trigger = { NOT = { has_character_flag = is_learning_secret_necromancy } }
+            text = ek_story_cycle_necromancy_events.0005.b
+        }
+        custom_tooltip = ek_story_cycle_necromancy_events.0005.b.tt
+
+        scope:necromancy_tutor = { add_character_modifier = is_necromancy_tutor }
+
+        custom_tooltip = {
+            text = increased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = 1 } }
+        }
+
+        stress_impact = {
+            arrogant = minor_stress_impact_gain
+            humble = minor_stress_impact_loss
+        }
+
+        ai_chance = 100
+    }
+
+    # Send for a teacher of necromancy
+    option = {
+        trigger = {
+            NOR = { 
+                exists = scope:necromancy_tutor
+                is_landless_adventurer = yes
+            }
+        }
+        name = ek_story_cycle_necromancy_events.0005.c
+        custom_tooltip = ek_story_cycle_necromancy_events.0005.c.tt
+
+        add_prestige = medium_prestige_loss
+
+        trigger_event = {
+			id = ek_story_cycle_necromancy_events.0006
+            days = { 3 6 }
+		}
+
+        stress_impact = {
+            arrogant = minor_stress_impact_gain
+            humble = minor_stress_impact_loss
+        }
+
+        ai_chance = 50
+    }
+
+    # Study on your own
+    option = {
+        name = ek_story_cycle_necromancy_events.0005.d
+        custom_tooltip = ek_story_cycle_necromancy_events.0005.d.tt
+
+        stress_impact = {
+            eccentric = minor_stress_impact_loss
+            arrogant = medium_stress_impact_loss
+            humble = medium_stress_impact_gain
+            lazy = medium_stress_impact_gain
+        }
+
+        ai_chance = 10
+    }
+}
+
+# Necromancy teacher arrives
+ek_story_cycle_necromancy_events.0006 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0006.t
+    desc = ek_story_cycle_necromancy_events.0006.desc
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = scope:necromancy_tutor
+        animation = personality_cynical
+    }
+
+    immediate = {
+        random_owned_story = {
+			limit = { story_type = story_cycle_learn_necromancy }
+			save_scope_as = story
+		}
+        random_pool_character = {
+            province = root.location
+            limit = { 
+                has_trait = vt_ek_necromancer
+                is_available_ai = yes
+            }
+            save_scope_as = necromancy_tutor
+        }
+        if = {
+            limit = { NOT = { exists = scope:necromancy_tutor } }
+            random_religion_global = {
+				limit = { any_faith = { has_doctrine = tenet_necromancy_worship } }
+                random_faith = {
+                    limit = { has_doctrine = tenet_necromancy_worship }
+                    save_scope_as = necromancy_faith
+                }
+            }
+            create_character = {
+                template = necromancer_template
+                location = root.location
+                dynasty = none
+                save_scope_as = necromancy_tutor
+                after_creation = {
+                    set_character_faith = scope:necromancy_faith
+                }
+            }          
+        }
+        add_visiting_courtier = scope:necromancy_tutor
+    }
+
+    # Accept tutor for gold  
+    option = {
+        name = ek_story_cycle_necromancy_events.0006.a
+        trigger = {
+            short_term_gold >= medium_gold_value
+        }
+        show_as_unavailable = {
+            short_term_gold < medium_gold_value
+        }
+
+        pay_short_term_gold = {
+			target = scope:necromancy_tutor
+			gold = medium_gold_value
+		}
+
+        scope:necromancy_tutor = { add_character_modifier = is_necromancy_tutor }
+        add_courtier = scope:necromancy_tutor
+        add_character_flag = has_necromancy_tutor
+
+        custom_tooltip = {
+            text = increased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = 1 } }
+        }
+
+        stress_impact = {
+            greedy = medium_stress_impact_gain
+            paranoid = minor_stress_impact_loss
+        }
+
+        ai_chance = 100
+    }
+
+    # Accept tutor for favor
+    option = {
+        name = ek_story_cycle_necromancy_events.0006.b
+
+        scope:necromancy_tutor = { 
+            add_character_modifier = is_necromancy_tutor
+            add_hook = {
+                type = favor_hook
+                target = root
+            }
+		}
+
+        add_courtier = scope:necromancy_tutor
+        add_character_flag = has_necromancy_tutor
+
+        custom_tooltip = {
+            text = increased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = 1 } }
+        }
+
+        stress_impact = {
+            paranoid = medium_stress_impact_gain
+            greedy = minor_stress_impact_loss
+        }
+
+        ai_chance = 50
+    }
+
+    # Change your mind
+    option = {
+        name = ek_story_cycle_necromancy_events.0006.c
+        custom_tooltip = ek_story_cycle_necromancy_events.0006.c.tt
+
+        scope:necromancy_tutor = { move_to_pool = yes }
+
+        stress_impact = {
+            paranoid = minor_stress_impact_loss
+            greedy = minor_stress_impact_loss
+            fickle = minor_stress_impact_loss
+            diligent = minor_stress_impact_gain
+            ambitious = minor_stress_impact_gain
+        }
+
+        ai_chance = 0
+    }
+} 
+
+# The tutor dies, hidden event
+ek_story_cycle_necromancy_events.0010 = {
+    type = character_event
+
+    hidden = yes
+    trigger = {
+        has_character_modifier = is_necromancy_tutor
+        exists = liege
+    }
+    immediate = {
+        save_scope_as = necromancy_tutor
+        liege = { 
+            trigger_event = {
+                id = ek_story_cycle_necromancy_events.0011
+            }
+        }
+    }
+}
+
+# The tutor dies
+ek_story_cycle_necromancy_events.0011 = { 
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0011.t
+    desc = ek_story_cycle_necromancy_events.0011.desc
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = root
+        animation = sadness
+    }
+
+    immediate = {
+        random_owned_story = {
+			limit = { story_type = story_cycle_learn_necromancy }
+			save_scope_as = story
+		}
+        remove_character_flag = has_necromancy_tutor
+    }
+
+    # Buy Books
+    option = {
+        name = ek_story_cycle_necromancy_events.0011.a
+        custom_tooltip = continue_necromancy_studies.tt
+
+        trigger = { 
+            NOR = { 
+                has_character_flag = is_learning_secret_necromancy
+                has_character_flag = has_necromancy_books
+            }
+            short_term_gold >= major_gold_value 
+        }
+        show_as_unavailable = {
+            NOT = { has_character_flag = is_learning_secret_necromancy }
+			short_term_gold < major_gold_value 
+		}  
+
+        remove_short_term_gold = major_gold_value
+
+        add_character_flag = has_necromancy_books
+
+        stress_impact = {
+            greedy = medium_stress_impact_gain
+            lazy = minor_stress_impact_gain
+            diligent = minor_stress_impact_loss
+            ambitious = minor_stress_impact_loss
+        }
+
+        ai_chance = 50
+    }
+
+    # Continue on your own
+    option = {
+        name = ek_story_cycle_necromancy_events.0011.b
+        custom_tooltip = continue_necromancy_studies.tt
+        custom_tooltip = {
+            text = decreased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = -1 } }
+        }
+
+        stress_impact = {
+            base = medium_stress_impact_gain
+            arrogant = medium_stress_impact_loss
+            humble = medium_stress_impact_gain
+            lazy = medium_stress_impact_gain
+            diligent = minor_stress_impact_loss
+            ambitious = minor_stress_impact_loss
+        }
+
+        ai_chance = 50
+    }
+
+    # Just quit
+    option = {
+        name = ek_story_cycle_necromancy_events.0011.c
+        custom_tooltip = abandon_necromancy_studies.tt
+        custom_tooltip = {
+            text = necromancy_no_longer_possible.tt
+            add_character_flag = failed_necromancy
+        }
+
+        end_story_cycle_learn_necromancy_effect = yes
+
+        stress_impact = {
+            fickle = minor_stress_impact_loss
+            lazy = minor_stress_impact_loss
+            diligent = medium_stress_impact_gain
+            ambitious = medium_stress_impact_gain
+        }
+
+        ai_chance = 0
+    }
+}
+
+# Necromancy: Reach
+ek_story_cycle_necromancy_events.0100 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0100.t
+    desc = ek_story_cycle_necromancy_events.0100.desc
+    theme = necromancy
+    override_background = { reference = wilderness_mountains }
+
+    left_portrait = {
+        character = root
+        animation = happiness
+    }
+
+    trigger = {
+        location = { geographical_region = mundus_tamriel_reach }
+    }
+
+    immediate = {
+        random_owned_story = {
+			limit = { story_type = story_cycle_learn_necromancy }
+			save_scope_as = story
+		}
+    }
+
+    cooldown = { years = 20 }
+
+    option = {
+        name = ek_story_cycle_necromancy_events.0100.a
+        custom_tooltip = {
+            text = increased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = 1 } }
+        }
+
+        add_prestige = minor_prestige_gain
+
+        stress_impact = {
+            base = medium_stress_impact_loss
+            humble = minor_stress_impact_gain
+            arrogant = minor_stress_impact_loss
+        }
+    }
+}
+
+# Necromancy: Elsweyr
+ek_story_cycle_necromancy_events.0105 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0105.t
+    desc = ek_story_cycle_necromancy_events.0105.desc
+    theme = necromancy
+    override_background = { reference = wilderness_desert }
+
+    left_portrait = {
+        character = root
+        animation = happiness
+    }    
+
+    trigger = { 
+        location = {
+            geographical_region = mundus_tamriel_elsweyr
+        }
+    }
+
+    immediate = {
+        random_owned_story = {
+			limit = { story_type = story_cycle_learn_necromancy }
+			save_scope_as = story
+		}
+    }
+
+    cooldown = { years = 20 }
+
+    # Press on
+    option = {
+        name = ek_story_cycle_necromancy_events.0105.a
+
+        custom_tooltip = {
+            text = increased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = 1 } }
+        }
+
+        stress_impact = {
+            base = minor_stress_impact_loss
+            lazy = minor_stress_impact_loss
+        }
+    }
+}
+
+# Necromancy: Hammerfell Event
+ek_story_cycle_necromancy_events.0110 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0110.t
+    desc = ek_story_cycle_necromancy_events.0110.desc
+    theme = necromancy
+    override_background = { reference = wilderness_desert }
+
+    left_portrait = {
+        character = root
+        animation = stress
+    }
+
+    trigger = { 
+        location = {
+            geographical_region = mundus_tamriel_hammerfell
+        }
+    }
+
+    immediate = {
+        random_owned_story = {
+			limit = { story_type = story_cycle_learn_necromancy }
+			save_scope_as = story
+		}
+    }
+
+    cooldown = { years = 20 }
+
+    # Press on
+    option = {
+        name = ek_story_cycle_necromancy_events.0110.a
+        custom_tooltip = continue_necromancy_studies.tt
+
+        custom_tooltip = {
+            text = decreased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = -1 } }
+        }
+
+        stress_impact = {
+            base = medium_stress_impact_gain
+            diligent = minor_stress_impact_loss
+            ambitious = minor_stress_impact_loss
+        }
+
+        ai_chance = 100
+    }
+
+    # Give up
+    option = {
+        name = ek_story_cycle_necromancy_events.0110.b
+        custom_tooltip = abandon_necromancy_studies.tt
+        custom_tooltip = {
+            text = necromancy_no_longer_possible.tt
+            add_character_flag = failed_necromancy
+        }
+        
+        end_story_cycle_learn_necromancy_effect = yes
+
+        stress_impact = {
+            base = minor_stress_impact_loss
+            lazy = minor_stress_impact_loss
+            diligent = medium_stress_impact_gain
+            ambitious = medium_stress_impact_gain
+        }
+
+        ai_chance = 0
+    }
+}
+
+# Necromancy: Valenwood Event
+ek_story_cycle_necromancy_events.0115 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0115.t
+    desc = ek_story_cycle_necromancy_events.0115.desc
+    theme = necromancy
+    override_background = { reference = wilderness_jungle }
+    left_portrait = {
+        character = root
+        animation = stress
+    }    
+
+    trigger = { 
+        location = {
+            geographical_region = mundus_tamriel_valenwood
+        }
+    }
+
+    immediate = {
+        random_owned_story = {
+			limit = { story_type = story_cycle_learn_necromancy }
+			save_scope_as = story
+		}
+    }
+
+    cooldown = { years = 20 }
+
+    # Press on
+    option = {
+        name = ek_story_cycle_necromancy_events.0115.a
+        custom_tooltip = continue_necromancy_studies.tt
+        
+        custom_tooltip = {
+            text = decreased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = -1 } }
+        }
+
+        stress_impact = {
+            base = medium_stress_impact_gain
+            diligent = minor_stress_impact_loss
+            ambitious = minor_stress_impact_loss
+        }
+
+        ai_chance = 100
+    }
+
+    # Give up
+    option = {
+        name = ek_story_cycle_necromancy_events.0115.b
+        custom_tooltip = abandon_necromancy_studies.tt
+        custom_tooltip = {
+            text = necromancy_no_longer_possible.tt
+            add_character_flag = failed_necromancy
+        }
+
+        end_story_cycle_learn_necromancy_effect = yes
+
+        stress_impact = {
+            base = minor_stress_impact_loss
+            lazy = minor_stress_impact_loss
+            diligent = medium_stress_impact_gain
+            ambitious = medium_stress_impact_gain
+        }
+
+        ai_chance = 0
+    }
+}
+
+# Necromancy Book Event
+ek_story_cycle_necromancy_events.0200 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0200.t
+    desc = ek_story_cycle_necromancy_events.0200.desc
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = root
+        animation = personality_rational
+    }
+
+    trigger = {
+        has_character_flag = has_necromancy_books
+    }    
+                            
+    immediate = {
+        add_character_flag = has_necromancy_books
+        random_list = {
+            30 = { add_learning_skill = 1 }
+            20 = { add_learning_skill = 2 }
+            10 = { add_learning_skill = 3 }
+        }
+    }
+
+    # Continue
+    option = {
+        name = ek_story_cycle_necromancy_events.0200.a
+    }
+}
+
+# Tutor Wants Court Position
+ek_story_cycle_necromancy_events.0210 = {
+
+    title = ek_story_cycle_necromancy_events.0210.t
+    desc = ek_story_cycle_necromancy_events.0210.desc
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = scope:necromancy_tutor
+        animation = personality_greed
+    }
+
+    trigger = {
+        has_character_flag = has_necromancy_tutor
+        any_courtier = {
+            has_character_modifier = is_necromancy_tutor
+            is_available = yes
+            NOT = { has_court_position = court_mage_court_position }
+        }
+    }
+
+    immediate = {
+        random_courtier = {
+            limit = {
+                has_character_modifier = is_necromancy_tutor
+                is_available = yes
+                NOT = { has_court_position = court_mage_court_position }
+            }
+            save_scope_as = necromancy_tutor
+        }
+    }
+
+    cooldown = { years = 20 }
+
+    # Accept his demands
+    option = {
+        name = ek_story_cycle_necromancy_events.0210.a
+
+        if = {
+			limit = {
+				can_employ_court_position_type = court_mage_court_position
+				NOT = { employs_court_position = court_mage_court_position }
+			}
+			appoint_court_position = {
+				recipient = scope:necromancy_tutor
+				court_position = court_mage_court_position
+			}
+		}
+		else_if = {
+			limit = {
+				can_employ_court_position_type = court_mage_court_position
+			}
+			court_position:court_mage_court_position = {
+				add_opinion = {
+					target = root
+					modifier = disappointed_opinion
+					opinion = -5
+				}
+			}
+			replace_court_position = {
+				recipient = scope:necromancy_tutor
+				holder = court_position:court_mage_court_position
+				court_position = court_mage_court_position
+			}
+		}
+
+        stress_impact = {
+            wrathful = medium_stress_impact_gain
+            arbitrary = medium_stress_impact_gain
+            arrogant = minor_stress_impact_gain
+        }
+
+        ai_chance = 100
+    }
+
+    # Dismiss his demands
+    option = {
+        name = ek_story_cycle_necromancy_events.0210.b
+
+        scope:necromancy_tutor = {
+            move_to_pool = yes
+            add_opinion = {
+                target = root
+				modifier = refusal_opinion
+				opinion = -20
+			} 
+
+        }
+        remove_character_flag = has_necromancy_tutor 
+
+        stress_impact = {
+            wrathful = medium_stress_impact_loss
+            arbitrary = medium_stress_impact_loss
+            arrogant = minor_stress_impact_loss
+        }
+
+        ai_chance = 10   
+    }
+}
+
+## Universal Events
+# Necromancy: Having Difficulties Event
+ek_story_cycle_necromancy_events.0215 = {
+    title = ek_story_cycle_necromancy_events.0215.t
+    desc = ek_story_cycle_necromancy_events.0215.desc
+    type = character_event
+
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = root
+        animation = stress
+    }
+
+    trigger = {
+        learning < medium_skill_rating
+    }
+
+    immediate = {
+        random_owned_story = {
+			limit = { story_type = story_cycle_learn_necromancy }
+			save_scope_as = story
+		}
+    }
+
+    cooldown = { years = 20 }
+
+    # Press on
+    option = {
+        name = ek_story_cycle_necromancy_events.0215.a
+        custom_tooltip = continue_necromancy_studies.tt
+
+        custom_tooltip = {
+            text = decreased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = -1 } }
+        }
+
+        stress_impact = {
+            base = medium_stress_impact_gain
+            lazy = major_stress_impact_gain
+            diligent = medium_stress_impact_gain
+        }
+
+        ai_chance = 100
+    }
+
+    # Give up
+    option = {
+        name = ek_story_cycle_necromancy_events.0215.b
+        custom_tooltip = abandon_necromancy_studies.tt
+        custom_tooltip = {
+            text = necromancy_no_longer_possible.tt
+            add_character_flag = failed_necromancy
+        }
+
+        end_story_cycle_learn_necromancy_effect = yes
+
+        stress_impact = {
+            fickle = minor_stress_impact_loss
+            lazy = medium_stress_impact_loss
+            diligent = medium_stress_impact_gain
+        }
+
+        ai_chance = 0
+    }
+}
+
+# Necromancy Second Thoughts Event
+ek_story_cycle_necromancy_events.0220 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0220.t
+    desc = ek_story_cycle_necromancy_events.0220.desc
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = root
+        animation = stress
+    }
+
+    cooldown = { years = 20 }
+
+    # Press on
+    option = {
+        name = ek_story_cycle_necromancy_events.0220.a
+        custom_tooltip = continue_necromancy_studies.tt        
+
+        stress_impact = {
+            base = medium_stress_impact_gain
+        }
+
+        ai_chance = 100
+    }
+
+    # Give up
+    option = {
+        name = ek_story_cycle_necromancy_events.0220.b
+        custom_tooltip = abandon_necromancy_studies.tt
+        custom_tooltip = {
+            text = necromancy_no_longer_possible.tt
+            add_character_flag = failed_necromancy
+        }
+       
+        end_story_cycle_learn_necromancy_effect = yes
+
+        stress_impact = {
+            fickle = minor_stress_impact_loss
+            lazy = medium_stress_impact_loss
+            diligent = medium_stress_impact_gain
+        }
+
+        ai_chance = 0
+    }
+}
+
+# Necromancy Physician Event
+ek_story_cycle_necromancy_events.0225 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0225.t
+    desc = ek_story_cycle_necromancy_events.0225.desc
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = root
+        animation = personality_rational
+    }
+
+    trigger = {
+        NOR = { 
+            has_trait = lifestyle_physician
+            has_character_flag = learned_something_from_necromancy
+        }
+    }
+
+    immediate = {
+        random_owned_story = {
+			limit = { story_type = story_cycle_learn_necromancy }
+			save_scope_as = story
+		}
+        add_character_flag = learned_something_from_necromancy
+    }
+
+    cooldown = { years = 20 }
+
+    # Press on
+    option = {
+        name = ek_story_cycle_necromancy_events.0225.a
+        custom_tooltip = {
+            text = increased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = 1 } }
+        }
+
+        show_as_tooltip = {
+			add_trait_force_tooltip = lifestyle_physician
+		}
+    }
+}
+
+# Necromancy Arcana Event
+ek_story_cycle_necromancy_events.0230 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0230.t
+    desc = ek_story_cycle_necromancy_events.0230.desc
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = root
+        animation = personality_rational
+    }
+
+    trigger = {
+        NOT = { 
+            has_character_flag = learned_something_from_necromancy
+        }
+    }
+
+    cooldown = { years = 20 }
+
+    immediate = {
+        random_owned_story = {
+			limit = { story_type = story_cycle_learn_necromancy }
+			save_scope_as = story
+		}
+        random_list = {
+            30 = { add_arcana_skill = { VALUE = 1 } }
+            20 = { add_arcana_skill = { VALUE = 2 } }
+            10 = { add_arcana_skill = { VALUE = 3 } }
+        }
+        add_character_flag = learned_something_from_necromancy
+    }
+
+    # Press on
+    option = {
+        name = ek_story_cycle_necromancy_events.0230.a
+        custom_tooltip = {
+            text = increased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = 1 } }
+        }
+    }
+}
+
+# Necromancy Magic Ep Event
+ek_story_cycle_necromancy_events.0235 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0235.t
+    desc = ek_story_cycle_necromancy_events.0235.desc
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = root
+        animation = personality_rational
+    }
+
+    trigger = {
+        NOT = { 
+            has_character_flag = learned_something_from_necromancy
+        }
+    }
+
+    cooldown = { years = 20 }
+
+    immediate = {
+        random_owned_story = {
+			limit = { story_type = story_cycle_learn_necromancy }
+			save_scope_as = story
+		}
+        random_list = {
+            30 = { add_vt_threadbinding_magic_lifestyle_xp = 250 }
+            20 = { add_vt_threadbinding_magic_lifestyle_xp = 500 }
+            10 = { add_vt_threadbinding_magic_lifestyle_xp = 1000 }
+        }
+        add_character_flag = learned_something_from_necromancy
+    }
+
+    # Press on
+    option = {
+        name = ek_story_cycle_necromancy_events.0235.a
+        custom_tooltip = {
+            text = increased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = 1 } }
+        }
+    }
+}
+
+# Necromancy Grave Digging Event
+ek_story_cycle_necromancy_events.0240 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0240.t
+    desc = ek_story_cycle_necromancy_events.0240.desc
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = root
+        animation = personality_rational
+    }
+
+    trigger = {
+        NOR = { 
+            faith = { has_doctrine = doctrine_necromancy_accepted }
+            has_character_flag = has_necromancy_test_subject
+        }
+        is_travelling = no
+    }
+
+    immediate = {
+        random_owned_story = {
+			limit = { story_type = story_cycle_learn_necromancy }
+			save_scope_as = story
+		}
+        random_courtier = {
+            limit = {
+                has_character_modifier = is_necromancy_tutor
+                is_available = yes
+            }
+            save_scope_as = necromancy_tutor
+        }
+    }
+
+    cooldown = { years = 20 }
+
+    # Do it
+    option = {
+        name = ek_story_cycle_necromancy_events.0240.a
+        custom_tooltip = {
+            text = increased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = 1 } }
+        }
+
+		location.county = {
+            add_county_modifier = {
+ 			    modifier = robbed_graves_modifier
+ 			    years = 10
+ 		    }
+        }
+
+        add_character_flag = has_necromancy_test_subject
+
+        hidden_effect = {
+            random_list = { 
+                50 = { # Trigger Grave Digging Follow Up Event
+                    trigger_event = {
+                        id = ek_story_cycle_necromancy_events.0241
+                        days = { 3 5 }
+                    }
+                }
+                50 = {}
+            }
+        }
+
+        stress_impact = {
+            base = medium_stress_impact_gain
+            lazy = minor_stress_impact_gain
+            compassionate = medium_stress_impact_gain
+        }
+
+        ai_chance = 100
+    }
+
+    # Ask your tutor to do it
+    option = {
+        trigger = { 
+            has_character_flag = has_necromancy_tutor
+            exists = scope:necromancy_tutor
+        }
+        name = ek_story_cycle_necromancy_events.0240.b
+        custom_tooltip = ek_story_cycle_necromancy_events.0240.b.tt
+        custom_tooltip = {
+            text = increased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = 1 } }
+        }
+
+		location.county = {
+            add_county_modifier = {
+ 			    modifier = robbed_graves_modifier
+ 			    years = 10
+ 		    }
+        }
+
+        add_character_flag = has_necromancy_test_subject
+
+        scope:necromancy_tutor = {
+            add_opinion = {
+                modifier = respect_opinion
+                target = root
+                opinion = -10
+            }
+        }   
+
+        stress_impact = {
+            lazy = minor_stress_impact_loss
+            arrogant = medium_stress_gain
+        }
+
+        ai_chance = 100
+    }
+
+    # Do without
+    option = {
+        name = ek_story_cycle_necromancy_events.0215.b
+
+        stress_impact = {
+            fickle = minor_stress_impact_loss
+            lazy = medium_stress_impact_loss
+            diligent = medium_stress_impact_gain
+        }
+
+        ai_chance = 0
+    }
+}
+
+# Necromancy Grave Digging Follow Up Event
+ek_story_cycle_necromancy_events.0241 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0241.t
+    desc = ek_story_cycle_necromancy_events.0241.desc
+    theme = necromancy
+    override_background = { reference = alley_night }
+
+    left_portrait = {
+        character = root
+        animation = lantern
+    }
+
+    right_portrait = {
+        character = scope:scared_local
+        animation = fear
+    }
+    
+    immediate = {
+        create_character = {
+            location = root.location
+			template = generic_peasant_character
+			save_scope_as = scared_local
+		}
+    }    
+
+    # Kill the local
+    option = {
+        name = ek_story_cycle_necromancy_events.0241.a
+        scope:scared_local = {
+            unknown_murder_effect = {
+                VICTIM = scope:scared_local
+                MURDERER = root
+                REASON = death_murder
+            }
+ 		}
+
+        stress_impact = {
+            sadistic = major_stress_impact_loss
+            compassionate = major_stress_impact_gain
+        }
+    }
+
+    # Bribe the local
+    option = {
+        name = ek_story_cycle_necromancy_events.0241.b
+        trigger = {
+            short_term_gold >= medium_gold_value
+        }
+        show_as_unavailable = {
+            short_term_gold < medium_gold_value
+        }
+
+        pay_short_term_gold = {
+			target = scope:scared_local
+			gold = medium_gold_value
+		}
+
+        stress_impact = {
+            greedy = medium_stress_impact_gain
+        }    
+    }
+
+    # Intimidate the local
+    option = {
+        trigger = {
+            dread > 25
+        }
+        name = ek_story_cycle_necromancy_events.0241.c
+        reason = dread
+
+        stress_impact = {
+            sadistic = minor_stress_impact_loss
+            compassionate = minor_stress_impact_gain
+        } 
+    }
+}
+
+# Necromancy Dead Animal Event
+ek_story_cycle_necromancy_events.0245 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0245.t
+    desc = ek_story_cycle_necromancy_events.0245.desc
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = root
+        animation = personality_cynical
+    }
+
+    trigger = {
+        OR = {
+            has_trait = lifestyle_hunter
+            short_term_gold >= medium_gold_value
+        }
+        NOT = { has_character_flag = has_necromancy_test_subject }
+    }
+
+    cooldown = { years = 20 }
+
+    immediate = {
+        random_owned_story = {
+			limit = { story_type = story_cycle_learn_necromancy }
+			save_scope_as = story
+		}
+        select_local_animal_effect = { TYPE = dangerous }
+    }
+
+    # Hire Hunter
+    option = {
+        name = ek_story_cycle_necromancy_events.0245.a
+        trigger = {
+            short_term_gold >= medium_gold_value
+        }
+        show_as_unavailable = {
+            short_term_gold < medium_gold_value
+        }
+
+        custom_tooltip = {
+            text = increased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = 1 } }
+        }
+
+        remove_short_term_gold = medium_gold_value
+
+        add_character_flag = has_necromancy_test_subject
+
+        hidden_effect = {
+            random_list = {
+                50 = {        
+                    trigger_event = {
+                    id = ek_story_cycle_necromancy_events.0246
+                    days = { 3 6 }
+                    }
+                }
+                50 = {}
+            }
+        }
+
+        stress_impact = {
+            greedy = medium_stress_impact_gain
+        }
+
+        ai_chance = 50
+    }
+
+    # Hunt yourself
+    option = {
+        name = ek_story_cycle_necromancy_events.0245.b
+        custom_tooltip = continue_necromancy_studies.tt
+        trigger = {
+            has_trait = lifestyle_hunter
+        }
+        trait = lifestyle_hunter
+
+        custom_tooltip = {
+            text = increased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = 1 } }
+        }
+
+        add_character_flag = has_necromancy_test_subject
+
+        hidden_effect = {
+            random_list = {
+                50 = {        
+                    trigger_event = {
+                    id = ek_story_cycle_necromancy_events.0246
+                    days = { 3 6 }
+                    }
+                }
+                50 = {}
+            }
+        }
+
+        stress_impact = {
+            greedy = medium_stress_impact_gain
+        }
+
+        ai_chance = 100
+    }
+
+    # Do without
+    option = {
+        name = ek_story_cycle_necromancy_events.0245.b
+
+        stress_impact = {
+            fickle = minor_stress_impact_loss
+            lazy = medium_stress_impact_loss
+            diligent = medium_stress_impact_gain
+            ambitious = medium_stress_impact_gain
+        }
+
+        ai_chance = 0
+    }
+}
+
+# Necromancy Dead Animal Follow Up Event
+ek_story_cycle_necromancy_events.0246 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0246.t
+    desc = ek_story_cycle_necromancy_events.0246.desc
+    theme = necromancy
+    override_background = { reference = dungeon }
+
+    left_portrait = {
+        character = root
+        animation = fear
+    }
+
+    immediate = { 
+        random_courtier = {
+            limit = {
+                has_character_modifier = is_necromancy_tutor
+                is_available = yes
+            }
+            save_scope_as = necromancy_tutor
+        }
+    }
+
+    # Fight it
+    option = {
+        name = ek_story_cycle_necromancy_events.0246.a
+        duel = {
+            skill = prowess
+            value = decent_skill_rating
+            desc = outcome_in_a_few_days
+            20 = {      
+                compare_modifier = {
+                    value = scope:duel_value
+                }               
+                send_interface_toast = {
+                    type = event_toast_effect_good
+                    title = ek_story_cycle_necromancy_events.0246.a.success
+                    left_icon = scope:root
+                    add_stress = minor_stress_loss   
+                }
+            }
+            20 = {      
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = -1
+                }                    
+                send_interface_toast = {
+                    type = event_toast_effect_bad
+                    title = ek_story_cycle_necromancy_events.0246.a.failure
+                    left_icon = scope:root
+                    if = {
+                        limit = { has_trait = wounded_1 }
+                        add_trait = wounded_2
+                    }
+                    else_if = {
+                        limit = { has_trait = wounded_2 }
+                        add_trait = wounded_3
+                    }
+                    else = { 
+                        add_trait = wounded_1
+                    }                    
+                }
+            }
+        }
+    }
+    
+    # Have your tutor slay it
+    option = {
+        trigger = {
+            has_character_flag = has_necromancy_tutor
+            exists = scope:necromancy_tutor
+        }
+        name = ek_story_cycle_necromancy_events.0246.b
+        custom_tooltip = ek_story_cycle_necromancy_events.0246.b.tt
+
+        stress_impact = {
+            arrogant = medium_stress_impact_gain
+            wrathful = medium_stress_impact_gain
+        }
+    }
+}
+
+# Necromancy Stench Event
+ek_story_cycle_necromancy_events.0250 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0250.t
+    desc = ek_story_cycle_necromancy_events.0250.desc
+    theme = necromancy
+    override_background = { reference = throne_room }
+
+    left_portrait = {
+        character = root
+        animation = shame
+    }
+
+    right_portrait = {
+        character = scope:disgusted_courtier
+        animation = disgust
+    }
+
+    trigger = {
+        has_character_flag = has_necromancy_test_subject
+    }
+
+    cooldown = { years = 20 }
+
+    immediate = {
+        add_character_modifier = {
+            modifier = rotten_stench
+			years = 5
+        }
+        if = {
+            random_courtier = {
+                limit = { is_available_ai = yes }
+                save_scope_as = disgusted_courtier
+            }
+        }
+    }
+
+    # Press on
+    option = {
+        name = ek_story_cycle_necromancy_events.0250.a
+        custom_tooltip = continue_necromancy_studies.tt
+        
+        stress_impact = {
+            lazy = minor_stress_impact_gain
+            diligent = minor_stress_impact_gain
+            ambitious = minor_stress_impact_gain
+        }
+
+        ai_chance = 100
+    }
+
+    # Give up
+    option = {
+        name = ek_story_cycle_necromancy_events.0250.b
+        custom_tooltip = abandon_necromancy_studies.tt
+        custom_tooltip = {
+            text = necromancy_no_longer_possible.tt
+            add_character_flag = failed_necromancy
+        }
+
+        end_story_cycle_learn_necromancy_effect = yes
+
+        stress_impact = {
+            fickle = minor_stress_impact_loss
+            lazy = medium_stress_impact_loss
+            diligent = medium_stress_impact_gain
+            ambitious = medium_stress_impact_gain
+        }
+
+        ai_chance = 0
+    }
+}
+
+## Secrecy Events
+# Secret Necromancy Teacher arrives
+ek_story_cycle_necromancy_events.0300 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0300.t
+    desc = ek_story_cycle_necromancy_events.0300.desc
+    theme = necromancy
+    override_background = { reference = throne_room }
+
+    left_portrait = {
+        character = scope:necromancy_tutor
+        animation = personality_cynical
+    }
+
+    trigger = {
+        has_character_flag = is_learning_secret_necromancy
+        NOT = { has_character_flag = has_necromancy_tutor }
+    }
+
+    cooldown = { years = 20 }
+
+    immediate = {
+        random_owned_story = {
+			limit = { story_type = story_cycle_learn_necromancy }
+			save_scope_as = story
+		}
+        if = {
+            limit = {
+                any_pool_character = {
+                    province = root.location
+                    any_secret = { secret_type = secret_necromancer }
+                    is_available_ai = yes    
+                }
+            }
+            random_pool_character = {
+                province = root.location
+                limit = { 
+                    any_secret = { secret_type = secret_necromancer }
+                    is_available_ai = yes
+                }
+            save_scope_as = necromancy_tutor
+            }
+        }
+        else = {
+            create_character = {
+                template = secret_necromancer_template
+                location = root.location
+                dynasty = none
+                save_scope_as = necromancy_tutor                
+            }
+            scope:necromancy_tutor = { 
+                random_secret = {
+                    limit = { secret_type = secret_necromancer }
+                    reveal_to = root
+                }
+			}
+        }
+        add_visiting_courtier = scope:necromancy_tutor
+    }
+
+    # Accept tutor for gold
+    option = {
+        name = ek_story_cycle_necromancy_events.0300.a
+        trigger = {
+            short_term_gold >= medium_gold_value
+        }
+        show_as_unavailable = {
+            short_term_gold < medium_gold_value
+        }
+        custom_tooltip = {
+            text = increased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = 1 } }
+        }
+
+        pay_short_term_gold = {
+			target = scope:necromancy_tutor
+			gold = medium_gold_value
+		}
+
+        add_courtier = scope:necromancy_tutor
+        scope:necromancy_tutor = { add_character_modifier = is_necromancy_tutor }
+        add_character_flag = has_necromancy_tutor
+
+        ai_chance = 100 
+    }
+
+    # Accept tutor for favor
+    option = {
+        name = ek_story_cycle_necromancy_events.0300.b
+        custom_tooltip = {
+            text = increased_necromancy_studies.tt
+            scope:story = { change_variable = { name = necro_success add = 1 } }
+        }
+
+        scope:necromancy_tutor = { 
+            add_character_modifier = is_necromancy_tutor
+            add_hook = {
+                type = favor_hook
+                target = root
+            }
+		}
+
+        add_courtier = scope:necromancy_tutor
+        add_character_flag = has_necromancy_tutor
+
+        ai_chance = 100 
+    }
+
+    #Throw tutor in jail
+    option = {
+        name = ek_story_cycle_necromancy_events.0300.c
+        imprison = {
+			target = scope:necromancy_tutor
+			type = dungeon
+		}
+
+        scope:necromancy_tutor = {
+            random_secret = {
+			    limit = { secret_type = secret_necromancer }
+			    expose_secret = root
+		    }
+		    add_opinion = {
+			    target = root
+			    modifier = imprisoned_me
+		    }
+        }
+
+        stress_impact = {
+            sadistic = medium_stress_impact_loss
+        }
+
+        ai_chance = 10
+    }
+
+    # Send him away
+    option = {
+        name = ek_story_cycle_necromancy_events.0300.d
+        custom_tooltip = ek_story_cycle_necromancy_events.0006.c.tt
+
+        scope:necromancy_tutor = { 
+            move_to_pool = yes
+        }
+
+        stress_impact = {
+            arrogant = minor_stress_impact_loss
+            humble = minor_stress_impact_gain
+        }
+
+        ai_chance = 10
+    }
+}
+
+# Someone is suspicious
+ek_story_cycle_necromancy_events.0305 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0305.t
+    desc = ek_story_cycle_necromancy_events.0305.desc
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = root
+    }
+
+    right_portrait = {
+        character = scope:secret_opposer
+        animation = scheme
+    }
+
+    trigger = {
+        has_character_flag = is_learning_secret_necromancy
+        any_courtier = { 
+            vt_ek_is_necromancer = no
+            is_available_ai = yes
+        }
+    }
+
+    cooldown = { years = 20 }
+
+    immediate = {
+        random_owned_story = {
+			limit = { story_type = story_cycle_learn_necromancy }
+			save_scope_as = story
+		}
+        random_courtier = {
+            limit = {
+                vt_ek_is_necromancer = no
+                is_available_ai = yes
+            }
+            save_scope_as = secret_opposer
+        }
+    }
+ 
+    # Tell them to stay away
+    option = {
+        name = ek_story_cycle_necromancy_events.0305.a
+        custom_tooltip = continue_necromancy_studies.tt
+
+        scope:secret_opposer = {
+            progress_towards_rival_effect = {
+				REASON = rival_silenced_me
+				CHARACTER = root
+				OPINION = 0
+			}
+            add_opinion = {
+                modifier = disappointed_opinion
+                target = root
+                opinion = -30
+            }
+        }
+
+        stress_impact = {
+            compassionate = medium_stress_impact_gain
+        }
+
+        ai_chance = 50
+    }
+
+    # Use intrigue
+    option = {
+        name = ek_story_cycle_necromancy_events.0305.b
+        custom_tooltip = continue_necromancy_studies.tt
+
+        duel = {
+            skill = intrigue
+            value = decent_skill_rating
+            desc = outcome_in_a_few_days
+            20 = {      
+                compare_modifier = {
+                    value = scope:duel_value
+                }
+                desc = ek_story_cycle_necromancy_events.0305.b.success
+                send_interface_toast = {
+                    type = event_toast_effect_good
+                    title = ek_story_cycle_necromancy_events.0305.b.success
+                    left_icon = root   
+                    scope:secret_opposer = {
+                        add_opinion = {
+                            modifier = trust_opinion
+                            target = root
+                            opinion = 10
+                        }                 
+                    }
+                }
+            }
+            20 = {      
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = -1
+                }
+                desc = ek_story_cycle_necromancy_events.0305.b.failure
+                send_interface_toast = {
+                    type =  event_toast_effect_bad
+                    title = ek_story_cycle_necromancy_events.0305.b.failure
+                    left_icon = scope:secret_opposer
+                    add_character_modifier = closely_watched
+                    custom_tooltip = {
+                        text = decreased_necromancy_studies.tt
+                        scope:story = { change_variable = { name = necro_success add = -1 } }
+                    }
+                }
+            }
+        }
+
+        stress_impact = {
+            compassionate = medium_stress_impact_gain
+        }
+
+        ai_chance = 100
+    }
+
+    # Give In
+    option = {
+        name = ek_story_cycle_necromancy_events.0305.c
+        custom_tooltip = abandon_necromancy_studies.tt
+        custom_tooltip = {
+            text = necromancy_no_longer_possible.tt
+            add_character_flag = failed_necromancy
+        }
+        
+        end_story_cycle_learn_necromancy_effect = yes
+
+        stress_impact = {
+            paranoid = medium_stress_impact_loss
+            fickle = minor_stress_impact_loss
+            lazy = minor_stress_impact_loss
+            arbitrary = medium_stress_impact_gain
+            diligent = medium_stress_impact_gain
+            ambitious = medium_stress_impact_gain
+        }
+
+        ai_chance = 0
+    }
+}
+
+# Get stress because of secrecy
+ek_story_cycle_necromancy_events.0310 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0310.t
+    desc = ek_story_cycle_necromancy_events.0310.desc
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = root
+        animation = stress
+    }
+
+    trigger = {
+        has_character_flag = is_learning_secret_necromancy
+    }
+
+    cooldown = { years = 20 }
+
+    # Press on
+    option = {
+        name = ek_story_cycle_necromancy_events.0310.a
+        custom_tooltip = continue_necromancy_studies.tt
+
+        stress_impact = {
+            base = medium_stress_impact_gain
+            paranoid = major_stress_impact_gain
+        }
+
+        ai_chance = 100
+    }
+    
+    # Give up
+    option = {
+        name = ek_story_cycle_necromancy_events.0310.b
+        custom_tooltip = abandon_necromancy_studies.tt
+        custom_tooltip = {
+            text = necromancy_no_longer_possible.tt
+            add_character_flag = failed_necromancy
+        }
+        
+        end_story_cycle_learn_necromancy_effect = yes
+
+        stress_impact = {
+            fickle = minor_stress_impact_loss
+            lazy = medium_stress_impact_loss
+            diligent = medium_stress_impact_gain
+        }
+
+        ai_chance = 0
+    }
+}
+
+## Non Secrecy Events
+# Necromancy Someone Tries to Talk You Out of It Event
+ek_story_cycle_necromancy_events.0400 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0400.t
+    desc = ek_story_cycle_necromancy_events.0400.desc
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = root
+    }
+
+    right_portrait = {
+        character = scope:necromancy_opposer
+        animation = beg
+    }
+
+    trigger = {
+        NOT = { has_character_flag = is_learning_secret_necromancy }
+        any_relation = {
+            is_available_ai = yes
+            OR = {
+                has_relation_friend = root
+                has_relation_best_friend = root
+                has_relation_lover = root
+                has_relation_soulmate = root
+            }
+        }   
+        faith = { has_doctrine = doctrine_necromancy_shunned }
+    }
+
+    cooldown = { years = 20 }
+
+    immediate = {
+        random_relation = {
+            limit = {
+                OR = {
+                    has_relation_friend = scope:root
+                    has_relation_best_friend = scope:root
+                    has_relation_lover = scope:root
+                    has_relation_soulmate = scope:root
+                }
+                faith = { 
+                    OR = {
+                        has_doctrine = doctrine_necromancy_crime 
+                        has_doctrine = doctrine_necromancy_shunned
+                    }
+                }
+                is_available_ai = yes
+            }
+            save_scope_as = necromancy_opposer
+        }
+    }
+ 
+    # Dismiss the Opposition
+    option = {
+        name = ek_story_cycle_necromancy_events.0400.a
+        custom_tooltip = continue_necromancy_studies.tt
+
+        scope:necromancy_opposer = {
+            add_opinion = {
+                modifier = disappointed_opinion
+                target = root
+                opinion = -30
+            }
+        }
+
+        stress_impact = {
+            compassionate = medium_stress_impact_gain
+            lazy = minor_stress_impact_gain
+            arbitrary = medium_stress_impact_loss
+        }
+
+        ai_chance = 100
+    }
+
+    # Give In
+    option = {
+        name = ek_story_cycle_necromancy_events.0400.b
+        custom_tooltip = abandon_necromancy_studies.tt
+        custom_tooltip = {
+            text = necromancy_no_longer_possible.tt
+            add_character_flag = failed_necromancy
+        }
+
+        scope:necromancy_opposer = {
+            add_opinion = {
+                modifier = pleased_opinion
+                target = root
+                opinion = 25
+            }
+        }
+
+        end_story_cycle_learn_necromancy_effect = yes
+
+        stress_impact = {
+            compassionate = medium_stress_impact_loss
+            fickle = minor_stress_impact_loss
+            lazy = minor_stress_impact_loss
+            arbitrary = medium_stress_impact_gain
+            diligent = medium_stress_impact_gain
+            ambitious = medium_stress_impact_gain
+        }
+
+        ai_chance = { base = 0 }
+    }
+}
+
+# Necromancy Court Priest Intervenes Event
+ek_story_cycle_necromancy_events.0405 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.0405.t
+    desc = ek_story_cycle_necromancy_events.0405.desc
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = root
+    }
+    right_portrait = {
+        character = scope:realm_priest
+        animation = disapproval 
+    }
+
+    trigger = {
+        exists = cp:councillor_court_chaplain
+        cp:councillor_court_chaplain = { is_available_ai = yes }
+        NOT = { has_character_flag = is_learning_secret_necromancy }
+        faith = { has_doctrine = doctrine_necromancy_shunned }
+    }
+
+    cooldown = { years = 20 }
+
+    immediate = {
+        cp:councillor_court_chaplain = { save_scope_as = realm_priest }
+    }
+ 
+    # Dismiss the Priests Opposition
+    option = {
+        name = ek_story_cycle_necromancy_events.0405.a
+        custom_tooltip = continue_necromancy_studies.tt
+
+        scope:realm_priest = {
+            add_opinion = {
+                modifier = disappointed_opinion
+                target = root
+                opinion = -30
+            }
+        }
+
+        add_piety = medium_piety_loss
+
+        stress_impact = {
+            lazy = minor_stress_impact_gain
+            arbitrary = medium_stress_impact_loss
+            diligent = minor_stress_impact_loss
+        }
+
+        ai_chance = 100
+    }
+
+    # Give In
+    option = {
+        name = ek_story_cycle_necromancy_events.0405.b
+        custom_tooltip = abandon_necromancy_studies.tt
+        custom_tooltip = {
+            text = necromancy_no_longer_possible.tt
+            add_character_flag = failed_necromancy
+        }
+
+        scope:realm_priest = {
+            add_opinion = {
+                modifier = pleased_opinion
+                target = root
+                opinion = 20
+            }
+        }
+
+        add_piety = minor_piety_gain
+        
+        end_story_cycle_learn_necromancy_effect = yes
+
+        stress_impact = {
+            fickle = minor_stress_impact_loss
+            lazy = minor_stress_impact_loss
+            diligent = medium_stress_impact_gain
+            ambitious = medium_stress_impact_gain
+        }
+
+        ai_chance = 0
+    }
+}
+
+## Finish
+# Necromancy: Get the Trait Event
+ek_story_cycle_necromancy_events.1000 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.1000.t
+    desc = {
+        first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = is_learning_secret_necromancy }
+				desc = ek_story_cycle_necromancy_events.1000.desc.secret
+			}
+			desc = ek_story_cycle_necromancy_events.1000.desc
+		}
+    }        
+    theme = necromancy
+
+    left_portrait = {
+        character = root
+        animation = personality_rational
+    }
+
+    trigger = {
+        any_owned_story = {
+            type = story_cycle_learn_necromancy
+            var:necro_success >= 2
+        }
+    }
+
+    immediate = {
+        if = {
+            limit = { NOT = { has_perk = necromancy_novice_perk } }        
+            add_perk = necromancy_novice_perk
+        }
+        random_courtier = {
+            limit = {
+                has_character_modifier = is_necromancy_tutor
+            }
+            save_scope_as = necromancy_tutor
+        }
+        create_character_memory = {
+			type = became_necromancer_memory
+		}
+    }
+
+    # Get the trait
+    option = {
+        trigger = {
+            NOR = { 
+                has_character_flag = has_necromancy_tutor
+                has_character_flag = is_learning_secret_necromancy
+            }
+        }
+        name = ek_story_cycle_necromancy_events.1000.a
+        if = {
+            limit = { NOT = { has_perk = necromancy_novice_perk } }        
+            add_perk = necromancy_novice_perk
+        }
+        add_trait_force_tooltip = vt_ek_necromancer
+        
+        end_story_cycle_learn_necromancy_effect = yes
+    }
+
+    # Thank your tutor
+    option = { 
+        trigger = {
+            has_character_flag = has_necromancy_tutor
+            exists = scope:necromancy_tutor
+            NOT = { has_character_flag = is_learning_secret_necromancy }
+        }
+        name = ek_story_cycle_necromancy_events.1000.b
+
+        if = {
+            limit = { NOT = { has_perk = necromancy_novice_perk } }        
+            add_perk = necromancy_novice_perk
+        }
+
+        add_trait_force_tooltip = vt_ek_necromancer
+        
+        end_story_cycle_learn_necromancy_effect = yes
+    }
+
+    # Get the secret
+    option = {
+        trigger = {
+            has_character_flag = is_learning_secret_necromancy
+            NOT = { has_character_flag = has_necromancy_tutor }
+        }
+        name = ek_story_cycle_necromancy_events.1000.a
+        if = {
+            limit = { NOT = { has_perk = necromancy_novice_perk } }        
+            add_perk = necromancy_novice_perk
+        }
+        add_trait_force_tooltip = vt_ek_experimentalist_necromancer
+        add_secret = {
+			type = secret_necromancer
+		}
+        
+        end_story_cycle_learn_necromancy_effect = yes
+    }
+
+    # Thank your Tutor secretly
+    option = { 
+        trigger = {
+            has_character_flag = has_necromancy_tutor
+            exists = scope:necromancy_tutor
+            has_character_flag = is_learning_secret_necromancy
+        }
+        name = ek_story_cycle_necromancy_events.1000.b
+
+        if = {
+            limit = { NOT = { has_perk = necromancy_novice_perk } }        
+            add_perk = necromancy_novice_perk
+        }
+
+        add_trait_force_tooltip = vt_ek_experimentalist_necromancer
+        add_secret = {
+			type = secret_necromancer
+		}
+        random_secret = {
+			limit = { secret_type = secret_necromancer }
+			expose_secret = scope:necromancy_tutor
+		}
+        
+        end_story_cycle_learn_necromancy_effect = yes
+    }
+}
+
+# Necromancy: You failed
+ek_story_cycle_necromancy_events.1005 = {
+    type = character_event
+
+    title = ek_story_cycle_necromancy_events.1005.t
+    desc = ek_story_cycle_necromancy_events.1005.desc
+    theme = necromancy
+    override_background = { reference = study }
+
+    left_portrait = {
+        character = root
+        animation = stress
+    }
+
+    option = {
+        name = ek_story_cycle_necromancy_events.1005.a
+        custom_tooltip = {
+            text = necromancy_no_longer_possible.tt
+            add_character_flag = failed_necromancy
+        }
+        
+        end_story_cycle_learn_necromancy_effect = yes
+    }
+}
+
+###EK TODO: outcommented for now. They have to be put into their own Story Cycle at some point
+## Someone asks you to tutor them in necromancy, triggered by the "Become Necromancer" descision chain
+#ek_ymis_decision_events.0033 = {
+#	type = character_event
+#    content_source = dlc_ek
+#	title = ek_ymis_decision_events.0033.t
+#	desc = ek_ymis_decision_events.0033.desc    
+#    theme = physical_health
+#	left_portrait = root
+#    right_portrait = scope:necromancy_ward
+#
+#    option = {
+#        name = ek_ymis_decision_events.0033a
+#        custom_tooltip = ek_ymis_decision_events.0033a.tt
+#
+#        scope:necromancy_ward = { 
+#            send_interface_toast = {
+#                title = ek_ymis_events_necromancy_tutor_accepted
+#				left_icon = scope:necromancy_ward
+#				right_icon = scope:necromancy_tutor
+#            }
+#            add_opinion = {
+#                modifier = grateful_opinion
+#                target = scope:necromancy_tutor
+#                opinion = 25
+#            }
+#            add_character_flag = has_necromancy_tutor
+#            trigger_event = {
+#                id = ek_ymis_decision_events.0006
+#                days = { 5 10 }
+#            }
+#        }
+#
+#        add_character_modifier = is_necromancy_tutor  
+#
+#        ai_chance = {
+#            base = 10
+#        }
+#    }
+#
+#    option = {
+#        name = ek_ymis_decision_events.0033b
+#        custom_tooltip = ek_ymis_decision_events.0033a.tt
+#
+#        scope:necromancy_ward = { 
+#            send_interface_toast = {
+#                title = ek_ymis_events_necromancy_tutor_accepted
+#				left_icon = root
+#				right_icon = scope:necromancy_tutor
+#            }
+#            pay_short_term_gold = {
+#                target = scope:necromancy_tutor
+#                gold = medium_gold_value
+#		    }
+#            add_character_flag = has_necromancy_tutor
+#            trigger_event = {
+#                id = ek_ymis_decision_events.0006
+#                days = { 5 10 }
+#            }
+#        }
+#
+#        add_character_modifier = is_necromancy_tutor  
+#
+#        ai_chance = {
+#            base = 0
+#        }
+#    }
+#
+#    option = {
+#        name = ek_ymis_decision_events.0033c
+#
+#        scope:necromancy_ward = { 
+#            send_interface_toast = {
+#                title = ek_ymis_events_necromancy_tutor_denied
+#				left_icon = root
+#				right_icon = scope:necromancy_tutor
+#            }
+#            add_opinion = {
+#                modifier = disappointed_opinion
+#                target = root
+#                opinion = -10                
+#            }
+#            trigger_event = {
+#                id = ek_ymis_decision_events.0006
+#                days = { 5 10 }
+#            }
+#        }
+#
+#        ai_chance = {
+#            base = 0
+#        }
+#    }
+#}
+#
+## Necromancy ward has difficulties
+#ek_ymis_decision_events.0034 = {
+#	type = character_event
+#    content_source = dlc_ek
+#	title = ek_ymis_decision_events.0034.t
+#	desc = ek_ymis_decision_events.0034.desc    
+#    theme = necromancy
+#	left_portrait = root
+#    right_portrait = scope:necromancy_ward
+#
+#    option = {
+#        name = ek_ymis_decision_events.0034a
+#
+#        add_stress = medium_stress_gain
+#    }
+#}
+#
+## Necromancy ward has doubts
+#ek_ymis_decision_events.0035 = {
+#	type = character_event
+#    content_source = dlc_ek
+#	title = ek_ymis_decision_events.0035.t
+#	desc = ek_ymis_decision_events.0035.desc 
+#    left_portrait = root
+#    right_portrait = scope:necromancy_ward
+#    theme = necromancy
+#
+#    option = {
+#        name = ek_ymis_decision_events.0035a
+#
+#        add_stress = minor_stress_gain
+#    }
+#}
+#
+## Necromancy ward learns medicine
+#ek_ymis_decision_events.0036 = {
+#	type = character_event
+#    content_source = dlc_ek
+#	title = ek_ymis_decision_events.0036.t
+#	desc = ek_ymis_decision_events.0036.desc    
+#    theme = necromancy
+#	left_portrait = root
+#    right_portrait = scope:necromancy_ward  
+#
+#    option = {
+#        name = ek_ymis_decision_events.0036a
+#
+#        physician_lifestyle_rank_up_effect = yes
+#    }
+#}
+#
+## Necromancy ward gains arcana
+#ek_ymis_decision_events.0037 = {
+#	type = character_event
+#    content_source = dlc_ek
+#	title = ek_ymis_decision_events.0037.t
+#	desc = ek_ymis_decision_events.0037.desc    
+#    theme = necromancy
+#	left_portrait = root
+#    right_portrait = scope:necromancy_ward 
+#
+#    immediate = {
+#        random_list = {
+#            30 = { add_arcana_skill = { VALUE = 1 } }
+#            20 = { add_arcana_skill = { VALUE = 2 } }
+#            10 = { add_arcana_skill = { VALUE = 3 } }
+#        }
+#    }
+#
+#    option = {
+#        name = ek_ymis_decision_events.0037a        
+#    }
+#}
+#
+## Necromancy ward gains magic experience
+#ek_ymis_decision_events.0038 = {
+#	type = character_event
+#    content_source = dlc_ek
+#	title = ek_ymis_decision_events.0038.t
+#	desc = ek_ymis_decision_events.0038.desc    
+#    theme = necromancy
+#	left_portrait = root
+#    right_portrait = scope:necromancy_ward 
+#
+#    option = {
+#        name = ek_ymis_decision_events.0038a
+#
+#        add_vt_threadbinding_magic_lifestyle_xp = 1000
+#    }
+#}
+#
+## Necromancy ward wants you to slay an undead animal
+#ek_ymis_decision_events.0039 = {
+#    type = character_event
+#    content_source = dlc_ek
+#    title = ek_ymis_decision_events.0039.t
+#    desc = ek_ymis_decision_events.0039.desc
+#    theme = necromancy
+#    override_background = { reference = dungeon }
+#    left_portrait = {
+#        character = scope:necromancy_ward
+#        animation = fear
+#    }
+#    right_portrait = { 
+#        character = root
+#    }
+#
+#    # Fight it
+#    option = {
+#        name = ek_ymis_decision_events.0039a
+#        duel = {
+#            skill = prowess
+#            value = decent_skill_rating
+#            desc = outcome_in_a_few_days
+#            20 = {      
+#                compare_modifier = {
+#                    value = scope:duel_value
+#                }               
+#                send_interface_toast = {
+#                    type = event_toast_effect_good
+#                    title = ek_story_cycle_necromancy_events.0246.tt.success
+#                    left_icon = scope:root
+#                    add_stress = minor_stress_loss   
+#                }
+#            }
+#            20 = {      
+#                compare_modifier = {
+#                    value = scope:duel_value
+#                    multiplier = -1
+#                }                    
+#                send_interface_toast = {
+#                    type =  event_toast_effect_bad
+#                    title = ek_story_cycle_necromancy_events.0246.tt.failure
+#                    left_icon = scope:root
+#                    if = {
+#                        limit = { has_trait = wounded_1 }
+#                        add_trait = wounded_2
+#                    }
+#                    else_if = {
+#                        limit = { has_trait = wounded_2 }
+#                        add_trait = wounded_3
+#                    }
+#                    else = { 
+#                        add_trait = wounded_1
+#                    }                    
+#                }
+#            }
+#        }
+#    }
+#}
+#
+## Necromancy Ward wants you to rob some graves
+#ek_ymis_decision_events.0040 = {
+#    type = character_event
+#    content_source = dlc_ek
+#    title = ek_ymis_decision_events.0040.t
+#    desc = ek_ymis_decision_events.0040.desc
+#    theme = necromancy
+#    left_portrait = {
+#        character = scope:necromancy_ward
+#        animation = personality_coward 
+#    }
+#
+#    # That lazy brat
+#    option = {
+#        name = ek_ymis_decision_events.0040a
+#
+#        scope:necromancy_ward = {
+#            add_opinion = {
+#                modifier = grateful_opinion
+#                target = root
+#                opinion = 20 
+#            }
+#        }
+#
+#        add_stress = minor_stress_impact_gain
+#
+#        stress_impact = {
+#            lazy = medium_stress_impact_gain
+#        }
+#    }
+#}
+#
+#

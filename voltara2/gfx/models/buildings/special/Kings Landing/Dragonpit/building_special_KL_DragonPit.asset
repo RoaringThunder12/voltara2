@@ -1,0 +1,19 @@
+pdxmesh = {
+	name = "building_special_KL_DragonPit_mesh"
+	file = "building_special_KL_DragonPit.mesh"
+
+	meshsettings = {
+		name = "building_special_KL_DragonpitShape"
+		index = 0
+		texture_diffuse = "building_special_KL_Dragonpit_diffuse.dds"
+		texture_normal = "building_special_KL_Dragonpit_normal.dds"
+		texture_specular = "building_special_KL_Dragonpit_properties.dds"
+		shader = "standard_winter"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+}
+
+entity = {
+	name = "building_special_KL_DragonPit_entity"
+	pdxmesh = "building_special_KL_DragonPit_mesh"
+}

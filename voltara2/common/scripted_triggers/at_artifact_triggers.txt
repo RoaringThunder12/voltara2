@@ -1,0 +1,420 @@
+﻿at_can_interact_with_trigger = {
+	this != $PARTY$
+	in_diplomatic_range = $PARTY$
+	NOT = { is_at_war_with = $PARTY$ }
+	is_imprisoned = no
+}
+
+at_can_sell_artifact_to_trigger = {
+	at_can_interact_with_trigger = { PARTY = $PARTY$ }
+	custom_description = {
+		text = "at_aniconists_wont_trade_artifacts"
+		at_has_aniconist_faith_trigger = no
+	}
+	custom_description = {
+		text = "at_not_enough_short_term_gold_tt"
+		at_short_term_gold_value > 1
+	}
+}
+
+at_can_buy_artifact_from_trigger = {
+	at_can_interact_with_trigger = { PARTY = $PARTY$ }
+	custom_description = {
+		text = "at_aniconists_wont_trade_artifacts"
+		at_has_aniconist_faith_trigger = no
+	}
+}
+
+at_can_start_interaction_trigger = {
+	is_imprisoned = no
+}
+
+at_can_trade_artifacts_trigger = {
+	at_can_start_interaction_trigger = yes
+	OR = {
+		is_in_army = no
+		is_commanding_army = yes
+	}
+	custom_description = {
+		text = "at_aniconists_wont_trade_artifacts"
+		at_has_aniconist_faith_trigger = no
+	}
+}
+
+at_can_destroy_artifacts_trigger = {
+	at_can_start_interaction_trigger = yes
+}
+
+at_has_aniconist_faith_trigger = {
+	rite = {
+		rite_has_parameter = destroying_artifacts_is_pious
+	}
+}
+
+at_can_own_artifacts_trigger = {
+	always = yes
+}
+
+at_valid_buyer_or_seller_trigger = {
+	this != $PARTY$
+	in_diplomatic_range = $PARTY$
+	trigger_if = {
+		limit = {
+			has_game_rule = at_valid_trading_partners_within_trading_range
+		}
+		OR = {
+			at_is_character_within_trading_range_trigger = { PARTY = $PARTY$ }
+		}
+	}
+	trigger_else = {
+		always = yes
+	}
+}
+
+at_is_character_within_trading_range_trigger = {
+	at_get_capital_province_trigger = yes
+	$PARTY$ = {
+		at_get_party_capital_province_trigger = yes
+	}
+	exists = scope:party_capital_province
+	scope:capital_province ?= {
+		squared_distance = {
+			target = scope:party_capital_province
+			value <= $PARTY$.at_artifact_trading_range_value
+		}
+	}
+}
+
+at_is_character_within_interaction_range_trigger = {
+	at_get_capital_province_trigger = yes
+	$PARTY$ = {
+		at_get_party_capital_province_trigger = yes
+	}
+	exists = scope:party_capital_province
+	scope:capital_province ?= {
+		squared_distance = {
+			target = scope:party_capital_province
+			value <= $PARTY$.at_interaction_range_value
+		}
+	}
+}
+
+# The "character" is the receiving side (recipient), they may be a ruler or not.
+# Their "capital" is their actual capital if ruler, their host's capital if courtier or guest, or their location if pool.
+at_get_capital_province_trigger = {
+	trigger_if = {
+		limit = { exists = capital_province }
+		capital_province = { save_temporary_scope_as = capital_province }
+	}
+	trigger_else_if = {
+		limit = { exists = host }
+		host.capital_province ?= { save_temporary_scope_as = capital_province }
+	}
+	trigger_else = {
+		location ?= { save_temporary_scope_as = capital_province }
+	}
+}
+
+# The "party" is the acting side (actor), they are always a ruler.
+# Their "capital" is their location if they are traveling, or their actual capital if not.
+at_get_party_capital_province_trigger = {
+	trigger_if = {
+		limit = {
+			OR = {
+				exists = current_travel_plan
+				is_commanding_army = yes
+			}
+		}
+		location ?= { save_temporary_scope_as = party_capital_province }
+	}
+	trigger_else = {
+		capital_province ?= { save_temporary_scope_as = party_capital_province }
+	}
+}
+
+at_is_character_poor_trigger = {
+	is_ruler = yes
+	trigger_if = {
+		limit = { ai_has_builder_or_pious_builder_personality = yes }
+		gold <= medium_gold_value
+	}
+	trigger_else = {
+		gold <= minor_gold_value
+	}
+}
+
+at_is_character_rich_trigger = {
+	is_ruler = yes
+	trigger_if = {
+		limit = { ai_has_builder_or_pious_builder_personality = yes }
+		at_short_term_gold_value >= massive_gold_value
+	}
+	trigger_else = {
+		at_short_term_gold_value >= major_gold_value
+	}
+}
+
+at_is_worthless_artifact_trigger = {
+	OR = {
+		has_variable = ai_to_ai_destroy_in_sieges
+		AND = {
+			rarity = common
+			artifact_slot_type = miscellaneous
+			artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
+		}
+	}
+}
+
+at_is_unique_artifact_trigger = {
+	OR = {
+		is_unique = yes
+		has_variable = historical_unique_artifact
+	}
+}
+
+at_can_equip_artifact_trigger = {
+	can_equip_artifact = $ARTIFACT$
+}
+
+at_has_artifact_succession_title_trigger = {
+	exists = $ARTIFACT$.var:artifact_succession_title
+	has_title = $ARTIFACT$.var:artifact_succession_title
+}
+
+at_is_religion_relic_trigger = {
+	OR = {
+		AND = {
+			exists = $ARTIFACT$.var:relic_religion
+			has_religion = $ARTIFACT$.var:relic_religion
+		}
+		AND = {
+			exists = $ARTIFACT$.var:relic
+			at_has_artifact_relic_flag_religion_trigger = { ARTIFACT = $ARTIFACT$ }
+		}
+	}
+}
+
+at_has_artifact_relic_flag_religion_trigger = {
+	trigger_if = {
+		limit = { $ARTIFACT$.var:relic = flag:christian }
+		has_religion = religion:christianity_religion
+	}
+	trigger_else_if = {
+		limit = { $ARTIFACT$.var:relic = flag:islamic }
+		has_religion = religion:islam_religion
+	}
+	trigger_else_if = {
+		limit = { $ARTIFACT$.var:relic = flag:buddhism }
+		has_religion = religion:buddhism_religion
+	}
+	trigger_else_if = {
+		limit = { $ARTIFACT$.var:relic = flag:zoroastr }
+		has_religion = religion:zoroastrianism_religion
+	}
+	trigger_else_if = {
+		limit = { $ARTIFACT$.var:relic = flag:jainism }
+		has_religion = religion:jainism_religion
+	}
+	trigger_else_if = {
+		limit = { $ARTIFACT$.var:relic = flag:judaism }
+		has_religion = religion:judaism_religion
+	}
+	trigger_else_if = {
+		limit = { $ARTIFACT$.var:relic = flag:germanic }
+		has_religion = religion:germanic_religion
+	}
+	trigger_else_if = {
+		limit = { $ARTIFACT$.var:relic = flag:slavic }
+		has_religion = religion:slavic_religion
+	}
+	trigger_else_if = {
+		limit = { $ARTIFACT$.var:relic = flag:boog }
+		has_religion = religion:west_african_roog_religion
+	}
+	trigger_else_if = {
+		limit = { $ARTIFACT$.var:relic = flag:hinduism }
+		has_religion = religion:hinduism_religion
+	}
+	trigger_else_if = {
+		limit = { $ARTIFACT$.var:relic = flag:finno_ugric_religion }
+		has_religion = religion:finno_ugric_religion
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+at_can_equip_and_benefit_from_artifact_trigger = {
+	at_can_equip_artifact_trigger = { ARTIFACT = $ARTIFACT$ }
+	can_benefit_from_artifact = $ARTIFACT$
+}
+
+at_is_artifact_equppable_and_beneficial_trigger = {
+	$CHARACTER$ = {
+		at_can_equip_and_benefit_from_artifact_trigger = { ARTIFACT = prev }
+	}
+}
+
+at_is_dynasty_banner_trigger = {
+	exists = $ARTIFACT$.var:banner_dynasty
+	exists = dynasty
+	$ARTIFACT$.var:banner_dynasty = dynasty
+}
+
+at_is_house_banner_trigger = {
+	exists = $ARTIFACT$.var:banner_house
+	exists = house
+	$ARTIFACT$.var:banner_house = house
+}
+
+at_ai_artifact_could_be_traded_trigger = {
+	NOR = {
+		has_variable = unwanted_artifact
+		has_variable = cursed_artifact
+		at_is_worthless_artifact_trigger = yes
+		has_variable = at_artifact_recently_bought
+	}
+}
+
+at_ai_could_buy_artifact_trigger = {
+	at_can_equip_and_benefit_from_artifact_trigger = { ARTIFACT = $ARTIFACT$ }
+}
+
+at_ai_could_sell_artifact_trigger = {
+	NOR = {
+		at_is_dynasty_banner_trigger = { ARTIFACT = $ARTIFACT$ }
+		at_is_house_banner_trigger = { ARTIFACT = $ARTIFACT$ }
+		at_is_religion_relic_trigger = { ARTIFACT = $ARTIFACT$ }
+		at_has_artifact_succession_title_trigger = { ARTIFACT = $ARTIFACT$ }
+	}
+}
+
+at_artifact_better_than_equipped_trigger = {
+	trigger_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = primary_armament }
+		}
+		OR = {
+			NOT = {
+				any_equipped_character_artifact = {
+					artifact_slot_type = primary_armament
+				}
+			}
+			any_equipped_character_artifact = {
+				artifact_slot_type = primary_armament
+				at_artifact_quality_wealth_average_value < scope:artifact.at_artifact_quality_wealth_average_value
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = armor }
+		}
+		OR = {
+			NOT = {
+				any_equipped_character_artifact = {
+					artifact_slot_type = armor
+				}
+			}
+			any_equipped_character_artifact = {
+				artifact_slot_type = armor
+				at_artifact_quality_wealth_average_value < scope:artifact.at_artifact_quality_wealth_average_value
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = regalia }
+		}
+		OR = {
+			NOT = {
+				any_equipped_character_artifact = {
+					artifact_slot_type = regalia
+				}
+			}
+			any_equipped_character_artifact = {
+				artifact_slot_type = regalia
+				at_artifact_quality_wealth_average_value < scope:artifact.at_artifact_quality_wealth_average_value
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = helmet }
+		}
+		OR = {
+			NOT = {
+				any_equipped_character_artifact = {
+					artifact_slot_type = helmet
+				}
+			}
+			any_equipped_character_artifact = {
+				artifact_slot_type = helmet
+				at_artifact_quality_wealth_average_value < scope:artifact.at_artifact_quality_wealth_average_value
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = miscellaneous }
+		}
+		any_equipped_character_artifact = {
+			artifact_slot_type = miscellaneous
+			count <= 3
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			scope:artifact = { artifact_slot_type = journal }
+		}
+		OR = {
+			NOT = {
+				any_equipped_character_artifact = {
+					artifact_slot_type = journal
+				}
+			}
+			any_equipped_character_artifact = {
+				artifact_slot_type = journal
+				at_artifact_quality_wealth_average_value < scope:artifact.at_artifact_quality_wealth_average_value
+			}
+		}
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+at_aniconist_should_destroy_artifact_trigger = {
+	rite = {
+		rite_has_parameter = destroying_artifacts_is_pious
+	}
+	OR = {
+		has_trait = zealous
+		$ARTIFACT$ = { is_equipped = no }
+		$ARTIFACT$ = { exists = var:relic }
+	}
+	NOR = {
+		has_trait = cynical
+		AND = {
+			has_trait = greedy
+			NOT = { has_trait = zealous }
+		}
+	}
+}
+
+at_artifact_can_be_sold_trigger = {
+	always = yes
+}
+
+at_artifact_can_be_bought_by_trigger = {
+	trigger_if = {
+		limit = {
+			$BUYER$.var:at_merchant_type ?= flag:peddler
+		}
+		at_is_unsellable_artifact_trigger = no
+	}
+}
+
+at_artifact_can_be_destroyed_trigger = {
+	always = yes
+}

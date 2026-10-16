@@ -1,0 +1,7 @@
+﻿voltara_justice_modifier = { prowess_no_portrait = 8 martial = 2 monthly_prestige = 0.25 }
+voltara_emerald_ring_modifier = { diplomacy = 1 monthly_prestige = 0.25 }
+voltara_coalition_modifier = { different_culture_opinion = 10 diplomacy = 1 }
+voltara_watch_modifier = { martial = 1 monthly_prestige = 0.15 }
+voltara_scholarship_modifier = { learning = 2 monthly_prestige = 0.1 }
+voltara_mercy_modifier = { general_opinion = 5 monthly_prestige = 0.1 }
+voltara_authority_modifier = { dread_gain_mult = 0.15 martial = 1 }

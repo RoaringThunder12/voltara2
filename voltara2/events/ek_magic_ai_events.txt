@@ -1,0 +1,149 @@
+﻿namespace = ek_magic_ai_events
+
+# Instruct Court Mage
+ek_magic_ai_events.0001 = {
+    type = character_event
+
+	title = ek_magic_ai_events.0001.t
+	desc = ek_magic_ai_events.0001.desc
+	theme = learning
+
+	left_portrait = {
+		character = root
+	}
+
+    right_portrait = {
+        character = scope:court_mage
+    }
+
+    immediate = {
+        court_position:court_mage_court_position = {
+            save_scope_as = court_mage
+            add_character_flag = autonomous_magic_use
+        }
+    }
+
+    # Cast on your own
+	option = { 
+		name = ek_magic_ai_events.0001.a
+        custom_tooltip = ek_magic_ai_events.0001.a.tt
+        scope:court_mage = { 
+            remove_character_flag = no_hostile_spell_use
+        }
+	}
+
+    # Don't use hostile spells
+    option = { 
+        name = ek_magic_ai_events.0001.b
+        custom_tooltip = ek_magic_ai_events.0001.b.tt 
+        scope:court_mage = {             
+            add_character_flag = no_hostile_spell_use
+        }
+    }
+
+    # Lets talk about your specialization
+    option = { 
+        name = ek_magic_ai_events.0001.c
+        custom_tooltip = ek_magic_ai_events.0001.c.tt
+        
+        trigger_event = ek_magic_ai_events.0002
+    }
+}
+
+ek_magic_ai_events.0002 = {
+    type = character_event
+
+	title = ek_magic_ai_events.0002.t
+	desc = ek_magic_ai_events.0002.desc
+	theme = learning
+
+	left_portrait = {
+		character = root
+	}
+    right_portrait = {
+        character = scope:court_mage
+    }
+
+    # Focus on Necromancy
+    option = {
+        name = ek_magic_ai_events.0002.a
+        custom_tooltip = ek_magic_ai_events.0002.a.tt    
+        trigger = {
+            scope:court_mage = {
+                has_trait = vt_ek_necromancer
+            }
+        }
+
+        scope:court_mage = {
+            remove_courtmage_focus = yes
+            add_character_flag = focus_necromancy
+        }        
+    }
+
+    # Focus on Alteration
+    option = {
+        name = ek_magic_ai_events.0002.b
+        custom_tooltip = ek_magic_ai_events.0002.b.tt      
+        trigger = { scope:court_mage = { has_perk = alteration_novice_perk } }
+
+        scope:court_mage = {
+            remove_courtmage_focus = yes
+            add_character_flag = focus_alteration
+        }
+    }
+
+    # Focus on Conjuration
+    option = {
+        name = ek_magic_ai_events.0002.c
+        custom_tooltip = ek_magic_ai_events.0002.c.tt
+        trigger = { scope:court_mage = { has_perk = conjuration_novice_perk } }   
+
+        scope:court_mage = {
+            remove_courtmage_focus = yes
+            add_character_flag = focus_conjuration
+        }
+    }
+
+    # Focus on Destruction
+    option = {
+        name = ek_magic_ai_events.0002.d
+        custom_tooltip = ek_magic_ai_events.0002.d.tt  
+        trigger = { scope:court_mage = { has_perk = destruction_novice_perk } }    
+
+        scope:court_mage = {
+            remove_courtmage_focus = yes
+            add_character_flag = focus_destruction
+        }
+    }
+
+    # Focus on Illusion
+    option = {
+        name = ek_magic_ai_events.0002.e
+        custom_tooltip = ek_magic_ai_events.0002.e.tt
+        trigger = { scope:court_mage = { has_perk = illusion_novice_perk } }      
+
+        scope:court_mage = {
+            remove_courtmage_focus = yes
+            add_character_flag = focus_illusion
+        }
+    }
+
+    # Focus on Restoration
+    option = {
+        name = ek_magic_ai_events.0002.f
+        custom_tooltip = ek_magic_ai_events.0002.f.tt 
+        trigger = { scope:court_mage = { has_perk = restoration_novice_perk } }   
+
+        scope:court_mage = {
+            remove_courtmage_focus = yes
+            add_character_flag = focus_restoration
+        }
+    }
+
+    # Nevermind
+    option = {
+        name = ek_magic_ai_events.0002.g    
+
+        trigger_event = ek_magic_ai_events.0001  
+    }
+}

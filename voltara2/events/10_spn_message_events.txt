@@ -1,0 +1,283 @@
+﻿namespace = spn_message
+spn_message.0001 { #Send confer vampirism acceptance message
+	type = character_event
+	hidden = yes
+
+	immediate = {
+		scope:recipient = {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = spn_received_vampirism
+				
+				right_icon = scope:actor
+
+				show_as_tooltip = {
+					scope:actor = {
+						custom_tooltip = spn_msg_received_vampirism_interaction_message
+					}
+				}
+			}
+		}
+		scope:actor = {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = spn_confered_vampirism
+				
+				right_icon = scope:recipient
+
+				show_as_tooltip = {
+					scope:recipient = {
+						custom_tooltip = spn_msg_confered_vampirism_interaction_message
+					}
+				}
+			}
+		}
+	}
+}
+
+spn_message.1001 { #Send confer lycanthropy acceptance message
+	type = character_event
+	hidden = yes
+
+	# 2.35h -- GUARDED. spn_complete_wound_turn (20_spn_sire_effects.txt:245) fires this from the wound
+	# chain, where there is no scope:recipient -- the turning had no conferrer. "Undefined event target
+	# 'recipient'", error.log 9 Sep 16:38:00, four per turning. The message simply has nobody to send to
+	# in that case, which is correct; it should not log about it.
+	trigger = { exists = scope:recipient  exists = scope:actor }
+
+	immediate = {
+		scope:recipient = {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = spn_received_lycanthropy
+				
+				right_icon = scope:actor
+
+				show_as_tooltip = {
+					scope:actor = {
+						custom_tooltip = spn_msg_received_lycanthropy_interaction_message
+					}
+				}
+			}
+		}
+		scope:actor = {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = spn_confered_lycanthropy
+				
+				right_icon = scope:recipient
+
+				show_as_tooltip = {
+					scope:recipient = {
+						custom_tooltip = spn_msg_confered_lycanthropy_interaction_message
+					}
+				}
+			}
+		}
+	}
+}
+
+spn_message.2001 { #Send confer hybrid acceptance message
+	type = character_event
+	hidden = yes
+
+	immediate = {
+		scope:recipient = {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = spn_received_vampirism
+				
+				right_icon = scope:actor
+
+				show_as_tooltip = {
+					scope:actor = {
+						custom_tooltip = spn_msg_received_vampirism_interaction_message
+					}
+				}
+			}
+		}
+		scope:actor ?= {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = spn_confered_vampirism
+				
+				right_icon = scope:recipient
+
+				show_as_tooltip = {
+					scope:recipient = {
+						custom_tooltip = spn_msg_confered_vampirism_interaction_message
+					}
+				}
+			}
+		}
+	}
+}
+
+spn_message.3001 { #Send Hunter training acceptance message
+	type = character_event
+	hidden = yes
+
+	immediate = {
+		scope:recipient = {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = spn_received_hunter
+				
+				right_icon = scope:actor
+
+				show_as_tooltip = {
+					scope:actor = {
+						custom_tooltip = spn_msg_received_hunter_interaction_message
+					}
+				}
+			}
+		}
+		scope:actor = {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = spn_confered_hunter
+				
+				right_icon = scope:recipient
+
+				show_as_tooltip = {
+					scope:recipient = {
+						custom_tooltip = spn_msg_confered_hunter_interaction_message
+					}
+				}
+			}
+		}
+	}
+}
+
+spn_message.4001 { # Compulsion: success (notify both sides)
+    type = character_event
+    hidden = yes
+
+    immediate = {
+        # Recipient: vague—no actor face, no identity revealed
+        scope:recipient = {
+            send_interface_message = {
+                type  = event_generic_neutral
+                title = spn_compel_success_recipient
+                # (no right_icon on purpose to keep it anonymous)
+                show_as_tooltip = { custom_tooltip = spn_msg_compel_success_recipient }
+            }
+        }
+
+        # Actor: show target face, explicit success
+        scope:actor = {
+            send_interface_message = {
+                type  = event_generic_neutral
+                title = spn_compel_success_actor
+                right_icon = scope:recipient
+                show_as_tooltip = {
+                    scope:recipient = { custom_tooltip = spn_msg_compel_success_actor }
+                }
+            }
+        }
+    }
+}
+
+spn_message.4002 { # Compulsion: resisted (notify both sides)
+    type = character_event
+    hidden = yes
+
+    immediate = {
+        # Recipient: they resisted and now know the actor's nature (show actor)
+        scope:recipient = {
+            send_interface_message = {
+                type  = event_generic_neutral
+                title = spn_compel_failed_recipient
+                right_icon = scope:actor
+                show_as_tooltip = {
+                    scope:actor = { custom_tooltip = spn_msg_compel_failed_recipient }
+                }
+            }
+        }
+
+        # Actor: explicit failure and exposure (show recipient)
+        scope:actor = {
+            send_interface_message = {
+                type  = event_generic_neutral
+                title = spn_compel_failed_actor
+                right_icon = scope:recipient
+                show_as_tooltip = {
+                    scope:recipient = { custom_tooltip = spn_msg_compel_failed_actor }
+                }
+            }
+        }
+    }
+}
+
+
+spn_message.9000 { #Send genertic confer death message
+	type = character_event
+	hidden = yes
+
+	immediate = {
+		scope:recipient = {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = spn_confer_death
+				
+				right_icon = scope:actor
+
+				show_as_tooltip = {
+					scope:actor = {
+						custom_tooltip = spn_msg_confer_death_message
+					}
+				}
+			}
+		}
+		scope:actor = {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = spn_conferred_death
+				
+				right_icon = scope:recipient
+
+				show_as_tooltip = {
+					scope:recipient = {
+						custom_tooltip = spn_msg_conferred_death_message
+					}
+				}
+			}
+		}
+	}
+}
+
+spn_message.9001 { #Send hunter training death message
+	type = character_event
+	hidden = yes
+
+	immediate = {
+		scope:recipient = {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = spn_while_training_death
+				
+				right_icon = scope:actor
+
+				show_as_tooltip = {
+					scope:actor = {
+						custom_tooltip = spn_msg_while_training_death_message
+					}
+				}
+			}
+		}
+		scope:actor = {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = spn_being_trained_death
+				
+				right_icon = scope:recipient
+
+				show_as_tooltip = {
+					scope:recipient = {
+						custom_tooltip = spn_msg_being_trained_death_message
+					}
+				}
+			}
+		}
+	}
+}

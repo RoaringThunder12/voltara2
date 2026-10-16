@@ -1,0 +1,672 @@
+﻿has_arcana = {
+	custom_description = {
+		text = arcana_greater_or_equal
+		value = $VALUE$
+		arcana >= $VALUE$
+	}
+}
+
+has_arcana_less_than = {
+	custom_description = {
+		text = arcana_less_than
+		value = $VALUE$
+		arcana < $VALUE$
+	}
+}
+
+has_magicka = {
+	custom_description = {
+		text = magicka_greater_or_equal
+		value = $VALUE$
+		trigger_if = {
+			limit = { has_variable = magicka }
+			var:magicka >= $VALUE$
+		}
+		trigger_else = { always = no }
+	}
+}
+
+has_magicka_less_than = {
+	custom_description = {
+		text = magicka_less_than
+		value = $VALUE$
+		trigger_if = {
+			limit = { has_variable = magicka }
+			var:magicka < $VALUE$
+		}
+		trigger_else = { always = yes }
+	}
+}
+
+has_magicka_more_than = {
+	custom_description = {
+		text = magicka_more_than
+		value = $VALUE$
+		trigger_if = {
+			limit = { has_variable = magicka }
+			var:magicka > $VALUE$
+		}
+		trigger_else = { always = no }
+	}
+}
+
+can_magic_trigger = {
+	is_incapable = no
+	is_adult = yes # Kids!
+	OR = {
+ has_trait = demon1
+ has_trait = demon2
+		has_trait = education_magic
+		has_trait = arcana_good
+		has_trait = battlemage
+		has_arcana = { VALUE >= 10 } #or otherwise has some theoretical skill at magic. ai court mage use maybe
+		has_perk = alteration_novice_perk
+		has_perk = illusion_novice_perk
+		has_perk = conjuration_novice_perk
+		has_perk = destruction_novice_perk
+		has_perk = restoration_novice_perk
+		vt_ek_is_necromancer = yes
+	}
+}
+
+has_magic_perk_trigger = {
+	custom_tooltip = {
+		text = has_magic_perk_trigger_text
+		OR = {
+			has_perk = alteration_novice_perk
+			has_perk = illusion_novice_perk
+			has_perk = conjuration_novice_perk
+			has_perk = destruction_novice_perk
+			has_perk = restoration_novice_perk
+			has_perk = necromancy_novice_perk
+		}
+	}
+}
+
+has_ritual_perk_trigger = {
+	OR = {
+		has_perk = alteration_minor_rituals_perk
+		has_perk = illusion_minor_rituals_perk
+		has_perk = conjuration_minor_rituals_perk
+		has_perk = destruction_minor_rituals_perk
+		has_perk = restoration_minor_rituals_perk
+		has_perk = necromancy_minor_rituals_perk
+	}
+}
+
+has_vt_threadbinding_magic_lifestyle_mastery_trigger = {
+	OR = {
+		has_perk = alteration_master_perk
+		has_perk = illusion_master_perk
+		has_perk = conjuration_master_perk
+		has_perk = destruction_master_perk
+		has_perk = restoration_master_perk
+	}
+}
+
+has_all_magic_perks_trigger = {
+	has_perk = alteration_master_perk
+	has_perk = illusion_master_perk
+	has_perk = conjuration_master_perk
+	has_perk = destruction_master_perk
+	has_perk = restoration_master_perk
+}
+
+# Checks if the character always has access to a magical education no matter their innovation - so tied to Traditions, Legacies, that kind of stuff
+has_always_access_to_magic_education = {
+	OR = {
+		AND = {
+			exists = dynasty
+			dynasty = { has_dynasty_perk = magicka_legacy_3 }
+		}
+		culture = {
+			OR = {
+				has_cultural_parameter = unlocks_arcana_education
+				has_cultural_parameter = sorcerer_kings_tradition 
+			}
+		}
+	}
+}
+
+# spell_target_valid = { # same realm or neigboring realm. can't do hostile spells on self or family like murder plots - unless sadistic -cm also will not cast on you or their family
+# 	ROOT = var:spell_recipient
+# }
+
+# single gui, check if root = spell_caster to determine effects also need root = recipient & caster somewhere
+
+# PREFIX = "knows_" SCHOOL = "" POSTFIX = " = yes" or PREFIX = "can_cast = { SPELL = " SCHOOL = " SCHOOL = $SCHOOL$" POSTFIX = " }" "this allows spaces" "" should give empty acn use to get "spell_knows_flames = yes" and "spell_can_cast = { SPELL = flames }" need school for can cast trigger
+# spell_knows_flames = yes can_cast = { SPELL = flames }
+#known based on edu traits, arcana, perks. actual check is perk vs defined spell level as number 1-5. perk check against education. arcana implicit in cost
+#                                                                              use switch trigger = scriptval 1={has_perk}
+
+# spell_can_cast = {
+# 	var:spell_caster = { has_magicka = { VALUE = spell_cost_$SPELL$ } }
+# 	trigger_if = {
+# 		limit = { #hostile province, should stop other checks
+# 			var:spell_province = { has_variable = $SCHOOL$_hostile }
+# 			var:spell_province = { has_variable = $SCHOOL$_province }
+# 		}
+# 	}
+# 	trigger_else_if = {
+# 		limit = { #hostile no province, canot cast on self+children
+# 			var:spell_province = { has_variable = $SCHOOL$_hostile }
+# 		}
+# 		NOR = {
+# 			var:spell_recipient = ROOT # cant cast on self
+# 			var:spell_recipient = var:spell_caster # cant order cm to cast on self
+# 			trigger_if = { #copied from murder schemes, can't use hostile spells on own children, may expand to close family
+# 				limit = {
+# 					is_parent_of = var:spell_recipient
+# 					NOT = { has_trait_with_flag = can_murder_own_children }
+# 				}
+# 				is_parent_of = var:spell_recipient
+# 			}
+# 		}
+# 	}
+# 	trigger_else_if = {
+# 		limit = { #province no hostile,
+# 			var:spell_province = { has_variable = $SCHOOL$_province }
+# 		}
+# 	}
+# }
+
+school_spell_master_trigger = {
+	switch = {
+		trigger = var:spell_school
+
+		flag:alteration = {
+			switch = {
+				trigger = scope:spell
+				flag:burden = { $TRIGGER$ = { SCHOOL = alteration SPELL = burden } }
+				flag:fortify_buildings = { $TRIGGER$ = { SCHOOL = alteration SPELL = fortify_buildings } }				
+				flag:transmute = { $TRIGGER$ = { SCHOOL = alteration SPELL = transmute } }
+				flag:dispel = { $TRIGGER$ = { SCHOOL = alteration SPELL = dispel } }
+				flag:absorb_skill = { $TRIGGER$ = { SCHOOL = alteration SPELL = absorb_skill } }
+			}
+		}
+
+		flag:conjuration = {
+			switch = {
+				trigger = scope:spell
+				flag:summon_atronach = { $TRIGGER$ = { SCHOOL = conjuration SPELL = summon_atronach } }
+				flag:banish_daedra = { $TRIGGER$ = { SCHOOL = conjuration SPELL = banish_daedra } }
+				flag:daedric_horde = { $TRIGGER$ = { SCHOOL = conjuration SPELL = daedric_horde } }
+				flag:summon_dremora = { $TRIGGER$ = { SCHOOL = conjuration SPELL = summon_dremora } }
+				flag:daedric_army = { $TRIGGER$ = { SCHOOL = conjuration SPELL = daedric_army } }
+			}
+		}
+
+		flag:destruction = {
+			switch = {
+				trigger = scope:spell
+				flag:detract_magicka = { $TRIGGER$ = { SCHOOL = destruction SPELL = detract_magicka } }
+				flag:inflict_wounds = { $TRIGGER$ = { SCHOOL = destruction SPELL = inflict_wounds } }	
+				flag:destroy_walls = { $TRIGGER$ = { SCHOOL = destruction SPELL = destroy_walls } }
+				flag:display_of_might = { $TRIGGER$ = { SCHOOL = destruction SPELL = display_of_might } }							
+				flag:devastate_province = { $TRIGGER$ = { SCHOOL = destruction SPELL = devastate_province } }
+			}
+		}
+
+		flag:illusion = {
+			switch = {
+				trigger = scope:spell
+				flag:calm = { $TRIGGER$ = { SCHOOL = illusion SPELL = calm } }
+				flag:muffled_senses = { $TRIGGER$ = { SCHOOL = illusion SPELL = muffled_senses } }
+				flag:charm = { $TRIGGER$ = { SCHOOL = illusion SPELL = charm } }
+				flag:mass_paranoia = { $TRIGGER$ = { SCHOOL = illusion SPELL = mass_paranoia } }
+				flag:mind_bending = { $TRIGGER$ = { SCHOOL = illusion SPELL = mind_bending } }
+			}
+		}
+
+		flag:restoration = {
+			switch = {
+				trigger = scope:spell
+				flag:resilience = { $TRIGGER$ = { SCHOOL = restoration SPELL = resilience } }	
+				flag:mend_wound = { $TRIGGER$ = { SCHOOL = restoration SPELL = mend_wound } }
+				flag:turn_undead = { $TRIGGER$ = { SCHOOL = restoration SPELL = turn_undead } }
+				flag:cure_disease = { $TRIGGER$ = { SCHOOL = restoration SPELL = cure_disease } }							
+				flag:spread_vitality = { $TRIGGER$ = { SCHOOL = restoration SPELL = spread_vitality } }
+				flag:remove_curse = { $TRIGGER$ = { SCHOOL = restoration SPELL = remove_curse } }
+			}
+		}
+
+		flag:necromancy = {
+			switch = {
+				trigger = scope:spell
+				flag:summon_skeleton = { $TRIGGER$ = { SCHOOL = necromancy SPELL = summon_skeleton } }
+				flag:leech_health = { $TRIGGER$ = { SCHOOL = necromancy SPELL = leech_health } } #temp necro -> destruction as perks dont exist not sure how to handle
+				flag:claim_corpse = { $TRIGGER$ = { SCHOOL = necromancy SPELL = claim_corpse } } #temp necro -> destruction as perks dont exist not sure how to handle
+				flag:restless_dead = { $TRIGGER$ = { SCHOOL = necromancy SPELL = restless_dead } } #temp necro -> destruction as perks dont exist not sure how to handle
+				flag:create_undead = { $TRIGGER$ = { SCHOOL = necromancy SPELL = create_undead } } #temp necro -> conjuration as perks dont exist not sure how to handle
+			}
+		}
+	}
+}
+
+spell_known_trigger = {
+	school_spell_master_trigger = { TRIGGER = spell_known }
+}
+spell_known = { # really need a better naming scheme for these pairs
+	var:spell_caster = {
+		switch = {
+			trigger = $SPELL$_level
+			1 = { has_perk = $SCHOOL$_novice_perk }
+			2 = { has_perk = $SCHOOL$_apprentice_perk }
+			3 = { has_perk = $SCHOOL$_journeyman_perk }
+			4 = { has_perk = $SCHOOL$_expert_perk }
+			5 = { has_perk = $SCHOOL$_master_perk }
+		}
+	}
+}
+
+spell_selectable_trigger = {
+	school_spell_master_trigger = { TRIGGER = spell_selectable }
+}
+spell_selectable = {
+	save_temporary_scope_value_as = { name = unimportant value = flag:$SCHOOL$ } # school not currently used, a use is needed
+	var:spell_caster = {
+		trigger_if = {
+			limit = { 
+                NOT = { 
+                    exists = root.var:spell_selected_size 
+                    has_variable_list = spell_size
+                } 
+            }
+			has_magicka = { VALUE = $SPELL$_petty_cost }
+		}
+		trigger_else_if = {
+			limit = {
+				root.var:spell_selected_size = flag:_petty
+			}
+			has_magicka = { VALUE = $SPELL$_petty_cost }
+		}
+		trigger_else_if = {
+			limit = {
+				root.var:spell_selected_size = flag:_lesser
+			}
+			has_magicka = { VALUE = $SPELL$_lesser_cost }
+		}
+		trigger_else_if = {
+			limit = {
+				root.var:spell_selected_size = flag:_common
+			}
+			has_magicka = { VALUE = $SPELL$_common_cost }
+		}
+		trigger_else_if = {
+			limit = {
+				root.var:spell_selected_size = flag:_greater
+			}
+			has_magicka = { VALUE = $SPELL$_greater_cost }
+		}
+		trigger_else_if = {
+			limit = {
+				root.var:spell_selected_size = flag:_grand
+			}
+			has_magicka = { VALUE = $SPELL$_grand_cost }
+		}
+		trigger_else = {
+			has_magicka = { VALUE = 0 }
+			### Fallback, should not happen, see which spells are "free" and fix it - He9
+			### Comment this block when debugging
+		}
+	}
+	trigger_if = { # No necromancy spells should be available while a secret vt_ek_necromancer - otherwise it wouldn't be so secret!
+		limit = {
+			root.var:spell_school = flag:necromancy
+		}
+		custom_tooltip = {
+			text = spell_no_secret_necromancer_cast
+			NOT = { var:spell_caster = { has_trait = vt_ek_experimentalist_necromancer }}
+		}
+	}
+	trigger_if = { # Claim corpse doesn't work against some targets
+		limit = {
+			scope:spell = flag:claim_corpse
+		}
+		NOR = {
+			trigger_if = { # target must be a potential undead thrall, meaning not already undead, daedra etc. see the trigger for details i guess
+				limit = {
+                    var:spell_recipient = { potential_undead_thrall = no }
+                }
+				custom_tooltip = {
+					text = spell_claim_corpse_not_valid_1
+				}
+			}
+			trigger_if = { # target must also be either your courtier, guest or prisoner
+				limit = {
+					var:spell_recipient = {
+						NOR = { 
+							is_courtier_of = root
+							is_pool_guest_of = root
+							is_imprisoned_by = root
+						}
+					}
+                }
+				custom_tooltip = {
+					text = spell_claim_corpse_not_valid_2
+				}
+			}
+		}
+	}
+	trigger_if = { # for QoL purposes, let's block casting Cure Disease if the target has no curable disease
+		limit = {
+			scope:spell = flag:cure_disease
+		}
+		NOR = {
+			trigger_if = { # target must have a curable disease
+				limit = {
+                    var:spell_recipient = { has_curable_disease = no }
+                }
+				custom_tooltip = {
+					text = spell_cure_disease_not_valid
+				}
+			}
+		}
+	}
+	trigger_if = { # for QoL purposes, let's block casting Mend Wounds if the target has no mendable wounds
+		limit = {
+			scope:spell = flag:mend_wound
+		}
+		NOR = {
+			trigger_if = { # target must have a mendable would
+				limit = {
+                    var:spell_recipient = { NOT = { has_trait = wounded }}
+                }
+				custom_tooltip = {
+					text = spell_mend_wound_not_valid
+				}
+			}
+		}
+	}
+	trigger_if = { # for QoL purposes, let's block casting Remove Curse if the target has no removable curse
+		limit = {
+			scope:spell = flag:remove_curse
+		}
+		NOR = {
+			trigger_if = { # target must have a mendable would
+				limit = {
+                    var:spell_recipient = { NOT = { has_daedric_curse = yes }}
+                }
+				custom_tooltip = {
+					text = spell_remove_curse_not_valid
+				}
+			}
+		}
+	}
+	trigger_if = { # can't stack province modifiers
+		limit = {
+			scope:spell = flag:restless_dead
+			$SPELL$_province = 1
+		}
+		custom_description = {
+			text = invalid_province_for_restless_dead
+			var:spell_county ?= {
+				NOT = { has_county_modifier = modifier_spell_restless_dead }
+			}
+		}
+	}
+	trigger_if = {
+		limit = { #hostile province, should stop other checks
+			$SPELL$_hostile = 1
+			$SPELL$_province = 1
+		}
+		NOR = {
+			# Cannot cast hostile spells in owned provinces
+			custom_description = {
+				text = invalid_province_for_spell
+				var:spell_county ?= {
+					exists = province_owner
+					province_owner = root
+				}
+			}
+			# Cannot cast hostile spells in provinces that are warded
+			custom_tooltip = {
+				text = county_is_warded
+				var:spell_county ?= {
+					county_is_warded = yes
+				}
+			}
+		}
+	}
+	trigger_if = {
+		limit = { #hostile no province, cannot cast on self+children
+			$SPELL$_hostile = 1
+		}
+		NOR = {
+			custom_description = {
+				text = spell_hostile_self
+				var:spell_recipient = ROOT # cant cast on self
+			}
+			trigger_if = {
+				limit = { NOT = { var:spell_recipient = ROOT } }
+				custom_description = {
+					text = spell_hostile_cm
+					var:spell_recipient = var:spell_caster # cant order cm to cast on self
+				}
+			}
+			trigger_if = { #copied from murder schemes, can't use hostile spells on own children, may expand to close family
+				limit = {
+					is_parent_of = var:spell_recipient
+					NOT = { has_trait_with_flag = can_murder_own_children }
+				}
+				is_parent_of = var:spell_recipient
+			}
+			trigger_if = { # to prevent stacking, characters affected by hostile spells the last five years cannot be targeted again
+				limit = {
+                    var:spell_recipient = { has_character_flag = spell_already_afflicted }
+                }
+				custom_tooltip = {
+					text = spell_already_afflicted
+				}
+			}
+			trigger_if = { # cannot cast hostile spell on a character with a magical ward
+				limit = {
+                    var:spell_recipient = { 
+						OR = {
+							has_character_modifier = modifier_ritual_magic_ward
+							location.county ?= { county_is_warded = yes }
+							any_equipped_character_artifact = { 
+								has_artifact_modifier = spellbreaker_modifier
+							}
+						}
+					}
+                }
+				custom_tooltip = {
+					text = character_is_warded
+				}
+			}
+			trigger_if = { # Banish Daedra doesn't work when the target isn't Daedra, so let's prevent casting it
+				limit = {
+                    scope:spell = flag:banish_daedra
+                }
+				OR = {
+					trigger_if = { # Banish Daedra doesn't work when the target isn't Daedra, so let's prevent casting it
+						limit = {
+							NOT = { var:spell_recipient = { has_character_flag = race_daedra }}
+						}
+						custom_tooltip = {
+							text = spell_banish_daedra_not_daedra
+						}
+					}
+					trigger_if = { # Let's block Banish Daedra against players, it's kinda a major buzzkill
+						limit = {
+							var:spell_recipient = { is_ai = no }
+						}
+						custom_tooltip = {
+							text = spell_banish_daedra_not_ai
+						}
+					}
+				}
+			}
+			trigger_if = { # Turn Undead doesn't work when the target isn't Undead, so let's prevent casting it
+				limit = {
+                    scope:spell = flag:turn_undead
+                }
+				custom_tooltip = {
+					text = spell_turn_undead_not_undead
+					var:spell_recipient = { is_undead_character = no }
+				}
+			}
+			trigger_if = { # Detract Magicka doesn't work when the target isn't a Mage, so let's prevent casting it
+				limit = {
+                    scope:spell = flag:detract_magicka
+                }
+				custom_tooltip = {
+					text = spell_detract_magicka_not_mage
+					var:spell_recipient = { can_magic_trigger = no }
+				}
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = { #province no hostile,
+			$SPELL$_province = 1
+		}
+		var:spell_recipient = { is_landed = yes } #they have a county or barony, stops pope likes
+	}
+	trigger_else = { always = yes } #should default to this but the error log complains
+}
+
+spell_castable_trigger = {
+	school_spell_master_trigger = { TRIGGER = spell_castable }
+}
+spell_castable = {
+	spell_selectable = { SCHOOL = $SCHOOL$ SPELL = $SPELL$ }
+	trigger_if = {
+		limit = { #hostile province, should stop other checks
+			$SPELL$_hostile = 1
+			$SPELL$_province = 1
+		}
+		custom_description = {
+			text = spell_no_counties
+			variable_list_size = { name = spell_counties value > 0 } #need to have some valid counties to target
+		}
+	}
+	trigger_else_if = {
+		limit = { #province no hostile,
+			$SPELL$_province = 1
+		}
+		custom_description = {
+			text = spell_no_counties
+			variable_list_size = { name = spell_counties value > 0 } #need to have some valid counties to target
+		}
+	}
+	trigger_else = { always = yes } #should default to this but the error log complains
+}
+
+has_hostile_spell_effect = {
+	OR = {
+        has_character_modifier = modifier_spell_absorb_diplomacy_neg_petty
+		has_character_modifier = modifier_spell_absorb_diplomacy_neg_lesser
+		has_character_modifier = modifier_spell_absorb_diplomacy_neg_common
+		has_character_modifier = modifier_spell_absorb_diplomacy_neg_greater
+		has_character_modifier = modifier_spell_absorb_diplomacy_neg_grand
+        has_character_modifier = modifier_spell_absorb_martial_neg_petty
+		has_character_modifier = modifier_spell_absorb_martial_neg_lesser
+		has_character_modifier = modifier_spell_absorb_martial_neg_common
+		has_character_modifier = modifier_spell_absorb_martial_neg_greater
+		has_character_modifier = modifier_spell_absorb_martial_neg_grand
+        has_character_modifier = modifier_spell_absorb_stewardship_neg_petty
+		has_character_modifier = modifier_spell_absorb_stewardship_neg_lesser
+		has_character_modifier = modifier_spell_absorb_stewardship_neg_common
+		has_character_modifier = modifier_spell_absorb_stewardship_neg_greater
+		has_character_modifier = modifier_spell_absorb_stewardship_neg_grand
+        has_character_modifier = modifier_spell_absorb_intrigue_neg_petty
+		has_character_modifier = modifier_spell_absorb_intrigue_neg_lesser
+		has_character_modifier = modifier_spell_absorb_intrigue_neg_common
+		has_character_modifier = modifier_spell_absorb_intrigue_neg_greater
+		has_character_modifier = modifier_spell_absorb_intrigue_neg_grand
+        has_character_modifier = modifier_spell_absorb_learning_neg_petty
+		has_character_modifier = modifier_spell_absorb_learning_neg_lesser
+		has_character_modifier = modifier_spell_absorb_learning_neg_common
+		has_character_modifier = modifier_spell_absorb_learning_neg_greater
+		has_character_modifier = modifier_spell_absorb_learning_neg_grand
+        has_character_modifier = modifier_spell_burden_petty
+		has_character_modifier = modifier_spell_burden_lesser
+		has_character_modifier = modifier_spell_burden_common
+		has_character_modifier = modifier_spell_burden_greater
+		has_character_modifier = modifier_spell_burden_grand
+		has_character_modifier = modifier_spell_burn
+		has_character_modifier = modifier_spell_frostbite
+		has_character_modifier = modifier_spell_shock
+        has_character_modifier = modifier_spell_muffled_senses_petty
+		has_character_modifier = modifier_spell_muffled_senses_lesser
+		has_character_modifier = modifier_spell_muffled_senses_common
+		has_character_modifier = modifier_spell_muffled_senses_greater
+		has_character_modifier = modifier_spell_muffled_senses_grand
+        has_character_modifier = modifier_spell_leech_health_negative_petty 
+        has_character_modifier = modifier_spell_leech_health_negative_lesser
+        has_character_modifier = modifier_spell_leech_health_negative_common
+        has_character_modifier = modifier_spell_leech_health_negative_greater
+        has_character_modifier = modifier_spell_leech_health_negative_grand
+    } 
+}
+
+has_curable_disease = {
+	has_trait_with_flag = curable_disease
+}
+
+has_not_curable_disease = {
+	has_trait_with_flag = not_curable_disease
+}
+
+has_daedric_curse = {
+	OR = {
+        has_character_modifier = sanguines_wrath
+        has_character_modifier = nocturnals_wrath
+        has_character_modifier = meridias_wrath
+        has_character_modifier = boethiahs_wrath
+        has_character_modifier = molags_wrath
+        has_character_modifier = azuras_wrath
+        has_character_modifier = clavicus_wrath
+        has_character_modifier = mehrunes_wrath
+        has_character_modifier = namiras_wrath
+        has_character_modifier = hircines_wrath	
+        has_character_modifier = sheogoraths_wrath
+        has_character_modifier = malacaths_wrath
+        has_character_modifier = vaerminas_wrath
+		has_character_modifier = hermaeus_wrath
+		has_character_modifier = mephalas_wrath
+		has_character_modifier = peryites_wrath
+        has_character_modifier = azuras_attention
+        has_character_modifier = boethiahs_attention
+        has_character_modifier = clavicus_attention
+        has_character_modifier = hermaeus_attention
+        has_character_modifier = hircines_attention
+        has_character_modifier = malacaths_attention
+        has_character_modifier = mehrunes_attention
+        has_character_modifier = mephalas_attention
+        has_character_modifier = meridias_attention
+        has_character_modifier = molags_attention
+        has_character_modifier = namiras_attention
+        has_character_modifier = nocturnals_attention
+        has_character_modifier = peryites_attention
+        has_character_modifier = sanguines_attention
+        has_character_modifier = sheogoraths_attention
+        has_character_modifier = vaerminas_attention
+    }
+}
+
+county_is_warded = {
+	any_county_province = {
+		has_building_or_higher = alabaster_white_walls_01
+	}
+}
+
+is_court_mage_trigger = {
+	has_court_position = court_mage_court_position
+}
+
+can_be_hostile_ai_spell_target = {
+	NOR = {
+		has_character_modifier = modifier_ritual_magic_ward
+		has_character_flag = spell_already_afflicted
+		any_equipped_character_artifact = { 
+			has_artifact_modifier = spellbreaker_modifier
+		}
+		location = { 
+			exists = county
+			county = { county_is_warded = yes }
+		}
+	}
+}

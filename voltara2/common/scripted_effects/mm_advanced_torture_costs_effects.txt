@@ -1,0 +1,55 @@
+﻿advanced_torture_pay_light_torture_cost_effect = {
+ if = {
+  limit = {
+   has_trait = sadistic
+  }
+
+  add_prestige = -75
+ }
+
+ else = {
+  add_prestige = -150
+ }
+}
+
+advanced_torture_pay_medium_torture_cost_effect = {
+ if = {
+  limit = {
+   has_trait = sadistic
+  }
+
+  add_prestige = -140
+ }
+
+ else = {
+  add_prestige = -275
+ }
+}
+
+advanced_torture_pay_strong_torture_cost_effect = {
+ if = {
+  limit = {
+   has_trait = sadistic
+  }
+
+  add_prestige = -215
+ }
+
+ else = {
+  add_prestige = -425
+ }
+}
+
+advanced_torture_pay_sadistic_torture_cost_effect = {
+ if = {
+  limit = {
+   has_trait = sadistic
+  }
+
+  add_prestige = -300
+ }
+
+ else = {
+  add_prestige = -600
+ }
+}

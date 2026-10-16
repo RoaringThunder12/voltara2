@@ -1,0 +1,75 @@
+﻿story_battle_child = {
+	# Need to create another version or an initialization event for the player child.
+	# house_valor.2000 is only suitable with the player is the adult, not the child.
+	# Especially important for warrior princess secretly ini training
+
+	on_setup = {
+		story_owner = {
+			add_character_flag = seen_battle
+		}
+		if = {
+			limit = {
+				story_owner = { exists = var:valor_education_score }
+			}
+			# Flat bonus exp for simply getting ready for a real war
+			story_owner = {
+				change_variable = { name = valor_education_score add = 100 }
+			}
+		}
+		else = {
+			story_owner = {
+				set_variable = {
+					name = valor_education_score
+					# Extra startup XP for crash course for a real war.
+					# 3 years worth baseline xp. Enough to be not be too handicapped, not enough to negate lack of training.
+					value = 500
+				}
+			}			
+		}
+	}
+
+	on_end = {
+		# Should the story end upon adulthood? What's the cleanup in either case?
+		story_owner = {
+			# add_character_flag = seen_battle
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	effect_group = {
+		days = { 30 60 }
+
+	}
+
+	effect_group = {
+		days = { 30 60 }
+
+		triggered_effect = {
+			trigger = {
+				story_owner = {
+					employer = { is_at_war = no }
+				}
+			}
+			effect = {
+				end_story = yes
+			}
+		}
+	} # Effect Group Monthly Check
+
+	effect_group = {
+		days = { 180 210 } #Random range between 180-210 days
+
+		triggered_effect = {
+			trigger = { always = yes }
+			effect = {
+				story_owner = {
+					# Most experience should be actual battles fought, but flat semi-annual XP bonus to reward long-lasting wars.
+					change_variable = { name = valor_education_score add = 50 }
+				}
+			}
+		}
+	} # Effect Group Annual Check
+}

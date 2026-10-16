@@ -1,0 +1,33 @@
+﻿##############################
+## GM1 important_actions
+##############################
+
+l_english:
+# offer_prisoner_interaction
+ action_can_offer_prisoner: "@gold_icon! You can Offer a [prisoner|E]" # Tooltip Description Title
+ action_can_offer_prisoner_label: "@gold_icon! You can Offer a Prisoner to [recipient.Custom('GetPrimaryTitleTierIcon')][recipient.GetShortUINameNoTooltip]"
+ action_can_offer_prisoner_desc: "[recipient.GetUINameNoTooltip] would accept an Offer for your [prisoner|E], [secondary_actor.Custom('GetPrimaryTitleTierIcon')][secondary_actor.GetUIName].\n\n$action_can_offer_prisoner_desc_2$\n\n$action_can_offer_prisoner_help$"
+ action_can_offer_prisoner_desc_2: "[recipient.GetSheHe|U] currently has @gold_icon!#V [recipient.Custom2('GetTransferPrisonerCurrentGoldValue', secondary_actor)]/[recipient.Custom2('GetTransferPrisonerBarterCostValue', secondary_actor)]#! of the Gold you can demand."
+ action_can_offer_prisoner_combined_group_name: "@gold_icon! You can Offer [prisoners|E]" # Tooltip Description Title
+ action_can_offer_prisoner_combined_group_label: "@gold_icon! You can Offer Prisoners"
+ action_can_offer_prisoner_combined_label: "[recipient.Custom('GetPrimaryTitleTierIcon')][recipient.GetUINameNoTooltip]"
+ action_can_offer_prisoner_combined_group_description: "Several neighboring [rulers|E] or fellow [vassals|E] would accept an Offer for your [prisoner|E].\n\n$action_can_offer_prisoner_help$"
+ action_can_offer_prisoner_click: "#I Click to Offer [prisoner|E]#!"
+ action_can_offer_prisoner_help: "#help You should consider offering Prisoners with [claims|E] or those at [war|E] with them, you may even earn [gold|E] or [hooks|E].\n\n$action_can_offer_prisoner_help_2$#!"
+ action_can_offer_prisoner_help_2: "#help Be warned! Some [prisoners|E] are more trouble than they are worth. $action_can_offer_prisoner_help_3$#!"
+ action_can_offer_prisoner_help_3: "You might want to [execute|E] them or let them rot in the dungeons indefinitely..."
+
+# demand_prisoner_interaction
+ action_can_demand_prisoner: "@gold_icon! You can Demand a [prisoner|E]" # Tooltip Description Title
+ action_can_demand_prisoner_label: "@gold_icon! You can Demand a Prisoner from [recipient.Custom('GetImprisonerPrimaryTitleTierIcon')][recipient.Custom('GetImprisonerShortNoTooltip')]"
+ action_can_demand_prisoner_desc: "[recipient.Custom('GetImprisonerNoTooltip')] would accept a Demand for [recipient.GetHerHis] [prisoner|E], [recipient.Custom('GetPrimaryTitleTierIcon')][recipient.GetUIName].\n\n$action_can_demand_prisoner_desc_2$\n\n$action_can_demand_prisoner_help$"
+ action_can_demand_prisoner_desc_2: "You currently have @gold_icon!#V [actor.Custom2('GetTransferPrisonerCurrentGoldValue', recipient)]/[actor.Custom2('GetTransferPrisonerBarterCostValue', recipient)]#! of the Gold [recipient.Custom('GetImprisonerPronoun')] can demand."
+ action_can_demand_prisoner_unimportant: "@warning_icon! #X You do not have enough [gold|E] to Demand for [recipient.GetShortUIName]"
+ action_can_demand_prisoner_combined_group_name: "@gold_icon! You can Demand a [prisoners|E]" # Tooltip Description Title
+ action_can_demand_prisoner_combined_group_label: "@gold_icon! You can Demand Prisoner"
+ action_can_demand_prisoner_combined_label: "[recipient.Custom('GetPrimaryTitleTierIcon')][recipient.GetUINameNoTooltip]"
+ action_can_demand_prisoner_combined_group_description: "Several neighboring [rulers|E] or fellow [vassals|E] would accept a Demand for their [prisoner|E].\n\n$action_can_demand_prisoner_help$"
+ action_can_demand_prisoner_combined_unimportant: "@warning_icon! #X You do not have enough [gold|E] to Demand for their [prisoner|E]"
+ action_can_demand_prisoner_click: "#I Click to Demand [prisoner|E]#!"
+ action_can_demand_prisoner_help: "#help You should consider demanding Prisoners with [claims|E] or those at [war|E] with you, even if it may cost [gold|E] or [hooks|E].#!\n\n$action_can_demand_prisoner_help_2$"
+ action_can_demand_prisoner_help_2: "#help However, unless your @soldier_icon! Military ([actor.GetMilitaryStrengthText]) or [recipient.Custom('GetPrimaryTitleTierIcon')] [rank|E] are imposing enough, there might simply be more [rulers|E] available to offer the prisoner.#!"

@@ -1,0 +1,81 @@
+﻿arcana_greater_or_equal = {
+	global = ARCANA_IS_AT_LEAST
+	first = MY_ARCANA_IS_AT_LEAST
+	third = THEIR_ARCANA_IS_AT_LEAST
+	global_not = ARCANA_IS_NOT_AT_LEAST
+	first_not = MY_ARCANA_IS_NOT_AT_LEAST
+	third_not = THEIR_ARCANA_IS_NOT_AT_LEAST
+}
+
+arcana_less_than = {
+	global = ARCANA_IS_LESS_THAN
+	first = MY_ARCANA_IS_LESS_THAN
+	third = THEIR_ARCANA_IS_LESS_THAN
+	global_not = ARCANA_IS_NOT_LESS_THAN
+	first_not = MY_ARCANA_IS_NOT_LESS_THAN
+	third_not = THEIR_ARCANA_IS_NOT_LESS_THAN
+}
+
+magicka_greater_or_equal = {
+	global = MAGICKA_TRIGGER_GLOBAL
+	first = MAGICKA_TRIGGER_FIRST
+	third = MAGICKA_TRIGGER_THIRD
+}
+
+magicka_less_than = {
+	global = NOT_MAGICKA_TRIGGER_GLOBAL
+	global_not = MAGICKA_TRIGGER_GLOBAL
+	first = NOT_MAGICKA_TRIGGER_FIRST
+	first_not = MAGICKA_TRIGGER_FIRST
+	third = NOT_MAGICKA_TRIGGER_THIRD
+	third_not = MAGICKA_TRIGGER_THIRD
+}
+
+magicka_more_than = {
+	global = NOT_MAGICKA_TRIGGER_GLOBAL
+	global_not = MAGICKA_TRIGGER_GLOBAL
+	first = NOT_MAGICKA_TRIGGER_FIRST
+	first_not = MAGICKA_TRIGGER_FIRST
+	third = NOT_MAGICKA_TRIGGER_THIRD
+	third_not = MAGICKA_TRIGGER_THIRD
+}
+
+ritual_slot_less = {
+	global_not = ritual_slot_less
+}
+must_lead_army = {
+	global = must_lead_army
+	first_not = must_lead_army
+	third = must_lead_army
+}
+invalid_province_for_spell = {
+	global = invalid_province_for_spell
+	global_not = invalid_province_for_spell
+	first = invalid_province_for_spell
+	first_not = invalid_province_for_spell
+	third_not = invalid_province_for_spell
+}
+spell_hostile_self = {
+	global = spell_hostile_self
+	global_not = spell_hostile_self
+	first = spell_hostile_self
+	first_not = spell_hostile_self
+	third_not = spell_hostile_self
+}
+spell_hostile_cm = {
+	global = spell_hostile_cm
+	global_not = spell_hostile_cm
+	first = spell_hostile_cm
+	first_not = spell_hostile_cm
+	third_not = spell_hostile_cm
+}
+spell_no_counties = {
+	global = spell_no_counties
+	first_not = spell_no_counties
+	third_not = spell_no_counties
+}
+spell_not_at_location = {
+	global = spell_not_at_location
+	first_not = spell_not_at_location
+	third_not = spell_not_at_location
+}

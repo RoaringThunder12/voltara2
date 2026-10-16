@@ -1,0 +1,12 @@
+﻿strong_illusion_hook = {
+	strong = yes
+	expiration_days = 1825
+}
+
+thrall_hook = {
+	strong = yes
+}
+
+weak_illusion_hook = {
+	expiration_days = 1825
+}

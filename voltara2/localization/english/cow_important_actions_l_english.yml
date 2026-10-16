@@ -1,0 +1,150 @@
+﻿l_english:
+ cow_generic_university_01_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_generic_university_01_action_label: "@development_icon! Upgrade your Grand University in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_generic_university_01_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_generic_university_01_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_generic_university_02_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_generic_university_02_action_label: "@development_icon! Upgrade your Grand University in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_generic_university_02_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_generic_university_02_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_generic_library_01_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_generic_library_01_action_label: "@development_icon! Upgrade your Grand Library in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_generic_library_01_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_generic_library_01_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_generic_library_02_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_generic_library_02_action_label: "@development_icon! Upgrade your Grand Library in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_generic_library_02_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_generic_library_02_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_christian_cathedral_01_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_christian_cathedral_01_action_label: "@development_icon! Upgrade your [GetBuilding('cow_christian_cathedral_01').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_christian_cathedral_01_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_christian_cathedral_01_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_christian_cathedral_02_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_christian_cathedral_02_action_label: "@development_icon! Upgrade your [GetBuilding('cow_christian_cathedral_02').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_christian_cathedral_02_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_christian_cathedral_02_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_muslim_mosque_01_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_muslim_mosque_01_action_label: "@development_icon! Upgrade your [GetBuilding('cow_muslim_mosque_01').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_muslim_mosque_01_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_muslim_mosque_01_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_muslim_mosque_02_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_muslim_mosque_02_action_label: "@development_icon! Upgrade your [GetBuilding('cow_muslim_mosque_02').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_muslim_mosque_02_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_muslim_mosque_02_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_zoroastrian_temple_01_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_zoroastrian_temple_01_action_label: "@development_icon! Upgrade your [GetBuilding('cow_zoroastrian_temple_01').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_zoroastrian_temple_01_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_zoroastrian_temple_01_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_zoroastrian_temple_02_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_zoroastrian_temple_02_action_label: "@development_icon! Upgrade your [GetBuilding('cow_zoroastrian_temple_02').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_zoroastrian_temple_02_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_zoroastrian_temple_02_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_pagan_temple_01_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_pagan_temple_01_action_label: "@development_icon! Upgrade your [GetBuilding('cow_pagan_temple_01').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_pagan_temple_01_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_pagan_temple_01_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_pagan_temple_02_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_pagan_temple_02_action_label: "@development_icon! Upgrade your [GetBuilding('cow_pagan_temple_02').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_pagan_temple_02_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_pagan_temple_02_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_indian_temple_01_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_indian_temple_01_action_label: "@development_icon! Upgrade your [GetBuilding('cow_indian_temple_01').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_indian_temple_01_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_indian_temple_01_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_indian_temple_02_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_indian_temple_02_action_label: "@development_icon! Upgrade your [GetBuilding('cow_indian_temple_02').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_indian_temple_02_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_indian_temple_02_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_jewish_synagogue_01_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_jewish_synagogue_01_action_label: "@development_icon! Upgrade your [GetBuilding('cow_jewish_synagogue_01').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_jewish_synagogue_01_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_jewish_synagogue_01_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_jewish_synagogue_02_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_jewish_synagogue_02_action_label: "@development_icon! Upgrade your [GetBuilding('cow_jewish_synagogue_02').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_jewish_synagogue_02_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_jewish_synagogue_02_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_royal_palace_01_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_royal_palace_01_action_label: "@development_icon! Upgrade your [GetBuilding('cow_royal_palace_01').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_royal_palace_01_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_royal_palace_01_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_royal_palace_02_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_royal_palace_02_action_label: "@development_icon! Upgrade your [GetBuilding('cow_royal_palace_02').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_royal_palace_02_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_royal_palace_02_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_great_harbor_01_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_great_harbor_01_action_label: "@development_icon! Upgrade your [GetBuilding('cow_great_harbor_01').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_great_harbor_01_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_great_harbor_01_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_great_harbor_02_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_great_harbor_02_action_label: "@development_icon! Upgrade your [GetBuilding('cow_great_harbor_02').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_great_harbor_02_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_great_harbor_02_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_walls_new_01_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_walls_new_01_action_label: "@development_icon! Upgrade your [GetBuilding('cow_walls_new_01').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_walls_new_01_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_walls_new_01_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_walls_new_02_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_walls_new_02_action_label: "@development_icon! Upgrade your [GetBuilding('cow_walls_new_02').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_walls_new_02_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_walls_new_02_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_grand_fortress_01_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_grand_fortress_01_action_label: "@development_icon! Upgrade your [GetBuilding('cow_grand_fortress_01').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_grand_fortress_01_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_grand_fortress_01_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_grand_fortress_02_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_grand_fortress_02_action_label: "@development_icon! Upgrade your [GetBuilding('cow_grand_fortress_02').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_grand_fortress_02_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_grand_fortress_02_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_great_lighthouse_01_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_great_lighthouse_01_action_label: "@development_icon! Upgrade your [GetBuilding('cow_great_lighthouse_01').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_great_lighthouse_01_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_great_lighthouse_01_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_great_lighthouse_02_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_great_lighthouse_02_action_label: "@development_icon! Upgrade your [GetBuilding('cow_great_lighthouse_02').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_great_lighthouse_02_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_great_lighthouse_02_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_grand_amphitheatre_01_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_grand_amphitheatre_01_action_label: "@development_icon! Upgrade your [GetBuilding('cow_grand_amphitheatre_01').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_grand_amphitheatre_01_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_grand_amphitheatre_01_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_grand_amphitheatre_02_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_grand_amphitheatre_02_action_label: "@development_icon! Upgrade your [GetBuilding('cow_grand_amphitheatre_02').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_grand_amphitheatre_02_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_grand_amphitheatre_02_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_city_gates_01_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_city_gates_01_action_label: "@development_icon! Upgrade your [GetBuilding('cow_city_gates_01').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_city_gates_01_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_city_gates_01_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"
+
+ cow_city_gates_02_action: "@development_icon! Upgrade Your City of Wonder"
+ cow_city_gates_02_action_label: "@development_icon! Upgrade your [GetBuilding('cow_city_gates_02').GetName] in [landed_title.GetNameNoTier] to progress your City of Wonder"
+ cow_city_gates_02_action_desc: "@gold_icon! There is no cost to upgrade"
+ cow_city_gates_02_action_click: "#I Click to view the holding of [landed_title.GetNameNoTierNoTooltip]#!"

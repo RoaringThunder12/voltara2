@@ -1,0 +1,11 @@
+﻿agot_is_ruin = {
+	scope = title
+	is_shown = { always = no }
+}
+
+can_reconstruct_ruin = {}
+reconstruct_ruin = {}
+agot_can_set_realm_capital = {}
+agot_view_dragons_in_dragonpit = {}
+agot_county_holder_is_wilderness = {}
+agot_can_colonize = {}

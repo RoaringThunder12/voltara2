@@ -1,0 +1,523 @@
+﻿namespace = accou_courtier
+
+scripted_effect accou_courtier_0001_on_accept_effect = {
+	# Fire the incumbent if needed
+	if = {
+		limit = { exists = scope:incumbent }
+		if = {
+			limit = { exists = scope:councillor }
+			fire_councillor = scope:incumbent
+		}
+		else_if = {
+			limit = { exists = scope:court_position }
+			accou_revoke_court_position_effect = {
+				COURT_POSITION = scope:court_position
+				RECIPIENT = scope:incumbent
+			}
+		}
+	}
+
+	# Incumbent effects
+	scope:incumbent ?= {
+		progress_towards_rival_effect = {
+			CHARACTER = scope:candidate
+			REASON = rival_council_seat
+			OPINION = 0
+		}
+		add_opinion = {
+			target = scope:candidate
+			modifier = annoyed_opinion
+			opinion = -10
+		}
+		add_opinion = {
+			target = root
+			modifier = annoyed_opinion
+			opinion = -10
+		}
+	}
+
+	# Assign the candidate
+	if = {
+		limit = { exists = scope:councillor }
+		accou_assign_councillor_effect = {
+			COUNCILLOR = scope:councillor
+			TARGET = scope:candidate
+		}
+	}
+	else_if = {
+		limit = { exists = scope:court_position }
+		accou_appoint_court_position_effect = {
+			COURT_POSITION = scope:court_position
+			RECIPIENT = scope:candidate
+		}
+	}
+
+	# Candidate effects
+	scope:candidate = {
+		add_opinion = {
+			target = root
+			modifier = grateful_opinion
+			opinion = 10
+		}
+	}
+
+	# Block candidate from being fired, mainly to prevent AI from quickly
+	# reverting to the incumbent if they are a powerful vassal
+	if = {
+		limit = {
+			exists = scope:councillor
+			is_ai = yes
+		}
+		scope:candidate = {
+			set_variable = {
+				name = block_fire_councillor
+				value = root
+				years = 1
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			exists = scope:court_position
+			is_ai = yes
+		}
+		scope:candidate = {
+			set_variable = {
+				name = petition_court_position_liege
+				value = root
+				years = 1
+			}
+			set_variable = {
+				name = petition_court_position_role
+				value = scope:court_position
+				years = 1
+			}
+		}
+	}
+}
+
+scripted_effect accou_courtier_0001_on_decline_effect = {
+	scope:candidate = {
+		add_opinion = {
+			target = root
+			modifier = disappointed_opinion
+			opinion = -10
+		}
+	}
+}
+
+accou_courtier.0001 = {
+	type = character_event
+	title = accou_courtier.0001.t
+	desc = accou_courtier.0001.desc
+	hidden = yes
+
+	theme = court
+	left_portrait = {
+		character = scope:candidate
+	}
+	override_background = {
+		reference = throne_room
+	}
+
+	trigger = {
+		has_game_rule = accou_courtier_events_enabled
+		accou_is_valid_event_liege_trigger = yes
+
+		scope:candidate = {
+			is_courtier_of = root
+			NOT = { is_councillor_of = root }
+			has_any_court_position = no
+			has_variable_list = accou_better_councillor_options
+		}
+	}
+
+	immediate = {
+		# Determine councillor position to apply for
+		scope:candidate = {
+			random_in_list = {
+				variable = accou_better_councillor_options
+				limit = {
+					save_temporary_scope_as = option
+					scope:candidate = {
+						accou_can_apply_for_councillor_option_trigger = {
+							OPTION = scope:option
+							LIEGE = root
+						}
+					}
+				}
+
+				weight = {
+					base = 10
+
+					# More likely if higher councillor skill
+					modifier = {
+						add = {
+							save_temporary_scope_as = councillor
+							value = scope:candidate.accou_councillor_skill_delta_value
+							multiply = 2
+						}
+					}
+				}
+
+				save_scope_as = councillor
+			}
+		}
+
+		# Determine incumbent
+		if = {
+			limit = { exists = scope:councillor }
+			accou_get_incumbent_councillor_effect = {
+				COUNCILLOR = scope:councillor
+				INCUMBENT = incumbent
+			}
+		}
+
+		# Save additional scopes for debugging
+		scope:councillor ?= {
+			save_scope_as = position
+		}
+	}
+
+	option = {
+		name = accou_courtier.0001.a
+
+		if = {
+			limit = {
+				exists = scope:councillor
+			}
+
+			accou_debug_log_3_effect = {
+				MSG = accou_debug_msg_courtier_0001_a_success
+				NAME1 = candidate TYPE1 = flag:character
+				NAME2 = position TYPE2 = flag:flag
+				NAME3 = incumbent TYPE3 = flag:character
+			}
+			#debug_log_scopes = yes
+
+			trigger_event = accou_courtier.0003
+		}
+		else = {
+			accou_debug_log_1_effect = {
+				MSG = accou_debug_msg_courtier_0001_a_failure
+				NAME1 = candidate TYPE1 = flag:character
+			}
+			#debug_log_scopes = yes
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+accou_courtier.0002 = {
+	type = character_event
+	title = accou_courtier.0002.t
+	desc = accou_courtier.0002.desc
+	hidden = yes
+
+	theme = court
+	left_portrait = {
+		character = scope:candidate
+	}
+	override_background = {
+		reference = throne_room
+	}
+
+	trigger = {
+		has_game_rule = accou_courtier_events_enabled
+		accou_is_valid_event_liege_trigger = yes
+
+		scope:candidate = {
+			is_courtier_of = root
+			NOT = { is_councillor_of = root }
+			has_any_court_position = no
+			has_variable_list = accou_better_court_position_options
+		}
+	}
+
+	immediate = {
+		# Determine court position to apply for
+		scope:candidate = {
+			random_in_list = {
+				variable = accou_better_court_position_options
+				limit = {
+					save_temporary_scope_as = option
+					scope:candidate = {
+						accou_can_apply_for_court_position_option_trigger = {
+							OPTION = scope:option
+							LIEGE = root
+						}
+					}
+				}
+
+				weight = {
+					base = 10
+
+					# More likely if higher court position aptitude
+					modifier = {
+						add = {
+							save_temporary_scope_as = court_position
+							value = scope:candidate.accou_court_position_aptitude_value
+							subtract = 2 # average_effectiveness
+							multiply = 10
+						}
+					}
+
+					# More likely if higher court position candidate score
+					modifier = {
+						add = {
+							save_temporary_scope_as = court_position
+							value = root.accou_court_position_candidate_score_value
+							multiply = 0.2
+						}
+					}
+				}
+
+				save_scope_as = court_position
+			}
+		}
+
+		# Determine incumbent
+		if = {
+			limit = { exists = scope:court_position }
+			accou_get_incumbent_court_position_holder_effect = {
+				COURT_POSITION = scope:court_position
+				INCUMBENT = incumbent
+			}
+		}
+
+		# Save additional scopes for debugging
+		scope:court_position ?= {
+			save_scope_as = position
+		}
+	}
+
+	option = {
+		name = accou_courtier.0002.a
+
+		if = {
+			limit = {
+				exists = scope:court_position
+			}
+
+			accou_debug_log_3_effect = {
+				MSG = accou_debug_msg_courtier_0002_a_success
+				NAME1 = candidate TYPE1 = flag:character
+				NAME2 = position TYPE2 = flag:flag
+				NAME3 = incumbent TYPE3 = flag:character
+			}
+			#debug_log_scopes = yes
+
+			trigger_event = accou_courtier.0003
+		}
+		else = {
+			accou_debug_log_1_effect = {
+				MSG = accou_debug_msg_courtier_0002_a_failure
+				NAME1 = candidate TYPE1 = flag:character
+			}
+			#debug_log_scopes = yes
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+accou_courtier.0003 = {
+	type = character_event
+	title = accou_courtier.0003.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = scope:councillor }
+				desc = accou_courtier.0003.councillor.desc
+			}
+			triggered_desc = {
+				trigger = { exists = scope:court_position }
+				desc = accou_courtier.0003.court_position.desc
+			}
+		}
+		triggered_desc = {
+			trigger = { exists = scope:incumbent }
+			desc = accou_courtier.0003.incumbent.desc
+		}
+	}
+
+	theme = court
+	left_portrait = {
+		character = scope:candidate
+	}
+	right_portrait = {
+		character = scope:incumbent
+	}
+	override_background = {
+		reference = throne_room
+	}
+
+	immediate = {
+		# Save additional scopes for debugging
+		if = {
+			limit = {
+				debug_only = yes
+				exists = scope:court_position
+			}
+			save_scope_value_as = {
+				name = candidate_score
+				value = accou_court_position_candidate_score_value
+			}
+		}
+	}
+
+	# Accept
+	option = {
+		name = accou_courtier.0003.a
+
+		accou_debug_log_4_effect = {
+			MSG = accou_debug_msg_courtier_0003_a
+			NAME1 = candidate TYPE1 = flag:character
+			NAME2 = position TYPE2 = flag:flag
+			NAME3 = incumbent TYPE3 = flag:character
+			NAME4 = candidate_score TYPE4 = flag:value
+		}
+		#debug_log_scopes = yes
+
+		accou_courtier_0001_on_accept_effect = yes
+
+		ai_chance = {
+			base = 0
+
+			# Opinions (-10 to 10 depending on opinion)
+			opinion_modifier = {
+				opinion_target = scope:candidate
+				multiplier = 0.1
+			}
+			opinion_modifier = {
+				trigger = { exists = scope:incumbent }
+				opinion_target = scope:incumbent
+				multiplier = -0.1
+			}
+
+			# Family or dynasty members (5 / -5, doubled for close family, halved for just dynasty)
+			accou_family_or_dynasty_modifier = {
+				CHARACTER = scope:candidate
+				BASE = 5
+			}
+			accou_family_or_dynasty_modifier = {
+				CHARACTER = scope:incumbent
+				BASE = -5
+			}
+
+			# Friends (10 / -10, doubled for best friend)
+			accou_friend_modifier = {
+				CHARACTER = scope:candidate
+				BASE = 10
+			}
+			accou_lover_modifier = {
+				CHARACTER = scope:incumbent
+				BASE = -10
+			}
+
+			# Rivals (-10 / 10, doubled for nemesises)
+			accou_rival_modifier = {
+				CHARACTER = scope:candidate
+				BASE = -10
+			}
+			accou_rival_modifier = {
+				CHARACTER = scope:incumbent
+				BASE = 10
+			}
+
+			# Lovers (10 / -10, doubled for soulmates)
+			accou_lover_modifier = {
+				CHARACTER = scope:candidate
+				BASE = 10
+			}
+			accou_lover_modifier = {
+				CHARACTER = scope:incumbent
+				BASE = -10
+			}
+
+			# Candidate has better councillor skill, scaled by ai rationality
+			accou_better_councillor_skill_modifier = { # 10 to ~30 with 0 rationality
+				CHARACTER = scope:candidate
+				COUNCILLOR = scope:councillor
+				INCUMBENT = scope:incumbent
+				BASE = 10
+				SCALE = 2
+			}
+
+			# Candidate has better court position aptitude, scaled by ai rationality
+			accou_better_court_position_aptitude_modifier = { # 10 to ~30 with 0 rationality
+				CHARACTER = scope:candidate
+				COURT_POSITION = scope:court_position
+				INCUMBENT = scope:incumbent
+				BASE = 10
+				SCALE = 10
+			}
+
+			# Incumbent councillor is a powerful vassal (-40 to 0)
+			modifier = {
+				trigger = {
+					exists = scope:councillor
+					scope:incumbent ?= {
+						is_powerful_vassal_of = root
+					}
+				}
+				add = { # -20
+					value = define:NCharacterOpinion|POWERFUL_VASSAL_WITHOUT_COUNCIL_POSITION # -40
+					multiply = 0.5
+				}
+			}
+			opinion_modifier = {
+				trigger = {
+					exists = scope:councillor
+					scope:incumbent ?= {
+						is_powerful_vassal_of = root
+					}
+				}
+				who = scope:incumbent
+				opinion_target = root
+				multiplier = { # 0.2
+					value = define:NCharacterOpinion|POWERFUL_VASSAL_WITHOUT_COUNCIL_POSITION # -40
+					multiply = -0.005
+				}
+			}
+
+			# Court position candidate score (-20 to 20 for 0 to 100 candidate scores)
+			modifier = {
+				trigger = {
+					exists = scope:court_position
+					NOT = { exists = scope:incumbent }
+				}
+				add = {
+					value = accou_court_position_candidate_score_value
+					subtract = 50
+					multiply = 0.4
+				}
+			}
+		}
+	}
+
+	# Decline
+	option = {
+		name = accou_courtier.0003.b
+
+		accou_debug_log_4_effect = {
+			MSG = accou_debug_msg_courtier_0003_b
+			NAME1 = candidate TYPE1 = flag:character
+			NAME2 = position TYPE2 = flag:flag
+			NAME3 = incumbent TYPE3 = flag:character
+			NAME4 = candidate_score TYPE4 = flag:value
+		}
+		#debug_log_scopes = yes
+
+		accou_courtier_0001_on_decline_effect = yes
+
+		ai_chance = {
+			base = 1
+		}
+	}
+}

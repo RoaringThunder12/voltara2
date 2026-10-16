@@ -1,0 +1,54 @@
+﻿
+on_war_started = { on_actions = { voltara_mw_start voltara_protect_strait } }
+voltara_mw_start = {
+ trigger = {
+  exists = title:h_voltara_severos.holder
+  OR = { scope:attacker = title:h_voltara_severos.holder scope:defender = title:h_voltara_severos.holder }
+  # Great Empire Wars already has its own realm-wide participation mechanism.
+  scope:war = { NOT = { using_cb = great_empire_cb } }
+  title:h_voltara_severos = { NOT = { has_variable = voltara_mw_active } }
+ }
+ effect = {
+  title:h_voltara_severos = { set_variable = { name = voltara_mw_active value = scope:war } }
+  title:h_voltara_severos.holder = {
+   every_vassal = {
+    limit = {
+     highest_held_title_tier >= tier_kingdom
+     NOT = { this = scope:attacker } NOT = { this = scope:defender }
+     NOT = { voltara_is_ruins_placeholder = yes }
+     NOT = { voltara_keeper_realm = yes }
+    }
+    add_to_temporary_list = voltara_paramounts
+   }
+  }
+  every_in_list = { list = voltara_paramounts voltara_mw_detach = yes }
+ }
+}
+voltara_protect_strait = {
+ trigger = {
+  scope:defender = { has_title = title:k_voltara_22 }
+  exists = title:h_voltara_severos.holder
+  scope:attacker != title:h_voltara_severos.holder
+  scope:attacker.top_liege != title:h_voltara_severos.holder
+ }
+ effect = { scope:war = { add_defender = title:h_voltara_severos.holder } }
+}
+on_war_won_attacker = { on_actions = { voltara_mw_end } }
+on_war_won_defender = { on_actions = { voltara_mw_end } }
+on_war_white_peace = { on_actions = { voltara_mw_end } }
+on_war_invalidated = { on_actions = { voltara_mw_end } }
+voltara_mw_end = {
+ trigger = { title:h_voltara_severos = { var:voltara_mw_active ?= scope:war } }
+ effect = {
+  every_independent_ruler = {
+   limit = { primary_title = { has_variable = voltara_mw_home var:voltara_mw_war ?= scope:war } }
+   voltara_mw_reassemble = yes
+  }
+  title:h_voltara_severos = { remove_variable = voltara_mw_active }
+ }
+}
+yearly_playable_pulse = { on_actions = { voltara_mw_recovery } }
+voltara_mw_recovery = {
+ trigger = { primary_title = { has_variable = voltara_mw_home NOT = { exists = var:voltara_mw_war } } }
+ effect = { voltara_mw_reassemble = yes }
+}

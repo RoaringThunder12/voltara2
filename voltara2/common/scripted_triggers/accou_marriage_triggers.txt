@@ -1,0 +1,308 @@
+﻿accou_is_valid_marriage_character_trigger = {
+ NOT = { has_trait = voltara_slave }
+
+	# Valid adult event participant
+	accou_is_valid_adult_event_participant_trigger = yes
+
+	# Can actually marry
+	can_marry_common_trigger = yes
+	is_married = no
+	is_concubine = no
+	is_betrothed = no
+	is_diarch = no
+	has_been_promised_grand_wedding = no
+
+	# Age conditions
+	age <= 60
+}
+
+accou_is_valid_marriage_target_trigger = {
+	accou_is_valid_marriage_target_vanilla_trigger = {
+		CHARACTER = $CHARACTER$
+		ACTOR = $ACTOR$
+		RECIPIENT = $RECIPIENT$
+	}
+}
+
+# Is this character a valid marriage target for marrying $CHARACTER$
+# See arrange_marriage_interaction (has_valid_target_showing_failures_only)
+accou_is_valid_marriage_target_vanilla_trigger = {
+ NOT = { has_trait = voltara_slave }
+
+	save_temporary_scope_as = target
+
+	# Could marry each other according to gender and faith hostility & consaguinity,
+	# and not already married or recently divorced
+	accou_could_marry_character_trigger = { CHARACTER = $CHARACTER$ }
+	$CHARACTER$ = {
+		accou_could_marry_character_trigger = { CHARACTER = scope:target }
+	}
+
+	# Block AI from marrying player guests
+	trigger_if = {
+		limit = { is_pool_guest = yes }
+		host = {
+			OR = {
+				is_ai = yes
+				this = $ACTOR$
+			}
+		}
+	}
+
+	$ACTOR$ = {
+		# Block AI from marrying Evil faiths
+		trigger_if = {
+			limit = {
+				is_ai = yes
+				NOT = { has_trait = cynical }
+			}
+			$RECIPIENT$.faith = {
+				faith_hostility_level = {
+					target = $ACTOR$.faith
+					value < faith_hostility_prevents_marriage_level
+				}
+			}
+		}
+
+		# Block AI from marrying characters under clerical marriage restraint
+		trigger_if = {
+			limit = { is_ai = yes }
+			NOR = {
+				scope:target = { pam_under_clerical_marriage_restraint_trigger = yes }
+				$CHARACTER$ = { pam_under_clerical_marriage_restraint_trigger = yes }
+			}
+		}
+
+		# Pastoral Isolation personal tenet, for AI
+		trigger_if = {
+			limit = {
+				is_ai = yes
+				has_personal_tenet_flag = tenet_pastoral_isolation_endogamy
+			}
+			OR = {
+				faith = $RECIPIENT$.faith
+				faith = scope:target.faith
+			}
+		}
+
+		# Block AI from marrying single mayors in their area unless they are also mayors
+		trigger_if = {
+			limit = {
+				is_ai = yes
+				NOT = { government_has_flag = government_is_republic }
+			}
+			$RECIPIENT$ = {
+				NOT = { government_has_flag = government_is_republic }
+			}
+		}
+
+		# Check cultural traditions
+		trigger_if = {
+			limit = {
+				is_ai = yes
+				culture = {
+					has_cultural_parameter = dislikes_marrying_outside_of_culture
+				}
+			}
+			OR = {
+				culture = $RECIPIENT$.culture
+				culture = scope:target.culture
+			}
+		}
+	}
+
+	#trigger_if = {
+	#	limit = {
+	#		$CHARACTER$.culture = { has_cultural_parameter = reduced_marriage_acceptance_distant_realms }
+	#	}
+	#	top_liege.culture = $CHARACTER$.top_liege.culture
+	#}
+}
+
+accou_could_marry_character_trigger = {
+	save_temporary_scope_as = character
+
+	# Opposite genders unless same-sex marriages are allowed
+	trigger_if = {
+		limit = { allowed_to_marry_same_sex_trigger = no }
+		sex_opposite_of = $CHARACTER$
+	}
+
+	# Faith hostility & consanguinity
+	rite = {
+		rite_allows_marriage_consanguinity_trigger = {
+			CHARACTER_1 = scope:character
+			CHARACTER_2 = $CHARACTER$
+		}
+		#faith_hostility_level = {
+		#	target = $CHARACTER$.faith
+		#	value < faith_hostility_prevents_marriage_level
+		#}
+	}
+
+	# Not already married or recently divorced
+	NOR = {
+		is_spouse_of = $CHARACTER$
+		has_opinion_modifier = {
+			modifier = divorced_me_opinion
+			target = $CHARACTER$
+		}
+	}
+
+	# Not the same character
+	this != $CHARACTER$
+}
+
+# Is this character a valid marriage recipient
+# See arrange_marriage_interaction (is_shown and is_valid_showing_failures_only)
+accou_is_valid_marriage_recipient_trigger = {
+	accou_is_valid_marriage_recipient_vanilla_trigger = { ACTOR = $ACTOR$ }
+}
+
+accou_is_valid_marriage_recipient_vanilla_trigger = {
+	is_imprisoned = no
+
+	# Not at war with actor
+	NOT = {
+		is_at_war_with = $ACTOR$
+	}
+
+	# Allow landless adventurers to marry only within their camp, or with contact list courtiers
+	trigger_if = {
+		limit = {
+			$ACTOR$ = {
+				is_landless_adventurer = yes
+			}
+		}
+		OR = {
+			this = $ACTOR$
+			$ACTOR$ = {
+				is_target_in_variable_list = {
+					name = contact_list_marriage
+					target = prev
+				}
+			}
+		}
+	}
+}
+
+accou_is_of_major_interest_trigger = {
+	OR = {
+		# Heirs
+		is_player_heir_of = $CHARACTER$
+		is_heir_of = $CHARACTER$
+
+		# Close family or consort
+		is_close_family_of = $CHARACTER$
+		is_consort_of = $CHARACTER$
+
+		# TODO Dynasty or house head
+		# TODO Head of faith
+	}
+}
+
+accou_is_of_minor_interest_trigger = {
+	OR = {
+		# Extended family or dynasty
+		is_extended_family_of = $CHARACTER$
+		accou_is_same_dynasty_trigger = { CHARACTER = $CHARACTER$ }
+
+		# Councillor, court position holder, or knight
+		is_councillor_of = $CHARACTER$
+		any_court_position_employer = {
+			this = $CHARACTER$
+		}
+		is_knight_of = $CHARACTER$
+
+		# Relations
+		has_relation_friend = $CHARACTER$
+		has_relation_rival = $CHARACTER$
+		has_relation_lover = $CHARACTER$
+		has_relation_guardian = $CHARACTER$
+		has_relation_ward = $CHARACTER$
+
+		# TODO Highly skilled courtiers
+
+		# Inspiration
+		exists = inspiration
+	}
+}
+
+accou_is_playable_character_within_range_trigger = {
+	capital_province ?= {
+		squared_distance = {
+			target = $LOCATION$
+			value <= $RANGE$
+		}
+	}
+}
+
+accou_is_same_faith_trigger = {
+	faith = scope:character.faith
+}
+
+accou_is_opposite_sex_trigger = {
+	sex_opposite_of = scope:character
+}
+
+accou_is_same_faith_and_opposite_sex_trigger = {
+	faith = scope:character.faith
+	sex_opposite_of = scope:character
+}
+
+accou_is_same_dynasty_trigger = {
+	is_lowborn = no
+	$CHARACTER$ = { is_lowborn = no }
+	dynasty = $CHARACTER$.dynasty
+}
+
+accou_has_real_dynasty_trigger = {
+	dynasty ?= {
+		OR = {
+			any_dynasty_member = {
+				count >= 2
+			}
+			dynasty_prestige_level > 1
+		}
+	}
+}
+
+accou_is_fertile_trigger = {
+	fertility > define:NChildbirth|LOW_FERTILITY
+	OR = {
+		is_female = no
+		age < define:NChildbirth|MAX_FEMALE_REPRODUCTION_AGE
+	}
+}
+
+accou_are_wrong_gender_marriage_requests_allowed_trigger = {
+	trigger_if = {
+		limit = { has_game_rule = accou_wrong_gender_marriage_requests_not_allowed }
+		always = no
+	}
+	trigger_else_if = {
+		limit = { has_game_rule = accou_wrong_gender_marriage_requests_highborn_only }
+		is_lowborn = no
+	}
+	trigger_else = {
+		always = yes
+	}
+}
+
+accou_is_marriage_ai_acceptance_check_original_trigger = {
+	has_game_rule = accou_marriage_ai_acceptance_check_original
+}
+
+accou_is_not_nomadic_or_tributary_trigger = {
+	trigger_if = {
+		limit = {
+			government_has_flag = government_is_in_steppe
+		}
+		$PARTY$ = {
+			NOR = {
+				government_has_flag = government_is_in_steppe
+				is_tributary_of = prev
+			}
+		}
+	}
+}

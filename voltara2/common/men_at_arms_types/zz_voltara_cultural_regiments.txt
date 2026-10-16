@@ -1,0 +1,270 @@
+﻿voltara_stoneborn_pikes = {
+ type = pikemen
+ damage = 32
+ toughness = 72
+ pursuit = 0
+ screen = 15
+ stack = 80
+ provision_cost = 12
+ buy_cost = { gold = 187 }
+ low_maintenance_cost = { gold = 0.75 }
+ high_maintenance_cost = { gold = 2.24 }
+ counters = { light_cavalry = 1 heavy_cavalry = 1 camel_cavalry = 1 archers = 0.5 }
+ terrain_bonus = { mountains = { damage = 21 toughness = 47 screen = 5 } desert_mountains = { damage = 21 toughness = 47 screen = 5 } hills = { damage = 10 toughness = 22 screen = 3 } }
+ can_recruit = { OR = { culture = culture:voltara_culture_23 } }
+ access_through_subject = { always = no }
+ icon = voltara_stoneborn_pikes
+}
+
+voltara_stoneborn_guard = {
+ type = heavy_infantry
+ damage = 48
+ toughness = 60
+ pursuit = 0
+ screen = 15
+ stack = 80
+ provision_cost = 12
+ buy_cost = { gold = 202 }
+ low_maintenance_cost = { gold = 0.9 }
+ high_maintenance_cost = { gold = 2.69 }
+ counters = { pikemen = 1 skirmishers = 1 archers = 0.5 }
+ terrain_bonus = { mountains = { damage = 22 toughness = 27 screen = 4 } desert_mountains = { damage = 22 toughness = 27 screen = 4 } hills = { damage = 15 toughness = 18 screen = 3 } }
+ can_recruit = { OR = { culture = culture:voltara_culture_23 } }
+ access_through_subject = { always = no }
+ icon = voltara_stoneborn_guard
+}
+
+voltara_high_elven_bows = {
+ type = archers
+ damage = 210
+ toughness = 70
+ pursuit = 30
+ screen = 0
+ stack = 25
+ provision_cost = 7
+ buy_cost = { gold = 320 }
+ low_maintenance_cost = { gold = 1.5 }
+ high_maintenance_cost = { gold = 4.5 }
+ counters = { skirmishers = 1.5 pikemen = 1 elephant_cavalry = 1 }
+ terrain_bonus = { mountains = { damage = 77 toughness = 90 screen = 9 } desert_mountains = { damage = 77 toughness = 90 screen = 9 } hills = { damage = 39 toughness = 45 screen = 5 } }
+ can_recruit = { OR = { culture = culture:voltara_culture_18 } }
+ access_through_subject = { always = no }
+ icon = voltara_high_elven_bows
+}
+
+voltara_high_elven_guard = {
+ type = heavy_infantry
+ damage = 204
+ toughness = 132
+ pursuit = 10
+ screen = 25
+ stack = 25
+ provision_cost = 7
+ buy_cost = { gold = 450 }
+ low_maintenance_cost = { gold = 1.5 }
+ high_maintenance_cost = { gold = 4.5 }
+ counters = { pikemen = 1 }
+ terrain_bonus = {  }
+ can_recruit = { OR = { culture = culture:voltara_culture_18 } }
+ access_through_subject = { always = no }
+ icon = voltara_high_elven_guard
+}
+
+voltara_thornfell_hunters = {
+ type = archers
+ damage = 30
+ toughness = 14
+ pursuit = 10
+ screen = 10
+ stack = 100
+ provision_cost = 7
+ terrain_bonus = { forest = { damage = 5 toughness = 18 screen = 30 } taiga = { damage = 5 toughness = 18 screen = 30 } hills = { damage = 5 toughness = 5 } plains = { toughness = -4 } farmlands = { toughness = -4 } }
+ counters = { skirmishers = 1.5 }
+ buy_cost = { gold = 66 }
+ low_maintenance_cost = { gold = 0.22 }
+ high_maintenance_cost = { gold = 0.66 }
+ can_recruit = { OR = { culture = culture:voltara_culture_33 culture = culture:voltara_culture_35 culture = culture:voltara_culture_31 } }
+ access_through_subject = { always = no }
+ icon = voltara_thornfell_hunters
+}
+
+voltara_orc_warband = {
+ type = heavy_infantry
+ damage = 14
+ toughness = 13
+ pursuit = 0
+ screen = 0
+ stack = 200
+ provision_cost = 3
+ buy_cost = { gold = 35 }
+ low_maintenance_cost = { gold = 0.23 }
+ high_maintenance_cost = { gold = 0.7 }
+ counters = { pikemen = 1 }
+ terrain_bonus = { mountains = { damage = 3 toughness = 2 } desert_mountains = { damage = -7 toughness = -6 } hills = { damage = 3 toughness = 2 } desert = { damage = -7 toughness = -6 } }
+ can_recruit = { OR = { culture = culture:voltara_culture_20 } }
+ access_through_subject = { always = no }
+ icon = voltara_orc_warband
+}
+
+voltara_giant_breakers = {
+ type = heavy_infantry
+ damage = 40
+ toughness = 20
+ pursuit = 0
+ screen = 0
+ stack = 50
+ provision_cost = 7
+ terrain_bonus = { steppe = { toughness = 5 screen = 5 } desert = { damage = -10 toughness = -15 } desert_mountains = { damage = -10 toughness = -15} }
+ counters = { skirmishers = 1 pikemen = 1 }
+ buy_cost = { gold = 180 }
+ low_maintenance_cost = { gold = 0.7 }
+ high_maintenance_cost = { gold = 2.1 }
+ can_recruit = { OR = { culture = culture:voltara_giants culture = culture:voltara_culture_40 } }
+ access_through_subject = { always = no }
+ icon = voltara_giant_breakers
+}
+
+voltara_deep_stalkers = {
+ type = skirmishers
+ damage = 15
+ toughness = 14
+ pursuit = 15
+ screen = 14
+ stack = 100
+ provision_cost = 7
+ terrain_bonus = { taiga = { damage = 6 toughness = 6 } }
+ counters = { heavy_infantry = 1 }
+ buy_cost = { gold = 180 }
+ low_maintenance_cost = { gold = 0.7 }
+ high_maintenance_cost = { gold = 2.1 }
+ can_recruit = { OR = { culture = culture:voltara_culture_42 } }
+ access_through_subject = { always = no }
+ icon = voltara_deep_stalkers
+}
+
+voltara_severosi_crossbows = {
+ type = archers
+ damage = 45
+ toughness = 25
+ pursuit = 0
+ screen = 0
+ stack = 80
+ provision_cost = 15
+ buy_cost = { gold = 180 }
+ low_maintenance_cost = { gold = 0.7 }
+ high_maintenance_cost = { gold = 2.1 }
+ counters = { heavy_infantry = 2 heavy_cavalry = 1 elephant_cavalry = 1 }
+ terrain_bonus = { plains = { damage = 10  toughness = 10  pursuit = 10 screen = 10 } hills = { damage = 10  toughness = 10  pursuit = 10 screen = 10 } farmlands = { damage = 5  toughness = 5  pursuit = 5 screen = 5 } forest = { damage = 5  toughness = 5  pursuit = 5 screen = 5 } wetlands = { damage = 5  toughness = 5  pursuit = 5 screen = 5 } floodplains = { damage = 5  toughness = 5  pursuit = 5 screen = 5 } mountains = { damage = -5  toughness = -5  pursuit = -5 screen = -5 } oasis = { damage = -5  toughness = -5  pursuit = -5 screen = -5 } taiga = { damage = -5  toughness = -5  pursuit = -5 screen = -5 } steppe = { damage = -5  toughness = -5  pursuit = -5 screen = -5 } desert = { damage = -10  toughness = -10  pursuit = -10 screen = -10 } desert_mountains = { damage = -10  toughness = -10  pursuit = -10 screen = -10 } jungle = { damage = -10  toughness = -10  pursuit = -10 screen = -10 } drylands = { damage = -10  toughness = -10  pursuit = -10 screen = -10 } }
+ can_recruit = { OR = { culture = culture:voltara_culture_22 } }
+ access_through_subject = { always = no }
+ icon = voltara_severosi_crossbows
+}
+
+voltara_coastal_marines = {
+ type = skirmishers
+ damage = 15
+ toughness = 20
+ pursuit = 10
+ screen = 20
+ stack = 80
+ provision_cost = 3
+ buy_cost = { gold = 180 }
+ low_maintenance_cost = { gold = 0.7 }
+ high_maintenance_cost = { gold = 2.1 }
+ counters = { light_cavalry = 2 camel_cavalry = 2 pikemen = 1 }
+ terrain_bonus = { plains = { damage = 10  toughness = 10  pursuit = 10 screen = 10 } hills = { damage = 10  toughness = 10  pursuit = 10 screen = 10 } wetlands = { damage = 10  toughness = 10  pursuit = 10 screen = 10 } farmlands = { damage = 5  toughness = 5  pursuit = 5 screen = 5 } mountains = { damage = 5  toughness = 5  pursuit = 5 screen = 5 } forest = { damage = 5  toughness = 5  pursuit = 5 screen = 5 } floodplains = { damage = 5  toughness = 5  pursuit = 5 screen = 5 } oasis = { damage = -5  toughness = -5  pursuit = -5 screen = -5 } jungle = { damage = -5  toughness = -5  pursuit = -5 screen = -5 } desert = { damage = -10  toughness = -10  pursuit = -10 screen = -10 } desert_mountains = { damage = -10  toughness = -10  pursuit = -10 screen = -10 } taiga = { damage = -10  toughness = -10  pursuit = -10 screen = -10 } steppe = { damage = -10  toughness = -10  pursuit = -10 screen = -10 } drylands = { damage = -10  toughness = -10  pursuit = -10 screen = -10 } }
+ can_recruit = { OR = { culture = culture:voltara_culture_43 culture = culture:voltara_culture_36 } }
+ access_through_subject = { always = no }
+ icon = voltara_coastal_marines
+}
+
+voltara_southron_spears = {
+ type = pikemen
+ damage = 25
+ toughness = 25
+ pursuit = 5
+ screen = 0
+ stack = 100
+ provision_cost = 7
+ buy_cost = { gold = 180 }
+ low_maintenance_cost = { gold = 0.7 }
+ high_maintenance_cost = { gold = 2.1 }
+ counters = { light_cavalry = 0.25 camel_cavalry = 1 heavy_cavalry = 2 elephant_cavalry = 1 }
+ terrain_bonus = { oasis = { damage = 10  toughness = 10  pursuit = 10 screen = 10 } jungle = { damage = 10  toughness = 10  pursuit = 10 screen = 10 } floodplains = { damage = 10  toughness = 10  pursuit = 10 screen = 10 } desert_mountains = { damage = 5  toughness = 5  pursuit = 5 screen = 5 } drylands = { damage = 5  toughness = 5  pursuit = 5 screen = 5 } desert = { damage = 5  toughness = 5  pursuit = 5 screen = 5 } hills = { damage = 5  toughness = 5  pursuit = 5 screen = 5 } plains = { damage = -5  toughness = -5  pursuit = -5 screen = -5 } farmlands = { damage = -5  toughness = -5  pursuit = -5 screen = -5 } wetlands = { damage = -5  toughness = -5  pursuit = -5 screen = -5 } mountains = { damage = -10  toughness = -10  pursuit = -10 screen = -10 } forest = { damage = -10  toughness = -10  pursuit = -10 screen = -10 } taiga = { damage = -10  toughness = -10  pursuit = -10 screen = -10 } steppe = { damage = -10  toughness = -10  pursuit = -10 screen = -10 } }
+ can_recruit = { OR = { culture = culture:voltara_desert_southron culture = culture:voltara_southorion } }
+ access_through_subject = { always = no }
+ icon = voltara_southron_spears
+}
+
+voltara_kartholos_guard = {
+ type = heavy_infantry
+ damage = 28
+ toughness = 32
+ pursuit = 0
+ screen = 12
+ stack = 100
+ provision_cost = 12
+ terrain_bonus = { forest = { screen = 10 } plains = { screen = 10 } taiga = { screen = 5 } mountains = { toughness = -5 } desert = { toughness = -10 } desert_mountains = { toughness = -10 } drylands = { toughness = -10 } steppe = { toughness = -10 } }
+ counters = { pikemen = 1 heavy_infantry = 1 }
+ buy_cost = { gold = 180 }
+ low_maintenance_cost = { gold = 0.7 }
+ high_maintenance_cost = { gold = 2.1 }
+ can_recruit = { OR = { OR = { culture = culture:voltara_culture_36 } has_title = title:k_voltara_22 top_liege = { has_title = title:k_voltara_22 } } }
+ access_through_subject = { always = no }
+ icon = voltara_kartholos_guard
+}
+
+voltara_stoneborn_sappers = {
+ type = siege_weapon
+ damage = 48
+ toughness = 28
+ pursuit = 0
+ screen = 10
+ stack = 25
+ siege_tier = 3
+ siege_value = 0.1
+ provision_cost = 7
+ buy_cost = { gold = 150 }
+ low_maintenance_cost = { gold = 0.51 }
+ high_maintenance_cost = { gold = 1.53 }
+ terrain_bonus = { mountains = { damage = 22 toughness = 13 screen = 3 } desert_mountains = { damage = 22 toughness = 13 screen = 3 } hills = { damage = 15 toughness = 9 screen = 2 } jungle = { damage = 15 toughness = 9 screen = 2 } }
+ can_recruit = { OR = { culture = culture:voltara_culture_23 } }
+ access_through_subject = { always = no }
+ icon = onager
+}
+
+voltara_goblin_ambushers = {
+ type = skirmishers
+ damage = 19
+ toughness = 18
+ pursuit = 17
+ screen = 14
+ stack = 100
+ provision_cost = 7
+ terrain_bonus = { forest = { damage = 4 toughness = 6 } taiga = { damage = 4 toughness = 6 } jungle = { damage = 4 toughness = 6 } }
+ counters = { heavy_infantry = 1 }
+ buy_cost = { gold = 180 }
+ low_maintenance_cost = { gold = 0.7 }
+ high_maintenance_cost = { gold = 2.1 }
+ can_recruit = { OR = { culture = culture:voltara_culture_21 culture = culture:voltara_western_goblins } }
+ access_through_subject = { always = no }
+ icon = voltara_goblin_ambushers
+}
+
+voltara_enderali_wardens = {
+ type = pikemen
+ damage = 22
+ toughness = 28
+ pursuit = 10
+ screen = 0
+ stack = 100
+ provision_cost = 7
+ terrain_bonus = { wetlands = { damage = 4 toughness = 5 pursuit = 1 } plains = { damage = 7 toughness = 9 pursuit = 2 } hills = { damage = 10 toughness = 13 pursuit = 3 } }
+ counters = { light_cavalry = 1 heavy_cavalry = 1 }
+ buy_cost = { gold = 55 }
+ low_maintenance_cost = { gold = 0.18 }
+ high_maintenance_cost = { gold = 0.55 }
+ can_recruit = { OR = { culture = culture:voltara_culture_30 } }
+ access_through_subject = { always = no }
+ icon = voltara_enderali_wardens
+}

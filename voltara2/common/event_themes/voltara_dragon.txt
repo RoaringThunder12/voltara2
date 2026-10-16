@@ -1,0 +1,14 @@
+﻿dragon = {
+	icon = {
+		reference = "gfx/interface/icons/event_types/type_dragon.dds"
+	}
+	header_background = {
+		reference = "gfx/interface/window_event/event_header_red.dds"
+	}
+	sound = {
+		reference = "event:/SFX/Events/Themes/sfx_event_theme_type_generic"
+	}
+	background = {
+		reference = agot_dragonpit
+	}
+}

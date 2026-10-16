@@ -1,0 +1,27 @@
+﻿# Thrall Opinion of Master
+cof_undead_thrall_opinion = {
+	opinion = 1000
+	imprisonment_reason = yes
+	banish_reason = yes
+	execute_reason = yes
+	revoke_title_reason = yes
+	obedient = yes
+	non_interference = yes
+}
+
+# Opinion for rejecting Lichdom offer
+cof_ekue_lich_blessing_rejection_opinion = {
+	opinion = -10
+}
+
+# Opinion for accepting Lichdom offer
+cof_ekue_lich_blessing_accept_opinion = {
+	opinion = 30
+	decaying = yes
+}
+
+# Opinion for ascending undead
+cof_ekue_ascend_lich_opinion = {
+	opinion = 200
+	decaying = yes
+}

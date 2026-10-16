@@ -1,0 +1,103 @@
+﻿magic_theory_focus = { 
+	lifestyle = vt_threadbinding_magic_lifestyle
+	
+	modifier = {
+		learning = 3
+		stewardship = 1
+	}
+
+	desc = {
+		desc = magic_theory_focus_desc
+		desc = line_break
+	}
+
+	is_valid = {
+		can_magic_trigger = yes
+	}
+
+	auto_selection_weight = {
+		value = 100
+		if = {
+			limit = { 
+				OR = { 
+					has_students_magicka_background = yes
+					is_court_mage_trigger = yes
+				}
+			}
+			add = 1900
+		}
+		if = { 
+			limit = { culture = { has_cultural_parameter = magic_preference } }
+			add = 100
+		}
+	}
+}
+magic_practical_focus = { 
+	lifestyle = vt_threadbinding_magic_lifestyle
+	
+	modifier = {
+		prowess = 2
+		martial = 1
+		intrigue = 1
+	}
+
+	desc = {
+		desc = magic_practical_focus_desc
+		desc = line_break
+	}
+
+	is_valid = {
+		can_magic_trigger = yes
+	}
+
+	auto_selection_weight = {
+		value = 100
+		if = {
+			limit = { 
+				OR = { 
+					has_students_magicka_background = yes
+					is_court_mage_trigger = yes
+				}
+			}
+			add = 1900
+		}
+		if = { 
+			limit = { culture = { has_cultural_parameter = magic_preference } }
+			add = 100
+		}
+	}
+}
+magic_thaumaturgic_focus = {
+	lifestyle = vt_threadbinding_magic_lifestyle
+	
+	modifier = {
+		diplomacy = 1
+		general_opinion = 5
+	}
+
+	desc = {
+		desc = magic_thaumaturgic_focus_desc
+		desc = line_break
+	}
+
+	is_valid = {
+		can_magic_trigger = yes
+	}
+
+	auto_selection_weight = {
+		value = 100
+		if = {
+			limit = { 
+				OR = { 
+					has_students_magicka_background = yes
+					is_court_mage_trigger = yes
+				}
+			}
+			add = 1900
+		}
+		if = { 
+			limit = { culture = { has_cultural_parameter = magic_preference } }
+			add = 100
+		}
+	}
+}

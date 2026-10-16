@@ -1,0 +1,14 @@
+﻿voltara_aeluinist = {
+ 3781.1.1 = {
+ created = yes
+ main_rite = voltara_order_rite_23
+ religious_head = k_voltara_luminous_see
+ rites = {
+voltara_order_rite_22 = {}
+voltara_order_rite_24 = {}
+voltara_order_rite_25 = {}
+voltara_order_rite_26 = {}
+}
+ permitted = { tenet_voltara_twofold_creation tenet_voltara_ancestral_witness tenet_voltara_sheltering_hearth tenet_voltara_mountain_vigil tenet_voltara_living_covenant }
+}
+}

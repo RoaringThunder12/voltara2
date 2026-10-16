@@ -1,0 +1,10 @@
+﻿voltara_undead_skin = {
+ corpse = {
+  traits = { vt_ek_undead_character vt_ek_lich_character }
+  trigger = { var:ek_undead_decay > 0.1 var:ek_undead_decay < 0.6 NOT = { has_character_modifier = modifier_ritual_conceal } }
+  dna_modifiers = { human = {
+   morph = { mode = add gene = vt_undead_skin template = draugr_bs value = 1.0 }
+   morph = { mode = add gene = vt_undead_gore template = gore_1 value = 1.0 }
+  } }
+ }
+}

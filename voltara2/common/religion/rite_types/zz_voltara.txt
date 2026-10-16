@@ -1,0 +1,23 @@
+﻿voltara_order_rite_22 = { faith = voltara_aeluinist icon = voltara_22 color = { 61 179 179 }
+ tenets = { tenet_voltara_ancestral_witness tenet_voltara_twofold_creation tenet_voltara_living_covenant }
+ doctrines = { voltara_necromancy_crime  voltara_order_hostility doctrine_spiritual_head doctrine_witchcraft_crime }
+}
+voltara_order_rite_23 = { faith = voltara_aeluinist icon = voltara_23 color = { 236 171 46 }
+ tenets = { tenet_voltara_sacred_measure tenet_voltara_communion_light tenet_voltara_erisian_inquiry }
+ doctrines = { voltara_necromancy_crime  voltara_order_hostility doctrine_spiritual_head doctrine_witchcraft_crime }
+}
+voltara_order_rite_24 = { faith = voltara_aeluinist icon = voltara_24 color = { 27 218 170 }
+ tenets = { tenet_voltara_erisian_inquiry tenet_voltara_twofold_creation tenet_voltara_sacred_measure }
+ doctrines = { voltara_necromancy_crime  voltara_order_hostility doctrine_spiritual_head doctrine_witchcraft_crime }
+}
+voltara_order_rite_25 = { faith = voltara_aeluinist icon = voltara_25 color = { 192 63 167 }
+ tenets = { tenet_voltara_sheltering_hearth tenet_voltara_communion_light tenet_voltara_living_covenant }
+ doctrines = { voltara_necromancy_crime  voltara_order_hostility doctrine_spiritual_head doctrine_witchcraft_crime }
+}
+voltara_order_rite_26 = { faith = voltara_aeluinist icon = voltara_26 color = { 112 144 192 }
+ tenets = { tenet_voltara_mountain_vigil tenet_voltara_sheltering_hearth tenet_voltara_ancestral_witness }
+ doctrines = { voltara_necromancy_crime  voltara_order_hostility doctrine_spiritual_head doctrine_witchcraft_crime }
+}
+voltara_khaotism_rite = { faith = voltara_khaotism icon = voltara_khaos color = { 120 40 160 } tenets = { tenet_pursuit_of_power tenet_ritual_celebrations tenet_esotericism } doctrines = { spn_doctrine_vampirism_accepted voltara_necromancy_accepted  voltara_khaos_hostility doctrine_no_head doctrine_witchcraft_accepted } }
+voltara_veiled_balance = { faith = voltara_aeluinist icon = voltara_veiled_balance color = { 118 117 184 } create = yes convert = yes tenets = { tenet_voltara_twofold_creation tenet_voltara_living_covenant tenet_voltara_sheltering_hearth } doctrines = { voltara_necromancy_crime  voltara_order_hostility doctrine_no_head doctrine_gender_equal doctrine_witchcraft_crime } }
+voltara_uncrowned_light = { faith = voltara_aeluinist icon = voltara_uncrowned_light color = { 230 213 173 } create = yes convert = yes tenets = { tenet_voltara_sacred_measure tenet_voltara_sheltering_hearth tenet_voltara_erisian_inquiry } doctrines = { voltara_necromancy_crime  voltara_order_hostility doctrine_no_head doctrine_gender_equal doctrine_witchcraft_crime } }

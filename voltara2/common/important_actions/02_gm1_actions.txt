@@ -1,0 +1,205 @@
+﻿##############################
+## GM1 important_actions
+##############################
+
+# based on ./common/important_actions/00_personal_actions.txt/action_can_ransom
+# based on ./common/important_actions/bp2_actions.txt/action_can_offer_hostage
+action_can_offer_prisoner = {
+	combine_into_one = yes
+	#priority = 400
+	is_dangerous = yes
+	check_create_action = {
+		if = {
+			limit = {
+				any_prisoner = {
+					gm1_valid_prisoner_for_interaction_trigger = yes
+					gm1_valid_prisoner_for_interaction_trigger_basic = yes
+					NOT = { is_at_war_with = root }
+				}
+			}
+			every_prisoner = {
+				limit = {
+					gm1_valid_prisoner_for_interaction_trigger = yes
+					gm1_valid_prisoner_for_interaction_trigger_basic = yes
+					NOT = { is_at_war_with = root }
+				}
+				save_temporary_scope_as = prisoner
+				## Determine which targets to offer.
+				if = {
+					limit = { is_at_war = yes }
+					every_character_war = {
+						every_war_participant = {
+							limit = {
+								NOT = { this = root }
+								NOT = { this = scope:prisoner }
+								is_imprisoned = no
+								NOT = { is_allied_in_war = scope:prisoner }
+							}
+							add_to_list = potential_interaction_target_list
+						}
+					}
+				}
+				if = {
+					limit = { is_landed = yes }
+					primary_title = {
+						every_claimant = {
+							limit = {
+								NOT = { this = root }
+								NOT = { this = scope:prisoner }
+								is_imprisoned = no	
+								is_landed = yes							
+								has_strong_claim_on = prev # Should we consider only strong title claimants?
+							}
+							add_to_list = potential_interaction_target_list
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_in_list = {
+						list = potential_interaction_target_list
+						count >= 1
+					}
+				}
+				every_in_list = {
+					list = potential_interaction_target_list
+					limit = {
+						character_is_realm_neighbor = root
+						NOT = { is_allied_in_war = root }
+						NOT = { is_at_war_with = root }
+					}
+					save_temporary_scope_as = recipient
+					## Determine which prisoner to offer.
+					root = {
+						ordered_prisoner = {
+							limit = {
+								gm1_valid_prisoner_for_interaction_trigger = yes
+								gm1_valid_prisoner_for_interaction_trigger_basic = yes
+								NOT = { is_at_war_with = root }
+								OR = {
+									is_at_war_with = scope:recipient
+									any_held_title = { scope:recipient = { has_strong_claim_on = prev }	}
+								}								
+							}
+							order_by = { value = prisoner_barter_value }
+							save_temporary_scope_as = secondary_actor
+						}
+					}
+
+					## Don't be a poor fuck.
+					if = {
+						limit = { current_gold_value >= scope:secondary_actor.prisoner_barter_value }
+						try_create_important_action = {
+							important_action_type = action_can_offer_prisoner
+							actor = root
+							recipient = this
+							secondary_actor = scope:secondary_actor
+						}
+					}
+				}
+			}
+		}
+	}
+
+	unimportant = { }
+
+	effect = {
+		if = {
+			limit = {
+				is_character_interaction_potentially_accepted = {
+					interaction = offer_prisoner_interaction
+					recipient = scope:recipient
+					secondary_actor = scope:secondary_actor
+				}
+			}
+			open_interaction_window = {
+				interaction = offer_prisoner_interaction
+				actor = root
+				recipient = scope:recipient
+				secondary_actor = scope:secondary_actor
+			}
+		}
+	}
+}
+
+# based on ./common/important_actions/00_personal_actions.txt/action_can_ransom
+# based on ./common/important_actions/bp2_actions.txt/action_can_demand_hostage
+action_can_demand_prisoner = {
+	combine_into_one = yes
+	#priority = 400
+	is_dangerous = no
+	check_create_action = {
+		## Determine which prisoners to demand.
+		if = {
+			limit = { is_at_war = yes }
+			every_character_war = {
+				every_war_participant = {
+					limit = {
+						gm1_valid_prisoner_for_interaction_trigger = yes
+						gm1_valid_prisoner_for_interaction_trigger_basic = yes
+						NOT = { is_imprisoned_by = root }
+					}
+					add_to_list = potential_interaction_target_list
+				}
+			}
+		}
+		if = {
+			limit = { is_landed = yes }
+			primary_title = {
+				every_claimant = {
+					limit = {
+						gm1_valid_prisoner_for_interaction_trigger = yes
+						gm1_valid_prisoner_for_interaction_trigger_basic = yes
+						NOT = { is_imprisoned_by = root }
+						NOT = { has_strong_claim_on = prev } # Should we consider only strong title claimants?
+					}
+					add_to_list = potential_interaction_target_list
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_in_list = {
+					list = potential_interaction_target_list
+					count >= 1
+				}
+			}
+			every_in_list = {
+				list = potential_interaction_target_list
+				limit = {
+					imprisoner = {
+						NOT = { is_allied_in_war = root }
+						NOT = { is_at_war_with = root }
+					}
+				}
+				try_create_important_action = {
+					important_action_type = action_can_demand_prisoner
+					actor = root
+					recipient = this
+				}
+			}
+		}
+	}
+
+	unimportant = {
+		current_gold_value < scope:recipient.prisoner_barter_value
+	}
+
+	effect = {
+		if = {
+			limit = {
+				exists = scope:recipient
+				is_character_interaction_potentially_accepted = {
+					interaction = demand_prisoner_interaction
+					recipient = scope:recipient
+				}
+			}
+			open_interaction_window = {
+				interaction = demand_prisoner_interaction
+				actor = root
+				recipient = scope:recipient
+			}
+		}
+	}
+}

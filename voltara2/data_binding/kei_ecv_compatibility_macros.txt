@@ -1,0 +1,29 @@
+﻿macro = {
+	description = "Newer Better Buyable Building Slot + Infinite Building Slot"
+	definition = "kei_Compat_IsModLoaded_NBBBS"
+	replace_with = "Character.IsPlayerInteractionValid('adding_building_slot_interaction')"
+}
+
+macro = {
+	description = "Whether to display holder"
+	definition = "kECVCompatDisplayHolder"
+	replace_with = "Or(Not(kei_Compat_IsModLoaded_AGOT), kECVCompatProvinceNotEmpty)"
+}
+
+macro = {
+	description = "Whether to display garrison"
+	definition = "kECVCompatDisplayGarrison"
+	replace_with = "kECVCompatDisplayHolder"
+}
+
+macro = {
+	description = "Whether to consider the province as NOT empty"
+	definition = "kECVCompatProvinceNotEmpty"
+	replace_with = "Or(Not(kei_Compat_IsModLoaded_AGOT), ProvinceIsNotHidden)"
+}
+
+macro = {
+	description = "Whether to consider the province as having an holder"
+	definition = "kECVCompatProvinceHasHolder"
+	replace_with = "And(HoldingView.GetTitle.HasHolder, kECVCompatDisplayHolder)"
+}

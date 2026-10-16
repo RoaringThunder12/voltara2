@@ -1,0 +1,453 @@
+﻿cof_undead_thrall_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	interface_priority = 200
+	common_interaction = yes
+	category = interaction_category_prison
+	special_interaction = execute_prisoner_interaction	#Zurück
+	icon = icon_thralldom
+
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		NOT = {
+			scope:actor = scope:recipient
+		}
+		scope:actor = {
+			has_perk = necromancy_journeyman_perk
+			magicka_max > 40
+		}
+		scope:recipient = {
+			is_imprisoned_by = scope:actor
+			NOT = {
+				OR = {
+					is_pregnant = yes
+					has_trait = laid_egg
+					has_trait = vt_ek_undead_character
+					has_trait = vt_ek_lich_character
+					is_vampire = yes
+					has_character_modifier = secret_vampire_modifier
+					has_trait = reclusive_vampire
+					has_trait = lifespan_7
+					has_trait = briarheart
+					has_character_flag = race_daedra
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = cof_ekue_magicka_40
+			scope:actor = {
+				var:magicka > 40
+			}
+		}
+	}
+
+	force_notification = yes
+	show_answer_notification = no
+	desc = cof_undead_thrall_interaction_desc
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+
+	options_heading = cof_ekue_undead_thrall_options_heading
+
+	send_option = {
+		is_shown = {
+			NOT = {
+				scope:actor.faith = scope:recipient.faith
+			}
+		}
+		flag = cof_ekue_relcon
+		localization = "cof_undead_thrall_interaction_faith"
+	}
+
+	send_option = {
+		is_shown = {
+			NOT = {
+				scope:actor.culture = scope:recipient.culture
+			}
+		}
+		flag = cof_ekue_culcon
+		localization = "cof_undead_thrall_interaction_culture"
+	}
+
+	send_option = {
+		is_shown = {
+			always = yes
+		}
+		flag = cof_ekue_stripflesh
+		localization = "cof_undead_thrall_interaction_strip_flesh"
+	}
+
+	send_options_exclusive = no
+
+	on_accept = {
+		if = {
+			limit = {
+				scope:recipient = {
+					is_ruler = yes
+				}
+			}
+			scope:recipient = {
+				depose = yes
+			}
+		}
+
+		#Entfernt Recipient aus Court seines Hosts
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = scope:recipient.liege
+				}
+				scope:recipient.liege = {
+					send_interface_message = {
+						type = event_generic_neutral
+						title = msg_courtier_left_court_interaction_title
+						right_icon = scope:recipient
+						show_as_tooltip = {
+							remove_courtier_or_guest = scope:recipient
+						}
+					}
+				}
+			}
+		}
+
+		scope:recipient = {
+			if = {
+				limit = {
+					has_trait = tsaesci_1
+				}
+				remove_trait = tsaesci_1
+				remove_character_flag = lifespan_1
+			}
+			if = {
+				limit = {
+					has_trait = tsaesci_2
+				}
+				remove_trait = tsaesci_2
+				remove_character_flag = lifespan_2
+			}
+			if = {
+				limit = {
+					has_trait = tsaesci_3
+				}
+				remove_trait = tsaesci_3
+				remove_character_flag = lifespan_3
+			}
+			if = {
+				limit = {
+					has_trait = tsaesci_4
+				}
+				remove_trait = tsaesci_4
+				remove_character_flag = lifespan_4
+			}
+			if = {
+				limit = {
+					has_trait = lifespan_1
+				}
+				remove_trait = lifespan_1
+				remove_character_flag = lifespan_1
+			}
+			if = {
+				limit = {
+					has_trait = lifespan_2
+				}
+				remove_trait = lifespan_2
+				remove_character_flag = lifespan_2
+			}
+			if = {
+				limit = {
+					has_trait = lifespan_3
+				}
+				remove_trait = lifespan_3
+				remove_character_flag = lifespan_3
+			}
+			if = {
+				limit = {
+					has_trait = lifespan_4
+				}
+				remove_trait = lifespan_4
+				remove_character_flag = lifespan_4
+			}
+			if = {
+				limit = {
+					has_trait = lifespan_5
+				}
+				remove_trait = lifespan_5
+				remove_character_flag = lifespan_5
+			}
+			if = {
+				limit = {
+					has_trait = lifespan_6
+				}
+				remove_trait = lifespan_6
+				remove_character_flag = lifespan_6
+			}
+			if = {
+				limit = {
+					has_trait = infirm
+				}
+				remove_trait = infirm
+			}
+		}
+
+		scope:recipient = {
+			add_opinion = {
+				modifier = cof_undead_thrall_opinion
+				target = scope:actor
+			}
+			add_trait = vt_ek_undead_character
+			add_character_flag = sentient_undead
+			# add_character_flag = fleshy_undead
+			#Bei Gelegenheit predetermined decay effect ersetzen
+			if = {
+				limit = { 
+					NOT = { scope:cof_ekue_stripflesh = yes }
+				}
+				set_predetermined_decay_effect = {
+					DECAY = 0.1
+				}
+			}
+			set_sexuality = asexual
+			release_from_prison = yes
+		}
+		scope:actor = {
+			add_courtier = scope:recipient
+			add_hook = {
+				type = undead_thrall_hook
+				target = scope:recipient
+			}
+			add_magicka = {
+				VALUE = 40.negate
+			}
+			change_variable = {
+				name = magicka
+				add = -40
+			}
+		}
+		scope:recipient = {
+			hidden_effect = {
+				return_to_court = yes
+			}
+		}
+		if = {
+			limit = {
+				scope:cof_ekue_relcon = yes
+			}
+			scope:recipient = {
+				set_character_faith = scope:actor.faith
+			}
+		}
+		if = {
+			limit = {
+				scope:cof_ekue_culcon = yes
+			}
+			scope:recipient = {
+				set_culture = scope:actor.culture
+			}
+		}
+		if = {
+			limit = {
+				scope:cof_ekue_stripflesh = yes
+			}
+			scope:recipient = {
+				# remove_character_flag = fleshy_undead
+				set_predetermined_decay_effect = {
+					DECAY = 1
+				}
+			}
+		}
+		cof_thrall_effect = {
+			VICTIM = scope:recipient
+			EXECUTIONER = scope:actor
+		}
+		custom_tooltip = {
+			text = cof_ekue_remove_aging
+			scope:recipient = {
+				clear_aging_modifier_effect = yes
+			}
+		}
+		scope:recipient = {
+			create_character_memory = {
+				type = cof_ekue_became_undead_thrall
+				participants = {
+					vt_ek_necromancer = scope:actor
+				}
+			}
+		}
+	}
+
+	auto_accept = yes
+}
+
+cof_ekue_harvest_soul_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	interface_priority = 200
+	common_interaction = yes
+	category = interaction_category_prison
+	special_interaction = execute_prisoner_interaction
+	icon = icon_spellbook
+	desc = cof_ekue_harvest_soul_interaction_desc
+	force_notification = yes
+	show_answer_notification = no
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		NOT = {
+			scope:actor = scope:recipient
+		}
+		scope:actor = {
+			has_perk = necromancy_master_perk
+		}
+		scope:recipient = {
+			is_imprisoned_by = scope:actor
+			magicka_max > 0
+			NOT = {
+				OR = {
+					is_pregnant = yes
+					has_trait = laid_egg
+					has_trait = vt_ek_undead_character
+					has_trait = vt_ek_lich_character
+				}
+			}
+		}
+	}
+	on_accept = {
+		scope:actor = {
+			add_magicka = {
+				VALUE = scope:recipient.magicka_max
+			}
+			change_variable = {
+				name = magicka
+				add = scope:recipient.magicka_max
+			}
+			remove_short_term_gold = {
+				value = scope:recipient.magicka_max
+			}
+		}
+		execute_prisoner_effect = {
+			VICTIM = scope:recipient
+			EXECUTIONER = scope:actor
+		}
+	}
+	auto_accept = yes
+}
+
+cof_ekue_call_thrall_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	common_interaction = yes
+	category = interaction_category_magic
+	icon = icon_thralldom
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		scope:actor = { is_ai = no }
+		scope:actor = {
+			has_perk = necromancy_journeyman_perk
+		}
+		#Entweder mein Hook oder der Base EK2 Hook
+		OR = {
+			scope:recipient = {
+				has_opinion_modifier = {
+					modifier = cof_undead_thrall_opinion
+					target = scope:actor
+				}
+			}
+			scope:actor = {
+				has_hook_of_type = {
+					target = scope:recipient
+					type = thrall_hook
+				}
+			}
+		}
+		scope:recipient = {
+			NOT = {
+				is_courtier_of = scope:actor
+			}
+		}
+	}
+	force_notification = yes
+	show_answer_notification = no
+	desc = cof_ekue_call_thrall_interaction_desc
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+	on_accept = {
+		#Wenn er Land hat, nimm es weg
+		if = {
+			limit = {
+				scope:recipient = {
+					is_ruler = yes
+				}
+			}
+			scope:recipient = {
+				depose = yes
+			}
+		}
+		#Entfernt Recipient aus Court seines Hosts
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = scope:recipient.liege
+				}
+				scope:recipient.liege = {
+					send_interface_message = {
+						type = event_generic_neutral
+						title = msg_courtier_left_court_interaction_title
+						right_icon = scope:recipient
+						show_as_tooltip = {
+							remove_courtier_or_guest = scope:recipient
+						}
+					}
+				}
+			}
+		}
+		scope:actor = {
+			add_courtier = scope:recipient
+		}
+		#Bring ihn nach Hause
+		scope:recipient = {
+			hidden_effect = {
+				return_to_court = yes
+			}
+		}
+	}
+	auto_accept = yes
+}

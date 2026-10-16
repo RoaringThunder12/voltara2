@@ -1,0 +1,435 @@
+﻿dragon_agile = { #agile
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dragon_agile_desc
+			}
+			desc = trait_dragon_agile_character_desc
+		}
+	}
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_obtuse
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = add_temperament_8
+	health = 1
+
+	ai_energy = 25
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_agile
+ icon = "dragon_agile.dds"
+}
+dragon_obtuse = { #obtuse
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dragon_obtuse_desc
+			}
+			desc = trait_dragon_obtuse_character_desc
+		}
+	}
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_agile
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = subtract_size_modifier_5
+	flag = subtract_draconic_dread_5
+	health = -2
+
+	ai_energy = -25
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_obtuse
+ icon = "dragon_obtuse.dds"
+}
+dragon_large_wingspan = { #large wingspan
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dragon_large_wingspan_desc
+			}
+			desc = trait_dragon_large_wingspan_character_desc
+		}
+	}
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_small_wingspan
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = add_size_modifier_5
+	health = 1
+
+	ai_energy = 25
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_large_wingspan
+ icon = "dragon_large_wingspan.dds"
+}
+dragon_small_wingspan = { #Small wingspan
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dragon_small_wingspan_desc
+			}
+			desc = trait_dragon_small_wingspan_character_desc
+		}
+	}
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_large_wingspan
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = subtract_size_modifier_5
+	flag = subtract_combat_effectiveness_modifier_5
+	health = -1.5
+
+	ai_energy = -25
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_small_wingspan
+ icon = "dragon_small_wingspan.dds"
+}
+dragon_thick_scales = { #thick_scales
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dragon_thick_scales_desc
+			}
+			desc = trait_dragon_thick_scales_character_desc
+		}
+	}
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_thin_scales
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = add_combat_effectiveness_modifier_20
+
+	ai_energy = 10
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_thick_scales
+ icon = "dragon_thick_scales.dds"
+}
+dragon_thin_scales = { #thin scales
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dragon_thin_scales_desc
+			}
+			desc = trait_dragon_thin_scales_character_desc
+		}
+	}
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_thick_scales
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = subtract_combat_effectiveness_modifier_15
+	health = -1
+
+	ai_energy = -10
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_thin_scales
+ icon = "dragon_thin_scales.dds"
+}
+dragon_withered_wings = { #withered
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dragon_withered_wings_desc
+			}
+			desc = trait_dragon_withered_wings_character_desc
+		}
+	}
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_agile
+		dragon_thick_scales #change
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = subtract_size_modifier_15
+	flag = subtract_combat_effectiveness_modifier_30
+	health = -6
+
+	ai_energy = -50
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_withered_wings
+ icon = "dragon_withered_wings.dds"
+}
+dragon_glowing_scales = { #glowing scales
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dragon_glowing_scales_desc
+			}
+			desc = trait_dragon_glowing_scales_character_desc
+		}
+	}
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_ugly
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = add_combat_effectiveness_modifier_5
+	flag = add_rider_monthly_prestige_1
+
+	ai_energy = 15
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_glowing_scales
+ icon = "dragon_glowing_scales.dds"
+}
+dragon_aerodynamic = { #aerodynanic
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dragon_aerodynamic_desc
+			}
+			desc = trait_dragon_aerodynamic_character_desc
+		}
+	}
+	shown_in_ruler_designer = no
+
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = add_combat_effectiveness_modifier_10
+
+	ai_energy = 15
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_aerodynamic
+ icon = "dragon_aerodynamic.dds"
+}
+dragon_toothless = { #toothless
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dragon_toothless_desc
+			}
+			desc = trait_dragon_toothless_character_desc
+		}
+	}
+	shown_in_ruler_designer = no
+
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = subtract_combat_effectiveness_modifier_30
+	health = -3
+
+	ai_energy = -35
+
+ name = trait_dragon_toothless
+ icon = "dragon_toothless.dds"
+}
+dragon_picky_eater = { #picky_eater
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dragon_picky_eater_desc
+			}
+			desc = trait_dragon_picky_eater_character_desc
+		}
+	}
+	shown_in_ruler_designer = no
+
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = add_size_modifier_2
+	flag = subtract_temperament_10
+
+
+	ai_energy = 25
+
+ name = trait_dragon_picky_eater
+ icon = "dragon_picky_eater.dds"
+}
+dragon_too_old = { #too_old
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dragon_too_old_desc
+			}
+			desc = trait_dragon_too_old_character_desc
+		}
+	}
+	shown_in_ruler_designer = no
+
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = subtract_draconic_dread_8
+	flag = subtract_combat_effectiveness_modifier_25
+	health = -2
+
+
+	ai_energy = 25
+
+ name = trait_dragon_too_old
+ icon = "dragon_too_old.dds"
+}
+dragon_physique_good_4 = {
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dragon_physique_good_4_desc
+			}
+			desc = trait_dragon_physique_good_4_character_desc
+		}
+	}
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_physique_bad
+		dragon_physique_good_1
+		dragon_physique_good_2
+		dragon_physique_good_3
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = add_size_modifier_40
+	health = 2.5
+
+	group = dragon_physique_good
+	level = 4
+
+	ai_energy = 25
+
+	genetic = yes
+	physical = yes
+	good = yes
+
+ name = trait_dragon_physique_good_4
+ icon = "dragon_physique_good_4.dds"
+}
+dragon_physique_bad_4 = {
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dragon_physique_bad_4_desc
+			}
+			desc = trait_dragon_physique_bad_4_character_desc
+		}
+	}
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_physique_good
+		dragon_physique_bad_1
+		dragon_physique_bad_2
+		dragon_physique_bad_3
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = subtract_size_modifier_40
+	health = -2.5
+
+	group = dragon_physique_bad
+	level = 4
+
+	ai_energy = -20
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_physique_bad_4
+ icon = "dragon_physique_bad_4.dds"
+}

@@ -1,0 +1,170 @@
+﻿interactive_administrative_governors = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	common_interaction = yes
+	interface_priority = 66
+	category = interaction_category_diplomacy
+	desc = interactive_administrative_governors_desc
+	interface = call_ally
+	special_interaction = call_ally_interaction
+	icon = alliance
+	notification_text = CALL_ALLY_NOTIFICATION
+	ai_min_reply_days = 0
+	ai_max_reply_days = 0
+	greeting = positive
+	popup_on_receive = yes
+	pause_on_receive = yes
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		has_ep3_dlc_trigger = yes
+		NOT = {
+			has_game_rule = administrative_governors_disabled
+		}
+		NOT = {
+			has_game_rule = bannermen_mode_enabled
+		}
+		scope:actor = {
+			government_has_flag = government_has_influence
+		}
+		scope:recipient = {
+			highest_held_title_tier >= tier_county
+			government_has_flag = government_has_influence
+			OR = {
+				is_vassal_or_below_of = scope:actor
+				liege = scope:actor.liege
+			}
+			NOT = {
+				is_at_war_with = scope:actor
+			}
+			NOT = {
+				this = scope:actor
+			}
+			NOT = {
+				this = scope:actor.liege
+			}
+			OR = {
+				is_landed = yes
+				NOT = { government_has_flag = government_is_landless_adventurer }
+			}
+			max_military_strength > interactive_minimum_vassal_strength
+		}
+	}
+	has_valid_target = {
+		exists = scope:target
+	}
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			custom_description = {
+				text = miv_request_support_not_ruler_text
+				is_ruler = yes
+			}
+		}
+		scope:actor = {
+			custom_description = {
+				text = miv_request_support_not_at_war_text
+				is_at_war = yes
+			}
+		}
+		trigger_if = {
+			limit = {
+				scope:actor = {
+					is_at_war = yes
+					NOT = {
+						any_character_war = {
+							count >= 2
+						}
+					}
+				}
+			}
+			scope:actor = {
+				custom_description = {
+					text = ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR_TEXT
+					any_character_war = {
+						interactive_bannermen_foreign_war_trigger = yes
+					}
+				}
+				custom_description = {
+					text = must_be_war_leader
+					any_character_war = {
+						is_war_leader = scope:actor
+					}
+				}
+				custom_description = {
+					text = miv_request_support_already_in_war_text
+					subject = scope:recipient
+					any_character_war = {
+						miv_vassal_support_recipient_not_in_war_trigger = yes
+					}
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = {
+				scope:actor = {
+					is_at_war = yes
+				}
+			}
+			scope:actor = {
+				custom_description = {
+					text = interactive_request_support_no_wars_text
+					subject = scope:recipient
+					any_character_war = {
+						miv_governor_support_war_trigger = yes
+					}
+				}
+			}
+		}
+		trigger_else = {
+			always = yes
+		}
+		scope:actor = {
+			custom_description = {
+				text = ASK_SUPPORT_CANNOT_AFFORD_INFLUENCE_TEXT
+				influence > 0
+			}
+		}
+	}
+	can_be_picked = {
+		scope:target = {
+			miv_governor_support_war_trigger = yes
+		}
+	}
+	on_accept = {
+		scope:target ?= {
+			hidden_effect = {
+				set_called_to = scope:recipient
+			}
+			scope:actor = {
+				change_influence = interactive_admin_governor_military_strength_negative
+			}
+			scope:recipient = {
+				change_influence = interactive_admin_governor_military_strength
+			}
+			if = {
+				limit = {
+					is_attacker = scope:actor
+				}
+				add_attacker = scope:recipient
+			}
+			else = {
+				add_defender = scope:recipient
+			}
+		}
+	}
+	on_decline = {
+	}
+	auto_accept = yes
+	ai_accept = {
+		base = 100
+	}
+	ai_will_do = {
+		base = 0
+	}
+}

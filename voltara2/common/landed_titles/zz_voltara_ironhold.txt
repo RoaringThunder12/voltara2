@@ -1,0 +1,456 @@
+﻿k_voltara_ironhold = { color = { 114 91 145 } capital = c_voltara_3758
+d_voltara_iron_deepgate = { color = { 133 105 154 } capital = c_voltara_259
+c_voltara_259 = {
+color = { 128 142 125 }
+   
+   
+   # Impassable ridge 3794
+   # Impassable ridge 3795
+b_voltara_259 = {
+province = 259
+}
+b_voltara_3790 = {
+province = 3790
+}
+}
+}
+d_voltara_iron_bronzeoath = { color = { 140 112 161 } capital = c_voltara_261
+c_voltara_261 = {
+color = { 128 142 125 }
+b_voltara_261 = {
+province = 261
+}
+b_voltara_3817 = {
+province = 3817
+}
+b_voltara_3818 = {
+province = 3818
+}
+b_voltara_3813 = {
+province = 3813
+}
+b_voltara_3814 = {
+province = 3814
+}
+}
+c_voltara_3759 = {
+color = { 128 142 125 }
+b_voltara_3759 = {
+province = 3759
+}
+b_voltara_3774 = {
+province = 3774
+}
+}
+c_voltara_3811 = {
+color = { 128 142 125 }
+b_voltara_3811 = {
+province = 3811
+}
+b_voltara_3815 = {
+province = 3815
+}
+b_voltara_3816 = {
+province = 3816
+}
+b_voltara_3812 = {
+province = 3812
+}
+}
+}
+d_voltara_iron_hearthguard = { color = { 147 119 168 } capital = c_voltara_3756
+c_voltara_3756 = {
+color = { 128 142 125 }
+   
+   
+   # Impassable ridge 3771
+   # Impassable ridge 3761
+b_voltara_3756 = {
+province = 3756
+}
+b_voltara_3764 = {
+province = 3764
+}
+}
+}
+d_voltara_iron_anvilcrown = { color = { 154 126 175 } capital = c_voltara_257
+c_voltara_257 = {
+color = { 128 142 125 }
+   
+   
+   
+   
+   # Impassable ridge 3760
+b_voltara_257 = {
+province = 257
+}
+b_voltara_3765 = {
+province = 3765
+}
+b_voltara_3766 = {
+province = 3766
+}
+b_voltara_3768 = {
+province = 3768
+}
+}
+c_voltara_3758 = {
+color = { 128 142 125 }
+   
+   # Impassable ridge 3769
+   # Impassable ridge 3770
+b_voltara_3758 = {
+province = 3758
+}
+b_voltara_3772 = {
+province = 3772
+}
+}
+c_voltara_3762 = {
+color = { 128 142 125 }
+b_voltara_3762 = {
+province = 3762
+}
+b_voltara_3775 = {
+province = 3775
+}
+}
+}
+d_voltara_iron_stonelantern = { color = { 133 105 154 } capital = c_voltara_3757
+c_voltara_3757 = {
+color = { 128 142 125 }
+   
+   # Impassable ridge 3763
+   # Impassable ridge 3767
+b_voltara_3757 = {
+province = 3757
+}
+b_voltara_3773 = {
+province = 3773
+}
+}
+c_voltara_3823 = {
+color = { 128 142 125 }
+   
+   
+   # Impassable ridge 3828
+   # Impassable ridge 3850
+   # Impassable ridge 3853
+b_voltara_3823 = {
+province = 3823
+}
+b_voltara_3841 = {
+province = 3841
+}
+}
+}
+d_voltara_iron_copperdelve = { color = { 140 112 161 } capital = c_voltara_3819
+c_voltara_3819 = {
+color = { 128 142 125 }
+   
+   
+   # Impassable ridge 3844
+   # Impassable ridge 3825
+b_voltara_3819 = {
+province = 3819
+}
+b_voltara_3838 = {
+province = 3838
+}
+}
+c_voltara_3830 = {
+color = { 128 142 125 }
+   
+   
+   # Impassable ridge 3836
+   # Impassable ridge 3851
+b_voltara_3830 = {
+province = 3830
+}
+b_voltara_3848 = {
+province = 3848
+}
+}
+c_voltara_3855 = {
+color = { 128 142 125 }
+   
+   
+   
+   # Impassable ridge 3858
+   # Impassable ridge 3860
+b_voltara_3855 = {
+province = 3855
+}
+b_voltara_3864 = {
+province = 3864
+}
+b_voltara_3867 = {
+province = 3867
+}
+}
+}
+d_voltara_iron_oathhammer = { color = { 147 119 168 } capital = c_voltara_3871
+c_voltara_3871 = {
+color = { 128 142 125 }
+b_voltara_3871 = {
+province = 3871
+}
+}
+}
+d_voltara_iron_basalthearth = { color = { 154 126 175 } capital = c_voltara_3799
+c_voltara_263 = {
+color = { 128 142 125 }
+   
+   
+   
+   # Impassable ridge 3868
+b_voltara_263 = {
+province = 263
+}
+b_voltara_3863 = {
+province = 3863
+}
+b_voltara_3865 = {
+province = 3865
+}
+b_voltara_3859 = {
+province = 3859
+}
+}
+c_voltara_3799 = {
+color = { 128 142 125 }
+   
+   # Impassable ridge 3803
+b_voltara_3799 = {
+province = 3799
+}
+b_voltara_3808 = {
+province = 3808
+}
+}
+c_voltara_3857 = {
+color = { 128 142 125 }
+b_voltara_3857 = {
+province = 3857
+}
+b_voltara_3872 = {
+province = 3872
+}
+b_voltara_3861 = {
+province = 3861
+}
+b_voltara_3870 = {
+province = 3870
+}
+}
+}
+d_voltara_iron_runeward = { color = { 133 105 154 } capital = c_voltara_3115
+c_voltara_3115 = {
+color = { 255 118 72 }
+b_voltara_3115 = {
+province = 3115
+}
+b_voltara_3136 = {
+province = 3136
+}
+}
+c_voltara_3781 = {
+color = { 128 142 125 }
+   
+   # Impassable ridge 3786
+   
+   # Impassable ridge 3793
+   # Impassable ridge 3796
+b_voltara_3781 = {
+province = 3781
+}
+b_voltara_3789 = {
+province = 3789
+}
+}
+c_voltara_3821 = {
+color = { 128 142 125 }
+   
+   # Impassable ridge 3834
+   
+   # Impassable ridge 3852
+b_voltara_3821 = {
+province = 3821
+}
+b_voltara_3840 = {
+province = 3840
+}
+}
+}
+d_voltara_iron_silverhearth = { color = { 140 112 161 } capital = c_voltara_3827
+c_voltara_262 = {
+color = { 128 142 125 }
+   
+   # Impassable ridge 3833
+   
+   # Impassable ridge 3837
+   # Impassable ridge 3847
+b_voltara_262 = {
+province = 262
+}
+b_voltara_3835 = {
+province = 3835
+}
+}
+c_voltara_3827 = {
+color = { 128 142 125 }
+   
+   
+   # Impassable ridge 3839
+   # Impassable ridge 3829
+b_voltara_3827 = {
+province = 3827
+}
+b_voltara_3843 = {
+province = 3843
+}
+}
+c_voltara_3842 = {
+color = { 128 142 125 }
+   
+   
+   # Impassable ridge 3854
+b_voltara_3842 = {
+province = 3842
+}
+b_voltara_3849 = {
+province = 3849
+}
+}
+}
+d_voltara_iron_oldforge = { color = { 147 119 168 } capital = c_voltara_258
+c_voltara_258 = {
+color = { 128 142 125 }
+b_voltara_258 = {
+province = 258
+}
+b_voltara_3777 = {
+province = 3777
+}
+b_voltara_3778 = {
+province = 3778
+}
+b_voltara_3779 = {
+province = 3779
+}
+b_voltara_3776 = {
+province = 3776
+}
+}
+c_voltara_3856 = {
+color = { 128 142 125 }
+b_voltara_3856 = {
+province = 3856
+}
+b_voltara_3873 = {
+province = 3873
+}
+b_voltara_3862 = {
+province = 3862
+}
+b_voltara_3866 = {
+province = 3866
+}
+b_voltara_3869 = {
+province = 3869
+}
+}
+}
+d_voltara_iron_cinderburrow = { color = { 134 163 100 } capital = c_voltara_3820
+c_voltara_3780 = {
+color = { 128 142 125 }
+   
+   # Impassable ridge 3785
+   
+   # Impassable ridge 3782
+   # Impassable ridge 3792
+b_voltara_3780 = {
+province = 3780
+}
+b_voltara_3791 = {
+province = 3791
+}
+}
+c_voltara_3783 = {
+color = { 128 142 125 }
+   
+   
+   
+   # Impassable ridge 3784
+b_voltara_3783 = {
+province = 3783
+}
+b_voltara_3787 = {
+province = 3787
+}
+b_voltara_3788 = {
+province = 3788
+}
+}
+c_voltara_3820 = {
+color = { 128 142 125 }
+   
+   # Impassable ridge 3832
+   
+   # Impassable ridge 3824
+b_voltara_3820 = {
+province = 3820
+}
+b_voltara_3846 = {
+province = 3846
+}
+}
+}
+d_voltara_iron_caverncoil = { color = { 92 143 137 } capital = c_voltara_3797
+c_voltara_260 = {
+color = { 128 142 125 }
+b_voltara_260 = {
+province = 260
+}
+b_voltara_3802 = {
+province = 3802
+}
+b_voltara_3805 = {
+province = 3805
+}
+b_voltara_3809 = {
+province = 3809
+}
+}
+c_voltara_3797 = {
+color = { 128 142 125 }
+   
+   
+   # Impassable ridge 3806
+   # Impassable ridge 3810
+b_voltara_3797 = {
+province = 3797
+}
+b_voltara_3804 = {
+province = 3804
+}
+}
+c_voltara_3798 = {
+color = { 128 142 125 }
+   
+   
+   # Impassable ridge 3807
+b_voltara_3798 = {
+province = 3798
+}
+b_voltara_3801 = {
+province = 3801
+}
+b_voltara_3800 = {
+province = 3800
+}
+}
+}
+}
+# Retired duchy key retained for save references, without territory.
+d_voltara_ironhold = { can_create = { always = no } }

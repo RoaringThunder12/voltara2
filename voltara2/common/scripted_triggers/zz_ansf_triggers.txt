@@ -1,0 +1,1164 @@
+﻿ansf_is_stress_trait = {
+	OR = {
+		this = trait:drunkard
+		this = trait:rakish
+		this = trait:reclusive
+		this = trait:irritable
+		this = trait:profligate
+		this = trait:improvident
+		this = trait:contrite
+		this = trait:comfort_eater
+		this = trait:inappetetic
+		this = trait:journaller
+		this = trait:confider
+		this = trait:athletic
+		this = trait:hashishiyah
+		trigger_if = {
+			limit = { exists = global_var:AGOT_is_loaded }
+			this = trait:uncouth
+		}
+	}
+}
+
+ansf_is_lifestyle_trait = {
+	OR = {
+		has_trait_category = lifestyle
+		this = trait:diplomat
+		this = trait:family_first
+		this = trait:august
+		this = trait:lifestyle_reveler
+		this = trait:lifestyle_blademaster
+		this = trait:lifestyle_hunter
+		this = trait:strategist
+		this = trait:overseer
+		this = trait:gallant
+		this = trait:architect
+		this = trait:administrator
+		this = trait:avaricious
+		this = trait:schemer
+		this = trait:seducer
+		this = trait:torturer
+		this = trait:whole_of_body
+		this = trait:erudite
+		this = trait:theologian
+		this = trait:lifestyle_physician
+		this = trait:lifestyle_herbalist
+		this = trait:lifestyle_gardener
+		this = trait:lifestyle_poet
+		this = trait:shrewd
+		this = trait:strong
+	}
+	NOR = {
+		this = trait:charioteer_red
+		this = trait:charioteer_blue
+		this = trait:charioteer_white
+		this = trait:charioteer_green
+	}
+	trigger_if = {
+		limit = { exists = global_var:AGOT_is_loaded }
+		NOR = {
+			this = trait:lifestyle_nw_builder
+			this = trait:lifestyle_nw_ranger
+			this = trait:lifestyle_nw_steward
+			this = trait:lifestyle_blademaster_2_history
+			this = trait:lifestyle_blademaster_3_history
+			this = trait:lifestyle_mystic_2_history
+			this = trait:lifestyle_mystic_3_history
+			this = trait:lifestyle_physician_2_history
+			this = trait:lifestyle_physician_3_history
+			this = trait:lifestyle_reveler_2_history
+			this = trait:lifestyle_reveler_3_history
+			this = trait:lifestyle_hunter_2_history
+			this = trait:lifestyle_hunter_3_history
+			this = trait:lifestyle_falconer_2_history
+			this = trait:lifestyle_falconer_3_history
+		}
+	}
+}
+
+ansf_is_physical_trait = {
+	OR = {
+		this = trait:beauty_good_1
+		this = trait:beauty_good_2
+		this = trait:beauty_good_3
+		this = trait:beauty_bad_1
+		this = trait:beauty_bad_2
+		this = trait:beauty_bad_3
+		this = trait:intellect_bad_1
+		this = trait:intellect_bad_2
+		this = trait:intellect_bad_3
+		this = trait:intellect_good_1
+		this = trait:intellect_good_2
+		this = trait:intellect_good_3
+		this = trait:physique_bad_1
+		this = trait:physique_bad_2
+		this = trait:physique_bad_3
+		this = trait:physique_good_1
+		this = trait:physique_good_2
+		this = trait:physique_good_3
+		this = trait:fecund
+		this = trait:infertile
+	}
+}
+
+ansf_is_inherited_trait = {
+	OR = {
+		this = trait:depressed_genetic
+		this = trait:lunatic_genetic
+		this = trait:possessed_genetic
+		this = trait:beauty_bad_1
+		this = trait:beauty_bad_2
+		this = trait:beauty_bad_3
+		this = trait:beauty_good_1
+		this = trait:beauty_good_2
+		this = trait:beauty_good_3
+		this = trait:intellect_bad_1
+		this = trait:intellect_bad_2
+		this = trait:intellect_bad_3
+		this = trait:intellect_good_1
+		this = trait:intellect_good_2
+		this = trait:intellect_good_3
+		this = trait:physique_bad_1
+		this = trait:physique_bad_2
+		this = trait:physique_bad_3
+		this = trait:physique_good_1
+		this = trait:physique_good_2
+		this = trait:physique_good_3
+		this = trait:fecund
+		this = trait:clubfooted
+		this = trait:hunchbacked
+		this = trait:lisping
+		this = trait:stuttering
+		this = trait:dwarf
+		this = trait:giant
+		this = trait:inbred
+		this = trait:spindly
+		this = trait:scaly
+		this = trait:albino
+		this = trait:wheezing
+		this = trait:bleeder
+		this = trait:infertile
+	}
+}
+
+ansf_is_addable_physical_trait = {
+	OR = {
+		this = trait:beauty_good_1
+		this = trait:beauty_good_2
+		this = trait:beauty_bad_1
+		this = trait:beauty_bad_2
+		this = trait:intellect_bad_1
+		this = trait:intellect_bad_2
+		this = trait:intellect_good_1
+		this = trait:intellect_good_2
+		this = trait:physique_bad_1
+		this = trait:physique_bad_2
+		this = trait:physique_good_1
+		this = trait:physique_good_2
+		this = trait:fecund
+		this = trait:infertile
+	}
+}
+
+ansf_is_flaw_trait = {
+	OR = {
+		this = trait:depressed_genetic
+		this = trait:depressed_1
+		this = trait:lunatic_genetic
+		this = trait:lunatic_1
+		this = trait:possessed_genetic
+		this = trait:possessed_1
+		this = trait:one_eyed
+		this = trait:one_legged
+		this = trait:scarred
+		this = trait:blind
+		this = trait:leper
+		this = trait:eunuch_1
+		this = trait:beardless_eunuch
+		this = trait:clubfooted
+		this = trait:hunchbacked
+		this = trait:lisping
+		this = trait:stuttering
+		this = trait:dwarf
+		this = trait:giant
+		this = trait:spindly
+		this = trait:scaly
+		this = trait:albino
+		this = trait:wheezing
+		this = trait:bleeder
+		this = trait:infertile
+		this = trait:deviant
+		this = trait:cannibal
+		this = trait:sodomite
+		this = trait:incestuous
+		this = trait:witch
+		this = trait:adulterer
+		this = trait:fornicator
+		this = trait:murderer
+		this = trait:excommunicated
+		this = trait:decadent
+		this = trait:disloyal
+		this = trait:disinherited
+		this = trait:denounced
+		this = trait:bastard
+		this = trait:bastard_founder
+		this = trait:legitimized_bastard
+		this = trait:wild_oat
+		trigger_if = {
+			limit = { exists = global_var:AGOT_is_loaded }
+			OR = {
+				this = trait:one_handed
+				this = trait:scurvy
+				this = trait:crippled
+				this = trait:greyscale
+				this = trait:burned
+				this = trait:mute
+				this = trait:half_blind
+			}
+		}
+	}
+}
+
+ansf_is_special_trait = {
+	OR = {
+		this = trait:celibate
+		this = trait:devoted
+		this = trait:sayyid
+		this = trait:berserker
+		this = trait:viking
+		this = trait:shieldmaiden
+		this = trait:education_martial_prowess_1
+		this = trait:education_martial_prowess_2
+		this = trait:education_martial_prowess_3
+		this = trait:education_martial_prowess_4
+		this = trait:loyal
+		this = trait:ansf_virago
+		this = trait:ansf_secret_witch
+		this = trait:ansf_secret_deviant
+		this = trait:ansf_secret_cannibal
+		this = trait:ansf_secret_sodomite
+		this = trait:ansf_secret_incestuous
+		trigger_if = {
+			limit = { exists = global_var:AGOT_is_loaded }
+			OR = {
+				this = trait:fashionable
+				this = trait:knight
+			}
+		}
+	}
+}
+
+ansf_is_education_trait = {
+	has_trait_category = education
+	NOR = {
+		this = trait:education_intrigue_5
+		this = trait:education_diplomacy_5
+		this = trait:education_stewardship_5
+		this = trait:education_martial_5
+		this = trait:education_learning_5
+	}
+	trigger_if = {
+		limit = { exists = global_var:AGOT_is_loaded }
+		NOR = {
+			this = trait:education_dragon_1
+			this = trait:education_dragon_2
+			this = trait:education_dragon_3
+			this = trait:education_dragon_4
+			this = trait:education_dragon_5
+		}
+	}
+}
+
+ansf_is_education_focus_trait = {
+	OR = {
+		this = trait:ansf_diplomatic_focus
+		this = trait:ansf_martial_focus
+		this = trait:ansf_stewardship_focus
+		this = trait:ansf_intrigue_focus
+		this = trait:ansf_learning_focus
+	}
+}
+
+ansf_is_personality_trait = {
+	has_trait_category = personality
+	trigger_if = {
+		limit = { exists = global_var:AGOT_is_loaded }
+		NOR = {
+			this = trait:dragon_aggressive
+			this = trait:dragon_friendly
+			this = trait:dragon_solitary
+			this = trait:dragon_cooperative
+			this = trait:dragon_imperious
+			this = trait:dragon_supporting
+			this = trait:dragon_impulsive
+			this = trait:dragon_calculating
+			this = trait:dragon_voracious
+			this = trait:dragon_restrained
+			this = trait:dragon_defiant
+			this = trait:dragon_accepting
+			this = trait:dragon_bloodthirsty
+			this = trait:dragon_skittish
+		}
+	}
+}
+
+ansf_is_diplomacy_trait = {
+	OR = {
+		this = trait:generous
+		this = trait:diligent
+		this = trait:calm
+		this = trait:honest
+		this = trait:gregarious
+		this = trait:ambitious
+		this = trait:trusting
+		this = trait:compassionate
+		this = trait:fickle
+		this = trait:forgiving
+	}
+}
+
+ansf_is_martial_trait = {
+	OR = {
+		this = trait:wrathful
+		this = trait:brave
+		this = trait:ambitious
+		this = trait:zealous
+		this = trait:vengeful
+	}
+}
+
+ansf_is_stewardship_trait = {
+	OR = {
+		this = trait:temperate
+		this = trait:diligent
+		this = trait:ambitious
+		this = trait:just
+		this = trait:stubborn
+	}
+}
+
+ansf_is_intrigue_trait = {
+	OR = {
+		this = trait:lustful
+		this = trait:calm
+		this = trait:deceitful
+		this = trait:craven
+		this = trait:ambitious
+		this = trait:arbitrary
+		this = trait:cynical
+		this = trait:paranoid
+		this = trait:callous
+		this = trait:sadistic
+		this = trait:fickle
+		this = trait:vengeful
+		trigger_if = {
+			limit = { exists = global_var:AGOT_is_loaded }
+			this = trait:rude
+		}
+	}
+}
+
+ansf_is_learning_trait = {
+	OR = {
+		this = trait:chaste
+		this = trait:diligent
+		this = trait:patient
+		this = trait:shy
+		this = trait:ambitious
+		this = trait:content
+		this = trait:just
+		this = trait:cynical
+		this = trait:eccentric
+		this = trait:forgiving
+		trigger_if = {
+			limit = { exists = global_var:AGOT_is_loaded }
+			this = trait:inquisitive
+		}
+	}
+}
+
+ansf_filter_gui_traits = {
+	trigger_if = {
+		limit = { var:trait_start ?= flag:personality_start }
+		scope:trait = { ansf_is_personality_trait = yes } 
+	}
+	trigger_else_if = {
+		limit = { var:trait_start ?= flag:education_start }
+		scope:trait = { ansf_is_education_trait = yes }
+	}
+	trigger_else_if = {
+		limit = { var:trait_start ?= flag:focus_start }
+		scope:trait = { ansf_is_education_focus_trait = yes }
+	}
+	trigger_else_if = {
+		limit = { var:trait_start ?= flag:lifestyle_start }
+		scope:trait = { ansf_is_lifestyle_trait = yes }
+	}
+	trigger_else_if = {
+		limit = { var:trait_start ?= flag:physical_start }
+		scope:trait = { ansf_is_physical_trait = yes }
+	}
+	trigger_else_if = {
+		limit = { var:trait_start ?= flag:childhood_start }
+		scope:trait = { has_trait_category = childhood }
+	}
+	trigger_else_if = {
+		limit = { var:trait_start ?= flag:commander_start }
+		scope:trait = { has_trait_category = commander }
+	}
+	trigger_else_if = {
+		limit = { var:trait_start ?= flag:stress_start }
+		scope:trait = { ansf_is_stress_trait = yes }
+	}
+	trigger_else_if = {
+		limit = { var:trait_start ?= flag:flaw_start }
+		scope:trait = { ansf_is_flaw_trait = yes }
+	}
+	trigger_else_if = {
+		limit = { var:trait_start ?= flag:special_start }
+		scope:trait = { ansf_is_special_trait = yes }
+	}
+	trigger_else = {
+		always = yes
+	}
+}
+
+ansf_has_scoped_trait = {
+	trigger_if = {
+		limit = { scope:trait = trait:ansf_diplomatic_focus }
+		has_focus = education_diplomacy
+	}
+	trigger_else_if = {
+		limit = { scope:trait = trait:ansf_martial_focus }
+		has_focus = education_martial
+	}
+	trigger_else_if = {
+		limit = { scope:trait = trait:ansf_stewardship_focus }
+		has_focus = education_stewardship
+	}
+	trigger_else_if = {
+		limit = { scope:trait = trait:ansf_intrigue_focus }
+		has_focus = education_intrigue
+	}
+	trigger_else_if = {
+		limit = { scope:trait = trait:ansf_learning_focus }
+		has_focus = education_learning
+	}
+	trigger_else_if = {
+		limit = { scope:trait = trait:ansf_virago }
+		has_character_modifier = ignores_gender_army_rules
+	}
+	trigger_else_if = {
+		limit = { scope:trait = trait:ansf_secret_witch }
+		any_secret = { type = secret_witch }
+	}
+	trigger_else_if = {
+		limit = { scope:trait = trait:ansf_secret_deviant }
+		any_secret = { type = secret_deviant }
+	}
+	trigger_else_if = {
+		limit = { scope:trait = trait:ansf_secret_cannibal }
+		any_secret = { type = secret_cannibal }
+	}
+	trigger_else_if = {
+		limit = { scope:trait = trait:ansf_secret_sodomite }
+		any_secret = { type = secret_homosexual }
+	}
+	trigger_else_if = {
+		limit = { scope:trait = trait:ansf_secret_incestuous }
+		any_secret = { type = secret_incest }
+	}
+	trigger_else = {
+		has_trait = scope:trait
+	}
+}
+
+ansf_can_be_combatant_based_on_gender_trigger = {
+	OR = {
+		trigger_if = { # Has the Royal Court and thus can modify pillars
+			limit = { has_dlc_feature = diverge_culture }
+			OR = {
+				scope:target.culture = { has_cultural_parameter = martial_custom_equal_combatant }
+				AND = {
+					scope:target.culture = { has_cultural_parameter = martial_custom_male_only_combatant }
+					$GENDER_CHARACTER$ = { is_male = yes }
+				}
+				AND = {
+					scope:target.culture = { has_cultural_parameter = martial_custom_female_only_combatant }
+					$GENDER_CHARACTER$ = { is_female = yes }
+				}
+			}
+			
+		}
+		trigger_else = { # Does not have the Royal Court and thus combatant is governed by faith
+			OR = {
+				scope:target.rite = { rite_has_parameter = combatant_can_be_either_gender_if_no_roco }
+				AND = {
+					scope:target.rite = { rite_has_parameter = combatant_must_be_male_if_no_roco }
+					$GENDER_CHARACTER$ = { is_male = yes }
+				}
+				AND = {
+					scope:target.rite = { rite_has_parameter = combatant_must_be_female_if_no_roco }
+					$GENDER_CHARACTER$ = { is_female = yes }
+				}
+			}
+		}
+		scope:target.culture = { has_cultural_parameter = high_prowess_ignores_knight_restrictions }
+	}
+}
+
+has_no_father_or_real_father = {
+	NOR = {
+		exists = father
+		exists = real_father
+	}
+}
+
+has_no_parents = {
+	NOR = {
+		exists = father
+		exists = real_father
+		exists = mother
+	}
+}
+
+ansf_is_bastard = {
+	OR = {
+		has_trait = bastard_founder
+		has_trait = bastard
+		has_trait = legitimized_bastard
+		has_trait = wild_oat
+	}
+}
+
+ansf_is_adulterer = {
+	OR = {
+		has_trait = adulterer
+		has_trait = fornicator
+	}
+}
+
+ansf_can_change_dynasty = {
+	OR = {
+		# they're the player
+		is_ai = no
+		# they're lowborn
+		is_lowborn = yes
+		# they're the only existing dynasty member
+		dynasty ?= {
+			any_dynasty_member = {
+				count < 2
+			}
+		}
+		# they're the dynast and all other dynasty members are unlanded close family 
+		AND = {
+			is_dynast = yes
+			save_temporary_scope_as = dynasty_check
+			NOR = {
+				any_dynasty_member = {
+					NOT = { this = scope:dynasty_check }
+					is_ruler = yes
+				}
+				any_dynasty_member = {
+					NOR = {
+						this = scope:dynasty_check
+						is_close_family_of = scope:dynasty_check
+					}
+				}
+			}
+		}
+	}
+}
+
+same_parents_as = {
+	OR = {
+		exists = mother
+		exists = father
+	}
+	OR = {
+		AND = {
+			NOT = { exists = mother }
+			NOT = { exists = $CHARACTER$.mother }
+		}
+		AND = {
+			exists = mother
+			mother = $CHARACTER$.mother
+		}
+	}
+	OR = {
+		AND = {
+			NOT = { exists = father }
+			NOT = { exists = $CHARACTER$.father }
+		}
+		AND = {
+			exists = father
+			father = $CHARACTER$.father
+		}
+	}
+}
+
+ansf_can_add_devoted_trait = {
+	rite = { rite_has_parameter = take_vows_active }
+	NOR = {
+		has_trait = devoted
+		has_trait = excommunicated
+		has_trait = cynical
+	}
+	OR = {
+		is_married = no
+		rite = { rite_has_parameter = clergy_can_marry }
+	}
+}
+
+ansf_can_add_sayyid_trait = {
+	NOT = { exists = global_var:AGOT_is_loaded }
+	faith = { religion_tag = islam_religion }
+	NOR = {
+		has_trait = sayyid
+		AND = {
+			exists = real_father
+			NOT = { real_father = { has_trait = sayyid } }
+		}
+		AND = {
+			exists = father
+			NOT = { exists = real_father }
+			NOT = { father = { has_trait = sayyid } }
+		}
+	}
+}
+
+ansf_can_add_berserker_trait = {
+	is_male = yes
+	rite = { rite_has_tenet = tenet_warmonger }
+	trigger_if = {
+		limit = { exists = global_var:AGOT_is_loaded }
+		OR = {
+			culture = { agot_is_wildling_culture = yes }
+			always = no # AGOT Old Gods shortcut is not used in Voltara
+		}
+		is_current_dragonrider_warfare = no
+	}
+	trigger_else = {
+		OR = {
+			culture = { has_cultural_pillar = heritage_north_germanic }
+			religion = religion:germanic_religion
+		}
+	}
+	NOR = {
+		has_trait = craven
+		has_trait = berserker
+		has_trait = calm
+	}
+	has_education_martial_trigger = yes
+	can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+}
+
+ansf_can_add_viking_trait = {
+	trigger_if = {
+		limit = { exists = global_var:AGOT_is_loaded }
+		can_raid_trigger = yes
+	}
+	trigger_else = {
+		rite = { rite_has_tenet = tenet_warmonger }
+		OR = {
+			culture = { has_cultural_pillar = heritage_north_germanic }
+			religion = religion:germanic_religion
+		}
+	}
+	NOR = {
+		has_trait = craven
+		has_trait = viking
+	}
+	has_education_martial_trigger = yes
+	can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+}
+
+ansf_can_add_shieldmaiden_trait = {
+	culture = { has_cultural_parameter = has_access_to_shieldmaidens }
+	trigger_if = {
+		limit = { has_dlc_feature = diverge_culture }
+		culture = {
+			NOT = { has_cultural_parameter = martial_custom_equal_combatant }
+		}
+	}
+	trigger_else = {
+		NOT = {
+			rite = { rite_has_doctrine = doctrine_gender_equal }
+		}
+	}
+	NOR = {
+		has_trait = craven
+		has_trait = shieldmaiden
+		can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+	}
+	has_education_martial_trigger = yes
+}
+
+ansf_can_add_knight_trait = {
+	exists = global_var:AGOT_is_loaded
+	is_adult = yes
+	agot_has_traits_preventing_knighthood_trigger = no
+	OR = {
+		is_male = yes
+		rite = { rite_has_doctrine = doctrine_gender_equal }
+		rite = { rite_has_doctrine = doctrine_gender_female_dominated }
+	}
+}
+
+ansf_can_add_prowess_education = {
+	is_adult = yes
+	trigger_if = {
+		limit = { exists = global_var:AGOT_is_loaded }
+		OR = {
+			can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+			has_character_flag = tomboy
+		}
+	}
+	trigger_else = {
+		can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+		has_education_martial_trigger = yes
+		culture = { has_innovation = innovation_knighthood }
+	}
+}
+
+ansf_can_add_gender_commander_modifier = {
+	NOR = {
+		has_character_modifier = ignores_gender_army_rules
+		can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+		culture = { has_cultural_parameter = has_access_to_shieldmaidens }
+		culture = { has_cultural_parameter = high_prowess_ignores_knight_restrictions }
+		has_trait = craven
+		has_trait = physique_bad
+		has_trait = weak
+		has_trait = spindly
+		has_trait = wheezing
+		has_trait = bleeder
+		has_trait = inbred
+		has_trait = dwarf
+		has_trait = hunchbacked
+		has_trait = clubfooted
+		has_trait = blind
+	}
+	has_education_martial_trigger = yes
+}
+
+ansf_can_add_secret_witch = {
+	NOR = {
+		has_trait = witch
+		any_secret = { type = secret_witch }
+	}
+	trait_is_shunned_or_criminal_in_my_or_lieges_rite_trigger = { TRAIT = trait:witch GENDER_CHARACTER = root }
+}
+
+ansf_can_add_secret_deviant = {
+	OR = {
+		has_trait = lustful
+		has_trait = seducer
+		has_trait = rakish
+		rite = { trait_is_virtue_rite = lustful }
+	}
+	NOR = {
+		has_trait = chaste
+		has_trait = celibate
+		has_trait = deviant
+		any_secret = { type = secret_deviant }
+	}
+	trait_is_shunned_or_criminal_in_my_or_lieges_rite_trigger = { TRAIT = trait:deviant GENDER_CHARACTER = root }
+}
+
+ansf_can_add_secret_cannibal = {
+	NOR = {
+		has_trait = cannibal
+		any_secret = { type = secret_cannibal }
+	}
+	trait_is_shunned_or_criminal_in_my_or_lieges_rite_trigger = { TRAIT = trait:cannibal GENDER_CHARACTER = root }
+}
+
+ansf_can_add_secret_sodomite = {
+	is_male = yes
+	OR = {
+		has_sexuality = homosexual
+		has_sexuality = bisexual
+		has_trait = deviant
+		any_secret = { type = secret_deviant }
+	}
+	NOR = {
+		has_trait = sodomite
+		any_secret = { type = secret_homosexual }
+	}
+	trait_is_shunned_or_criminal_in_my_or_lieges_rite_trigger = { TRAIT = trait:sodomite GENDER_CHARACTER = root }
+}
+
+ansf_can_add_secret_incestuous = {
+	OR = {
+		has_trait = lustful
+		has_trait = seducer
+		has_trait = deviant
+		any_secret = { type = secret_deviant }
+		rite = { trait_is_virtue_rite = lustful }
+	}
+	NOR = {
+		any_secret = { type = secret_incest }
+		has_trait = chaste
+		has_trait = celibate
+		has_trait = incestuous
+	}
+	trait_is_shunned_or_criminal_in_my_or_lieges_rite_trigger = { TRAIT = trait:incestuous GENDER_CHARACTER = root }
+}
+
+ansf_can_add_bastard = {
+	rite = {
+		NOT = { rite_has_parameter = bastards_none }
+	}
+	NOR = {
+		is_ruler = yes
+		has_trait = bastard
+		any_child = {
+			count > 0
+			even_if_dead = yes
+		}
+	}
+}
+
+ansf_can_add_bastard_founder = {
+	rite = {
+		NOT = { rite_has_parameter = bastards_none }
+	}
+	NOR = {
+		has_trait = bastard_founder
+		any_parent = {
+			even_if_dead = yes
+			has_dynasty = yes
+			dynasty = prev.dynasty
+		}
+	}
+	OR = {
+		is_ruler = yes
+		any_child = {
+			count > 0
+			even_if_dead = yes
+			has_dynasty = yes
+			dynasty = prev.dynasty
+		}
+	}
+}
+
+ansf_can_add_legitimized_bastard = {
+	rite = { rite_has_parameter = bastards_legitimize }
+	NOT = { has_trait = legitimized_bastard }
+}
+
+ansf_can_add_wild_oat = {
+	rite = { rite_has_parameter = bastards_none }
+	NOT = { has_trait = wild_oat }
+}
+
+could_have_been_parent_of = {
+	age_including_death_minus_childbirth_start >= $CHILD$.age
+	trigger_if = {
+		limit = { is_alive = no }
+		days_since_death < $CHILD$.age_in_days
+	}
+}
+
+should_be_bastard_trigger = {
+	rite = {
+		NOT = { rite_has_parameter = bastards_none }
+	}
+	OR = {
+		# has no child who is their primary_heir
+		AND = {
+			is_playable_character = yes
+			NOT = {
+				any_child = { is_primary_heir_of = prev }
+			}
+		}
+		# heir is younger/same age, for equal succ
+		AND = {
+			is_playable_character = yes
+			has_realm_law = equal_law
+			primary_heir = { age <= $RELATIVE$.age }
+		}
+		# heir is either female or younger/same age for male preference, for male
+		AND = {
+			is_playable_character = yes
+			OR = {
+				has_realm_law = male_preference_law
+				has_realm_law = male_only_law
+			}
+			$RELATIVE$ = { is_male = yes }
+			primary_heir = {
+				OR = {
+					is_male = no
+					age <= $RELATIVE$.age
+				}
+			}
+		}
+		# heir is either female or younger/same age for female preference, for female
+		AND = {
+			is_playable_character = yes
+			OR = {
+				has_realm_law = female_preference_law
+				has_realm_law = female_only_law
+			}
+			$RELATIVE$ = { is_female = yes }
+			primary_heir = {
+				OR = {
+					is_female = no
+					age <= $RELATIVE$.age
+				}
+			}
+		}
+		# heir is female and younger/same age for male preference, for female
+		AND = {
+			is_playable_character = yes
+			has_realm_law = male_preference_law
+			$RELATIVE$ = { is_female = yes }
+			primary_heir = {
+				is_female = yes
+				age <= $RELATIVE$.age
+			}
+		}
+		# heir is male and younger/same age for female preference, for male
+		AND = {
+			is_playable_character = yes
+			has_realm_law = female_preference_law
+			$RELATIVE$ = { is_male = yes }
+			primary_heir = {
+				is_male = yes
+				age <= $RELATIVE$.age
+			}
+		}
+		# is unlanded but has heir titles and no potential heir
+		AND = {
+			is_playable_character = no
+			any_heir_title = {}
+			NOT = {
+				any_child = {
+					trigger_if = {
+						limit = { $RELATIVE$ = { is_male = yes } }
+						is_male = yes
+						age > $RELATIVE$.age
+					}
+					trigger_else = {
+						OR = {
+							is_male = yes
+							age > $RELATIVE$.age
+						}
+					}
+				}
+			}
+		}		
+		# has/had a spouse, but they cannot be the parent
+		AND = {
+			any_consort = {
+				even_if_dead = yes
+			}
+			NOT = {
+				any_consort = {
+					even_if_dead = yes
+					could_have_been_parent_of = { CHILD = $RELATIVE$ }
+				}
+			}
+		}
+		# already has twins the same age
+		any_child = {
+			even_if_dead = yes
+			NOT = { this = $RELATIVE$ }
+			age_including_death_age = $RELATIVE$.age
+			has_trait = twin
+		}
+		# the character is already marked as a bastard
+		$RELATIVE$ = { has_trait = bastard }
+		$RELATIVE$ = { has_trait = bastard_founder }
+		AND = {
+			$RELATIVE$ = {
+				any_held_title = { is_noble_family_title = yes }
+			}
+			dynasty = {
+				any_dynasty_member = {
+					any_held_title = { is_noble_family_title = yes }
+				}
+			}
+		}
+	}
+}
+
+should_be_fathers_bastard_trigger = {
+	rite = {
+		NOT = { rite_has_parameter = bastards_none }
+	}
+	OR = {
+		# they don't have an heir who's their child and it would fall to a younger sibling
+		AND = {
+			is_playable_character = yes
+			NOT = { any_child = { is_primary_heir_of = prev } }
+			OR = {
+				AND = {
+					$RELATIVE$ = { is_male = yes }
+					OR = {
+						has_realm_law = male_preference_law
+						has_realm_law = male_only_law
+					}
+					primary_heir = {
+						is_sibling_of = prev
+						OR = {
+							is_female = yes
+							age < $RELATIVE$.age
+						}
+					}
+				}
+				AND = {
+					$RELATIVE$ = { is_female = yes }
+					OR = {
+						has_realm_law = female_preference_law
+						has_realm_law = female_only_law
+					}
+					primary_heir = {
+						is_sibling_of = prev
+						OR = {
+							is_male = yes
+							age < $RELATIVE$.age
+						}
+					}
+				}
+				AND = {
+					has_realm_law = equal_law
+					primary_heir = {
+						is_sibling_of = prev
+						age < $RELATIVE$.age
+					}
+				}
+				primary_heir = {
+					NOT = { is_sibling_of = prev }
+				}
+			}
+		}
+		# they are younger and in equal inheritance
+		AND = {
+			is_playable_character = yes
+			has_realm_law = equal_law
+			age < $RELATIVE$.age
+		}
+		# they have a female heir (or are female ) in male preference, for male
+		AND = {
+			is_playable_character = yes
+			OR = {
+				has_realm_law = male_preference_law
+				has_realm_law = male_only_law
+			}
+			$RELATIVE$ = { is_male = yes }
+			OR = {
+				primary_heir = { is_female = yes }
+				is_female = yes
+				age < $RELATIVE$.age
+			}
+		}
+		# they have a male heir (or are male) in female preference, for female
+		AND = {
+			is_playable_character = yes
+			OR = {
+				has_realm_law = female_preference_law
+				has_realm_law = female_only_law
+			}
+			$RELATIVE$ = { is_female = yes }
+			OR = {
+				primary_heir = { is_male = yes }
+				is_male = yes
+				age < $RELATIVE$.age
+			}
+		}
+		# is unlanded but has heir titles and no potential heir
+		AND = {
+			is_playable_character = no
+			any_heir_title = {
+				NOT = { holder = $RELATIVE$ }
+			}
+			NOT = {
+				any_child = {
+					trigger_if = {
+						limit = { $RELATIVE$ = { is_male = yes } }
+						is_male = yes
+						age > $RELATIVE$.age
+					}
+					trigger_else = {
+						OR = {
+							is_male = yes
+							age > $RELATIVE$.age
+						}
+					}
+				}
+			}
+		}
+		# they can't be a legitimized bastard
+		AND = {
+			rite = {
+				NOT = { rite_has_parameter = bastards_legitimize }
+			}
+			exists = mother
+			father = {
+				NOT = {
+					any_consort = {
+						even_if_dead = yes
+						could_have_been_parent_of = { CHILD = $RELATIVE$ }
+					}
+				}
+			}
+		}
+		# their father already has twins
+		father = {
+			any_child = {
+				even_if_dead = yes
+				NOT = { this = $RELATIVE$ }
+				age_including_death_age = $RELATIVE$.age
+				has_trait = twin
+			}
+		}
+		# the character is already marked as a bastard
+		$RELATIVE$ = { has_trait = bastard }
+		$RELATIVE$ = { has_trait = bastard_founder }
+		# administrative character has family title and is trying to join a dynasty which already has a family title
+		# (currently, there's no way to remove an estate, so you need to become a bastard with a new dyansty)
+		AND = {
+			$RELATIVE$ = {
+				any_held_title = { is_noble_family_title = yes }
+			}
+			dynasty = {
+				any_dynasty_member = {
+					any_held_title = { is_noble_family_title = yes }
+				}
+			}
+		}		
+	}
+}
+
+should_be_legitimate_bastard = {
+	rite = { rite_has_parameter = bastards_legitimize }
+	OR = {
+		AND = {
+			exists = mother
+			father = {
+				NOT = {
+					any_consort = {
+						even_if_dead = yes
+						age_including_death_minus_childbirth_start >= $RELATIVE$.age
+						trigger_if = {
+							limit = { is_alive = no }
+							days_since_death < $RELATIVE$.age_in_days
+						}
+					}
+				}
+			}
+		}
+		$RELATIVE$ = { has_trait = legitimized_bastard }
+	}
+}
+
+ansf_was_married_to = {
+	NOT = { is_spouse_of = $SPOUSE$ }
+	any_former_spouse = {
+		even_if_dead = yes
+		this = $SPOUSE$
+	}
+}
+

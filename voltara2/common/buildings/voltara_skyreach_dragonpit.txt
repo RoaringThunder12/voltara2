@@ -1,0 +1,29 @@
+﻿voltara_skyreach_dragonpit_ruin_01 = {
+ type = special type_icon = "icon_building_dragonpit.dds"
+ can_construct = { always = no }
+ next_building = dragonpit_ruins_03
+ asset = { type = pdxmesh name = "building_special_KL_dragonpit_ruin_mesh" }
+ province_modifier = { travel_danger = 10 }
+ county_holder_character_modifier = { monthly_prestige_gain_mult = -0.05 }
+ flag = special_building_enabled_in_ruin_county
+}
+dragonpit_ruins_03 = {
+ type = special type_icon = "icon_building_dragonpit.dds"
+ on_complete = { county.holder = { if = { limit = { NOT = { has_realm_law = dragonpit_close_family_law } NOT = { has_realm_law = dragonpit_house_law } NOT = { has_realm_law = dragonpit_dynasty_law } NOT = { has_realm_law = dragonpit_everyone_law } } add_realm_law = dragonpit_close_family_law } } }
+ construction_time = 1095 cost_gold = 1500
+ can_construct = { county.holder = { is_landed = yes NOT = { has_trait = voltara_ruins_keeper } } }
+ asset = { type = pdxmesh name = "building_special_KL_dragonpit_main_mesh" }
+ province_modifier = { monthly_income = -1 }
+ county_holder_character_modifier = { monthly_prestige = 0.5 dread_gain_mult = 0.1 }
+ flag = travel_point_of_interest_martial
+}
+generic_dragon_pit_01 = {
+ type_icon = "icon_building_dragonpit.dds" on_complete = { county.holder = { if = { limit = { NOT = { has_realm_law = dragonpit_close_family_law } NOT = { has_realm_law = dragonpit_house_law } NOT = { has_realm_law = dragonpit_dynasty_law } NOT = { has_realm_law = dragonpit_everyone_law } } add_realm_law = dragonpit_close_family_law } } }
+ construction_time = 1095 cost_gold = 1200
+ can_construct_potential = { has_holding_type = castle_holding county = { NOT = { any_county_province = { OR = { voltara_active_dragonpit = yes has_building = voltara_skyreach_dragonpit_ruin_01 } } } } }
+ can_construct = { county.holder = { is_landed = yes NOT = { has_trait = voltara_ruins_keeper } } }
+ province_modifier = { monthly_income = -0.5 }
+ county_modifier = { county_opinion_add = -5 }
+ county_holder_character_modifier = { monthly_prestige = 0.25 dread_gain_mult = 0.05 }
+ ai_value = { base = 0 modifier = { add = 100 scope:holder = { voltara_has_living_dragon = yes } } }
+}

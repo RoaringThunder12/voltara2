@@ -1,0 +1,9 @@
+﻿l_english:
+ #Descs
+cof_ekue_became_thrall:0 "[vt_ek_necromancer.GetName] turned me into an Undead Thrall, binding me to [vt_ek_necromancer.GetHerHis] will"
+cof_ekue_thrall_created_desc_second_perspective_1:0 "[vt_ek_necromancer.GetName] turned you into an Undead Thrall, binding you to [vt_ek_necromancer.GetHerHis] will"
+cof_ekue_thrall_created_desc_third_perspective_1:0 "[vt_ek_necromancer.GetName] turned [owner.GetName] into an Undead Thrall, binding [owner.GetHerHim] to [vt_ek_necromancer.GetHerHis] will"
+cof_ekue_steal_face_memory:0 "I have taken the face of [victim.GetName] through a black threadbinding ritual"
+cof_ekue_steal_face_memory_desc_second_perspective_1:0 "You had your face stolen by [root.GetName]. How exactly are you reading this?"
+cof_ekue_steal_face_memory_desc_third_perspective_1:0 "[root.GetName] has taken the face of [victim.GetName] through black threadbinding. [root.GetHerHe] is impossible to recognize"
+

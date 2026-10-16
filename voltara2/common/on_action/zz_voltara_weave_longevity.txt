@@ -1,0 +1,15 @@
+﻿# Additive hooks retain existing engine and mod handlers.
+on_game_start = { on_actions = { voltara_lifespan_age_load_cleanup } }
+on_game_start_after_lobby = { on_actions = { voltara_lifespan_age_load_cleanup } }
+voltara_lifespan_age_load_cleanup = {
+ effect = { every_living_character = {
+  limit = { voltara_has_protected_lifespan_trigger = yes }
+  voltara_clear_lifespan_age_ailments_effect = yes
+ } }
+}
+on_trait_gained = { on_actions = { voltara_lifespan_age_cleanup } }
+random_yearly_everyone_pulse = { on_actions = { voltara_lifespan_age_cleanup } }
+voltara_lifespan_age_cleanup = {
+ trigger = { voltara_has_protected_lifespan_trigger = yes }
+ effect = { voltara_clear_lifespan_age_ailments_effect = yes }
+}

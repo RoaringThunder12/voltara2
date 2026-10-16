@@ -1,0 +1,780 @@
+﻿azuras_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+azuras_wrath = {
+	icon = oblivion_negative
+	general_opinion = -25
+	monthly_lifestyle_xp_gain_mult = -0.3
+}
+
+bloodworm_helmet_modifier = {
+	prowess_no_portrait = 3
+	monthly_prestige = 0.5
+}
+
+boethiahs_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+boethiahs_wrath = {
+	icon = oblivion_negative
+	hard_casualty_modifier = 0.1
+	levy_reinforcement_rate = -0.1
+	tolerance_advantage_mod = -5
+}
+
+clavicus_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+clavicus_wrath = {
+	icon = oblivion_negative
+	tax_mult = -0.25
+	build_gold_cost = 0.5
+	development_growth_factor = -0.2
+	stewardship = major_skill_penalty
+	monthly_prestige = -0.5
+}
+
+cloning_mastery = { #Knows the art of Cloning
+	icon = atronach_positive
+	#Unlocks Cloning decision
+	#arcana = 1 #fake skill, effect applied in ek_magic_values.txt
+	monthly_learning_lifestyle_xp_gain_mult = 0.15
+	monthly_vt_threadbinding_magic_lifestyle_xp_gain_mult = 0.15
+	monthly_dark_arts_lifestyle_xp_gain_mult = 0.15
+}
+
+closely_watched = {
+	icon = stress_negative
+	stress_gain_mult = 0.1
+}
+
+dangerous_mage = { 
+	icon = dread_negative
+	dread_baseline_add = 10
+	general_opinion = -10
+}
+
+failed_briarheart_ascension = {
+	icon = health_negative
+	health = -0.5
+}
+
+failed_hagraven_ascension = {
+	icon = health_negative
+	health = -0.5
+}
+
+failed_lich_ascension = {
+	icon = health_negative
+	health = -0.5
+}
+
+failed_life_extension = {
+	icon = health_negative
+	health = -0.5
+}
+
+hermaeus_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+hermaeus_wrath = {
+	icon = oblivion_negative
+	monthly_prestige = -1
+	monthly_lifestyle_xp_gain_mult = -0.5
+	learning = -10
+}
+
+hircines_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+hircines_wrath = {
+	icon = oblivion_negative
+	health = minor_health_penalty
+	monthly_prestige = -1
+	stress_gain_mult = 0.5
+	enemy_hostile_scheme_phase_duration_add = -3
+}
+
+is_necromancy_tutor = {
+	icon = learning_negative
+	stress_gain_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = -0.10
+}
+
+learning_cloning = {
+	icon = learning_negative
+	stress_gain_mult = 0.20
+	monthly_lifestyle_xp_gain_mult = -0.20
+}
+
+learning_necromancy = {
+	icon = learning_negative
+	stress_gain_mult = 0.20
+	monthly_lifestyle_xp_gain_mult = -0.20
+}
+
+magicka_legacy_alteration_focus = {
+	icon = outdoors_positive
+}
+
+magicka_legacy_conjuration_focus = {
+	icon = atronach_positive
+}
+
+magicka_legacy_destruction_focus = {
+	icon = flame_positive
+}
+
+magicka_legacy_illusion_focus = {
+	icon = mask_positive
+}
+
+magicka_legacy_necromancy_focus = {
+	icon = rock_positive
+}
+
+magicka_legacy_restoration_focus = {
+	icon = treatment_positive
+}
+
+malacaths_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+malacaths_wrath = {
+	icon = oblivion_negative
+	monthly_prestige = -1
+	stress_gain_mult = 0.5
+	prowess = -10
+}
+
+mehrunes_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+mehrunes_wrath = {
+	icon = oblivion_negative
+	dread_gain_mult = -0.25
+	dread_decay_mult = 0.5
+	dread_baseline_add = -30
+}
+
+mephalas_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+mephalas_wrath = {
+	icon = oblivion_negative
+	hostile_scheme_phase_duration_add = -2
+	stress_gain_mult = 0.5
+	intrigue = -10
+}
+
+meridias_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+meridias_wrath = {
+	icon = oblivion_negative
+	life_expectancy = -10
+}
+
+molags_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+molags_wrath = {
+	icon = oblivion_negative
+	hostile_scheme_phase_duration_add = -2
+	dread_gain_mult = -0.2
+	general_opinion = -10
+	monthly_prestige = -1
+}
+
+namiras_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+namiras_wrath = {
+	icon = oblivion_negative
+	monthly_prestige = -0.5
+	general_opinion = -10
+	dread_gain_mult = -0.2
+	life_expectancy = -5
+}
+
+nocturnals_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+nocturnals_wrath = {
+	icon = oblivion_negative
+	intrigue = -2
+	enemy_hostile_scheme_phase_duration_add = -3
+	hostile_scheme_phase_duration_add = -3
+	owned_personal_scheme_success_chance_add = -10
+	owned_scheme_secrecy_add = -10
+}
+
+ongoing_cloning_project = {
+	icon = magic_negative
+	fertility = -0.5
+	monthly_piety = -0.5
+}
+
+peryites_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+peryites_wrath = {
+	icon = oblivion_negative
+	health = medium_health_penalty
+	stress_gain_mult = 0.5
+}
+
+robbed_graves_modifier = {
+	icon = county_modifier_development_negative
+
+	county_opinion_add = -10
+	development_growth_factor = small_development_growth_loss
+}
+
+rotten_stench = {
+	icon = rat_negative
+	attraction_opinion = -30
+	diplomacy = -3
+}
+
+sanguines_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+sanguines_wrath = {
+	icon = oblivion_negative
+	prowess = -2
+	stewardship = -2
+	health = miniscule_health_penalty
+	general_opinion = -10
+	stress_gain_mult = 0.1
+}
+
+secret_vampire_modifier = {
+	icon = health_negative
+	
+	monthly_lifestyle_xp_gain_mult = -0.5
+	monthly_prestige_gain_mult = -0.45
+	monthly_piety_gain_mult = -0.45
+	monthly_influence_mult = -0.45
+	stress_loss_mult = -0.35
+	stress_gain_mult = -0.35
+	fertility = -100
+	long_reign_bonus_mult = -0.6
+	no_prowess_loss_from_age = yes
+}
+
+sheogoraths_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+sheogoraths_wrath = {
+	icon = oblivion_negative
+	monthly_prestige = -1
+	stress_gain_mult = 2
+}
+
+spellbreaker_modifier = {
+	negate_prowess_penalty_add = 10
+	hard_casualty_modifier = -0.2
+	court_grandeur_baseline_add = 6
+	monthly_prestige = 1
+}
+
+staff_worms_modifier = {
+	prowess_no_portrait = 2
+	monthly_piety = 1
+}
+
+stress_experimentalist_modifier_01 = {
+	icon = magic_positive
+	stewardship = 3
+	monthly_income_mult = 0.1
+}
+
+stress_experimentalist_modifier_02 = {
+	icon = magic_positive
+	dread_baseline_add = 25
+	dread_gain_mult = 0.2
+	dread_decay_mult = -0.2
+}
+
+stress_experimentalist_modifier_03 = {
+	icon = magic_positive
+	monthly_lifestyle_xp_gain_mult = 0.2
+	stress_gain_mult = 0.1
+}
+
+stress_experimentalist_modifier_04 = {
+	icon = magic_negative
+	health = -0.3
+}
+
+stress_experimentalist_modifier_05 = {
+	icon = magic_negative
+	monthly_prestige_gain_mult = -0.1
+	prowess = -5
+}
+
+stress_experimentalist_modifier_07 = {
+	icon = magic_negative
+	diplomacy = -3
+	courtier_and_guest_opinion = -10
+}
+
+stress_experimentalist_modifier_08 = {
+	icon = magic_positive
+	fertility = 1
+	health = 0.5
+}
+
+stress_experimentalist_modifier_09 = {
+	icon = magic_mixed
+	intrigue = 3
+	attraction_opinion = -10
+}
+
+stress_experimentalist_modifier_10 = {
+	icon = magic_mixed
+	learning = -3
+	stress_loss_mult = 0.1
+}
+
+vaerminas_attention = {
+	icon = oblivion_negative
+	stress_gain_mult = 0.1
+}
+
+vaerminas_wrath = {
+	icon = oblivion_negative
+	health = minor_health_penalty
+	monthly_prestige = -1
+	stress_gain_mult = 1
+}
+
+wild_magic_bad = {
+	icon = magic_negative
+	#arcana = -1 #fake skill, effect applied in ek_magic_values.txt
+}
+
+wild_magic_good = {
+	icon = magic_positive
+	#arcana = 1 #fake skill, effect applied in ek_magic_values.txt
+}
+
+wild_magic_powerful = {
+	icon = magic_positive
+	#arcana = 2 #fake skill, effect applied in ek_magic_values.txt
+}
+
+wild_magic_weak = {
+	icon = magic_negative
+	#arcana = -2 #fake skill, effect applied in ek_magic_values.txt
+
+}
+
+ek_age_100_penalty = {
+	icon = health_negative
+	health = -4
+	prowess = -10
+}
+
+ek_age_100_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -4
+}
+
+ek_age_105_penalty = {
+	icon = health_negative
+	health = -4.5
+	prowess = -10
+}
+
+ek_age_105_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -4.5
+}
+
+ek_age_110_penalty = {
+	icon = health_negative
+	health = -5
+	prowess = -10
+}
+
+ek_age_110_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -5
+}
+
+ek_age_115_penalty = {
+	icon = health_negative
+	health = -5.2
+	prowess = -10
+}
+
+ek_age_115_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -5.2
+}
+
+ek_age_120_penalty = {
+	icon = health_negative
+	health = -5.6
+	prowess = -10
+}
+
+ek_age_120_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -5.6
+}
+
+ek_age_125_penalty = {
+	icon = health_negative
+	health = -5.8
+	prowess = -10
+}
+
+ek_age_125_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -5.8
+}
+
+ek_age_130_penalty = {
+	icon = health_negative
+	health = -6.2
+	prowess = -10
+}
+
+ek_age_130_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -6.2
+}
+
+ek_age_135_penalty = {
+	icon = health_negative
+	health = -6.6
+	prowess = -10
+}
+
+ek_age_135_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -6.6
+}
+
+ek_age_140_penalty = {
+	icon = health_negative
+	health = -6.8
+	prowess = -10
+}
+
+ek_age_140_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -6.8
+}
+
+ek_age_145_penalty = {
+	icon = health_negative
+	health = -7.2
+	prowess = -10
+}
+
+ek_age_145_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -7.2
+}
+
+ek_age_150_penalty = {
+	icon = health_negative
+	health = -7.6
+	prowess = -10
+}
+
+ek_age_150_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -7.6
+}
+
+ek_age_155_penalty = {
+	icon = health_negative
+	health = -8
+	prowess = -10
+}
+
+ek_age_155_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -8
+}
+
+ek_age_160_penalty = {
+	icon = health_negative
+	health = -8.4
+	prowess = -10
+}
+
+ek_age_160_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -8.4
+}
+
+ek_age_165_penalty = {
+	icon = health_negative
+	health = -8.8
+	prowess = -10
+}
+
+ek_age_165_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -8.8
+}
+
+ek_age_170_penalty = {
+	icon = health_negative
+	health = -9.2
+	prowess = -10
+}
+
+ek_age_170_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -9.2
+}
+
+ek_age_175_penalty = {
+	icon = health_negative
+	health = -9.6
+	prowess = -10
+}
+
+ek_age_175_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -9.6
+}
+
+ek_age_180_penalty = {
+	icon = health_negative
+	health = -10
+	prowess = -10
+}
+
+ek_age_180_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -10
+}
+
+ek_age_195_penalty = {
+	icon = health_negative
+	health = -11.2
+	prowess = -10
+}
+
+ek_age_195_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -11.2
+}
+
+ek_age_200_penalty = {
+	icon = health_negative
+	health = -20
+	prowess = -10
+}
+
+ek_age_200_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -20
+}
+
+ek_age_40_penalty = {
+	icon = health_negative
+	health = -0.2
+	prowess = -1
+}
+
+ek_age_40_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -0.2
+}
+
+ek_age_45_penalty = {
+	icon = health_negative
+	health = -0.3
+	prowess = -2
+}
+
+ek_age_45_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -0.3
+}
+
+ek_age_50_penalty = {
+	icon = health_negative
+	health = -0.5
+	prowess = -3
+}
+
+ek_age_50_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -0.5
+}
+
+ek_age_55_penalty = {
+	icon = health_negative
+	health = -0.6
+	prowess = -4
+}
+
+ek_age_55_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -0.6
+}
+
+ek_age_60_penalty = {
+	icon = health_negative
+	health = -1
+	prowess = -5
+}
+
+ek_age_60_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -1
+}
+
+ek_age_65_penalty = {
+	icon = health_negative
+	health = -1.3
+	prowess = -6
+}
+
+ek_age_65_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -1.3
+}
+
+ek_age_70_penalty = {
+	icon = health_negative
+	health = -1.6
+	prowess = -7
+}
+
+ek_age_70_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -1.6
+}
+
+ek_age_75_penalty = {
+	icon = health_negative
+	health = -2
+	prowess = -8
+}
+
+ek_age_75_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -2
+}
+
+ek_age_80_penalty = {
+	icon = health_negative
+	health = -2.4
+	prowess = -9
+}
+
+ek_age_80_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -2.4
+}
+
+ek_age_85_penalty = {
+	icon = health_negative
+	health = -2.6
+	prowess = -10
+}
+
+ek_age_85_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -2.6
+}
+
+ek_age_90_penalty = {
+	icon = health_negative
+	health = -3
+	prowess = -10
+}
+
+ek_age_90_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -3
+}
+
+ek_age_95_penalty = {
+	icon = health_negative
+	health = -3.2
+	prowess = -10
+}
+
+ek_age_95_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -3.2
+}
+
+ek_age_185_penalty = {
+	icon = health_negative
+	health = -10.4
+	prowess = -10
+}
+
+ek_age_185_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -10.4
+}
+
+ek_age_190_penalty = {
+	icon = health_negative
+	health = -10.8
+	prowess = -10
+}
+
+ek_age_190_penalty_no_prowess_loss_from_age = {
+	icon = health_negative
+	health = -10.8
+}
+
+cloning_isolation_modifier = { # Self-Isolation to focus on Cloning process
+	icon = learning_negative
+	diplomacy_per_stress_level = -1
+	martial_per_stress_level = -1
+	stewardship_per_stress_level = -1
+	intrigue_per_stress_level = -1
+	learning_per_stress_level = 2
+	stress_loss_mult = -0.3
+}
+
+secret_lycan_modifier = {
+	icon = health_negative
+	stress_loss_mult = -0.05
+}

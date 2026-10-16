@@ -1,0 +1,17 @@
+﻿window = {
+		name = "spell_casting_observer"
+		size = { 0 0 }
+		visible = "[GetPlayer.MakeScope.Var('spells_open').IsSet]"
+		state = {
+			name = _show
+			#on_start = "[ExecuteConsoleCommand('GUI.ClearWidgets spellbook_interaction_window')]"
+			on_start = "[GetVariableSystem.Clear( 'spellbook_window' )]"
+			on_start = "[GetScriptedGui('spell_open').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			on_start = "[GetVariableSystem.Clear('spell_county_list_open')]"
+			on_start = "[GetVariableSystem.Clear('spell_select')]"
+			duration = 0.05
+			#on_finish = "[ExecuteConsoleCommand('gui.createwidget gui/custom_widgets/spellbook_widget.gui spellbook_interaction_window')]"
+			on_finish = "[GetVariableSystem.Set( 'spellbook_window', 'true' )]"
+			on_finish = "[GetVariableSystem.Set('spellbook_tab', 'spells')]"
+		}
+	}

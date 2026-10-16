@@ -1,0 +1,45 @@
+pdxmesh = {
+	name = "female_clothes_secular_dunmer_01_mesh"
+	file = "female_clothes_secular_dunmer_01.mesh"
+
+	blend_shape = { id = "female_clothes_secular_dunmer_01_bs_fat"				type = "female_clothes_secular_dunmer_01_bs_fat.mesh" }
+	blend_shape = { id = "female_clothes_secular_dunmer_01_bs_gaunt"				type = "female_clothes_secular_dunmer_01_bs_gaunt.mesh" }
+#	blend_shape = { id = "female_clothes_secular_dunmer_01_bs_neck"				type = "female_clothes_secular_dunmer_01_bs_neck.mesh" }
+	blend_shape = { id = "female_clothes_secular_dunmer_01_bs_muscular"			type = "female_clothes_secular_dunmer_01_bs_muscular.mesh" }
+	blend_shape = { id = "female_clothes_secular_dunmer_01_bs_pregnant"			type = "female_clothes_secular_dunmer_01_bs_pregnant.mesh" }
+	blend_shape = { id = "female_clothes_secular_dunmer_01_bs_breast_size_max"			type = "female_clothes_secular_dunmer_01_bs_breast_size_max.mesh" }
+
+
+	meshsettings = {
+		name = "dunmerdressShape"
+		index = 0
+		texture_diffuse = "female_clothes_secular_dunmer_01_diffuse.dds"
+		texture_normal = "female_clothes_secular_dunmer_01_normal.dds"
+		texture_specular = "female_clothes_secular_dunmer_01_properties.dds"
+		shader = "portrait_attachment_pattern_alpha_to_coverage"
+#		shader = "portrait_attachment_alpha_to_coverage"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "female_clothes_secular_dunmer_01_high_entity"
+	pdxmesh = "female_clothes_secular_dunmer_01_mesh"
+
+	attribute = { name = "bs_body_fat_1"								blend_shape = "female_clothes_secular_dunmer_01_bs_fat" }
+	attribute = { name = "bs_body_gaunt_1"								blend_shape = "female_clothes_secular_dunmer_01_bs_gaunt" }
+#	attribute = { name = "bs_body_neck_width_max"						blend_shape = "female_clothes_secular_dunmer_01_bs_neck" }
+	attribute = { name = "bs_body_muscular_1"							blend_shape = "female_clothes_secular_dunmer_01_bs_muscular" }
+	attribute = { name = "bs_body_pregnant_1"							blend_shape = "female_clothes_secular_dunmer_01_bs_pregnant" }
+	attribute = { name = "bs_body_breast_size_max"							blend_shape = "female_clothes_secular_dunmer_01_bs_breast_size_max" }
+
+	game_data = {
+		portrait_entity_user_data = {
+
+		portrait_accessory = {
+			pattern_mask = "gfx/models/portraits/f_clothes/dunmer/dunmer_01/female_clothes_secular_dunmer_01_masks.dds"	#Any 4-channel texture. Each channel will be used to mask a pattern from the variation object
+			variation = "dunmer_nobility_high_01_f"	#A "variation" object in gfx/portraits/accessory_variations/
+		}
+		}
+	}
+}

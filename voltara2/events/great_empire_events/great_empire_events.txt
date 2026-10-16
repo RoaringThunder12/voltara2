@@ -1,0 +1,151 @@
+﻿namespace = great_empire_war
+
+#The Empire War is over. - ATTACKER WINS
+great_empire_war.0001 = {
+	title = great_empire_war.0001.title
+    desc = great_empire_war.0001.desc
+	theme = faith
+	override_background = {
+		reference = battlefield
+	}
+    left_portrait = {
+		character = scope:defender
+		animation = shame
+	}
+	right_portrait = {
+		character = scope:attacker
+		animation = war_over_win
+	}
+ 
+	immediate = {
+		play_music_cue = "mx_cue_general_crusade_event_3"
+	}
+
+	option = {
+		name = great_empire_war.0001.a
+	}
+}
+
+#The Empire War is over. - DEFENDER WINS
+great_empire_war.0002 = {
+	title = great_empire_war.0001.title
+    desc = great_empire_war.0002.desc
+	theme = faith
+	override_background = {
+		reference = battlefield
+	}
+
+    left_portrait = {
+		character = scope:attacker
+		animation = shame
+	}
+	right_portrait = {
+		character = scope:defender
+		animation = war_over_win
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_general_crusade_event_3"
+	}
+
+	option = {
+		name = great_empire_war.0001.a
+	}
+}
+
+# Empire War Begins
+great_empire_war.0003 = {
+	title = great_empire_war.0003.title
+    desc = great_empire_war.0003.desc
+	theme = faith
+	override_background = {
+		reference = army_camp
+	}
+
+    left_portrait = {
+		character = scope:attacker
+		animation = war_attacker
+	}
+	right_portrait = {
+		character = scope:defender
+		animation = war_defender
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_crusade_starts"
+	}
+
+	option = {
+		name = great_empire_war.0003.a
+	}
+}
+
+# Call to war as attacker
+great_empire_war.0005 = {
+	type = character_event
+
+    hidden = yes
+
+	immediate = {
+		if = {
+			limit = { 
+				NOT = {
+				    primary_title.tier = tier_barony
+			    }
+			}
+			scope:war = { add_attacker = ROOT }
+			add_character_modifier = {
+				modifier = great_empire_war_modifier
+				days = 3650
+			}
+		}
+	}
+}
+
+# Call to war as defender
+great_empire_war.0006 = {
+	type = character_event
+
+    hidden = yes
+
+	immediate = {
+		if = {
+			limit = { 
+				NOT = {
+				    primary_title.tier = tier_barony
+			    }
+			}
+			scope:war = { add_defender = ROOT }
+			add_character_modifier = {
+				modifier = great_empire_war_modifier
+				days = 3650
+			}
+		}
+	}
+}
+
+# Tribalize defeated empire
+great_empire_war.0007 = {
+	type = character_event
+
+    hidden = yes
+
+	immediate = {
+		if = {
+			limit = { 
+                AND = {			
+					has_game_rule = shattered_tribalism									
+			        NOT = {
+				        has_government = republic_government
+			        }
+			        NOT = {
+				        has_government = theocracy_government
+			        }
+		        }
+			}
+			change_government = tribal_government
+			# add_prestige = -4000
+			# add_piety = -4000
+		}
+	}
+}

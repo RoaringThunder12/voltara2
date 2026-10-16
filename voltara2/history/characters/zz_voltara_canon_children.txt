@@ -1,0 +1,12 @@
+﻿# Calendar years adapt the confirmed birth order to the provisional conquest bookmark.
+16000001 = { name = "vl_gerold" dynasty = 9900021 father = 9900021 mother = 12000000 culture = voltara_culture_22 rite = voltara_order_rite_23 3105.1.1 = { birth = yes }  3175.1.1 = { death = yes } }
+16000002 = { name = "vl_shara" female = yes dynasty = 9900021 father = 9900021 mother = 12000000 culture = voltara_culture_22 rite = voltara_order_rite_23 3106.1.1 = { birth = yes }  3176.1.1 = { death = yes } }
+16000003 = { name = "vl_hera" female = yes dynasty = 9900021 father = 9900021 mother = 12000000 culture = voltara_culture_22 rite = voltara_order_rite_23 3107.1.1 = { birth = yes }  3177.1.1 = { death = yes } }
+16000004 = { name = "vl_titus" dynasty = 9900021 father = 9900021 mother = 12000000 culture = voltara_culture_22 rite = voltara_order_rite_23 3108.1.1 = { birth = yes }  3178.1.1 = { death = yes } }
+16000005 = { name = "vl_aerion" dynasty = 9900021 father = 9900021 mother = 12000000 culture = voltara_culture_22 rite = voltara_order_rite_23 3109.1.1 = { birth = yes }  3179.1.1 = { death = yes } }
+16000006 = { name = "vl_corin" dynasty = 9900021 father = 9900021 mother = 12000000 culture = voltara_culture_22 rite = voltara_order_rite_23 3110.1.1 = { birth = yes }  3180.1.1 = { death = yes } }
+16000007 = { name = "vl_maximus" dynasty = 9900021 father = 9900021 mother = 12000000 culture = voltara_culture_22 rite = voltara_order_rite_23 3111.1.1 = { birth = yes }  3181.1.1 = { death = yes } }
+16000008 = { name = "vl_merlyn" dynasty = 9900021 father = 9900021 mother = 12000000 culture = voltara_culture_22 rite = voltara_order_rite_23 3112.1.1 = { birth = yes }  3182.1.1 = { death = yes } }
+16000009 = { name = "vl_lucy" female = yes dynasty = 9900021 father = 9900021 mother = 12000000 culture = voltara_culture_22 rite = voltara_order_rite_23 3113.1.1 = { birth = yes }  3183.1.1 = { death = yes } }
+16000010 = { name = "vl_barbara" female = yes dynasty = 9900021 father = 9900021 mother = 12000000 culture = voltara_culture_22 rite = voltara_order_rite_23 3114.1.1 = { birth = yes }  3184.1.1 = { death = yes } }
+16000011 = { name = "vl_harold" dynasty = 9900021 father = 9900021 mother = 12000000 culture = voltara_culture_22 rite = voltara_order_rite_23 3115.1.1 = { birth = yes }  3185.1.1 = { death = yes } }

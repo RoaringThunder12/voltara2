@@ -1,0 +1,3 @@
+﻿on_game_start_after_lobby = { on_actions = { voltara_tribal_southron_migration } }
+yearly_global_pulse = { on_actions = { voltara_tribal_southron_migration } }
+voltara_tribal_southron_migration = { effect = { voltara_apply_tribal_southron_update = yes } }

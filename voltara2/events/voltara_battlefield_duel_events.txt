@@ -1,0 +1,54 @@
+﻿namespace = voltara_battlefield_duel
+voltara_battlefield_duel.1 = {
+ type = character_event hidden = yes
+ immediate = {
+  voltara_battlefield_duel_cleanup = yes
+  if = { limit = { exists = scope:sc_victor exists = scope:sc_loser scope:sc_victor = { is_alive = yes } scope:sc_loser = { is_alive = yes } }
+   scope:sc_victor = { trigger_event = voltara_battlefield_duel.2 }
+  }
+ }
+}
+voltara_battlefield_duel.2 = {
+ type = character_event title = voltara_battlefield_duel.2.t desc = voltara_battlefield_duel.2.desc theme = battle
+ left_portrait = { character = scope:sc_victor animation = happiness }
+ right_portrait = { character = scope:sc_loser animation = worry }
+ immediate = {
+  # Keep the defeated character reserved until the victor chooses their fate.
+  scope:sc_loser = { add_character_flag = { flag = voltara_battle_duel_busy days = 30 } }
+ }
+ option = {
+  name = voltara_battlefield_duel.capture
+  trigger = { scope:sc_loser = { is_alive = yes is_imprisoned = no } OR = { is_ruler = yes exists = liege_or_court_owner } }
+  if = { limit = { scope:sc_loser = { is_alive = yes is_imprisoned = no } }
+   if = { limit = { is_ruler = yes }
+    rightfully_imprison_character_effect = { TARGET = scope:sc_loser IMPRISONER = scope:sc_victor }
+   }
+   else = {
+    rightfully_imprison_character_effect = { TARGET = scope:sc_loser IMPRISONER = scope:sc_victor.liege_or_court_owner }
+   }
+   add_prestige = 100
+  }
+  voltara_battlefield_duel_cleanup = yes
+  ai_chance = { base = 80 modifier = { factor = 2 has_trait = greedy } }
+ }
+ option = {
+  name = voltara_battlefield_duel.kill
+  trigger = { scope:sc_loser = { is_alive = yes is_imprisoned = no } }
+  if = { limit = { scope:sc_loser = { is_alive = yes is_imprisoned = no } }
+   scope:sc_loser = { death = { death_reason = death_battle killer = scope:sc_victor } }
+   add_prestige = 100 add_dread = 10
+  }
+  voltara_battlefield_duel_cleanup = yes
+  ai_chance = { base = 20 modifier = { factor = 0 has_trait = compassionate } modifier = { factor = 3 has_trait = sadistic } }
+ }
+ option = {
+  name = voltara_battlefield_duel.spare
+  add_prestige = 50
+  voltara_battlefield_duel_cleanup = yes
+  ai_chance = { base = 10 modifier = { factor = 4 has_trait = compassionate } }
+ }
+}
+voltara_battlefield_duel.9 = {
+ type = character_event hidden = yes
+ immediate = { remove_single_combat_info_effect = yes voltara_battlefield_duel_cleanup = yes }
+}

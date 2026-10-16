@@ -1,0 +1,11 @@
+﻿h_voltara_vaelrath = {
+color = { 151 66 58 } capital = c_voltara_323 definite_form = yes can_be_named_after_dynasty = no can_use_nomadic_naming = no can_create = { always = no }
+}
+
+h_voltara_sarathun = {
+color = { 194 134 65 } capital = c_voltara_548 definite_form = yes can_be_named_after_dynasty = no can_use_nomadic_naming = no can_create = { always = no }
+}
+
+h_voltara_ithravel = {
+color = { 72 133 154 } capital = c_voltara_6005 definite_form = yes can_be_named_after_dynasty = no can_use_nomadic_naming = no can_create = { always = no }
+}

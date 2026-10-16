@@ -1,0 +1,95 @@
+﻿# See educate_child_interaction (on_accept)
+accou_educate_child_on_accept_effect = {
+	# Save scopes used by educate_child_interaction_effect
+	scope:actor = { save_scope_as = guardian_liege }
+	scope:recipient = { save_scope_as = ward_liege }
+	scope:secondary_actor = { save_scope_as = guardian }
+	scope:secondary_recipient = { save_scope_as = ward }
+	scope:actor = {
+		if = {
+			limit = { is_ai = no }
+			scope:ward = {
+				add_character_flag = player_educated
+			}
+		}
+	}
+
+	if = {
+		limit = { scope:ward.age >= 15 }
+		custom_description_no_bullet = {
+			text = ward_nearing_adulthood_tt
+			object = scope:ward
+		}
+	}
+
+	scope:guardian_liege = {
+		send_interface_message = {
+			type = event_childhood_neutral
+			title = educate_child_interaction_notification
+			left_icon = scope:guardian
+			right_icon = scope:ward
+
+			#accou_debug_log_effect = { MSG = accou_debug_msg_executing_educate_child_interaction_effect }
+			#debug_log_scopes = yes
+
+			educate_child_interaction_effect = yes
+
+			show_as_tooltip = {
+				if = {
+					limit = { exists = scope:ward.var:ward_travelling_to_guardian }
+					scope:ward = {
+						custom_tooltip = ward_departs_tt
+					}
+				}
+				else_if = {
+					limit = { exists = scope:guardian.var:guardian_travelling_to_ward }
+					scope:guardian = {
+						custom_tooltip = guardian_departs_tt
+					}
+				}
+				else = {
+					scope:ward = {
+						set_relation_guardian = scope:guardian
+					}
+				}
+			}
+		}
+
+		accolade_ward_education_notification_effect = yes
+	}
+}
+
+accou_set_alternate_education_focus_effect = {
+	if = {
+		limit = { has_focus = education_martial }
+		if = {
+			limit = { has_trait = bossy }
+			set_variable = {
+				name = accou_education_focus
+				value = flag:education_stewardship
+			}
+		}
+		else_if = {
+			limit = { has_trait = rowdy }
+			set_variable = {
+				name = accou_education_focus
+				value = flag:education_intrigue
+			}
+		}
+	}
+}
+
+accou_change_education_focus_effect = {
+	if = {
+		limit = { has_variable = accou_education_focus }
+		switch = {
+			trigger = var:accou_education_focus
+			flag:education_stewardship = {
+				set_focus = education_stewardship
+			}
+			flag:education_intrigue = {
+				set_focus = education_intrigue
+			}
+		}
+	}
+}

@@ -1,0 +1,700 @@
+﻿# Using vanilla artifact modifiers where possible due to "level up" events for artifact modifiers.
+
+of_age_gift_valor = {
+	# 2010
+	custom_tooltip = gift_valor.tt
+	hidden_effect = {
+		create_artifact_weapon_effect = {
+			OWNER = scope:guardian
+			CREATOR = scope:creator
+			SET_WEAPON_TYPE = flag:artifact_weapon_type_sword
+		}
+		scope:newly_created_artifact = {
+			set_artifact_name = trad_valor_gift
+			set_artifact_rarity = common
+			set_max_durability = 60
+			add_durability = -30
+			clear_artifact_modifiers = yes
+			add_artifact_modifier = artifact_prowess_2_modifier
+			add_artifact_history = {
+				type = given
+				actor = scope:guardian
+				recipient = root
+				location = root.location
+			}
+		}
+	}
+	# Commented out in favor of vanilla creation text block which generates dynamic "materials" used in the sword.
+	# create_artifact = {
+	# 	name = artifact_sword_name
+	# 	description = artifact_sword_description
+	# 	rarity = common
+	# 	type = sword
+	# 	quality = 15
+	# 	wealth = 10
+	# 	creator = scope:guardian
+	# 	visuals=sword
+	# 	visuals_source = root.location.county
+	# 	modifier = artifact_prowess_2_modifier
+	# 	durability = 35
+	# 	max_durability = 60
+	# 	history = {
+	# 		type = given
+	# 		actor = scope:guardian
+	# 		recipient = root
+	# 		location = root.location
+	# 	}
+	# 	save_scope_as = newly_created_artifact
+	# }
+
+	if = {
+		limit = { is_female = no }
+		scope:newly_created_artifact = {
+			set_artifact_description = trad_gift_dedication_inscribed_m
+			set_artifact_description = artifact_motto_inscribed
+		}
+	}
+	else = {
+		scope:newly_created_artifact = {
+			set_artifact_description = trad_gift_dedication_inscribed_f
+			set_artifact_description = artifact_motto_inscribed
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+
+of_age_gift_honor = {
+	# 2020
+	custom_tooltip = gift_honor.tt
+	hidden_effect = {
+		create_artifact_armor_effect = {
+			OWNER = scope:guardian
+			CREATOR = scope:creator
+			SET_ARMOR_TYPE = flag:armor_type_scale
+		}
+		scope:newly_created_artifact = {
+			set_artifact_name = trad_honor_gift
+			set_artifact_rarity = common
+			set_max_durability = 60
+			add_durability = -30
+			clear_artifact_modifiers = yes
+			add_artifact_modifier = artifact_prowess_2_modifier
+			add_artifact_history = {
+				type = given
+				actor = scope:guardian
+				recipient = root
+				location = root.location
+			}
+		}
+	}
+	if = {
+		limit = { is_female = no }
+		scope:newly_created_artifact = {
+			set_artifact_description = trad_gift_dedication_inscribed_m
+			set_artifact_description = artifact_motto_inscribed
+		}
+	}
+	else = {
+		scope:newly_created_artifact = {
+			set_artifact_description = trad_gift_dedication_inscribed_f
+			set_artifact_description = artifact_motto_inscribed
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+
+of_age_gift_duty = {
+	# 2030
+	# Placeholder. Not currently assigned an artifact-based gift. 
+	# Not centralized to here because of Tooltip interaction.
+}
+
+of_age_gift_justice = {
+	# 2040
+	create_artifact = {
+		name = trad_justice_gift
+		description = trad_justice_gift.desc
+		rarity = common
+		type = miscellaneous
+		quality = 15
+		wealth = 10
+		creator = scope:guardian
+		visuals=ring
+		visuals_source = root.location.county
+		modifier = gift_justice
+		durability = 30
+		max_durability = 60
+		# Commissioned by Parent
+		history = {
+			type = created
+			actor = scope:creator
+			recipient = scope:guardian
+			location = root.location
+		}
+		save_scope_as = newly_created_artifact
+	}
+	hidden_effect = {
+		scope:newly_created_artifact = {
+			add_artifact_history = {
+				type = given
+				actor = scope:guardian
+				recipient = root
+				location = root.location
+			}
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+
+of_age_gift_vengeance = {
+	# 2050
+	custom_tooltip = gift_vengeance.tt
+	hidden_effect = {
+		create_artifact_weapon_effect = {
+			OWNER = scope:guardian
+			CREATOR = scope:creator
+			SET_WEAPON_TYPE = flag:artifact_weapon_type_dagger
+		}
+		scope:newly_created_artifact = {
+			set_artifact_name = trad_vengeance_gift
+			# set_artifact_description = artifact_dedication_inscribed_d
+			set_artifact_description = artifact_motto_inscribed
+			set_artifact_rarity = common
+			set_max_durability = 60
+				add_durability = -30
+			clear_artifact_modifiers = yes
+			add_artifact_modifier = artifact_prowess_2_modifier
+			add_artifact_history = {
+				type = given
+				actor = scope:guardian
+				recipient = root
+				location = root.location
+			}
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+
+of_age_gift_pride = {
+	# 2060
+	# custom_tooltip = gift_pride.tt
+	# hidden_effect = {
+	# 	create_artifact_necklace_effect = {
+	# 		OWNER = root
+	# 		# Does not take additional arguments. This would make the owner the creator which is not ok.
+	# 	}
+	# 	scope:newly_created_artifact = {
+	# 		set_artifact_name = trad_pride_gift
+	# 		set_artifact_rarity = common
+	# 		set_max_durability = 60
+	# 		add_durability = -30
+	# 		clear_artifact_modifiers = yes
+	# 		add_artifact_modifier = gift_pride
+	# 		add_artifact_history = {
+	# 			type = given
+	# 			actor = scope:guardian
+	# 			recipient = root
+	# 			location = root.location
+	# 		}
+	# 	}
+	# }
+	# scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+
+	create_artifact = {
+		name = trad_pride_gift
+		description = trad_pride_gift.desc
+		rarity = common
+		type = necklace
+		quality = 15
+		wealth = 10
+		creator = scope:guardian
+		visuals=necklace
+		visuals_source = root.location.county
+		modifier = gift_pride
+		durability = 30
+		max_durability = 60
+		# Commissioned by Parent
+		history = {
+			type = created
+			actor = scope:creator
+			recipient = scope:guardian
+			location = root.location
+		}
+		save_scope_as = newly_created_artifact
+	}
+	scope:newly_created_artifact = {
+		add_artifact_history = {
+			type = given
+			actor = scope:guardian
+			recipient = root
+			location = root.location
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+
+of_age_gift_respect = {
+	# 2070
+	custom_tooltip = gift_respect.tt
+	hidden_effect = {
+		create_artifact_crown_effect = {
+				OWNER = root
+			SMITH = scope:guardian
+		}
+		scope:newly_created_artifact = {
+			set_artifact_name = trad_respect_gift
+			set_artifact_description = artifact_motto_inscribed
+			set_artifact_rarity = common
+			set_max_durability = 60
+			add_durability = -30
+			clear_artifact_modifiers = yes
+			add_artifact_modifier = gift_respect
+			add_artifact_history = {
+				type = given
+				actor = scope:guardian
+				recipient = root
+				location = root.location
+			}
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+
+of_age_gift_power = {
+	# 2080
+	create_artifact = {
+		name = trad_power_gift
+		description = trad_power_gift.desc
+		rarity = common
+		type = sword
+		quality = 15
+		wealth = 10
+		creator = scope:guardian
+		visuals=sword
+		visuals_source = root.location.county
+		modifier = artifact_knight_limit_2_modifier
+		durability = 35
+		max_durability = 60
+		# history = { type = created_before_history } 
+		history = {
+			type = created
+			actor = scope:guardian
+			recipient = root
+			location = root.location
+		}
+		save_scope_as = newly_created_artifact
+	}
+	scope:newly_created_artifact = {
+		add_artifact_history = {
+			type = given
+			actor = scope:guardian
+			recipient = root
+			location = root.location
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+
+of_age_gift_influence = {
+	# 2090
+	create_artifact = {
+		name = trad_influence_gift
+		description = trad_influence_gift.desc
+		rarity = common
+		type = miscellaneous
+		quality = 15
+		wealth = 10
+		creator = scope:guardian
+		visuals=ring
+		visuals_source = root.location.county
+		modifier = gift_influence
+		durability = 30
+		max_durability = 60
+		# Commissioned by Parent
+		history = {
+			type = created
+			actor = scope:creator
+			recipient = scope:guardian
+			location = root.location
+		}
+		save_scope_as = newly_created_artifact
+	}
+	scope:newly_created_artifact = {
+		add_artifact_history = {
+			type = given
+			actor = scope:guardian
+			recipient = root
+			location = root.location
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+
+of_age_gift_guile = {
+	# 2100
+	# Placeholder. Not currently assigned an artifact-based gift. 
+	# Not centralized to here because of Tooltip interaction.
+}
+
+of_age_gift_survival = {
+	# 2110
+	custom_tooltip = gift_survival.tt
+	hidden_effect = {
+		create_artifact_weapon_effect = {
+			OWNER = scope:guardian
+			CREATOR = scope:creator
+			SET_WEAPON_TYPE = flag:artifact_weapon_type_dagger
+		}
+		scope:newly_created_artifact = {
+			set_artifact_name = trad_survival_gift
+			set_artifact_rarity = common
+			set_max_durability = 60
+			add_durability = -30
+			clear_artifact_modifiers = yes
+			add_artifact_modifier = artifact_prowess_1_modifier
+			add_artifact_modifier = artifact_intrigue_1_modifier
+			add_artifact_history = {
+				type = given
+				actor = scope:guardian
+				recipient = root
+				location = root.location
+			}
+		}
+	}
+	if = {
+		limit = { is_female = no }
+		scope:newly_created_artifact = {
+			set_artifact_description = trad_gift_dedication_inscribed_m
+			set_artifact_description = artifact_motto_inscribed
+		}
+	}
+	else = {
+		scope:newly_created_artifact = {
+			set_artifact_description = trad_gift_dedication_inscribed_f
+			set_artifact_description = artifact_motto_inscribed
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+
+of_age_gift_vigilance = {
+	# 2120
+	create_artifact = {
+		name = trad_vigilance_gift
+		description = trad_vigilance_gift.desc
+		rarity = common
+		type = regalia
+		quality = 15
+		wealth = 10
+		creator = scope:guardian
+		visuals=wall_shield
+		visuals_source = root.location.county
+		modifier = artifact_retreat_losses_1_modifier
+		durability = 30
+		max_durability = 60
+		# Commissioned by Parent
+		history = {
+			type = created
+			actor = scope:creator
+			recipient = scope:guardian
+			location = root.location
+		}
+		save_scope_as = newly_created_artifact
+	}
+	scope:newly_created_artifact = {
+		hidden_effect = {
+			add_artifact_modifier = artifact_martial_1_modifier
+			add_artifact_modifier = artifact_prowess_1_modifier
+			add_artifact_history = {
+				type = given
+				actor = scope:guardian
+				recipient = root
+				location = root.location
+			}
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+
+of_age_gift_peace = {
+	# 2130
+	# Placeholder. Not currently assigned an artifact-based gift. 
+	# Not centralized to here because of Tooltip interaction.
+}
+
+of_age_gift_fortune = {
+	# 2140
+	# Placeholder. Not currently assigned an artifact-based gift. 
+	# Not centralized to here because of Tooltip interaction.
+}
+
+of_age_gift_knowledge = {
+	# 2150
+	create_artifact = {
+		name = trad_knowledge_gift
+		description = trad_knowledge_gift.desc
+		rarity = common
+		type = journal
+		quality = 15
+		wealth = 10
+		creator = scope:guardian
+		visuals=indian_book
+		visuals_source = root.location.county
+		modifier = artifact_build_gold_cost_4_modifier	#Reduced from 5. Vanilla docs commented out 5th tier modifier for some reason.
+		durability = 30
+		max_durability = 60
+		history = {
+			type = discovered
+			actor = scope:guardian
+			recipient = root
+			location = root.location
+		}
+		save_scope_as = newly_created_artifact
+	}
+	scope:newly_created_artifact = {
+		add_artifact_history = {
+			type = given
+			actor = scope:guardian
+			recipient = root
+			location = root.location
+		}
+	}
+	if = {
+		limit = { root = { is_female = no } }
+		scope:newly_created_artifact = {
+			set_artifact_description = trad_gift_dedication_written_m
+			add_artifact_modifier = artifact_stewardship_1_modifier
+		}
+	}
+	else = {
+		scope:newly_created_artifact = {
+			set_artifact_description = trad_gift_dedication_written_f
+			add_artifact_modifier = artifact_stewardship_1_modifier
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+
+of_age_gift_truth = {
+	# 2160
+	create_artifact = {
+		name = trad_truth_gift
+		description = trad_truth_gift.desc
+		rarity = common
+		type = journal
+		quality = 15
+		wealth = 10
+		creator = scope:guardian
+		visuals=book
+		visuals_source = root.location.county
+		modifier = artifact_learning_1_modifier
+		durability = 30
+		max_durability = 60
+		history = {
+			type = created
+			actor = scope:guardian
+			recipient = root
+			location = root.location
+		}
+		save_scope_as = newly_created_artifact
+	}
+	scope:newly_created_artifact = {
+		add_artifact_history = {
+			type = given
+			actor = scope:guardian
+			recipient = root
+			location = root.location
+		}
+	}
+	if = {
+		limit = { root = { is_female = no } }
+		scope:newly_created_artifact = {
+			set_artifact_description = trad_gift_dedication_written_m
+			add_artifact_modifier = artifact_intrigue_1_modifier
+		}
+	}
+	else = {
+		scope:newly_created_artifact = {
+			set_artifact_description = trad_gift_dedication_written_f
+			add_artifact_modifier = artifact_intrigue_1_modifier
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+
+of_age_gift_wisdom = {
+	# 2170
+	create_artifact = {
+		name = trad_wisdom_gift
+		description = trad_wisdom_gift.desc
+		rarity = common
+		type = regalia
+		quality = 15
+		wealth = 10
+		creator = scope:guardian
+		visuals=pelt
+		visuals_source = root.location.county
+		modifier = gift_wisdom
+		durability = 30
+		max_durability = 60
+		history = { type = created_before_history } 
+		save_scope_as = newly_created_artifact
+	}
+	scope:newly_created_artifact = {
+		add_artifact_history = {
+			type = given
+			actor = scope:guardian
+			recipient = root
+			location = root.location
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+
+of_age_gift_devotion = {
+	# 2180
+	create_artifact = {
+		name = trad_devotion_gift
+		description = trad_devotion_gift.desc
+		rarity = common
+		type = regalia
+		quality = 15
+		wealth = 10
+		creator = scope:guardian
+		visuals=tapestry
+		visuals_source = root.location.county
+		modifier = gift_devotion
+		durability = 30
+		max_durability = 60
+		# Commissioned by Parent
+		history = {
+			type = created
+			actor = scope:creator
+			recipient = scope:guardian
+			location = root.location
+		}
+		save_scope_as = newly_created_artifact
+	}
+	scope:newly_created_artifact = {
+		add_artifact_history = {
+			type = given
+			actor = scope:guardian
+			recipient = root
+			location = root.location
+		}
+	}
+	if = {
+		limit = { root = { is_female = no } }
+		scope:newly_created_artifact = {
+			set_artifact_description = trad_gift_dedication_woven_m
+			set_artifact_description = trad_devotion_motto
+		}
+	}
+	else = {
+		scope:newly_created_artifact = {
+			set_artifact_description = trad_gift_dedication_woven_f
+			set_artifact_description = trad_devotion_motto
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+
+of_age_gift_family = {
+	# 2190
+	# Placeholder. Not currently assigned an artifact-based gift. 
+	# Not centralized to here because of Tooltip interaction.
+}
+
+of_age_gift_compassion = {
+	# 2200
+	create_artifact = {
+		name = trad_compassion_gift
+		description = trad_compassion_gift.desc
+		rarity = common
+		type = miscellaneous
+		quality = 15
+		wealth = 10
+		creator = scope:guardian
+		visuals=fabric_roll
+		visuals_source = root.location.county
+		modifier = artifact_negate_health_penalty_add_2_modifier
+		durability = 30
+		max_durability = 30
+		history = {
+			type = created
+			actor = scope:guardian
+			recipient = root
+			location = root.location
+		}
+		save_scope_as = newly_created_artifact
+	}
+	# hidden_effect = {
+		if = {
+			limit = {
+				OR = {
+					has_trait = diligent
+					AND = {
+						reverse_opinion = { target = scope:guardian value >= 50 }
+						scope:guardian = {
+							OR = {
+								stewardship >= 12
+								culture = { has_cultural_tradition = tradition_artisans }
+							}
+						}
+					}
+				}
+			}
+			scope:newly_created_artifact = {
+				set_artifact_rarity = masterwork
+				clear_artifact_modifiers = yes
+				add_artifact_modifier = artifact_negate_health_penalty_add_3_modifier
+			}
+		}
+	# }
+	if = {
+		limit = { is_female = no }
+		scope:newly_created_artifact = {
+			set_artifact_description = trad_gift_dedication_woven_m
+		}
+	}
+	else = {
+		scope:newly_created_artifact = {
+			set_artifact_description = trad_gift_dedication_woven_f
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+
+of_age_gift_joy = {
+	# 2210
+	# Placeholder. Not currently assigned an artifact-based gift. 
+	# Not centralized to here because of Tooltip interaction.
+}
+
+of_age_gift_distinction = {
+	# 2220
+	custom_tooltip = gift_distinction.tt
+	hidden_effect = {
+		create_artifact_crown_effect = {
+			OWNER = root
+			SMITH = scope:guardian
+		}
+		scope:newly_created_artifact = {
+			set_artifact_name = trad_distinction_gift
+			set_artifact_description = artifact_motto_inscribed
+			set_artifact_rarity = common
+			set_max_durability = 60
+			add_durability = -30
+			clear_artifact_modifiers = yes
+			add_artifact_modifier = gift_distinction
+			add_artifact_history = {
+				type = given
+				actor = scope:guardian
+				recipient = root
+				location = root.location
+			}
+		}
+	}
+	scope:newly_created_artifact = { equip_artifact_to_owner = yes }
+}
+

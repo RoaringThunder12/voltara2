@@ -1,0 +1,106 @@
+﻿story_family_at_war = {
+	on_setup = {
+
+	}
+
+	on_end = {
+		story_owner = {
+			remove_character_flag = child_participating_in_war
+			remove_character_flag = denied_child_from_war
+			remove_character_flag = no_eligible_child
+			remove_character_flag = waiting_house_valor_2000_response
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	effect_group = {
+		days = { 1 30 }
+		# chance = X
+		
+		triggered_effect = {
+			trigger = {
+				story_owner = {
+					is_commanding_army = yes
+					NOT = {
+						has_character_flag = child_participating_in_war
+						has_character_flag = denied_child_from_war
+						has_character_flag = no_eligible_child
+						# This avoids event spam from story_cycle daily checks while the game is unpaused.
+						has_character_flag = waiting_house_valor_2000_response
+					}
+				} # Story Owner Scope
+			}
+			effect = {
+				story_owner = {
+					if = {
+						limit = {
+							OR = {
+								any_child = {
+									is_adult = no
+									OR = {
+										AND = {
+											house = { has_house_modifier = trad_valor }
+											age >= 8
+										}
+										age >= 11
+									}
+									# Leave this check for the actual event. Trigger should be simple for broader eligibility.
+									# is_dominant_gender = yes
+								}
+								any_sibling = {
+									is_adult = no
+									# Leave these checks for the actual event. On_action should be simple.
+									OR = {
+										AND = {
+											house = { has_house_modifier = trad_valor }
+											age >= 8
+										}
+										age >= 11
+									}
+									# Leave this check for the actual event. Trigger should be simple for broader eligibility.
+									# is_dominant_gender = yes
+								}
+							}
+						} # Limit
+						trigger_event = house_valor.2000
+					}
+					else = {
+						add_character_flag = no_eligible_child
+					}
+				} # Story Owner Scope
+			} # Effect
+		} # Triggered Effect
+	} # Effect Group Daily Check
+
+	effect_group = {
+		days = { 30 60 }
+
+		triggered_effect = {
+			trigger = {
+				story_owner = { is_at_war = no }
+			}
+			effect = {
+				end_story = yes
+			}
+		}
+	} # Effect Group Monthly Check
+
+	effect_group = {
+		days = { 300 360 }
+
+		triggered_effect = {
+			trigger = {
+				story_owner = {
+					has_character_flag = no_eligible_child
+					is_at_war = yes
+				}
+			}
+			effect = {
+				story_owner = { remove_character_flag = no_eligible_child }
+			}
+		}
+	} # Effect Group Annual Check
+}

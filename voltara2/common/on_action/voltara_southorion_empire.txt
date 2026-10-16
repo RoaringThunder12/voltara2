@@ -1,0 +1,15 @@
+﻿on_game_start = { on_actions = { voltara_southorion_empire_start } }
+voltara_southorion_empire_start = { effect = {
+ if = { limit = { title:e_voltara_sixth_southron_invasion = { exists = holder } }
+  title:e_voltara_sixth_southron_invasion.holder = { save_scope_as = voltara_invasion_emperor set_primary_title_to = title:e_voltara_sixth_southron_invasion }
+  create_title_and_vassal_change = { type = created save_scope_as = voltara_invasion_union add_claim_on_loss = no }
+  every_independent_ruler = { limit = {
+   highest_held_title_tier < tier_empire
+   rite = rite:voltara_khaotism_rite
+   capital_province = { geographical_region = world_voltara_southorion }
+  } change_liege = { liege = scope:voltara_invasion_emperor change = scope:voltara_invasion_union } }
+  resolve_title_and_vassal_change = scope:voltara_invasion_union
+ }
+
+ voltara_apply_tribal_southron_update = yes
+} }

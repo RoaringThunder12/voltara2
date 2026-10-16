@@ -1,0 +1,11 @@
+## This will get replaced by CAFG mod
+
+types kCAFG_ProvinceCultureTypes
+{
+    type kCAFG_province_culture_granularity_content = vbox { }
+}
+
+types kCAFG_ProvinceRiteTypes
+{
+    type kCAFG_province_rite_granularity_content = vbox { }
+}

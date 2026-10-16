@@ -1,0 +1,86 @@
+﻿dragon_no_clothes = {
+	usage = game
+	selection_behavior = weighted_random
+	priority = 10
+
+	no_clothes = {
+		dna_modifiers = {
+
+			accessory = {
+				mode = add
+				gene = clothes
+				template = no_clothes
+				range = { 0 1 } # For the randomness to work correctly
+			}
+
+			accessory = {
+				mode = add
+				gene = legwear
+				template = no_legwear
+				range = { 0 1 } # For the randomness to work correctly
+			}
+
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = no_cloak
+				range = { 0 1 } # For the randomness to work correctly
+			}
+
+			accessory = {
+				mode = add
+				gene = headgear
+				template = no_headgear
+				range = { 0 1 } # For the randomness to work correctly
+			}
+
+			accessory = {
+				mode = add
+				gene = props_left
+				template = no_props
+				range = { 0 1 } # For the randomness to work correctly
+			}
+
+			accessory = {
+				mode = add
+				gene = props_right
+				template = no_props
+				range = { 0 1 } # For the randomness to work correctly
+			}
+
+			accessory = {
+				mode = add
+				gene = animated_props
+				template = no_props
+				range = { 0 1 } # For the randomness to work correctly
+			}
+
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = no_hairstyles
+				range = { 0 1 } # For the randomness to work correctly
+			}
+
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+
+		# outfit_tags = { no_clothes }
+		#ignore_outfit_tags = yes
+
+		weight = {
+			base = 0
+
+			modifier = {
+				add = 1000
+				portrait_has_trait_trigger = { TRAIT = dragon }
+			}
+
+		}
+	}
+}

@@ -1,0 +1,24 @@
+﻿
+voltara_ruins_select = {
+ scope = title saved_scopes = { actor }
+ is_shown = { tier >= tier_county tier <= tier_empire }
+ is_valid = { scope:actor = { is_ai = no is_landed = yes } }
+ effect = {
+  if = { limit = { is_target_in_global_variable_list = { name = voltara_selected_ruins_titles target = this } }
+   remove_list_global_variable = { name = voltara_selected_ruins_titles target = this }
+  }
+  else = { add_to_global_variable_list = { name = voltara_selected_ruins_titles target = this } }
+ }
+}
+voltara_ruins_confirm = {
+ scope = character
+ is_valid = { is_ai = no is_landed = yes any_in_global_list = { variable = voltara_selected_ruins_titles always = yes } }
+ effect = { trigger_event = voltara_ruins.1 }
+}
+voltara_ruins_clear = { scope = character effect = { voltara_clear_ruins_selection = yes } }
+voltara_ruins_expedition = {
+ scope = title saved_scopes = { actor }
+ is_shown = { tier = tier_county has_variable = voltara_ruin_state }
+ is_valid = { voltara_ruins_can_settle = yes }
+ effect = { if = { limit = { voltara_ruins_can_settle = yes } save_scope_as = ruin_county scope:actor = { save_scope_as = actor trigger_event = voltara_ruins.10 } } }
+}

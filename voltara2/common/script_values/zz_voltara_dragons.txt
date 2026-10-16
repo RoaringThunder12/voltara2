@@ -1,0 +1,5 @@
+﻿voltara_dragon_visual_size = { value = age divide = 600 min = 0.02 max = 0.45 }
+voltara_dragon_combat_power = { value = 1
+ if = { limit = { exists = var:current_dragon } add = var:current_dragon.dragon_combat_effectiveness }
+}
+

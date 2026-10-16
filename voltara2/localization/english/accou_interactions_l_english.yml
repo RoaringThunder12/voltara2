@@ -1,0 +1,23 @@
+﻿l_english:
+ # accou_marry_someone_interaction
+ accou_marry_someone_interaction: "Ask to Find Spouse"
+ accou_marry_someone_interaction_desc: "Ask [recipient.GetShortUINameNoTooltip] to search for a suitable [spouse|E] [recipient.GetHerselfHimself]"
+
+ # accou_invite_someone_interaction
+ accou_invite_someone_interaction: "Find Someone to Invite to Court"
+ accou_invite_someone_interaction_desc: "Ask my courtiers to recommend someone to invite to court"
+
+ # accou_find_guardian_interaction
+ accou_find_guardian_interaction: "Find Guardian"
+ accou_find_guardian_interaction_desc: "Ask my courtiers to suggest a suitable [guardian|E] for [recipient.GetShortUINameNoTooltip]"
+
+ # Tooltips
+ accou_marriage_0001_failed_tt: "[recipient.GetShortUINameNoTooltip] recently failed to find a [spouse|E]"
+ accou_marriage_0001_considering_tt: "[recipient.GetShortUINameNoTooltip] is already being considered for a marriage"
+ accou_guardian_0001_no_education_focus_tt: "[recipient.GetShortUINameNoTooltip] does not have an education focus set"
+ accou_guardian_0001_failed_tt: "You recently failed to find a [guardian|E] for [recipient.GetShortUINameNoTooltip]"
+ accou_guardian_0001_considering_tt: "[recipient.GetShortUINameNoTooltip] is already being considered as a ward"
+
+ accou_will_search_for_someone_to_marry_tt: "Will search for a suitable [spouse|E]."
+ accou_will_search_for_someone_to_invite_tt: "Will ask your courtiers to recommend someone to invite to court."
+ accou_will_search_for_guardian_tt: "Will ask your courtiers to suggest a suitable [guardian|E] for [recipient.GetShortUIName]"

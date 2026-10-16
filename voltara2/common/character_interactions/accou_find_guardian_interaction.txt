@@ -1,0 +1,83 @@
+﻿# Find Guardian
+# Human player only.
+accou_find_guardian_interaction = {
+	category = interaction_category_friendly
+	desc = accou_find_guardian_interaction_desc
+	icon = child
+
+	is_available = {
+		is_ai = no
+	}
+
+	is_shown = {
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		scope:recipient = {
+			is_adult = no
+			OR = {
+				is_courtier_of = scope:actor
+				is_hostage_of = scope:actor
+			}
+
+			# Does not already have a guardian
+			num_of_relation_guardian = 0
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			accou_is_valid_event_liege_trigger = yes
+		}
+
+		scope:recipient = {
+			# Valid child event participant
+			accou_is_valid_child_event_participant_trigger = yes
+
+			# Valid child recipient
+			accou_is_valid_child_recipient_trigger = { ACTOR = scope:actor }
+
+			# Older than education start age and education focus set
+			age >= childhood_education_start_age
+			custom_tooltip = {
+				text = accou_guardian_0001_no_education_focus_tt
+				has_education_focus_trigger = yes
+			}
+
+			# Not a close family of actor (AI will educate their close family)
+			NOT = { is_close_family_of = scope:actor }
+
+			# No previous attempt failed recently
+			custom_tooltip = {
+				text = accou_guardian_0001_failed_tt
+				NOT = { has_character_flag = accou_guardian_0001_failed }
+			}
+			custom_tooltip = {
+				text = accou_guardian_0001_considering_tt
+				NOT = { has_character_flag = accou_guardian_0001_considering }
+			}
+		}
+	}
+
+	cooldown_against_recipient = { months = 1 }
+
+	on_accept = {
+		scope:recipient = {
+			add_character_flag = {
+				flag = accou_searching_for_guardian
+				days = 10
+			}
+			save_scope_as = child
+		}
+
+		scope:actor = {
+			custom_tooltip = accou_will_search_for_guardian_tt
+			trigger_event = {
+				id = accou_guardian.0001
+				days = { 2 6 }
+			}
+		}
+	}
+
+	auto_accept = yes
+}

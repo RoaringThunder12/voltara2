@@ -1,0 +1,42 @@
+﻿# Find Someone to Invite to Court
+# Human player only.
+accou_invite_someone_interaction = {
+	category = interaction_category_vassal
+	desc = accou_invite_someone_interaction_desc
+	icon = guest
+
+	is_available = {
+		is_ai = no
+	}
+
+	is_shown = {
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		scope:actor = scope:recipient
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			accou_is_valid_event_liege_trigger = yes
+		}
+	}
+
+	cooldown = { months = 1 }
+
+	on_accept = {
+		scope:actor = {
+			custom_tooltip = accou_will_search_for_someone_to_invite_tt
+			add_character_flag = {
+				flag = accou_searching_for_someone_to_invite
+				days = 10
+			}
+			trigger_event = {
+				id = accou_invite.0001
+				days = { 2 6 }
+			}
+		}
+	}
+
+	auto_accept = yes
+}

@@ -1,0 +1,70 @@
+﻿
+# Adapted from AGOT agot_mw_become_independent and agot_reassign_pwl_direct_effect.
+# State lives on titles, so the death of a paramount does not strand the realm.
+voltara_mw_detach = {
+ voltara_mw_save_contract = yes
+ primary_title = {
+  set_variable = { name = voltara_mw_home value = title:h_voltara_severos }
+  set_variable = { name = voltara_mw_war value = scope:war }
+ }
+ create_title_and_vassal_change = { type = independency save_scope_as = mw_change add_claim_on_loss = no }
+ becomes_independent = { change = scope:mw_change }
+ resolve_title_and_vassal_change = scope:mw_change
+ trigger_event = { id = voltara_mega_wars.1 days = 1 }
+}
+voltara_mw_reassemble = {
+ if = {
+  limit = {
+   is_independent_ruler = yes
+   exists = title:h_voltara_severos.holder
+   NOT = { has_title = title:h_voltara_severos }
+   highest_held_title_tier < tier_hegemony
+  }
+  create_title_and_vassal_change = { type = swear_fealty save_scope_as = mw_change }
+  change_liege = { liege = title:h_voltara_severos.holder change = scope:mw_change }
+  resolve_title_and_vassal_change = scope:mw_change
+ }
+ voltara_mw_restore_contract = yes
+ primary_title = { remove_variable = voltara_mw_home remove_variable = voltara_mw_war }
+}
+voltara_mw_join_crown = {
+ primary_title.var:voltara_mw_war ?= {
+  if = { limit = { is_attacker = title:h_voltara_severos.holder } add_attacker = root }
+  else = { add_defender = root }
+ }
+}
+voltara_mw_join_opposition = {
+ primary_title.var:voltara_mw_war ?= {
+  if = { limit = { is_attacker = title:h_voltara_severos.holder } add_defender = root }
+  else = { add_attacker = root }
+ }
+}
+
+voltara_mw_save_contract = { if = { limit = { has_government = lp_feudal_government }
+primary_title = { set_variable = { name = vmw_feudal_government_taxes value = prev.vassal_contract_obligation_level:feudal_government_taxes } }
+primary_title = { set_variable = { name = vmw_feudal_government_levies value = prev.vassal_contract_obligation_level:feudal_government_levies } }
+primary_title = { set_variable = { name = vmw_special_contract value = prev.vassal_contract_obligation_level:special_contract } }
+primary_title = { set_variable = { name = vmw_religious_rights value = prev.vassal_contract_obligation_level:religious_rights } }
+primary_title = { set_variable = { name = vmw_fortification_rights value = prev.vassal_contract_obligation_level:fortification_rights } }
+primary_title = { set_variable = { name = vmw_coinage_rights value = prev.vassal_contract_obligation_level:coinage_rights } }
+primary_title = { set_variable = { name = vmw_succession_rights value = prev.vassal_contract_obligation_level:succession_rights } }
+primary_title = { set_variable = { name = vmw_war_declaration_rights value = prev.vassal_contract_obligation_level:war_declaration_rights } }
+primary_title = { set_variable = { name = vmw_council_rights value = prev.vassal_contract_obligation_level:council_rights } }
+primary_title = { set_variable = { name = vmw_kurultai_rights value = prev.vassal_contract_obligation_level:kurultai_rights } }
+primary_title = { set_variable = { name = vmw_title_revocation_rights value = prev.vassal_contract_obligation_level:title_revocation_rights } }
+primary_title = { set_variable = { name = vmw_jizya_special_rights value = prev.vassal_contract_obligation_level:jizya_special_rights } }
+} }
+voltara_mw_restore_contract = { if = { limit = { is_independent_ruler = no has_government = lp_feudal_government }
+if = { limit = { primary_title = { has_variable = vmw_feudal_government_taxes } } vassal_contract_set_obligation_level = { type = feudal_government_taxes level = primary_title.var:vmw_feudal_government_taxes } primary_title = { remove_variable = vmw_feudal_government_taxes } }
+if = { limit = { primary_title = { has_variable = vmw_feudal_government_levies } } vassal_contract_set_obligation_level = { type = feudal_government_levies level = primary_title.var:vmw_feudal_government_levies } primary_title = { remove_variable = vmw_feudal_government_levies } }
+if = { limit = { primary_title = { has_variable = vmw_special_contract } } vassal_contract_set_obligation_level = { type = special_contract level = primary_title.var:vmw_special_contract } primary_title = { remove_variable = vmw_special_contract } }
+if = { limit = { primary_title = { has_variable = vmw_religious_rights } } vassal_contract_set_obligation_level = { type = religious_rights level = primary_title.var:vmw_religious_rights } primary_title = { remove_variable = vmw_religious_rights } }
+if = { limit = { primary_title = { has_variable = vmw_fortification_rights } } vassal_contract_set_obligation_level = { type = fortification_rights level = primary_title.var:vmw_fortification_rights } primary_title = { remove_variable = vmw_fortification_rights } }
+if = { limit = { primary_title = { has_variable = vmw_coinage_rights } } vassal_contract_set_obligation_level = { type = coinage_rights level = primary_title.var:vmw_coinage_rights } primary_title = { remove_variable = vmw_coinage_rights } }
+if = { limit = { primary_title = { has_variable = vmw_succession_rights } } vassal_contract_set_obligation_level = { type = succession_rights level = primary_title.var:vmw_succession_rights } primary_title = { remove_variable = vmw_succession_rights } }
+if = { limit = { primary_title = { has_variable = vmw_war_declaration_rights } } vassal_contract_set_obligation_level = { type = war_declaration_rights level = primary_title.var:vmw_war_declaration_rights } primary_title = { remove_variable = vmw_war_declaration_rights } }
+if = { limit = { primary_title = { has_variable = vmw_council_rights } } vassal_contract_set_obligation_level = { type = council_rights level = primary_title.var:vmw_council_rights } primary_title = { remove_variable = vmw_council_rights } }
+if = { limit = { primary_title = { has_variable = vmw_kurultai_rights } } vassal_contract_set_obligation_level = { type = kurultai_rights level = primary_title.var:vmw_kurultai_rights } primary_title = { remove_variable = vmw_kurultai_rights } }
+if = { limit = { primary_title = { has_variable = vmw_title_revocation_rights } } vassal_contract_set_obligation_level = { type = title_revocation_rights level = primary_title.var:vmw_title_revocation_rights } primary_title = { remove_variable = vmw_title_revocation_rights } }
+if = { limit = { primary_title = { has_variable = vmw_jizya_special_rights } } vassal_contract_set_obligation_level = { type = jizya_special_rights level = primary_title.var:vmw_jizya_special_rights } primary_title = { remove_variable = vmw_jizya_special_rights } }
+} }

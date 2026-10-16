@@ -1,0 +1,58 @@
+﻿namespace = voltara_lore
+
+voltara_lore.1 = { type = character_event title = voltara_lore.1.t desc = voltara_lore.1.desc theme = learning override_background = { reference = study }
+option = { name = voltara_lore.1.o0 trigger_event = voltara_lore.2 }
+option = { name = voltara_lore.1.o1 trigger_event = voltara_lore.3 }
+option = { name = voltara_lore.1.o2 trigger_event = voltara_lore.4 }
+option = { name = voltara_lore.1.o3 trigger_event = voltara_lore.5 }
+option = { name = voltara_lore.1.o4 trigger_event = voltara_lore.6 }
+option = { name = voltara_lore.1.o5 trigger_event = voltara_lore.7 }
+option = { name = voltara_lore.1.o6 trigger_event = voltara_lore.8 }
+option = { name = voltara_lore.1.o7 trigger_event = voltara_lore.9 }
+option = { name = voltara_lore.1.o8  }
+}
+
+voltara_lore.2 = { type = character_event title = voltara_lore.2.t desc = voltara_lore.2.desc theme = learning override_background = { reference = study }
+option = { name = voltara_lore.2.o0 trigger_event = voltara_lore.1 }
+option = { name = voltara_lore.2.o1  }
+}
+
+voltara_lore.3 = { type = character_event title = voltara_lore.3.t desc = voltara_lore.3.desc theme = learning override_background = { reference = study }
+option = { name = voltara_lore.3.o0 trigger_event = voltara_lore.1 }
+option = { name = voltara_lore.3.o1  }
+}
+
+voltara_lore.4 = { type = character_event title = voltara_lore.4.t desc = voltara_lore.4.desc theme = learning override_background = { reference = study }
+option = { name = voltara_lore.4.o0 trigger_event = voltara_lore.1 }
+option = { name = voltara_lore.4.o1  }
+}
+
+voltara_lore.5 = { type = character_event title = voltara_lore.5.t desc = voltara_lore.5.desc theme = learning override_background = { reference = study }
+option = { name = voltara_lore.5.o0 trigger_event = voltara_lore.1 }
+option = { name = voltara_lore.5.o1  }
+}
+
+voltara_lore.6 = { type = character_event title = voltara_lore.6.t desc = voltara_lore.6.desc theme = learning override_background = { reference = study }
+option = { name = voltara_lore.6.o0 trigger_event = voltara_lore.1 }
+option = { name = voltara_lore.6.o1  }
+}
+
+voltara_lore.7 = { type = character_event title = voltara_lore.7.t desc = voltara_lore.7.desc theme = learning override_background = { reference = study }
+option = { name = voltara_lore.7.o0 trigger_event = voltara_lore.1 }
+option = { name = voltara_lore.7.o1  }
+}
+
+voltara_lore.8 = { type = character_event title = voltara_lore.8.t desc = voltara_lore.8.desc theme = learning override_background = { reference = study }
+option = { name = voltara_lore.8.o0 trigger_event = voltara_lore.1 }
+option = { name = voltara_lore.8.o1  }
+}
+
+voltara_lore.9 = { type = character_event title = voltara_lore.9.t desc = voltara_lore.9.desc theme = learning override_background = { reference = study }
+option = { name = voltara_lore.9.o0 trigger_event = voltara_lore.1 }
+option = { name = voltara_lore.9.o1  }
+}
+
+voltara_lore.20 = { type = character_event title = voltara_lore.20.t desc = voltara_lore.20.desc theme = learning override_background = { reference = study }
+option = { name = voltara_lore.20.o0 add_character_modifier = { modifier = voltara_mercy_modifier years = 5 } }
+option = { name = voltara_lore.20.o1 add_character_modifier = { modifier = voltara_authority_modifier years = 5 } add_dread = 10 }
+}

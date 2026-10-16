@@ -1,0 +1,823 @@
+﻿magical_experiments_p1_perk = {
+	lifestyle = magic_lifestyle
+	tree = magic
+	position = { 1.80 0 }
+	icon = node_magic
+
+	auto_selection_weight = {
+		value = 0
+		if = {
+			limit = {
+				OR = {
+					has_trait = witch
+					any_secret = { type = secret_witch }
+				}
+				OR = {
+					any_character_artifact = { has_variable = magic1 }
+					has_trait = source
+					#has_trait = source2
+					#has_trait = source3
+					#has_trait = source4
+					has_character_flag = arcane_unlocked_flag
+					has_power_place_trigger = yes
+				}
+			}
+			add = 4000
+		}
+		if = {
+			limit = { can_start_new_lifestyle_tree_trigger = no } # 2.34 (Supernatural): the tree has a clause in the trigger now
+			multiply = 0
+		}
+	}
+
+	can_be_picked = {
+		OR = {
+			has_focus = arcane_focus
+			is_true_mage = yes
+		}
+	}
+	
+	effect = {
+		if = {
+			limit = {
+				has_character_flag = special_magic_character
+			}
+			add_learning_skill = 1
+		}
+		else = {
+			random_list = {
+				80 = {
+					send_interface_toast = {
+						title = magical_experiments_p1_perk_toast
+						add_learning_skill = 1
+					}
+					
+				}
+				5 = {
+					trigger = {
+						NOT = {
+							has_trait = disfigured
+						}
+					}
+					add_trait = disfigured
+				}
+				5 = {
+					trigger = {
+						NOR = {
+							has_trait = wounded_1
+							has_trait = wounded_2
+							has_trait = wounded_3
+						}
+					}
+					add_trait = wounded_1
+				}
+				5 = {
+					trigger = {
+						NOT = {
+							has_trait = one_eyed
+						}
+					}
+					add_trait = one_eyed
+				}
+				5 = {
+					trigger = {
+						NOT = {
+							has_trait = one_legged
+						}
+					}
+					add_trait = one_legged
+				}
+			}
+		}
+		
+		#if = { limit = { NOT = { has_character_modifier = power_saturated1 } }
+		#	add_character_modifier = power_saturated1
+		#}
+		gain_standard_ps_effect = yes
+		custom_tooltip = magical_experiments_p1_perk_effect
+		hidden_effect = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+				random = {
+					chance = 80
+					trigger_event = {
+						id = magic_ev2.58	#create mage
+						years = { 2 15 }
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_trait = archmage
+					}
+				}
+				random = {
+					chance = 99
+					trigger_event = {
+						id = magic_ev2.59	#witch cooperation
+						months = { 6 95 }
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_character_flag = special_magic_character
+					}
+					has_trait = archmage
+				}
+				remove_trait = archmage
+			}
+		}
+	}
+}
+
+mage_tower_p2_perk = {
+	name = magic_countermeasures_perk
+	lifestyle = magic_lifestyle
+	tree = magic
+	position = { 3.15 1 }
+	icon = node_magic
+	parent = magical_experiments_p1_perk
+
+	auto_selection_weight = {
+		value = 0
+		if = {
+			limit = {
+				OR = {
+					has_trait = witch
+					any_secret = { type = secret_witch }
+				}
+				OR = {
+					any_character_artifact = { has_variable = magic1 }
+					has_trait = source
+					#has_trait = source2
+					#has_trait = source4
+					has_character_flag = arcane_unlocked_flag
+					has_power_place_trigger = yes
+				}
+			}
+			add = 2000
+		}
+	}
+
+	can_be_picked = {
+		OR = {
+			has_focus = arcane_focus
+			is_true_mage = yes
+		}
+	}
+
+	effect = {
+		#if = {
+		#	limit = {
+		#		is_playable_character = yes
+		#		NOT = {
+		#			any_held_county = {
+		#				exists = title_province
+		#				title_province = {
+		#					OR = {
+		#						has_building_or_higher = mage_tower_02
+		#						has_variable = prepared_for_tower_constr
+		#					}
+		#					
+		#				}
+		#			}
+		#		}
+		#	}
+		#	if = {
+		#		limit = {
+		#			is_landed = yes
+		#			capital_province = {
+		#				has_special_building_slot = no
+		#			}
+		#		}
+		#		capital_province = {
+		#			add_special_building_slot = mage_tower_02
+		#			set_variable = prepared_for_tower_constr
+		#		}
+		#	}
+		#	else = {
+		#		trigger_event = {
+		#			id = magic_ev6.71
+		#			days = 1
+		#		}
+		#	}
+		#}
+		#custom_tooltip = mage_tower_p2_perk_effect
+		custom_tooltip = magic_countermeasures_perk_ct1
+		custom_tooltip = magic_countermeasures_perk_ct2
+		
+		hidden_effect = {
+			random = {
+				chance = 99
+				trigger_event = {
+					id = magic_ev2.56	#transmutation
+					months = { 6 60 }
+				}
+			}
+			trigger_event = {
+				id = magic_ev6.71	#mage tower
+				months = { 10 70 }
+			}
+		}
+		#custom_tooltip = protective_runes_perk_effect4
+		#custom_tooltip = protective_runes_perk_effect3
+	}
+}
+
+magic_triangulation_p5_perk = {
+	lifestyle = magic_lifestyle
+	tree = magic
+	position = { 0.35 1 }
+	icon = node_magic
+
+	auto_selection_weight = { # 2.34 (Supernatural): the three magic trees had no AI weighting past their roots
+		value = 0
+		if = {
+			limit = {
+				OR = {
+					has_trait = witch
+					any_secret = { type = secret_witch }
+				}
+			}
+			add = 2000
+		}
+	}
+
+	parent = magical_experiments_p1_perk
+
+
+	can_be_picked = {
+		OR = {
+			has_focus = arcane_focus
+			is_true_mage = yes
+		}
+	}
+
+	effect = {
+		custom_tooltip = magic_triangulation_p5_perk_effect
+		if = {
+			limit = {
+				NOT = {
+					has_trait = archmage
+				}
+			}
+			if = {
+				limit = {
+					has_trait = lifestyle_mystic
+				}
+				add_trait_xp = {
+					trait = lifestyle_mystic
+					value = 20
+				}
+			}
+		}
+	}
+}
+
+healer_p9_perk = { #Caster
+	lifestyle = magic_lifestyle
+	tree = magic
+	position = { 3.18 3 }
+	icon = node_magic
+
+	auto_selection_weight = { # 2.34 (Supernatural): the three magic trees had no AI weighting past their roots
+		value = 0
+		if = {
+			limit = {
+				OR = {
+					has_trait = witch
+					any_secret = { type = secret_witch }
+				}
+			}
+			add = 2000
+		}
+	}
+
+	parent = mage_tower_p2_perk
+
+	can_be_picked = {
+		OR = {
+			has_focus = arcane_focus
+			is_true_mage = yes
+		}
+	}
+
+	effect = {
+		#custom_tooltip = healer_p9_perk_eff
+		custom_tooltip = healer_p9_perk_eff1
+		custom_tooltip = healer_p9_perk_eff2
+		#if = {
+		#	limit = {
+		#		has_character_flag = bless_land_flag
+		#	}
+		#	custom_tooltip = ev5.1.0.a_ct
+		#}
+		#else_if = {
+		#	limit = {
+		#		has_character_flag = healing_spell_flag
+		#	}
+		#	#custom_tooltip = healer_p9_perk_eff
+		#	custom_tooltip = ev5.1.0.healing_ct
+		#}
+		#else_if = {
+		#	limit = {
+		#		has_character_modifier = greedy_power_modifier
+		#	}
+		#	show_as_tooltip = {
+		#		add_character_modifier = greedy_power_modifier
+		#	}
+		#}
+		#else_if = {
+		#	limit = {
+		#		has_character_flag = shadowstep_flag
+		#	}
+		#	custom_tooltip = ev5.1.0.e_ct
+		#}
+		#else_if = {
+		#	limit = {
+		#		has_character_flag = plague_spell_flag
+		#	}
+		#	custom_tooltip = ev5.1.0.f_ct
+		#}
+		#else_if = {
+		#	limit = {
+		#		has_character_flag = unlock_magical_research_flag
+		#	}
+		#	custom_tooltip = ev5.1.0.g_ct
+		#}
+		#else_if = {
+		#	limit = {
+		#		has_character_flag = hipercognition_flag
+		#	}
+		#	custom_tooltip = ev5.1.0.h_ct
+		#}
+		#else_if = {
+		#	limit = {
+		#		has_character_flag = firestorm_spell_flag
+		#	}
+		#	custom_tooltip = ev5.1.0.k_ct
+		#}
+		#else_if = {
+		#	limit = {
+		#		has_character_flag = aura_reading_spell
+		#	}
+		#	custom_tooltip = aura_reading_spell_got_it
+		#}
+		#else = {
+		#	custom_tooltip = healer_p9_perk_eff3
+		#}
+		custom_tooltip = healer_p9_perk_eff3
+		if = {
+			limit = {
+				NOT = {
+					has_trait = archmage
+				}
+			}
+			trigger_event = {
+				id = magic_ev5.1
+				#days = 1
+			}
+		}
+		hidden_effect = {
+			random = {
+				chance = 30
+				trigger_event = {
+					id = magic_ev8.50	#a challenge to mage duel
+					years = { 10 30 }
+				}
+			}
+		}
+	}
+}
+#Now its "Advcanced Alchemy" perk, but I remain old coding name
+combat_spells_p3_perk = {
+	lifestyle = magic_lifestyle
+	tree = magic
+	position = { 0.35 3 }
+	icon = node_magic
+
+	auto_selection_weight = { # 2.34 (Supernatural): the three magic trees had no AI weighting past their roots
+		value = 0
+		if = {
+			limit = {
+				OR = {
+					has_trait = witch
+					any_secret = { type = secret_witch }
+				}
+			}
+			add = 2000
+		}
+	}
+
+	parent = magic_triangulation_p5_perk
+
+
+	can_be_picked = {
+		OR = {
+			has_focus = arcane_focus
+			is_true_mage = yes
+		}
+	}
+
+	#character_modifier = {
+	#	domain_tax_mult = 0.1
+	#}
+	government_character_modifier = {
+		flag = government_is_landless_adventurer
+		invert_check = yes
+		domain_tax_mult = 0.1
+	}
+	government_character_modifier = {
+		flag = government_is_landless_adventurer
+		invert_check = no
+		domicile_monthly_gold_mult = 0.25
+	}
+	effect = {
+		#custom_tooltip = combat_spells_p3_perk_effect
+		custom_description_no_bullet = { text = combat_spells_p3_effect }
+		#if = { limit = { has_character_modifier = power_saturated1 }
+		#	remove_character_modifier = power_saturated1
+		#	add_character_modifier = power_saturated2
+		#}
+		
+	}
+
+}
+
+
+
+forbidden_ritual_p7_perk = {
+	lifestyle = magic_lifestyle
+	tree = magic
+	position = { 1.80 4.30 }
+	icon = node_magic
+
+	auto_selection_weight = { # 2.34 (Supernatural): the three magic trees had no AI weighting past their roots
+		value = 0
+		if = {
+			limit = {
+				OR = {
+					has_trait = witch
+					any_secret = { type = secret_witch }
+				}
+			}
+			add = 2000
+		}
+	}
+
+	parent = combat_spells_p3_perk
+	parent = healer_p9_perk
+
+	can_be_picked = {
+		OR = {
+			has_focus = arcane_focus
+			is_true_mage = yes
+		}
+	}
+
+	effect = {
+		custom_tooltip = forbidden_ritual_p7_perk_effect
+		#trigger_event = {
+		#	id = magic_ev.7
+		#	days = { 1 3 }
+		#}
+		if = {
+			limit = {
+				has_trait = grandmaster_coven
+			}
+			add_trait_xp = {
+				trait = grandmaster_coven
+				value = 10
+			}
+		}
+		else_if = {
+			limit = {
+				has_trait = lifestyle_mystic
+			}
+			add_trait_xp = {
+				trait = lifestyle_mystic
+				value = 10
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_trait = archmage
+					}
+				}
+				random = {
+					chance = 65
+					trigger_event = {
+						id = magic_ev7.75
+						years = { 1 4 }
+					}
+				}
+			}
+		}
+	}
+}
+
+mage_p4_perk = {
+	lifestyle = magic_lifestyle
+	tree = magic
+	position = { 1.80 2 }
+	icon = true_mage
+
+	auto_selection_weight = { # 2.34 (Supernatural): the three magic trees had no AI weighting past their roots
+		value = 0
+		if = {
+			limit = {
+				OR = {
+					has_trait = witch
+					any_secret = { type = secret_witch }
+				}
+			}
+			add = 2000
+		}
+	}
+
+	parent = forbidden_ritual_p7_perk
+
+	trait = archmage
+	can_be_picked = {
+		OR = {
+			has_focus = arcane_focus
+			is_true_mage = yes
+		}
+		# 2.34: archmage is an opposite of the hunter traits; a perk must never be purchasable when its trait cannot be added
+		custom_description = {
+			text = spn_capstone_blocked_by_hunter
+			NOR = { has_trait = witch_hunter has_trait = supernatural_hunter }
+		}
+		# 2.38e (Supernatural): one capstone. A Warlock or a True Witch cannot take this one; a character who already holds two keeps both
+		custom_description = {
+			text = spn_capstone_another_path
+			NOR = { has_trait = warlock has_trait = true_witch }
+		}
+	}
+
+
+	effect = {
+		add_trait_force_tooltip = archmage
+		hidden_effect = { # 2.34: the mage's memory, once; anchors the "What the Word Meant" event
+			if = {
+				limit = { NOT = { any_memory = { has_memory_type = spn_became_a_mage_memory } } }
+				create_character_memory = { type = spn_became_a_mage_memory }
+			}
+		}
+		#custom_tooltip = mage_p4_perk_ctt
+		#custom_tooltip = mtriangulation_discount_ct
+		if = {
+			limit = {
+				is_valid_for_legitimacy_change = yes
+				culture = {
+					has_cultural_tradition = mage_rulership_tradition
+				}
+			}
+			add_legitimacy = medium_legitimacy_gain
+		}
+		if = {
+			limit = {
+				has_trait = grandmaster_coven
+			}
+			add_trait_xp = {
+				trait = grandmaster_coven
+				value = 20
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = additional_alchemy_xp_flag
+			}
+			hidden_effect = {
+				add_trait_xp = {
+					trait = archmage
+					track = alchemy
+					value = { 4 8 }
+				}
+			}
+		}
+		set_focus = no
+		hidden_effect = {
+			if = {
+				limit = {
+					has_trait = true_witch
+				}
+				add_trait_xp = {
+					trait = archmage
+					track = secret_knowledge
+					value = 5
+				}
+			}
+			if = {
+				limit = {
+					exists = dynasty
+					dynasty = {
+						has_dynasty_perk = witchcraft_legacy_4
+					}
+				}
+				send_interface_toast = {
+					title = witchcraft_legacy_4
+					add_trait_xp = {
+						trait = archmage
+						track = secret_knowledge
+						value = 10
+					}
+				}
+			}
+			#else = {
+			#	add_trait_xp = {
+			#		trait = archmage
+			#		track = secret_knowledge
+			#		value = 5
+			#	}
+			#}
+			if = {
+				limit = {
+					has_character_modifier = power_saturated1
+				}
+				remove_character_modifier = power_saturated1
+				gain_standard_ps_effect = yes
+			}
+			else_if = {
+				limit = {
+					has_character_modifier = power_saturated2
+				}
+				remove_character_modifier = power_saturated2
+				gain_standard_ps_effect = yes
+			}
+			#mind reading
+			#random = {
+			#	chance = 50
+			#	trigger_event = {
+			#		id = magic_ev2.8
+			#		years = { 8 40 }
+			#	}
+			#}
+			
+			#nicknames
+			random = {
+				chance = 70
+				trigger_event = {
+					id = magic_ev6.69
+					years = { 7 14 }
+				}
+			}
+			if = {
+				limit = {
+					is_ai = no
+				}
+				#magical threats
+				random_list = {
+					20 = {
+						#magic flu
+						trigger_event = {
+							id = magic_ev6.38
+							years = { 5 30 }
+						}
+					}
+					30 = {
+						trigger = {
+							has_trait = paranoid
+						}
+						#dominated?
+						trigger_event = {
+							id = magic_ev6.39
+							years = { 5 20 }
+						}
+					}
+					20 = {
+						if = {
+							limit = {
+								has_trait = source
+							}
+							#weak source
+							trigger_event = {
+								id = magic_ev6.41
+								years = { 12 30 }
+							}
+						}
+						else = {
+							#corruption
+							trigger_event = {
+								id = magic_ev6.40
+								years = { 5 30 }
+							}
+						}
+					}
+					10 = {
+						#regular mage spawn
+						trigger_event = {
+							id = magic_ev2.58
+							years = { 25 60 }
+						}
+					}
+					30 = {
+
+					}
+				}
+				#errant-knight
+				random = {
+					chance = 80
+					trigger_event = {
+						id = magic_ev2.24
+						years = { 5 15 }
+					}
+				}
+				#regular mage spawn
+				#random = {
+				#	chance = 80
+				#	trigger_event = {
+				#		id = magic_ev2.58
+				#		years = { 15 25 }
+				#	}
+				#}
+				#regular mage spawn
+				random = {
+					chance = 80
+					trigger_event = {
+						id = magic_ev2.58
+						years = 50
+					}
+				}
+				
+				#recognition
+				trigger_event = {
+					id = magic_ev11.2
+					days = 7
+				}
+				
+				if = {
+					limit = {
+						is_landed_or_landless_administrative = yes
+					}
+					#additional knowledge
+					random = {
+						chance = 60
+						trigger_event = {
+							id = magic_ev7.135
+							years = { 10 14 }
+						}
+					}
+					#vassal distrusts mage liege
+					trigger_event = {
+						id = magic_ev10.155
+						years = { 30 40 }
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						is_landed_or_landless_administrative = yes
+					}
+					#additional knowledge
+					random = {
+						chance = 60
+						trigger_event = {
+							id = magic_ev7.135
+							years = { 10 14 }
+						}
+					}
+				}
+
+				#artifacts accumulation (ai)
+				#trigger_event = {
+				#	id = magic_ev2.60
+				#	months = { 11 13 }
+				#}
+
+				#striving for power - ai mages/true witches
+				trigger_event = {
+					id = magic_ev10.156
+					years = { 4 14 }
+				}
+				add_stress = massive_stress_loss
+			}
+			#if = {
+			#	limit = {
+			#		exists = dynasty
+			#		dynasty = {
+			#			NOT = {
+			#				has_variable = used_magic_book
+			#			}
+			#		}
+			#	}
+			#	#blackgrimoire special
+			#	random = {
+			#		chance = 70
+			#		trigger_event = {
+			#			id = magic_ev4.57
+			#			years = { 1 5 }
+			#		}
+			#	}
+			#}
+		}
+	}
+}

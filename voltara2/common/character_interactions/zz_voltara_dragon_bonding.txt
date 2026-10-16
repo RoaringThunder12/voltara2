@@ -1,0 +1,54 @@
+﻿bond_with_dragon_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+ icon = befriend_interaction category = interaction_category_friendly interface_priority = 99
+ desc = bond_with_dragon_interaction_desc auto_accept = yes common_interaction = yes cooldown_against_recipient = { years = 1 }
+ is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:actor = { NOT = { has_trait = dragon } NOT = { voltara_has_living_dragon = yes } } scope:recipient = { voltara_free_dragon = yes } }
+ is_valid_showing_failures_only = { scope:recipient = { voltara_dragon_available_to = { RIDER = scope:actor } } scope:actor = { is_alive = yes is_adult = yes is_imprisoned = no } }
+ on_accept = { scope:recipient = { save_scope_as = dragon } scope:actor = { trigger_event = voltara_dragons.101 } }
+ ai_will_do = { base = 10 }
+}
+tame_dragon_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+ icon = befriend_interaction category = interaction_category_friendly interface_priority = 98
+ desc = tame_dragon_interaction_desc auto_accept = yes common_interaction = yes cooldown_against_recipient = { years = 1 }
+ is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:actor = { NOT = { has_trait = dragon } NOT = { voltara_has_living_dragon = yes } } scope:recipient = { voltara_free_dragon = yes } }
+ is_valid_showing_failures_only = { scope:recipient = { voltara_dragon_available_to = { RIDER = scope:actor } } scope:actor = { is_alive = yes is_adult = yes is_imprisoned = no } scope:recipient = { age >= 15 } }
+ on_accept = { scope:recipient = { save_scope_as = dragon } scope:actor = { trigger_event = voltara_dragons.102 } }
+ ai_will_do = { base = 5 }
+}
+deepen_bond_with_dragon_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+ icon = befriend_interaction category = interaction_category_friendly interface_priority = 99
+ desc = deepen_bond_with_dragon_interaction_desc auto_accept = yes common_interaction = yes cooldown_against_recipient = { years = 1 }
+ is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:actor = { voltara_has_living_dragon = yes var:current_dragon = scope:recipient } }
+ is_valid_showing_failures_only = { scope:recipient = { voltara_dragon_available_to = { RIDER = scope:actor } } scope:actor = { is_alive = yes is_adult = yes is_imprisoned = no } }
+ on_accept = { scope:actor = { add_trait_xp = { trait = dragonrider track = dragon_bond value = 10 } trigger_event = voltara_dragons.80 } }
+ ai_will_do = { base = 50 }
+}

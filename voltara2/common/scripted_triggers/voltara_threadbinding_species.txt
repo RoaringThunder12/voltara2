@@ -1,0 +1,19 @@
+﻿vt_ek_is_undead = {
+	OR = {
+		has_trait = vt_ek_undead_character
+		has_trait = vt_ek_lich_character
+	}
+}
+vt_ek_is_necromancer = {
+	custom_description = {
+		text = is_a_necromancer
+		subject = this
+		OR = {
+			has_trait = vt_ek_necromancer
+			has_trait = vt_ek_experimentalist_necromancer
+		}
+	}	
+}
+vt_ek_is_known_necromancer = {
+	has_trait = vt_ek_necromancer #known vt_ek_necromancer trait
+}

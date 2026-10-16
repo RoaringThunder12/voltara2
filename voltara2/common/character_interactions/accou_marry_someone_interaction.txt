@@ -1,0 +1,80 @@
+﻿# Ask to Find Spouse
+# Human player only.
+accou_marry_someone_interaction = {
+	category = interaction_category_diplomacy
+	desc = accou_marry_someone_interaction_desc
+	icon = icon_marriage
+
+	is_available = {
+		is_ai = no
+	}
+
+	is_shown = {
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		scope:recipient = {
+			is_courtier_of = scope:actor
+
+			# Can actually marry
+			can_marry_common_trigger = yes
+			is_married = no
+			is_concubine = no
+			is_betrothed = no
+			is_diarch = no
+			has_been_promised_grand_wedding = no
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			accou_is_valid_event_liege_trigger = yes
+		}
+
+		scope:recipient = {
+			# Valid marriage character
+			accou_is_valid_marriage_character_trigger = yes
+
+			# Not of major interest to root
+			NOT = { accou_is_of_major_interest_trigger = { CHARACTER = scope:actor } }
+
+			# Not a female in a male-dominated faith and vice versa
+			trigger_if = {
+				limit = { is_wrong_gender_in_rite_trigger = { RITE = rite } }
+				accou_are_wrong_gender_marriage_requests_allowed_trigger = yes
+			}
+
+			# No previous attempt failed recently
+			custom_tooltip = {
+				text = accou_marriage_0001_failed_tt
+				NOT = { has_character_flag = accou_marriage_0001_failed }
+			}
+			custom_tooltip = {
+				text = accou_marriage_0001_considering_tt
+				NOT = { has_character_flag = accou_marriage_0001_considering }
+			}
+		}
+	}
+
+	cooldown_against_recipient = { years = 1 }
+
+	on_accept = {
+		scope:recipient = {
+			custom_tooltip = accou_will_search_for_someone_to_marry_tt
+			add_character_flag = {
+				flag = accou_searching_for_someone_to_marry
+				days = 10
+			}
+			save_scope_as = courtier
+		}
+
+		scope:actor = {
+			trigger_event = {
+				id = accou_marriage.0001
+				days = { 2 6 }
+			}
+		}
+	}
+
+	auto_accept = yes
+}

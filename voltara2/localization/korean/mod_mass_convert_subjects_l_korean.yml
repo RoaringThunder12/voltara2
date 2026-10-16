@@ -1,0 +1,48 @@
+﻿l_korean:
+ mod_mass_convert_subjects_decision: "$game_concept_demand_conversion$"
+ mod_mass_convert_subjects_decision_desc: "$game_concept_demand_conversion_desc$"
+ mod_mass_convert_subjects_decision_tooltip: "$game_concept_demand_conversion_desc$"
+
+ mod_convert_direct_vassals_loc: "$game_concept_direct_vassals$ ([SCOPE.ScriptValue('mod_convert_direct_vassals_number')])"
+ mod_convert_direct_vassals_tooltip: "모든 불신자 $game_concept_direct_vassals$에게 개종을 요구합니다."
+
+ mod_convert_indirect_vassals_loc: "간접 $game_concept_vassals$ ([SCOPE.ScriptValue('mod_convert_indirect_vassals_number')])"
+ mod_convert_indirect_vassals_tooltip: "모든 불신자 간접 $game_concept_vassals$에게 개종을 요구합니다."
+
+ mod_convert_tributaries_loc: "조공국 ([SCOPE.ScriptValue('mod_convert_tributaries_number')])"
+ mod_convert_tributaries_tooltip: "모든 불신자 조공국에 개종을 요구합니다."
+
+ mod_convert_courtiers_loc: "궁정 신하 ([SCOPE.ScriptValue('mod_convert_courtiers_number')])"
+ mod_convert_courtiers_tooltip: "모든 불신자 [courtiers|E]에게 개종을 요구합니다."
+
+ mod_convert_house_loc: "집안 구성원 ([SCOPE.ScriptValue('mod_convert_house_number')])"
+ mod_convert_house_tooltip: "모든 불신자 집안 구성원에게 개종을 요구합니다."
+
+ mod_mass_convert_subjects_decision_confirm: "요청 보내기"
+
+ # Acceptance only; actual conversion may finish through a later native event.
+ mdc_conversion_accepted_title:0 "개종 요청 수락"
+ mdc_conversion_accepted_desc:0 "[recipient.GetShortUIName](이)가 개종 요청을 수락했습니다."
+
+ # Immediate acceptance filter; no persistent player preference.
+ mdc_chance_filter_heading:0 "수락 확률:"
+ mdc_chance_filter_none:0 "없음"
+ mdc_chance_filter_80:0 "≥ 80 %"
+ mdc_chance_filter_100:0 "100 %"
+ mdc_chance_filter_scope_note:0 "직속 및 간접 봉신과 조공국에만 적용됩니다. 궁정 신하와 집안 구성원은 변경되지 않습니다."
+ mdc_chance_filter_tooltip:0 "$mdc_chance_filter_scope_note$\n\n계산된 즉시 수락 확률을 기준으로 거릅니다. 이후 협상과 완료된 개종은 포함하지 않습니다. 100%는 개종 완료를 보장하지 않습니다. 숫자는 요청 가능한 대상 수이며, 보내기 전에 대상을 다시 확인합니다."
+ mdc_convert_direct_vassals_80_loc:0 "$game_concept_direct_vassals$ ([SCOPE.ScriptValue('mdc_convert_direct_vassals_80_number')])"
+ mdc_convert_direct_vassals_80_tooltip:0 "$mod_convert_direct_vassals_tooltip$\n$mdc_chance_filter_80$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_direct_vassals_100_loc:0 "$game_concept_direct_vassals$ ([SCOPE.ScriptValue('mdc_convert_direct_vassals_100_number')])"
+ mdc_convert_direct_vassals_100_tooltip:0 "$mod_convert_direct_vassals_tooltip$\n$mdc_chance_filter_100$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_indirect_vassals_80_loc:0 "간접 $game_concept_vassals$ ([SCOPE.ScriptValue('mdc_convert_indirect_vassals_80_number')])"
+ mdc_convert_indirect_vassals_80_tooltip:0 "$mod_convert_indirect_vassals_tooltip$\n$mdc_chance_filter_80$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_indirect_vassals_100_loc:0 "간접 $game_concept_vassals$ ([SCOPE.ScriptValue('mdc_convert_indirect_vassals_100_number')])"
+ mdc_convert_indirect_vassals_100_tooltip:0 "$mod_convert_indirect_vassals_tooltip$\n$mdc_chance_filter_100$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_tributaries_80_loc:0 "조공국 ([SCOPE.ScriptValue('mdc_convert_tributaries_80_number')])"
+ mdc_convert_tributaries_80_tooltip:0 "$mod_convert_tributaries_tooltip$\n$mdc_chance_filter_80$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_tributaries_100_loc:0 "조공국 ([SCOPE.ScriptValue('mdc_convert_tributaries_100_number')])"
+ mdc_convert_tributaries_100_tooltip:0 "$mod_convert_tributaries_tooltip$\n$mdc_chance_filter_100$\n$mdc_chance_filter_tooltip$"
+
+ # Decision preview only; request outcomes remain native.
+ mdc_mass_conversion_requests_effect:0 "선택한 대상에게 일반적인 개종 요청을 보냅니다."

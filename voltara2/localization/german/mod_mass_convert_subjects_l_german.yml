@@ -1,0 +1,48 @@
+﻿l_german:
+ mod_mass_convert_subjects_decision: "$game_concept_demand_conversion$"
+ mod_mass_convert_subjects_decision_desc: "$game_concept_demand_conversion_desc$"
+ mod_mass_convert_subjects_decision_tooltip: "$game_concept_demand_conversion_desc$"
+
+ mod_convert_direct_vassals_loc: "$game_concept_direct_vassals$ ([SCOPE.ScriptValue('mod_convert_direct_vassals_number')])"
+ mod_convert_direct_vassals_tooltip: "Schickt all Euren ungläubigen $game_concept_direct_vassals$ die Aufforderung, Euren Glauben anzunehmen."
+
+ mod_convert_indirect_vassals_loc: "Indirekte $game_concept_vassals$ ([SCOPE.ScriptValue('mod_convert_indirect_vassals_number')])"
+ mod_convert_indirect_vassals_tooltip: "Schickt all Euren ungläubigen indirekten $game_concept_vassals$ die Aufforderung, Euren Glauben anzunehmen."
+
+ mod_convert_tributaries_loc: "Tributpflichtige ([SCOPE.ScriptValue('mod_convert_tributaries_number')])"
+ mod_convert_tributaries_tooltip: "Schickt all Euren ungläubigen Tributpflichtigen die Aufforderung, Euren Glauben anzunehmen."
+
+ mod_convert_courtiers_loc: "Höflinge ([SCOPE.ScriptValue('mod_convert_courtiers_number')])"
+ mod_convert_courtiers_tooltip: "Schickt all Euren ungläubigen [courtiers|E] die Aufforderung, Euren Glauben anzunehmen."
+
+ mod_convert_house_loc: "Hausmitglieder ([SCOPE.ScriptValue('mod_convert_house_number')])"
+ mod_convert_house_tooltip: "Schickt all Euren ungläubigen Hausmitgliedern die Aufforderung, Euren Glauben anzunehmen."
+
+ mod_mass_convert_subjects_decision_confirm: "Aufforderungen abschicken"
+
+ # Acceptance only; actual conversion may finish through a later native event.
+ mdc_conversion_accepted_title:0 "Konvertierungsanfrage angenommen"
+ mdc_conversion_accepted_desc:0 "[recipient.GetShortUIName] hat die Konvertierungsanfrage angenommen."
+
+ # Immediate acceptance filter; no persistent player preference.
+ mdc_chance_filter_heading:0 "Annahmechance:"
+ mdc_chance_filter_none:0 "Ohne"
+ mdc_chance_filter_80:0 "≥ 80 %"
+ mdc_chance_filter_100:0 "100 %"
+ mdc_chance_filter_scope_note:0 "Gilt nur für direkte/indirekte Vasallen und Tributpflichtige. Höflinge und Hausmitglieder bleiben unverändert."
+ mdc_chance_filter_tooltip:0 "$mdc_chance_filter_scope_note$\n\nFiltert die berechnete unmittelbare Annahmechance. Spätere Verhandlungen und abgeschlossene Konvertierungen werden nicht berücksichtigt. 100 % verspricht keine abgeschlossene Konvertierung. Die Zahlen zählen geeignete Anfragen; Ziele werden vor dem Versand erneut geprüft."
+ mdc_convert_direct_vassals_80_loc:0 "$game_concept_direct_vassals$ ([SCOPE.ScriptValue('mdc_convert_direct_vassals_80_number')])"
+ mdc_convert_direct_vassals_80_tooltip:0 "$mod_convert_direct_vassals_tooltip$\n$mdc_chance_filter_80$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_direct_vassals_100_loc:0 "$game_concept_direct_vassals$ ([SCOPE.ScriptValue('mdc_convert_direct_vassals_100_number')])"
+ mdc_convert_direct_vassals_100_tooltip:0 "$mod_convert_direct_vassals_tooltip$\n$mdc_chance_filter_100$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_indirect_vassals_80_loc:0 "Indirekte $game_concept_vassals$ ([SCOPE.ScriptValue('mdc_convert_indirect_vassals_80_number')])"
+ mdc_convert_indirect_vassals_80_tooltip:0 "$mod_convert_indirect_vassals_tooltip$\n$mdc_chance_filter_80$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_indirect_vassals_100_loc:0 "Indirekte $game_concept_vassals$ ([SCOPE.ScriptValue('mdc_convert_indirect_vassals_100_number')])"
+ mdc_convert_indirect_vassals_100_tooltip:0 "$mod_convert_indirect_vassals_tooltip$\n$mdc_chance_filter_100$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_tributaries_80_loc:0 "Tributpflichtige ([SCOPE.ScriptValue('mdc_convert_tributaries_80_number')])"
+ mdc_convert_tributaries_80_tooltip:0 "$mod_convert_tributaries_tooltip$\n$mdc_chance_filter_80$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_tributaries_100_loc:0 "Tributpflichtige ([SCOPE.ScriptValue('mdc_convert_tributaries_100_number')])"
+ mdc_convert_tributaries_100_tooltip:0 "$mod_convert_tributaries_tooltip$\n$mdc_chance_filter_100$\n$mdc_chance_filter_tooltip$"
+
+ # Decision preview only; request outcomes remain native.
+ mdc_mass_conversion_requests_effect:0 "Sendet normale Bekehrungsanfragen an die gewählten Empfänger."

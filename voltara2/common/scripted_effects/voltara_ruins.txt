@@ -1,0 +1,85 @@
+﻿
+voltara_ensure_ruins_keeper = {
+ if = { limit = { exists = global_var:voltara_ruins_keeper }
+  if = { limit = { global_var:voltara_ruins_keeper = { is_alive = no } } remove_global_variable = voltara_ruins_keeper }
+ }
+ if = { limit = { NOT = { exists = global_var:voltara_ruins_keeper } }
+  if = { limit = { exists = title:e_voltara_ruins.holder title:e_voltara_ruins.holder = { is_alive = yes voltara_is_ruins_placeholder = yes } }
+   set_global_variable = { name = voltara_ruins_keeper value = title:e_voltara_ruins.holder }
+  }
+  else_if = { limit = { exists = character:19999000 character:19999000 = { is_alive = yes } }
+   set_global_variable = { name = voltara_ruins_keeper value = character:19999000 }
+  }
+  else = {
+   create_character = { name = voltara_ruins_realm age = 30 gender = male random_traits = no dynasty = none
+    culture = culture:voltara_culture_44 faith = faith:voltara_faith_0 location = title:c_voltara_226.title_province
+    trait = voltara_ruins_keeper save_scope_as = ruins_keeper
+   }
+   set_global_variable = { name = voltara_ruins_keeper value = scope:ruins_keeper }
+  }
+ }
+ voltara_ensure_ruins_realm = yes
+}
+voltara_convert_ruin_county = {
+ if = { limit = {
+  NOT = { has_variable = voltara_ruin_state }
+  NOT = { holder = { is_ai = no capital_county = prev } }
+ }
+  holder = { save_scope_as = former_ruin_holder }
+  set_variable = { name = voltara_former_holder value = scope:former_ruin_holder }
+  set_variable = { name = voltara_ruin_state value = scope:ruins_mode }
+  add_to_global_variable_list = { name = voltara_ruined_counties target = this }
+  voltara_name_ruined_county = yes
+  voltara_set_abandoned_identity = yes
+  change_development_level = -100
+  add_county_modifier = { modifier = voltara_abandoned_county }
+  every_county_province = { limit = { has_holding = yes }
+   if = { limit = { has_holding_type = city_holding } set_variable = { name = voltara_old_holding value = flag:city } }
+   else_if = { limit = { has_holding_type = church_holding } set_variable = { name = voltara_old_holding value = flag:temple } }
+   else_if = { limit = { has_holding_type = tribal_holding } set_variable = { name = voltara_old_holding value = flag:tribal } }
+   else = { set_variable = { name = voltara_old_holding value = flag:castle } }
+   if = { limit = { scope:ruins_mode = flag:wasteland }
+    if = { limit = { is_county_capital = yes } set_holding_type = voltara_wasteland_holding }
+    else = { remove_holding = yes }
+   }
+   else = { set_holding_type = voltara_ruin_holding }
+  }
+  create_title_and_vassal_change = { type = granted save_scope_as = ruins_change add_claim_on_loss = no }
+  change_title_holder = { holder = global_var:voltara_ruins_keeper change = scope:ruins_change take_baronies = yes }
+  resolve_title_and_vassal_change = scope:ruins_change
+  global_var:voltara_ruins_keeper = { change_government = voltara_ruins_government }
+ }
+}
+voltara_apply_ruins_selection = {
+ voltara_ensure_ruins_keeper = yes
+ every_in_global_list = { variable = voltara_selected_ruins_titles
+  if = { limit = { tier = tier_county } voltara_convert_ruin_county = yes }
+  else = { every_de_jure_county = { voltara_convert_ruin_county = yes } }
+ }
+ voltara_clear_ruins_selection = yes
+}
+voltara_clear_ruins_selection = {
+ every_in_global_list = { variable = voltara_selected_ruins_titles
+  save_scope_as = cleared_ruin_title
+  remove_list_global_variable = { name = voltara_selected_ruins_titles target = scope:cleared_ruin_title }
+ }
+}
+voltara_restore_ruin_county = {
+ set_county_culture = holder.culture
+ set_county_rite = holder.rite
+ every_county_province = { limit = { has_holding = yes }
+  if = { limit = { var:voltara_old_holding ?= flag:city } set_holding_type = city_holding }
+  else_if = { limit = { var:voltara_old_holding ?= flag:temple } set_holding_type = church_holding }
+  else_if = { limit = { var:voltara_old_holding ?= flag:tribal } set_holding_type = tribal_holding }
+  else = { set_holding_type = castle_holding }
+  remove_variable = voltara_old_holding
+ }
+ remove_county_modifier = voltara_abandoned_county remove_county_modifier = voltara_settlement_county
+ remove_variable = voltara_ruin_state remove_variable = voltara_expedition_owner
+ voltara_restore_ruins_names = yes
+ remove_variable = voltara_former_holder change_development_level = 1
+ save_scope_as = restored_ruin
+ remove_list_global_variable = { name = voltara_ruined_counties target = scope:restored_ruin }
+
+ voltara_restore_ancient_elven_site = yes
+}

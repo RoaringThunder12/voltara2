@@ -1,0 +1,4 @@
+﻿dragon_egg = {
+	slot = miscellaneous
+	##required_features = { egg_color }
+}

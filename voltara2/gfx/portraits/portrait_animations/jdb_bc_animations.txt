@@ -1,0 +1,120 @@
+﻿jdb_bc_battle_stance = {
+	default = { 
+		default = { head = "celebrateOneHanded2_entry" torso = "celebrateOneHanded2_entry" } 
+		inspiring = {
+			animation = { head = "celebrateOneHanded2_entry" torso = "celebrateOneHanded2_entry" }
+			weight = {
+				base = 25
+			}
+			portrait_modifier_pack = one_handed_sword
+		}
+		bossy = {
+			animation = { head = "oneHandedAggressive1_entry" torso = "oneHandedAggressive1_entry" }
+			weight = {
+				base = 0
+				modifier = {
+					add = 25
+					has_personality_dominant_trigger = yes
+				}
+			}
+			portrait_modifier_pack = one_handed_sword
+		}
+		analytic = {
+			animation = { head = "AI_rational_entry" torso = "AI_rational_entry" }
+			weight = {
+				base = 0
+				modifier = {
+					add = 25
+					OR = {
+						has_trait = calm
+						has_trait = patient
+						has_trait = erudite
+						has_trait = lifestyle_mystic
+					}
+				}
+			}
+			portrait_modifier = {
+				animations = AI_rational_decal
+			}
+		}
+		honorable = {
+			animation = { head = "AI_honorable_entry" torso = "AI_honorable_entry" }
+			weight = {
+				base = 0
+				modifier = {
+					add = 25
+					has_personality_benevolent_trigger = yes
+				}
+			}
+		}
+		evil = {
+			animation = { head = "AI_dishonorable_entry" torso = "AI_dishonorable_entry" }
+			weight = {
+				base = 0
+				modifier = {
+					add = 25
+					has_personality_malicious_trigger = yes
+				}
+			}
+			portrait_modifier = {
+				animations = AI_dishonorable_decal
+			}
+		}
+		zealous = {
+			animation = { head = "AI_zealous_entry" torso = "AI_zealous_entry" }
+			weight = {
+				base = 0
+				modifier = {
+					add = 25
+					OR = {
+						has_trait = zealous
+						has_trait = devoted
+					}
+				}
+			}
+			portrait_modifier = {
+				animations = AI_zealous_decal
+			}	
+		}
+		fearful = {
+			animation = { head = "emotion_fear_entry" torso = "emotion_fear_entry" }
+			weight = {
+				base = 0
+				modifier = {
+					add = 25
+					has_trait = craven
+				}
+			}
+			portrait_modifier = {
+				animations = emotion_fear_decal
+			}
+		}
+		cowardice = {
+			animation = { head = "AI_coward_entry" torso = "AI_coward_entry" }
+			weight = {
+				base = 0
+				modifier = {
+					add = 25
+					has_trait = craven
+				}
+			}
+		}
+		hunter = {
+			animation = { head = "hunting_horn_entry" torso = "hunting_horn_entry" }
+			weight = {
+				base = 0
+				modifier = {
+					add = 25
+					has_ep2_dlc_trigger = yes
+					has_trait = lifestyle_hunter
+				}
+			}
+			portrait_modifier = {
+				animations_props = ep2_horn_attachment
+				animations = fat_additive
+				animations = dwarf_additive
+				animations = female_prop_fix_additive
+			}
+		}
+	}
+}

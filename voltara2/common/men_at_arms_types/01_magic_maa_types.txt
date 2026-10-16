@@ -1,0 +1,234 @@
+﻿# standard costs
+@maa_buy_cost = 150
+@maa_low_maintenance_cost = 1.0
+@maa_high_maintenance_cost = 5.0
+@cultural_maa_extra_ai_score = 60 # Equivalent to having 6 extra regiments beyond what the code scoring would indicate (see NEGATIVE_SCORE_PER_EXISTING_REGIMENT)
+
+cultists = {
+	type = skirmishers
+	
+	damage = 15
+	toughness = 14
+	pursuit = 15
+	screen = 5
+	
+	terrain_bonus = {
+		forest = { damage = 5 toughness = 6 }
+		taiga = { damage = 5 toughness = 6 }
+		jungle = { damage = 5 toughness = 6 }
+	}
+	
+	#era_bonus = {
+	#	culture_era_high_medieval = {
+	#		damage = 1
+	#		toughness = 1
+	#	}
+	#	culture_era_late_medieval = {
+	#		damage = 2
+	#		toughness = 2
+	#	}
+	#}
+
+	counters = {
+		heavy_infantry = 1
+		pikemen = 1
+	}
+
+	can_recruit = {
+		OR = {
+			AND = {
+				government_has_flag = government_is_landless_adventurer
+				has_ep3_dlc_trigger = yes
+				domicile ?= { has_domicile_parameter = camp_unlocks_cultists_maa }
+			}
+			culture ?= { has_cultural_parameter = coven_rule2 }
+		}
+	}
+	
+	buy_cost = { gold = 50 }
+	low_maintenance_cost = { gold = 0.05 }
+	high_maintenance_cost = { gold = 0.1 }
+	provision_cost = 3
+	
+	max_sub_regiments = 10
+
+	allowed_in_hired_troops = no
+	
+	stack = 100
+	ai_quality = { value = culture_ai_weight_skirmishers }
+	icon = skirmishers
+}
+
+skeletons = {
+
+	type = skirmishers
+	
+	damage = 20
+	toughness = 14
+	pursuit = 15
+	screen = 15
+	
+	terrain_bonus = {
+		forest = { damage = 3 toughness = 3 }
+		taiga = { damage = 3 toughness = 3 }
+		jungle = { damage = 3 toughness = 3 }
+	}
+	
+	#era_bonus = {
+	#	culture_era_high_medieval = {
+	#		damage = 1
+	#		toughness = 1
+	#	}
+	#	culture_era_late_medieval = {
+	#		damage = 2
+	#		toughness = 2
+	#	}
+	#}
+
+	counters = {
+		pikemen = 1
+		skirmishers = 1
+		archers = 1
+		gunpowder = 1
+	}
+
+	can_recruit = {
+ OR = { has_trait = necromancer has_trait = vt_ek_necromancer has_trait = vt_ek_experimentalist_necromancer }
+}
+
+	access_through_subject = {
+		always = no
+	}
+	
+	buy_cost = { piety = 200 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = 0 }
+	
+	max_sub_regiments = 10
+
+	allowed_in_hired_troops = no
+	
+	stack = 100
+	ai_quality = { value = culture_ai_weight_skirmishers }
+	icon = skeleton
+
+}
+
+demonic_knights = {
+	#type = heavy_cavalry
+	type = demonic_knights
+	icon = demonic_knights
+	
+	damage = 300
+	toughness = 80
+	pursuit = 80
+	screen = 80
+
+	counters = {
+		skirmishers = 1
+		heavy_infantry = 1
+		archers = 2
+		gunpowder = 1
+	}
+
+	can_recruit = {
+		#is_independent_ruler = yes
+		has_perk = infernal_guardians_perk
+		NOT = {
+			any_maa_regiment = {
+				is_unit_type = demonic_knights
+			}
+		}
+	}
+
+	access_through_subject = {
+		always = no
+	}
+	
+	buy_cost = { prestige = 1000 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = heavy_infantry_low_maint_cost }
+	provision_cost = 6
+	max = -1
+	#max_sub_regiments = 1
+
+	allowed_in_hired_troops = no
+	
+	stack = 100
+}
+
+golems_army = {
+	type = heavy_infantry
+	#icon = golems
+	
+	damage = 250
+	toughness = 100
+	pursuit = 100
+	screen = 100
+
+	counters = {
+		skirmishers = 1
+		heavy_infantry = 1
+		archers = 2
+		gunpowder = 1
+	}
+
+	can_recruit = {
+		has_character_flag = me_golem2_project_done
+	}
+
+	access_through_subject = {
+		always = no
+	}
+	
+	buy_cost = { gold = 1000 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = heavy_infantry_low_maint_cost }
+	
+	max_sub_regiments = 10
+
+	allowed_in_hired_troops = no
+	
+	stack = 100
+}
+
+special_magic_hut_lol = {
+	type = heavy_cavalry
+	icon = special_magic_hut_lol
+	
+	damage = 1000
+	toughness = 100
+	pursuit = 100
+	screen = 100
+
+	siege_tier = 10
+	siege_value = 1
+
+	counters = {
+		skirmishers = 2
+		heavy_infantry = 2
+		archers = 4
+		gunpowder = 1
+	}
+
+	can_recruit = {
+		#is_ai=no	#temp
+		has_trait = yaga
+		has_witch_house_trigger = yes
+	}
+
+	access_through_subject = {
+		always = no
+	}
+	max = 1
+	
+	buy_cost = { gold = 1000 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = heavy_infantry_low_maint_cost }
+	
+	max_sub_regiments = 1
+
+	allowed_in_hired_troops = no
+	
+	stack = 10
+}

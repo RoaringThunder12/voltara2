@@ -1,0 +1,46 @@
+pdxmesh = {
+	name = "dragon_eggbox_mesh"
+	file = "dragon_eggbox.mesh"
+
+	meshsettings = {
+		name = "box_shape"
+		index = 0
+		texture_diffuse = "eggbox_diffuse.dds"
+		texture_normal = "eggbox_normal.dds"
+		texture_specular = "eggbox_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+	meshsettings = {
+		name = "egg1_shape"
+		index = 0
+		texture_diffuse = "rhaegal_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "rhaegal_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+	meshsettings = {
+		name = "egg2_shape"
+		index = 0
+		texture_diffuse = "drogon_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "drogon_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+	meshsettings = {
+		name = "egg3_shape"
+		index = 0
+		texture_diffuse = "viserion_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "viserion_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+entity = {
+	name = "dragon_eggbox_entity"
+	pdxmesh = "dragon_eggbox_mesh"
+}

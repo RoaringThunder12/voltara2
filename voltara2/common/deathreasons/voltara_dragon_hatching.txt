@@ -1,0 +1,8 @@
+﻿death_dragon_hatching_sacrifice = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+death_dragon_hatching_accident = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}

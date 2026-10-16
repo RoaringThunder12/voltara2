@@ -1,0 +1,72 @@
+﻿# Recipient scope; the caller supplies scope:voltara_owner.
+voltara_enslave_character = {
+ remove_trait = voltara_former_slave add_trait = voltara_slave
+ set_variable = { name = voltara_slave_owner value = scope:voltara_owner }
+ set_variable = { name = voltara_last_enslaver value = scope:voltara_owner }
+ if = { limit = { is_imprisoned = yes } release_from_prison = yes }
+ save_scope_as = voltara_captive
+ scope:voltara_owner = { add_trait = voltara_slaver add_courtier = scope:voltara_captive }
+ # One first-enslavement reward per victim; sales and repeat captures give no XP.
+ if = {
+  limit = { NOT = { has_character_flag = voltara_enslavement_xp_awarded } }
+  add_character_flag = voltara_enslavement_xp_awarded
+  scope:voltara_owner = { add_trait_xp = { trait = voltara_slaver value = 10 } }
+ }
+}
+# The caller supplies scope:voltara_liberator. Each person awards freedom XP once.
+voltara_free_character = {
+ if = {
+  limit = {
+   exists = scope:voltara_liberator
+   NOT = { has_character_flag = voltara_freedom_xp_awarded }
+   NOT = { var:voltara_last_enslaver ?= scope:voltara_liberator }
+  }
+  add_character_flag = voltara_freedom_xp_awarded
+  scope:voltara_liberator = {
+   add_trait = voltara_liberator
+   add_trait_xp = { trait = voltara_liberator value = 5 }
+  }
+ }
+ remove_trait = voltara_slave add_trait = voltara_former_slave
+ remove_variable = voltara_slave_owner
+ remove_character_flag = voltara_slave_sale_pending
+}
+voltara_abolish_slavery = {
+ save_scope_as = voltara_liberator
+ every_living_character = {
+  limit = { has_trait = voltara_slave OR = {
+   top_liege = scope:voltara_liberator
+   is_courtier_of = scope:voltara_liberator
+   var:voltara_slave_owner ?= { OR = { this = scope:voltara_liberator is_vassal_or_below_of = scope:voltara_liberator } }
+  } }
+  voltara_free_character = yes
+ }
+ every_vassal_or_below = { voltara_report_slavery_crime = yes }
+}
+voltara_report_slavery_crime = {
+ if = { limit = { is_landed = yes exists = liege }
+  save_scope_as = voltara_slavery_offender
+  if = { limit = { has_realm_law = voltara_slavery_legal top_liege = { has_realm_law = voltara_slavery_banned } }
+   top_liege = { add_opinion = { target = scope:voltara_slavery_offender modifier = voltara_illegal_slavery_opinion } }
+   liege = { add_opinion = { target = scope:voltara_slavery_offender modifier = voltara_illegal_slavery_opinion } }
+  }
+  else = {
+   top_liege = { remove_opinion = { target = scope:voltara_slavery_offender modifier = voltara_illegal_slavery_opinion } }
+   liege = { remove_opinion = { target = scope:voltara_slavery_offender modifier = voltara_illegal_slavery_opinion } }
+  }
+ }
+}
+# No teleporting prisoners out of captivity. Illegal courts and owner death free people.
+voltara_check_slave_owner = {
+ if = { limit = { has_trait = voltara_slave }
+  if = { limit = { OR = {
+   is_landed = yes
+   NOT = { exists = var:voltara_slave_owner }
+   var:voltara_slave_owner = { OR = { is_alive = no NOT = { voltara_slavery_is_legal = yes } } }
+  } } voltara_free_character = yes }
+  else_if = { limit = { is_imprisoned = no NOT = { is_courtier_of = var:voltara_slave_owner } }
+   save_scope_as = voltara_captive
+   var:voltara_slave_owner = { add_courtier = scope:voltara_captive }
+  }
+ }
+}

@@ -1,0 +1,173 @@
+﻿do_a_magic_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+ category = interaction_category_friendly
+ common_interaction = yes
+ interface_priority = 90
+ desc = do_a_magic_interaction_desc
+ icon = icon_spellbook
+ use_diplomatic_range = yes
+ ignores_pending_interaction_block = yes
+ is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+  scope:actor = { is_ai = no can_magic_trigger = yes }
+  scope:recipient = { is_alive = yes NOT = { has_trait = dragon } }
+ }
+ is_valid_showing_failures_only = { scope:actor = { is_incapable = no } }
+ auto_accept = yes
+ on_accept = {
+  scope:actor = {
+   voltara_initialize_threadbinder = yes
+   remove_variable = spell_recipient_old
+   set_variable = { name = spell_caster value = scope:actor }
+   set_variable = { name = spell_recipient value = scope:recipient }
+   set_variable = { name = spell_school value = flag:alteration }
+   init_alteration = yes
+   set_variable = { name = spell_selected value = flag:no_spell }
+   set_variable = spells_open
+  }
+ }
+}
+
+
+
+gain_magicka_debug_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	category = interaction_category_magic
+	desc = gain_magicka_debug_interaction_desc
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+
+	interface_priority = -1
+
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		debug_only = yes
+	}
+
+	send_option = {
+		flag = gain_magicka_100
+		localization = gain_magicka_100
+	}
+
+	send_option = {
+		flag = gain_magicka_50
+		localization = gain_magicka_50
+	}
+
+	send_option = {
+		flag = lose_magicka_50
+		localization = lose_magicka_50
+	}
+
+	send_option = {
+		flag = lose_magicka_100
+		localization = lose_magicka_100
+	}
+
+
+	on_accept = {
+		scope:recipient = {
+			if = {
+				limit = { scope:gain_magicka_100 = yes }
+				add_magicka = { VALUE = 100 }
+			}
+			else_if = {
+				limit = { scope:gain_magicka_50 = yes }
+				add_magicka = { VALUE = 50 }
+			}
+			else_if = {
+				limit = { scope:lose_magicka_50 = yes }
+				add_magicka = { VALUE = -50 }
+			}
+			else_if = {
+				limit = { scope:lose_magicka_100 = yes }
+				add_magicka = { VALUE = -100 }
+			}
+		}
+	}
+
+	auto_accept = yes
+}
+
+gain_arcana_debug_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	category = interaction_category_magic
+	desc = gain_arcana_debug_interaction_desc
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+
+	interface_priority = -1
+
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		debug_only = yes
+	}
+
+	send_option = {
+		flag = gain_arcana_10
+		localization = gain_arcana_10
+	}
+
+	send_option = {
+		flag = gain_arcana_5
+		localization = gain_arcana_5
+	}
+
+	send_option = {
+		flag = lose_arcana_5
+		localization = lose_arcana_5
+	}
+
+	send_option = {
+		flag = lose_arcana_10
+		localization = lose_arcana_10
+	}
+
+
+	on_accept = {
+		scope:recipient = {
+			if = {
+				limit = { scope:gain_arcana_10 = yes }
+				add_arcana_skill = { VALUE = 10 }
+			}
+			else_if = {
+				limit = { scope:gain_arcana_5 = yes }
+				add_arcana_skill = { VALUE = 5 }
+			}
+			else_if = {
+				limit = { scope:lose_arcana_5 = yes }
+				add_arcana_skill = { VALUE = -5 }
+			}
+			else_if = {
+				limit = { scope:lose_arcana_10 = yes }
+				add_arcana_skill = { VALUE = -10 }
+			}
+		}
+	}
+
+	auto_accept = yes
+}

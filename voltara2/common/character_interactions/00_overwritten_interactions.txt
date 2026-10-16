@@ -1,0 +1,1744 @@
+﻿disinherit_interaction = {
+	icon = icon_dynasty
+	category = interaction_category_hostile
+	interface_priority = 60
+
+	desc = disinherit_interaction_desc
+	use_diplomatic_range = no
+	
+	is_available = {
+		trigger_if = {
+			limit = { is_ai = yes }
+			is_dynast = yes
+			NOT = {
+				has_trait = forgiving
+			}
+			is_at_war = no
+		}
+	}
+
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		NOR = { 
+			scope:recipient = scope:puppet_or_actor 
+
+			AND = { # Explicit AND to ensure no funny business
+				scope:recipient = { is_child_of = scope:puppet_or_actor }
+				scope:puppet_or_actor.dynasty ?= {
+					this = scope:recipient.dynasty
+					has_dynasty_perk = fp2_coterie_legacy_5
+				}
+			}
+		}
+
+		scope:puppet_or_actor ?= {
+			is_dynast = yes
+			dynasty ?= scope:recipient.dynasty
+
+		}
+		scope:recipient = {
+			NOT = {
+				has_trait = disinherited
+			}
+		}
+	}
+
+	is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		custom_description = {
+			scope:puppet_or_actor.culture = {
+				NOT = { has_cultural_parameter = cannot_disherit }
+			} 
+			text = "mystical_ancestors_disinherit"
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		trigger_if = {
+			limit = {
+				NOT = { # in such cases, it will be free so no need to check for Renown
+					scope:recipient = {
+						OR = {
+							has_trait = disputed_heritage
+							any_secret = {
+								type = secret_disputed_heritage
+								is_known_by = scope:puppet_or_actor
+							}
+							has_trait = bastard
+						}
+					}
+				}
+			}
+			scope:puppet_or_actor.dynasty = {
+				dynasty_prestige >= medium_dynasty_prestige_value
+			}
+		}
+
+		scope:recipient = { NOT = { has_strong_hook = scope:puppet_or_actor } }
+		trigger_if = {
+			limit = {
+				scope:recipient = {
+					NOR = {
+						is_child_of = scope:puppet_or_actor
+						is_grandchild_of = scope:puppet_or_actor
+						is_great_grandchild_of = scope:puppet_or_actor
+					}
+				}
+			}
+			custom_description = {
+				scope:recipient.top_liege = scope:puppet_or_actor.top_liege
+				subject = scope:puppet_or_actor
+				text = "same_realm_as"
+			}
+		}
+		custom_tooltip = {
+			text = cannot_take_overt_hostile_actions_against_diarch.tt
+			NOT = { scope:recipient ?= scope:puppet_or_actor.diarch }
+		}
+	}
+
+	on_auto_accept = {
+		scope:recipient = {
+			trigger_event = char_interaction.0020
+		}
+	}
+	
+	on_accept = {
+		scope:puppet_or_actor = {
+			# Only get stressed/SP penalties if you don't have the parameter
+			if = {
+				limit = {
+					NOT = { sp_hostile_schemes_except_murder_no_stress_or_fulfillment_trigger = yes }
+				}
+				stress_and_fulfillment_impact = {
+					forgiving = minor_stress_impact_gain
+					compassionate = minor_stress_impact_gain
+				}
+			}
+			
+			#Legitimacy loss
+			if = {
+				limit = {
+					scope:actor = {
+						culture = {
+							has_cultural_parameter = coven_rule
+						}
+						#exists = house
+						#house = {
+						#	has_house_modifier = witch_coven
+						#}
+						OR = {
+							has_trait = witch
+							any_secret = { type = secret_witch }
+						}
+					}
+					scope:recipient = {
+						NOR = {
+							has_trait = witch
+							any_secret = { type = secret_witch }
+						}
+						is_adult = yes
+					}
+				}
+				
+			}
+			else_if = {
+				limit = {
+					is_valid_for_legitimacy_change = yes
+				}
+				#Legitimacy loss
+				if = {
+					limit = { scope:recipient = { is_primary_heir_of = scope:puppet_or_actor } }
+					add_legitimacy = {
+						value = medium_legitimacy_loss
+						multiply = scope:puppet_or_actor.primary_title.tier
+					}
+				}
+				else_if = {
+					limit = { scope:recipient = { is_child_of = scope:puppet_or_actor } }
+					add_legitimacy = {
+						value = minor_legitimacy_loss
+						multiply = scope:puppet_or_actor.primary_title.tier
+					}
+				}
+				else = {
+					add_legitimacy = {
+						value = miniscule_legitimacy_loss
+						multiply = scope:puppet_or_actor.primary_title.tier
+					}
+				}
+			}
+			hidden_effect = {
+				send_interface_toast = {
+					title = disinherit_interaction_notification
+					type = event_toast_effect_neutral
+					left_icon = scope:puppet_or_actor					
+					right_icon = scope:recipient
+
+					scope:recipient = {
+						show_as_tooltip = {
+							disinherit_effect = { DISINHERITOR = scope:puppet_or_actor }
+						}
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					scope:is_puppet_action ?= yes
+				}
+				scope:actor = {
+					send_interface_toast = {
+						type = event_toast_effect_neutral
+						title = disinherit_interaction_notification
+
+						left_icon = scope:puppet_or_actor
+						right_icon = scope:recipient
+
+						scope:recipient = {
+							show_as_tooltip = {
+								disinherit_effect = { DISINHERITOR = scope:puppet_or_actor }
+							}
+						}
+					}
+				}
+			}
+		}
+
+		scope:recipient = {
+			disinherit_effect = { DISINHERITOR = scope:puppet_or_actor }
+		}
+
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:puppet_or_actor
+			TARGET = scope:recipient
+			VALUE = medium_unity_loss
+			DESC = clan_unity_disinheritance.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
+
+		if = {
+			limit = {
+				scope:recipient = {
+					any_secret = {
+						type = secret_disputed_heritage
+						is_known_by = scope:puppet_or_actor
+						save_temporary_scope_as = secret_to_reveal
+					}
+				}
+			}
+
+			scope:secret_to_reveal = {
+				expose_secret = scope:recipient.mother
+			}
+
+			scope:recipient = {
+				add_trait = disputed_heritage
+			}
+		}
+	}
+	
+	cost = {
+		renown = {
+			value = {
+				add = scope:puppet_or_actor.dynasty.medium_dynasty_prestige_value
+				if = {
+					limit = {
+						scope:recipient = {
+							is_landed_or_landless_administrative_or_theocratic = yes
+						}
+					}
+					add = scope:puppet_or_actor.dynasty.major_dynasty_prestige_value
+				}
+				if = {
+					limit = {
+						scope:recipient = {
+							is_landed_or_landless_administrative_or_theocratic = no
+							any_heir_title = {
+								exists = holder
+							}
+						}
+					}
+					add = scope:puppet_or_actor.dynasty.medium_dynasty_prestige_value
+				}
+				if = {
+					limit = {
+						scope:recipient = {
+							OR = {
+								has_trait = disputed_heritage
+								any_secret = {
+									type = secret_disputed_heritage
+									is_known_by = scope:puppet_or_actor
+								}
+								has_trait = bastard
+							}
+						}
+					}
+					multiply = 0
+				}
+				if = {
+					limit = {
+						scope:actor = {
+							culture = {
+								has_cultural_parameter = coven_rule
+							}
+							#exists = house
+							#house = {
+							#	has_house_modifier = witch_coven
+							#}
+							OR = {
+								has_trait = witch
+								any_secret = { type = secret_witch }
+							}
+						}
+						scope:recipient = {
+							NOR = {
+								has_trait = witch
+								any_secret = { type = secret_witch }
+							}
+							is_adult = yes
+						}
+					}
+					multiply = 0
+				}
+			}
+			if = {
+				limit = { scope:is_puppet_action ?= yes }
+				multiply = 0
+			}
+		}
+		prestige = {
+			value = {
+				add = medium_prestige_value
+				if = {
+					limit = {
+						scope:recipient = {
+							is_landed_or_landless_administrative_or_theocratic = yes
+						}
+					}
+					add = massive_prestige_value
+				}
+				if = {
+					limit = {
+						scope:recipient = {
+							is_landed_or_landless_administrative_or_theocratic = no
+							any_heir_title = {
+								exists = holder
+							}
+						}
+					}
+					add = medium_prestige_value
+				}
+				if = {
+					limit = {
+						scope:recipient = {
+							OR = {
+								has_trait = disputed_heritage
+								any_secret = {
+									type = secret_disputed_heritage
+									is_known_by = scope:puppet_or_actor
+								}
+								has_trait = bastard
+							}
+						}
+					}
+					multiply = 0
+				}
+				if = {
+					limit = {
+						scope:actor = {
+							culture = {
+								has_cultural_parameter = coven_rule
+							}
+							#exists = house
+							#house = {
+							#	has_house_modifier = witch_coven
+							#}
+							OR = {
+								has_trait = witch
+								any_secret = { type = secret_witch }
+							}
+						}
+						scope:recipient = {
+							NOR = {
+								has_trait = witch
+								any_secret = { type = secret_witch }
+							}
+							is_adult = yes
+						}
+					}
+					multiply = 0
+				}
+			}
+			if = {
+				limit = { scope:is_puppet_action ?= yes }
+				multiply = 0
+			}
+		}
+	}
+	
+	auto_accept = yes
+
+	ai_targets = {
+		ai_recipients = dynasty
+		max = 20
+	}
+	
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 96
+		duchy = 48
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	
+	ai_will_do = {
+		base = 0
+		
+		modifier = {
+			add = -100
+			scope:puppet_or_actor = {
+				OR = {
+					legitimacy_level = 0
+					legitimacy_level = 1
+				}
+			}
+			scope:recipient = { is_primary_heir_of = scope:puppet_or_actor }
+		}
+		
+		modifier = {
+			add = 100
+			scope:recipient = {
+				OR = {
+					has_relation_rival = scope:puppet_or_actor
+					has_relation_nemesis = scope:puppet_or_actor
+				}
+			}
+		}
+		
+		modifier = {
+			add = 100
+			scope:recipient = {
+				is_primary_heir_of = scope:puppet_or_actor
+				OR = {
+					has_trait = inbred
+					has_trait = intellect_bad_3
+					has_trait = incapable
+				}
+			}
+		}
+		
+		modifier = {
+			add = 5
+			ai_vengefulness >= medium_positive_ai_value
+			scope:recipient = {
+				is_heir_of = scope:puppet_or_actor
+			}
+			OR = {
+				AND = {
+					scope:recipient = {
+						has_trait = incestuous
+					}
+					NOT = { is_incestuous_trigger = yes }
+					trait_is_criminal_in_rite_trigger = { TRAIT = trait:incestuous RITE = scope:puppet_or_actor.rite GENDER_CHARACTER = scope:recipient }
+				}
+				AND = {
+					scope:recipient = {
+						has_trait = kinslayer
+					}
+					NOT = { has_trait = kinslayer }
+				}
+				AND = {
+					scope:recipient = {
+						has_trait = adulterer
+					}
+					NOR = {
+						has_trait = adulterer
+						has_trait = fornicator
+					}
+					trait_is_criminal_in_rite_trigger = { TRAIT = trait:adulterer RITE = scope:puppet_or_actor.rite GENDER_CHARACTER = scope:recipient }
+				}
+				AND = {
+					scope:recipient = {
+						has_trait = fornicator
+					}
+					NOR = {
+						has_trait = adulterer
+						has_trait = fornicator
+					}
+					trait_is_criminal_in_rite_trigger = { TRAIT = trait:fornicator RITE = scope:puppet_or_actor.rite GENDER_CHARACTER = scope:recipient }
+				}
+				AND = {
+					scope:recipient = {
+						has_trait = deviant
+					}
+					is_deviant_trigger = no
+					trait_is_criminal_in_rite_trigger = { TRAIT = trait:deviant RITE = scope:puppet_or_actor.rite GENDER_CHARACTER = scope:recipient }
+				}
+				AND = {
+					scope:recipient = {
+						has_trait = witch
+					}
+					is_witch_trigger = no
+					trait_is_criminal_in_rite_trigger = { TRAIT = trait:witch RITE = scope:puppet_or_actor.rite GENDER_CHARACTER = scope:recipient }
+				}
+				AND = {
+					scope:recipient = {
+						has_trait = sodomite
+					}
+					NOR = {
+						has_trait = sodomite
+						any_secret = {
+							type = secret_homosexual
+						}
+					}
+					trait_is_criminal_in_rite_trigger = { TRAIT = trait:sodomite RITE = scope:puppet_or_actor.rite GENDER_CHARACTER = scope:recipient }
+				}
+				AND = {
+					scope:recipient = {
+						has_trait = cannibal
+					}
+					is_cannibal_trigger = no
+					trait_is_criminal_in_rite_trigger = { TRAIT = trait:cannibal RITE = scope:puppet_or_actor.rite GENDER_CHARACTER = scope:recipient }
+				}
+			}
+		}
+
+		# Unity modifiers
+		evaluate_action_decreasing_house_unity = {
+			VALUE = 100
+		}
+		
+		modifier = {
+			factor = 0
+			scope:recipient = {
+				OR = {
+					has_relation_friend = scope:puppet_or_actor
+					has_relation_best_friend = scope:puppet_or_actor
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			scope:recipient = {
+				is_ai = no
+			}
+		}
+	}
+}
+
+disinherit_children_interaction = {
+	icon = icon_dynasty
+	category = interaction_category_hostile
+	interface_priority = 60
+
+	desc = disinherit_children_interaction_desc
+	use_diplomatic_range = no
+
+	is_available = {
+		trigger_if = {
+			limit = { is_ai = yes }
+			is_dynast = yes
+			NOT = {
+				has_trait = forgiving
+			}
+			is_at_war = no
+		}
+	}
+
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		# DLC checking
+		has_fp2_dlc_trigger = yes
+		# Standard check
+		scope:recipient != scope:puppet_or_actor
+
+		scope:puppet_or_actor.dynasty ?= {
+			this = scope:recipient.dynasty
+			has_dynasty_perk = fp2_coterie_legacy_5
+		}
+		scope:recipient = {
+			NOT = {
+				has_trait = disinherited
+			}
+		}
+	}
+
+	is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		scope:puppet_or_actor = { is_parent_of = scope:recipient }
+
+
+		custom_description = {
+			scope:puppet_or_actor.culture = {
+				NOT = { has_cultural_parameter = cannot_disherit }
+			}
+			text = "mystical_ancestors_disinherit"
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:puppet_or_actor = {
+			prestige >= major_prestige_value
+		}
+		scope:recipient = { NOT = { has_strong_hook = scope:puppet_or_actor } }
+		trigger_if = {
+			limit = {
+				scope:recipient = {
+					NOR = {
+						is_child_of = scope:puppet_or_actor
+						is_grandchild_of = scope:puppet_or_actor
+						is_great_grandchild_of = scope:puppet_or_actor
+					}
+				}
+			}
+			custom_description = {
+				scope:recipient.top_liege = scope:puppet_or_actor.top_liege
+				subject = scope:puppet_or_actor
+				text = "same_realm_as"
+			}
+		}
+		custom_tooltip = {
+			text = cannot_take_overt_hostile_actions_against_diarch.tt
+			NOT = { scope:recipient ?= scope:puppet_or_actor.diarch }
+		}
+	}
+
+	on_auto_accept = {
+		scope:recipient = {
+			trigger_event = char_interaction.0020
+		}
+	}
+
+	on_accept = {
+		scope:puppet_or_actor = {
+			# Only get stressed/SP penalties if you don't have the parameter
+			if = {
+				limit = {
+					NOT = { sp_hostile_schemes_except_murder_no_stress_or_fulfillment_trigger = yes }
+				}
+				stress_and_fulfillment_impact = {
+					forgiving = minor_stress_impact_gain
+					compassionate = minor_stress_impact_gain
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						culture = {
+							has_cultural_parameter = coven_rule
+						}
+						#exists = house
+						#house = {
+						#	has_house_modifier = witch_coven
+						#}
+						OR = {
+							has_trait = witch
+							any_secret = { type = secret_witch }
+						}
+						scope:recipient = {
+							NOR = {
+								has_trait = witch
+								any_secret = { type = secret_witch }
+							}
+							is_adult = yes
+						}
+					}
+				}
+			add_tyranny = massive_tyranny_value
+			}
+			
+			hidden_effect = {
+				send_interface_toast = {
+					title = disinherit_interaction_notification
+					type = event_toast_effect_neutral
+					left_icon = scope:puppet_or_actor
+					right_icon = scope:recipient
+
+					scope:recipient = {
+						show_as_tooltip = {
+							disinherit_effect = { DISINHERITOR = scope:puppet_or_actor }
+						}
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					scope:is_puppet_action ?= yes
+				}
+				scope:actor = {
+					send_interface_toast = {
+						type = event_toast_effect_neutral
+						title = disinherit_interaction_notification
+
+						left_icon = scope:puppet_or_actor
+						right_icon = scope:recipient
+
+						scope:recipient = {
+							show_as_tooltip = {
+								disinherit_effect = { DISINHERITOR = scope:puppet_or_actor }
+							}
+						}
+					}
+				}
+			}
+		}
+
+		scope:recipient = {
+			disinherit_effect = { DISINHERITOR = scope:puppet_or_actor }
+		}
+
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:puppet_or_actor
+			TARGET = scope:recipient
+			VALUE = minor_unity_loss
+			DESC = clan_unity_disinheritance.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}		
+	}
+
+	cost = {
+		prestige = {
+			value = {
+				add = medium_prestige_value
+				if = {
+					limit = {
+						scope:recipient = {
+							is_landed_or_landless_administrative_or_theocratic = yes
+						}
+					}
+					add = massive_prestige_value
+				}
+				if = {
+					limit = {
+						scope:recipient = {
+							is_landed_or_landless_administrative_or_theocratic = no
+							any_heir_title = {
+								exists = holder
+							}
+						}
+					}
+					add = medium_prestige_value
+				}
+				if = {
+					limit = {
+						scope:actor = {
+							culture = {
+								has_cultural_parameter = coven_rule
+							}
+							#exists = house
+							#house = {
+							#	has_house_modifier = witch_coven
+							#}
+							OR = {
+								has_trait = witch
+								any_secret = { type = secret_witch }
+							}
+						}
+						scope:recipient = {
+							NOR = {
+								has_trait = witch
+								any_secret = { type = secret_witch }
+							}
+							is_adult = yes
+						}
+					}
+					multiply = 0
+				}
+			}
+			if = {
+				limit = { scope:is_puppet_action ?= yes }
+				multiply = 0
+			}
+		}
+	}
+
+	auto_accept = yes
+
+	ai_targets = {
+		ai_recipients = dynasty
+		max = 20
+	}
+
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 96
+		duchy = 48
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	ai_will_do = {
+		base = 0
+
+		modifier = {
+			add = 100
+			scope:recipient = {
+				OR = {
+					has_relation_rival = scope:puppet_or_actor
+					has_relation_nemesis = scope:puppet_or_actor
+				}
+			}
+		}
+
+		modifier = {
+			add = 100
+			scope:recipient = {
+				is_primary_heir_of = scope:puppet_or_actor
+				OR = {
+					has_trait = inbred
+					has_trait = intellect_bad_3
+					has_trait = incapable
+				}
+			}
+		}
+
+		modifier = {
+			add = 5
+			ai_vengefulness >= medium_positive_ai_value
+			scope:recipient = {
+				is_heir_of = scope:puppet_or_actor
+			}
+			OR = {
+				AND = {
+					scope:recipient = {
+						has_trait = incestuous
+					}
+					NOT = { is_incestuous_trigger = yes }
+					trait_is_criminal_in_rite_trigger = { TRAIT = trait:incestuous RITE = scope:puppet_or_actor.rite GENDER_CHARACTER = scope:recipient }
+				}
+				AND = {
+					scope:recipient = {
+						has_trait = kinslayer
+					}
+					NOT = { has_trait = kinslayer }
+				}
+				AND = {
+					scope:recipient = {
+						has_trait = adulterer
+					}
+					NOR = {
+						has_trait = adulterer
+						has_trait = fornicator
+					}
+					trait_is_criminal_in_rite_trigger = { TRAIT = trait:adulterer RITE = scope:puppet_or_actor.rite GENDER_CHARACTER = scope:recipient }
+				}
+				AND = {
+					scope:recipient = {
+						has_trait = fornicator
+					}
+					NOR = {
+						has_trait = adulterer
+						has_trait = fornicator
+					}
+					trait_is_criminal_in_rite_trigger = { TRAIT = trait:fornicator RITE = scope:puppet_or_actor.rite GENDER_CHARACTER = scope:recipient }
+				}
+				AND = {
+					scope:recipient = {
+						has_trait = deviant
+					}
+					is_deviant_trigger = no
+					trait_is_criminal_in_rite_trigger = { TRAIT = trait:deviant RITE = scope:puppet_or_actor.rite GENDER_CHARACTER = scope:recipient }
+				}
+				AND = {
+					scope:recipient = {
+						has_trait = witch
+					}
+					is_witch_trigger = no
+					trait_is_criminal_in_rite_trigger = { TRAIT = trait:witch RITE = scope:puppet_or_actor.rite GENDER_CHARACTER = scope:recipient }
+				}
+				AND = {
+					scope:recipient = {
+						has_trait = sodomite
+					}
+					NOR = {
+						has_trait = sodomite
+						any_secret = {
+							type = secret_homosexual
+						}
+					}
+					trait_is_criminal_in_rite_trigger = { TRAIT = trait:sodomite RITE = scope:puppet_or_actor.rite GENDER_CHARACTER = scope:recipient }
+				}
+				AND = {
+					scope:recipient = {
+						has_trait = cannibal
+					}
+					is_cannibal_trigger = no
+					trait_is_criminal_in_rite_trigger = { TRAIT = trait:cannibal RITE = scope:puppet_or_actor.rite GENDER_CHARACTER = scope:recipient }
+				}
+			}
+		}
+
+		# Unity modifiers
+		evaluate_action_decreasing_house_unity = {
+			VALUE = 100
+		}
+
+		modifier = {
+			factor = 0
+			scope:recipient = {
+				OR = {
+					has_relation_friend = scope:puppet_or_actor
+					has_relation_best_friend = scope:puppet_or_actor
+				}
+			}
+		}
+
+		modifier = {
+			factor = 0
+			scope:recipient = {
+				is_ai = no
+			}
+		}
+	}
+}
+
+
+
+# Demand an artifact you have a claim on
+demand_artifact_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	category = interaction_category_diplomacy
+	common_interaction = yes
+	interface_priority = 60
+	use_diplomatic_range = yes
+	desc = demand_artifact_interaction_desc
+	icon = artisan_inspiration
+
+	target_type = artifact
+	target_filter = recipient_artifacts_claimable
+	show_all_targets = no
+
+	greeting = negative
+	notification_text = DEMAND_ARTIFACT_PROPOSAL
+
+	answer_accept_key = DEMAND_ARTIFACT_ACCEPT
+	answer_reject_key = DEMAND_ARTIFACT_REJECT
+
+	ai_targets = {
+		ai_recipients = scripted_relations
+	}
+	ai_targets = {
+		ai_recipients = liege
+	}
+	ai_targets = {
+		ai_recipients = neighboring_rulers
+		ai_recipients = peer_vassals
+		ai_recipients = nearby_domicile_owners
+		max = 10
+	}
+	ai_targets = {
+		ai_recipients = vassals
+		max = 10
+	}
+	ai_targets = {
+		ai_recipients = family
+		max = 10
+	}
+	ai_target_quick_trigger = {
+		adult = yes
+	}
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 72
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
+
+	is_available = {
+		trigger_if = {
+			limit = { is_ai = yes }
+			has_outstanding_artifact_claims = yes
+			is_at_war = no
+			ai_greed >= low_negative_ai_value
+			is_adult = yes
+		}
+	}
+
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		scope:recipient != scope:puppet_or_actor
+
+		custom_description = {
+			text = "demand_artifact_interaction_valid_tt_1"
+			scope:recipient = {
+				# needs to have an artifact we can claim
+				any_character_artifact = {
+					can_be_claimed_by = scope:puppet_or_actor
+					NOT = { has_variable = is_tribute_mission_artifact }
+				}
+			}
+		}
+
+		scope:recipient = {
+			trigger_if = {
+				limit = {
+					exists = involved_activity
+				}
+				NOT = {
+					involved_activity ?= { #do not give out anything during coronation
+						has_activity_type = activity_coronation
+						activity_host ?= scope:recipient
+					}
+				}
+			}
+		}
+
+		scope:puppet_or_actor ?= {
+			OR = {
+				scope:actor = { is_ai = no }
+				max_military_strength >= {
+					value = {
+						value = scope:recipient.max_military_strength
+						multiply = 1.3
+					}
+				}
+				highest_held_title_tier > scope:recipient.highest_held_title_tier
+			}
+		}
+	}
+
+	is_highlighted = {
+		always = yes
+	}
+
+	is_valid_showing_failures_only = {
+		
+		scope:puppet_or_actor = {
+			NOT = {
+				is_at_war_with = scope:recipient
+			}
+		}
+
+		trigger_if = {
+			limit = {
+				scope:puppet_or_actor = {
+					has_variable = demanded_this_artifact_interaction_recently
+				}
+			}
+			custom_description = {
+				text = "demand_artifact_interaction_is_valid_tt_2"
+				exists = scope:demanded_artifact
+				scope:puppet_or_actor = {
+					has_variable = demanded_this_artifact_interaction_recently
+					var:demanded_this_artifact_interaction_recently = scope:demanded_artifact
+				}
+			}
+		}
+		scope:puppet_or_actor = { is_imprisoned = no }
+	}
+
+	on_accept = {
+		scope:target = {
+			save_scope_as = demanded_artifact
+		}
+		if = {
+			limit = {
+				exists = scope:demanded_artifact
+			}
+			scope:puppet_or_actor = {
+				set_variable = {
+					name = demanded_this_artifact_interaction_recently
+					value = scope:demanded_artifact
+					years = 5
+				}
+			}
+		}
+		scope:puppet_or_actor = {
+			send_interface_toast = {
+				type = event_toast_effect_neutral
+				title = demand_artifact_interaction_notification
+				left_icon = scope:recipient
+				right_icon = scope:target
+				scope:target = {
+					set_owner = scope:puppet_or_actor
+				}
+
+				scope:recipient = {
+					add_opinion = {
+						target = scope:puppet_or_actor
+						modifier = insult_opinion
+						opinion = -60
+					}
+				}
+				if = {
+					limit = {
+						scope:recipient = {
+							can_set_relation_potential_rival_trigger = { CHARACTER = scope:puppet_or_actor }
+						}
+					}
+					scope:recipient = {
+						set_relation_potential_rival = scope:puppet_or_actor
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:is_puppet_action ?= yes
+				scope:actor != scope:recipient
+			}
+			scope:actor = {
+				send_interface_toast = {
+					type = event_toast_effect_neutral
+					title = demand_artifact_interaction_notification_puppeteer
+					left_icon = scope:puppet_or_actor
+					right_icon = scope:recipient
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:actor = {
+					is_ai = yes
+				}
+			}
+			scope:puppet_or_actor = {
+				add_opinion = {
+					target = scope:recipient
+					modifier = pleased_opinion
+					opinion = 30
+				}
+			}
+		}
+
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:puppet_or_actor
+			TARGET = scope:recipient
+			VALUE = minor_unity_loss
+			DESC = clan_unity_demanded_artifact.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
+	}
+
+	auto_accept = {
+		custom_description = {
+			text = "spending_hook"
+			subject = scope:puppet_or_actor
+			object = scope:recipient
+			scope:hook = yes
+			scope:puppet_or_actor = { has_strong_hook = scope:recipient }
+		}
+	}
+
+	send_option = {
+		is_shown = {
+			scope:puppet_or_actor != scope:recipient
+		}
+		is_valid = {
+			scope:puppet_or_actor = {
+				has_usable_hook = scope:recipient
+			}
+		}
+		flag = hook
+		localization = GENERIC_SPEND_A_HOOK
+	}
+	should_use_extra_icon = {
+		scope:puppet_or_actor = { has_usable_hook = scope:recipient }
+	}
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+
+	send_options_exclusive = no
+
+	ai_accept = {
+		base = 0
+		modifier = {
+			add = -50
+			scope:target = {
+				NOT = {
+					has_variable = magic1
+				}
+			}
+			desc = ARTIFACT_REASON
+		}
+		modifier = {
+			add = -500
+			OR = {
+				scope:actor = {
+					is_ai = no
+				}
+				scope:recipient = {
+					has_trait = archmage
+				}
+			}
+			scope:target = {
+				has_variable = magic1
+			}
+			desc = ARTIFACT_REASON
+		}
+		modifier = {
+			add = 70
+			scope:puppet_or_actor.max_military_strength > scope:recipient.max_military_strength
+			desc = ARTIFACT_MILITARY_STRONGER_REASON
+		}
+		modifier = {
+			add = -70
+			scope:puppet_or_actor.max_military_strength < scope:recipient.max_military_strength
+			desc = ARTIFACT_MILITARY_WEAKER_REASON
+		}
+		modifier = {
+			add = -50
+			scope:target = { can_be_claimed_by = scope:recipient }
+			desc = ARTIFACT_CLAIM_REASON
+		}
+		modifier = {
+			add = {
+				value = ai_boldness
+				multiply = -1
+				divide = 2
+			}
+			NOT = { ai_boldness = 0 }
+			desc = ARTIFACT_BOLDNESS_REASON
+		}
+		modifier = {
+			add = -50
+			scope:puppet_or_actor = {
+				has_relation_rival = scope:recipient
+			}
+			desc = ARTIFACT_RIVAL_REASON
+		}
+		modifier = {
+			add = -80
+			scope:puppet_or_actor = {
+				has_relation_nemesis = scope:recipient
+			}
+			desc = ARTIFACT_NEMESIS_REASON
+		}
+		modifier = {
+			add = 50
+			scope:recipient = {
+				target_is_liege_or_above = scope:puppet_or_actor
+			}
+			desc = ARTIFACT_LIEGE_REASON
+		}
+		modifier = {
+			scope:hook = yes
+			add = 100
+			desc = SCHEME_WEAK_HOOK_USED
+		}
+
+		# Unity modifiers
+		evaluate_action_decreasing_house_unity = { VALUE = 100 }
+	}
+
+	on_decline = {
+		scope:target = {
+			save_scope_as = demanded_artifact
+		}
+		if = {
+			limit = {
+				exists = scope:demanded_artifact
+			}
+			scope:puppet_or_actor = {
+				set_variable = {
+					name = demanded_this_artifact_interaction_recently
+					value = scope:demanded_artifact
+					years = 5
+				}
+			}
+		}
+		scope:puppet_or_actor = {
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = demand_artifact_interaction_notification
+				left_icon = scope:recipient
+				right_icon = scope:target
+				custom_tooltip = demand_artifact_interaction_notification_refused
+
+				scope:recipient = {
+					add_opinion = {
+						target = scope:puppet_or_actor
+						modifier = insult_opinion
+						opinion = -60
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:is_puppet_action ?= yes
+				scope:actor != scope:recipient
+			}
+			scope:actor = {
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = demand_artifact_interaction_notification_puppeteer
+					left_icon = scope:puppet_or_actor
+					right_icon = scope:recipient
+					custom_tooltip = demand_artifact_interaction_notification_refused_puppeteer
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:actor = {
+					is_ai = yes
+				}
+			}
+			scope:puppet_or_actor = {
+				add_opinion = {
+					target = scope:recipient
+					modifier = refusal_opinion
+					opinion = -60
+				}
+			}
+		}
+	}
+
+	ai_min_reply_days = 7
+	ai_max_reply_days = 14
+
+	ai_will_do = {
+		base = 100
+
+		modifier = { # The AI will only use a Hook if they couldn't otherwise do this
+			scope:hook = yes
+			add = -1
+		}
+
+		modifier = {
+			add = 50
+			has_relation_rival = scope:recipient
+		}
+		modifier = {
+			add = 80
+			has_relation_nemesis = scope:recipient
+		}
+		modifier = {
+			add = -50
+			target_is_liege_or_above = scope:recipient
+		}
+		# Recipient is flaunting their artifacts and needs to be taken down a peg - from hold_court.3080
+		modifier = {
+			scope:recipient = {
+				OR = {
+					has_character_modifier = petition_event_artifact_exhibition_for_prestige
+					has_character_modifier = petition_event_artifact_exhibition_for_gold
+				}
+			}
+			add = 35
+		}
+		modifier = { # An Intimidated character is very unlikely to raise their hand
+			add = -25
+			scope:puppet_or_actor = {
+				has_dread_level_towards = {
+					target = scope:recipient
+					level = 1
+				}
+			}
+		}
+
+		# Unity modifiers
+		evaluate_action_decreasing_house_unity = {
+				VALUE = 100
+			}
+
+		modifier = { # A Cowed character will never take this interaction
+			factor = 0
+			scope:puppet_or_actor = {
+				has_dread_level_towards = {
+					target = scope:recipient
+					level = 2
+				}
+			}
+		}
+		modifier = { # The AI doesn't demand from players they like
+			factor = 0
+			scope:recipient = {
+				is_ai = no
+			}
+			scope:puppet_or_actor = {
+				OR = {
+					has_relation_friend = scope:recipient
+					has_relation_lover = scope:recipient
+					opinion = {
+						target = scope:recipient
+						value >= high_positive_opinion
+					}
+				}
+			}
+		}
+		modifier = { # The AI doesn't demand from players that have refused already
+			factor = 0
+			scope:recipient = {
+				is_ai = no
+			}
+			scope:puppet_or_actor = {
+				has_opinion_modifier = {
+					target = scope:recipient
+					modifier = refusal_opinion
+				}
+			}
+		}
+		modifier = { # Only the House Head will demand house claimed artifacts from existing House members
+			factor = 0
+			exists = scope:puppet_or_actor.house.house_head
+			exists = scope:recipient.house
+			scope:puppet_or_actor.house.house_head = scope:puppet_or_actor
+			scope:puppet_or_actor.house = scope:recipient.house
+			
+			NOT = {
+				any_personal_claimed_artifact = {
+					this = scope:target
+				}
+			}
+		}
+		modifier = {
+			scope:puppet_or_actor = {
+				opinion = {
+					target = scope:recipient
+					value >= medium_positive_opinion
+				}
+				ai_greed <= high_positive_ai_value
+			}
+			factor = 0
+		}
+		modifier = {
+			scope:recipient = {
+				OR = {
+					has_relation_friend = scope:puppet_or_actor
+					has_relation_lover = scope:puppet_or_actor
+				}
+			}
+			factor = 0
+		}
+		modifier = {
+			scope:puppet_or_actor = {
+				has_royal_court = no
+			}
+			scope:target = {
+				OR = {
+					artifact_slot_type = throne
+					artifact_slot_type = wall_big
+					artifact_slot_type = wall_small
+					artifact_slot_type = sculpture
+					artifact_slot_type = book
+					artifact_slot_type = pedestal
+				}
+			}
+			factor = 0
+		}
+		modifier = {
+			scope:recipient = {
+				OR = {
+					AND = {
+						scope:target = {
+							artifact_slot_type = primary_armament
+						}
+						OR = {
+							any_equipped_character_artifact = {
+								artifact_slot_type = primary_armament
+								rarity = illustrious
+							}
+							AND = {
+								any_equipped_character_artifact = {
+									artifact_slot_type = primary_armament
+									rarity = famed
+								}
+								scope:target = {
+									OR = {
+										rarity = famed
+										rarity = masterwork
+										rarity = common
+									}
+								}
+							}
+							AND = {
+								any_equipped_character_artifact = {
+									artifact_slot_type = primary_armament
+									rarity = masterwork
+								}
+								scope:target = {
+									OR = {
+										rarity = masterwork
+										rarity = common
+									}
+								}
+							}
+							AND = {
+								any_equipped_character_artifact = {
+									artifact_slot_type = primary_armament
+									rarity = common
+								}
+								scope:target = {
+									rarity = common
+								}
+							}
+						}
+					}
+					AND = {
+						scope:target = {
+							artifact_slot_type = regalia
+						}
+						OR = {
+							any_equipped_character_artifact = {
+								artifact_slot_type = regalia
+								rarity = illustrious
+							}
+							AND = {
+								any_equipped_character_artifact = {
+									artifact_slot_type = regalia
+									rarity = famed
+								}
+								scope:target = {
+									OR = {
+										rarity = famed
+										rarity = masterwork
+										rarity = common
+									}
+								}
+							}
+							AND = {
+								any_equipped_character_artifact = {
+									artifact_slot_type = regalia
+									rarity = masterwork
+								}
+								scope:target = {
+									OR = {
+										rarity = masterwork
+										rarity = common
+									}
+								}
+							}
+							AND = {
+								any_equipped_character_artifact = {
+									artifact_slot_type = regalia
+									rarity = common
+								}
+								scope:target = {
+									rarity = common
+								}
+							}
+						}
+					}
+					AND = {
+						scope:target = {
+							artifact_slot_type = helmet
+						}
+						OR = {
+							any_equipped_character_artifact = {
+								artifact_slot_type = helmet
+								rarity = illustrious
+							}
+							AND = {
+								any_equipped_character_artifact = {
+									artifact_slot_type = helmet
+									rarity = famed
+								}
+								scope:target = {
+									OR = {
+										rarity = famed
+										rarity = masterwork
+										rarity = common
+									}
+								}
+							}
+							AND = {
+								any_equipped_character_artifact = {
+									artifact_slot_type = helmet
+									rarity = masterwork
+								}
+								scope:target = {
+									OR = {
+										rarity = masterwork
+										rarity = common
+									}
+								}
+							}
+							AND = {
+								any_equipped_character_artifact = {
+									artifact_slot_type = helmet
+									rarity = common
+								}
+								scope:target = {
+									rarity = common
+								}
+							}
+						}
+					}
+					AND = {
+						scope:target = {
+							artifact_slot_type = armor
+						}
+						OR = {
+							any_equipped_character_artifact = {
+								artifact_slot_type = armor
+								rarity = illustrious
+							}
+							AND = {
+								any_equipped_character_artifact = {
+									artifact_slot_type = armor
+									rarity = famed
+								}
+								scope:target = {
+									OR = {
+										rarity = famed
+										rarity = masterwork
+										rarity = common
+									}
+								}
+							}
+							AND = {
+								any_equipped_character_artifact = {
+									artifact_slot_type = armor
+									rarity = masterwork
+								}
+								scope:target = {
+									OR = {
+										rarity = masterwork
+										rarity = common
+									}
+								}
+							}
+							AND = {
+								any_equipped_character_artifact = {
+									artifact_slot_type = armor
+									rarity = common
+								}
+								scope:target = {
+									rarity = common
+								}
+							}
+						}
+					}
+					AND = {
+						scope:target = {
+							artifact_slot_type = miscellaneous
+							rarity = common
+						}
+						any_equipped_character_artifact = {
+							count >= 4
+							artifact_slot_type = miscellaneous
+						}
+					}
+					AND = {
+						scope:target = {
+							artifact_slot_type = throne
+						}
+						OR = {
+							any_equipped_character_artifact = {
+								artifact_slot_type = throne
+								rarity = illustrious
+							}
+							AND = {
+								any_equipped_character_artifact = {
+									artifact_slot_type = throne
+									rarity = famed
+								}
+								scope:target = {
+									OR = {
+										rarity = famed
+										rarity = masterwork
+										rarity = common
+									}
+								}
+							}
+							AND = {
+								any_equipped_character_artifact = {
+									artifact_slot_type = throne
+									rarity = masterwork
+								}
+								scope:target = {
+									OR = {
+										rarity = masterwork
+										rarity = common
+									}
+								}
+							}
+							AND = {
+								any_equipped_character_artifact = {
+									artifact_slot_type = throne
+									rarity = common
+								}
+								scope:target = {
+									rarity = common
+								}
+							}
+						}
+					}
+					AND = {
+						scope:target = {
+							artifact_slot_type = wall_big
+							rarity = common
+						}
+						any_equipped_character_artifact = {
+							count >= 3
+							artifact_slot_type = wall_big
+						}
+					}
+					AND = {
+						scope:target = {
+							artifact_slot_type = wall_small
+							rarity = common
+						}
+						any_equipped_character_artifact = {
+							count >= 3
+							artifact_slot_type = wall_small
+						}
+					}
+					AND = {
+						scope:target = {
+							artifact_slot_type = sculpture
+							rarity = common
+						}
+						any_equipped_character_artifact = {
+							count >= 2
+							artifact_slot_type = sculpture
+						}
+					}
+					AND = {
+						scope:target = {
+							artifact_slot_type = book
+							rarity = common
+						}
+						any_equipped_character_artifact = {
+							count >= 2
+							artifact_slot_type = book
+						}
+					}
+					AND = {
+						scope:target = {
+							artifact_slot_type = pedestal
+							rarity = common
+						}
+						any_equipped_character_artifact = {
+							count >= 4
+							artifact_slot_type = pedestal
+						}
+					}
+				}
+			}
+			factor = 0
+		}
+	}
+}

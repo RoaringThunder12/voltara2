@@ -1,0 +1,9 @@
+﻿9079 = {
+# Provisional holding layout; source culture/faith retained.
+
+
+
+
+ culture = voltara_giants religion = voltara_faith_0 holding = tribal_holding
+ special_building_slot = voltara_giant_camp_01 special_building = voltara_giant_camp_01
+}

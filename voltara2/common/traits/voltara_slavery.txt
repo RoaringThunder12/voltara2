@@ -1,0 +1,28 @@
+﻿voltara_slave = {
+ category = fame shown_in_ruler_designer = no icon = eunuch_1.dds
+ health = -0.25 flag = can_not_marry inheritance_blocker = all
+ opposites = { voltara_former_slave }
+}
+voltara_former_slave = {
+ category = fame shown_in_ruler_designer = no icon = peasant_leader.dds
+ same_opinion = 10 opposites = { voltara_slave }
+}
+voltara_slaver = {
+ category = lifestyle shown_in_ruler_designer = no icon = torturer.dds
+ dread_baseline_add = 5 ai_compassion = -10
+ track = {
+  0 = { }
+  25 = { stewardship = 1 dread_gain_mult = 0.05 }
+  50 = { stewardship = 2 dread_gain_mult = 0.10 domain_tax_mult = 0.025 }
+  100 = { stewardship = 3 dread_gain_mult = 0.15 domain_tax_mult = 0.05 }
+ }
+}
+voltara_liberator = {
+ category = lifestyle shown_in_ruler_designer = no icon = gallant.dds
+ track = {
+  0 = { diplomacy = 1 }
+  25 = { diplomacy = 1 monthly_prestige = 0.1 }
+  50 = { diplomacy = 2 monthly_prestige = 0.2 }
+  100 = { diplomacy = 3 monthly_prestige = 0.4 general_opinion = 5 }
+ }
+}

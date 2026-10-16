@@ -1,0 +1,7 @@
+﻿on_game_start_after_lobby = { on_actions = { voltara_dragon_expansion_migration } }
+voltara_dragon_expansion_migration = { effect = {
+ every_in_global_list = { variable = voltara_living_dragons limit = { is_alive = yes } voltara_dragon_start_lifecycle_effect = yes }
+ every_living_character = { limit = { any_character_artifact = { has_variable = voltara_dragon_egg } }
+ every_character_artifact = { limit = { has_variable = voltara_dragon_egg } set_variable = { name = dragon_egg value = yes } }
+ }
+} }

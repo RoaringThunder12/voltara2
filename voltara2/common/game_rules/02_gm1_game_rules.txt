@@ -1,0 +1,61 @@
+﻿##############################
+## GM1 game_rules
+##############################
+
+gm1_prisoners_and_jailors_interaction_restriction = {
+	categories = {
+		gm1_prisoners_and_jailors
+	}
+
+	default = transfer_prisoner_default_interaction_allowed
+
+	transfer_prisoner_default_interaction_allowed = {
+
+	}
+
+	transfer_prisoner_limited_interaction_allowed = {
+
+	}
+
+}
+
+gm1_prisoners_and_jailors_penalties = {
+	categories = {
+		gm1_prisoners_and_jailors
+	}
+
+	default = transfer_prisoner_default_interaction_penalties
+
+	transfer_prisoner_default_interaction_penalties = {
+
+	}
+
+	transfer_prisoner_limited_interaction_penalties = {
+	}
+
+	transfer_prisoner_disabled_interaction_penalties = {
+		flag = blocks_achievements
+	}
+
+}
+
+gm1_prisoners_and_jailors_interaction_acceptance = {
+	categories = {
+		gm1_prisoners_and_jailors
+	}
+
+	default = transfer_prisoner_default_interaction_acceptance
+
+	transfer_prisoner_default_interaction_acceptance = {
+
+	}
+
+	transfer_prisoner_limited_interaction_acceptance = {
+
+	}
+
+	transfer_prisoner_always_interaction_acceptance = {
+		flag = blocks_achievements
+	}
+
+}

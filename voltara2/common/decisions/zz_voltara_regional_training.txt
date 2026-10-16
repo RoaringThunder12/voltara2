@@ -1,0 +1,20 @@
+﻿voltara_train_threadwarrior = { picture = { reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds" } desc = voltara_train_threadwarrior_desc selection_tooltip = voltara_train_threadwarrior_tooltip confirm_text = voltara_train_threadwarrior_confirm decision_group_type = major ai_check_interval = 60
+ is_shown = { is_landed = yes learning >= 12 NOT = { has_trait = voltara_threadwarrior } }
+ is_valid = { is_adult = yes is_imprisoned = no learning >= 12 } cost = { gold = 150 } cooldown = { years = 5 }
+ effect = { trigger_event = voltara_training.1 } ai_potential = { gold >= 600 } ai_will_do = { base = 5 } }
+voltara_train_deep_engineer = { picture = { reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds" } desc = voltara_train_deep_engineer_desc selection_tooltip = voltara_train_deep_engineer_tooltip confirm_text = voltara_train_deep_engineer_confirm decision_group_type = major ai_check_interval = 60
+ is_shown = { is_landed = yes culture = culture:voltara_culture_23 NOT = { has_trait = voltara_deep_engineer } }
+ is_valid = { is_adult = yes is_imprisoned = no stewardship >= 10 } cost = { gold = 150 } cooldown = { years = 5 }
+ effect = { trigger_event = voltara_training.2 } ai_potential = { gold >= 600 } ai_will_do = { base = 5 } }
+voltara_train_oathwarden = { picture = { reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds" } desc = voltara_train_oathwarden_desc selection_tooltip = voltara_train_oathwarden_tooltip confirm_text = voltara_train_oathwarden_confirm decision_group_type = major ai_check_interval = 60
+ is_shown = { is_landed = yes OR = { has_title = title:k_voltara_22 top_liege = { has_title = title:k_voltara_22 } } NOT = { has_trait = voltara_oathwarden } }
+ is_valid = { is_adult = yes is_imprisoned = no prowess >= 8 } cost = { gold = 150 } cooldown = { years = 5 }
+ effect = { trigger_event = voltara_training.3 } ai_potential = { gold >= 600 } ai_will_do = { base = 5 } }
+voltara_bear_lodge = {
+ picture = { reference = "gfx/interface/illustrations/decisions/voltara_bear_lodge.dds" }
+ desc = voltara_bear_lodge_desc selection_tooltip = voltara_bear_lodge_tooltip confirm_text = voltara_bear_lodge_confirm
+ decision_group_type = major ai_check_interval = 0
+ is_shown = { OR = { culture = culture:voltara_culture_30 has_trait = supernatural_werewolf } }
+ is_valid = { is_adult = yes is_imprisoned = no } cooldown = { years = 3 } cost = { gold = 35 }
+ effect = { trigger_event = voltara_training.4 }
+}

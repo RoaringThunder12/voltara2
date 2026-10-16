@@ -1,0 +1,8 @@
+﻿e_voltara_ruins = {
+ color = { 210 190 150 }
+ definite_form = yes
+ can_be_named_after_dynasty = no
+ can_use_nomadic_naming = no
+ landless = yes
+ can_create = { always = no }
+}

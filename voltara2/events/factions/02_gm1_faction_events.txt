@@ -1,0 +1,63 @@
+﻿namespace = gm1_faction_demand
+
+##############################
+## GM1 faction_events
+##############################
+
+# Faction declares a retaliatory war.
+gm1_faction_demand.9001 = {
+	type = character_event
+	title = faction_demand.9001.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:prisoner = {
+						is_imprisoned = yes
+						imprisoner = scope:imprisoner
+					}
+				}
+				desc = TRANSFER_PRISONER_FACTION_SUCCESSFUL_IMPRISONMENT_RETALIATION
+			}
+			desc = TRANSFER_PRISONER_FACTION_FAILED_IMPRISONMENT_RETALIATION
+		}
+		desc = TRANSFER_PRISONER_FACTION_IMPRISONMENT_RETALIATION_END
+	}
+	theme = war
+	override_background = {
+		trigger = {
+			scope:prisoner = {
+				is_imprisoned = yes
+				imprisoner = scope:imprisoner
+			}
+		}
+		reference = dungeon
+	}
+	left_portrait = {
+		character = scope:imprisoner
+		animation = schadenfreude
+	}
+	right_portrait = {
+		character = scope:prisoner
+		animation = anger
+	}
+	
+	trigger = {
+		exists = scope:retaliating_faction
+	}
+
+	immediate = {
+		show_as_tooltip = {
+			scope:retaliating_faction = {
+				faction_start_war = {}
+			}
+		}
+	}
+
+	option = {
+		name = TRANSFER_PRISONER_FACTION_IMPRISONMENT_RETALIATION_OPT
+
+		# This effect should always be placed here, _before_ all the other effects in the block.
+		trigger_event = { on_action = on_faction_demand_rejected }
+	}
+}

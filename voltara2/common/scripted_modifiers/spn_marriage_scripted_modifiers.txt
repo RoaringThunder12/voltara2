@@ -1,0 +1,273 @@
+﻿# Supernatural -- marriage acceptance (CK3 1.20).
+#
+# 1.19 and earlier: this file carried whole copies of vanilla's marriage_ai_accept_modifier,
+# elopment_ai_accept_modifier and divorce_character_ai_accept_modifier. The only deliberate change in any of
+# them was six `spn_has_supernatural_trait = no` lines in the procreation checks: a vampire, werewolf, hybrid
+# or demon does not age out of marriage, so the "she is too old to bear children" penalties must not fire.
+#
+# 1.20 moved every one of those procreation checks out of marriage_ai_accept_modifier into a new scripted
+# modifier, marriage_ai_accept_fertility_modifier (00_marriage_scripted_modifiers.txt), which vanilla calls
+# from marriage_ai_accept_modifier. So this file now overrides ONLY that block: vanilla 1.20's text, verbatim,
+# with the six lines re-inserted in the same six checks. The three old copies are gone, so vanilla's own
+# 1.20 marriage, elopement and divorce logic (rite consanguinity, puppets, polygamy by rite) applies again.
+#
+# RE-DIFF AFTER EVERY CK3 UPDATE: this is a vanilla shadow.
+
+marriage_ai_accept_fertility_modifier = {
+	modifier = { # A debuff for no fertility to same-sex marriage
+		add = -200
+		desc = SAME_SEX_MARRIAGE_FERTILITY_REASON
+
+		scope:secondary_recipient = {
+			allowed_to_marry_same_sex_trigger = yes
+			sex_same_as = scope:secondary_actor
+			OR = {
+				is_ruler = yes
+				AND = {
+					exists = scope:recipient.primary_heir
+					scope:recipient.primary_heir = { this = scope:secondary_recipient }
+				}
+			}
+			NOT = {
+				any_child = {
+					count >= 2
+				}
+			}
+		}
+	}
+	###############
+	# PROCREATION #
+	###############
+	compare_modifier = { # Recipient is reluctant to marry old women (procreation is a key factor)
+		trigger = {
+			scope:secondary_actor = {
+				effective_age > 29
+				is_female = yes
+				spn_has_supernatural_trait = no   # Supernatural: the undead do not age out of marriage
+			}
+			scope:secondary_recipient = {
+				is_adult = yes
+				OR = {
+					AND = {
+						exists = scope:secondary_recipient.dynasty
+						scope:secondary_recipient.dynasty = {
+							OR = {
+								any_dynasty_member = {
+									count >= 2
+								}
+								dynasty_prestige_level > 1
+							}
+						}
+					}
+					is_ruler = yes
+					is_close_or_extended_family_of = scope:recipient
+					AND = {
+						exists = scope:recipient.player_heir
+						this = scope:recipient.player_heir
+					}
+				}
+			}
+		}
+		target = scope:secondary_actor
+		value = effective_age
+		multiplier = -5.0
+		step = 1
+		offset = -29
+		desc = MARRY_AGE
+	}
+
+	compare_modifier = { # Recipient is VERY reluctant to betrothe old women to boys
+		trigger = {
+			scope:secondary_actor = {
+				effective_age > 20
+				is_female = yes
+				spn_has_supernatural_trait = no   # Supernatural: the undead do not age out of marriage
+			}
+			scope:secondary_recipient = {
+				is_adult = no
+			}
+		}
+		target = scope:secondary_actor
+		value = effective_age
+		multiplier = -5.0
+		step = 1
+		offset = -20
+		desc = MARRY_AGE
+	}
+
+	modifier = { # A Recipient is unlikely to agree to a marriage where the Secondary_recipient is fertile and the Secondary_actor isn't even if Secondary_recipient has children
+		add = -100
+
+		scope:secondary_recipient = {
+			OR = {
+				fertility > 0.1
+				is_adult = no
+			}
+			OR = {
+				AND = {
+					exists = scope:secondary_recipient.dynasty
+					scope:secondary_recipient.dynasty = {
+						OR = {
+							any_dynasty_member = {
+								count >= 2
+							}
+							dynasty_prestige_level > 1
+						}
+					}
+				}
+				is_ruler = yes
+				is_close_or_extended_family_of = scope:recipient
+				AND = {
+					exists = scope:recipient.player_heir
+					this = scope:recipient.player_heir
+				}
+			}
+			OR = {
+				is_female = no
+				effective_age < 45
+			}
+			any_child = { }
+		}
+		scope:secondary_actor = {
+			is_adult = yes
+			OR = {
+				fertility < 0.1
+				AND = {
+					is_female = yes
+					effective_age >= marriage_female_fertility_cutoff_age_value
+				}
+			}
+			spn_has_supernatural_trait = no   # Supernatural: the undead do not age out of marriage
+		}
+		desc = MARRY_LOW_FERTILITY_REASON
+	}
+
+	modifier = { # A Recipient is VERY unlikely to agree to a marriage where the Secondary_recipient is fertile and the Secondary_actor isn't if Secondary_recipient doesn't have children
+		add = -200
+
+		scope:secondary_recipient = {
+			OR = {
+				fertility > 0.1
+				is_adult = no
+			}
+			OR = {
+				AND = {
+					exists = scope:secondary_recipient.dynasty
+					scope:secondary_recipient.dynasty = {
+						OR = {
+							any_dynasty_member = {
+								count >= 2
+							}
+							dynasty_prestige_level > 1
+						}
+					}
+				}
+				is_ruler = yes
+				is_close_or_extended_family_of = scope:recipient
+				AND = {
+					exists = scope:recipient.player_heir
+					this = scope:recipient.player_heir
+				}
+			}
+			OR = {
+				is_female = no
+				effective_age < 45
+			}
+			any_child = {
+				count < 1
+			}
+		}
+		scope:secondary_actor = {
+			is_adult = yes
+			OR = {
+				fertility < 0.1
+				AND = {
+					is_female = yes
+					effective_age >= marriage_female_fertility_cutoff_age_value
+				}
+			}
+			spn_has_supernatural_trait = no   # Supernatural: the undead do not age out of marriage
+		}
+		desc = MARRY_LOW_FERTILITY_REASON
+	}
+
+	modifier = { # A Recipient is VERY unlikely to agree to a marriage where the Secondary_recipient is a fertile woman and the Secondary_actor is an underage boy who won't become an adult before the woman is infertile
+		add = -200
+
+		scope:secondary_recipient = {
+			is_female = yes
+			is_adult = yes
+			effective_age < 45
+			OR = {
+				AND = {
+					exists = scope:secondary_recipient.dynasty
+					scope:secondary_recipient.dynasty = {
+						OR = {
+							any_dynasty_member = {
+								count >= 2
+							}
+							dynasty_prestige_level > 1
+						}
+					}
+				}
+				is_ruler = yes
+				is_close_or_extended_family_of = scope:recipient
+				AND = {
+					exists = scope:recipient.player_heir
+					this = scope:recipient.player_heir
+				}
+			}
+		}
+		scope:secondary_actor = {
+			is_adult = no
+			spn_has_supernatural_trait = no   # Supernatural: the undead do not age out of marriage
+		}
+		marriage_fertile_age_reverse_value >= 43
+
+		desc = MARRY_LOW_FERTILITY_REASON
+	}
+
+	modifier = { # A Recipient is VERY unlikely to agree to a marriage where the Secondary_actor is a woman and the Secondary_recipient is an underage boy who won't become an adult before the woman is infertile
+		add = -200
+
+		scope:secondary_actor = {
+			is_female = yes
+			is_adult = yes
+			spn_has_supernatural_trait = no   # Supernatural: the undead do not age out of marriage
+		}
+		scope:secondary_recipient = {
+			is_adult = no
+			OR = {
+				AND = {
+					exists = scope:secondary_recipient.dynasty
+					scope:secondary_recipient.dynasty = {
+						OR = {
+							any_dynasty_member = {
+								count >= 2
+							}
+							dynasty_prestige_level > 1
+						}
+					}
+				}
+				is_ruler = yes
+				is_close_or_extended_family_of = scope:recipient
+				AND = {
+					exists = scope:recipient.player_heir
+					this = scope:recipient.player_heir
+				}
+			}
+		}
+		marriage_fertile_age_value >= 43
+
+		desc = MARRY_LOW_FERTILITY_REASON
+	}
+
+	modifier = {
+		add = -50
+
+		scope:secondary_actor = {
+			is_incapable = yes
+		}
+		desc = MARRY_INCAPABLE_REASON
+	}
+}

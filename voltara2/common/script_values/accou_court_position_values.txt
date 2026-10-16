@@ -1,0 +1,733 @@
+﻿accou_court_physician_candidate_score_value = {
+	value = 150
+	# Checking outbreak intensity is skipped on purpose
+}
+
+accou_charioteer_candidate_score_value = {
+	value = 100
+
+	# More likely for very generous characters
+	if = {
+		limit = {
+			ai_greed <= -75
+		}
+		add = 25
+	}
+
+	# Lots of gold to spend on inspirations!
+	if = {
+		limit = {
+			gold >= 500
+			monthly_character_income > monthly_character_expenses_plus_fourty_percent
+		}
+		add = 50
+	}
+
+	# Emperor should always have one
+	if = {
+		limit = {
+			highest_held_title_tier >= tier_empire
+		}
+		add = 100
+	}
+
+	# Most governors should have them
+	if = {
+		limit = {
+			has_trait = governor
+		}
+		add = 50
+	}
+}
+
+accou_bookmaker_candidate_score_value = {
+	value = 300
+
+	# More likely for very generous characters
+	if = {
+		limit = {
+			ai_greed <= -75
+		}
+		add = 25
+	}
+
+	# Emperor should always have one
+	if = {
+		limit = {
+			highest_held_title_tier >= tier_empire
+		}
+		add = 100
+	}
+}
+
+accou_akolouthos_candidate_score_value = {
+	value = 50
+
+	# More likely if you're scared all the time
+	if = {
+		limit = {
+			has_trait = paranoid
+		}
+		add = 50
+	}
+
+	if = {
+		limit = {
+			number_maa_regiments_of_base_type = {
+				type = heavy_infantry
+				value >= 5
+			}
+		}
+		add = 50
+	}
+}
+
+accou_cultural_emissary_candidate_score_value = {
+	value = 100
+}
+
+accou_keeper_of_swans_candidate_score_value = {
+	value = 25
+}
+
+accou_chief_qadi_candidate_score_value = {
+	value = 50
+	if = {
+		limit = {
+			ai_zeal >= -25
+		}
+		add = 150
+	}
+}
+
+accou_garuda_candidate_score_value = {
+	value = 100
+
+	# Less likely to hire an additional one if you're already employing one
+	if = {
+		limit = {
+			employs_court_position = garuda_court_position
+		}
+		add = -50
+	}
+}
+
+accou_court_gardener_candidate_score_value = {
+	value = 100
+}
+
+accou_lady_in_waiting_candidate_score_value = {
+	value = 50
+
+	# Opinion affects how likely they are to be hired
+	if = {
+		limit = {
+			has_relation_lover = scope:employee
+		}
+		add = 100
+	}
+	else_if = {
+		limit = {
+			has_relation_friend = scope:employee
+		}
+		add = 75
+	}
+	else_if = {
+		limit = {
+			opinion = {
+				target = scope:employee
+				value >= high_positive_opinion
+			}
+		}
+		add = 50
+	}
+	else_if = {
+		limit = {
+			opinion = {
+				target = scope:employee
+				value >= medium_positive_opinion
+			}
+		}
+		add = 25
+	}
+
+	# Less likely to hire an additional one if you're already employing one
+	if = {
+		limit = {
+			employs_court_position = lady_in_waiting_court_position
+		}
+		add = -50
+	}
+}
+
+accou_antiquarian_candidate_score_value = {
+	value = 50
+	if = {
+		limit = {
+			government_has_mechanic = administrative
+		}
+		add = 150
+	}
+	if = {
+		limit = {
+			highest_held_title_tier >= tier_duchy
+		}
+		add = 50
+	}
+	if = {
+		limit = {
+			highest_held_title_tier >= tier_kingdom
+		}
+		add = 50
+	}
+}
+
+accou_travel_leader_candidate_score_value = {
+	value = 150
+}
+
+accou_wet_nurse_candidate_score_value = {
+	value = 50
+
+	# Opinion affects how likely they are to be hired
+	if = {
+		limit = {
+			has_relation_lover = scope:employee
+		}
+		add = 100
+	}
+	else_if = {
+		limit = {
+			has_relation_friend = scope:employee
+		}
+		add = 75
+	}
+	else_if = {
+		limit = {
+			opinion = {
+				target = scope:employee
+				value >= high_positive_opinion
+			}
+		}
+		add = 50
+	}
+	else_if = {
+		limit = {
+			opinion = {
+				target = scope:employee
+				value >= medium_positive_opinion
+			}
+		}
+		add = 25
+	}
+	if = {
+		limit = {
+			has_relation_nemesis = scope:employee
+		}
+		add = -100
+	}
+	else_if = {
+		limit = {
+			has_relation_rival = scope:employee
+		}
+		add = -75
+	}
+	else_if = {
+		limit = {
+			opinion = {
+				target = scope:employee
+				value <= high_negative_opinion
+			}
+		}
+		add = -50
+	}
+	else_if = {
+		limit = {
+			opinion = {
+				target = scope:employee
+				value <= medium_negative_opinion
+			}
+		}
+		add = -25
+	}
+
+	if = {
+		limit = {
+			NOT = { culture = scope:employee.culture }
+		}
+		add = -25
+	}
+	if = {
+		limit = {
+			NOT = { faith = scope:employee.faith }
+		}
+		add = -25
+	}
+
+	if = {
+		limit = {
+			accou_has_children_to_nurse_or_tutor_trigger = yes
+		}
+		add = 20
+	}
+}
+
+accou_court_tutor_candidate_score_value = {
+	value = 50
+	if = {
+		limit = {
+			accou_has_children_to_nurse_or_tutor_trigger = yes
+		}
+		add = 20
+	}
+	if = {
+		limit = {
+			has_perk = pedagogy_perk
+		}
+		add = 50
+	}
+}
+
+accou_food_taster_candidate_score_value = {
+	value = 50
+}
+
+accou_master_of_horse_candidate_score_value = {
+	value = 50
+	if = {
+		limit = {
+			ai_has_warlike_personality = yes
+		}
+		add = 200
+	}
+}
+
+accou_master_of_hunt_candidate_score_value = {
+	value = 50
+
+	# More likely to hire if you're a hunter
+	if = {
+		limit = {
+			has_trait = lifestyle_hunter
+		}
+		add = 25
+	}
+	if = {
+		limit = {
+			has_character_flag = hunts_a_lot
+		}
+		add = 1000
+	}
+}
+
+accou_royal_architect_candidate_score_value = {
+	value = 50
+
+	# Unless you have lots of gold to spend on buildings, there's no point
+	if = {
+		limit = {
+			short_term_gold < 500
+			monthly_character_income < monthly_character_expenses_plus_fourty_percent
+		}
+		add = -100
+	}
+}
+
+accou_high_almoner_candidate_score_value = {
+	value = 50
+
+	# Zealous AI's like this
+	if = {
+		limit = {
+			ai_zeal > 75
+		}
+		add = 50
+	}
+}
+
+accou_seneschal_candidate_score_value = {
+	value = 50
+
+	if = { # Having a seneschal is excellent if you have legitimacy
+		limit = {
+			has_legitimacy = yes
+		}
+		add = 200
+	}
+}
+
+accou_cupbearer_candidate_score_value = {
+	value = 50
+}
+
+accou_chief_eunuch_candidate_score_value = {
+	value = 100
+}
+
+accou_court_jester_candidate_score_value = {
+	value = 50
+
+	# More likely for very stressed characters
+	if = {
+		limit = {
+			stress_level >= 1
+		}
+		add = 20
+	}
+
+	scope:employee = {
+		if = {
+			limit = {
+				OR = {
+					is_close_family_of = scope:liege
+					is_consort_of = scope:liege
+					is_ruler = yes
+					AND = {
+						exists = dynasty
+						dynasty = {
+							any_dynasty_member = {
+								count <= 2
+							}
+						}
+					}
+					is_clergy = yes
+					is_theocratic_lessee = yes
+				}
+				NOR = {
+					has_relation_potential_rival = scope:liege
+					has_relation_rival = scope:liege
+				}
+			}
+			add = -1000
+		}
+	}
+}
+
+accou_court_poet_candidate_score_value = {
+	value = 50
+
+	# More likely for very generous characters
+	if = {
+		limit = {
+			ai_greed <= -75
+		}
+		add = 25
+	}
+
+	# Lots of gold to spend on inspirations!
+	if = {
+		limit = {
+			gold >= 500
+			monthly_character_income > monthly_character_expenses_plus_fourty_percent
+		}
+		add = 50
+	}
+}
+
+accou_court_musician_candidate_score_value = {
+	value = 50
+	if = { # Having a musician is good if you have legitimacy
+		limit = {
+			has_legitimacy = yes
+		}
+		add = 50
+	}
+}
+
+accou_bodyguard_candidate_score_value = {
+	value = 50
+
+	# More likely if you're scared all the time
+	if = {
+		limit = {
+			has_trait = paranoid
+		}
+		add = 50
+	}
+
+	# Less likely to hire an additional one if you're already employing one
+	if = {
+		limit = {
+			employs_court_position = bodyguard_court_position
+		}
+		add = -50
+	}
+}
+
+accou_champion_candidate_score_value = {
+	value = 25
+
+	# More likely to hire one if you can't fight yourself
+	if = {
+		limit = {
+			NOT = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:liege } }
+		}
+		add = 50
+	}
+
+	# Less likely to hire one if you have high prowess
+	if = {
+		limit = {
+			prowess >= high_skill_rating
+		}
+		add = -25
+	}
+	else_if = {
+		limit = {
+			prowess >= medium_skill_rating
+		}
+		add = -10
+	}
+}
+
+accou_executioner_candidate_score_value = {
+	value = 50
+
+	# More likely to hire one if you have high dread
+	if = {
+		limit = {
+			dread > medium_dread
+		}
+		add = 25
+	}
+
+	# More likely if you have dread-traits
+	if = {
+		limit = {
+			OR = {
+				has_trait = sadistic
+				has_trait = callous
+				has_trait = arbitrary
+			}
+		}
+		add = 25
+	}
+}
+
+accou_court_artificer_candidate_score_value = {
+	value = 50
+
+	# Unless you have lots of gold to spend, there's no point
+	if = {
+		limit = {
+			short_term_gold < 500
+			monthly_character_income < monthly_character_expenses_plus_fourty_percent
+		}
+		add = -100
+	}
+}
+
+accou_cave_hermit_candidate_score_value = {
+	value = 50
+
+	# More likely for very generous characters
+	if = {
+		limit = {
+			ai_greed <= -75
+		}
+		add = 25
+	}
+
+	# Lots of gold to spend on inspirations!
+	if = {
+		limit = {
+			gold >= 500
+			monthly_character_income > monthly_character_expenses_plus_fourty_percent
+		}
+		add = 50
+	}
+}
+
+accou_master_assassin_candidate_score_value = {
+	value = 50
+
+	# More likely to hire one if you have high dread
+	if = {
+		limit = {
+			dread > medium_dread
+		}
+		add = 25
+	}
+
+	# More likely if you have dread-traits
+	if = {
+		limit = {
+			OR = {
+				has_trait = sadistic
+				has_trait = callous
+				has_trait = arbitrary
+			}
+		}
+		add = 25
+	}
+
+	# More likely if you are a zealous jihadist
+	if = {
+		limit = {
+			has_trait = zealous
+		}
+		add = 25
+	}
+}
+
+accou_court_scholar_candidate_score_value = {
+	value = 50
+	if = {
+		limit = { has_trait = erudite }
+		add = 25
+	}
+	if = {
+		limit = { has_education_learning_trigger = yes }
+		add = 50
+	}
+	if = {
+		limit = {
+			has_lifestyle = learning_lifestyle
+		}
+		add = 100
+	}
+}
+
+accou_chronicler_candidate_score_value = {
+	value = 50
+
+	# More likely for very generous characters
+	if = {
+		limit = {
+			ai_greed <= -75
+		}
+		add = 25
+	}
+
+	# Lots of gold to spend on inspirations!
+	if = {
+		limit = {
+			gold >= 500
+			monthly_character_income > monthly_character_expenses_plus_fourty_percent
+		}
+		add = 50
+	}
+}
+
+accou_court_brewmaster_candidate_score_value = {
+	value = 50
+}
+
+accou_eparch_candidate_score_value = {
+	value = 100
+
+	# More likely if you have a lot of gold and can afford it
+	if = {
+		limit = {
+			monthly_character_income > monthly_character_expenses_plus_fourty_percent
+		}
+		add = 50
+	}
+	
+	# More likely if you are a builder
+	if = {
+		limit = {
+			ai_has_economical_boom_personality = yes
+		}
+		add = 50
+	}
+}
+
+accou_court_astrologer_candidate_score_value = {
+	value = 100
+}
+
+
+accou_boyan_candidate_score_value = {
+	value = 100
+}
+
+
+accou_siege_engineer_candidate_score_value = {
+	value = 100
+}
+
+
+accou_yurtchi_candidate_score_value = {
+	value = 100
+}
+
+
+accou_cherbi_candidate_score_value = {
+	value = 100
+}
+
+
+accou_yeke_jarquchi_candidate_score_value = {
+	value = 100
+}
+
+
+accou_foreign_emissary_candidate_score_value = {
+	value = 100
+}
+
+
+accou_keeper_of_the_horses_candidate_score_value = {
+	value = 100
+}
+
+accou_grand_preceptor_candidate_score_value = {
+	value = 275
+}
+
+accou_grand_mentor_candidate_score_value = {
+	value = 275
+}
+
+accou_grand_guardian_candidate_score_value = {
+	value = 275
+}
+
+accou_fire_dragon_engineer_candidate_score_value = {
+	value = 50
+	if = {
+		limit = {
+			ai_has_warlike_personality = yes
+		}
+		add = 200
+	}
+}
+
+accou_keeper_of_the_harem_candidate_score_value = {
+	value = 525
+}
+
+accou_favored_minister_candidate_score_value = {
+	value = 525
+}
+
+accou_minister_bureaucrat_candidate_score_value = {
+	value = 275
+}
+
+accou_court_guru_candidate_score_value = {
+	value = 2525
+}
+
+accou_court_brahmin_candidate_score_value = {
+	value = 75
+
+	# Zealous AI's like this
+	if = {
+		limit = {
+			ai_zeal > 75
+		}
+		add = 50
+	}
+	if = { # Having a Court Brahmin is excellent if you have legitimacy
+		limit = {
+			has_legitimacy = yes
+		}
+		add = 200
+	}
+}
+
+accou_khlon_glan_candidate_score_value = {
+	value = 75
+}

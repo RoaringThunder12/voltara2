@@ -1,0 +1,5 @@
+﻿agot_inform_dragon_egg_hatched_effect = { if = { limit = { exists = scope:dragon } scope:dragon = { add_character_flag = voltara_dragon } } }
+
+agot_spawn_bonded_hatchling_from_egg_effect = { $OWNER$ = { $EGG$ = { save_scope_as = egg } voltara_hatch_egg_effect = yes } }
+
+agot_spawn_wild_hatchling_from_egg_effect = { $EGG$ = { save_scope_as = egg } voltara_spawn_hatchling_effect = yes destroy_artifact = scope:egg }

@@ -1,0 +1,21 @@
+﻿
+namespace = voltara_keepers
+voltara_keepers.1 = {
+ type = character_event hidden = yes
+ immediate = {
+  if = { limit = { has_title = title:k_voltara_22 }
+   voltara_keeper_maintenance = yes
+   every_vassal_or_below = { voltara_keeper_maintenance = yes }
+   trigger_event = { id = voltara_keepers.1 days = 30 }
+  }
+ }
+}
+voltara_keepers.2 = {
+ type = character_event hidden = yes
+ immediate = {
+  remove_trait = voltara_keeper_elect add_trait = voltara_oathkeeper
+ if = { limit = { has_variable = voltara_keeper_saved_xp } add_trait_xp = { trait = voltara_oathkeeper value = var:voltara_keeper_saved_xp } remove_variable = voltara_keeper_saved_xp }
+  if = { limit = { is_landed = yes } change_government = voltara_keeper_government add_realm_law_skip_effects = voltara_keeper_succession }
+  if = { limit = { has_title = title:k_voltara_22 } trigger_event = { id = voltara_keepers.1 days = 1 } }
+ }
+}

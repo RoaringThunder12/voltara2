@@ -1,0 +1,36 @@
+﻿voltara_ancient_dwarven_keep_1_01 = { type = special construction_time = 1460 cost_gold = 600 type_icon = "icon_building_hill_forts.dds"
+ can_construct_potential = { always = no }
+ is_enabled = { NOT = { has_holding_type = voltara_ruin_holding } NOT = { has_holding_type = voltara_wasteland_holding } NOT = { has_holding_type = voltara_settlement_holding } }
+ province_modifier = { fort_level = 2 garrison_size = 0.25 }
+ county_modifier = { development_growth_factor = 0.1 }
+ character_modifier = { monthly_prestige = 0.2 } ai_value = { base = 20 } }
+voltara_ancient_dwarven_keep_2_01 = { type = special construction_time = 1460 cost_gold = 600 type_icon = "icon_building_hill_forts.dds"
+ can_construct_potential = { always = no }
+ is_enabled = { NOT = { has_holding_type = voltara_ruin_holding } NOT = { has_holding_type = voltara_wasteland_holding } NOT = { has_holding_type = voltara_settlement_holding } }
+ province_modifier = { fort_level = 2 garrison_size = 0.25 }
+ county_modifier = { development_growth_factor = 0.1 }
+ character_modifier = { monthly_prestige = 0.2 } ai_value = { base = 20 } }
+voltara_ancient_dwarven_keep_3_01 = { type = special construction_time = 1460 cost_gold = 600 type_icon = "icon_building_hill_forts.dds"
+ can_construct_potential = { always = no }
+ is_enabled = { NOT = { has_holding_type = voltara_ruin_holding } NOT = { has_holding_type = voltara_wasteland_holding } NOT = { has_holding_type = voltara_settlement_holding } }
+ province_modifier = { fort_level = 2 garrison_size = 0.25 }
+ county_modifier = { development_growth_factor = 0.1 }
+ character_modifier = { monthly_prestige = 0.2 } ai_value = { base = 20 } }
+voltara_ancient_dwarven_keep_4_01 = { type = special construction_time = 1460 cost_gold = 600 type_icon = "icon_building_hill_forts.dds"
+ can_construct_potential = { always = no }
+ is_enabled = { NOT = { has_holding_type = voltara_ruin_holding } NOT = { has_holding_type = voltara_wasteland_holding } NOT = { has_holding_type = voltara_settlement_holding } }
+ province_modifier = { fort_level = 2 garrison_size = 0.25 }
+ county_modifier = { development_growth_factor = 0.1 }
+ character_modifier = { monthly_prestige = 0.2 } ai_value = { base = 20 } }
+voltara_ancient_dwarven_keep_5_01 = { type = special construction_time = 1460 cost_gold = 600 type_icon = "icon_building_hill_forts.dds"
+ can_construct_potential = { always = no }
+ is_enabled = { NOT = { has_holding_type = voltara_ruin_holding } NOT = { has_holding_type = voltara_wasteland_holding } NOT = { has_holding_type = voltara_settlement_holding } }
+ province_modifier = { fort_level = 2 garrison_size = 0.25 }
+ county_modifier = { development_growth_factor = 0.1 }
+ character_modifier = { monthly_prestige = 0.2 } ai_value = { base = 20 } }
+voltara_ancient_dwarven_keep_6_01 = { type = special construction_time = 1460 cost_gold = 600 type_icon = "icon_building_hill_forts.dds"
+ can_construct_potential = { always = no }
+ is_enabled = { NOT = { has_holding_type = voltara_ruin_holding } NOT = { has_holding_type = voltara_wasteland_holding } NOT = { has_holding_type = voltara_settlement_holding } }
+ province_modifier = { fort_level = 2 garrison_size = 0.25 }
+ county_modifier = { development_growth_factor = 0.1 }
+ character_modifier = { monthly_prestige = 0.2 } ai_value = { base = 20 } }

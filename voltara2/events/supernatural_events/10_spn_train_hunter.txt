@@ -1,0 +1,959 @@
+﻿namespace = spn_train_hunter
+#########################################################################################################
+#
+# Hunter Training Event 1, Hunter: Becoming A Hunter (Specialization)
+#
+#########################################################################################################
+
+spn_train_hunter.0001 = {
+	type = character_event
+	title = spn_train_hunter.0001.t
+	desc = spn_train_hunter.0001.desc
+	theme = martial
+	
+	override_background = {
+		reference = farmland
+	}
+	
+	trigger = {
+		spn_has_supernatural_trait = no
+		# 2.35a -- and not already a hunter. See the note at the head of this file.
+		NOT = { has_trait = supernatural_hunter }
+	}
+
+	left_portrait = {
+		character = scope:actor
+		animation = admiration
+	}
+
+	right_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = { has_trait = craven }
+			animation = fear
+		}
+		triggered_animation = {
+			trigger = { has_trait = brave }
+			animation = ecstasy
+		}
+		triggered_animation = {
+			trigger = { has_trait = calm }
+			animation = idle
+		}
+		triggered_animation = {
+			trigger = { has_trait = arrogant }
+			animation = dismissal
+		}
+		triggered_animation = {
+			trigger = {
+				NOR = {
+					has_trait = arrogant
+					has_trait = craven
+					has_trait = wrathful
+					has_trait = calm
+				}
+			}
+			animation = idle
+		}
+	}
+
+	option = { # I would like to be traditionally trained as a Hunter of Monsters.
+		name = spn_train_hunter.0001.a
+		custom_tooltip = spn_train_hunter.0001.a.tt
+		stress_and_fulfillment_impact = {
+			brave = minor_stress_impact_loss
+			athletic = minor_stress_impact_loss
+			strong = minor_stress_impact_loss
+			shy = minor_stress_impact_gain
+			craven = minor_stress_impact_gain
+		}
+		add_character_flag = monster_hunting_interest
+
+		trigger_event = {
+			id = spn_train_hunter.0002
+			days = { 75 115 }
+		}
+		
+		ai_chance = {
+			base = 50
+
+			modifier = { add = -10 has_trait = craven }
+			modifier = { add = -10 has_trait = shy }
+			modifier = { add = 10 has_trait = brave }
+			modifier = { add = 10 has_trait = ambitious }
+			modifier = { add = 10 has_trait = athletic }
+			modifier = { add = 10 has_trait = strong }
+			modifier = { add = 10 prowess > 15 }
+			modifier = { add = 10 martial > 10 }
+
+		}
+		
+	}
+
+	option = { # I would like to be traditionally trained as a Hunter of Witches.
+		name = spn_train_hunter.0001.b
+		custom_tooltip = spn_train_hunter.0001.b.tt
+		stress_and_fulfillment_impact = {
+			shrewd = minor_stress_impact_loss
+			athletic = minor_stress_impact_loss
+			callous = minor_stress_impact_loss
+			paranoid = minor_stress_impact_gain
+			craven = minor_stress_impact_gain
+		}
+		
+		add_character_flag = witch_hunting_interest
+		
+		trigger_event = {
+			id = spn_train_hunter.0002
+			days = { 75 115 }
+		}
+		
+		ai_chance = {
+			base = 50
+
+			modifier = { add = -10 has_trait = craven }
+			modifier = { add = -10 has_trait = shy }
+			modifier = { add = 10 has_trait = brave }
+			modifier = { add = 10 has_trait = ambitious }
+			modifier = { add = 10 has_trait = shrewd }
+			modifier = { add = 10 has_trait = athletic }
+			modifier = { add = 10 has_trait = callous }
+			modifier = { add = -10 has_trait = paranoid }
+			modifier = { add = 10 learning > 15 }
+			modifier = { add = 10 martial > 10 }
+
+		}
+		
+	}
+
+	# 2.35a -- THE THIRD SILENT EXIT, and the earliest one.
+	#
+	# This option ends the chain one day after the offer was accepted, and it did nothing whatsoever: no
+	# flag, no toast, no follow-up. The trainer heard nothing, the trainee kept no mark of having said no,
+	# and (before the in-training state was added) the interaction was live again the same afternoon.
+	#
+	# WORSE, it was a coin flip. Three options here, all at ai_chance base 50, so an AI trainee backed out
+	# about a third of the time -- having ALREADY accepted, through the interaction's own ai_accept block
+	# with its thirty-odd modifiers, opinion comparison, health term and hook. That is the same decision put
+	# to them twice, and then a third time at spn_train_hunter.0002 option b, also base 50.
+	#
+	# End to end that made the chain roughly 0.67 x 0.50 x 0.80 = 27 per cent: three months of waiting, a
+	# three-in-four chance of nothing, and no notification on any of the failing paths. Thomas, testing:
+	# "I've clicked her a couple times and she has yet to become an actual hunter."
+	#
+	# Base 15 rather than 50 -- a change of heart rather than a re-vote. With the same drop on 0002 option b
+	# (50 -> 20) the chain comes out around 62 per cent reaching hunter, and every one of the other 38 says
+	# so out loud. THESE TWO NUMBERS ARE THE TUNING KNOB if that shape is wrong.
+	option = { # On second thought.. 
+		name = spn_train_hunter.0001.c
+		custom_tooltip = spn_train_hunter.0001.c.tt
+		stress_and_fulfillment_impact = {
+			brave = major_stress_impact_gain
+			craven = minor_stress_impact_loss
+		}
+
+		spn_end_hunter_training_effect = yes
+		add_character_flag = { flag = spn_refused_hunter_training years = 5 }
+		scope:actor = {
+			send_interface_toast = {
+				title = spn_train_hunter_refused_toast
+				left_icon = root
+				custom_tooltip = spn_train_hunter_refused_toast_tt
+			}
+		}
+
+		ai_chance = {
+			base = 15
+
+			modifier = { add = 10 has_trait = craven }
+			modifier = { add = 10 has_trait = shy }
+			modifier = { add = 10 has_trait = humble }
+			modifier = { add = -10 has_trait = brave }
+			modifier = { add = -10 has_trait = ambitious }
+			modifier = { add = 10 prowess < 5 }
+			modifier = { add = 10 martial < 7 }
+			modifier = { add = 10 has_trait = lazy }
+
+		}
+
+	}
+
+}
+
+#########################################################################################################
+#
+# Hunter Training Event 2, Hunter: Becoming A Hunter (Complete)
+#
+#########################################################################################################
+
+spn_train_hunter.0002 = {
+	type = character_event
+	title = spn_train_hunter.0002.t
+	desc = spn_train_hunter.0002.desc
+	theme = martial
+	
+	override_background = {
+		reference = farmland
+	}
+	
+	trigger = {
+		spn_has_supernatural_trait = no
+		# 2.35a -- and not already a hunter. See the note at the head of this file.
+		NOT = { has_trait = supernatural_hunter }
+	}
+
+	left_portrait = {
+		character = scope:actor
+		animation = admiration
+	}
+
+	right_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = { has_trait = craven }
+			animation = fear
+		}
+		triggered_animation = {
+			trigger = { has_trait = brave }
+			animation = ecstasy
+		}
+		triggered_animation = {
+			trigger = { has_trait = calm }
+			animation = idle
+		}
+		triggered_animation = {
+			trigger = { has_trait = arrogant }
+			animation = dismissal
+		}
+		triggered_animation = {
+			trigger = {
+				NOR = {
+					has_trait = arrogant
+					has_trait = craven
+					has_trait = wrathful
+					has_trait = calm
+				}
+			}
+			animation = idle
+		}
+	}
+
+	option = { # I am ready to be a Hunter in this world.
+		name = spn_train_hunter.0002.a
+		custom_tooltip = spn_train_hunter.0002.a.tt
+		stress_and_fulfillment_impact = {
+			craven = minor_stress_impact_loss
+			brave = medium_stress_impact_loss
+		}
+
+		random_list = {
+		
+			80 = { # 2.35 (D2): 80 complete / 20 "not yet" -- the failed roll wounds and makes an apprentice; training never kills.
+				show_as_tooltip = {
+					if = { 
+						limit = {	
+							scope:actor = {
+								is_ai = no
+							}
+						}
+
+						custom_tooltip = spn_msg_tooltip_train_live_desc
+					}
+				}
+				spn_end_hunter_training_effect = yes # 2.35a -- the chain has resolved; drop the in-training state
+				spn_assign_hunter_trainer = { CHARACTER = scope:actor } # 2.34: set before the initiate event so the hunter memory can name the trainer
+				trigger_event = spn_initiate.3001 #Initiate Hunter
+				add_trait_force_tooltip = supernatural_hunter
+				spn_give_knowledge_of_hunter_secret = {
+					CHARACTER = scope:actor
+				}
+				scope:actor = {
+					spn_give_knowledge_of_hunter_secret = {
+						CHARACTER = root
+					}
+				}
+
+				
+				if = {
+					limit = {
+						has_character_flag = monster_hunting_interest
+					}
+					add_trait_xp = {
+						trait = supernatural_hunter
+						track = monster_hunting
+						value = { value = { 0 1 } multiply = "scope:actor.has_trait_xp(supernatural_hunter|monster_hunting)" }
+					}	
+					remove_character_flag = monster_hunting_interest
+				}
+				if = {
+					limit = {
+						has_character_flag = witch_hunting_interest
+					}
+					add_trait_xp = {
+						trait = supernatural_hunter
+						track = witch_hunting
+						value = { value = { 0 1 } multiply = "scope:actor.has_trait_xp(supernatural_hunter|witch_hunting)" }
+					}	
+					remove_character_flag = witch_hunting_interest
+				}
+				
+				modifier = { add = 10 has_trait = strong }
+				modifier = { add = 10 has_trait = brave }
+				modifier = { add = 10 scope:recipient.father ?= { has_trait = supernatural_hunter }}
+				modifier = { add = 10 scope:recipient.mother ?= { has_trait = supernatural_hunter }}
+				modifier = { add = 5 scope:actor.father ?= { has_trait = supernatural_hunter }}
+				modifier = { add = 5 scope:actor.mother ?= { has_trait = supernatural_hunter }}
+				modifier = { add = 5 martial > 6 }
+				modifier = { add = 5 martial > 12 }
+				modifier = { add = 5 prowess > 4 }
+				modifier = { add = 5 prowess > 8 }
+				modifier = { add = 5 prowess > 12 }
+				modifier = { add = 10 prowess > 16 }
+				modifier = { add = 4 health > 4.5 }
+				modifier = { add = 8 health > 5 }
+				modifier = { add = 12 health > 5.5 }
+				modifier = { add = 16 health > 6 }				
+				modifier = { add = 3 age < 54 }
+				modifier = { add = 6 age < 45 }
+				modifier = { add = 9 age < 36 }
+				modifier = { add = 12 age < 27 }
+				modifier = { add = 15 age < 18 }
+
+				trigger_event = {
+					id = spn_message.3001
+				}
+
+			}
+			20 = {
+				# 2.35 (D2) -- "Not yet." The trainee is hurt, not buried; scope:actor becomes their trainer now and finishes the
+				# lesson on a Supernatural Hunt (the apprentice completes on slain / proxy_slain / fled -- spn_hunt_conclude_effect).
+				# The flag expiring after ten years is the fail-open for trainers who never host.
+				custom_tooltip = spn_msg_tooltip_train_not_yet_desc
+				increase_wounds_no_death_effect = { REASON = accident }
+				spn_end_hunter_training_effect = yes # 2.35a -- apprenticeship is the state now, not training
+				spn_assign_hunter_trainer = { CHARACTER = scope:actor }
+				add_character_flag = { flag = spn_hunter_apprentice years = 10 }
+				scope:actor = {
+					send_interface_toast = {
+						title = spn_train_hunter_not_yet_toast
+						left_icon = root
+						custom_tooltip = spn_train_hunter_not_yet_toast_tt
+					}
+				}
+				
+				modifier = { add = -10 has_trait = whole_of_body }
+				modifier = { add = 5 health < 3 }
+				modifier = { add = 10 health < 2 }
+				modifier = { add = 15 health < 1 }
+				modifier = { add = 5 has_trait = weak }
+				modifier = { add = 5 has_trait = wounded_1 }
+				modifier = { add = 5 has_trait = wounded_2 }
+				modifier = { add = 5 has_trait = wounded_3 }
+				modifier = { add = 5 has_trait = drunkard }
+				modifier = { add = 3 has_trait = physique_bad_1 }
+				modifier = { add = 6 has_trait = physique_bad_2 }
+				modifier = { add = 9 has_trait = physique_bad_3 }
+				modifier = { add = 8 has_trait = impatient }
+				modifier = { add = 5 has_trait = blind }
+				modifier = { add = 5 has_trait = ill }
+				modifier = { add = 5 has_trait = cancer }
+				modifier = { add = 15 has_trait = incapable }
+				
+			}			
+		
+		}
+	
+		ai_chance = {
+			base = 50
+
+			modifier = { add = 10 has_trait = adventurer }
+			modifier = { add = 10 has_trait = brave }
+			modifier = { add = 10 has_trait = athletic }
+			modifier = { add = 10 has_trait = ambitious }
+			modifier = { add = 10 prowess < 10 }
+			modifier = { add = 10 prowess < 15 }
+			modifier = { add = 10 has_trait = strong }
+			modifier = { add = -10 has_trait = craven }
+			modifier = { add = -10 has_trait = weak }
+			modifier = { add = -10 has_trait = blind }
+			modifier = { add = -10 has_trait = fickle }
+			modifier = { add = -10 has_trait = content }
+			modifier = { add = -10 has_trait = reclusive }
+			modifier = { add = -10 has_trait = erudite }
+			modifier = { add = -10 has_trait = ill }
+			modifier = { add = -25 has_trait = witch }
+
+		}	
+
+	}
+
+	option = { # I am not cut out for saving people, hunting things.
+		name = spn_train_hunter.0002.b
+		custom_tooltip = spn_train_hunter.0002.b.tt
+		stress_and_fulfillment_impact = {
+			brave = medium_stress_impact_gain
+			athletic = major_stress_impact_loss
+			craven = major_stress_impact_gain
+			callous = medium_stress_impact_gain
+		}
+		
+		# 2.35a -- 50 -> 20. The second of the two re-votes; see the note on the "On second thought" option
+		# of spn_train_hunter.0001. Still a real out -- three months in, some people find out it is not for
+		# them -- but no longer a coin toss thrown after they already agreed.
+		ai_chance = {
+			base = 20
+
+			modifier = { add = -10 has_trait = adventurer }
+			modifier = { add = -10 has_trait = berserker }
+			modifier = { add = -10 has_trait = content }
+			modifier = { add = -10 has_trait = brave }
+			modifier = { add = -10 prowess < 5 }
+			modifier = { add = -5 prowess < 3 }
+			modifier = { add = -10 has_trait = strong }
+			modifier = { add = 10 has_trait = craven }
+			modifier = { add = 10 has_trait = weak }
+			modifier = { add = 10 has_trait = blind }
+			modifier = { add = 10 has_trait = fickle }
+			modifier = { add = 10 has_trait = content }
+			modifier = { add = 10 has_trait = reclusive }
+			modifier = { add = 10 has_trait = erudite }
+			modifier = { add = 10 has_trait = ill }
+			modifier = { add = 25 has_trait = witch }
+
+		}
+		
+		# 2.35a -- AND THE TRAINER FINDS OUT. This branch was completely silent. The trainee took a wound,
+		# the chain ended, and the person who offered to train them was told nothing whatsoever -- three
+		# months after the offer, so there was nothing on screen connecting the two events either. What the
+		# player saw was an interaction that did nothing except injure their wife, and a button that lit up
+		# again the same afternoon. Now the refusal is reported, and it sticks for five years.
+		spn_end_hunter_training_effect = yes
+		add_character_flag = { flag = spn_refused_hunter_training years = 5 }
+		increase_wounds_no_death_effect = { REASON = battle }
+		scope:actor = {
+			send_interface_toast = {
+				title = spn_train_hunter_refused_toast
+				left_icon = root
+				custom_tooltip = spn_train_hunter_refused_toast_tt
+			}
+		}
+
+	}
+
+}
+
+#########################################################################################################
+#
+# Hunter Training Event 1, Hunter: Becoming A Hunter (Specialization)
+#
+#########################################################################################################
+
+spn_train_hunter.0003 = {
+	type = character_event
+	title = spn_train_hunter.0001.t
+	desc = spn_train_hunter.0001.desc
+	theme = martial
+	
+	override_background = {
+		reference = farmland
+	}
+	
+	trigger = {
+		spn_has_supernatural_trait = no
+		# 2.35a -- and not already a hunter. See the note at the head of this file.
+		NOT = { has_trait = supernatural_hunter }
+	}
+
+	left_portrait = {
+		character = scope:recipient
+		animation = admiration
+	}
+
+	right_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = { has_trait = craven }
+			animation = fear
+		}
+		triggered_animation = {
+			trigger = { has_trait = brave }
+			animation = ecstasy
+		}
+		triggered_animation = {
+			trigger = { has_trait = calm }
+			animation = idle
+		}
+		triggered_animation = {
+			trigger = { has_trait = arrogant }
+			animation = dismissal
+		}
+		triggered_animation = {
+			trigger = {
+				NOR = {
+					has_trait = arrogant
+					has_trait = craven
+					has_trait = wrathful
+					has_trait = calm
+				}
+			}
+			animation = idle
+		}
+	}
+
+	option = { # I would like to be traditionally trained as a Hunter of Monsters.
+		name = spn_train_hunter.0001.a
+		custom_tooltip = spn_train_hunter.0001.a.tt
+		stress_and_fulfillment_impact = {
+			brave = minor_stress_impact_loss
+			athletic = minor_stress_impact_loss
+			strong = minor_stress_impact_loss
+			shy = minor_stress_impact_gain
+			craven = minor_stress_impact_gain
+		}
+		add_character_flag = monster_hunting_interest
+
+		trigger_event = {
+			id = spn_train_hunter.0004
+			days = { 75 115 }
+		}
+		
+		ai_chance = {
+			base = 50
+
+			modifier = { add = -10 has_trait = craven }
+			modifier = { add = -10 has_trait = shy }
+			modifier = { add = 10 has_trait = brave }
+			modifier = { add = 10 has_trait = ambitious }
+			modifier = { add = 10 has_trait = athletic }
+			modifier = { add = 10 has_trait = strong }
+			modifier = { add = 10 prowess > 15 }
+			modifier = { add = 10 martial > 10 }
+
+		}
+		
+	}
+
+	option = { # I would like to be traditionally trained as a Hunter of Witches.
+		name = spn_train_hunter.0001.b
+		custom_tooltip = spn_train_hunter.0001.b.tt
+		stress_and_fulfillment_impact = {
+			shrewd = minor_stress_impact_loss
+			athletic = minor_stress_impact_loss
+			callous = minor_stress_impact_loss
+			paranoid = minor_stress_impact_gain
+			craven = minor_stress_impact_gain
+		}
+		
+		add_character_flag = witch_hunting_interest
+		
+		trigger_event = {
+			id = spn_train_hunter.0004
+			days = { 75 115 }
+		}
+		
+		ai_chance = {
+			base = 50
+
+			modifier = { add = -10 has_trait = craven }
+			modifier = { add = -10 has_trait = shy }
+			modifier = { add = 10 has_trait = brave }
+			modifier = { add = 10 has_trait = ambitious }
+			modifier = { add = 10 has_trait = shrewd }
+			modifier = { add = 10 has_trait = athletic }
+			modifier = { add = 10 has_trait = callous }
+			modifier = { add = -10 has_trait = paranoid }
+			modifier = { add = 10 learning > 15 }
+			modifier = { add = 10 martial > 10 }
+
+		}
+		
+	}
+
+	# 2.35a -- the mirror of the note on spn_train_hunter.0001. Here the trainer is the one who was asked.
+	option = { # On second thought.. 
+		name = spn_train_hunter.0001.c
+		custom_tooltip = spn_train_hunter.0001.c.tt
+		stress_and_fulfillment_impact = {
+			brave = major_stress_impact_gain
+			craven = minor_stress_impact_loss
+		}
+
+		spn_end_hunter_training_effect = yes
+		add_character_flag = { flag = spn_refused_hunter_training years = 5 }
+		scope:recipient = {
+			send_interface_toast = {
+				title = spn_train_hunter_refused_toast
+				left_icon = root
+				custom_tooltip = spn_train_hunter_refused_toast_tt
+			}
+		}
+
+		ai_chance = {
+			base = 15
+
+			modifier = { add = 10 has_trait = craven }
+			modifier = { add = 10 has_trait = shy }
+			modifier = { add = 10 has_trait = humble }
+			modifier = { add = -10 has_trait = brave }
+			modifier = { add = -10 has_trait = ambitious }
+			modifier = { add = 10 prowess < 5 }
+			modifier = { add = 10 martial < 7 }
+			modifier = { add = 10 has_trait = lazy }
+
+		}
+
+	}
+
+}
+
+#########################################################################################################
+#
+# Hunter Training Event 2, Hunter: Becoming A Hunter (Complete)
+#
+#########################################################################################################
+
+spn_train_hunter.0004 = {
+	type = character_event
+	title = spn_train_hunter.0002.t
+	desc = spn_train_hunter.0002.desc
+	theme = martial
+	
+	override_background = {
+		reference = farmland
+	}
+	
+	trigger = {
+		spn_has_supernatural_trait = no
+		# 2.35a -- and not already a hunter. See the note at the head of this file.
+		NOT = { has_trait = supernatural_hunter }
+	}
+
+	left_portrait = {
+		character = scope:recipient
+		animation = admiration
+	}
+
+	right_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = { has_trait = craven }
+			animation = fear
+		}
+		triggered_animation = {
+			trigger = { has_trait = brave }
+			animation = ecstasy
+		}
+		triggered_animation = {
+			trigger = { has_trait = calm }
+			animation = idle
+		}
+		triggered_animation = {
+			trigger = { has_trait = arrogant }
+			animation = dismissal
+		}
+		triggered_animation = {
+			trigger = {
+				NOR = {
+					has_trait = arrogant
+					has_trait = craven
+					has_trait = wrathful
+					has_trait = calm
+				}
+			}
+			animation = idle
+		}
+	}
+
+	option = { # I am ready to be a Hunter in this world.
+		name = spn_train_hunter.0002.a
+		custom_tooltip = spn_train_hunter.0002.a.tt
+		stress_and_fulfillment_impact = {
+			craven = minor_stress_impact_loss
+			brave = medium_stress_impact_loss
+		}
+
+		random_list = {
+		
+			80 = { # 2.35 (D2): 80 complete / 20 "not yet" -- the failed roll wounds and makes an apprentice; training never kills.
+				show_as_tooltip = {
+					if = { 
+						limit = {	
+							scope:actor = {
+								is_ai = no
+							}
+						}
+
+						custom_tooltip = spn_msg_tooltip_train_live_desc
+					}
+				}
+				spn_end_hunter_training_effect = yes # 2.35a -- the chain has resolved; drop the in-training state
+				spn_assign_hunter_trainer = { CHARACTER = scope:recipient } # 2.34: set before the initiate event so the hunter memory can name the trainer
+				trigger_event = spn_initiate.3001 #Initiate Hunter
+				add_trait_force_tooltip = supernatural_hunter
+				spn_give_knowledge_of_hunter_secret = {
+					CHARACTER = scope:actor
+				}
+				scope:recipient = {
+					spn_give_knowledge_of_hunter_secret = {
+						CHARACTER = root
+					}
+				}
+
+				
+				if = {
+					limit = {
+						has_character_flag = monster_hunting_interest
+					}
+					add_trait_xp = {
+						trait = supernatural_hunter
+						track = monster_hunting
+						value = { value = { 0 1 } multiply = "scope:recipient.has_trait_xp(supernatural_hunter|monster_hunting)" }
+					}	
+					remove_character_flag = monster_hunting_interest
+				}
+				if = {
+					limit = {
+						has_character_flag = witch_hunting_interest
+					}
+					add_trait_xp = {
+						trait = supernatural_hunter
+						track = witch_hunting
+						value = { value = { 0 1 } multiply = "scope:recipient.has_trait_xp(supernatural_hunter|witch_hunting)" }
+					}
+					remove_character_flag = witch_hunting_interest
+				}
+				
+				trigger_event = {
+					id = spn_message.3001
+				}
+				
+				modifier = { add = 10 has_trait = strong }
+				modifier = { add = 10 has_trait = brave }
+				modifier = { add = 10 scope:actor.father ?= { has_trait = supernatural_hunter }}
+				modifier = { add = 10 scope:actor.mother ?= { has_trait = supernatural_hunter }}
+				modifier = { add = 5 scope:recipient.father ?= { has_trait = supernatural_hunter }}
+				modifier = { add = 5 scope:recipient.mother ?= { has_trait = supernatural_hunter }}
+				modifier = { add = 5 martial > 6 }
+				modifier = { add = 5 martial > 12 }
+				modifier = { add = 5 prowess > 4 }
+				modifier = { add = 5 prowess > 8 }
+				modifier = { add = 5 prowess > 12 }
+				modifier = { add = 10 prowess > 16 }
+				modifier = { add = 4 health > 4.5 }
+				modifier = { add = 8 health > 5 }
+				modifier = { add = 12 health > 5.5 }
+				modifier = { add = 16 health > 6 }				
+				modifier = { add = 3 age < 54 }
+				modifier = { add = 6 age < 45 }
+				modifier = { add = 9 age < 36 }
+				modifier = { add = 12 age < 27 }
+				modifier = { add = 15 age < 18 }
+
+			}
+			20 = {
+				# 2.35 (D2) -- "Not yet." The trainee is hurt, not buried; scope:recipient becomes their trainer now and finishes the
+				# lesson on a Supernatural Hunt (the apprentice completes on slain / proxy_slain / fled -- spn_hunt_conclude_effect).
+				# The flag expiring after ten years is the fail-open for trainers who never host.
+				custom_tooltip = spn_msg_tooltip_train_not_yet_desc
+				increase_wounds_no_death_effect = { REASON = accident }
+				spn_end_hunter_training_effect = yes # 2.35a -- apprenticeship is the state now, not training
+				spn_assign_hunter_trainer = { CHARACTER = scope:recipient }
+				add_character_flag = { flag = spn_hunter_apprentice years = 10 }
+				scope:recipient = {
+					send_interface_toast = {
+						title = spn_train_hunter_not_yet_toast
+						left_icon = root
+						custom_tooltip = spn_train_hunter_not_yet_toast_tt
+					}
+				}
+				
+				modifier = { add = -10 has_trait = whole_of_body }
+				modifier = { add = 5 health < 3 }
+				modifier = { add = 10 health < 2 }
+				modifier = { add = 15 health < 1 }
+				modifier = { add = 5 has_trait = weak }
+				modifier = { add = 5 has_trait = wounded_1 }
+				modifier = { add = 5 has_trait = wounded_2 }
+				modifier = { add = 5 has_trait = wounded_3 }
+				modifier = { add = 5 has_trait = drunkard }
+				modifier = { add = 3 has_trait = physique_bad_1 }
+				modifier = { add = 6 has_trait = physique_bad_2 }
+				modifier = { add = 9 has_trait = physique_bad_3 }
+				modifier = { add = 8 has_trait = impatient }
+				modifier = { add = 5 has_trait = blind }
+				modifier = { add = 5 has_trait = ill }
+				modifier = { add = 5 has_trait = cancer }
+				modifier = { add = 15 has_trait = incapable }
+				
+			}			
+		
+		}
+	
+		ai_chance = {
+			base = 50
+
+			modifier = { add = 10 has_trait = adventurer }
+			modifier = { add = 10 has_trait = brave }
+			modifier = { add = 10 has_trait = athletic }
+			modifier = { add = 10 has_trait = ambitious }
+			modifier = { add = 10 prowess < 10 }
+			modifier = { add = 10 prowess < 15 }
+			modifier = { add = 10 has_trait = strong }
+			modifier = { add = -10 has_trait = craven }
+			modifier = { add = -10 has_trait = weak }
+			modifier = { add = -10 has_trait = blind }
+			modifier = { add = -10 has_trait = fickle }
+			modifier = { add = -10 has_trait = content }
+			modifier = { add = -10 has_trait = reclusive }
+			modifier = { add = -10 has_trait = erudite }
+			modifier = { add = -10 has_trait = ill }
+			modifier = { add = -25 has_trait = witch }
+
+		}	
+
+	}
+
+	option = { # I am not cut out for saving people, hunting things.
+		name = spn_train_hunter.0002.b
+		custom_tooltip = spn_train_hunter.0002.b.tt
+		stress_and_fulfillment_impact = {
+			brave = medium_stress_impact_gain
+			athletic = major_stress_impact_loss
+			craven = major_stress_impact_gain
+			callous = medium_stress_impact_gain
+		}
+		
+		# 2.35a -- 50 -> 20. The second of the two re-votes; see the note on the "On second thought" option
+		# of spn_train_hunter.0001. Still a real out -- three months in, some people find out it is not for
+		# them -- but no longer a coin toss thrown after they already agreed.
+		ai_chance = {
+			base = 20
+
+			modifier = { add = -10 has_trait = adventurer }
+			modifier = { add = -10 has_trait = berserker }
+			modifier = { add = -10 has_trait = content }
+			modifier = { add = -10 has_trait = brave }
+			modifier = { add = -10 prowess < 5 }
+			modifier = { add = -5 prowess < 3 }
+			modifier = { add = -10 has_trait = strong }
+			modifier = { add = 10 has_trait = craven }
+			modifier = { add = 10 has_trait = weak }
+			modifier = { add = 10 has_trait = blind }
+			modifier = { add = 10 has_trait = fickle }
+			modifier = { add = 10 has_trait = content }
+			modifier = { add = 10 has_trait = reclusive }
+			modifier = { add = 10 has_trait = erudite }
+			modifier = { add = 10 has_trait = ill }
+			modifier = { add = 25 has_trait = witch }
+
+		}
+		
+		# 2.35a -- AND THE TRAINER FINDS OUT. This branch was completely silent. The trainee took a wound,
+		# the chain ended, and the person who offered to train them was told nothing whatsoever -- three
+		# months after the offer, so there was nothing on screen connecting the two events either. What the
+		# player saw was an interaction that did nothing except injure their wife, and a button that lit up
+		# again the same afternoon. Now the refusal is reported, and it sticks for five years.
+		spn_end_hunter_training_effect = yes
+		add_character_flag = { flag = spn_refused_hunter_training years = 5 }
+		increase_wounds_no_death_effect = { REASON = battle }
+		scope:recipient = {
+			send_interface_toast = {
+				title = spn_train_hunter_refused_toast
+				left_icon = root
+				custom_tooltip = spn_train_hunter_refused_toast_tt
+			}
+		}
+
+	}
+
+}
+
+#########################################################################################################
+#
+# Hunter Training Event 1, Hunter: Training A Hunter (Trainer)
+#
+#########################################################################################################
+
+spn_train_hunter.0005 = {
+	type = character_event
+	title = spn_train_hunter.0005.t
+	desc = spn_train_hunter.0005.desc
+	theme = martial
+	
+	override_background = {
+		reference = farmland
+	}
+	
+	trigger = {
+		spn_has_supernatural_trait = no
+	}
+
+	# 2.35a -- scope:spn_trainee, not scope:recipient. This event fires at the trainer from BOTH interactions,
+	# and in spn_ask_to_turn_into_hunter the recipient IS the trainer -- so the left and right portraits were
+	# the same man, standing next to himself. The two interactions now save the roles at on_accept.
+	left_portrait = {
+		character = scope:spn_trainee
+		animation = admiration
+	}
+
+	right_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = { has_trait = craven }
+			animation = fear
+		}
+		triggered_animation = {
+			trigger = { has_trait = brave }
+			animation = ecstasy
+		}
+		triggered_animation = {
+			trigger = { has_trait = calm }
+			animation = idle
+		}
+		triggered_animation = {
+			trigger = { has_trait = arrogant }
+			animation = dismissal
+		}
+		triggered_animation = {
+			trigger = {
+				NOR = {
+					has_trait = arrogant
+					has_trait = craven
+					has_trait = wrathful
+					has_trait = calm
+				}
+			}
+			animation = idle
+		}
+	}
+
+	option = { # I will attempt to train them as best I can.
+		name = spn_train_hunter.0005.a
+		custom_tooltip = spn_train_hunter.0005.a.tt
+		
+		stress_and_fulfillment_impact = {
+			trusting = minor_stress_impact_loss
+			compassionate = minor_stress_impact_loss
+			calm = minor_stress_impact_loss
+			generous = minor_stress_impact_loss
+		}
+		random_list = {
+			95 = {
+			
+			}
+			
+			5 = {
+				custom_tooltip = spn_train_hunter.0005.b.tt
+				add_hunter_lifestyle_perk_points = 1
+			}
+		}
+		
+		ai_chance = {
+		
+			base = 100
+			
+		}
+		
+	}
+
+}

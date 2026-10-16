@@ -1,0 +1,14 @@
+﻿l_spanish:
+ jdb_bc_commander_flavor_text_retreat_dominant:0 "¡Maldición esos bastardos! ¡Retirada!"
+ jdb_bc_commander_flavor_text_retreat_zeal_forsaken:0 "[ROOT.Char.GetFaith.WarGodName|U] ¿Por qué nos has abandonado?"
+ jdb_bc_commander_flavor_text_retreat_fallback:0 "¡Retrocedan!"
+ jdb_bc_commander_flavor_text_retreat:0 "¡Retirada! ¡Retirada!"
+ jdb_bc_commander_flavor_text_retreat_we_need_more_allies:0 "¡Necesitamos más aliados!"
+ jdb_bc_commander_flavor_text_siege_tear_walls:0 "¡Derribad esas murallas!"
+ jdb_bc_commander_flavor_text_siege_archers:0 "¡Arqueros, disparen!"
+ jdb_bc_commander_flavor_text_siege_burn_them:0 "¡Quemadlos!"
+ jdb_bc_commander_flavor_text_siege_storm_gate:0 "¡Asaltad la puerta!"
+ jdb_bc_commander_flavor_text_siege_towers:0 "Torres de asedio, ¡Adelante!"
+ jdb_bc_commander_flavor_text_siege_mine:0 "Yo tomaré lo que es mío por derecho. ¡Arqueros, disparen!"
+
+ jdb_bc_battle_stance:1 "Random Commander Stance #weak (Battleground Commanders)#!"

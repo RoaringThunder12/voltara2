@@ -1,0 +1,32 @@
+﻿##############################
+## BM1 scripted_triggers
+##############################
+
+l_english:
+ CAN_ADD_RELEVANT_HOOK_TRIGGER: "Wants a [hook|E] from [TARGET_CHARACTER.GetShortUIName]"
+ CHARACTER_CAN_ADD_RELEVANT_HOOK_TRIGGER: "[CHARACTER.GetSheHe|U] wants a [hook|E] from [TARGET_CHARACTER.GetShortUIName]"
+ NOT_CAN_ADD_RELEVANT_HOOK_TRIGGER: "Does #Bold not#! need a [hook|E] from [TARGET_CHARACTER.GetShortUIName]"
+ NOT_CHARACTER_CAN_ADD_RELEVANT_HOOK_TRIGGER: "[CHARACTER.GetSheHe|U] does #Bold not#! need a [hook|E] from [TARGET_CHARACTER.GetShortUIName]"
+
+# PDX bug - remove when fixed
+ HAS_PRISONERS_TRIGGER: "Has a [prisoner|E]"
+ HAS_NO_PRISONERS_TRIGGER: "Does #bold not#! have any [prisoner|E]"
+ I_HAVE_PRISONERS_TRIGGER: "You have a [prisoner|E]"
+ I_HAVE_NO_PRISONERS_TRIGGER: "You do #bold not#! have any [prisoner|E]"
+ THEY_HAVE_PRISONERS_TRIGGER: "[CHARACTER.GetShortUIName|U] has a [prisoner|E]"
+ THEY_HAVE_NO_PRISONERS_TRIGGER: "[CHARACTER.GetShortUIName|U] does #bold not#! have any [prisoner|E]"
+
+ ANY_PRISONER: "Any Prisoner:"
+ ANY_PRISONER_FIRST: "Any of my Prisoners:"
+ ANY_PRISONER_THIRD: "Any of [CHARACTER.GetShortUINamePossessive] Prisoners:"
+ ALL_PRISONER: "All Prisoners:"
+ ALL_PRISONER_FIRST: "All my Prisoners:"
+ ALL_PRISONER_THIRD: "All of [CHARACTER.GetShortUINamePossessive] Prisoners:"
+ COUNT_EQ_PRISONER: "$PARAMETERS$ Prisoner:"
+ COUNT_EQ_PRISONER_FIRST: "$PARAMETERS$ of my Prisoners:"
+ COUNT_EQ_PRISONER_THIRD: "$PARAMETERS$ of [CHARACTER.GetShortUINamePossessive] Prisoners:"
+ NOT_COUNT_EQ_PRISONER: "$PARAMETERS$ Prisoner:"
+ NOT_COUNT_EQ_PRISONER_FIRST: "$PARAMETERS$ of my Prisoners:"
+ NOT_COUNT_EQ_PRISONER_THIRD: "$PARAMETERS$ of [CHARACTER.GetShortUINamePossessive] Prisoners:"
+ COUNT_GT_EQ_PRISONER: "$PARAMETERS$ Prisoner:"
+ COUNT_GT_EQ_PRISONER_THIRD: "$PARAMETERS$ of [CHARACTER.GetShortUINamePossessive] Prisoner:"

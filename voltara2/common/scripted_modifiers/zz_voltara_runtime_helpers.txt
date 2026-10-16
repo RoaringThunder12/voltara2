@@ -1,0 +1,160 @@
+﻿ai_necromancy_magic_modifier = {
+	modifier = { 
+        has_perk = necromancy_apprentice_perk
+        add = 50
+    }                
+    modifier = { 
+        has_perk = necromancy_journeyman_perk
+        add = 50
+    }
+    modifier = { 
+        has_perk = necromancy_expert_perk
+        add = 50
+    }
+    modifier = { 
+        has_perk = necromancy_master_perk
+        add = 50
+    } 
+	modifier = {
+        faith = { has_doctrine = tenet_necromancy_worship }
+        add = 50
+    }
+    modifier = {
+        has_trait = vt_ek_lich_character
+        add = 100
+    }
+	modifier = {
+		has_character_flag = focus_necromancy
+		factor = 2
+	}
+}
+ai_alteration_magic_modifier = {
+	modifier = { 
+        has_perk = alteration_apprentice_perk
+        add = 10
+    }                
+    modifier = { 
+        has_perk = alteration_journeyman_perk
+        add = 10
+    }
+    modifier = { 
+        has_perk = alteration_expert_perk
+        add = 10
+    }
+    modifier = { 
+        has_perk = alteration_master_perk
+        add = 10
+    }	
+    modifier = {
+        has_trait = education_stewardship
+        add = 10
+    }
+	modifier = {
+		has_character_flag = focus_alteration
+		factor = 2
+	} 
+}
+ai_conjuration_magic_modifier = {
+	modifier = { 
+        has_perk = conjuration_apprentice_perk
+        add = 10
+    }                
+    modifier = { 
+        has_perk = conjuration_journeyman_perk
+        add = 10
+    }
+    modifier = { 
+        has_perk = conjuration_expert_perk
+        add = 10
+	}
+    modifier = { 
+        has_perk = conjuration_master_perk
+        add = 10
+    }	  
+    modifier = {
+        has_trait = education_diplomacy
+        add = 10
+    }
+	modifier = {
+		has_character_flag = focus_conjuration
+		factor = 2
+	}
+}
+ai_destruction_magic_modifier = {
+	modifier = { 
+        has_perk = destruction_apprentice_perk
+        add = 10
+    }                
+    modifier = { 
+        has_perk = destruction_journeyman_perk
+        add = 10
+    }
+    modifier = { 
+        has_perk = destruction_expert_perk
+        add = 10
+    }
+    modifier = { 
+        has_perk = destruction_master_perk
+        add = 10
+    }	 
+    modifier = {
+        has_trait = education_martial
+        add = 10
+    }
+	modifier = {
+		has_character_flag = focus_destruction
+		factor = 2
+	} 
+}
+ai_illusion_magic_modifier = {
+	modifier = { 
+        has_perk = illusion_apprentice_perk
+        add = 10
+    }                
+    modifier = { 
+        has_perk = illusion_journeyman_perk
+        add = 10
+    }
+    modifier = { 
+        has_perk = illusion_expert_perk
+        add = 10
+    }
+    modifier = { 
+        has_perk = illusion_master_perk
+        add = 10
+    }	 
+    modifier = {
+        has_trait = education_intrigue
+        add = 10
+    }
+	modifier = {
+		has_character_flag = focus_illusion
+		factor = 2
+	} 
+}
+ai_restoration_magic_modifier = {
+	modifier = { 
+        has_perk = restoration_apprentice_perk
+        add = 10
+    }                
+    modifier = { 
+        has_perk = restoration_journeyman_perk
+        add = 10
+    }
+    modifier = { 
+        has_perk = restoration_expert_perk
+        add = 10
+    }
+    modifier = { 
+        has_perk = restoration_master_perk
+        add = 10
+    } 	
+    modifier = {
+        has_trait = education_learning
+        add = 10
+    }
+	modifier = {
+		has_character_flag = focus_restoration
+		factor = 2
+	}
+}

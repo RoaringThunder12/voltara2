@@ -1,0 +1,137 @@
+﻿cof_ekue_spell_decay_slow = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	common_interaction = yes
+	category = interaction_category_magic
+	icon = icon_thralldom
+
+	desc = cof_ekue_spell_decay_slow_desc
+
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		scope:actor = {
+			is_ai = no
+			has_perk = necromancy_journeyman_perk
+			magicka_max > 30
+		}
+	
+		scope:recipient = {
+			vt_ek_is_undead = yes
+			NOT = {
+				has_character_modifier = cof_ekue_decay_slow_rejuv
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = cof_ekue_magicka_30
+			scope:actor = {
+				var:magicka > 30
+			}
+		}
+	}
+
+	force_notification = yes
+	show_answer_notification = no
+	
+	ai_potential = {
+		always = no
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+
+
+	send_option = {
+		is_shown = {
+				scope:actor = {
+					has_perk = necromancy_master_perk	
+					magicka_max > 50				
+				}
+		}
+		flag = cof_ekue_rejuv
+		localization = "cof_ekue_spell_decay_slow_interaction_rejuv"
+	}
+
+	send_options_exclusive = no
+
+	on_accept = {
+		if = {
+			limit = {
+				NOT = {
+					scope:cof_ekue_rejuv = yes
+				}
+			}
+			scope:recipient = {
+				add_character_modifier = {
+				modifier = cof_ekue_decay_slow
+				years = 100
+				} 
+			custom_tooltip = {text = cof_ekue_spell_decay_slow_tooltip}
+			}
+			scope:actor = {
+				add_magicka = {
+					VALUE = 30.negate
+				}
+				change_variable = {
+					name = magicka
+					add = -30
+				}				
+			}
+		}
+
+		if = {
+			limit = {
+				scope:cof_ekue_rejuv = yes
+			}
+
+			if = {
+				limit = {
+					scope:recipient = {
+						has_character_modifier = cof_ekue_decay_slow
+					}
+				}
+				scope:recipient = {
+					remove_character_modifier = cof_ekue_decay_slow
+				}
+			}
+
+			scope:recipient = {
+				add_character_modifier = {
+					modifier = cof_ekue_decay_slow_rejuv
+					years = 25
+				} 
+				custom_tooltip = { text = cof_ekue_spell_decay_slow__rejuv_tooltip }
+			}
+			scope:actor = {
+				add_magicka = {
+					VALUE = 50.negate
+				}
+				change_variable = {
+					name = magicka
+					add = -50
+				}
+			}
+		}
+
+		scope:recipient = {
+			hidden_effect = {
+				trigger_event = { 
+					on_action = cof_ekue_decay_monthly_pulse
+					months = 1
+				}
+			}
+		}
+	}
+
+	auto_accept = yes
+}

@@ -1,0 +1,74 @@
+﻿# Root = Losing combat side
+# scope:wipe - Was this a wipe?
+on_combat_end_loser = {
+	on_actions = {
+		jdb_bc_on_combat_end_loser
+	}
+}
+
+jdb_bc_on_combat_end_loser = {
+	effect = {
+		if = {
+			limit = {
+				side_commander ?= {
+					is_alive = yes
+				}
+			}
+			random = {
+				chance = 50
+				side_commander = {
+					jdb_bc_get_commander_flavor_text_retreat = yes
+				}
+			}
+		}
+		
+		random = {
+			chance = 15
+			every_side_commander = {
+				limit = {
+					is_alive = yes
+					NOT = {
+						has_variable = jdb_bc_commander_flavor_text_retreat
+					}
+				}
+				jdb_bc_get_commander_flavor_text_retreat = yes
+			}
+		}
+	}
+}
+
+# called for armies whenever they enter a province
+# root is the owner of the army
+# scope:army is the army
+on_army_enter_province = {
+	on_actions = {
+		jdb_bc_on_army_enter_province
+	}
+}
+
+jdb_bc_on_army_enter_province = {
+	effect = {
+		if = {
+			limit = {
+				scope:army ?= {
+					exists = army_commander
+					is_army_in_siege = yes
+				}
+			}
+
+			random = {
+				chance = 20
+
+				scope:army = {
+					army_commander = {
+						save_scope_as = commander
+						trigger_event = {
+							id = jdb_bc_events.0001
+							days = 14
+						}
+					}
+				}
+			}
+		}
+	}
+}

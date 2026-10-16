@@ -1,0 +1,77 @@
+﻿no_dynasty_options = {
+	first_not = ansf.no.existing.options.tt
+	third_not = ansf.no.existing.options.tt
+}
+
+cannot_have_existing_parents = {
+	first_not = ansf.must.have.no.parents.tt
+	third_not = ansf.must.have.no.parents.tt
+}
+
+cannot_change_dynasty = {
+	first_not = ansf.cannot.change.dynasty.tt
+	third_not = ansf.cannot.change.dynasty.tt
+}
+
+cannot_have_family_title = {
+	first_not = ansf.cannot.have.family.title.tt
+	third_not = ansf.cannot.have.family.title.tt
+}
+
+already_joined_father_dynasty = {
+	first_not = ansf.already.father.dynasty.tt
+	third_not = ansf.already.father.dynasty.tt
+}
+
+ansf_cannot_be_twin = {
+	first_not = ansf.cannot.be.twin.tt
+	third_not = ansf.cannot.be.twin.tt
+}
+
+ansf_already_used_family_decision = {
+	first = ansf.not.already.house.family.tt
+	first_not = ansf.already.house.family.tt
+	third = ansf.not.already.house.family.tt
+	third_not = ansf.already.house.family.tt
+}
+
+ansf_already_has_large_family = {
+	first_not = ansf.family.too.large.tt
+	third_not = ansf.family.too.large.tt
+}
+
+ansf_must_have_dynasty = {
+	first_not = ansf.has.no.dynasty.tt
+	third_not = ansf.has.no.dynasty.tt
+}
+
+ansf_must_have_court = {
+	first_not = ansf.has.no.court.tt
+	third_not = ansf.has.no.court.tt
+}
+
+ansf_over_fifty = {
+	first_not = ansf.over.fifty.tt
+	third_not = ansf.over.fifty.tt
+}
+
+ansf_belongs_other_player = {
+	first_not = ansf.other.player.realm.tt
+	third_not = ansf.other.player.realm.tt
+}
+
+ansf_cannot_marry = {
+	first_not = ansf.cannot.marry.tt
+	third_not = ansf.cannot.marry.tt
+}
+
+ansf_already_has_ex_spouse = {
+	first_not = ansf.already.has.ex.spouse.tt
+	third_not = ansf.already.has.ex.spouse.tt
+}
+
+ansf_already_has_lover = {
+	first_not = ansf.already.has.lover.tt
+	third_not = ansf.already.has.lover.tt
+}
+

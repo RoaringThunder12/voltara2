@@ -1,0 +1,2470 @@
+﻿############
+# Arcana #
+############
+
+# Education
+arcana_trait_education_magic_1 = 2
+arcana_trait_education_magic_2 = 4
+arcana_trait_education_magic_3 = 6
+arcana_trait_education_magic_4 = 8
+arcana_trait_education_magic_5 = 10
+
+# Lifestyle
+arcana_trait_mystic_1 = 2
+arcana_trait_mystic_2 = 4
+arcana_trait_mystic_3 = 6
+arcana_trait_scholar = 3
+
+# Personality
+arcana_trait_lazy = -1
+arcana_trait_diligent = 1
+arcana_trait_patient = 2
+arcana_trait_impatient = -2
+arcana_trait_shy = 1
+arcana_trait_ambitious = 1
+arcana_trait_eccentric = 1
+
+# Stress
+arcana_trait_drunkard = -2
+arcana_trait_hashishiyah = -2
+arcana_trait_skooma_drinker = -3
+arcana_trait_reclusive = 1
+arcana_trait_irritable = -2
+arcana_trait_journaller = 1
+arcana_trait_experimentalist = 3
+arcana_trait_experimentalist_necromancer = 3
+stress_experimentalist_modifier_06 = 5
+
+# Genetic
+arcana_trait_intellect_bad_1 = -1
+arcana_trait_intellect_bad_2 = -2
+arcana_trait_intellect_bad_3 = -3
+arcana_trait_intellect_good_1 = 1
+arcana_trait_intellect_good_2 = 2
+arcana_trait_intellect_good_3 = 3
+arcana_trait_inbred = -5
+arcana_trait_arcana_bad_1 = -2
+arcana_trait_arcana_bad_2 = -4
+arcana_trait_arcana_bad_3 = -8
+arcana_trait_arcana_good_1 = 2
+arcana_trait_arcana_good_2 = 4
+arcana_trait_arcana_good_3 = 8
+arcana_trait_magickal = 4
+arcana_trait_disrupted = -10
+arcana_trait_racial_blindness = 1
+
+# Health
+arcana_trait_infirm_1 = -1
+arcana_trait_infirm_2 = -2
+arcana_trait_infirm_3 = -4
+arcana_trait_infirm_4 = -6
+arcana_trait_infirm_5 = -8
+arcana_trait_withering_mind_1 = -2
+arcana_trait_withering_mind_2 = -7
+arcana_trait_withering_mind_3 = -12
+arcana_trait_withering_mind_4 = -17
+arcana_trait_withering_mind_5 = -22
+arcana_trait_incapable = -12
+arcana_trait_lunatic = -2
+
+# Disease
+arcana_trait_ill = -2
+arcana_trait_sanguinare_vampiris = -2
+arcana_trait_sanies_lupinus = -2
+arcana_trait_pneumonic = -5
+arcana_trait_great_pox = -3
+arcana_trait_consumption = -2
+arcana_trait_typhus = -3
+arcana_trait_bubonic_plague = -8
+arcana_trait_smallpox = -6
+arcana_trait_measles = -3
+arcana_trait_dysentery = -3
+arcana_trait_ergotism = -3
+arcana_trait_stricken = -4
+
+# Physical
+arcana_trait_shrewd = 3
+arcana_trait_dull = -3
+
+# Furstcoks
+arcana_trait_dagi = 2
+arcana_trait_dagi_raht = 1
+arcana_trait_tojay = 1
+arcana_trait_tojay_raht = 1
+
+# Hist
+arcana_trait_sun_blessed_1 = 2
+arcana_trait_sun_blessed_2 = 4
+arcana_trait_sun_blessed_3 = 6
+
+# Criminal
+arcana_trait_witch = 4
+arcana_trait_necromancer = 3
+arcana_trait_lich_character = 5
+
+# Other
+arcana_trait_adventurer = 1
+arcana_trait_briarheart = 4
+arcana_trait_hagraven = 6
+
+
+# Patrons & Birthsigns
+arcana_trait_p_ae_magnus = 2
+arcana_trait_p_ae_syrabane = 4
+arcana_trait_p_dv_julianos = 1
+arcana_trait_p_ob_hermaeus = 1
+arcana_trait_p_vl_veloth = 1
+arcana_trait_p_vl_vorys = 2
+arcana_trait_p_tc_heavens = 2
+arcana_trait_p_tr_sotha = 2
+arcana_trait_p_at_owl = 2
+arcana_trait_p_kw_necromancer = 2
+arcana_trait_sign_mage = 4
+arcana_trait_sign_apprentice = 2
+arcana_trait_sign_atronach = 2
+
+# Aspect of the Stars Birthsign trait enhancements
+arcana_modifier_devotion_gives_star_sign_power_mage_3 = 1
+arcana_modifier_devotion_gives_star_sign_power_mage_4 = 2
+arcana_modifier_devotion_gives_star_sign_power_mage_5 = 3
+arcana_modifier_devotion_gives_star_sign_power_mage_6 = 4
+arcana_modifier_devotion_gives_star_sign_power_apprentice_4 = 1
+arcana_modifier_devotion_gives_star_sign_power_apprentice_5 = 2
+arcana_modifier_devotion_gives_star_sign_power_apprentice_6 = 3
+arcana_modifier_devotion_gives_star_sign_power_atronach_4 = 1
+arcana_modifier_devotion_gives_star_sign_power_atronach_5 = 2
+arcana_modifier_devotion_gives_star_sign_power_atronach_6 = 3
+
+# Legacies
+arcana_magicka_legacy_1 = 2
+
+# Artifacts
+arcana_artifacts = {
+	value = 0
+	every_equipped_character_artifact = {
+		limit = { exists = var:arcana_modifier }
+		add = var:arcana_modifier
+	}
+}
+
+# Cultural Traditions
+arcana_tradition_parliament_of_bugs = 2
+arcana_tradition_pale_shamans_1 = 1
+arcana_tradition_pale_shamans_2 = 2
+arcana_tradition_pale_shamans_3 = 3
+arcana_tradition_pale_shamans_4 = 4
+arcana_tradition_pale_shamans_5 = 5
+
+# Spells
+modifier_spell_summon_atronach_petty = 1
+modifier_spell_summon_atronach_lesser = 2
+modifier_spell_summon_atronach_common = 3
+modifier_spell_summon_atronach_greater = 4
+modifier_spell_summon_atronach_grand = 5
+modifier_spell_turn_undead = -5
+
+# Class traits
+arcana_trait_battlemage = 3
+
+# Courtier traits
+arcana_trait_arcane_courtier_1 = 1
+arcana_trait_arcane_courtier_2 = 2
+
+# Traditions
+arcana_prescriptivism = 2
+arcana_wild_magic_weak = -2
+arcana_wild_magic_bad = -1
+arcana_wild_magic_good = 2
+arcana_wild_magic_powerful = 2
+
+# Event Modifiers
+modifier_sload_soap_arcana = 3
+arcana_cloning_mastery = 1
+mundus_mage_modifier = 1
+tournament_arcane_clash_winner_modifier = 3
+tournament_arcane_clash_participant_modifier = 1
+tournament_exhausted_arcana_modifier = -5
+
+# Tenets
+arcana_magic_worship = 2
+arcana_necromancy_worship_necromancer = 2
+arcana_necromancy_worship_lich = 2
+
+# Holy Sites
+arcana_hs_illuminis = 2
+
+# Arcana Master
+arcana_base = {
+	value = 0
+	if = {
+		limit = { exists = var:arcana_base }
+		add = var:arcana_base
+	}
+}
+
+arcana = {
+	value = arcana_base
+	if = {
+		limit = { has_trait = vt_ek_education_magic_1 }
+		add = {
+			value = arcana_trait_education_magic_1
+			desc = arcana_education_magic_1
+		}
+	}
+	else_if = {
+		limit = { has_trait = vt_ek_education_magic_2 }
+		add = {
+			value = arcana_trait_education_magic_2
+			desc = arcana_education_magic_2
+		}
+	}
+	else_if = {
+		limit = { has_trait = vt_ek_education_magic_3 }
+		add = {
+			value = arcana_trait_education_magic_3
+			desc = arcana_education_magic_3
+		}
+	}
+	else_if = {
+		limit = { has_trait = vt_ek_education_magic_4 }
+		add = {
+			value = arcana_trait_education_magic_4
+			desc = arcana_education_magic_4
+		}
+	}
+	else_if = {
+		limit = { has_trait = vt_ek_education_magic_5 }
+		add = {
+			value = arcana_trait_education_magic_5
+			desc = arcana_education_magic_5
+		}
+	}
+	if = {
+		limit = { 
+			has_trait = lifestyle_mystic
+			has_trait_xp = {
+				trait = lifestyle_mystic
+				value < 50
+			}
+		}
+		add = {
+			value = arcana_trait_mystic_1
+			desc = arcana_mystic
+		}
+	}
+	else_if = {
+		limit = { 
+			has_trait = lifestyle_mystic
+			has_trait_xp = {
+				trait = lifestyle_mystic
+				value >= 50
+			}
+		}
+		add = {
+			value = arcana_trait_mystic_2
+			desc = arcana_mystic
+		}
+	}
+	else_if = {
+		limit = { 
+			has_trait = lifestyle_mystic
+			has_trait_xp = {
+				trait = lifestyle_mystic
+				value >= 100
+			}
+		}
+		add = {
+			value = arcana_trait_mystic_3
+			desc = arcana_mystic
+		}
+	}
+	if = {
+		limit = { has_trait = scholar }
+		add = {
+			value = arcana_trait_scholar
+			desc = arcana_scholar
+		}
+	}
+	# Personality
+	if = {
+		limit = { has_trait = lazy }
+		add = {
+			value = arcana_trait_lazy
+			desc = arcana_lazy
+		}
+	}
+	if = {
+		limit = { has_trait = diligent }
+		add = {
+			value = arcana_trait_diligent
+			desc = arcana_diligent
+		}
+	}
+	if = {
+		limit = { has_trait = patient }
+		add = {
+			value = arcana_trait_patient
+			desc = arcana_patient
+		}
+	}
+	if = {
+		limit = { has_trait = impatient }
+		add = {
+			value = arcana_trait_impatient
+			desc = arcana_impatient
+		}
+	}
+	if = {
+		limit = { has_trait = shy }
+		add = {
+			value = arcana_trait_shy
+			desc = arcana_shy
+		}
+	}
+	if = {
+		limit = { has_trait = ambitious }
+		add = {
+			value = arcana_trait_ambitious
+			desc = arcana_ambitious
+		}
+	}
+	if = {
+		limit = { has_trait = eccentric }
+		add = {
+			value = arcana_trait_eccentric
+			desc = arcana_eccentric
+		}
+	}	
+	# Stress
+	if = {
+		limit = { has_trait = drunkard }
+		add = {
+			value = arcana_trait_drunkard
+			desc = arcana_drunkard
+		}
+	}
+	if = {
+		limit = { has_trait = hashishiyah }
+		add = {
+			value = arcana_trait_hashishiyah
+			desc = arcana_hashishiyah
+		}
+	}
+	if = {
+		limit = { has_trait = skooma_drinker }
+		add = {
+			value = arcana_trait_skooma_drinker
+			desc = arcana_skooma_drinker
+		}
+	}
+	if = {
+		limit = { has_trait = reclusive }
+		add = {
+			value = arcana_trait_reclusive
+			desc = arcana_reclusive
+		}
+	}
+	if = {
+		limit = { has_trait = irritable }
+		add = {
+			value = arcana_trait_irritable
+			desc = arcana_irritable
+		}
+	}
+	if = {
+		limit = { has_trait = journaller }
+		add = {
+			value = arcana_trait_journaller
+			desc = arcana_journaller
+		}
+	}
+	if = {
+		limit = { has_trait = experimentalist }
+		add = {
+			value = arcana_trait_experimentalist
+			desc = arcana_experimentalist
+		}
+	}
+	if = {
+		limit = { has_trait = vt_ek_experimentalist_necromancer }
+		add = {
+			value = arcana_trait_experimentalist_necromancer
+			desc = arcana_experimentalist_necromancer
+		}
+	}
+	if = {
+		limit = { has_character_modifier = stress_experimentalist_modifier_06 }
+		add = {
+			value = stress_experimentalist_modifier_06
+			desc = stress_experimentalist_modifier_06
+		}
+	}
+	# Genetic
+	if = {
+		limit = { has_trait = intellect_bad_1 }
+		add = {
+			value = arcana_trait_intellect_bad_1
+			desc = arcana_intellect_bad_1
+		}
+	}
+	else_if = {
+		limit = { has_trait = intellect_bad_2 }
+		add = {
+			value = arcana_trait_intellect_bad_2
+			desc = arcana_intellect_bad_2
+		}
+	}
+	else_if = {
+		limit = { has_trait = intellect_bad_3 }
+		add = {
+			value = arcana_trait_intellect_bad_3
+			desc = arcana_intellect_bad_3
+		}
+	}
+	else_if = {
+		limit = { has_trait = intellect_good_1 }
+		add = {
+			value = arcana_trait_intellect_good_1
+			desc = arcana_intellect_good_1
+		}
+	}
+	else_if = {
+		limit = { has_trait = intellect_good_2 }
+		add = {
+			value = arcana_trait_intellect_good_2
+			desc = arcana_intellect_good_2
+		}
+	}
+	else_if = {
+		limit = { has_trait = intellect_good_3 }
+		add = {
+			value = arcana_trait_intellect_good_3
+			desc = arcana_intellect_good_3
+		}
+	}
+	if = {
+		limit = { has_trait = inbred }
+		add = {
+			value = arcana_trait_inbred
+			desc = arcana_inbred
+		}
+	}
+	if = {
+		limit = { has_trait = vt_ek_arcana_bad_1 }
+		add = {
+			value = arcana_trait_arcana_bad_1
+			desc = arcana_arcana_bad_1
+		}
+	}
+	else_if = {
+		limit = { has_trait = vt_ek_arcana_bad_2 }
+		add = {
+			value = arcana_trait_arcana_bad_2
+			desc = arcana_arcana_bad_2
+		}
+	}
+	else_if = {
+		limit = { has_trait = vt_ek_arcana_bad_3 }
+		add = {
+			value = arcana_trait_arcana_bad_3
+			desc = arcana_arcana_bad_3
+		}
+	}
+	else_if = {
+		limit = { has_trait = vt_ek_arcana_good_1 }
+		add = {
+			value = arcana_trait_arcana_good_1
+			desc = arcana_arcana_good_1
+		}
+	}
+	else_if = {
+		limit = { has_trait = vt_ek_arcana_good_2 }
+		add = {
+			value = arcana_trait_arcana_good_2
+			desc = arcana_arcana_good_2
+		}
+	}
+	else_if = {
+		limit = { has_trait = vt_ek_arcana_good_3 }
+		add = {
+			value = arcana_trait_arcana_good_3
+			desc = arcana_arcana_good_3
+		}
+	}
+	if = {
+		limit = { has_trait = vt_ek_magickal }
+		add = {
+			value = arcana_trait_magickal
+			desc = arcana_magickal
+		}
+	}
+	if = {
+		limit = { has_trait = vt_ek_disrupted }
+		add = {
+			value = arcana_trait_disrupted
+			desc = arcana_disrupted
+		}
+	}
+	if = {
+		limit = { has_trait = racial_blindness }
+		add = {
+			value = arcana_trait_racial_blindness
+			desc = arcana_racial_blindness
+		}
+	}	
+	
+	
+	# Health	
+	if = {
+		limit = { 
+			has_trait = infirm
+			has_trait_xp = {
+				trait = infirm
+				value < 25
+			}
+		}
+		add = {
+			value = arcana_trait_infirm_1
+			desc = arcana_infirm
+		}
+	}
+	else_if = {
+		limit = { 
+			has_trait = infirm
+			has_trait_xp = {
+				trait = infirm
+				value >= 25
+			}
+			has_trait_xp = {
+				trait = infirm
+				value < 50
+			}
+		}
+		add = {
+			value = arcana_trait_infirm_2
+			desc = arcana_infirm
+		}
+	}
+	else_if = {
+		limit = { 
+			has_trait = infirm
+			has_trait_xp = {
+				trait = infirm
+				value >= 50
+			}
+			has_trait_xp = {
+				trait = infirm
+				value < 75
+			}
+		}
+		add = {
+			value = arcana_trait_infirm_3
+			desc = arcana_infirm
+		}
+	}
+	else_if = {
+		limit = { 
+			has_trait = infirm
+			has_trait_xp = {
+				trait = infirm
+				value >= 75
+			}
+			has_trait_xp = {
+				trait = infirm
+				value < 100
+			}
+		}
+		add = {
+			value = arcana_trait_infirm_4
+			desc = arcana_infirm
+		}
+	}
+	else_if = {
+		limit = { 
+			has_trait = infirm
+			has_trait_xp = {
+				trait = infirm
+				value >= 100
+			}
+		}
+		add = {
+			value = arcana_trait_infirm_5
+			desc = arcana_infirm
+		}
+	}
+	if = {
+		limit = { has_trait = incapable }
+		add = {
+			value = arcana_trait_incapable
+			desc = arcana_incapable
+		}
+	}
+	if = {
+		limit = { has_trait = lunatic }
+		add = {
+			value = arcana_trait_lunatic
+			desc = arcana_lunatic
+		}
+	}	
+	if = {
+		limit = { 
+			has_trait = withering_mind
+			has_trait_xp = {
+				trait = withering_mind
+				value < 25
+			}
+		}
+		add = {
+			value = arcana_trait_withering_mind_1
+			desc = arcana_withering_mind
+		}
+	}
+	else_if = {
+		limit = { 
+			has_trait = withering_mind
+			has_trait_xp = {
+				trait = withering_mind
+				value >= 25
+			}
+			has_trait_xp = {
+				trait = withering_mind
+				value < 50
+			}
+		}
+		add = {
+			value = arcana_trait_withering_mind_2
+			desc = arcana_withering_mind
+		}
+	}
+	else_if = {
+		limit = { 
+			has_trait = withering_mind
+			has_trait_xp = {
+				trait = withering_mind
+				value >= 50
+			}
+			has_trait_xp = {
+				trait = withering_mind
+				value < 75
+			}
+		}
+		add = {
+			value = arcana_trait_withering_mind_3
+			desc = arcana_withering_mind
+		}
+	}
+	else_if = {
+		limit = { 
+			has_trait = withering_mind
+			has_trait_xp = {
+				trait = withering_mind
+				value >= 75
+			}
+			has_trait_xp = {
+				trait = withering_mind
+				value < 100
+			}
+		}
+		add = {
+			value = arcana_trait_withering_mind_4
+			desc = arcana_withering_mind
+		}
+	}
+	else_if = {
+		limit = { 
+			has_trait = withering_mind
+			has_trait_xp = {
+				trait = withering_mind
+				value >= 100
+			}
+		}
+		add = {
+			value = arcana_trait_withering_mind_5
+			desc = arcana_withering_mind
+		}
+	}
+	# Disease
+	if = {
+		limit = { has_trait = ill }
+		add = {
+			value = arcana_trait_ill
+			desc = arcana_ill
+		}
+	}
+	if = {
+		limit = { has_trait = pneumonic }
+		add = {
+			value = arcana_trait_pneumonic
+			desc = arcana_pneumonic
+		}
+	}
+	if = {
+		limit = { has_trait = great_pox }
+		add = {
+			value = arcana_trait_great_pox
+			desc = arcana_great_pox
+		}
+	}
+	if = {
+		limit = { has_trait = consumption }
+		add = {
+			value = arcana_trait_consumption
+			desc = arcana_consumption
+		}
+	}
+	if = {
+		limit = { has_trait = typhus }
+		add = {
+			value = arcana_trait_typhus
+			desc = arcana_typhus
+		}
+	}
+	if = {
+		limit = { has_trait = bubonic_plague }
+		add = {
+			value = arcana_trait_bubonic_plague
+			desc = arcana_bubonic_plague
+		}
+	}
+	if = {
+		limit = { has_trait = stricken }
+		add = {
+			value = arcana_trait_stricken
+			desc = arcana_stricken
+		}
+	}
+	if = {
+		limit = { has_trait = sanies_lupinus }
+		add = {
+			value = arcana_trait_sanies_lupinus
+			desc = arcana_sanies_lupinus
+		}
+	}
+	if = {
+		limit = { has_trait = sanguinare_vampiris }
+		add = {
+			value = arcana_trait_sanguinare_vampiris
+			desc = arcana_sanguinare_vampiris
+		}
+	}
+	if = {
+		limit = { has_trait = smallpox }
+		add = {
+			value = arcana_trait_smallpox
+			desc = arcana_smallpox
+		}
+	}
+	if = {
+		limit = { has_trait = measles }
+		add = {
+			value = arcana_trait_measles
+			desc = arcana_measles
+		}
+	}
+	if = {
+		limit = { has_trait = dysentery }
+		add = {
+			value = arcana_trait_dysentery
+			desc = arcana_dysentery
+		}
+	}
+	if = {
+		limit = { has_trait = ergotism }
+		add = {
+			value = arcana_trait_ergotism
+			desc = arcana_ergotism
+		}
+	}
+	# Physical
+	if = {
+		limit = { has_trait = shrewd }
+		add = {
+			value = arcana_trait_shrewd
+			desc = arcana_shrewd
+		}
+	}
+	if = {
+		limit = { has_trait = dull }
+		add = {
+			value = arcana_trait_dull
+			desc = arcana_dull
+		}
+	}
+	if = {
+		limit = { has_trait = witch }
+		add = {
+			value = arcana_trait_witch
+			desc = arcana_witch
+		}
+	}
+	if = {
+		limit = { has_trait = vt_ek_necromancer }
+		add = {
+			value = arcana_trait_necromancer
+			desc = arcana_necromancer
+		}
+	}
+	if = {
+		limit = { has_trait = vt_ek_lich_character }
+		add = {
+			value = arcana_trait_lich_character
+			desc = arcana_lich_character
+		}
+	}
+	if = {
+		limit = { has_trait = briarheart }
+		add = {
+			value = arcana_trait_briarheart
+			desc = arcana_briarheart
+		}
+	}
+	if = {
+		limit = { has_trait = hagraven }
+		add = {
+			value = arcana_trait_hagraven
+			desc = arcana_hagraven
+		}
+	}
+	# Furstocks
+	if = {
+		limit = { has_trait = furstock_dagi }
+		add = {
+			value = arcana_trait_dagi
+			desc = arcana_dagi
+		}
+	}
+	if = {
+		limit = { has_trait = furstock_dagi_raht }
+		add = {
+			value = arcana_trait_dagi_raht
+			desc = arcana_dagi_raht
+		}
+	}
+	if = {
+		limit = { has_trait = furstock_tojay }
+		add = {
+			value = arcana_trait_tojay
+			desc = arcana_tojay
+		}
+	}
+	if = {
+		limit = { has_trait = furstock_tojay_raht }
+		add = {
+			value = arcana_trait_tojay_raht
+			desc = arcana_tojay_raht
+		}
+	}
+	# Hist
+	if = {
+		limit = { has_trait = sun_blessed_1 }
+		add = {
+			value = arcana_trait_sun_blessed_1
+			desc = arcana_sun_blessed_1
+		}
+	}
+	if = {
+		limit = { has_trait = sun_blessed_2 }
+		add = {
+			value = arcana_trait_sun_blessed_2
+			desc = arcana_sun_blessed_2
+		}
+	}
+	if = {
+		limit = { has_trait = sun_blessed_3 }
+		add = {
+			value = arcana_trait_sun_blessed_3
+			desc = arcana_sun_blessed_3
+		}
+	}	
+	# Other
+	if = {
+		limit = { has_trait = adventurer }
+		add = {
+			value = arcana_trait_adventurer
+			desc = arcana_adventurer
+		}
+	}
+	#Patrons & Birthsigns
+	if = {
+		limit = { has_trait = p_ae_magnus }
+		add = {
+			value = arcana_trait_p_ae_magnus
+			desc = arcana_p_ae_magnus
+		}
+	}
+	if = {
+		limit = { has_trait = p_ae_syrabane }
+		add = {
+			value = arcana_trait_p_ae_syrabane
+			desc = arcana_p_ae_syrabane
+		}
+	}
+	if = {
+		limit = { has_trait = p_dv_julianos }
+		add = {
+			value = arcana_trait_p_dv_julianos
+			desc = arcana_p_dv_julianos
+		}
+	}
+	if = {
+		limit = { has_trait = p_ob_hermaeus }
+		add = {
+			value = arcana_trait_p_ob_hermaeus
+			desc = arcana_p_ob_hermaeus
+		}
+	}
+	if = {
+		limit = { has_trait = p_vl_veloth }
+		add = {
+			value = arcana_trait_p_vl_veloth
+			desc = arcana_p_vl_veloth
+		}
+	}
+	if = {
+		limit = { has_trait = p_vl_vorys }
+		add = {
+			value = arcana_trait_p_vl_vorys
+			desc = arcana_p_vl_vorys
+		}
+	}
+	if = {
+		limit = { has_trait = p_tc_heavens }
+		add = {
+			value = arcana_trait_p_tc_heavens
+			desc = arcana_p_tc_heavens
+		}
+	}
+	if = {
+		limit = { has_trait = p_tr_sotha }
+		add = {
+			value = arcana_trait_p_tr_sotha
+			desc = arcana_p_tr_sotha
+		}
+	}
+	if = {
+		limit = { has_trait = p_at_owl }
+		add = {
+			value = arcana_trait_p_at_owl
+			desc = arcana_p_at_owl
+		}
+	}
+	if = {
+		limit = { has_trait = p_kw_necromancer }
+		add = {
+			value = arcana_trait_p_kw_necromancer
+			desc = arcana_p_kw_necromancer
+		}
+	}
+	if = {
+		limit = { has_trait = sign_mage }
+		add = {
+			value = arcana_trait_sign_mage
+			desc = arcana_sign_mage
+		}
+	}
+	if = {
+		limit = { has_trait = sign_apprentice }
+		add = {
+			value = arcana_trait_sign_apprentice
+			desc = arcana_sign_apprentice
+		}
+	}
+	if = {
+		limit = { has_trait = sign_atronach }
+		add = {
+			value = arcana_trait_sign_atronach
+			desc = arcana_sign_atronach
+		}
+	}
+	# Legacies
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = { has_dynasty_perk = magicka_legacy_1 }
+		}
+		add = {
+			value = arcana_magicka_legacy_1
+			desc = arcana_magicka_legacy_1
+		}
+	}
+	# Artifacts
+	add = {
+		value = arcana_artifacts
+		desc = "artifact_arcana" #referenced in gui, do not change. needed to shield value and stop [jomini_scriptvalue.cpp:109]: Building Script Value Description using unsupported features near GetScriptValueDesc for arcana
+	}
+	min = 0
+	# Traditions
+	if = {
+		limit = { 
+			has_trait = paranoid 
+			culture = { has_cultural_parameter = paranoid_bonuses }
+		}
+		add = {
+			value = arcana_tradition_parliament_of_bugs
+			desc = arcana_tradition_parliament_of_bugs
+		}
+	}
+	if = {
+		limit = { 
+			has_trait = education_intrigue_1 
+			culture = { has_cultural_parameter = sneaky_mages }
+		}
+		add = {
+			value = arcana_tradition_pale_shamans_1
+			desc = arcana_tradition_pale_shamans_1
+		}
+	}
+	if = {
+		limit = { 
+			has_trait = education_intrigue_2
+			culture = { has_cultural_parameter = sneaky_mages }
+		}
+		add = {
+			value = arcana_tradition_pale_shamans_2
+			desc = arcana_tradition_pale_shamans_2
+		}
+	}
+	if = {
+		limit = { 
+			has_trait = education_intrigue_3
+			culture = { has_cultural_parameter = sneaky_mages }
+		}
+		add = {
+			value = arcana_tradition_pale_shamans_3
+			desc = arcana_tradition_pale_shamans_3
+		}
+	}
+	if = {
+		limit = { 
+			has_trait = education_intrigue_4
+			culture = { has_cultural_parameter = sneaky_mages }
+		}
+		add = {
+			value = arcana_tradition_pale_shamans_4
+			desc = arcana_tradition_pale_shamans_4
+		}
+	}
+	if = {
+		limit = { 
+			has_trait = education_intrigue_5
+			culture = { has_cultural_parameter = sneaky_mages }
+		}
+		add = {
+			value = arcana_tradition_pale_shamans_5
+			desc = arcana_tradition_pale_shamans_5
+		}
+	}
+	# Spells
+	if = {
+		limit = { has_character_modifier = modifier_spell_summon_atronach_petty }
+		add = {
+			value = modifier_spell_summon_atronach_petty
+			desc = modifier_spell_summon_atronach_petty
+		}
+	}
+	if = {
+		limit = { has_character_modifier = modifier_spell_summon_atronach_lesser }
+		add = {
+			value = modifier_spell_summon_atronach_lesser
+			desc = modifier_spell_summon_atronach_lesser
+		}
+	}
+	if = {
+		limit = { has_character_modifier = modifier_spell_summon_atronach_common }
+		add = {
+			value = modifier_spell_summon_atronach_common
+			desc = modifier_spell_summon_atronach_common
+		}
+	}
+	if = {
+		limit = { has_character_modifier = modifier_spell_summon_atronach_greater }
+		add = {
+			value = modifier_spell_summon_atronach_greater
+			desc = modifier_spell_summon_atronach_greater
+		}
+	}
+	if = {
+		limit = { has_character_modifier = modifier_spell_summon_atronach_grand }
+		add = {
+			value = modifier_spell_summon_atronach_grand
+			desc = modifier_spell_summon_atronach_grand
+		}
+	}	
+	if = {
+		limit = { has_character_modifier = modifier_spell_turn_undead }
+		add = {
+			value = modifier_spell_turn_undead
+			desc = modifier_spell_turn_undead
+		}
+	}
+	# Class traits
+	if = {
+		limit = { has_trait = battlemage }
+		add = {
+			value = arcana_trait_battlemage
+			desc = arcana_battlemage
+		}
+	}
+	# Courtier traits
+	if = {
+		limit = { has_trait = magical_court_1 }
+		add = {
+			value = arcana_trait_arcane_courtier_1
+			desc = arcana_magical_court_1
+		}
+	}
+	if = {
+		limit = { has_trait = magical_court_2 }
+		add = {
+			value = arcana_trait_arcane_courtier_2
+			desc = arcana_magical_court_2
+		}
+	}	
+	# Traditions
+	if = {
+		limit = { culture = { has_cultural_parameter = better_arcane_education }}
+		add = {
+			value = arcana_prescriptivism
+			desc = arcana_prescriptivism
+		}
+	}	
+	if = {
+		limit = { has_character_modifier = wild_magic_weak }
+		add = {
+			value = arcana_wild_magic_weak
+			desc = arcana_wild_magic_weak
+		}
+	}
+	if = {
+		limit = { has_character_modifier = wild_magic_bad }
+		add = {
+			value = arcana_wild_magic_bad
+			desc = arcana_wild_magic_bad
+		}
+	}
+	if = {
+		limit = { has_character_modifier = wild_magic_good }
+		add = {
+			value = arcana_wild_magic_good
+			desc = arcana_wild_magic_good
+		}
+	}
+	if = {
+		limit = { has_character_modifier = wild_magic_powerful }
+		add = {
+			value = arcana_wild_magic_powerful
+			desc = arcana_wild_magic_powerful
+		}
+	}
+	# Event Modifiers
+	if = {
+		limit = { has_character_modifier = modifier_sload_soap_arcana }
+		add = {
+			value = modifier_sload_soap_arcana
+			desc = modifier_sload_soap_arcana
+		}
+	}
+	if = {
+		limit = { has_character_modifier = cloning_mastery }
+		add = {
+			value = arcana_cloning_mastery
+			desc = arcana_cloning_mastery
+		}
+	}
+	if = {
+		limit = { has_character_modifier = mundus_mage_modifier }
+		add = {
+			value = mundus_mage_modifier
+			desc = mundus_mage_modifier
+		}
+	}
+	if = {
+		limit = { has_character_modifier = tournament_arcane_clash_winner_modifier }
+		add = {
+			value = tournament_arcane_clash_winner_modifier
+			desc = tournament_arcane_clash_winner_modifier
+		}
+	}
+	if = {
+		limit = { has_character_modifier = tournament_arcane_clash_participant_modifier }
+		add = {
+			value = tournament_arcane_clash_participant_modifier
+			desc = tournament_arcane_clash_participant_modifier
+		}
+	}
+	if = {
+		limit = { has_character_modifier = tournament_exhausted_arcana_modifier }
+		add = {
+			value = tournament_exhausted_arcana_modifier
+			desc = tournament_exhausted_arcana_modifier
+		}
+	}
+	# Tenets
+	if = {
+		limit = { faith = { has_doctrine_parameter = magic_worship }}
+		add = {
+			value = arcana_magic_worship
+			desc = arcana_magic_worship
+		}
+	}	
+	if = {
+		limit = { 
+			has_trait = vt_ek_lich_character 
+			faith = { has_doctrine_parameter = lich_trait_arcana }
+		}
+		add = {
+			value = arcana_necromancy_worship_lich
+			desc = arcana_necromancy_worship_lich
+		}
+	}
+	# Holy Sites
+	if = {
+		limit = {
+			faith = {
+				controls_holy_site = hs_illuminis
+			}
+			title:b_illumination = {
+				is_holy_site_of = faith
+			}
+		}
+		add = {
+			value = arcana_hs_illuminis
+			desc = arcana_hs_illuminis
+		}
+	}
+	# Court Positions
+	if = {
+		limit = {
+			employs_court_position = court_mage_court_position
+		}
+		add = {
+			add = {
+				value = 1
+				court_position:court_mage_court_position ?= {
+					add = aptitude:court_mage_court_position
+				}
+				desc = arcana_court_mage_court_position
+			}
+			divide = 100
+		}
+	}
+}
+
+#############
+# Spell cost #
+#############
+
+spells_from_all_schools_of_magick_spell_cost_modifier = { value = 0 }
+
+conjuration_spell_cost_modifier = {
+	value = 1
+	min = 0.1
+	add = spells_from_all_schools_of_magick_spell_cost_modifier
+	# Artifacts
+	every_equipped_character_artifact = {
+		limit = { exists = var:conjuration_spell_cost_modifier }
+		add = var:conjuration_spell_cost_modifier
+	}
+	# Tenets
+	if = {
+		limit = { 
+			exists = root
+			culture = { has_cultural_parameter = cheaper_conjuration_spells }
+		}
+		add = -0.1
+	}
+	# Dynasty
+	if = {
+		limit = { 
+			exists = dynasty
+			dynasty = { has_dynasty_modifier = magicka_legacy_conjuration_focus }
+		}
+		add = -0.1
+	}
+}
+
+alteration_spell_cost_modifier = {
+	value = 1
+	min = 0.1
+	add = spells_from_all_schools_of_magick_spell_cost_modifier
+	# Artifacts
+	every_equipped_character_artifact = {
+		limit = { exists = var:alteration_spell_cost_modifier }
+		add = var:alteration_spell_cost_modifier
+	}
+	# Tenets
+	if = {
+		limit = { 
+			exists = root
+			culture = { has_cultural_parameter = cheaper_alteration_spells }
+		}
+		add = -0.1
+	}
+	# Dynasty
+	if = {
+		limit = { 
+			exists = dynasty
+			dynasty = { has_dynasty_modifier = magicka_legacy_alteration_focus }
+		}
+		add = -0.1
+	}
+}
+
+destruction_spell_cost_modifier = {
+	value = 1
+	min = 0.1
+	add = spells_from_all_schools_of_magick_spell_cost_modifier
+	# Artifacts
+	every_equipped_character_artifact = {
+		limit = { exists = var:destruction_spell_cost_modifier }
+		add = var:destruction_spell_cost_modifier
+	}
+	# Tenets
+	if = {
+		limit = { 
+			exists = root
+			culture = { has_cultural_parameter = cheaper_destruction_spells }
+		}
+		add = -0.1
+	}
+	# Dynasty
+	if = {
+		limit = { 
+			exists = dynasty
+			dynasty = { has_dynasty_modifier = magicka_legacy_destruction_focus }
+		}
+		add = -0.1
+	}
+}
+
+illusion_spell_cost_modifier = {
+	value = 1
+	min = 0.1
+	add = spells_from_all_schools_of_magick_spell_cost_modifier
+	# Artifacts
+	every_equipped_character_artifact = {
+		limit = { exists = var:illusion_spell_cost_modifier }
+		add = var:illusion_spell_cost_modifier
+	}
+	# Tenets
+	if = {
+		limit = { 
+			exists = root
+			culture = { has_cultural_parameter = cheaper_illusion_spells }
+		}
+		add = -0.1
+	}
+	# Dynasty
+	if = {
+		limit = { 
+			exists = dynasty
+			dynasty = { has_dynasty_modifier = magicka_legacy_illusion_focus }
+		}
+		add = -0.1
+	}
+}
+
+restoration_spell_cost_modifier = {
+	value = 1
+	min = 0.1
+	add = spells_from_all_schools_of_magick_spell_cost_modifier
+	# Artifacts
+	every_equipped_character_artifact = {
+		limit = { exists = var:restoration_spell_cost_modifier }
+		add = var:restoration_spell_cost_modifier
+	}
+	# Tenets
+	if = {
+		limit = { 
+			exists = root
+			culture = { has_cultural_parameter = cheaper_restoration_spells }
+		}
+		add = -0.1
+	}
+	# Dynasty
+	if = {
+		limit = { 
+			exists = dynasty
+			dynasty = { has_dynasty_modifier = magicka_legacy_restoration_focus }
+		}
+		add = -0.1
+	}
+}
+
+necromancy_spell_cost_modifier = {
+	value = 1
+	min = 0.1
+	add = spells_from_all_schools_of_magick_spell_cost_modifier
+	# Artifacts
+	every_equipped_character_artifact = {
+		limit = { exists = var:necromancy_spell_cost_modifier }
+		add = var:necromancy_spell_cost_modifier
+	}
+	# Tenets
+	if = {
+		limit = { 
+			exists = root
+			faith = { has_doctrine_parameter = cheaper_necromancy_spells }
+		}
+		add = -0.1
+	}
+	# Culture
+	if = {
+		limit = { 
+			exists = root
+			culture = { has_cultural_parameter = cheaper_necromancy_spells }
+		}
+		add = -0.1
+	}
+	# Dynasty
+	if = {
+		limit = { 
+			exists = dynasty
+			dynasty = { has_dynasty_modifier = magicka_legacy_necromancy_focus }
+		}
+		add = -0.15
+	}
+	# Traits
+	if = {
+		limit = { 
+			exists = root
+			has_trait_with_flag = cheaper_necromancy_spells
+		}
+		add = -0.1
+	}
+}
+
+###########
+# Magicka #
+###########
+
+magicka_max = {
+	value = arcana
+	multiply = 10
+	if = {
+		limit = {
+			has_royal_court = yes
+			has_court_type = court_magical
+			court_grandeur_current_level >= 1
+		}
+		multiply = 1.25
+	}
+	if = {
+		limit = {
+			has_trait = sign_atronach
+		}
+		multiply = 1.20
+	}
+}
+
+##  Flat  ##
+# Artifacts
+magicka_flat_artifacts = {
+	value = 0
+	every_equipped_character_artifact = {
+		limit = { exists = var:magicka_modifier_flat }
+		add = var:magicka_modifier_flat
+	}
+}
+
+magicka_flat = {
+	value = {
+		value = arcana
+		multiply = 0.1
+		desc = magicka_arcana
+	}
+	# Artifacts
+	add = {
+		value = magicka_flat_artifacts
+		desc = "artifact_magicka" #referenced in gui, do not change. needed to shield value and stop [jomini_scriptvalue.cpp:109]: Building Script Value Description using unsupported features near GetScriptValueDesc for arcana
+	}
+}
+
+##  Multipliers  ##
+# Legacies
+magicka_mult_magicka_legacy_1 = 0.2
+magicka_mult_arcane_court = 0.25
+
+# Artifacts
+magicka_mult_artifacts = {
+	value = 0
+	every_equipped_character_artifact = {
+		limit = { exists = var:magicka_modifier_mult }
+		add = var:magicka_modifier_mult
+	}
+}
+
+# Traits
+magicka_mult_education = 0.1
+magicka_mult_magickal = 0.1
+magicka_mult_arcana_1 = 0.1
+magicka_mult_arcana_2 = 0.2
+magicka_mult_arcana_3 = 0.3
+magicka_mult_arcana_4 = 0.4
+magicka_mult_arcana_5 = 0.5
+
+# Modifiers
+magicka_mult_modifier_spell_shock = -0.1
+
+# Buildings
+magicka_mult_building_corrupted_heart = 0.25
+magicka_mult_building_garlas_agea = 0.1
+
+magicka_mult = {
+	value = 1
+	# Legacies
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = { has_dynasty_perk = magicka_legacy_1 }
+		}
+		add = {
+			value = magicka_mult_magicka_legacy_1
+			desc = arcana_magicka_legacy_1
+		}
+	}
+	# Artifacts
+	add = {
+		value = magicka_mult_artifacts
+		desc = "artifact_magicka" #referenced in gui, do not change. needed to shield value and stop [jomini_scriptvalue.cpp:109]: Building Script Value Description using unsupported features near GetScriptValueDesc for arcana
+	}
+	# Court type
+	if = {
+		limit = {
+			has_royal_court = yes
+			has_court_type = court_magical
+			court_grandeur_current_level >= 1
+		}
+		add = {
+			value = magicka_mult_arcane_court
+			desc = arcana_magicka_arcane_court
+		}
+	}
+	# Education traits
+	if = {
+		limit = {
+			has_trait = vt_ek_education_magic_5
+		}
+		add = {
+			value = magicka_mult_education
+			desc = magicka_education
+		}
+	}
+	# vt_ek_magickal
+	if = {
+		limit = {
+			has_trait = vt_ek_magickal
+		}
+		add = {
+			value = magicka_mult_magickal
+			desc = magicka_magickal
+		}
+	}
+	# vt_ek_disrupted
+	if = {
+		limit = {
+			has_trait = vt_ek_disrupted
+		}
+		add = {
+			value = magicka_mult_arcana_5.negate
+			desc = magicka_disrupted
+		}
+	}
+	# birthsign
+	if = {
+		limit = {
+			has_trait = sign_atronach
+		}
+		add = {
+			value = magicka_mult_arcana_1.negate
+			desc = magicka_sign_atronach
+		}
+	}
+	# congenital
+	if = {
+		limit = {
+			has_trait = vt_ek_arcana_good_1
+		}
+		add = {
+			value = magicka_mult_arcana_1
+			desc = magicka_arcana_good_1
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = vt_ek_arcana_good_2
+		}
+		add = {
+			value = magicka_mult_arcana_2
+			desc = magicka_arcana_good_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = vt_ek_arcana_good_3
+		}
+		add = {
+			value = magicka_mult_arcana_3
+			desc = magicka_arcana_good_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = vt_ek_arcana_bad_1
+		}
+		add = {
+			value = magicka_mult_arcana_1.negate
+			desc = magicka_arcana_bad_1
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = vt_ek_arcana_bad_2
+		}
+		add = {
+			value = magicka_mult_arcana_2.negate
+			desc = magicka_arcana_bad_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = vt_ek_arcana_bad_3
+		}
+		add = {
+			value = magicka_mult_arcana_3.negate
+			desc = magicka_arcana_bad_3
+		}
+	}
+	# Modifiers
+	if = {
+		limit = {
+			has_character_modifier = modifier_spell_shock
+		}
+		add = {
+			value = magicka_mult_modifier_spell_shock
+			desc = magicka_modifier_spell_shock
+		}
+	}
+	if = {
+		limit = {
+			any_realm_county = {
+				any_county_province = {
+					has_building = garlas_agea_02
+				}
+			}
+		}
+		add = {
+			value = magicka_mult_building_garlas_agea
+			desc = magicka_building_garlas_agea
+		}
+	}
+}
+
+##  Master  ##
+magicka_regen = {
+	value = magicka_flat
+	multiply = magicka_mult
+}
+
+magicka_upkeep = {
+	value = 0
+	if = {
+		limit = { exists = var:ritual_upkeep }
+		add = var:ritual_upkeep #yes add stored value is negative
+	}
+
+	#weird hack thing for ritual display
+	if = {
+		limit = {
+			has_variable = ritual_slot_1
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 1 } }
+		}
+		add = { value = 1 desc = "magicka_ritual" }
+		subtract = 1
+	}
+	if = {
+		limit = {
+			has_variable = ritual_slot_2
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 2 } }
+		}
+		add = { value = 2 desc = "magicka_ritual" }
+		subtract = 2
+	}
+	if = {
+		limit = {
+			has_variable = ritual_slot_3
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 3 } }
+		}
+		add = { value = 3 desc = "magicka_ritual" }
+		subtract = 3
+	}
+	if = {
+		limit = {
+			has_variable = ritual_slot_4
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 4 } }
+		}
+		add = { value = 4 desc = "magicka_ritual" }
+		subtract = 4
+	}
+	if = {
+		limit = {
+			has_variable = ritual_slot_5
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 5 } }
+		}
+		add = { value = 5 desc = "magicka_ritual" }
+		subtract = 5
+	}
+	if = {
+		limit = {
+			has_variable = ritual_slot_6
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 6 } }
+		}
+		add = { value = 6 desc = "magicka_ritual" }
+		subtract = 6
+	}
+	if = {
+		limit = {
+			has_variable = ritual_slot_7
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 7 } }
+		}
+		add = { value = 7 desc = "magicka_ritual" }
+		subtract = 7
+	}
+	if = {
+		limit = {
+			has_variable = ritual_slot_8
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 8 } }
+		}
+		add = { value = 8 desc = "magicka_ritual" }
+		subtract = 8
+	}
+}
+
+magicka_monthly = {
+	value = magicka_regen
+	add = magicka_upkeep
+}
+
+magicka_yearly = {
+	value = magicka_monthly
+	multiply = 12
+}
+
+negate = {
+	value = this
+	multiply = -1
+}
+
+half_maximum_magicka = {
+	value = magicka_max
+	divide = 2
+}
+
+no_spell_hostile = 0
+no_spell_province = 0
+
+### Spell Range
+spell_range_base = {
+	value = 0
+	add = arcana
+	multiply = 10000
+}
+
+spell_range_ui = {
+	value = spell_range
+	divide = 10000
+}
+
+spell_range = {
+	value = spell_range_base
+	#primarily affected by magic education
+	if = {
+		limit = { has_trait = vt_ek_education_magic_1 }
+		multiply = 1.1
+	}
+	else_if = {
+		limit = { has_trait = vt_ek_education_magic_2 }
+		multiply = 1.2
+	}
+	else_if = {
+		limit = { has_trait = vt_ek_education_magic_3 }
+		multiply = 1.3
+	}
+	else_if = {
+		limit = { has_trait = vt_ek_education_magic_4 }
+		multiply = 1.4
+	}
+	else_if = {
+		limit = { has_trait = vt_ek_education_magic_5 }
+		multiply = 1.5
+	}
+	# some other factors might apply too
+	if = {
+		limit = { has_trait = p_kw_mannimarco }
+		multiply = 1.1
+	}
+}
+
+### Magicka Costs
+t1_spell_cost = 20
+t1_spell_lesser_cost = 38
+t1_spell_common_cost = 54
+t1_spell_greater_cost = 68
+t1_spell_grand_cost = 80
+
+t2_spell_cost = 40
+t2_spell_lesser_cost = 76
+t2_spell_common_cost= 108
+t2_spell_greater_cost = 136
+t2_spell_grand_cost = 160
+
+t3_spell_cost = 60
+t3_spell_lesser_cost = 114
+t3_spell_common_cost = 162
+t3_spell_greater_cost = 204
+t3_spell_grand_cost = 240
+
+t4_spell_cost = 80
+t4_spell_lesser_cost = 152
+t4_spell_common_cost = 216
+t4_spell_greater_cost = 272
+t4_spell_grand_cost = 320
+
+t5_spell_cost = 100
+t5_spell_lesser_cost = 190
+t5_spell_common_cost = 270
+t5_spell_greater_cost = 340
+t5_spell_grand_cost = 400
+
+### Spell multiplier
+spell_multiplier_petty = 1
+spell_multiplier_lesser = 2
+spell_multiplier_common = 3
+spell_multiplier_greater = 4
+spell_multiplier_grand = 5
+
+### Alteration ###
+#Level 1
+#burden
+burden_petty_cost = { value = t1_spell_cost multiply = alteration_spell_cost_modifier }
+burden_lesser_cost = { value = t1_spell_lesser_cost multiply = alteration_spell_cost_modifier }
+burden_common_cost = { value = t1_spell_common_cost multiply = alteration_spell_cost_modifier }
+burden_greater_cost = { value = t1_spell_greater_cost multiply = alteration_spell_cost_modifier }
+burden_grand_cost = { value = t1_spell_grand_cost multiply = alteration_spell_cost_modifier }
+burden_level = 1
+burden_hostile = 1
+burden_secret = 0
+burden_province = 0
+#Level 2
+#fortify_buildings
+fortify_buildings_petty_cost = { value = t2_spell_cost multiply = alteration_spell_cost_modifier }
+fortify_buildings_lesser_cost = { value = t2_spell_lesser_cost multiply = alteration_spell_cost_modifier }
+fortify_buildings_common_cost = { value = t2_spell_common_cost multiply = alteration_spell_cost_modifier }
+fortify_buildings_greater_cost = { value = t2_spell_greater_cost multiply = alteration_spell_cost_modifier }
+fortify_buildings_grand_cost = { value = t2_spell_grand_cost multiply = alteration_spell_cost_modifier }
+fortify_buildings_level = 2
+fortify_buildings_hostile = 0
+fortify_buildings_secret = 0
+fortify_buildings_province = 1
+#Level 3
+#transmute
+transmute_petty_cost = { value = t3_spell_cost multiply = alteration_spell_cost_modifier }
+transmute_lesser_cost = { value = t3_spell_lesser_cost multiply = alteration_spell_cost_modifier }
+transmute_common_cost = { value = t3_spell_common_cost multiply = alteration_spell_cost_modifier }
+transmute_greater_cost = { value = t3_spell_greater_cost multiply = alteration_spell_cost_modifier }
+transmute_grand_cost = { value = t3_spell_grand_cost multiply = alteration_spell_cost_modifier }
+transmute_level = 3
+transmute_hostile = 0
+transmute_secret = 0
+transmute_province = 0
+#Level 4
+#dispel
+dispel_petty_cost = { value = t4_spell_cost multiply = alteration_spell_cost_modifier }
+dispel_lesser_cost = { value = t4_spell_lesser_cost multiply = alteration_spell_cost_modifier }
+dispel_common_cost = { value = t4_spell_common_cost multiply = alteration_spell_cost_modifier }
+dispel_greater_cost = { value = t4_spell_greater_cost multiply = alteration_spell_cost_modifier }
+dispel_grand_cost = { value = t4_spell_grand_cost multiply = alteration_spell_cost_modifier }
+dispel_level = 4
+dispel_hostile = 0
+dispel_secret = 0
+dispel_province = 0
+#Level 5
+#absorb_skill
+absorb_skill_petty_cost = { value = t5_spell_cost multiply = alteration_spell_cost_modifier }
+absorb_skill_lesser_cost = { value = t5_spell_lesser_cost multiply = alteration_spell_cost_modifier }
+absorb_skill_common_cost = { value = t5_spell_common_cost multiply = alteration_spell_cost_modifier }
+absorb_skill_greater_cost = { value = t5_spell_greater_cost multiply = alteration_spell_cost_modifier }
+absorb_skill_grand_cost = { value = t5_spell_grand_cost multiply = alteration_spell_cost_modifier }
+absorb_skill_level = 5
+absorb_skill_hostile = 1
+absorb_skill_secret = 0
+absorb_skill_province = 0
+### Conjuration ###
+# Level 1
+#summon atronach
+summon_atronach_petty_cost = { value = t1_spell_cost multiply = conjuration_spell_cost_modifier }
+summon_atronach_lesser_cost = { value = t1_spell_lesser_cost multiply = conjuration_spell_cost_modifier }
+summon_atronach_common_cost = { value = t1_spell_common_cost multiply = conjuration_spell_cost_modifier }
+summon_atronach_greater_cost = { value = t1_spell_greater_cost multiply = conjuration_spell_cost_modifier }
+summon_atronach_grand_cost = { value = t1_spell_grand_cost multiply = conjuration_spell_cost_modifier }
+summon_atronach_level = 1
+summon_atronach_hostile = 0
+summon_atronach_secret = 0
+summon_atronach_province = 0
+# Level 2
+#banish daedra
+banish_daedra_petty_cost = { value = t2_spell_cost multiply = conjuration_spell_cost_modifier }
+banish_daedra_lesser_cost = { value = t2_spell_lesser_cost multiply = conjuration_spell_cost_modifier }
+banish_daedra_common_cost = { value = t2_spell_common_cost multiply = conjuration_spell_cost_modifier }
+banish_daedra_greater_cost = { value = t2_spell_greater_cost multiply = conjuration_spell_cost_modifier }
+banish_daedra_grand_cost = { value = t2_spell_grand_cost multiply = conjuration_spell_cost_modifier }
+banish_daedra_level = 2
+banish_daedra_hostile = 1
+banish_daedra_secret = 0
+banish_daedra_province = 0
+# Level 3
+#unleash daedric horde
+daedric_horde_petty_cost = { value = t3_spell_cost multiply = conjuration_spell_cost_modifier }
+daedric_horde_lesser_cost = { value = t3_spell_lesser_cost multiply = conjuration_spell_cost_modifier }
+daedric_horde_common_cost = { value = t3_spell_common_cost multiply = conjuration_spell_cost_modifier }
+daedric_horde_greater_cost = { value = t3_spell_greater_cost multiply = conjuration_spell_cost_modifier }
+daedric_horde_grand_cost = { value = t3_spell_grand_cost multiply = conjuration_spell_cost_modifier }
+daedric_horde_level = 3
+daedric_horde_hostile = 1
+daedric_horde_secret = 0
+daedric_horde_province = 1
+# Level 4
+#summon dremora
+summon_dremora_petty_cost = { value = t4_spell_cost multiply = conjuration_spell_cost_modifier }
+summon_dremora_lesser_cost = { value = t4_spell_lesser_cost multiply = conjuration_spell_cost_modifier }
+summon_dremora_common_cost = { value = t4_spell_common_cost multiply = conjuration_spell_cost_modifier }
+summon_dremora_greater_cost = { value = t4_spell_greater_cost multiply = conjuration_spell_cost_modifier }
+summon_dremora_grand_cost = { value = t4_spell_grand_cost multiply = conjuration_spell_cost_modifier }
+summon_dremora_level = 4
+summon_dremora_hostile = 0
+summon_dremora_secret = 0
+summon_dremora_province = 0
+# Level 5
+#summon daedric army
+daedric_army_petty_cost = { value = t5_spell_cost multiply = conjuration_spell_cost_modifier }
+daedric_army_lesser_cost = { value = t5_spell_lesser_cost multiply = conjuration_spell_cost_modifier }
+daedric_army_common_cost = { value = t5_spell_common_cost multiply = conjuration_spell_cost_modifier }
+daedric_army_greater_cost = { value = t5_spell_greater_cost multiply = conjuration_spell_cost_modifier }
+daedric_army_grand_cost = { value = t5_spell_grand_cost multiply = conjuration_spell_cost_modifier }
+daedric_army_level = 5
+daedric_army_hostile = 0
+daedric_army_secret = 0
+daedric_army_province = 0
+
+### Destruction ###
+#detract magicka
+detract_magicka_petty_cost = { value = t1_spell_cost multiply = destruction_spell_cost_modifier }
+detract_magicka_lesser_cost = { value = t1_spell_lesser_cost multiply = destruction_spell_cost_modifier }
+detract_magicka_common_cost = { value = t1_spell_common_cost multiply = destruction_spell_cost_modifier }
+detract_magicka_greater_cost = { value = t1_spell_greater_cost multiply = destruction_spell_cost_modifier }
+detract_magicka_grand_cost = { value = t1_spell_grand_cost multiply = destruction_spell_cost_modifier }
+detract_magicka_level = 1
+detract_magicka_hostile = 1
+detract_magicka_secret = 0
+detract_magicka_province = 0
+#inflict wounds
+inflict_wounds_petty_cost = { value = t2_spell_cost multiply = destruction_spell_cost_modifier }
+inflict_wounds_lesser_cost = { value = t2_spell_lesser_cost multiply = destruction_spell_cost_modifier }
+inflict_wounds_common_cost = { value = t2_spell_common_cost multiply = destruction_spell_cost_modifier }
+inflict_wounds_greater_cost = { value = t2_spell_greater_cost multiply = destruction_spell_cost_modifier }
+inflict_wounds_grand_cost = { value = t2_spell_grand_cost multiply = destruction_spell_cost_modifier }
+inflict_wounds_level = 2
+inflict_wounds_hostile = 1
+inflict_wounds_secret = 0
+inflict_wounds_province = 0
+#destroy walls
+destroy_walls_petty_cost = { value = t3_spell_cost multiply = destruction_spell_cost_modifier }
+destroy_walls_lesser_cost = { value = t3_spell_lesser_cost multiply = destruction_spell_cost_modifier }
+destroy_walls_common_cost = { value = t3_spell_common_cost multiply = destruction_spell_cost_modifier }
+destroy_walls_greater_cost = { value = t3_spell_greater_cost multiply = destruction_spell_cost_modifier }
+destroy_walls_grand_cost = { value = t3_spell_grand_cost multiply = destruction_spell_cost_modifier }
+destroy_walls_level = 3
+destroy_walls_hostile = 1
+destroy_walls_secret = 0
+destroy_walls_province = 1
+#display of might
+display_of_might_petty_cost = { value = t4_spell_cost multiply = destruction_spell_cost_modifier }
+display_of_might_lesser_cost = { value = t4_spell_lesser_cost multiply = destruction_spell_cost_modifier }
+display_of_might_common_cost = { value = t4_spell_common_cost multiply = destruction_spell_cost_modifier }
+display_of_might_greater_cost = { value = t4_spell_greater_cost multiply = destruction_spell_cost_modifier }
+display_of_might_grand_cost = { value = t4_spell_grand_cost multiply = destruction_spell_cost_modifier }
+display_of_might_level = 4
+display_of_might_hostile = 0
+display_of_might_secret = 0
+display_of_might_province = 1
+#devastate province
+devastate_province_petty_cost = { value = t5_spell_cost multiply = destruction_spell_cost_modifier }
+devastate_province_lesser_cost = { value = t5_spell_lesser_cost multiply = destruction_spell_cost_modifier }
+devastate_province_common_cost = { value = t5_spell_common_cost multiply = destruction_spell_cost_modifier }
+devastate_province_greater_cost = { value = t5_spell_greater_cost multiply = destruction_spell_cost_modifier }
+devastate_province_grand_cost = { value = t5_spell_grand_cost multiply = destruction_spell_cost_modifier }
+devastate_province_level = 5
+devastate_province_hostile = 1
+devastate_province_secret = 0
+devastate_province_province = 1
+
+### Illusion ###
+# Level 1
+#muffled senses
+muffled_senses_petty_cost = { value = t1_spell_cost multiply = illusion_spell_cost_modifier }
+muffled_senses_lesser_cost = { value = t1_spell_lesser_cost multiply = illusion_spell_cost_modifier }
+muffled_senses_common_cost = { value = t1_spell_common_cost multiply = illusion_spell_cost_modifier }
+muffled_senses_greater_cost = { value = t1_spell_greater_cost multiply = illusion_spell_cost_modifier }
+muffled_senses_grand_cost = { value = t1_spell_grand_cost multiply = illusion_spell_cost_modifier }
+muffled_senses_level = 1
+muffled_senses_hostile = 1
+muffled_senses_secret = 1
+muffled_senses_province = 0
+# Level 2
+#charm
+charm_petty_cost = { value = t2_spell_cost multiply = illusion_spell_cost_modifier }
+charm_lesser_cost = { value = t2_spell_lesser_cost multiply = illusion_spell_cost_modifier }
+charm_common_cost = { value = t2_spell_common_cost multiply = illusion_spell_cost_modifier }
+charm_greater_cost = { value = t2_spell_greater_cost multiply = illusion_spell_cost_modifier }
+charm_grand_cost = { value = t2_spell_grand_cost multiply = illusion_spell_cost_modifier }
+charm_level = 2
+charm_hostile = 1
+charm_secret = 1
+charm_province = 0
+# Level 3
+#calm
+calm_petty_cost = { value = t3_spell_cost multiply = illusion_spell_cost_modifier }
+calm_lesser_cost = { value = t3_spell_lesser_cost multiply = illusion_spell_cost_modifier }
+calm_common_cost = { value = t3_spell_common_cost multiply = illusion_spell_cost_modifier }
+calm_greater_cost = { value = t3_spell_greater_cost multiply = illusion_spell_cost_modifier }
+calm_grand_cost = { value = t3_spell_grand_cost multiply = illusion_spell_cost_modifier }
+calm_level = 3
+calm_hostile = 0
+calm_secret = 0
+calm_province = 0
+# Level 4
+#mass_paranoia
+mass_paranoia_petty_cost = { value = t4_spell_cost multiply = illusion_spell_cost_modifier }
+mass_paranoia_lesser_cost = { value = t4_spell_lesser_cost multiply = illusion_spell_cost_modifier }
+mass_paranoia_common_cost = { value = t4_spell_common_cost multiply = illusion_spell_cost_modifier }
+mass_paranoia_greater_cost = { value = t4_spell_greater_cost multiply = illusion_spell_cost_modifier }
+mass_paranoia_grand_cost = { value = t4_spell_grand_cost multiply = illusion_spell_cost_modifier }
+mass_paranoia_level = 4
+mass_paranoia_hostile = 1
+mass_paranoia_secret = 0
+mass_paranoia_province = 1
+# Level 5
+#mind bending
+mind_bending_petty_cost = { value = t5_spell_cost multiply = illusion_spell_cost_modifier }
+mind_bending_lesser_cost = { value = t5_spell_lesser_cost multiply = illusion_spell_cost_modifier }
+mind_bending_common_cost = { value = t5_spell_common_cost multiply = illusion_spell_cost_modifier }
+mind_bending_greater_cost = { value = t5_spell_greater_cost multiply = illusion_spell_cost_modifier }
+mind_bending_grand_cost = { value = t5_spell_grand_cost multiply = illusion_spell_cost_modifier }
+mind_bending_level = 5
+mind_bending_hostile = 1
+mind_bending_secret = 1
+mind_bending_province = 0
+
+### Restoration ###
+# Level 1
+#resilience
+resilience_petty_cost = { value = t1_spell_cost multiply = restoration_spell_cost_modifier }
+resilience_lesser_cost = { value = t1_spell_lesser_cost multiply = restoration_spell_cost_modifier }
+resilience_common_cost = { value = t1_spell_common_cost multiply = restoration_spell_cost_modifier }
+resilience_greater_cost = { value = t1_spell_greater_cost multiply = restoration_spell_cost_modifier }
+resilience_grand_cost = { value = t1_spell_grand_cost multiply = restoration_spell_cost_modifier }
+resilience_level = 1
+resilience_hostile = 0
+resilience_secret = 0
+resilience_province = 0
+# Level 2
+#mend wound
+mend_wound_petty_cost = { value = t2_spell_cost multiply = restoration_spell_cost_modifier }
+mend_wound_lesser_cost = { value = t2_spell_lesser_cost multiply = restoration_spell_cost_modifier }
+mend_wound_common_cost = { value = t2_spell_common_cost multiply = restoration_spell_cost_modifier }
+mend_wound_greater_cost = { value = t2_spell_greater_cost multiply = restoration_spell_cost_modifier }
+mend_wound_grand_cost = { value = t2_spell_grand_cost multiply = restoration_spell_cost_modifier }
+mend_wound_level = 2
+mend_wound_hostile = 0
+mend_wound_secret = 0
+mend_wound_province = 0
+# Level 3
+#turn undead
+turn_undead_petty_cost = { value = t3_spell_cost multiply = restoration_spell_cost_modifier }
+turn_undead_lesser_cost = { value = t3_spell_lesser_cost multiply = restoration_spell_cost_modifier }
+turn_undead_common_cost = { value = t3_spell_common_cost multiply = restoration_spell_cost_modifier }
+turn_undead_greater_cost = { value = t3_spell_greater_cost multiply = restoration_spell_cost_modifier }
+turn_undead_grand_cost = { value = t3_spell_grand_cost multiply = restoration_spell_cost_modifier }
+turn_undead_level = 3
+turn_undead_hostile = 1
+turn_undead_secret = 0
+turn_undead_province = 0
+# Level 4
+#cure disease
+cure_disease_petty_cost = { value = t4_spell_cost multiply = restoration_spell_cost_modifier }
+cure_disease_lesser_cost = { value = t4_spell_lesser_cost multiply = restoration_spell_cost_modifier }
+cure_disease_common_cost = { value = t4_spell_common_cost multiply = restoration_spell_cost_modifier }
+cure_disease_greater_cost = { value = t4_spell_greater_cost multiply = restoration_spell_cost_modifier }
+cure_disease_grand_cost = { value = t4_spell_grand_cost multiply = restoration_spell_cost_modifier }
+cure_disease_level = 4
+cure_disease_hostile = 0
+cure_disease_secret = 0
+cure_disease_province = 0
+# Level 5
+#spread vitality
+spread_vitality_petty_cost = { value = t5_spell_cost multiply = restoration_spell_cost_modifier }
+spread_vitality_lesser_cost = { value = t5_spell_lesser_cost multiply = restoration_spell_cost_modifier }
+spread_vitality_common_cost = { value = t5_spell_common_cost multiply = restoration_spell_cost_modifier }
+spread_vitality_greater_cost = { value = t5_spell_greater_cost multiply = restoration_spell_cost_modifier }
+spread_vitality_grand_cost = { value = t5_spell_grand_cost multiply = restoration_spell_cost_modifier }
+spread_vitality_level = 5
+spread_vitality_hostile = 0
+spread_vitality_secret = 0
+spread_vitality_province = 1
+#remove curse
+remove_curse_petty_cost = { value = t5_spell_cost multiply = restoration_spell_cost_modifier }
+remove_curse_lesser_cost = { value = t5_spell_lesser_cost multiply = restoration_spell_cost_modifier }
+remove_curse_common_cost = { value = t5_spell_common_cost multiply = restoration_spell_cost_modifier }
+remove_curse_greater_cost = { value = t5_spell_greater_cost multiply = restoration_spell_cost_modifier }
+remove_curse_grand_cost = { value = t5_spell_grand_cost multiply = restoration_spell_cost_modifier }
+remove_curse_level = 5
+remove_curse_hostile = 0
+remove_curse_secret = 0
+remove_curse_province = 0
+
+### Necromancy ###
+#summon_skeleton
+summon_skeleton_petty_cost = { value = t1_spell_cost multiply = necromancy_spell_cost_modifier }
+summon_skeleton_lesser_cost = { value = t1_spell_lesser_cost multiply = necromancy_spell_cost_modifier }
+summon_skeleton_common_cost = { value = t1_spell_common_cost multiply = necromancy_spell_cost_modifier }
+summon_skeleton_greater_cost = { value = t1_spell_greater_cost multiply = necromancy_spell_cost_modifier }
+summon_skeleton_grand_cost = { value = t1_spell_grand_cost multiply = necromancy_spell_cost_modifier }
+summon_skeleton_level = 1
+summon_skeleton_hostile = 0
+summon_skeleton_secret = 0
+summon_skeleton_province = 0
+#leech_health
+leech_health_petty_cost = { value = t2_spell_cost multiply = necromancy_spell_cost_modifier }
+leech_health_lesser_cost = { value = t2_spell_lesser_cost multiply = necromancy_spell_cost_modifier }
+leech_health_common_cost = { value = t2_spell_common_cost multiply = necromancy_spell_cost_modifier }
+leech_health_greater_cost = { value = t2_spell_greater_cost multiply = necromancy_spell_cost_modifier }
+leech_health_grand_cost = { value = t2_spell_grand_cost multiply = necromancy_spell_cost_modifier }
+leech_health_level = 2
+leech_health_hostile = 1
+leech_health_secret = 0
+leech_health_province = 0
+#claim_corpse
+claim_corpse_petty_cost = { value = t3_spell_cost multiply = necromancy_spell_cost_modifier }
+claim_corpse_lesser_cost = { value = t3_spell_lesser_cost multiply = necromancy_spell_cost_modifier }
+claim_corpse_common_cost = { value = t3_spell_common_cost multiply = necromancy_spell_cost_modifier }
+claim_corpse_greater_cost = { value = t3_spell_greater_cost multiply = necromancy_spell_cost_modifier }
+claim_corpse_grand_cost = { value = t3_spell_grand_cost multiply = necromancy_spell_cost_modifier }
+claim_corpse_level = 3
+claim_corpse_hostile = 1
+claim_corpse_secret = 0
+claim_corpse_province = 0
+#restless_dead
+restless_dead_petty_cost = { value = t4_spell_cost multiply = necromancy_spell_cost_modifier }
+restless_dead_lesser_cost = { value = t4_spell_lesser_cost multiply = necromancy_spell_cost_modifier }
+restless_dead_common_cost = { value = t4_spell_common_cost multiply = necromancy_spell_cost_modifier }
+restless_dead_greater_cost = { value = t4_spell_greater_cost multiply = necromancy_spell_cost_modifier }
+restless_dead_grand_cost = { value = t4_spell_grand_cost multiply = necromancy_spell_cost_modifier }
+restless_dead_level = 4
+restless_dead_hostile = 1
+restless_dead_secret = 0
+restless_dead_province = 1
+#create_undead
+create_undead_petty_cost = { value = t5_spell_cost multiply = necromancy_spell_cost_modifier }
+create_undead_lesser_cost = { value = t5_spell_lesser_cost multiply = necromancy_spell_cost_modifier }
+create_undead_common_cost = { value = t5_spell_common_cost multiply = necromancy_spell_cost_modifier }
+create_undead_greater_cost = { value = t5_spell_greater_cost multiply = necromancy_spell_cost_modifier }
+create_undead_grand_cost = { value = t5_spell_grand_cost multiply = necromancy_spell_cost_modifier }
+create_undead_level = 5
+create_undead_hostile = 0
+create_undead_secret = 0
+create_undead_province = 0
+
+spell_school_bg = {
+	if = {
+		limit = { var:spell_school = flag:conjuration }
+		value = conjuration
+	}
+	else_if = {
+		limit = { var:spell_school = flag:destruction }
+		value = destruction
+	}
+	else_if = {
+		limit = { var:spell_school = flag:alteration }
+		value = alteration
+	}
+	else_if = {
+		limit = { var:spell_school = flag:illusion }
+		value = illusion
+	}
+	else_if = {
+		limit = { var:spell_school = flag:restoration }
+		value = restoration
+	}
+	else_if = {
+		limit = { var:spell_school = flag:necromancy }
+		value = necromancy
+	}
+}
+
+conjuration = 1
+destruction = 3
+alteration = 5
+illusion = 2
+restoration = 4
+necromancy = 6
+
+ritual_slots_arcana = {  #+1 per 10 arcana - ~20 is high for skill, gives +2. +4 at 40, ie extremely good mage
+	value = arcana
+	divide = 10
+	floor = yes
+	max = 4
+}
+
+ritual_slot_limit = {
+	value = 1 #base value
+	if = { #+1 for level 2 magical edu
+		limit = { has_trait_rank = { trait = education_magic rank >= 2 } }
+		add = 1
+	}
+	if = { #+1 for level 4 magical edu
+		limit = { has_trait_rank = { trait = education_magic rank >= 4 } }
+		add = 1
+	}
+	if = { #+1 if you have the last magica dynasty perk
+		limit = {
+			exists = dynasty
+			dynasty = { has_dynasty_perk = magicka_legacy_5 }
+		}
+		add = 1
+	}
+	if = { #+1 if you have an Arcane Court at max lvl
+		limit = {
+			has_royal_court = yes
+			has_court_type = court_magical
+			court_grandeur_current_level >= 10
+		}
+		add = 1
+	}
+	add = ritual_slots_arcana
+	max = 8
+}
+ritual_slot_active = {
+	value = 0
+	if = { limit = { has_variable = ritual_slot_1 } add = 1 }
+	if = { limit = { has_variable = ritual_slot_2 } add = 1 }
+	if = { limit = { has_variable = ritual_slot_3 } add = 1 }
+	if = { limit = { has_variable = ritual_slot_4 } add = 1 }
+	if = { limit = { has_variable = ritual_slot_5 } add = 1 }
+	if = { limit = { has_variable = ritual_slot_6 } add = 1 }
+	if = { limit = { has_variable = ritual_slot_7 } add = 1 }
+	if = { limit = { has_variable = ritual_slot_8 } add = 1 }
+}
+
+
+# Ritual Cost
+t1_ritual_cost = -0.2
+t2_ritual_cost = -0.4
+t3_ritual_cost = -0.8
+
+### Rituals
+# Alteration
+feather_school = alteration
+feather_upkeep = { value = t1_ritual_cost multiply = alteration_spell_cost_modifier }
+feather_level = 1
+oakflesh_school = alteration
+oakflesh_upkeep = { value = t2_ritual_cost multiply = alteration_spell_cost_modifier }
+oakflesh_level = 2
+swiftness_school = alteration
+swiftness_upkeep = { value = t3_ritual_cost multiply = alteration_spell_cost_modifier }
+swiftness_level = 3
+magic_ward_school = alteration
+magic_ward_upkeep = { value = t3_ritual_cost multiply = alteration_spell_cost_modifier }
+magic_ward_level = 3
+# Conjuration
+oblivion_counsel_school = conjuration
+oblivion_counsel_upkeep = { value = t1_ritual_cost multiply = conjuration_spell_cost_modifier }
+oblivion_counsel_level = 1
+bound_armor_school = conjuration
+bound_armor_upkeep = { value = t2_ritual_cost multiply = conjuration_spell_cost_modifier }
+bound_armor_level = 2
+empower_magic_school = conjuration
+empower_magic_upkeep = { value = t3_ritual_cost multiply = conjuration_spell_cost_modifier }
+empower_magic_level = 3
+# Destruction
+arcane_outlet_school = destruction
+arcane_outlet_upkeep = { value = t1_ritual_cost multiply = destruction_spell_cost_modifier }
+arcane_outlet_level = 1
+elemental_cloak_school = destruction
+elemental_cloak_upkeep = { value = t2_ritual_cost multiply = destruction_spell_cost_modifier }
+elemental_cloak_level = 2
+ignited_weapons_school = destruction
+ignited_weapons_upkeep = { value = t3_ritual_cost multiply = destruction_spell_cost_modifier }
+ignited_weapons_level = 3
+# Illusion
+conceal_school = illusion
+conceal_upkeep = { value = t1_ritual_cost multiply = illusion_spell_cost_modifier }
+conceal_level = 1
+invisibility_school = illusion
+invisibility_upkeep = { value = t2_ritual_cost multiply = illusion_spell_cost_modifier }
+invisibility_level = 2
+rally_school = illusion
+rally_upkeep = { value = t3_ritual_cost multiply = illusion_spell_cost_modifier }
+rally_level = 3
+# Restoration
+fortify_diplomacy_school = restoration
+fortify_diplomacy_upkeep = { value = t1_ritual_cost multiply = restoration_spell_cost_modifier }
+fortify_diplomacy_level = 1
+fortify_stewardship_school = restoration
+fortify_stewardship_upkeep = { value = t1_ritual_cost multiply = restoration_spell_cost_modifier }
+fortify_stewardship_level = 1
+fortify_intrigue_school = restoration
+fortify_intrigue_upkeep = { value = t1_ritual_cost multiply = restoration_spell_cost_modifier }
+fortify_intrigue_level = 1
+fortify_martial_school = restoration
+fortify_martial_upkeep = { value = t1_ritual_cost multiply = restoration_spell_cost_modifier }
+fortify_martial_level = 1
+fortify_learning_school = restoration
+fortify_learning_upkeep = { value = t1_ritual_cost multiply = restoration_spell_cost_modifier }
+fortify_learning_level = 1
+exuberance_school = restoration
+exuberance_upkeep = { value = t2_ritual_cost multiply = restoration_spell_cost_modifier }
+exuberance_level = 2
+mass_healing_school = restoration
+mass_healing_upkeep = { value = t3_ritual_cost multiply = restoration_spell_cost_modifier }
+mass_healing_level = 3
+# Necromancy
+bone_mantle_school = necromancy
+bone_mantle_upkeep = { value = t1_ritual_cost multiply = necromancy_spell_cost_modifier }
+bone_mantle_level = 1
+unhallowed_earth_school = necromancy
+unhallowed_earth_upkeep = { value = t2_ritual_cost multiply = necromancy_spell_cost_modifier }
+unhallowed_earth_level = 2
+undead_frenzy_school = necromancy
+undead_frenzy_upkeep = { value = t3_ritual_cost multiply = necromancy_spell_cost_modifier }
+undead_frenzy_level = 3
+
+life_extension_upkeep = -100
+life_extension_time = 1825 #5 years
+life_extension_stages = 5
+lichdom_upkeep = -75
+lichdom_time = 3650 #10 years
+lichdom_stages = 4
+
+stage_1 = 1
+stage_2 = 2
+stage_3 = 3
+stage_4 = 4
+stage_5 = 5
+
+seed_max = {
+	value = THIS
+	add = 50
+}
+
+seed_min = {
+	value = THIS
+	subtract = 50
+}
+
+fail_mod = {
+	value = 40
+	if = {
+		limit = { THIS.seed_max <= 40 }
+		subtract = { value = 40 subtract = THIS.seed_max }
+	}
+	if = {
+		limit = { THIS.seed_min > 0 }
+		subtract = THIS.seed_min
+	}
+	min = 0
+}
+
+fail_no = {
+	value = 10
+	if = {
+		limit = { THIS.seed_max <= 50 }
+		subtract = { value = 50 subtract = THIS.seed_max }
+	}
+	if = {
+		limit = { THIS.seed_min > 40 }
+		subtract = { value = THIS.seed_min subtract = 40 }
+	}
+	min = 0
+}
+
+succ_mod = {
+	value = 50
+	if = {
+		limit = { THIS.seed_max <= 100 }
+		subtract = { value = 100 subtract = THIS.seed_max }
+	}
+	if = {
+		limit = { THIS.seed_min > 50 }
+		subtract = { value = THIS.seed_min subtract = 50 }
+	}
+	min = 0
+}
+
+succ_tot = {
+	value = 0
+	add = {
+		value = THIS.seed_max
+		subtract = 100
+		min = 0
+	}
+}
+
+fail_tot = {
+	value = 0
+	subtract = THIS.seed_min
+	min = 0
+}
+
+restless_dead_value = {
+	add = 1
+	if = { 
+        limit = { 
+            any_equipped_character_artifact = { 
+				has_artifact_modifier = staff_worms_modifier
+			}
+		}
+		add = 1
+    }
+	if = { 
+        limit = { 
+            any_realm_county = {
+				any_county_province = {
+					has_building = deep_graves_01
+				}
+			}
+		}
+		add = 0.2
+    }
+	if = { 
+        limit = { 
+            any_realm_county = {
+				any_county_province = {
+					has_building = bone_orchard_01 
+				}
+			}
+		}
+		add = 0.2
+    }
+}
+
+create_undead_value = {
+	add = 1
+	if = { 
+        limit = { 
+            any_equipped_character_artifact = { 
+				has_artifact_modifier = staff_worms_modifier
+			}
+		}
+		add = 1
+    }
+}

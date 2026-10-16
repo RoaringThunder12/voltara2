@@ -1,0 +1,743 @@
+﻿##to add arcana to modifiers, compare with modifier_ritual_fortify_arcana in common\script_values\ek_magic_values.txt. Assign value and then the effect adding that value
+
+### Ritual Modifier
+
+# Alteration
+modifier_ritual_feather = {
+	icon = magic_positive
+	character_travel_speed = 25
+}
+modifier_ritual_oakflesh = {
+	icon = magic_positive
+	character_travel_safety = 15
+}
+modifier_ritual_swiftness = {
+	icon = martial_positive
+	movement_speed = 0.1
+	naval_movement_speed_mult = 0.1
+	hostile_county_attrition = -0.1
+}
+modifier_ritual_magic_ward = {
+	icon = magic_positive
+}
+# Conjuration
+modifier_ritual_oblivion_counsel = {
+	icon = oblivion_positive
+	monthly_lifestyle_xp_gain_mult = 0.05
+}
+modifier_ritual_bound_armor = {
+	icon = prowess_positive
+	prowess_no_portrait = 10
+}
+modifier_ritual_empower_magic = {
+	icon = magic_positive
+	mages_damage_mult = 0.1
+	mages_siege_value_mult = 0.25
+}
+# Destruction
+modifier_ritual_arcane_outlet = {
+	icon = stress_positive
+	stress_loss_mult = 0.1
+	prowess_per_stress_level = 1
+}
+modifier_ritual_elemental_cloak = {
+	icon = magic_positive
+	prowess = 5
+}
+modifier_ritual_ignited_weapons = {
+	icon = martial_positive
+	raid_speed = 0.5
+	enemy_hard_casualty_modifier = 0.25
+}
+# Illusion
+modifier_ritual_conceal = {
+	icon = mask_positive
+	attraction_opinion = 10
+	owned_personal_scheme_success_chance_add = 10
+}
+modifier_ritual_invisibility = {
+	icon = intrigue_positive	
+	enemy_hostile_scheme_phase_duration_add = 10
+	enemy_hostile_scheme_success_chance_add = -10
+}
+modifier_ritual_rally = {
+	icon = martial_positive
+	levy_size = 0.1
+	counter_efficiency = 0.25
+}
+# Restoration
+modifier_ritual_fortify_diplomacy = {
+	icon = diplomacy_positive
+	diplomacy = 1
+}
+modifier_ritual_fortify_stewardship = {
+	icon = stewardship_positive
+	stewardship = 1
+}
+modifier_ritual_fortify_intrigue = {
+	icon = intrigue_positive
+	intrigue = 1
+}
+modifier_ritual_fortify_martial = {
+	icon = martial_positive
+	martial = 1
+}
+modifier_ritual_fortify_learning = {
+	icon = learning_positive
+	learning = 1
+}
+modifier_ritual_exuberance = {
+	icon = health_positive
+	health = 0.5
+	fertility = 0.1
+}
+modifier_ritual_mass_healing = {
+	icon = health_positive
+	levy_reinforcement_rate = 0.25
+	hard_casualty_modifier = -0.25
+}
+# Necromancy
+modifier_ritual_bone_mantle = {
+	icon = magic_positive
+	dread_baseline_add = 10
+}
+modifier_ritual_unhallowed_earth = {
+	icon = magic_positive
+	# raises all fallen knights as undead
+}
+modifier_ritual_undead_frenzy = {
+	icon = prowess_positive
+	knight_effectiveness_mult = 0.25
+}
+
+### Spell Modifiers
+modifier_spell_absorb_diplomacy_pos_petty = {
+	icon = diplomacy_positive
+	diplomacy = 3
+}
+modifier_spell_absorb_diplomacy_neg_petty = {
+	icon = diplomacy_negative
+	diplomacy = -3
+}
+modifier_spell_absorb_diplomacy_pos_lesser = {
+	icon = diplomacy_positive
+	diplomacy = 6
+}
+modifier_spell_absorb_diplomacy_neg_lesser = {
+	icon = diplomacy_negative
+	diplomacy = -6
+}
+modifier_spell_absorb_diplomacy_pos_common = {
+	icon = diplomacy_positive
+	diplomacy = 9
+}
+modifier_spell_absorb_diplomacy_neg_common = {
+	icon = diplomacy_negative
+	diplomacy = -9
+}
+modifier_spell_absorb_diplomacy_pos_greater = {
+	icon = diplomacy_positive
+	diplomacy = 12
+}
+modifier_spell_absorb_diplomacy_neg_greater = {
+	icon = diplomacy_negative
+	diplomacy = -12
+}
+modifier_spell_absorb_diplomacy_pos_grand = {
+	icon = diplomacy_positive
+	diplomacy = 15
+}
+modifier_spell_absorb_diplomacy_neg_grand = {
+	icon = diplomacy_negative
+	diplomacy = -15
+}
+
+modifier_spell_absorb_martial_pos_petty = {
+	icon = martial_positive
+	martial = 3
+}
+modifier_spell_absorb_martial_neg_petty = {
+	icon = martial_negative
+	martial = -3
+}
+modifier_spell_absorb_martial_pos_lesser = {
+	icon = martial_positive
+	martial = 6
+}
+modifier_spell_absorb_martial_neg_lesser = {
+	icon = martial_negative
+	martial = -6
+}
+modifier_spell_absorb_martial_pos_common = {
+	icon = martial_positive
+	martial = 9
+}
+modifier_spell_absorb_martial_neg_common = {
+	icon = martial_negative
+	martial = -9
+}
+modifier_spell_absorb_martial_pos_greater = {
+	icon = martial_positive
+	martial = 12
+}
+modifier_spell_absorb_martial_neg_greater = {
+	icon = martial_negative
+	martial = -12
+}
+modifier_spell_absorb_martial_pos_grand = {
+	icon = martial_positive
+	martial = 15
+}
+modifier_spell_absorb_martial_neg_grand = {
+	icon = martial_negative
+	martial = -15
+}
+
+modifier_spell_absorb_stewardship_pos_petty = {
+	icon = stewardship_positive
+	stewardship = 3
+}
+modifier_spell_absorb_stewardship_neg_petty = {
+	icon = stewardship_negative
+	stewardship = -3
+}
+modifier_spell_absorb_stewardship_pos_lesser = {
+	icon = stewardship_positive
+	stewardship = 6
+}
+modifier_spell_absorb_stewardship_neg_lesser = {
+	icon = stewardship_negative
+	stewardship = -6
+}
+modifier_spell_absorb_stewardship_pos_common = {
+	icon = stewardship_positive
+	stewardship = 9
+}
+modifier_spell_absorb_stewardship_neg_common = {
+	icon = stewardship_negative
+	stewardship = -9
+}
+modifier_spell_absorb_stewardship_pos_greater = {
+	icon = stewardship_positive
+	stewardship = 12
+}
+modifier_spell_absorb_stewardship_neg_greater = {
+	icon = stewardship_negative
+	stewardship = -12
+}
+modifier_spell_absorb_stewardship_pos_grand = {
+	icon = stewardship_positive
+	stewardship = 15
+}
+modifier_spell_absorb_stewardship_neg_grand = {
+	icon = stewardship_negative
+	stewardship = -15
+}
+
+modifier_spell_absorb_intrigue_pos_petty = {
+	icon = intrigue_positive
+	intrigue = 3
+}
+modifier_spell_absorb_intrigue_neg_petty = {
+	icon = intrigue_negative
+	intrigue = -3
+}
+modifier_spell_absorb_intrigue_pos_lesser = {
+	icon = intrigue_positive
+	intrigue = 6
+}
+modifier_spell_absorb_intrigue_neg_lesser = {
+	icon = intrigue_negative
+	intrigue = -6
+}
+modifier_spell_absorb_intrigue_pos_common = {
+	icon = intrigue_positive
+	intrigue = 9
+}
+modifier_spell_absorb_intrigue_neg_common = {
+	icon = intrigue_negative
+	intrigue = -9
+}
+modifier_spell_absorb_intrigue_pos_greater = {
+	icon = intrigue_positive
+	intrigue = 12
+}
+modifier_spell_absorb_intrigue_neg_greater = {
+	icon = intrigue_negative
+	intrigue = -12
+}
+modifier_spell_absorb_intrigue_pos_grand = {
+	icon = intrigue_positive
+	intrigue = 15
+}
+modifier_spell_absorb_intrigue_neg_grand = {
+	icon = intrigue_negative
+	intrigue = -15
+}
+
+modifier_spell_absorb_learning_pos_petty = {
+	icon = learning_positive
+	learning = 3
+}
+modifier_spell_absorb_learning_neg_petty = {
+	icon = learning_negative
+	learning = -3
+}
+modifier_spell_absorb_learning_pos_lesser = {
+	icon = learning_positive
+	learning = 6
+}
+modifier_spell_absorb_learning_neg_lesser = {
+	icon = learning_negative
+	learning = -6
+}
+modifier_spell_absorb_learning_pos_common = {
+	icon = learning_positive
+	learning = 9
+}
+modifier_spell_absorb_learning_neg_common = {
+	icon = learning_negative
+	learning = -9
+}
+modifier_spell_absorb_learning_pos_greater = {
+	icon = learning_positive
+	learning = 12
+}
+modifier_spell_absorb_learning_neg_greater = {
+	icon = learning_negative
+	learning = -12
+}
+modifier_spell_absorb_learning_pos_grand = {
+	icon = learning_positive
+	learning = 15
+}
+modifier_spell_absorb_learning_neg_grand = {
+	icon = learning_negative
+	learning = -15
+}
+
+modifier_spell_resilience_petty = {
+	icon = health_positive
+	negate_health_penalty_add = 0.3
+	negate_prowess_penalty_add = 1	
+}
+
+modifier_spell_resilience_lesser = {
+	icon = health_positive
+	negate_health_penalty_add = 0.6
+	negate_prowess_penalty_add = 2
+}
+
+modifier_spell_resilience_common = {
+	icon = health_positive
+	negate_health_penalty_add = 0.9
+	negate_prowess_penalty_add = 3
+}
+
+modifier_spell_resilience_greater = {
+	icon = health_positive
+	negate_health_penalty_add = 1.2
+	negate_prowess_penalty_add = 4
+}
+
+modifier_spell_resilience_grand = {
+	icon = health_positive
+	negate_health_penalty_add = 1.5
+	negate_prowess_penalty_add = 5
+}
+
+modifier_spell_turn_undead = {
+	icon = magic_negative
+	prowess = -5
+	# arcana = -5
+}
+
+modifier_spell_spread_vitality_petty = {
+	icon = magic_positive
+	county_opinion_add = 10
+	development_growth_factor = 0.1
+	epidemic_resistance = 5
+}
+
+modifier_spell_spread_vitality_lesser = {
+	icon = magic_positive
+	county_opinion_add = 20
+	development_growth_factor = 0.2
+	epidemic_resistance = 10
+}
+
+modifier_spell_spread_vitality_common = {
+	icon = magic_positive
+	county_opinion_add = 30
+	development_growth_factor = 0.3
+	epidemic_resistance = 15
+}
+
+modifier_spell_spread_vitality_greater = {
+	icon = magic_positive
+	county_opinion_add = 40
+	development_growth_factor = 0.4
+	epidemic_resistance = 20
+}
+
+modifier_spell_spread_vitality_grand = {
+	icon = magic_positive
+	county_opinion_add = 50
+	development_growth_factor = 0.5
+	epidemic_resistance = 25
+}
+
+modifier_spell_fortify_buildings_petty = {
+	icon = magic_positive
+	fort_level = 1
+	defender_holding_advantage = 1
+	build_speed = -0.1
+	build_gold_cost = -0.05
+}
+
+modifier_spell_fortify_buildings_lesser = {
+	icon = magic_positive
+	fort_level = 2
+	defender_holding_advantage = 2
+	build_speed = -0.2
+	build_gold_cost = -0.1
+}
+
+modifier_spell_fortify_buildings_common = {
+	icon = magic_positive
+	fort_level = 3
+	defender_holding_advantage = 3
+	build_speed = -0.3
+	build_gold_cost = -0.15
+}
+
+modifier_spell_fortify_buildings_greater = {
+	icon = magic_positive
+	fort_level = 4
+	defender_holding_advantage = 4
+	build_speed = -0.4
+	build_gold_cost = -0.2
+}
+
+modifier_spell_fortify_buildings_grand = {
+	icon = magic_positive
+	fort_level = 5
+	defender_holding_advantage = 5
+	build_speed = -0.5
+	build_gold_cost = -0.25
+}
+
+modifier_spell_summon_atronach_petty = {
+	icon = atronach_positive
+	#arcana = 1 fake skill, effect applied in ek_magic_values.txt
+	prowess = 1
+	}
+
+modifier_spell_summon_atronach_lesser = {
+	icon = atronach_positive
+	#arcana = 2 fake skill, effect applied in ek_magic_values.txt
+	prowess = 2
+}
+
+modifier_spell_summon_atronach_common = {
+	icon = atronach_positive
+	#arcana = 3 fake skill, effect applied in ek_magic_values.txt
+	prowess = 3
+}
+
+modifier_spell_summon_atronach_greater = {
+	icon = atronach_positive
+	#arcana = 4 fake skill, effect applied in ek_magic_values.txt
+	prowess = 4
+}
+
+modifier_spell_summon_atronach_grand = {
+	icon = atronach_positive
+	#arcana = 5 fake skill, effect applied in ek_magic_values.txt
+	prowess = 5
+}
+
+modifier_spell_burden_petty = {
+	icon = magic_negative
+	character_travel_speed_mult = -0.1
+	prowess = -2
+}
+
+modifier_spell_burden_lesser = {
+	icon = magic_negative
+	character_travel_speed_mult = -0.2
+	prowess = -4
+}
+
+modifier_spell_burden_common = {
+	icon = magic_negative
+	character_travel_speed_mult = -0.3
+	prowess = -6
+}
+
+modifier_spell_burden_greater = {
+	icon = magic_negative
+	character_travel_speed_mult = -0.4
+	prowess = -8
+}
+
+modifier_spell_burden_grand = {
+	icon = magic_negative
+	character_travel_speed_mult = -0.5
+	prowess = -10
+}
+
+modifier_spell_destroy_walls_petty = {
+	icon = magic_negative
+	fort_level = -2
+	hostile_raid_time = -0.1
+	garrison_size = -0.05
+}
+
+modifier_spell_destroy_walls_lesser = {
+	icon = magic_negative
+	fort_level = -4
+	hostile_raid_time = -0.2
+	garrison_size = -0.1
+}
+
+modifier_spell_destroy_walls_common = {
+	icon = magic_negative
+	fort_level = -6
+	hostile_raid_time = -0.3
+	garrison_size = -0.15
+}
+
+modifier_spell_destroy_walls_greater = {
+	icon = magic_negative
+	fort_level = -8
+	hostile_raid_time = -0.4
+	garrison_size = -0.2
+}
+
+modifier_spell_destroy_walls_grand = {
+	icon = magic_negative
+	fort_level = -10
+	hostile_raid_time = -0.5
+	garrison_size = -0.25
+}
+
+modifier_spell_display_of_might_petty = {
+	icon = magic_positive
+	monthly_county_control_decline_factor = -0.1
+}
+
+modifier_spell_display_of_might_lesser = {
+	icon = magic_positive
+	monthly_county_control_decline_factor = -0.2
+}
+
+modifier_spell_display_of_might_common = {
+	icon = magic_positive
+	monthly_county_control_decline_factor = -0.3
+}
+
+modifier_spell_display_of_might_greater = {
+	icon = magic_positive
+	monthly_county_control_decline_factor = -0.4
+}
+
+modifier_spell_display_of_might_grand = {
+	icon = magic_positive
+	monthly_county_control_decline_factor = -0.5
+}
+
+modifier_spell_devastate_province = {
+	icon = magic_negative
+	development_growth_factor = -0.5
+	supply_limit_mult = -0.5
+	tax_mult = -0.5
+}
+
+modifier_spell_burn = {
+	icon = magic_negative
+	health = -0.5
+	negate_health_penalty_add = -1
+}
+
+modifier_spell_frostbite = {
+	icon = magic_negative
+	character_travel_speed_mult = -0.25
+	health = -0.25
+	negate_health_penalty_add = -1
+}
+
+modifier_spell_shock = {
+	icon = magic_negative
+	# -10% monthly magicka
+	health = -0.25
+	negate_health_penalty_add = -1
+}
+
+modifier_spell_calmed_petty = {
+	icon = magic_positive
+	stress_gain_mult = -0.05
+}
+
+modifier_spell_calmed_lesser = {
+	icon = magic_positive
+	stress_gain_mult = -0.1
+}
+
+modifier_spell_calmed_common = {
+	icon = magic_positive
+	stress_gain_mult = -0.15
+}
+
+modifier_spell_calmed_greater = {
+	icon = magic_positive
+	stress_gain_mult = -0.2
+}
+
+modifier_spell_calmed_grand = {
+	icon = magic_positive
+	stress_gain_mult = -0.25
+}
+
+modifier_spell_muffled_senses_petty = {
+	icon = magic_negative
+	enemy_hostile_scheme_phase_duration_add = -5
+	enemy_hostile_scheme_success_chance_add = 1
+}
+
+modifier_spell_muffled_senses_lesser = {
+	icon = magic_negative
+	enemy_hostile_scheme_phase_duration_add = -10
+	enemy_hostile_scheme_success_chance_add = 2
+}
+
+modifier_spell_muffled_senses_common = {
+	icon = magic_negative
+	enemy_hostile_scheme_phase_duration_add = -15
+	enemy_hostile_scheme_success_chance_add = 3
+}
+
+modifier_spell_muffled_senses_greater= {
+	icon = magic_negative
+	enemy_hostile_scheme_phase_duration_add = -20
+	enemy_hostile_scheme_success_chance_add = 4
+}
+
+modifier_spell_muffled_senses_grand = {
+	icon = magic_negative
+	enemy_hostile_scheme_phase_duration_add = -25
+	enemy_hostile_scheme_success_chance_add = 5
+}
+
+modifier_spell_leech_health_negative_petty = {
+	icon = health_negative
+	health = -0.2
+}
+
+modifier_spell_leech_health_positive_petty = {
+	icon = health_positive
+	health = 0.2
+}
+
+modifier_spell_leech_health_negative_lesser = {
+	icon = health_negative
+	health = -0.4
+}
+
+modifier_spell_leech_health_positive_lesser = {
+	icon = health_positive
+	health = 0.4
+}
+
+modifier_spell_leech_health_negative_common = {
+	icon = health_negative
+	health = -0.6
+}
+
+modifier_spell_leech_health_positive_common = {
+	icon = health_positive
+	health = 0.6
+}
+
+modifier_spell_leech_health_negative_greater = {
+	icon = health_negative
+	health = -0.8
+}
+
+modifier_spell_leech_health_positive_greater = {
+	icon = health_positive
+	health = 0.8
+}
+
+modifier_spell_leech_health_negative_grand = {
+	icon = health_negative
+	health = -1
+}
+
+modifier_spell_leech_health_positive_grand = {
+	icon = health_positive
+	health = 1
+}
+
+modifier_spell_claim_corpse = {
+	icon = magic_negative
+	stress_gain_mult = 0.1
+}
+
+modifier_spell_restless_dead = {
+	icon = magic_negative
+	travel_danger = 30
+	county_opinion_add = -30
+	monthly_county_control_decline_add = -0.3
+}
+
+modifier_spell_mass_paranoia_petty = {
+	icon = magic_negative
+	
+	travel_danger = 10
+	county_opinion_add = -25
+	monthly_county_control_decline_add = -0.1
+	development_growth = -0.1
+}
+
+modifier_spell_mass_paranoia_lesser = {
+	icon = magic_negative
+	
+	travel_danger = 20
+	county_opinion_add = -20
+	monthly_county_control_decline_add = -0.2
+	development_growth = -0.2
+}
+
+modifier_spell_mass_paranoia_common = {
+	icon = magic_negative
+	
+	travel_danger = 30
+	county_opinion_add = -30
+	monthly_county_control_decline_add = -0.3
+	development_growth = -0.3
+}
+
+modifier_spell_mass_paranoia_greater = {
+	icon = magic_negative
+	
+	travel_danger = 40
+	county_opinion_add = -40
+	monthly_county_control_decline_add = -0.4
+	development_growth = -0.4
+}
+
+modifier_spell_mass_paranoia_grand = {
+	icon = magic_negative
+	
+	travel_danger = 50
+	county_opinion_add = -50
+	monthly_county_control_decline_add = -0.5
+	development_growth = -0.5
+}
+
+modifier_spell_banishment = {
+	icon = magic_negative
+
+	stress_gain_mult = 0.1
+}

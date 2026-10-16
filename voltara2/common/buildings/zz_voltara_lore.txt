@@ -1,0 +1,18 @@
+﻿voltara_titania_01 = {
+    type = special
+    construction_time = 730 cost_gold = 1000
+    type_icon = "icon_structure_tower_of_london.dds"
+    province_modifier = { monthly_income = 1 }
+    county_modifier = { development_growth = 0.1 supply_limit_mult = 0.15 }
+    character_modifier = { monthly_prestige = 0.25 }
+    flag = travel_point_of_interest_economic
+}
+voltara_kartholos_01 = {
+    type = special
+    construction_time = 730 cost_gold = 1000
+    type_icon = "icon_structure_hadrians_wall.dds"
+    province_modifier = { fort_level = 2 garrison_size = 0.5 }
+    county_modifier = { supply_limit_mult = 0.25 }
+    character_modifier = { monthly_prestige = 0.15 }
+    flag = travel_point_of_interest_martial_minor
+}

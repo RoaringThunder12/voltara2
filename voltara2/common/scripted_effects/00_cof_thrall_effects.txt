@@ -1,0 +1,545 @@
+﻿cof_thrall_effect = {
+
+	$VICTIM$ = {
+		save_scope_as = victim
+	}
+
+	$EXECUTIONER$ = {
+		save_scope_as = executioner
+		save_scope_as = imprisoner #Save this scope to show correct tyranny tooltip
+	}
+
+	scope:executioner = {
+		# Dread gain
+		if = {
+			limit = {
+				scope:victim = {
+					time_in_prison = { years > 15 } # No one even remembers who they are anymore
+				}
+			}
+			# No dread for you
+		}
+		else_if = { # Executing Emperors/HoF is quite dreadful
+			limit = {
+				scope:victim = {
+					OR = {
+						highest_held_title_tier >= tier_empire
+						scope:executioner.faith.religious_head = scope:victim # Your head of faith
+					}
+				}
+			}
+			add_dread = execute_interaction_massive_dread_gain
+		}
+		else_if = {
+			limit = {
+				scope:victim = {
+					OR = {
+						highest_held_title_tier >= tier_kingdom
+						tier_or_related_liege_tier_greater_or_equal_trigger = { TIER = tier_empire }
+						is_powerful_vassal_of = scope:executioner # Is your powerful vassal
+						target_is_vassal_or_below = scope:executioner # Your liege/s
+						is_close_family_of = scope:executioner
+					}
+				}
+			}
+			add_dread = execute_interaction_major_dread_gain
+		}
+		else_if = {
+			limit = {
+				scope:victim = {
+					OR = {
+						highest_held_title_tier >= tier_duchy
+						tier_or_related_liege_tier_greater_or_equal_trigger = { TIER = tier_kingdom }
+						AND = { # Is your vassal, and higher than Baron
+							is_vassal_of = scope:executioner
+							primary_title.tier > tier_barony
+						}
+						AND = { # Peer Vassals
+							exists = primary_title
+							primary_title.tier > tier_barony
+							exists = liege
+							liege = scope:executioner.liege
+						}
+						has_trait = peasant_leader
+					}
+				}
+			}
+			add_dread = execute_interaction_medium_dread_gain
+		}
+		else_if = {
+			limit = {
+				scope:victim = {
+					OR = {
+						highest_held_title_tier >= tier_county
+						tier_or_related_liege_tier_greater_or_equal_trigger = { TIER = tier_duchy }
+						is_vassal_of = scope:executioner # Is your Baron vassal
+						is_close_or_extended_family_of = scope:executioner
+						
+						scope:executioner = { # Executing close family of your vassals is dreadful...
+							any_vassal = {
+								is_close_family_of = scope:victim
+							}
+						}
+						scope:executioner = { # Executing close family of your liege/s is the same...
+							any_liege_or_above = {
+								is_close_family_of = scope:victim
+							}
+						}
+					}
+				}
+			}
+			add_dread = execute_interaction_minor_dread_gain
+		}
+		
+		# Piety loss (or gain) from executions
+		if = {
+			limit = {
+				faith = {
+					has_doctrine_parameter = human_sacrifice_active
+				}
+			}
+			scope:victim = {
+				if = {
+					limit = {
+						OR = {
+							highest_held_title_tier >= tier_empire
+							any_close_family_member = {
+								highest_held_title_tier >= tier_empire
+							}
+						}
+					}
+					scope:executioner = { add_piety = massive_piety_gain }
+				}
+				else_if = {
+					limit = {
+						OR = {
+							highest_held_title_tier >= tier_kingdom
+							any_close_family_member = {
+								highest_held_title_tier >= tier_kingdom
+							}
+						}
+					}
+					scope:executioner = { add_piety = major_piety_gain }
+				}
+				else_if = {
+					limit = {
+						OR = {
+							highest_held_title_tier >= tier_duchy
+							any_close_family_member = {
+								highest_held_title_tier >= tier_duchy
+							}
+						}
+					}
+					scope:executioner = { add_piety = medium_piety_gain }
+				}
+				else_if = {
+					limit = {
+						OR = {
+							is_ruler = yes
+							is_lowborn = no
+							any_close_family_member = {
+								is_ruler = yes
+							}
+						}
+					}
+					scope:executioner = { add_piety = minor_piety_gain }
+				}
+				else = {
+					scope:executioner = { add_piety = miniscule_piety_gain }
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				faith = scope:victim.faith
+				NOT = { has_perk = divine_retribution_perk }
+				scope:victim = {
+					has_no_particular_noble_roots_trigger = yes
+				}
+			}
+			add_piety = miniscule_piety_loss
+		}
+		else_if = {
+			limit = {
+				faith = scope:victim.faith
+				NOT = { has_perk = divine_retribution_perk }
+			}
+			add_piety = medium_piety_loss
+		}
+		
+		# Stress loss
+		if = {
+			limit = { has_relation_rival = scope:victim }
+
+			if = {
+				limit = {
+					NOR = {
+						has_trait = sadistic
+						has_trait = vengeful
+						has_trait = compassionate
+						has_trait = forgiving
+					}
+				}
+				add_stress = medium_stress_loss
+			}
+			else = {
+				stress_impact = {
+					sadistic = major_stress_impact_loss
+					vengeful = massive_stress_impact_loss
+					compassionate = minor_stress_impact_gain
+					forgiving = minor_stress_impact_gain
+				}
+			}
+		}
+		else_if = { #Killing infidels is relaxing
+			limit = {
+				has_trait = zealous
+				NOT = { scope:executioner.faith = scope:victim.faith }
+			}
+
+			if = {
+				limit = {
+					NOR = {
+						has_trait = sadistic
+						has_trait = compassionate
+						has_trait = forgiving
+					}
+				}
+				add_stress = medium_stress_loss
+			}
+			else = {
+				stress_impact = {
+					sadistic = major_stress_impact_loss
+					compassionate = minor_stress_impact_gain
+					forgiving = minor_stress_impact_gain
+				}
+			}
+		}
+		# Stress Gain
+		else_if = {
+			limit = {
+				exists = scope:victim
+				has_execute_reason = scope:victim
+				NOT = {
+					has_trait = sadistic
+				}
+				scope:victim = {
+					OR = {
+						is_child_of = scope:executioner
+						is_grandchild_of = scope:executioner
+						is_great_grandchild_of = scope:executioner
+					}
+				}
+			}
+			stress_impact = {
+				base = minor_stress_impact_gain
+				compassionate = massive_stress_impact_gain
+				forgiving = major_stress_impact_gain
+				generous = minor_stress_impact_gain
+				family_first = minor_stress_impact_gain
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_trait = sadistic
+				}
+				scope:victim = {
+					OR = {
+						is_child_of = scope:executioner
+						is_grandchild_of = scope:executioner
+						is_great_grandchild_of = scope:executioner
+					}
+				}
+			}
+			stress_impact = {
+				base = medium_stress_impact_gain
+				compassionate = massive_stress_impact_gain
+				forgiving = major_stress_impact_gain
+				generous = medium_stress_impact_gain
+				trusting = minor_stress_impact_gain
+				content = minor_stress_impact_gain
+				family_first = minor_stress_impact_gain
+			}
+			if = {
+				limit = {
+					exists = scope:execution_sacrifice
+					NOT = { always = scope:execution_sacrifice }
+				}
+				stress_impact = {
+					just = medium_stress_impact_gain
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_trait = sadistic
+				}
+				scope:victim = {
+					OR = {
+						has_relation_friend = scope:executioner
+						has_relation_lover = scope:executioner
+					}
+				}
+			}
+			stress_impact = {
+				base = medium_stress_impact_gain
+				compassionate = massive_stress_impact_gain
+				forgiving = major_stress_impact_gain
+				generous = medium_stress_impact_gain
+				trusting = minor_stress_impact_gain
+				content = minor_stress_impact_gain
+			}
+			if = {
+				limit = {
+					exists = scope:execution_sacrifice
+					NOT = { always = scope:execution_sacrifice }
+				}
+				stress_impact = {
+					just = medium_stress_impact_gain
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				exists = scope:victim
+				has_execute_reason = scope:victim
+			}
+			stress_impact = {
+				sadistic = medium_stress_impact_loss
+				compassionate = medium_stress_impact_gain
+				forgiving = minor_stress_impact_gain
+				generous = minor_stress_impact_gain
+			}
+		}
+		else = {
+			stress_impact = {
+				sadistic = medium_stress_impact_loss
+				compassionate = major_stress_impact_gain
+				forgiving = medium_stress_impact_gain
+				generous = medium_stress_impact_gain
+				trusting = minor_stress_impact_gain
+				content = minor_stress_impact_gain
+			}
+			if = {
+				limit = {
+					exists = scope:execution_sacrifice
+					NOT = { always = scope:execution_sacrifice }
+				}
+				stress_impact = {
+					just = medium_stress_impact_gain
+				}
+			}
+		}
+		
+		#Kinslaying
+		add_kinslayer_trait_or_nothing_effect = { VICTIM = scope:victim }
+
+		#Tyranny
+		if = {
+			limit = {
+				exists = scope:recipient
+				has_execute_reason = scope:victim
+			}
+			custom_tooltip = IS_ALLOWED_TO_EXECUTE_DESC
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						NOT = { exists = scope:recipient }
+						has_execute_reason = scope:victim
+					}
+					is_at_war_with = scope:victim
+				}
+			}
+			custom_tooltip = IS_ALLOWED_TO_EXECUTE_NO_RECIPIENT_DESC
+		}
+		else_if = {
+			limit = {
+				scope:victim = {
+					OR = {
+						is_landed = no
+						NOT = { is_of_major_or_minor_interest_trigger = { CHARACTER = scope:executioner } }
+					}
+				}
+	   			scope:executioner.faith = {
+	  				faith_hostility_level = {
+	 					target = scope:victim.faith
+						value > faith_astray_level
+	 				}
+				}
+			}
+			custom_tooltip = IS_ALLOWED_TO_EXECUTE_HOSTILE_RELIGION_DESC
+		}
+		else_if = {
+			limit = {
+				scope:victim = { target_is_liege_or_above = prev }
+			}
+			add_tyranny = execution_tyranny_gain
+		}
+		else_if = {
+			limit = {
+				scope:victim = {
+					NOT = { exists = liege }
+					exists = host
+				}
+				any_pool_guest = { count > 0 }
+			}
+			every_pool_guest = {
+				limit = {
+					NOR = {
+						this = scope:victim
+						is_in_list = guest_list
+					}
+				}
+				add_to_temporary_list = guest_list
+			}
+			every_in_list = {
+				list = guest_list
+				custom = all_your_guests
+                limit = {
+                    NOT = { this = scope:executioner }
+                }
+				add_opinion = {
+					target = scope:executioner
+					modifier = executed_guest_modifier
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					exists = scope:victim.liege
+					NOT = { scope:victim.liege = scope:victim }
+				}
+				scope:victim.liege = {
+					add_opinion = {
+						target = scope:executioner
+						modifier = executed_my_countryman_modifier
+					}
+				}
+			}
+		}
+		
+		# If we're a clan this affects unity
+		if = {
+			limit = { # If the victim is landed and you DON'T have an execution reason, you lose more unity
+				scope:victim = { is_landed = yes }
+				NOT = { has_execute_reason = scope:victim }
+			}
+			add_clan_unity_interaction_effect = {
+				CHARACTER = scope:executioner
+				TARGET = scope:victim
+				VALUE = medium_unity_loss
+				DESC = clan_unity_execute.desc
+				REVERSE_NON_HOUSE_TARGET = no
+			}
+		}
+		else_if = {
+			limit = { # If the victim is landed and you DO have an execution reason, you lose a bit less unity
+				scope:victim = { is_landed = yes }
+				has_execute_reason = scope:victim
+			}
+			add_clan_unity_interaction_effect = {
+				CHARACTER = scope:executioner
+				TARGET = scope:victim
+				VALUE = minor_unity_loss
+				DESC = clan_unity_execute.desc
+				REVERSE_NON_HOUSE_TARGET = no
+			}
+		}
+		else = { # For unlanded characters, we don't care as much, but you still lose some unity
+			add_clan_unity_interaction_effect = {
+				CHARACTER = scope:executioner
+				TARGET = scope:victim
+				VALUE = miniscule_unity_loss
+				DESC = clan_unity_execute.desc
+				REVERSE_NON_HOUSE_TARGET = no
+			}
+		}
+	}
+
+	execute_opinion_effect = { VICTIM = scope:victim EXECUTIONER = scope:executioner }
+	
+	if = {
+		limit = {
+			scope:executioner = {
+				has_any_nickname = no
+				has_relation_lover = scope:victim
+			}
+		}
+		random = {
+			chance = 20
+			scope:executioner = {
+				set_nickname_effect = { NICKNAME = nick_the_heartless }
+			}
+		}
+	}
+}
+
+cof_ekue_major_restoration_effect = {
+	if = {
+		limit = {
+			has_trait = wounded_1
+		}
+		remove_trait = wounded_1
+	}
+
+	if = {
+		limit = {
+			has_trait = wounded_2
+		}
+		remove_trait = wounded_2
+	}	
+	
+	if = {
+		limit = {
+			has_trait = wounded_3
+		}
+		remove_trait = wounded_3
+	}	
+
+	if = {
+		limit = {
+			has_trait = maimed
+		}
+		remove_trait = maimed
+	}	
+
+	if = {
+		limit = {
+			has_trait = one_eyed
+		}
+		remove_trait = one_eyed
+	}	
+
+	if = {
+		limit = {
+			has_trait = one_legged
+		}
+		remove_trait = one_legged
+	}	
+
+	if = {
+		limit = {
+			has_trait = disfigured
+		}
+		remove_trait = disfigured
+	}	
+
+	if = {
+		limit = {
+			has_trait = infirm
+		}
+		remove_trait = infirm
+	}
+
+	if = {
+		limit = {
+			has_trait = scarred
+		}
+		remove_trait = scarred
+	}	
+}

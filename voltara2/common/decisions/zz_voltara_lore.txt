@@ -1,0 +1,69 @@
+﻿voltara_read_chronicle = {
+    picture = { reference = "gfx/interface/illustrations/decisions/decision_family_tree.dds" }
+    desc = voltara_read_chronicle_desc
+    selection_tooltip = voltara_read_chronicle_tooltip
+    confirm_text = voltara_read_chronicle_confirm
+    ai_check_interval = 0
+    decision_group_type = major
+    is_shown = { is_landed = yes  }
+    is_valid = { is_adult = yes is_imprisoned = no  }
+    
+    
+    effect = { trigger_event = voltara_lore.1 }
+}
+
+voltara_uniter_council = {
+    picture = { reference = "gfx/interface/illustrations/decisions/decision_culture.dds" }
+    desc = voltara_uniter_council_desc
+    selection_tooltip = voltara_uniter_council_tooltip
+    confirm_text = voltara_uniter_council_confirm
+    ai_check_interval = 0
+    decision_group_type = major
+    is_shown = { is_landed = yes has_title = title:k_voltara_sixth_southron_invasion }
+    is_valid = { is_adult = yes is_imprisoned = no gold >= 100 }
+    cost = { gold = 100 }
+    cooldown = { years = 5 }
+    effect = { add_character_modifier = { modifier = voltara_coalition_modifier years = 5 } }
+}
+
+voltara_maintain_watch = {
+    picture = { reference = "gfx/interface/illustrations/decisions/decision_castle_view.dds" }
+    desc = voltara_maintain_watch_desc
+    selection_tooltip = voltara_maintain_watch_tooltip
+    confirm_text = voltara_maintain_watch_confirm
+    ai_check_interval = 0
+    decision_group_type = major
+    is_shown = { is_landed = yes has_title = title:k_voltara_22 }
+    is_valid = { is_adult = yes is_imprisoned = no gold >= 75 }
+    cost = { gold = 75 }
+    cooldown = { years = 5 }
+    effect = { add_character_modifier = { modifier = voltara_watch_modifier years = 5 } add_prestige = 100 }
+}
+
+voltara_patron_rotunda = {
+    picture = { reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds" }
+    desc = voltara_patron_rotunda_desc
+    selection_tooltip = voltara_patron_rotunda_tooltip
+    confirm_text = voltara_patron_rotunda_confirm
+    ai_check_interval = 0
+    decision_group_type = major
+    is_shown = { is_landed = yes has_title = title:c_voltara_323 }
+    is_valid = { is_adult = yes is_imprisoned = no gold >= 100 }
+    cost = { gold = 100 }
+    cooldown = { years = 5 }
+    effect = { add_character_modifier = { modifier = voltara_scholarship_modifier years = 5 } }
+}
+
+voltara_weigh_justice = {
+    picture = { reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds" }
+    desc = voltara_weigh_justice_desc
+    selection_tooltip = voltara_weigh_justice_tooltip
+    confirm_text = voltara_weigh_justice_confirm
+    ai_check_interval = 0
+    decision_group_type = major
+    is_shown = { is_landed = yes dynasty = dynasty:9900021 }
+    is_valid = { is_adult = yes is_imprisoned = no  }
+    
+    cooldown = { years = 5 }
+    effect = { trigger_event = voltara_lore.20 }
+}

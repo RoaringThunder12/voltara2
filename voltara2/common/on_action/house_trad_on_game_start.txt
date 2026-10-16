@@ -1,0 +1,14 @@
+﻿on_game_start = { on_actions = { initialize_house_trad_settings } }
+
+initialize_house_trad_settings = {
+	effect = {
+		set_global_variable = {
+			name = marriage_compatibility
+			value = yes
+		}
+		set_global_variable = {
+			name = hide_house_trad_settings
+			value = no
+		}
+	}
+}

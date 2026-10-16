@@ -1,0 +1,11 @@
+﻿9999401 = {
+ name = voltara_ithren
+ dynasty = 13999401
+ culture = voltara_culture_18 rite = voltara_harmonious_weave
+ dna = voltara_high_elven_reference
+ martial = 8 diplomacy = 9 stewardship = 14 intrigue = 18 learning = 30 prowess = 7
+ trait = education_learning_4 trait = patient trait = ambitious trait = eccentric
+ trait = witch trait = necromancer trait = vt_ek_education_magic_5 trait = voltara_lifespan_3
+ 3561.1.1 = { birth = yes }
+ 3781.1.1 = { effect = { add_trait = vt_ek_necromancer add_trait = vt_ek_education_magic_5 set_variable = { name = arcana_base value = 25 } add_perk = necromancy_novice_perk add_perk = necromancy_apprentice_perk add_perk = necromancy_minor_rituals_perk add_perk = necromancy_journeyman_perk add_perk = necromancy_medium_rituals_perk add_perk = necromancy_expert_perk add_perk = necromancy_major_rituals_perk add_perk = necromancy_master_perk voltara_initialize_threadbinder = yes  add_character_modifier = { modifier = voltara_barelvar_master_necromancer } } }
+}

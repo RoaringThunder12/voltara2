@@ -1,0 +1,456 @@
+﻿agot_dragon_hatching_success_level = {
+	# This is called on the activity and relies on all variables being present
+	# It should range from 0 to some tracked max, where max is used in the event
+	# immediate block to determine the success of the hatching activity
+	value = 0
+	if = {
+		limit = {
+			has_activity_option = {
+				category = hatching_type
+				option = hatching_type_esoteric
+			}
+		}
+		add = 10 # Esoteric is more likely by base
+	}
+	# Max is now 10
+	# Dragonlore increases chance of success
+	if = {
+		limit = {
+			scope:host = {
+				exists = var:dragonlore
+				NOT = { is_ai = yes }
+			}
+		}
+		add = scope:host.var:dragonlore
+	}
+	# Max is now 22
+	# Dragonlore counts for double with knowledge
+	if = {
+		limit = {
+			has_activity_option = {
+				category = hatching_type
+				option = hatching_type_knowledge
+			}
+			scope:host = {
+				exists = var:dragonlore
+				NOT = { is_ai = yes }
+			}
+		}
+		add = scope:host.var:dragonlore
+	}
+	# Max is now 24 since 2*12 = 24 and esoteric doesn't get the bonus
+	# Assumed Dragonlore for AI increases chance of success
+	if = {
+		limit = {
+			scope:host = { is_ai = yes }
+		}
+		add = {
+			value = scope:host.ai_rationality
+			divide = 8.3
+			min = 0
+		}
+	}
+	# Max is now 22
+	# Assumed Dragonlore for AI counts for double with knowledge
+	if = {
+		limit = {
+			has_activity_option = {
+				category = hatching_type
+				option = hatching_type_knowledge
+			}
+			scope:host = {
+				is_ai = yes
+			}
+		}
+		add = {
+			value = scope:host.ai_rationality
+			divide = 8.3
+			min = 0
+		}
+	}
+	# Max is now 24 since 2*12 = 24 and esoteric doesn't get the bonus
+	# Synergetic hatching type
+	if = {
+		limit = {
+			OR = {
+				AND = { # Knowledge likes animal
+					has_activity_option = {
+						category = hatching_type
+						option = hatching_type_knowledge
+					}
+					has_activity_option = {
+						category = hatching_sacrifice
+						option = hatching_sacrifice_animal
+					}
+				}
+				AND = { # Esoteric likes blood / life
+					has_activity_option = {
+						category = hatching_type
+						option = hatching_type_esoteric
+					}
+					has_activity_option = {
+						category = hatching_sacrifice
+						option = hatching_sacrifice_blood
+					}
+				}
+			}
+		}
+		add = 10
+	}
+	# Max is now 34
+	# Sacrifice level and type interactions
+	# First, animals
+	if = { # Higher level animals are better
+		limit = {
+			OR = {
+				var:sacrifice_type = flag:animal_pet_dog
+				var:sacrifice_type = flag:animal_pet_cat
+				var:sacrifice_type = flag:animal_exotic
+			}
+		}
+		add = 6
+	}
+	if = {
+		limit = { var:sacrifice_type = flag:animal_wild }
+		add = 3
+	}
+	# Livestock gives nothing
+	if = { # Esoteric likes close sacrifice
+		limit = {
+			has_activity_option = {
+				category = hatching_type
+				option = hatching_type_esoteric
+			}
+			OR = {
+				var:sacrifice_type = flag:animal_pet_dog
+				var:sacrifice_type = flag:animal_pet_cat
+			}
+		}
+		add = 4
+	}
+	# Max of animals is 10
+	# Blood
+	if = {
+		limit = {
+			var:sacrifice_type = flag:blood_myself
+		}
+		add = 5
+		if = {
+			limit = { scope:host = { has_kingsblood = yes } }
+			add = 6
+		}
+		else_if = {
+			limit = { scope:host = { has_paramountblood = yes } }
+			add = 4
+		}
+		else_if = {
+			limit = { scope:host = { has_dukesblood = yes } }
+			add = 3
+		}
+		else_if = {
+			limit = { scope:host = { has_countsblood = yes } }
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			var:sacrifice_type = flag:blood_leader
+		}
+		add = 5
+		if = {
+			limit = { var:ritual_leader_character = { has_kingsblood = yes } }
+			add = 6
+		}
+		else_if = {
+			limit = { var:ritual_leader_character = { has_paramountblood = yes } }
+			add = 4
+		}
+		else_if = {
+			limit = { var:ritual_leader_character = { has_dukesblood = yes } }
+			add = 3
+		}
+		else_if = {
+			limit = { var:ritual_leader_character = { has_countsblood = yes } }
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			var:sacrifice_type = flag:blood_prisoner
+		}
+		add = 5
+		if = {
+			limit = { var:sacrifice_prisoner = { has_kingsblood = yes } }
+			add = 6
+		}
+		else_if = {
+			limit = { var:sacrifice_prisoner = { has_paramountblood = yes } }
+			add = 4
+		}
+		else_if = {
+			limit = { var:sacrifice_prisoner = { has_dukesblood = yes } }
+			add = 3
+		}
+		else_if = {
+			limit = { var:sacrifice_prisoner = { has_countsblood = yes } }
+			add = 1
+		}
+		else_if = {
+			limit = { var:sacrifice_prisoner = { is_lowborn = yes } }
+			add = -5
+		}
+	}
+	if = {
+		limit = {
+			var:sacrifice_type = flag:blood_everyone
+		}
+		add = 12 # Quantity is a quality all its own I guess
+	}
+	# Max of blood is 12
+	# Life
+	if = {
+		limit = {
+			var:sacrifice_type = flag:life_myself
+		}
+		add = 9
+		if = {
+			limit = { scope:host = { has_kingsblood = yes } }
+			add = 7
+		}
+		else_if = {
+			limit = { scope:host = { has_paramountblood = yes } }
+			add = 5
+		}
+		else_if = {
+			limit = { scope:host = { has_dukesblood = yes } }
+			add = 3
+		}
+		else_if = {
+			limit = { scope:host = { has_countsblood = yes } }
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			var:sacrifice_type = flag:life_leader
+		}
+		add = 9
+		if = {
+			limit = { var:ritual_leader_character = { has_kingsblood = yes } }
+			add = 7
+		}
+		else_if = {
+			limit = { var:ritual_leader_character = { has_paramountblood = yes } }
+			add = 5
+		}
+		else_if = {
+			limit = { var:ritual_leader_character = { has_dukesblood = yes } }
+			add = 3
+		}
+		else_if = {
+			limit = { var:ritual_leader_character = { has_countsblood = yes } }
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			var:sacrifice_type = flag:life_prisoner
+		}
+		add = 9
+		if = {
+			limit = { var:sacrifice_prisoner = { has_kingsblood = yes } }
+			add = 7
+		}
+		else_if = {
+			limit = { var:sacrifice_prisoner = { has_paramountblood = yes } }
+			add = 5
+		}
+		else_if = {
+			limit = { var:sacrifice_prisoner = { has_dukesblood = yes } }
+			add = 3
+		}
+		else_if = {
+			limit = { var:sacrifice_prisoner = { has_countsblood = yes } }
+			add = 1
+		}
+		else_if = {
+			limit = { var:sacrifice_prisoner = { is_lowborn = yes } }
+			add = -9
+		}
+	}
+	if = {
+		limit = {
+			var:sacrifice_type = flag:life_everyone
+		}
+		add = 16
+	}
+	# Max of life is 16
+	# Max is now 50
+	# Catalyst level
+	# Minor gives nothing
+	if = {
+		limit = {
+			has_activity_option = {
+				category = hatching_catalyst
+				option = hatching_catalyst_medium
+			}
+		}
+		add = 2
+	}
+	if = {
+		limit = {
+			has_activity_option = {
+				category = hatching_catalyst
+				option = hatching_catalyst_major
+			}
+		}
+		add = 5
+	}
+	if = {
+		limit = {
+			has_activity_option = {
+				category = hatching_catalyst
+				option = hatching_catalyst_massive
+			}
+		}
+		add = 10
+	}
+	# Max is now 60
+	# Sacrifice / Catalyst type synergies
+	if = {
+		limit = {
+			OR = {
+				AND = { # Animals and wood
+					var:sacrifice_type = flag:animal_wild
+					var:catalyst_type = flag:wood
+				}
+				AND = { # Blood and oil
+					OR = {
+						var:sacrifice_type = flag:blood_myself
+						var:sacrifice_type = flag:blood_leader
+						var:sacrifice_type = flag:blood_prisoner
+						var:sacrifice_type = flag:blood_everyone
+					}
+					var:catalyst_type = flag:oil
+				}
+				AND = { # Exotic and wildfire
+					var:sacrifice_type = flag:animal_exotic
+					var:catalyst_type = flag:wildfire
+				}
+				AND = { # Close and lava (Sad futurama reference)
+					OR = {
+						var:sacrifice_type = flag:animal_pet_dog
+						var:sacrifice_type = flag:animal_pet_cat
+					}
+					var:catalyst_type = flag:lava
+				}
+				AND = { # Magnifying glass and myself
+					OR = {
+						var:sacrifice_type = flag:life_myself
+						var:sacrifice_type = flag:blood_myself
+					}
+					var:catalyst_type = flag:magnifying_glass
+				}
+			}
+		}
+		add = 10
+	}
+	# Max is now 70
+	# Catalyst and leader synergies
+	if = {
+		limit = {
+			OR = {
+				AND = { # Scholar and coal / magnifying glass
+					var:ritual_leader_type = flag:scholar
+					OR = {
+						var:catalyst_type = flag:coal
+						var:catalyst_type = flag:magnifying_glass
+					}
+				}
+				AND = { # Woods witch and wood
+					var:ritual_leader_type = flag:witch
+					var:catalyst_type = flag:wood
+				}
+				AND = { # Pyromancer and wildfires
+					var:ritual_leader_type = flag:pyromancer
+					var:catalyst_type = flag:wildfire
+				}
+				AND = { # Septon and oil
+					var:ritual_leader_type = flag:septon
+					var:catalyst_type = flag:oil
+				}
+				AND = { # Red priest and lava
+					var:ritual_leader_type = flag:rhllor_priest
+					var:catalyst_type = flag:lava
+				}
+				AND = { # Warlock / mystic and magnifying glass
+					OR = {
+						var:ritual_leader_type = flag:warlock
+						var:ritual_leader_type = flag:myself
+					}
+					var:catalyst_type = flag:magnifying_glass
+				}
+			}
+		}
+		add = 10
+	}
+	# Max is now 80
+	# Finally, leader and sacrifice synergies
+	if = {
+		limit = {
+			OR = {
+				AND = { # Animal synergy
+					has_activity_option = {
+						category = hatching_sacrifice
+						option = hatching_sacrifice_animal
+					}
+					OR = {
+						var:ritual_leader_type = flag:witch
+						var:ritual_leader_type = flag:scholar
+					}
+				}
+				AND = { # Blood synergy
+					has_activity_option = {
+						category = hatching_sacrifice
+						option = hatching_sacrifice_blood
+					}
+					OR = {
+						var:ritual_leader_type = flag:witch
+						var:ritual_leader_type = flag:warlock
+					}
+				}
+				AND = { # Life synergy
+					OR = {
+						var:sacrifice_type = flag:life_myself
+						var:sacrifice_type = flag:life_leader
+						var:sacrifice_type = flag:life_attendee
+						var:sacrifice_type = flag:life_prisoner
+						var:sacrifice_type = flag:life_everyone
+					}
+					OR = {
+						var:ritual_leader_type = flag:rhllor_priest
+						var:ritual_leader_type = flag:myself
+					}
+				}
+			}
+		}
+		add = 10
+	}
+	# Max is now 90
+	# Is the ritual leader themselves of noted quality?
+	if = {
+		limit = {
+			var:ritual_leader_character = {
+				OR = {
+					learning > 30 # Is super smart
+					has_trait = education_learning_4 # Is the Valyrian Steel Archmaester
+					any_held_title = { # Is the head of a faith
+						is_head_of_faith = yes
+					}
+				}
+			}
+		}
+		add = 10
+	}
+	# Max is now 100
+}

@@ -1,0 +1,1686 @@
+﻿clear_pure_personality_effect = {
+	if = { limit = { has_trait = lustful } remove_trait = lustful }
+	if = { limit = { has_trait = chaste } remove_trait = chaste }
+	if = { limit = { has_trait = gluttonous } remove_trait = gluttonous }
+	if = { limit = { has_trait = temperate } remove_trait = temperate }
+	if = { limit = { has_trait = greedy } remove_trait = greedy }
+	if = { limit = { has_trait = generous } remove_trait = generous }
+	if = { limit = { has_trait = lazy } remove_trait = lazy }
+	if = { limit = { has_trait = diligent } remove_trait = diligent }
+	if = { limit = { has_trait = wrathful } remove_trait = wrathful }
+	if = { limit = { has_trait = calm } remove_trait = calm }
+	if = { limit = { has_trait = patient } remove_trait = patient }
+	if = { limit = { has_trait = impatient } remove_trait = impatient }
+	if = { limit = { has_trait = arrogant } remove_trait = arrogant }
+	if = { limit = { has_trait = humble } remove_trait = humble }
+	if = { limit = { has_trait = deceitful } remove_trait = deceitful }
+	if = { limit = { has_trait = honest } remove_trait = honest }
+	if = { limit = { has_trait = craven } remove_trait = craven }
+	if = { limit = { has_trait = brave } remove_trait = brave }
+	if = { limit = { has_trait = shy } remove_trait = shy }
+	if = { limit = { has_trait = gregarious } remove_trait = gregarious }
+	if = { limit = { has_trait = ambitious } remove_trait = ambitious }
+	if = { limit = { has_trait = content } remove_trait = content }
+	if = { limit = { has_trait = arbitrary } remove_trait = arbitrary }
+	if = { limit = { has_trait = just } remove_trait = just }
+	if = { limit = { has_trait = cynical } remove_trait = cynical }
+	if = { limit = { has_trait = zealous } remove_trait = zealous }
+	if = { limit = { has_trait = paranoid } remove_trait = paranoid }
+	if = { limit = { has_trait = trusting } remove_trait = trusting }
+	if = { limit = { has_trait = compassionate } remove_trait = compassionate }
+	if = { limit = { has_trait = callous } remove_trait = callous }
+	if = { limit = { has_trait = sadistic } remove_trait = sadistic }
+	if = { limit = { has_trait = stubborn } remove_trait = stubborn }
+	if = { limit = { has_trait = fickle } remove_trait = fickle }
+	if = { limit = { has_trait = eccentric } remove_trait = eccentric }
+	if = { limit = { has_trait = vengeful } remove_trait = vengeful }
+	if = { limit = { has_trait = forgiving } remove_trait = forgiving }
+}
+clear_personality_effect = {
+	if = { limit = { has_trait = education_intrigue_1 } remove_trait = education_intrigue_1 }
+	if = { limit = { has_trait = education_intrigue_2 } remove_trait = education_intrigue_2 }
+	if = { limit = { has_trait = education_intrigue_3 } remove_trait = education_intrigue_3 }
+	if = { limit = { has_trait = education_intrigue_4 } remove_trait = education_intrigue_4 }
+	if = { limit = { has_trait = education_intrigue_5 } remove_trait = education_intrigue_5 }
+	if = { limit = { has_trait = education_diplomacy_1 } remove_trait = education_diplomacy_1 }
+	if = { limit = { has_trait = education_diplomacy_2 } remove_trait = education_diplomacy_2 }
+	if = { limit = { has_trait = education_diplomacy_3 } remove_trait = education_diplomacy_3 }
+	if = { limit = { has_trait = education_diplomacy_4 } remove_trait = education_diplomacy_4 }
+	if = { limit = { has_trait = education_diplomacy_5 } remove_trait = education_diplomacy_5 }
+	if = { limit = { has_trait = education_stewardship_1 } remove_trait = education_stewardship_1 }
+	if = { limit = { has_trait = education_stewardship_2 } remove_trait = education_stewardship_2 }
+	if = { limit = { has_trait = education_stewardship_3 } remove_trait = education_stewardship_3 }
+	if = { limit = { has_trait = education_stewardship_4 } remove_trait = education_stewardship_4 }
+	if = { limit = { has_trait = education_stewardship_5 } remove_trait = education_stewardship_5 }
+	if = { limit = { has_trait = education_martial_1 } remove_trait = education_martial_1 }
+	if = { limit = { has_trait = education_martial_2 } remove_trait = education_martial_2 }
+	if = { limit = { has_trait = education_martial_3 } remove_trait = education_martial_3 }
+	if = { limit = { has_trait = education_martial_4 } remove_trait = education_martial_4 }
+	if = { limit = { has_trait = education_martial_5 } remove_trait = education_martial_5 }
+	if = { limit = { has_trait = education_learning_1 } remove_trait = education_learning_1 }
+	if = { limit = { has_trait = education_learning_2 } remove_trait = education_learning_2 }
+	if = { limit = { has_trait = education_learning_3 } remove_trait = education_learning_3 }
+	if = { limit = { has_trait = education_learning_4 } remove_trait = education_learning_4 }
+	if = { limit = { has_trait = education_learning_5 } remove_trait = education_learning_5 }
+	if = { limit = { has_trait = diplomat } remove_trait = diplomat }
+	if = { limit = { has_trait = family_first } remove_trait = family_first }
+	if = { limit = { has_trait = august } remove_trait = august }
+	if = { limit = { has_trait = lifestyle_reveler } remove_trait = lifestyle_reveler }
+	if = { limit = { has_trait = lifestyle_blademaster } remove_trait = lifestyle_blademaster }
+	if = { limit = { has_trait = lifestyle_hunter } remove_trait = lifestyle_hunter }
+	if = { limit = { has_trait = strategist } remove_trait = strategist }
+	if = { limit = { has_trait = overseer } remove_trait = overseer }
+	if = { limit = { has_trait = gallant } remove_trait = gallant }
+	if = { limit = { has_trait = architect } remove_trait = architect }
+	if = { limit = { has_trait = administrator } remove_trait = administrator }
+	if = { limit = { has_trait = avaricious } remove_trait = avaricious }
+	if = { limit = { has_trait = schemer } remove_trait = schemer }
+	if = { limit = { has_trait = seducer } remove_trait = seducer }
+	if = { limit = { has_trait = torturer } remove_trait = torturer }
+	if = { limit = { has_trait = whole_of_body } remove_trait = whole_of_body }
+	if = { limit = { has_trait = erudite } remove_trait = erudite }
+	if = { limit = { has_trait = theologian } remove_trait = theologian }
+	if = { limit = { has_trait = lifestyle_surveyor } remove_trait = lifestyle_surveyor }
+	if = { limit = { has_trait = lifestyle_wayfarer } remove_trait = lifestyle_wayfarer }
+	if = { limit = { has_trait = lifestyle_voyager } remove_trait = lifestyle_voyager }
+	if = { limit = { has_trait = lifestyle_mystic } remove_trait = lifestyle_mystic }
+	if = { limit = { has_trait = lifestyle_physician } remove_trait = lifestyle_physician }
+	if = { limit = { has_trait = lifestyle_herbalist } remove_trait = lifestyle_herbalist }
+	if = { limit = { has_trait = lifestyle_gardener } remove_trait = lifestyle_gardener }
+	
+	clear_pure_personality_effect = yes
+
+	if = { limit = { has_trait = true_witch } remove_trait = true_witch }
+	if = { limit = { has_trait = archmage } remove_trait = archmage }
+}
+transfer_personality_to_recipient_effect = {
+	if = { limit = { has_trait = education_intrigue_1 } scope:recipient = { add_trait = education_intrigue_1 } }
+	if = { limit = { has_trait = education_intrigue_2 } scope:recipient = { add_trait = education_intrigue_2 } }
+	if = { limit = { has_trait = education_intrigue_3 } scope:recipient = { add_trait = education_intrigue_3 } }
+	if = { limit = { has_trait = education_intrigue_4 } scope:recipient = { add_trait = education_intrigue_4 } }
+	if = { limit = { has_trait = education_intrigue_5 } scope:recipient = { add_trait = education_intrigue_5 } }
+	if = { limit = { has_trait = education_diplomacy_1 } scope:recipient = { add_trait = education_diplomacy_1 } }
+	if = { limit = { has_trait = education_diplomacy_2 } scope:recipient = { add_trait = education_diplomacy_2 } }
+	if = { limit = { has_trait = education_diplomacy_3 } scope:recipient = { add_trait = education_diplomacy_3 } }
+	if = { limit = { has_trait = education_diplomacy_4 } scope:recipient = { add_trait = education_diplomacy_4 } }
+	if = { limit = { has_trait = education_diplomacy_5 } scope:recipient = { add_trait = education_diplomacy_5 } }
+	if = { limit = { has_trait = education_stewardship_1 } scope:recipient = { add_trait = education_stewardship_1 } }
+	if = { limit = { has_trait = education_stewardship_2 } scope:recipient = { add_trait = education_stewardship_2 } }
+	if = { limit = { has_trait = education_stewardship_3 } scope:recipient = { add_trait = education_stewardship_3 } }
+	if = { limit = { has_trait = education_stewardship_4 } scope:recipient = { add_trait = education_stewardship_4 } }
+	if = { limit = { has_trait = education_stewardship_5 } scope:recipient = { add_trait = education_stewardship_5 } }
+	if = { limit = { has_trait = education_martial_1 } scope:recipient = { add_trait = education_martial_1 } }
+	if = { limit = { has_trait = education_martial_2 } scope:recipient = { add_trait = education_martial_2 } }
+	if = { limit = { has_trait = education_martial_3 } scope:recipient = { add_trait = education_martial_3 } }
+	if = { limit = { has_trait = education_martial_4 } scope:recipient = { add_trait = education_martial_4 } }
+	if = { limit = { has_trait = education_martial_5 } scope:recipient = { add_trait = education_martial_5 } }
+	if = { limit = { has_trait = education_learning_1 } scope:recipient = { add_trait = education_learning_1 } }
+	if = { limit = { has_trait = education_learning_2 } scope:recipient = { add_trait = education_learning_2 } }
+	if = { limit = { has_trait = education_learning_3 } scope:recipient = { add_trait = education_learning_3 } }
+	if = { limit = { has_trait = education_learning_4 } scope:recipient = { add_trait = education_learning_4 } }
+	if = { limit = { has_trait = education_learning_5 } scope:recipient = { add_trait = education_learning_5 } }
+	if = { limit = { has_trait = diplomat } scope:recipient = { add_trait = diplomat } }
+	if = { limit = { has_trait = family_first } scope:recipient = { add_trait = family_first } }
+	if = { limit = { has_trait = august } scope:recipient = { add_trait = august } }
+	if = { limit = { has_trait = lifestyle_reveler } scope:recipient = { add_trait = lifestyle_reveler } }
+	if = { limit = { has_trait = lifestyle_blademaster } scope:recipient = { add_trait = lifestyle_blademaster } }
+	if = { limit = { has_trait = lifestyle_hunter } scope:recipient = { add_trait = lifestyle_hunter } }
+	if = { limit = { has_trait = strategist } scope:recipient = { add_trait = strategist } }
+	if = { limit = { has_trait = overseer } scope:recipient = { add_trait = overseer } }
+	if = { limit = { has_trait = gallant } scope:recipient = { add_trait = gallant } }
+	if = { limit = { has_trait = architect } scope:recipient = { add_trait = architect } }
+	if = { limit = { has_trait = administrator } scope:recipient = { add_trait = administrator } }
+	if = { limit = { has_trait = avaricious } scope:recipient = { add_trait = avaricious } }
+	if = { limit = { has_trait = schemer } scope:recipient = { add_trait = schemer } }
+	if = { limit = { has_trait = seducer } scope:recipient = { add_trait = seducer } }
+	if = { limit = { has_trait = torturer } scope:recipient = { add_trait = torturer } }
+	if = { limit = { has_trait = whole_of_body } scope:recipient = { add_trait = whole_of_body } }
+	if = { limit = { has_trait = erudite } scope:recipient = { add_trait = erudite } }
+	if = { limit = { has_trait = theologian } scope:recipient = { add_trait = theologian } }
+	if = { limit = { has_trait = lifestyle_surveyor } scope:recipient = { add_trait = lifestyle_surveyor } }
+	if = { limit = { has_trait = lifestyle_wayfarer } scope:recipient = { add_trait = lifestyle_wayfarer } }
+	if = { limit = { has_trait = lifestyle_voyager } scope:recipient = { add_trait = lifestyle_voyager } }
+	if = { limit = { has_trait = lifestyle_mystic } scope:recipient = { add_trait = lifestyle_mystic } }
+	if = { limit = { has_trait = lifestyle_physician } scope:recipient = { add_trait = lifestyle_physician } }
+	if = { limit = { has_trait = lifestyle_herbalist } scope:recipient = { add_trait = lifestyle_herbalist } }
+	if = { limit = { has_trait = lifestyle_gardener } scope:recipient = { add_trait = lifestyle_gardener } }
+	if = { limit = { has_trait = lustful } scope:recipient = { add_trait = lustful } }
+	if = { limit = { has_trait = chaste } scope:recipient = { add_trait = chaste } }
+	if = { limit = { has_trait = gluttonous } scope:recipient = { add_trait = gluttonous } }
+	if = { limit = { has_trait = temperate } scope:recipient = { add_trait = temperate } }
+	if = { limit = { has_trait = greedy } scope:recipient = { add_trait = greedy } }
+	if = { limit = { has_trait = generous } scope:recipient = { add_trait = generous } }
+	if = { limit = { has_trait = lazy } scope:recipient = { add_trait = lazy } }
+	if = { limit = { has_trait = diligent } scope:recipient = { add_trait = diligent } }
+	if = { limit = { has_trait = wrathful } scope:recipient = { add_trait = wrathful } }
+	if = { limit = { has_trait = calm } scope:recipient = { add_trait = calm } }
+	if = { limit = { has_trait = patient } scope:recipient = { add_trait = patient } }
+	if = { limit = { has_trait = impatient } scope:recipient = { add_trait = impatient } }
+	if = { limit = { has_trait = arrogant } scope:recipient = { add_trait = arrogant } }
+	if = { limit = { has_trait = humble } scope:recipient = { add_trait = humble } }
+	if = { limit = { has_trait = deceitful } scope:recipient = { add_trait = deceitful } }
+	if = { limit = { has_trait = honest } scope:recipient = { add_trait = honest } }
+	if = { limit = { has_trait = craven } scope:recipient = { add_trait = craven } }
+	if = { limit = { has_trait = brave } scope:recipient = { add_trait = brave } }
+	if = { limit = { has_trait = shy } scope:recipient = { add_trait = shy } }
+	if = { limit = { has_trait = gregarious } scope:recipient = { add_trait = gregarious } }
+	if = { limit = { has_trait = ambitious } scope:recipient = { add_trait = ambitious } }
+	if = { limit = { has_trait = content } scope:recipient = { add_trait = content } }
+	if = { limit = { has_trait = arbitrary } scope:recipient = { add_trait = arbitrary } }
+	if = { limit = { has_trait = just } scope:recipient = { add_trait = just } }
+	if = { limit = { has_trait = cynical } scope:recipient = { add_trait = cynical } }
+	if = { limit = { has_trait = zealous } scope:recipient = { add_trait = zealous } }
+	if = { limit = { has_trait = paranoid } scope:recipient = { add_trait = paranoid } }
+	if = { limit = { has_trait = trusting } scope:recipient = { add_trait = trusting } }
+	if = { limit = { has_trait = compassionate } scope:recipient = { add_trait = compassionate } }
+	if = { limit = { has_trait = callous } scope:recipient = { add_trait = callous } }
+	if = { limit = { has_trait = sadistic } scope:recipient = { add_trait = sadistic } }
+	if = { limit = { has_trait = stubborn } scope:recipient = { add_trait = stubborn } }
+	if = { limit = { has_trait = fickle } scope:recipient = { add_trait = fickle } }
+	if = { limit = { has_trait = eccentric } scope:recipient = { add_trait = eccentric } }
+	if = { limit = { has_trait = vengeful } scope:recipient = { add_trait = vengeful } }
+	if = { limit = { has_trait = forgiving } scope:recipient = { add_trait = forgiving } }
+
+	if = { limit = { has_trait = confucian_education } scope:recipient = { add_trait = confucian_education } }
+	if = { limit = { has_trait = governor } scope:recipient = { add_trait = governor } }
+}
+clear_perks_effect = {
+	if = { limit = { has_perk = thoughtful_perk } remove_perk = thoughtful_perk }
+	if = { limit = { has_perk = ducal_conquest_perk } remove_perk = ducal_conquest_perk }
+	if = { limit = { has_perk = forced_vassalage_perk } remove_perk = forced_vassalage_perk }
+	if = { limit = { has_perk = adaptive_traditions_perk } remove_perk = adaptive_traditions_perk }
+	if = { limit = { has_perk = flexible_truces_perk } remove_perk = flexible_truces_perk }
+	if = { limit = { has_perk = defensive_negotiations_perk } remove_perk = defensive_negotiations_perk }
+	if = { limit = { has_perk = embassies_perk } remove_perk = embassies_perk }
+	if = { limit = { has_perk = accomplished_forger_perk } remove_perk = accomplished_forger_perk }
+	if = { limit = { has_perk = diplomat_perk } remove_perk = diplomat_perk }
+	if = { limit = { has_perk = benevolent_intent_perk } remove_perk = benevolent_intent_perk }
+	if = { limit = { has_perk = inspiring_rule_perk } remove_perk = inspiring_rule_perk }
+	if = { limit = { has_perk = firm_hand_perk } remove_perk = firm_hand_perk }
+	if = { limit = { has_perk = praetorian_guard_perk } remove_perk = praetorian_guard_perk }
+	if = { limit = { has_perk = true_ruler_perk } remove_perk = true_ruler_perk }
+	if = { limit = { has_perk = writing_history_perk } remove_perk = writing_history_perk }
+	if = { limit = { has_perk = a_life_of_glory_perk } remove_perk = a_life_of_glory_perk }
+	if = { limit = { has_perk = dignitas_perk } remove_perk = dignitas_perk }
+	if = { limit = { has_perk = august_perk } remove_perk = august_perk }
+	if = { limit = { has_perk = befriend_perk } remove_perk = befriend_perk }
+	if = { limit = { has_perk = confidants_perk } remove_perk = confidants_perk }
+	if = { limit = { has_perk = flatterer_perk } remove_perk = flatterer_perk }
+	if = { limit = { has_perk = groomed_to_rule_perk } remove_perk = groomed_to_rule_perk }
+	if = { limit = { has_perk = familial_familiar_perk } remove_perk = familial_familiar_perk }
+	if = { limit = { has_perk = thicker_than_water_perk } remove_perk = thicker_than_water_perk }
+	if = { limit = { has_perk = friendly_counsel_perk } remove_perk = friendly_counsel_perk }
+	if = { limit = { has_perk = sound_foundations_perk } remove_perk = sound_foundations_perk }
+	if = { limit = { has_perk = family_man_perk } remove_perk = family_man_perk }
+	if = { limit = { has_perk = truth_is_relative_perk } remove_perk = truth_is_relative_perk }
+	if = { limit = { has_perk = digging_for_dirt_perk } remove_perk = digging_for_dirt_perk }
+	if = { limit = { has_perk = kidnapper_perk } remove_perk = kidnapper_perk }
+	if = { limit = { has_perk = court_of_shadows_perk } remove_perk = court_of_shadows_perk }
+	if = { limit = { has_perk = prepared_for_anything_perk } remove_perk = prepared_for_anything_perk }
+	if = { limit = { has_perk = swift_execution_perk } remove_perk = swift_execution_perk }
+	if = { limit = { has_perk = a_job_done_right_perk } remove_perk = a_job_done_right_perk }
+	if = { limit = { has_perk = twice_schemed_perk } remove_perk = twice_schemed_perk }
+	if = { limit = { has_perk = schemer_perk } remove_perk = schemer_perk }
+	if = { limit = { has_perk = like_weed_in_a_garden_perk } remove_perk = like_weed_in_a_garden_perk }
+	if = { limit = { has_perk = unshackled_lust_perk } remove_perk = unshackled_lust_perk }
+	if = { limit = { has_perk = subtle_desire_perk } remove_perk = subtle_desire_perk }
+	if = { limit = { has_perk = mortal_adoration_perk } remove_perk = mortal_adoration_perk }
+	if = { limit = { has_perk = enticing_opportunity_perk } remove_perk = enticing_opportunity_perk }
+	if = { limit = { has_perk = home_advantage_perk } remove_perk = home_advantage_perk }
+	if = { limit = { has_perk = graceful_recovery_perk } remove_perk = graceful_recovery_perk }
+	if = { limit = { has_perk = smooth_operator_perk } remove_perk = smooth_operator_perk }
+	if = { limit = { has_perk = seducer_perk } remove_perk = seducer_perk }
+	if = { limit = { has_perk = dark_insights_perk } remove_perk = dark_insights_perk }
+	if = { limit = { has_perk = divine_retribution_perk } remove_perk = divine_retribution_perk }
+	if = { limit = { has_perk = dreadful_perk } remove_perk = dreadful_perk }
+	if = { limit = { has_perk = thriving_in_chaos_perk } remove_perk = thriving_in_chaos_perk }
+	if = { limit = { has_perk = malice_implicit_perk } remove_perk = malice_implicit_perk }
+	if = { limit = { has_perk = fear_tax_perk } remove_perk = fear_tax_perk }
+	if = { limit = { has_perk = forever_infamous_perk } remove_perk = forever_infamous_perk }
+	if = { limit = { has_perk = prison_feudal_complex_perk } remove_perk = prison_feudal_complex_perk }
+	if = { limit = { has_perk = torturer_perk } remove_perk = torturer_perk }
+	if = { limit = { has_perk = anatomical_studies_perk } remove_perk = anatomical_studies_perk }
+	if = { limit = { has_perk = carefree_perk } remove_perk = carefree_perk }
+	if = { limit = { has_perk = mental_resilience_perk } remove_perk = mental_resilience_perk }
+	if = { limit = { has_perk = restraint_perk } remove_perk = restraint_perk }
+	if = { limit = { has_perk = know_thyself_perk } remove_perk = know_thyself_perk }
+	if = { limit = { has_perk = wash_your_hands_perk } remove_perk = wash_your_hands_perk }
+	if = { limit = { has_perk = iron_constitution_perk } remove_perk = iron_constitution_perk }
+	if = { limit = { has_perk = healthy_perk } remove_perk = healthy_perk }
+	if = { limit = { has_perk = whole_of_body_perk } remove_perk = whole_of_body_perk }
+	if = { limit = { has_perk = pedagogy_perk } remove_perk = pedagogy_perk }
+	if = { limit = { has_perk = open_minded_perk } remove_perk = open_minded_perk }
+	if = { limit = { has_perk = apostate_perk } remove_perk = apostate_perk }
+	if = { limit = { has_perk = scientific_perk } remove_perk = scientific_perk }
+	if = { limit = { has_perk = planned_cultivation_perk } remove_perk = planned_cultivation_perk }
+	if = { limit = { has_perk = scholarly_circles_perk } remove_perk = scholarly_circles_perk }
+	if = { limit = { has_perk = learn_on_the_job_perk } remove_perk = learn_on_the_job_perk }
+	if = { limit = { has_perk = sanctioned_loopholes_perk } remove_perk = sanctioned_loopholes_perk }
+	if = { limit = { has_perk = erudite_perk } remove_perk = erudite_perk }
+	if = { limit = { has_perk = faithful_perk } remove_perk = faithful_perk }
+	if = { limit = { has_perk = zealous_proselytizer_perk } remove_perk = zealous_proselytizer_perk }
+	if = { limit = { has_perk = religious_icon_perk } remove_perk = religious_icon_perk }
+	if = { limit = { has_perk = prophet_perk } remove_perk = prophet_perk }
+	if = { limit = { has_perk = clerical_justifications_perk } remove_perk = clerical_justifications_perk }
+	if = { limit = { has_perk = church_and_state_perk } remove_perk = church_and_state_perk }
+	if = { limit = { has_perk = radiant_perk } remove_perk = radiant_perk }
+	if = { limit = { has_perk = defender_of_the_faith_perk } remove_perk = defender_of_the_faith_perk }
+	if = { limit = { has_perk = theologian_perk } remove_perk = theologian_perk }
+	if = { limit = { has_perk = bellum_justum_perk } remove_perk = bellum_justum_perk }
+	if = { limit = { has_perk = parthian_tactics_perk } remove_perk = parthian_tactics_perk }
+	if = { limit = { has_perk = envelopment_perk } remove_perk = envelopment_perk }
+	if = { limit = { has_perk = organized_retreat_perk } remove_perk = organized_retreat_perk }
+	if = { limit = { has_perk = hit_and_run_perk } remove_perk = hit_and_run_perk }
+	if = { limit = { has_perk = engineered_for_destruction_perk } remove_perk = engineered_for_destruction_perk }
+	if = { limit = { has_perk = living_off_the_land_perk } remove_perk = living_off_the_land_perk }
+	if = { limit = { has_perk = sappers_perk } remove_perk = sappers_perk }
+	if = { limit = { has_perk = strategist_perk } remove_perk = strategist_perk }
+	if = { limit = { has_perk = serve_the_crown_perk } remove_perk = serve_the_crown_perk }
+	if = { limit = { has_perk = a_mans_home_perk } remove_perk = a_mans_home_perk }
+	if = { limit = { has_perk = enduring_hardships_perk } remove_perk = enduring_hardships_perk }
+	if = { limit = { has_perk = prepared_conscription_perk } remove_perk = prepared_conscription_perk }
+	if = { limit = { has_perk = strict_organization_perk } remove_perk = strict_organization_perk }
+	if = { limit = { has_perk = hard_rule_perk } remove_perk = hard_rule_perk }
+	if = { limit = { has_perk = soldiers_of_lesser_fortune_perk } remove_perk = soldiers_of_lesser_fortune_perk }
+	if = { limit = { has_perk = absolute_control_perk } remove_perk = absolute_control_perk }
+	if = { limit = { has_perk = overseer_perk } remove_perk = overseer_perk }
+	if = { limit = { has_perk = stalwart_leader_perk } remove_perk = stalwart_leader_perk }
+	if = { limit = { has_perk = courtship_perk } remove_perk = courtship_perk }
+	if = { limit = { has_perk = promising_prospects_perk } remove_perk = promising_prospects_perk }
+	if = { limit = { has_perk = loyalty_and_respect_perk } remove_perk = loyalty_and_respect_perk }
+	if = { limit = { has_perk = chivalric_dominance_perk } remove_perk = chivalric_dominance_perk }
+	if = { limit = { has_perk = never_back_down_perk } remove_perk = never_back_down_perk }
+	if = { limit = { has_perk = kingsguard_perk } remove_perk = kingsguard_perk }
+	if = { limit = { has_perk = peacemaker_perk } remove_perk = peacemaker_perk }
+	if = { limit = { has_perk = gallant_perk } remove_perk = gallant_perk }
+	if = { limit = { has_perk = golden_obligations_perk } remove_perk = golden_obligations_perk }
+	if = { limit = { has_perk = heregeld_perk } remove_perk = heregeld_perk }
+	if = { limit = { has_perk = detailed_ledgers_perk } remove_perk = detailed_ledgers_perk }
+	if = { limit = { has_perk = war_profiteer_perk } remove_perk = war_profiteer_perk }
+	if = { limit = { has_perk = fearful_troops_perk } remove_perk = fearful_troops_perk }
+	if = { limit = { has_perk = it_is_my_domain_perk } remove_perk = it_is_my_domain_perk }
+	if = { limit = { has_perk = golden_aplomb_perk } remove_perk = golden_aplomb_perk }
+	if = { limit = { has_perk = at_any_cost_perk } remove_perk = at_any_cost_perk }
+	if = { limit = { has_perk = avaricious_perk } remove_perk = avaricious_perk }
+	if = { limit = { has_perk = tax_man_perk } remove_perk = tax_man_perk }
+	if = { limit = { has_perk = defensive_measures_perk } remove_perk = defensive_measures_perk }
+	if = { limit = { has_perk = organized_muster_rolls_perk } remove_perk = organized_muster_rolls_perk }
+	if = { limit = { has_perk = cutting_corners_perk } remove_perk = cutting_corners_perk }
+	if = { limit = { has_perk = professional_workforce_perk } remove_perk = professional_workforce_perk }
+	if = { limit = { has_perk = centralization_perk } remove_perk = centralization_perk }
+	if = { limit = { has_perk = popular_figurehead_perk } remove_perk = popular_figurehead_perk }
+	if = { limit = { has_perk = divided_attention_perk } remove_perk = divided_attention_perk }
+	if = { limit = { has_perk = architect_perk } remove_perk = architect_perk }
+	if = { limit = { has_perk = meritocracy_perk } remove_perk = meritocracy_perk }
+	if = { limit = { has_perk = chains_of_loyalty_perk } remove_perk = chains_of_loyalty_perk }
+	if = { limit = { has_perk = likable_perk } remove_perk = likable_perk }
+	if = { limit = { has_perk = positions_of_power_perk } remove_perk = positions_of_power_perk }
+	if = { limit = { has_perk = large_levies_perk } remove_perk = large_levies_perk }
+	if = { limit = { has_perk = soon_forgiven_perk } remove_perk = soon_forgiven_perk }
+	if = { limit = { has_perk = toe_the_line_perk } remove_perk = toe_the_line_perk }
+	if = { limit = { has_perk = honored_to_serve_perk } remove_perk = honored_to_serve_perk }
+	if = { limit = { has_perk = administrator_perk } remove_perk = administrator_perk }
+	if = { limit = { has_perk = protective_runes_perk } remove_perk = protective_runes_perk }
+	if = { limit = { has_perk = witch_familiar_perk } remove_perk = witch_familiar_perk }
+	if = { limit = { has_perk = oneiromancy_perk } remove_perk = oneiromancy_perk }
+	if = { limit = { has_perk = wisdom_of_nature_perk } remove_perk = wisdom_of_nature_perk }
+	if = { limit = { has_perk = love_potions_perk } remove_perk = love_potions_perk }
+	if = { limit = { has_perk = mistical_insight_perk } remove_perk = mistical_insight_perk }
+	if = { limit = { has_perk = evil_eye_perk } remove_perk = evil_eye_perk }
+	if = { limit = { has_perk = magical_senses_perk } remove_perk = magical_senses_perk }
+	if = { limit = { has_perk = lifestealer_perk } remove_perk = lifestealer_perk }
+	if = { limit = { has_perk = true_witch_perk } remove_perk = true_witch_perk }
+	if = { limit = { has_perk = magical_experiments_p1_perk } remove_perk = magical_experiments_p1_perk }
+	if = { limit = { has_perk = mage_tower_p2_perk } remove_perk = mage_tower_p2_perk }
+	if = { limit = { has_perk = mind_control_p6_perk } remove_perk = mind_control_p6_perk }
+	if = { limit = { has_perk = fate_weaver_p10_perk } remove_perk = fate_weaver_p10_perk }
+	if = { limit = { has_perk = forbidden_ritual_p7_perk } remove_perk = forbidden_ritual_p7_perk }
+	if = { limit = { has_perk = magic_triangulation_p5_perk } remove_perk = magic_triangulation_p5_perk }
+	if = { limit = { has_perk = combat_spells_p3_perk } remove_perk = combat_spells_p3_perk }
+	if = { limit = { has_perk = healer_p9_perk } remove_perk = healer_p9_perk }
+	if = { limit = { has_perk = summoner_p8_perk } remove_perk = summoner_p8_perk }
+	if = { limit = { has_perk = mage_p4_perk } remove_perk = mage_p4_perk }
+	if = { limit = { has_perk = mustering_the_troops_perk } remove_perk = mustering_the_troops_perk }
+	if = { limit = { has_perk = local_inspection_perk } remove_perk = local_inspection_perk }
+	if = { limit = { has_perk = know_your_land_know_your_people_perk } remove_perk = know_your_land_know_your_people_perk }
+	if = { limit = { has_perk = no_stone_unturned_perk } remove_perk = no_stone_unturned_perk }
+	if = { limit = { has_perk = travel_logs_perk } remove_perk = travel_logs_perk }
+	if = { limit = { has_perk = local_arbitration_perk } remove_perk = local_arbitration_perk }
+	if = { limit = { has_perk = realm_charts_perk } remove_perk = realm_charts_perk }
+	if = { limit = { has_perk = personal_touch_perk } remove_perk = personal_touch_perk }
+	if = { limit = { has_perk = surveyor_perk } remove_perk = surveyor_perk }
+	if = { limit = { has_perk = well_prepared_perk } remove_perk = well_prepared_perk }
+	if = { limit = { has_perk = roaming_perk } remove_perk = roaming_perk }
+	if = { limit = { has_perk = far_and_wide_perk } remove_perk = far_and_wide_perk }
+	if = { limit = { has_perk = just_one_more_hill_perk } remove_perk = just_one_more_hill_perk }
+	if = { limit = { has_perk = of_the_people_perk } remove_perk = of_the_people_perk }
+	if = { limit = { has_perk = local_hero_perk } remove_perk = local_hero_perk }
+	if = { limit = { has_perk = travel_companion_perk } remove_perk = travel_companion_perk }
+	if = { limit = { has_perk = the_home_away_from_home_perk } remove_perk = the_home_away_from_home_perk }
+	if = { limit = { has_perk = wayfarer_perk } remove_perk = wayfarer_perk }
+	if = { limit = { has_perk = power_at_home_perk } remove_perk = power_at_home_perk }
+	if = { limit = { has_perk = mercenary_contacts_perk } remove_perk = mercenary_contacts_perk }
+	if = { limit = { has_perk = journey_perk } remove_perk = journey_perk }
+	if = { limit = { has_perk = been_there_done_that_perk } remove_perk = been_there_done_that_perk }
+	if = { limit = { has_perk = finally_there_perk } remove_perk = finally_there_perk }
+	if = { limit = { has_perk = souvenirs_aplenty_perk } remove_perk = souvenirs_aplenty_perk }
+	if = { limit = { has_perk = gracious_host_impeccable_guest_perk } remove_perk = gracious_host_impeccable_guest_perk }
+	if = { limit = { has_perk = journey_planner_perk } remove_perk = journey_planner_perk }
+	if = { limit = { has_perk = voyager_perk } remove_perk = voyager_perk }
+}
+transfer_perks_to_recipient_effect = {
+	if = { limit = { has_perk = thoughtful_perk } scope:recipient = { add_perk = thoughtful_perk } }
+	if = { limit = { has_perk = ducal_conquest_perk } scope:recipient = { add_perk = ducal_conquest_perk } }
+	if = { limit = { has_perk = forced_vassalage_perk } scope:recipient = { add_perk = forced_vassalage_perk } }
+	if = { limit = { has_perk = adaptive_traditions_perk } scope:recipient = { add_perk = adaptive_traditions_perk } }
+	if = { limit = { has_perk = flexible_truces_perk } scope:recipient = { add_perk = flexible_truces_perk } }
+	if = { limit = { has_perk = defensive_negotiations_perk } scope:recipient = { add_perk = defensive_negotiations_perk } }
+	if = { limit = { has_perk = embassies_perk } scope:recipient = { add_perk = embassies_perk } }
+	if = { limit = { has_perk = accomplished_forger_perk } scope:recipient = { add_perk = accomplished_forger_perk } }
+	if = { limit = { has_perk = diplomat_perk } scope:recipient = { add_perk = diplomat_perk } }
+	if = { limit = { has_perk = benevolent_intent_perk } scope:recipient = { add_perk = benevolent_intent_perk } }
+	if = { limit = { has_perk = inspiring_rule_perk } scope:recipient = { add_perk = inspiring_rule_perk } }
+	if = { limit = { has_perk = firm_hand_perk } scope:recipient = { add_perk = firm_hand_perk } }
+	if = { limit = { has_perk = praetorian_guard_perk } scope:recipient = { add_perk = praetorian_guard_perk } }
+	if = { limit = { has_perk = true_ruler_perk } scope:recipient = { add_perk = true_ruler_perk } }
+	if = { limit = { has_perk = writing_history_perk } scope:recipient = { add_perk = writing_history_perk } }
+	if = { limit = { has_perk = a_life_of_glory_perk } scope:recipient = { add_perk = a_life_of_glory_perk } }
+	if = { limit = { has_perk = dignitas_perk } scope:recipient = { add_perk = dignitas_perk } }
+	if = { limit = { has_perk = august_perk } scope:recipient = { add_perk = august_perk } }
+	if = { limit = { has_perk = befriend_perk } scope:recipient = { add_perk = befriend_perk } }
+	if = { limit = { has_perk = confidants_perk } scope:recipient = { add_perk = confidants_perk } }
+	if = { limit = { has_perk = flatterer_perk } scope:recipient = { add_perk = flatterer_perk } }
+	if = { limit = { has_perk = groomed_to_rule_perk } scope:recipient = { add_perk = groomed_to_rule_perk } }
+	if = { limit = { has_perk = familial_familiar_perk } scope:recipient = { add_perk = familial_familiar_perk } }
+	if = { limit = { has_perk = thicker_than_water_perk } scope:recipient = { add_perk = thicker_than_water_perk } }
+	if = { limit = { has_perk = friendly_counsel_perk } scope:recipient = { add_perk = friendly_counsel_perk } }
+	if = { limit = { has_perk = sound_foundations_perk } scope:recipient = { add_perk = sound_foundations_perk } }
+	if = { limit = { has_perk = family_man_perk } scope:recipient = { add_perk = family_man_perk } }
+	if = { limit = { has_perk = truth_is_relative_perk } scope:recipient = { add_perk = truth_is_relative_perk } }
+	if = { limit = { has_perk = digging_for_dirt_perk } scope:recipient = { add_perk = digging_for_dirt_perk } }
+	if = { limit = { has_perk = kidnapper_perk } scope:recipient = { add_perk = kidnapper_perk } }
+	if = { limit = { has_perk = court_of_shadows_perk } scope:recipient = { add_perk = court_of_shadows_perk } }
+	if = { limit = { has_perk = prepared_for_anything_perk } scope:recipient = { add_perk = prepared_for_anything_perk } }
+	if = { limit = { has_perk = swift_execution_perk } scope:recipient = { add_perk = swift_execution_perk } }
+	if = { limit = { has_perk = a_job_done_right_perk } scope:recipient = { add_perk = a_job_done_right_perk } }
+	if = { limit = { has_perk = twice_schemed_perk } scope:recipient = { add_perk = twice_schemed_perk } }
+	if = { limit = { has_perk = schemer_perk } scope:recipient = { add_perk = schemer_perk } }
+	if = { limit = { has_perk = like_weed_in_a_garden_perk } scope:recipient = { add_perk = like_weed_in_a_garden_perk } }
+	if = { limit = { has_perk = unshackled_lust_perk } scope:recipient = { add_perk = unshackled_lust_perk } }
+	if = { limit = { has_perk = subtle_desire_perk } scope:recipient = { add_perk = subtle_desire_perk } }
+	if = { limit = { has_perk = mortal_adoration_perk } scope:recipient = { add_perk = mortal_adoration_perk } }
+	if = { limit = { has_perk = enticing_opportunity_perk } scope:recipient = { add_perk = enticing_opportunity_perk } }
+	if = { limit = { has_perk = home_advantage_perk } scope:recipient = { add_perk = home_advantage_perk } }
+	if = { limit = { has_perk = graceful_recovery_perk } scope:recipient = { add_perk = graceful_recovery_perk } }
+	if = { limit = { has_perk = smooth_operator_perk } scope:recipient = { add_perk = smooth_operator_perk } }
+	if = { limit = { has_perk = seducer_perk } scope:recipient = { add_perk = seducer_perk } }
+	if = { limit = { has_perk = dark_insights_perk } scope:recipient = { add_perk = dark_insights_perk } }
+	if = { limit = { has_perk = divine_retribution_perk } scope:recipient = { add_perk = divine_retribution_perk } }
+	if = { limit = { has_perk = dreadful_perk } scope:recipient = { add_perk = dreadful_perk } }
+	if = { limit = { has_perk = thriving_in_chaos_perk } scope:recipient = { add_perk = thriving_in_chaos_perk } }
+	if = { limit = { has_perk = malice_implicit_perk } scope:recipient = { add_perk = malice_implicit_perk } }
+	if = { limit = { has_perk = fear_tax_perk } scope:recipient = { add_perk = fear_tax_perk } }
+	if = { limit = { has_perk = forever_infamous_perk } scope:recipient = { add_perk = forever_infamous_perk } }
+	if = { limit = { has_perk = prison_feudal_complex_perk } scope:recipient = { add_perk = prison_feudal_complex_perk } }
+	if = { limit = { has_perk = torturer_perk } scope:recipient = { add_perk = torturer_perk } }
+	if = { limit = { has_perk = anatomical_studies_perk } scope:recipient = { add_perk = anatomical_studies_perk } }
+	if = { limit = { has_perk = carefree_perk } scope:recipient = { add_perk = carefree_perk } }
+	if = { limit = { has_perk = mental_resilience_perk } scope:recipient = { add_perk = mental_resilience_perk } }
+	if = { limit = { has_perk = restraint_perk } scope:recipient = { add_perk = restraint_perk } }
+	if = { limit = { has_perk = know_thyself_perk } scope:recipient = { add_perk = know_thyself_perk } }
+	if = { limit = { has_perk = wash_your_hands_perk } scope:recipient = { add_perk = wash_your_hands_perk } }
+	if = { limit = { has_perk = iron_constitution_perk } scope:recipient = { add_perk = iron_constitution_perk } }
+	if = { limit = { has_perk = healthy_perk } scope:recipient = { add_perk = healthy_perk } }
+	if = { limit = { has_perk = whole_of_body_perk } scope:recipient = { add_perk = whole_of_body_perk } }
+	if = { limit = { has_perk = pedagogy_perk } scope:recipient = { add_perk = pedagogy_perk } }
+	if = { limit = { has_perk = open_minded_perk } scope:recipient = { add_perk = open_minded_perk } }
+	if = { limit = { has_perk = apostate_perk } scope:recipient = { add_perk = apostate_perk } }
+	if = { limit = { has_perk = scientific_perk } scope:recipient = { add_perk = scientific_perk } }
+	if = { limit = { has_perk = planned_cultivation_perk } scope:recipient = { add_perk = planned_cultivation_perk } }
+	if = { limit = { has_perk = scholarly_circles_perk } scope:recipient = { add_perk = scholarly_circles_perk } }
+	if = { limit = { has_perk = learn_on_the_job_perk } scope:recipient = { add_perk = learn_on_the_job_perk } }
+	if = { limit = { has_perk = sanctioned_loopholes_perk } scope:recipient = { add_perk = sanctioned_loopholes_perk } }
+	if = { limit = { has_perk = erudite_perk } scope:recipient = { add_perk = erudite_perk } }
+	if = { limit = { has_perk = faithful_perk } scope:recipient = { add_perk = faithful_perk } }
+	if = { limit = { has_perk = zealous_proselytizer_perk } scope:recipient = { add_perk = zealous_proselytizer_perk } }
+	if = { limit = { has_perk = religious_icon_perk } scope:recipient = { add_perk = religious_icon_perk } }
+	if = { limit = { has_perk = prophet_perk } scope:recipient = { add_perk = prophet_perk } }
+	if = { limit = { has_perk = clerical_justifications_perk } scope:recipient = { add_perk = clerical_justifications_perk } }
+	if = { limit = { has_perk = church_and_state_perk } scope:recipient = { add_perk = church_and_state_perk } }
+	if = { limit = { has_perk = radiant_perk } scope:recipient = { add_perk = radiant_perk } }
+	if = { limit = { has_perk = defender_of_the_faith_perk } scope:recipient = { add_perk = defender_of_the_faith_perk } }
+	if = { limit = { has_perk = theologian_perk } scope:recipient = { add_perk = theologian_perk } }
+	if = { limit = { has_perk = bellum_justum_perk } scope:recipient = { add_perk = bellum_justum_perk } }
+	if = { limit = { has_perk = parthian_tactics_perk } scope:recipient = { add_perk = parthian_tactics_perk } }
+	if = { limit = { has_perk = envelopment_perk } scope:recipient = { add_perk = envelopment_perk } }
+	if = { limit = { has_perk = organized_retreat_perk } scope:recipient = { add_perk = organized_retreat_perk } }
+	if = { limit = { has_perk = hit_and_run_perk } scope:recipient = { add_perk = hit_and_run_perk } }
+	if = { limit = { has_perk = engineered_for_destruction_perk } scope:recipient = { add_perk = engineered_for_destruction_perk } }
+	if = { limit = { has_perk = living_off_the_land_perk } scope:recipient = { add_perk = living_off_the_land_perk } }
+	if = { limit = { has_perk = sappers_perk } scope:recipient = { add_perk = sappers_perk } }
+	if = { limit = { has_perk = strategist_perk } scope:recipient = { add_perk = strategist_perk } }
+	if = { limit = { has_perk = serve_the_crown_perk } scope:recipient = { add_perk = serve_the_crown_perk } }
+	if = { limit = { has_perk = a_mans_home_perk } scope:recipient = { add_perk = a_mans_home_perk } }
+	if = { limit = { has_perk = enduring_hardships_perk } scope:recipient = { add_perk = enduring_hardships_perk } }
+	if = { limit = { has_perk = prepared_conscription_perk } scope:recipient = { add_perk = prepared_conscription_perk } }
+	if = { limit = { has_perk = strict_organization_perk } scope:recipient = { add_perk = strict_organization_perk } }
+	if = { limit = { has_perk = hard_rule_perk } scope:recipient = { add_perk = hard_rule_perk } }
+	if = { limit = { has_perk = soldiers_of_lesser_fortune_perk } scope:recipient = { add_perk = soldiers_of_lesser_fortune_perk } }
+	if = { limit = { has_perk = absolute_control_perk } scope:recipient = { add_perk = absolute_control_perk } }
+	if = { limit = { has_perk = overseer_perk } scope:recipient = { add_perk = overseer_perk } }
+	if = { limit = { has_perk = stalwart_leader_perk } scope:recipient = { add_perk = stalwart_leader_perk } }
+	if = { limit = { has_perk = courtship_perk } scope:recipient = { add_perk = courtship_perk } }
+	if = { limit = { has_perk = promising_prospects_perk } scope:recipient = { add_perk = promising_prospects_perk } }
+	if = { limit = { has_perk = loyalty_and_respect_perk } scope:recipient = { add_perk = loyalty_and_respect_perk } }
+	if = { limit = { has_perk = chivalric_dominance_perk } scope:recipient = { add_perk = chivalric_dominance_perk } }
+	if = { limit = { has_perk = never_back_down_perk } scope:recipient = { add_perk = never_back_down_perk } }
+	if = { limit = { has_perk = kingsguard_perk } scope:recipient = { add_perk = kingsguard_perk } }
+	if = { limit = { has_perk = peacemaker_perk } scope:recipient = { add_perk = peacemaker_perk } }
+	if = { limit = { has_perk = gallant_perk } scope:recipient = { add_perk = gallant_perk } }
+	if = { limit = { has_perk = golden_obligations_perk } scope:recipient = { add_perk = golden_obligations_perk } }
+	if = { limit = { has_perk = heregeld_perk } scope:recipient = { add_perk = heregeld_perk } }
+	if = { limit = { has_perk = detailed_ledgers_perk } scope:recipient = { add_perk = detailed_ledgers_perk } }
+	if = { limit = { has_perk = war_profiteer_perk } scope:recipient = { add_perk = war_profiteer_perk } }
+	if = { limit = { has_perk = fearful_troops_perk } scope:recipient = { add_perk = fearful_troops_perk } }
+	if = { limit = { has_perk = it_is_my_domain_perk } scope:recipient = { add_perk = it_is_my_domain_perk } }
+	if = { limit = { has_perk = golden_aplomb_perk } scope:recipient = { add_perk = golden_aplomb_perk } }
+	if = { limit = { has_perk = at_any_cost_perk } scope:recipient = { add_perk = at_any_cost_perk } }
+	if = { limit = { has_perk = avaricious_perk } scope:recipient = { add_perk = avaricious_perk } }
+	if = { limit = { has_perk = tax_man_perk } scope:recipient = { add_perk = tax_man_perk } }
+	if = { limit = { has_perk = defensive_measures_perk } scope:recipient = { add_perk = defensive_measures_perk } }
+	if = { limit = { has_perk = organized_muster_rolls_perk } scope:recipient = { add_perk = organized_muster_rolls_perk } }
+	if = { limit = { has_perk = cutting_corners_perk } scope:recipient = { add_perk = cutting_corners_perk } }
+	if = { limit = { has_perk = professional_workforce_perk } scope:recipient = { add_perk = professional_workforce_perk } }
+	if = { limit = { has_perk = centralization_perk } scope:recipient = { add_perk = centralization_perk } }
+	if = { limit = { has_perk = popular_figurehead_perk } scope:recipient = { add_perk = popular_figurehead_perk } }
+	if = { limit = { has_perk = divided_attention_perk } scope:recipient = { add_perk = divided_attention_perk } }
+	if = { limit = { has_perk = architect_perk } scope:recipient = { add_perk = architect_perk } }
+	if = { limit = { has_perk = meritocracy_perk } scope:recipient = { add_perk = meritocracy_perk } }
+	if = { limit = { has_perk = chains_of_loyalty_perk } scope:recipient = { add_perk = chains_of_loyalty_perk } }
+	if = { limit = { has_perk = likable_perk } scope:recipient = { add_perk = likable_perk } }
+	if = { limit = { has_perk = positions_of_power_perk } scope:recipient = { add_perk = positions_of_power_perk } }
+	if = { limit = { has_perk = large_levies_perk } scope:recipient = { add_perk = large_levies_perk } }
+	if = { limit = { has_perk = soon_forgiven_perk } scope:recipient = { add_perk = soon_forgiven_perk } }
+	if = { limit = { has_perk = toe_the_line_perk } scope:recipient = { add_perk = toe_the_line_perk } }
+	if = { limit = { has_perk = honored_to_serve_perk } scope:recipient = { add_perk = honored_to_serve_perk } }
+	if = { limit = { has_perk = administrator_perk } scope:recipient = { add_perk = administrator_perk } }
+	if = { limit = { has_perk = true_witch_perk } scope:recipient = { add_perk = true_witch_perk } }
+	if = { limit = { has_perk = protective_runes_perk } scope:recipient = { add_perk = protective_runes_perk } }
+	if = { limit = { has_perk = witch_familiar_perk } scope:recipient = { add_perk = witch_familiar_perk } }
+	if = { limit = { has_perk = oneiromancy_perk } scope:recipient = { add_perk = oneiromancy_perk } }
+	if = { limit = { has_perk = wisdom_of_nature_perk } scope:recipient = { add_perk = wisdom_of_nature_perk } }
+	if = { limit = { has_perk = love_potions_perk } scope:recipient = { add_perk = love_potions_perk } }
+	if = { limit = { has_perk = mistical_insight_perk } scope:recipient = { add_perk = mistical_insight_perk } }
+	if = { limit = { has_perk = evil_eye_perk } scope:recipient = { add_perk = evil_eye_perk } }
+	if = { limit = { has_perk = magical_senses_perk } scope:recipient = { add_perk = magical_senses_perk } }
+	if = { limit = { has_perk = lifestealer_perk } scope:recipient = { add_perk = lifestealer_perk } }
+	if = { limit = { has_perk = mage_p4_perk } scope:recipient = { add_perk = mage_p4_perk } }
+	if = { limit = { has_perk = magical_experiments_p1_perk } scope:recipient = { add_perk = magical_experiments_p1_perk } }
+	if = { limit = { has_perk = mage_tower_p2_perk } scope:recipient = { add_perk = mage_tower_p2_perk } }
+	if = { limit = { has_perk = mind_control_p6_perk } scope:recipient = { add_perk = mind_control_p6_perk } }
+	if = { limit = { has_perk = fate_weaver_p10_perk } scope:recipient = { add_perk = fate_weaver_p10_perk } }
+	if = { limit = { has_perk = forbidden_ritual_p7_perk } scope:recipient = { add_perk = forbidden_ritual_p7_perk } }
+	if = { limit = { has_perk = magic_triangulation_p5_perk } scope:recipient = { add_perk = magic_triangulation_p5_perk } }
+	if = { limit = { has_perk = combat_spells_p3_perk } scope:recipient = { add_perk = combat_spells_p3_perk } }
+	if = { limit = { has_perk = healer_p9_perk } scope:recipient = { add_perk = healer_p9_perk } }
+	if = { limit = { has_perk = summoner_p8_perk } scope:recipient = { add_perk = summoner_p8_perk } }
+	if = { limit = { has_perk = mustering_the_troops_perk } scope:recipient = { add_perk = mustering_the_troops_perk } }
+	if = { limit = { has_perk = local_inspection_perk } scope:recipient = { add_perk = local_inspection_perk } }
+	if = { limit = { has_perk = know_your_land_know_your_people_perk } scope:recipient = { add_perk = know_your_land_know_your_people_perk } }
+	if = { limit = { has_perk = no_stone_unturned_perk } scope:recipient = { add_perk = no_stone_unturned_perk } }
+	if = { limit = { has_perk = travel_logs_perk } scope:recipient = { add_perk = travel_logs_perk } }
+	if = { limit = { has_perk = local_arbitration_perk } scope:recipient = { add_perk = local_arbitration_perk } }
+	if = { limit = { has_perk = realm_charts_perk } scope:recipient = { add_perk = realm_charts_perk } }
+	if = { limit = { has_perk = personal_touch_perk } scope:recipient = { add_perk = personal_touch_perk } }
+	if = { limit = { has_perk = surveyor_perk } scope:recipient = { add_perk = surveyor_perk } }
+	if = { limit = { has_perk = well_prepared_perk } scope:recipient = { add_perk = well_prepared_perk } }
+	if = { limit = { has_perk = roaming_perk } scope:recipient = { add_perk = roaming_perk } }
+	if = { limit = { has_perk = far_and_wide_perk } scope:recipient = { add_perk = far_and_wide_perk } }
+	if = { limit = { has_perk = just_one_more_hill_perk } scope:recipient = { add_perk = just_one_more_hill_perk } }
+	if = { limit = { has_perk = of_the_people_perk } scope:recipient = { add_perk = of_the_people_perk } }
+	if = { limit = { has_perk = local_hero_perk } scope:recipient = { add_perk = local_hero_perk } }
+	if = { limit = { has_perk = travel_companion_perk } scope:recipient = { add_perk = travel_companion_perk } }
+	if = { limit = { has_perk = the_home_away_from_home_perk } scope:recipient = { add_perk = the_home_away_from_home_perk } }
+	if = { limit = { has_perk = wayfarer_perk } scope:recipient = { add_perk = wayfarer_perk } }
+	if = { limit = { has_perk = power_at_home_perk } scope:recipient = { add_perk = power_at_home_perk } }
+	if = { limit = { has_perk = mercenary_contacts_perk } scope:recipient = { add_perk = mercenary_contacts_perk } }
+	if = { limit = { has_perk = journey_perk } scope:recipient = { add_perk = journey_perk } }
+	if = { limit = { has_perk = been_there_done_that_perk } scope:recipient = { add_perk = been_there_done_that_perk } }
+	if = { limit = { has_perk = finally_there_perk } scope:recipient = { add_perk = finally_there_perk } }
+	if = { limit = { has_perk = souvenirs_aplenty_perk } scope:recipient = { add_perk = souvenirs_aplenty_perk } }
+	if = { limit = { has_perk = gracious_host_impeccable_guest_perk } scope:recipient = { add_perk = gracious_host_impeccable_guest_perk } }
+	if = { limit = { has_perk = journey_planner_perk } scope:recipient = { add_perk = journey_planner_perk } }
+	if = { limit = { has_perk = voyager_perk } scope:recipient = { add_perk = voyager_perk } }
+}
+transfer_mage_xp_effect = {
+	scope:recipient = {
+		if = {
+			limit = {
+				NOT = {
+					has_trait = true_witch
+				}
+				scope:actor = {
+					has_trait = true_witch
+				}
+			}
+			add_trait = true_witch
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_trait = archmage
+				}
+			}
+			add_trait = archmage
+		}
+		add_trait_xp = {
+			trait = archmage
+			track = secret_knowledge
+			value = 100
+		}
+		add_trait_xp = {
+			trait = archmage
+			track = demonology
+			value = scope:actor.my_demonology_xp_level
+		}
+		add_trait_xp = {
+			trait = archmage
+			track = combat_magic
+			value = scope:actor.my_combat_magic_xp_level
+		}
+		add_trait_xp = {
+			trait = archmage
+			track = alchemy
+			value = scope:actor.my_alchemy_xp_level
+		}
+	}
+}
+clear_valid_magic_flags_effect = {
+	if = { limit = { has_character_flag = me_custom_spell_project_done } remove_character_flag = me_custom_spell_project_done }
+	if = { limit = { has_character_flag = me_soul_project_done } remove_character_flag = me_soul_project_done }
+	if = { limit = { has_character_flag = me_soul_project } remove_character_flag = me_soul_project }
+	if = { limit = { has_character_flag = me_sing_project } remove_character_flag = me_sing_project }
+	if = { limit = { has_character_flag = me_castle_project } remove_character_flag = me_castle_project }
+	if = { limit = { has_character_flag = me_ascendency_project } remove_character_flag = me_ascendency_project }
+	if = { limit = { has_character_flag = me_immortality_project } remove_character_flag = me_immortality_project }
+	if = { limit = { has_character_flag = me_death_project } remove_character_flag = me_death_project }
+	if = { limit = { has_character_flag = me_golem_project } remove_character_flag = me_golem_project }
+	if = { limit = { has_character_modifier = mind_reader_modifier } remove_character_modifier = mind_reader_modifier }
+	if = { limit = { has_character_flag = mana_siphon_flag } remove_character_flag = mana_siphon_flag }
+	if = { limit = { has_character_flag = firestorm_spell_flag } remove_character_flag = firestorm_spell_flag }
+	if = { limit = { has_character_flag = thorn_walls_spell_flag } remove_character_flag = thorn_walls_spell_flag }
+	if = { limit = { has_character_flag = hipercognition_flag } remove_character_flag = hipercognition_flag }
+	if = { limit = { has_character_flag = plague_spell_flag } remove_character_flag = plague_spell_flag }
+	if = { limit = { has_character_flag = shadowstep_flag } remove_character_flag = shadowstep_flag }
+	if = { limit = { has_character_flag = bless_land_flag } remove_character_flag = bless_land_flag }
+	if = { limit = { has_character_flag = death_wish } remove_character_flag = death_wish }
+	if = { limit = { has_character_flag = banish_spell_flag } remove_character_flag = banish_spell_flag }
+	if = { limit = { has_character_flag = healing_spell_flag } remove_character_flag = healing_spell_flag }
+	if = { limit = { has_character_flag = teleportation_spell_flag } remove_character_flag = teleportation_spell_flag }
+	if = { limit = { has_character_flag = better_domination_spell } remove_character_flag = better_domination_spell }
+	if = { limit = { has_character_flag = good_one_magic_flag } remove_character_flag = good_one_magic_flag }
+	if = { limit = { has_character_flag = sing_end } remove_character_flag = sing_end }
+	if = { limit = { has_character_flag = magic_transmutation } remove_character_flag = magic_transmutation }
+	if = { limit = { has_character_flag = protection_ritual } remove_character_flag = protection_ritual }
+	if = { limit = { has_character_flag = blorg_flag } remove_character_flag = blorg_flag }
+	if = { limit = { has_character_modifier = demonic_charm_modifier } remove_character_modifier = demonic_charm_modifier }
+	if = { limit = { has_character_modifier = master_psionic_modifier } remove_character_modifier = master_psionic_modifier }
+	if = { limit = { has_character_modifier = belial_blessing_modifier } remove_character_modifier = belial_blessing_modifier }
+	if = { limit = { has_character_modifier = nyx_blessing_modifier } remove_character_modifier = nyx_blessing_modifier }
+	if = { limit = { has_character_modifier = long_life_modifier } remove_character_modifier = long_life_modifier }
+	if = { limit = { has_character_modifier = fucked_by_demon_modifier } remove_character_modifier = fucked_by_demon_modifier }
+	if = { limit = { has_character_modifier = master_alteration_modifier } remove_character_modifier = master_alteration_modifier }
+	if = { limit = { has_character_modifier = master_necromancer_modifier } remove_character_modifier = master_necromancer_modifier }
+	if = { limit = { has_character_modifier = master_metamagic_modifier } remove_character_modifier = master_metamagic_modifier }
+	if = { limit = { has_character_modifier = contact_other_worlds_modifier } remove_character_modifier = contact_other_worlds_modifier }
+	if = { limit = { has_character_modifier = lifestealer_modifier } remove_character_modifier = lifestealer_modifier }
+	if = { limit = { has_character_modifier = master_magic_modifier } remove_character_modifier = master_magic_modifier }
+	if = { limit = { has_character_modifier = wc_innovator_modifier } remove_character_modifier = wc_innovator_modifier }
+
+	if = { limit = { has_character_modifier = horned_god_favor_modifier } remove_character_modifier = horned_god_favor_modifier }
+	if = { limit = { has_character_modifier = eternal_champion_modifier } remove_character_modifier = eternal_champion_modifier }
+
+	if = { limit = { has_character_modifier = nyarlathotep_curse_modifier } remove_character_modifier = nyarlathotep_curse_modifier }
+	if = { limit = { has_character_modifier = nyarlathotep_curse2_modifier } remove_character_modifier = nyarlathotep_curse2_modifier }
+	if = { limit = { exists = var:all_spell_cast_var } remove_variable = all_spell_cast_var }
+
+	if = { limit = { has_character_modifier = mr_visited_academy_modifier } remove_character_modifier = mr_visited_academy_modifier }
+	if = { limit = { has_character_modifier = mr_visited_horned_temple1_modifier } remove_character_modifier = mr_visited_horned_temple1_modifier }
+	if = { limit = { has_character_modifier = mr_visited_horned_temple2_modifier } remove_character_modifier = mr_visited_horned_temple2_modifier }
+	if = { limit = { has_character_modifier = mr_visited_yaga_hut_modifier } remove_character_modifier = mr_visited_yaga_hut_modifier }
+	if = { limit = { has_character_modifier = wc_innovator_pyrotechnician_modifier } remove_character_modifier = wc_innovator_pyrotechnician_modifier }
+	if = { limit = { has_character_modifier = mr_sacrificed_power_modifier } remove_character_modifier = mr_sacrificed_power_modifier }
+	if = { limit = { has_character_modifier = mr_seasoned_scholar_modifier } remove_character_modifier = mr_seasoned_scholar_modifier }
+	
+	
+
+	if = { limit = { has_character_modifier = mr_curse_expert_modifier } remove_character_modifier = mr_curse_expert_modifier }
+	if = { limit = { has_character_modifier = mr_immortal_child_consumer_modifier } remove_character_modifier = mr_immortal_child_consumer_modifier }
+	if = { limit = { has_character_modifier = mr_master_nature_modifier } remove_character_modifier = mr_master_nature_modifier }
+	if = { limit = { has_character_flag = skeleton_warriors } remove_character_flag = skeleton_warriors }
+	if = { limit = { has_character_flag = used_magic_book_flag } remove_character_flag = used_magic_book_flag }
+	if = { limit = { has_character_flag = used_magic_book_flag2 } remove_character_flag = used_magic_book_flag2 }
+	if = { limit = { has_character_flag = wc_innovator_gunpowder_flag } remove_character_flag = wc_innovator_gunpowder_flag }
+	if = { limit = { has_character_flag = innovator_loop_flag } remove_character_flag = innovator_loop_flag }
+	if = { limit = { has_character_flag = grand_rite_new_ideas_flag } remove_character_flag = grand_rite_new_ideas_flag }
+	if = { limit = { has_character_flag = tornado_spell_flag } remove_character_flag = tornado_spell_flag }
+	if = { limit = { has_character_flag = me_golem_project_done } remove_character_flag = me_golem_project_done }
+	if = { limit = { has_character_flag = me_golem2_project_done } remove_character_flag = me_golem2_project_done }
+	if = { limit = { has_character_flag = magic_reverse_poles_flag } remove_character_flag = magic_reverse_poles_flag }
+	if = { limit = { has_character_flag = nyx_master_flag } remove_character_flag = nyx_master_flag }
+	if = { limit = { has_character_flag = necro_chapter7_flag } remove_character_flag = necro_chapter7_flag }
+	if = { limit = { has_character_flag = grand_rite_new_ideas_flag } remove_character_flag = grand_rite_new_ideas_flag }
+	
+	
+
+	if = { limit = { has_variable = my_cs_slot1 } remove_variable = my_cs_slot1 }
+	if = { limit = { has_variable = my_cs_slot2 } remove_variable = my_cs_slot2 }
+	if = { limit = { has_variable = my_cs_slot3 } remove_variable = my_cs_slot3 }
+	if = { limit = { has_variable = cs_predef_name } remove_variable = cs_predef_name }
+	if = { limit = { has_variable = my_cs_slot1b } remove_variable = my_cs_slot1b }
+	if = { limit = { has_variable = my_cs_slot2b } remove_variable = my_cs_slot2b }
+	if = { limit = { has_variable = my_cs_slot3b } remove_variable = my_cs_slot3b }
+	if = { limit = { has_variable = cs_predef_name2 } remove_variable = cs_predef_name2 }
+	if = { limit = { has_variable = my_custom_spell } remove_variable = my_custom_spell }
+	if = { limit = { has_variable = my_custom_spell2 } remove_variable = my_custom_spell2 }
+	if = { limit = { has_variable = my_custom_spell2_author } remove_variable = my_custom_spell2_author }
+}
+transfer_valid_magic_flags_effect = {
+	if = { limit = { has_character_flag = me_custom_spell_project_done } scope:recipient = { add_character_flag = me_custom_spell_project_done } }
+	if = { limit = { has_character_flag = me_soul_project_done } scope:recipient = { add_character_flag = me_soul_project_done } }
+	if = { limit = { has_character_flag = me_soul_project } scope:recipient = { add_character_flag = me_soul_project } }
+	if = { limit = { has_character_flag = me_sing_project } scope:recipient = { add_character_flag = me_sing_project } }
+	if = { limit = { has_character_flag = me_castle_project } scope:recipient = { add_character_flag = me_castle_project } }
+	if = { limit = { has_character_flag = me_ascendency_project } scope:recipient = { add_character_flag = me_ascendency_project } }
+	if = { limit = { has_character_flag = me_immortality_project } scope:recipient = { add_character_flag = me_immortality_project } }
+	if = { limit = { has_character_flag = me_death_project } scope:recipient = { add_character_flag = me_death_project } }
+	if = { limit = { has_character_flag = me_golem_project } scope:recipient = { add_character_flag = me_golem_project } }
+	if = { limit = { has_character_modifier = mind_reader_modifier } scope:recipient = { add_character_modifier = mind_reader_modifier } }
+	if = { limit = { has_character_flag = mana_siphon_flag } scope:recipient = { add_character_flag = mana_siphon_flag } }
+	if = { limit = { has_character_flag = firestorm_spell_flag } scope:recipient = { add_character_flag = firestorm_spell_flag } }
+	if = { limit = { has_character_flag = hipercognition_flag } scope:recipient = { add_character_flag = hipercognition_flag } }
+	if = { limit = { has_character_flag = plague_spell_flag } scope:recipient = { add_character_flag = plague_spell_flag } }
+	if = { limit = { has_character_flag = shadowstep_flag } scope:recipient = { add_character_flag = shadowstep_flag } }
+	if = { limit = { has_character_flag = bless_land_flag } scope:recipient = { add_character_flag = bless_land_flag } }
+	if = { limit = { has_character_flag = death_wish } scope:recipient = { add_character_flag = death_wish } }
+	if = { limit = { has_character_flag = banish_spell_flag } scope:recipient = { add_character_flag = banish_spell_flag } }
+	if = { limit = { has_character_flag = healing_spell_flag } scope:recipient = { add_character_flag = healing_spell_flag } }
+	if = { limit = { has_character_flag = teleportation_spell_flag } scope:recipient = { add_character_flag = teleportation_spell_flag } }
+	if = { limit = { has_character_flag = better_domination_spell } scope:recipient = { add_character_flag = better_domination_spell } }
+	if = { limit = { has_character_flag = good_one_magic_flag } scope:recipient = { add_character_flag = good_one_magic_flag } }
+	if = { limit = { has_character_flag = sing_end } scope:recipient = { add_character_flag = sing_end } }
+	if = { limit = { has_character_flag = magic_transmutation } scope:recipient = { add_character_flag = magic_transmutation } }
+	if = { limit = { has_character_flag = protection_ritual } scope:recipient = { add_character_flag = protection_ritual } }
+	if = { limit = { has_character_flag = blorg_flag } scope:recipient = { add_character_flag = blorg_flag } }
+	if = { limit = { has_character_modifier = demonic_charm_modifier } scope:recipient = { add_character_modifier = demonic_charm_modifier } }
+	if = { limit = { has_character_modifier = master_psionic_modifier } scope:recipient = { add_character_modifier = master_psionic_modifier } }
+	if = { limit = { has_character_modifier = belial_blessing_modifier } scope:recipient = { add_character_modifier = belial_blessing_modifier } }
+	if = { limit = { has_character_modifier = nyx_blessing_modifier } scope:recipient = { add_character_modifier = nyx_blessing_modifier } }
+	if = { limit = { has_character_modifier = long_life_modifier } scope:recipient = { add_character_modifier = long_life_modifier } }
+	if = { limit = { has_character_modifier = fucked_by_demon_modifier } scope:recipient = { add_character_modifier = fucked_by_demon_modifier } }
+	if = { limit = { has_character_modifier = master_alteration_modifier } scope:recipient = { add_character_modifier = master_alteration_modifier } }
+	if = { limit = { has_character_modifier = master_necromancer_modifier } scope:recipient = { add_character_modifier = master_necromancer_modifier } }
+	if = { limit = { has_character_modifier = master_metamagic_modifier } scope:recipient = { add_character_modifier = master_metamagic_modifier } }
+	if = { limit = { has_character_modifier = contact_other_worlds_modifier } scope:recipient = { add_character_modifier = contact_other_worlds_modifier } }
+	if = { limit = { has_character_modifier = lifestealer_modifier } scope:recipient = { add_character_modifier = lifestealer_modifier } }
+	if = { limit = { has_character_modifier = master_magic_modifier } scope:recipient = { add_character_modifier = master_magic_modifier } }
+	
+
+	if = { limit = { exists = var:all_spell_cast_var }
+		scope:recipient = {
+			set_variable = {
+				name = all_spell_cast_var
+				value = scope:actor.var:all_spell_cast_var
+			}
+		}
+	}
+	if = { limit = { has_character_modifier = nyarlathotep_curse_modifier } scope:recipient = { add_character_modifier = nyarlathotep_curse_modifier } }
+	if = { limit = { has_character_modifier = nyarlathotep_curse2_modifier } scope:recipient = { add_character_modifier = nyarlathotep_curse2_modifier } }
+	
+
+	if = { limit = { has_character_modifier = mr_visited_academy_modifier } scope:recipient = { add_character_modifier = mr_visited_academy_modifier } }
+	if = { limit = { has_character_modifier = mr_visited_horned_temple1_modifier } scope:recipient = { add_character_modifier = mr_visited_horned_temple1_modifier } }
+	if = { limit = { has_character_modifier = mr_visited_horned_temple2_modifier } scope:recipient = { add_character_modifier = mr_visited_horned_temple2_modifier } }
+	if = { limit = { has_character_modifier = mr_visited_yaga_hut_modifier } scope:recipient = { add_character_modifier = mr_visited_yaga_hut_modifier } }
+	if = { limit = { has_character_modifier = wc_innovator_pyrotechnician_modifier } scope:recipient = { add_character_modifier = wc_innovator_pyrotechnician_modifier } }
+	if = { limit = { has_character_modifier = mr_sacrificed_power_modifier } scope:recipient = { add_character_modifier = mr_sacrificed_power_modifier } }
+	if = { limit = { has_character_modifier = mr_seasoned_scholar_modifier } scope:recipient = { add_character_modifier = mr_seasoned_scholar_modifier } }
+	
+
+	if = { limit = { has_character_modifier = horned_god_favor_modifier } scope:recipient = { add_character_modifier = horned_god_favor_modifier } }
+	if = { limit = { has_character_modifier = eternal_champion_modifier } scope:recipient = { add_character_modifier = eternal_champion_modifier } }
+	
+	if = { limit = { has_character_modifier = mr_curse_expert_modifier } scope:recipient = { add_character_modifier = mr_curse_expert_modifier } }
+	if = { limit = { has_character_modifier = mr_master_destruction_modifier } scope:recipient = { add_character_modifier = mr_master_destruction_modifier } }
+	if = { limit = { has_character_modifier = mr_immortal_child_consumer_modifier } scope:recipient = { add_character_modifier = mr_immortal_child_consumer_modifier } }
+	if = { limit = { has_character_modifier = mr_master_nature_modifier } scope:recipient = { add_character_modifier = mr_master_nature_modifier } }
+	if = { limit = { has_character_flag = skeleton_warriors } scope:recipient = { add_character_flag = skeleton_warriors } }
+	if = { limit = { has_character_flag = nyx_no_more_flag } scope:recipient = { add_character_flag = nyx_no_more_flag } }
+	if = { limit = { has_character_flag = uses_additional_knowledge_flag } scope:recipient = { add_character_flag = uses_additional_knowledge_flag } }
+	if = { limit = { has_character_flag = used_magic_book_flag } scope:recipient = { add_character_flag = used_magic_book_flag } }
+	if = { limit = { has_character_flag = used_magic_book_flag2 } scope:recipient = { add_character_flag = used_magic_book_flag2 } }
+	if = { limit = { has_character_flag = grand_rite_new_ideas_flag } scope:recipient = { add_character_flag = grand_rite_new_ideas_flag } }
+	if = { limit = { has_character_flag = tornado_spell_flag } scope:recipient = { add_character_flag = tornado_spell_flag } }
+	if = { limit = { has_character_flag = me_golem_project_done } scope:recipient = { add_character_flag = me_golem_project_done } }
+	if = { limit = { has_character_flag = me_golem2_project_done } scope:recipient = { add_character_flag = me_golem2_project_done } }
+	if = { limit = { has_character_flag = magic_reverse_poles_flag } scope:recipient = { add_character_flag = magic_reverse_poles_flag } }
+	if = { limit = { has_character_flag = nyx_master_flag } scope:recipient = { add_character_flag = nyx_master_flag } }
+	if = { limit = { has_character_flag = necro_chapter7_flag } scope:recipient = { add_character_flag = necro_chapter7_flag } }
+	if = { limit = { has_character_flag = grand_rite_new_ideas_flag } scope:recipient = { add_character_flag = grand_rite_new_ideas_flag } }
+	
+	
+
+	if = { limit = { has_variable = my_cs_slot1 } scope:recipient = { set_variable = { name = my_cs_slot1 value = scope:actor.var:my_cs_slot1 } } }
+	if = { limit = { has_variable = my_cs_slot2 } scope:recipient = { set_variable = { name = my_cs_slot2 value = scope:actor.var:my_cs_slot2 } } }
+	if = { limit = { has_variable = my_cs_slot3 } scope:recipient = { set_variable = { name = my_cs_slot3 value = scope:actor.var:my_cs_slot3 } } }
+	if = { limit = { has_variable = cs_predef_name } scope:recipient = { set_variable = { name = cs_predef_name value = scope:actor.var:cs_predef_name } } }
+	if = { limit = { has_variable = my_cs_slot1b } scope:recipient = { set_variable = { name = my_cs_slot1b value = scope:actor.var:my_cs_slot1b } } }
+	if = { limit = { has_variable = my_cs_slot2b } scope:recipient = { set_variable = { name = my_cs_slot2b value = scope:actor.var:my_cs_slot2b } } }
+	if = { limit = { has_variable = my_cs_slot3b } scope:recipient = { set_variable = { name = my_cs_slot3b value = scope:actor.var:my_cs_slot3b } } }
+	if = { limit = { has_variable = cs_predef_name2 } scope:recipient = { set_variable = { name = cs_predef_name2 value = scope:actor.var:cs_predef_name2 } } }
+	if = { limit = { has_variable = my_custom_spell } scope:recipient = { set_variable = { name = my_custom_spell value = scope:actor.var:my_custom_spell } } }
+	if = { limit = { has_variable = my_custom_spell2 } scope:recipient = { set_variable = { name = my_custom_spell2 value = scope:actor.var:my_custom_spell2 } } }
+	if = { limit = { has_variable = my_custom_spell2_author } scope:recipient = { set_variable = { name = my_custom_spell2_author value = scope:actor.var:my_custom_spell2_author } } }
+	
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = {
+				has_variable = ev1used
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient = {
+					exists = dynasty
+					dynasty = {
+						NOT = {
+							has_variable = ev1used
+						}
+					}
+				}
+			}
+			scope:recipient = {
+				dynasty = {
+					set_variable = ev1used
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = {
+				has_variable = legion
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient = {
+					exists = dynasty
+					dynasty = {
+						NOT = {
+							has_variable = legion
+						}
+					}
+				}
+			}
+			scope:recipient = {
+				dynasty = {
+					set_variable = legion
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = {
+				has_variable = legion2
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient = {
+					exists = dynasty
+					dynasty = {
+						NOT = {
+							has_variable = legion2
+						}
+					}
+				}
+			}
+			scope:recipient = {
+				dynasty = {
+					set_variable = legion2
+				}
+			}
+		}
+	}
+}
+
+full_healing_effect = {
+					if = { limit = { has_trait = ill }
+						remove_trait = ill
+					}
+					if = { limit = { has_trait = pneumonic }
+						remove_trait = pneumonic
+					}
+					if = { limit = { has_trait = great_pox }
+						remove_trait = great_pox
+					}
+					if = { limit = { has_trait = early_great_pox }
+						remove_trait = early_great_pox
+					}
+					if = { limit = { has_trait = lovers_pox }
+						remove_trait = lovers_pox
+					}
+					if = { limit = { has_trait = leper }
+						remove_trait = leper
+					}
+					if = { limit = { has_trait = wounded_1 }
+						remove_trait = wounded_1
+					}
+					if = { limit = { has_trait = wounded_2 }
+						remove_trait = wounded_2
+					}
+					if = { limit = { has_trait = wounded_3 }
+						remove_trait = wounded_3
+					}
+					if = { limit = { has_trait = maimed }
+						remove_trait = maimed
+					}
+					if = { limit = { has_trait = infirm }
+						remove_trait = infirm
+					}
+					if = { limit = { has_trait = incapable }
+						remove_trait = incapable
+					}
+					if = { limit = { has_trait = gout_ridden }
+						remove_trait = gout_ridden
+					}
+					if = { limit = { has_trait = consumption }
+						remove_trait = consumption
+					}
+					if = { limit = { has_trait = cancer }
+						remove_trait = cancer
+					}
+					if = { limit = { has_trait = typhus }
+						remove_trait = typhus
+					}
+					if = { limit = { has_trait = bubonic_plague }
+						remove_trait = bubonic_plague
+					}
+					if = { limit = { has_trait = smallpox }
+						remove_trait = smallpox
+					}
+					if = { limit = { has_trait = sickly }
+						remove_trait = sickly
+					}
+					if = { limit = { has_trait = blind }
+						remove_trait = blind
+					}
+					if = { limit = { has_character_modifier = magic_eyes_modifier }
+						remove_character_modifier = magic_eyes_modifier
+					}
+					if = { limit = { has_character_modifier = wc_poisoned_bolt_modifier }
+						remove_character_modifier = wc_poisoned_bolt_modifier
+					}
+					#if = { limit = { has_character_modifier = magic_claws_modifier }
+					#	remove_character_modifier = magic_claws_modifier
+					#}
+					if = {	limit = {	has_trait = disfigured NOT = { has_character_flag = abdul_dude }	}
+						remove_trait = disfigured
+					}
+					if = {	limit = {	has_character_modifier = chronic_headaches_modifier	}
+						remove_character_modifier = chronic_headaches_modifier
+					}
+					if = {	limit = {	has_character_modifier = infected_wound_modifier	}
+						remove_character_modifier = infected_wound_modifier
+					}
+					if = {	limit = {	has_character_modifier = gangrene_modifier	}
+						remove_character_modifier = gangrene_modifier
+					}
+					if = {	limit = {	has_character_modifier = hunger_sickness_modifier	}
+						remove_character_modifier = hunger_sickness_modifier
+					}
+					if = {	limit = {	has_character_modifier = travel_mild_frostbite_modifier	}
+						remove_character_modifier = travel_mild_frostbite_modifier
+					}
+					if = {	limit = {	has_trait = measles	}
+						remove_trait = measles
+					}
+					if = {	limit = {	has_trait = dysentery	}
+						remove_trait = dysentery
+					}
+					if = {	limit = {	has_trait = ergotism	}
+						remove_trait = ergotism
+					}
+					if = {	limit = {	has_trait = beardless_eunuch	}
+						remove_trait = beardless_eunuch
+					}
+					if = {	limit = {	has_trait = eunuch_1	}
+						remove_trait = eunuch_1
+					}
+					if = {	limit = {	has_trait = impotent	}
+						remove_trait = impotent
+					}
+}
+extra_healing_effect = {
+	if = { limit = { has_trait = depressed_genetic }
+		remove_trait = depressed_genetic
+	}
+	if = { limit = { has_trait = lunatic_genetic }
+		remove_trait = lunatic_genetic
+	}
+	if = { limit = { has_trait = beauty_bad_1 }
+		remove_trait = beauty_bad_1
+	}
+	if = { limit = { has_trait = beauty_bad_2 }
+		remove_trait = beauty_bad_2
+	}
+	if = { limit = { has_trait = beauty_bad_3 }
+		remove_trait = beauty_bad_3
+	}
+	if = { limit = { has_trait = intellect_bad_1 }
+		remove_trait = intellect_bad_1
+	}
+	if = { limit = { has_trait = intellect_bad_2 }
+		remove_trait = intellect_bad_2
+	}
+	if = { limit = { has_trait = intellect_bad_3 }
+		remove_trait = intellect_bad_3
+	}
+	if = { limit = { has_trait = physique_bad_1 }
+		remove_trait = physique_bad_1
+	}
+	if = { limit = { has_trait = physique_bad_2 }
+		remove_trait = physique_bad_2
+	}
+	if = { limit = { has_trait = physique_bad_3 }
+		remove_trait = physique_bad_3
+	}
+	if = { limit = { has_trait = clubfooted }
+		remove_trait = clubfooted
+	}
+	if = { limit = { has_trait = hunchbacked }
+		remove_trait = hunchbacked
+	}
+	if = { limit = { has_trait = lisping }
+		remove_trait = lisping
+	}
+	if = { limit = { has_trait = stuttering }
+		remove_trait = stuttering
+	}
+	if = { limit = { has_trait = dwarf }
+		remove_trait = dwarf
+	}
+	if = { limit = { has_trait = spindly }
+		remove_trait = spindly
+	}
+	if = { limit = { has_trait = scaly }
+		remove_trait = scaly
+	}
+	if = { limit = { has_trait = wheezing }
+		remove_trait = wheezing
+	}
+	if = {	limit = {	has_trait = infertile	}
+		remove_trait = infertile
+	}
+	if = {	limit = {	has_trait = dull	}
+		remove_trait = dull
+	}
+	if = {	limit = {	has_trait = weak	}
+		remove_trait = weak
+	}
+	if = {	limit = {	has_trait = inbred	}
+		remove_trait = inbred
+	}
+	if = {	limit = {	has_trait = one_legged	}
+		remove_trait = one_legged
+	}
+	# 2.38e (Supernatural): the Claws are the Horned God's gift (magic_ev11.112/.118, magic_ev9.99), not a wound. Witchcraft already
+	# commented this out of full_healing_effect and the potion interaction; this copy was missed (player report, Oct 2026).
+	#if = { limit = { has_character_modifier = magic_claws_modifier }
+	#	remove_character_modifier = magic_claws_modifier
+	#}
+	if = { limit = { has_trait = one_eyed }
+		remove_trait = one_eyed
+	}
+	if = { limit = { has_trait = bleeder }
+		remove_trait = bleeder
+	}
+	if = { limit = { has_trait = fragile_bones }
+		remove_trait = fragile_bones
+	}
+	if = { limit = { has_trait = faltering_heart }
+		remove_trait = faltering_heart
+	}
+	if = { limit = { has_trait = clouded_eyes }
+		remove_trait = clouded_eyes
+	}
+	if = { limit = { has_trait = withering_mind }
+		remove_trait = withering_mind
+	}
+}
+healing_old_age_effect = {
+	if = { limit = { has_trait = fragile_bones }
+		remove_trait = fragile_bones
+	}
+	if = { limit = { has_trait = faltering_heart }
+		remove_trait = faltering_heart
+	}
+	if = { limit = { has_trait = clouded_eyes }
+		remove_trait = clouded_eyes
+	}
+	if = { limit = { has_trait = withering_mind }
+		remove_trait = withering_mind
+	}
+	if = { limit = { has_trait = withering_mind }
+		remove_trait = withering_mind
+	}
+	if = { limit = { has_trait = infirm }
+		remove_trait = infirm
+	}
+}
+
+set_protection_from_harm_events_effect = {
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1001	} } add_character_flag = had_event_harm_1001 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1002	} } add_character_flag = had_event_harm_1002 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1011	} } add_character_flag = had_event_harm_1011 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1012	} } add_character_flag = had_event_harm_1012 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1021	} } add_character_flag = had_event_harm_1021 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1022	} } add_character_flag = had_event_harm_1022 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1031	} } add_character_flag = had_event_harm_1031 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1032	} } add_character_flag = had_event_harm_1032 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1041	} } add_character_flag = had_event_harm_1041 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1042	} } add_character_flag = had_event_harm_1042 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1051	} } add_character_flag = had_event_harm_1051 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1052	} } add_character_flag = had_event_harm_1052 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1061	} } add_character_flag = had_event_harm_1061 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1062	} } add_character_flag = had_event_harm_1062 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1071	} } add_character_flag = had_event_harm_1071 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1072	} } add_character_flag = had_event_harm_1072 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1081	} } add_character_flag = had_event_harm_1081 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1082	} } add_character_flag = had_event_harm_1082 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1091	} } add_character_flag = had_event_harm_1091 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1092	} } add_character_flag = had_event_harm_1092 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1101	} } add_character_flag = had_event_harm_1101 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1102	} } add_character_flag = had_event_harm_1102 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1111	} } add_character_flag = had_event_harm_1111 }
+	if = { limit = { NOT = { has_character_flag = had_event_harm_1112	} } add_character_flag = had_event_harm_1112 }
+}
+
+remove_travel_poi_effect = {
+	#has_travel_point_of_interest
+	scope:traveler = {
+		if = {
+			limit = {
+				has_variable_list = poi_capitals
+			}
+			clear_variable_list = poi_capitals
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_special_buildings_martial
+			}
+			clear_variable_list = poi_special_buildings_martial
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_special_buildings_learning
+			}
+			clear_variable_list = poi_special_buildings_learning
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_special_buildings_religious
+			}
+			clear_variable_list = poi_special_buildings_religious
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_special_buildings_diplomatic
+			}
+			clear_variable_list = poi_special_buildings_diplomatic
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_grand_city
+			}
+			clear_variable_list = poi_grand_city
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_special_buildings_wonder
+			}
+			clear_variable_list = poi_special_buildings_wonder
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_special_buildings_economic
+			}
+			clear_variable_list = poi_special_buildings_economic
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_mausoleum_at_halicarnassus
+			}
+			clear_variable_list = poi_mausoleum_at_halicarnassus
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_lighthouse_of_alexandria
+			}
+			clear_variable_list = poi_lighthouse_of_alexandria
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_natural_feature
+			}
+			clear_variable_list = poi_natural_feature
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_legend_capitals
+			}
+			clear_variable_list = poi_legend_capitals
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_battles
+			}
+			clear_variable_list = poi_battles
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_battles_historical
+			}
+			clear_variable_list = poi_battles_historical
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_special_buildings_stress_relief
+			}
+			clear_variable_list = poi_special_buildings_stress_relief
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_silk_road_node
+			}
+			clear_variable_list = poi_silk_road_node
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_mandala_capital
+			}
+			clear_variable_list = poi_mandala_capital
+		}
+		every_in_list = {
+			variable = poi_to_remove
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_capitals
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_capitals
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_capitals
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_special_buildings_martial
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_special_buildings_martial
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_special_buildings_martial
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_special_buildings_learning
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_special_buildings_learning
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_special_buildings_learning
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_special_buildings_religious
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_special_buildings_religious
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_special_buildings_religious
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_special_buildings_diplomatic
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_special_buildings_diplomatic
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_special_buildings_diplomatic
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_grand_city
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_grand_city
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_grand_city
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_special_buildings_wonder
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_special_buildings_wonder
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_special_buildings_wonder
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_special_buildings_economic
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_special_buildings_economic
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_special_buildings_economic
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_mausoleum_at_halicarnassus
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_mausoleum_at_halicarnassus
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_mausoleum_at_halicarnassus
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_lighthouse_of_alexandria
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_lighthouse_of_alexandria
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_lighthouse_of_alexandria
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_natural_feature
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_natural_feature
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_natural_feature
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_legend_capitals
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_legend_capitals
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_legend_capitals
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_battles
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_battles
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_battles
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_battles_historical
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_battles_historical
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_battles_historical
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_special_buildings_stress_relief
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_special_buildings_stress_relief
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_special_buildings_stress_relief
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_silk_road_node
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_silk_road_node
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_silk_road_node
+			}
+			if = {
+				limit = {
+					has_travel_point_of_interest = poi_mandala_capital
+				}
+				save_scope_as = poi0
+				scope:traveler = {
+					add_to_variable_list = {
+						name = poi_mandala_capital
+						target = scope:poi0
+					}
+				}
+				remove_travel_point_of_interest = poi_mandala_capital
+			}
+		}
+	}
+}
+recreate_travel_poi_effect = {
+	scope:traveler = {
+		if = {
+			limit = {
+				has_variable_list = poi_capitals
+				variable_list_size = {
+					name = poi_capitals
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_capitals
+				add_travel_point_of_interest = poi_capitals
+			}
+			clear_variable_list = poi_capitals
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_special_buildings_martial
+				variable_list_size = {
+					name = poi_special_buildings_martial
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_special_buildings_martial
+				add_travel_point_of_interest = poi_special_buildings_martial
+			}
+			clear_variable_list = poi_special_buildings_martial
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_special_buildings_learning
+				variable_list_size = {
+					name = poi_special_buildings_learning
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_special_buildings_learning
+				add_travel_point_of_interest = poi_special_buildings_learning
+			}
+			clear_variable_list = poi_special_buildings_learning
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_special_buildings_religious
+				variable_list_size = {
+					name = poi_special_buildings_religious
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_special_buildings_religious
+				add_travel_point_of_interest = poi_special_buildings_religious
+			}
+			clear_variable_list = poi_special_buildings_religious
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_special_buildings_diplomatic
+				variable_list_size = {
+					name = poi_special_buildings_diplomatic
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_special_buildings_diplomatic
+				add_travel_point_of_interest = poi_special_buildings_diplomatic
+			}
+			clear_variable_list = poi_special_buildings_diplomatic
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_grand_city
+				variable_list_size = {
+					name = poi_grand_city
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_grand_city
+				add_travel_point_of_interest = poi_grand_city
+			}
+			clear_variable_list = poi_grand_city
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_special_buildings_wonder
+				variable_list_size = {
+					name = poi_special_buildings_wonder
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_special_buildings_wonder
+				add_travel_point_of_interest = poi_special_buildings_wonder
+			}
+			clear_variable_list = poi_special_buildings_wonder
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_special_buildings_economic
+				variable_list_size = {
+					name = poi_special_buildings_economic
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_special_buildings_economic
+				add_travel_point_of_interest = poi_special_buildings_economic
+			}
+			clear_variable_list = poi_special_buildings_economic
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_mausoleum_at_halicarnassus
+				variable_list_size = {
+					name = poi_mausoleum_at_halicarnassus
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_mausoleum_at_halicarnassus
+				add_travel_point_of_interest = poi_mausoleum_at_halicarnassus
+			}
+			clear_variable_list = poi_mausoleum_at_halicarnassus
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_lighthouse_of_alexandria
+				variable_list_size = {
+					name = poi_lighthouse_of_alexandria
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_lighthouse_of_alexandria
+				add_travel_point_of_interest = poi_lighthouse_of_alexandria
+			}
+			clear_variable_list = poi_lighthouse_of_alexandria
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_natural_feature
+				variable_list_size = {
+					name = poi_natural_feature
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_natural_feature
+				add_travel_point_of_interest = poi_natural_feature
+			}
+			clear_variable_list = poi_natural_feature
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_legend_capitals
+				variable_list_size = {
+					name = poi_legend_capitals
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_legend_capitals
+				add_travel_point_of_interest = poi_legend_capitals
+			}
+			clear_variable_list = poi_legend_capitals
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_battles
+				variable_list_size = {
+					name = poi_battles
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_battles
+				add_travel_point_of_interest = poi_battles
+			}
+			clear_variable_list = poi_battles
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_battles_historical
+				variable_list_size = {
+					name = poi_battles_historical
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_battles_historical
+				add_travel_point_of_interest = poi_battles_historical
+			}
+			clear_variable_list = poi_battles_historical
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_special_buildings_stress_relief
+				variable_list_size = {
+					name = poi_special_buildings_stress_relief
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_special_buildings_stress_relief
+				add_travel_point_of_interest = poi_special_buildings_stress_relief
+			}
+			clear_variable_list = poi_special_buildings_stress_relief
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_silk_road_node
+				variable_list_size = {
+					name = poi_silk_road_node
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_silk_road_node
+				add_travel_point_of_interest = poi_silk_road_node
+			}
+			clear_variable_list = poi_silk_road_node
+		}
+		if = {
+			limit = {
+				has_variable_list = poi_mandala_capital
+				variable_list_size = {
+					name = poi_mandala_capital
+					value > 0
+				}
+			}
+			every_in_list = {
+				variable = poi_mandala_capital
+				add_travel_point_of_interest = poi_mandala_capital
+			}
+			clear_variable_list = poi_mandala_capital
+		}
+	}
+}

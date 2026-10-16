@@ -1,0 +1,50 @@
+﻿si_set_selected_character = {
+	scope = character
+	is_shown = {
+		var:si_selected_character ?= scope:selected_char
+	}
+	effect = {
+		if = { # removes selection --> no selection at all
+			limit = {
+				exists = var:si_selected_character
+				var:si_selected_character = scope:selected_char
+
+				always = no # enable variable below once we have an instance where you shoudl be allowed to unselect a character
+				#has_variable = is_allow_unselecting_character # set this variable on the character if you want to be allowed to unselect
+			}
+			scope:selected_char = {
+				remove_variable = si_selecting_character
+			}
+			remove_variable = si_selected_character
+		}
+		else = {
+			if = {
+				limit = {
+					exists = var:si_selected_character
+					NOT = { var:si_selected_character = scope:selected_char }
+					var:si_selected_character = {
+						is_alive = yes
+					}
+				}
+				var:si_selected_character = {
+					remove_variable = si_selecting_character
+				}
+			}
+			set_variable = {
+				name = si_selected_character
+				value = scope:selected_char
+			}
+			scope:selected_char = {
+				if = {
+					limit = {
+						is_alive = yes
+					}
+					set_variable = {
+						name = si_selecting_character
+						value = root
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,1259 @@
+﻿dragon = {
+
+	
+	
+	
+	category = health
+
+	fertility = 0.0
+
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+
+	#incapacitating = yes
+
+	can_have_children = no
+	disables_combat_leadership = yes
+	attraction_opinion = -50
+	health = 5 # Dragons are healthy in general
+	life_expectancy = 150 # Dragons live 200-300 years
+
+	flag = can_not_marry
+	inheritance_blocker = all
+	claim_inheritance_blocker = all
+
+	# Should match the modifiers in dragon_flight_option
+	character_travel_speed = 150
+	character_travel_safety = 200
+
+	ai_energy = -50
+
+ name = trait_dragon
+ desc = trait_dragon_desc
+ icon = "dragon.dds"
+}
+
+dragonrider = {
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 200
+	category = fame
+
+	martial = 1
+
+	monthly_prestige = 1.0
+	monthly_prestige_gain_mult = 0.5
+
+	legitimacy_gain_mult = 0.25
+
+	dread_baseline_add = 10
+	dread_gain_mult = 0.3
+
+	vassal_opinion = 10
+
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	ai_boldness = 45
+
+	
+
+	
+
+	tracks = {
+		dragon_training = {
+			30 = {
+				dread_baseline_add = 15
+			}
+
+			65 = {
+				dread_baseline_add = 15
+			}
+
+			100 = {
+				dread_baseline_add = 20
+			}
+		}
+		dragon_bond = {
+			30 = {
+				diplomacy = 1
+			}
+
+			65 = {
+				learning = 1
+				monthly_lifestyle_xp_gain_mult = 0.05
+				vassal_opinion = 15
+			}
+
+			100 = {
+				martial = 1
+				movement_speed = 0.1
+				monthly_lifestyle_xp_gain_mult = 0.10
+			}
+		}
+	}
+
+ name = trait_dragonrider
+ desc = trait_dragonrider_desc
+ icon = "dragonrider.dds"
+}
+
+dragonless_dragonrider = {
+
+	shown_in_ruler_designer = no
+	category = fame
+
+	monthly_prestige = 0.2
+
+	legitimacy_gain_mult = 0.05
+
+	vassal_opinion = 5
+
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+
+	
+
+ name = trait_dragonless_dragonrider
+ desc = trait_dragonless_dragonrider_desc
+ icon = "dragonless_dragonrider.dds"
+}
+
+dragonwidowed = {
+
+	shown_in_ruler_designer = no
+	category = fame
+
+	monthly_prestige = 0.2
+
+	legitimacy_gain_mult = 0.05
+
+	vassal_opinion = 5
+
+	health = -0.2
+
+	flag = can_not_bond_dragon
+
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+
+	
+
+ name = trait_dragonwidowed
+ desc = trait_dragonwidowed_desc
+ icon = "dragonwidowed.dds"
+}
+
+dragon_aggressive = {
+
+	category = personality
+	
+	opposites = {
+		dragon_friendly
+	}
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+
+	ai_boldness = 50
+	ai_compassion = -10
+	ai_greed = 10
+	ai_honor = 0
+	ai_rationality = -20
+	ai_sociability = -10
+	ai_vengefulness = 20
+	ai_zeal = 10
+
+	flag = add_draconic_dread_10
+	flag = subtract_temperament_12
+	flag = subtract_taming_chance_10
+	flag = add_combat_effectiveness_modifier_10
+
+ name = trait_dragon_aggressive
+ desc = trait_dragon_aggressive_desc
+ icon = "dragon_aggressive.dds"
+}
+
+dragon_friendly = {
+
+	category = personality
+	
+	opposites = {
+		dragon_aggressive
+	}
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	ai_boldness = -10
+	ai_compassion = 50
+	ai_greed = -10
+	ai_honor = 10
+	ai_rationality = 20
+	ai_sociability = 10
+	ai_vengefulness = -10
+	ai_zeal = -10
+
+	flag = subtract_draconic_dread_5
+	flag = add_temperament_12
+	flag = add_taming_chance_25
+	flag = subtract_combat_effectiveness_modifier_5
+
+ name = trait_dragon_friendly
+ desc = trait_dragon_friendly_desc
+ icon = "dragon_friendly.dds"
+}
+
+dragon_solitary = {
+
+	category = personality
+	
+	opposites = {
+		dragon_cooperative
+	}
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	ai_boldness = 20
+	ai_compassion = -10
+	ai_greed = 10
+	ai_honor = 10
+	ai_rationality = 20
+	ai_sociability = -50
+	ai_vengefulness = 0
+	ai_zeal = 10
+
+	flag = subtract_draconic_dread_10
+	flag = subtract_taming_chance_20
+
+ name = trait_dragon_solitary
+ desc = trait_dragon_solitary_desc
+ icon = "dragon_solitary.dds"
+}
+
+dragon_cooperative = {
+
+	category = personality
+	
+	opposites = {
+		dragon_solitary
+	}
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	ai_boldness = -10
+	ai_compassion = 20
+	ai_greed = 50
+	ai_honor = 20
+	ai_rationality = 10
+	ai_sociability = 50
+	ai_vengefulness = -20
+	ai_zeal = 0
+
+	flag = add_temperament_4
+	flag = add_taming_chance_5
+
+ name = trait_dragon_cooperative
+ desc = trait_dragon_cooperative_desc
+ icon = "dragon_cooperative.dds"
+}
+
+dragon_imperious = {
+
+	category = personality
+	
+	opposites = {
+		dragon_supporting
+	}
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	ai_boldness = 50
+	ai_compassion = -10
+	ai_greed = 10
+	ai_honor = 20
+	ai_rationality = 10
+	ai_sociability = 10
+	ai_vengefulness = 20
+	ai_zeal = 10
+
+	flag = add_draconic_dread_2
+	flag = subtract_temperament_5
+	flag = subtract_taming_chance_4
+
+ name = trait_dragon_imperious
+ desc = trait_dragon_imperious_desc
+ icon = "dragon_imperious.dds"
+}
+
+dragon_supporting = {
+
+	category = personality
+	
+	opposites = {
+		dragon_imperious
+	}
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	ai_boldness = -50
+	ai_compassion = 20
+	ai_greed = 0
+	ai_honor = 20
+	ai_rationality = 10
+	ai_sociability = 20
+	ai_vengefulness = -20
+	ai_zeal = 20
+
+	flag = subtract_draconic_dread_2
+	flag = add_temperament_9
+	flag = add_taming_chance_8
+
+ name = trait_dragon_supporting
+ desc = trait_dragon_supporting_desc
+ icon = "dragon_supporting.dds"
+}
+
+dragon_impulsive = {
+
+	category = personality
+	
+	opposites = {
+		dragon_calculating
+	}
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	ai_boldness = 50
+	ai_compassion = -10
+	ai_greed = 0
+	ai_honor = 10
+	ai_rationality = -20
+	ai_sociability = 20
+	ai_vengefulness = 10
+	ai_zeal = 20
+
+	flag = subtract_temperament_4
+	flag = subtract_taming_chance_6
+	flag = add_combat_effectiveness_modifier_2
+
+ name = trait_dragon_impulsive
+ desc = trait_dragon_impulsive_desc
+ icon = "dragon_impulsive.dds"
+}
+
+dragon_calculating = {
+
+	category = personality
+	
+	opposites = {
+		dragon_impulsive
+	}
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	ai_boldness = -50
+	ai_compassion = 10
+	ai_greed = 0
+	ai_honor = 20
+	ai_rationality = 50
+	ai_sociability = 10
+	ai_vengefulness = -20
+	ai_zeal = -10
+
+	flag = add_temperament_10
+	flag = add_taming_chance_5
+	flag = add_combat_effectiveness_modifier_10
+
+ name = trait_dragon_calculating
+ desc = trait_dragon_calculating_desc
+ icon = "dragon_calculating.dds"
+}
+
+dragon_voracious = {
+
+	category = personality
+	
+	opposites = {
+		dragon_restrained
+	}
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	ai_boldness = 20
+	ai_compassion = -10
+	ai_greed = 50
+	ai_honor = -20
+	ai_rationality = -50
+	ai_sociability = -10
+	ai_vengefulness = 10
+	ai_zeal = 0
+
+	flag = add_draconic_dread_4
+	flag = subtract_temperament_5
+	flag = add_taming_chance_9
+
+ name = trait_dragon_voracious
+ desc = trait_dragon_voracious_desc
+ icon = "dragon_voracious.dds"
+}
+
+dragon_restrained = {
+
+	category = personality
+	
+	opposites = {
+		dragon_voracious
+	}
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	ai_boldness = -10
+	ai_compassion = 20
+	ai_greed = 50
+	ai_honor = 20
+	ai_rationality = 50
+	ai_sociability = 10
+	ai_vengefulness = 0
+	ai_zeal = -10
+
+	flag = add_temperament_4
+	flag = subtract_taming_chance_4
+
+ name = trait_dragon_restrained
+ desc = trait_dragon_restrained_desc
+ icon = "dragon_restrained.dds"
+}
+
+dragon_defiant = {
+
+	category = personality
+	
+	opposites = {
+		dragon_accepting
+	}
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	ai_boldness = -50
+	ai_compassion = 0
+	ai_greed = 0
+	ai_honor = -20
+	ai_rationality = 0
+	ai_sociability = -20
+	ai_vengefulness = -10
+	ai_zeal = 10
+
+	flag = subtract_temperament_7
+	flag = subtract_taming_chance_15
+
+ name = trait_dragon_defiant
+ desc = trait_dragon_defiant_desc
+ icon = "dragon_defiant.dds"
+}
+
+dragon_accepting = {
+
+	category = personality
+	
+	opposites = {
+		dragon_defiant
+	}
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	ai_boldness = 0
+	ai_compassion = 20
+	ai_greed = 0
+	ai_honor = 20
+	ai_rationality = 10
+	ai_sociability = 20
+	ai_vengefulness = -20
+	ai_zeal = 0
+
+	flag = add_temperament_5
+	flag = add_taming_chance_8
+
+ name = trait_dragon_accepting
+ desc = trait_dragon_accepting_desc
+ icon = "dragon_accepting.dds"
+}
+
+dragon_bloodthirsty = {
+
+	category = personality
+	
+	opposites = {
+		dragon_skittish
+	}
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	ai_boldness = 20
+	ai_compassion = -20
+	ai_greed = 20
+	ai_honor = -50
+	ai_rationality = -10
+	ai_sociability = -20
+	ai_vengefulness = 50
+	ai_zeal = 20
+
+	flag = add_draconic_dread_15
+	flag = subtract_temperament_10
+	flag = subtract_taming_chance_25
+	flag = add_combat_effectiveness_modifier_10
+
+ name = trait_dragon_bloodthirsty
+ desc = trait_dragon_bloodthirsty_desc
+ icon = "dragon_bloodthirsty.dds"
+}
+
+dragon_skittish = {
+
+	category = personality
+	
+	opposites = {
+		dragon_bloodthirsty
+	}
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	ai_boldness = 0
+	ai_compassion = 50
+	ai_greed = 0
+	ai_honor = 20
+	ai_rationality = 20
+	ai_sociability = 20
+	ai_vengefulness = -50
+	ai_zeal = 0
+
+	flag = add_temperament_11
+	flag = add_taming_chance_20
+	flag = subtract_combat_effectiveness_modifier_15
+
+ name = trait_dragon_skittish
+ desc = trait_dragon_skittish_desc
+ icon = "dragon_skittish.dds"
+}
+
+dragon_cannibal = {
+
+	category = fame
+	
+	opposites = { }
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	ai_boldness = 0
+	ai_compassion = -20
+	ai_greed = 0
+	ai_honor = 20
+	ai_rationality = 20
+	ai_sociability = 20
+	ai_vengefulness = 20
+	ai_zeal = 10
+
+	flag = add_draconic_dread_7
+	flag = subtract_temperament_25
+	flag = subtract_taming_chance_10
+
+ name = trait_dragon_cannibal
+ desc = trait_dragon_cannibal_desc
+ icon = "dragon_cannibal.dds"
+}
+
+dragon_physique_good_3 = {
+
+	
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_physique_bad
+		dragon_physique_good_1
+		dragon_physique_good_2
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = add_size_modifier_30
+	health = 2
+
+	group = dragon_physique_good
+	level = 3
+
+	ai_energy = 20
+
+	genetic = yes
+	physical = yes
+	good = yes
+
+ name = trait_dragon_physique_good_3
+ desc = trait_dragon_physique_good_3_desc
+ icon = "dragon_physique_good_3.dds"
+}
+
+dragon_physique_good_2 = {
+
+	
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_physique_bad
+		dragon_physique_good_1
+		dragon_physique_good_3
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = add_size_modifier_20
+	health = 1.5
+
+	group = dragon_physique_good
+	level = 2
+
+	ai_energy = 15
+
+	genetic = yes
+	physical = yes
+	good = yes
+
+ name = trait_dragon_physique_good_2
+ desc = trait_dragon_physique_good_2_desc
+ icon = "dragon_physique_good_2.dds"
+}
+
+dragon_physique_good_1 = {
+
+	
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_physique_bad
+		dragon_physique_good_2
+		dragon_physique_good_3
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = add_size_modifier_10
+	health = 1
+
+	group = dragon_physique_good
+	level = 1
+
+	ai_energy = 10
+
+	genetic = yes
+	physical = yes
+	good = yes
+
+ name = trait_dragon_physique_good_1
+ desc = trait_dragon_physique_good_1_desc
+ icon = "dragon_physique_good_1.dds"
+}
+
+dragon_physique_bad_1 = {
+
+	
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_physique_good
+		dragon_physique_bad_2
+		dragon_physique_bad_3
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = subtract_size_modifier_10
+	health = -0.5
+
+	group = dragon_physique_bad
+	level = 1
+
+	ai_energy = -5
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_physique_bad_1
+ desc = trait_dragon_physique_bad_1_desc
+ icon = "dragon_physique_bad_1.dds"
+}
+
+dragon_physique_bad_2 = {
+
+	
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_physique_good
+		dragon_physique_bad_1
+		dragon_physique_bad_3
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = subtract_size_modifier_20
+	health = -0.75
+
+	group = dragon_physique_bad
+	level = 2
+
+	ai_energy = -10
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_physique_bad_2
+ desc = trait_dragon_physique_bad_2_desc
+ icon = "dragon_physique_bad_2.dds"
+}
+
+dragon_physique_bad_3 = {
+
+	
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_physique_good
+		dragon_physique_bad_1
+		dragon_physique_bad_2
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = subtract_size_modifier_30
+	health = -1.25
+
+	group = dragon_physique_bad
+	level = 3
+
+	ai_energy = -20
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_physique_bad_3
+ desc = trait_dragon_physique_bad_3_desc
+ icon = "dragon_physique_bad_3.dds"
+}
+
+dragon_swift = {
+
+	
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_slow
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = add_combat_effectiveness_modifier_15
+	health = 1
+
+	ai_energy = 25
+
+	genetic = yes
+	physical = yes
+	good = yes
+
+ name = trait_dragon_swift
+ desc = trait_dragon_swift_desc
+ icon = "dragon_swift.dds"
+}
+
+dragon_slow = {
+
+	
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_swift
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = subtract_combat_effectiveness_modifier_15
+	health = -1
+
+	ai_energy = -25
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_slow
+ desc = trait_dragon_slow_desc
+ icon = "dragon_slow.dds"
+}
+
+dragon_spindly = {
+
+	
+	shown_in_ruler_designer = no
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = add_combat_effectiveness_modifier_15
+	flag = subtract_size_modifier_10
+	flag = add_draconic_dread_15
+	health = -0.5
+
+	ai_energy = 10
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_spindly
+ desc = trait_dragon_spindly_desc
+ icon = "dragon_spindly.dds"
+}
+
+dragon_majestic = {
+
+	
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_ugly
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = add_rider_monthly_prestige_1
+	health = 0.1
+
+	genetic = yes
+	physical = yes
+	good = yes
+
+ name = trait_dragon_majestic
+ desc = trait_dragon_majestic_desc
+ icon = "dragon_majestic.dds"
+}
+
+dragon_ugly = {
+
+	
+	shown_in_ruler_designer = no
+	opposites = {
+		dragon_majestic
+	}
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = subtract_rider_monthly_prestige_1
+	health = -0.1
+
+	genetic = yes
+	physical = yes
+
+ name = trait_dragon_ugly
+ desc = trait_dragon_ugly_desc
+ icon = "dragon_ugly.dds"
+}
+
+dragon_fertile = {
+
+	
+	shown_in_ruler_designer = no
+	potential = {
+		has_trait = dragon
+	}
+
+	fertility = 0.5
+
+	genetic = yes
+	physical = yes
+	good = yes
+
+ name = trait_dragon_fertile
+ desc = trait_dragon_fertile_desc
+ icon = "dragon_fertile.dds"
+}
+
+dragon_destined = {
+
+	
+	shown_in_ruler_designer = no
+	potential = {
+		has_trait = dragon
+	}
+
+	health = 0.5
+	flag = add_early_growth
+
+	physical = yes
+
+ name = trait_dragon_destined
+ desc = trait_dragon_destined_desc
+ icon = "dragon_destined.dds"
+}
+
+education_dragon_1 = {
+
+	category = education
+	
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	flag = subtract_temperament_8
+	flag = subtract_taming_chance_15
+
+ name = trait_education_dragon_1
+ desc = trait_education_dragon_1_desc
+ icon = "education_dragon_1.dds"
+}
+
+education_dragon_2 = {
+
+	category = education
+	
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	flag = subtract_temperament_4
+
+ name = trait_education_dragon_2
+ desc = trait_education_dragon_2_desc
+ icon = "education_dragon_2.dds"
+}
+
+education_dragon_3 = {
+
+	category = education
+	
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	flag = add_temperament_4
+	flag = add_taming_chance_10
+
+ name = trait_education_dragon_3
+ desc = trait_education_dragon_3_desc
+ icon = "education_dragon_3.dds"
+}
+
+education_dragon_4 = {
+
+	category = education
+	
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	flag = add_temperament_8
+	flag = add_taming_chance_15
+
+ name = trait_education_dragon_4
+ desc = trait_education_dragon_4_desc
+ icon = "education_dragon_4.dds"
+}
+
+education_dragon_5 = {
+
+	category = education
+	
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	flag = add_temperament_12
+	flag = add_taming_chance_20
+
+ name = trait_education_dragon_5
+ desc = trait_education_dragon_5_desc
+ icon = "education_dragon_5.dds"
+}
+
+dragonslayer = {
+
+	category = fame
+	potential = {
+		NOT = { has_trait = dragon }
+	}
+
+	monthly_prestige = 1
+
+	dread_gain_mult = 0.05
+	prowess = 3
+	general_opinion = 15
+
+	shown_in_ruler_designer = no
+
+	ai_boldness = 10
+	
+
+ name = trait_dragonslayer
+ desc = trait_dragonslayer_desc
+ icon = "dragonslayer.dds"
+}
+
+dragon_wounded_1 = {
+
+	category = health
+	
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	health = -2
+	flag = subtract_dragon_combat_effectiveness_modifier_5
+	group = dragon_wounded
+	level = 1
+
+ name = trait_dragon_wounded_1
+ desc = trait_dragon_wounded_1_desc
+ icon = "dragon_wounded_1.dds"
+}
+
+dragon_wounded_2 = {
+
+	category = health
+	
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	health = -4
+	flag = subtract_dragon_combat_effectiveness_modifier_10
+	group = dragon_wounded
+	level = 2
+
+ name = trait_dragon_wounded_2
+ desc = trait_dragon_wounded_2_desc
+ icon = "dragon_wounded_2.dds"
+}
+
+dragon_wounded_3 = {
+
+	category = health
+	
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	health = -6
+	flag = subtract_dragon_combat_effectiveness_modifier_20
+	group = dragon_wounded
+	level = 3
+
+ name = trait_dragon_wounded_3
+ desc = trait_dragon_wounded_3_desc
+ icon = "dragon_wounded_3.dds"
+}
+
+dragon_wounded_4 = {
+
+	category = health
+	
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	health = -8
+	flag = subtract_dragon_combat_effectiveness_modifier_30
+	group = dragon_wounded
+	level = 4
+
+ name = trait_dragon_wounded_4
+ desc = trait_dragon_wounded_4_desc
+ icon = "dragon_wounded_4.dds"
+}
+
+dragon_wounded_5 = {
+
+	category = health
+	
+	potential = {
+		has_trait = dragon
+	}
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	health = -10
+	flag = subtract_dragon_combat_effectiveness_modifier_50
+	group = dragon_wounded
+	level = 5
+
+ name = trait_dragon_wounded_5
+ desc = trait_dragon_wounded_5_desc
+ icon = "dragon_wounded_5.dds"
+}
+
+dragon_burned = {
+
+	category = health
+	
+	potential = {
+		has_trait = dragon
+	}
+
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	health = -1
+
+ name = trait_dragon_burned
+ desc = trait_dragon_burned_desc
+ icon = "dragon_burned.dds"
+}
+
+dragon_ill = {
+
+	category = health
+	
+	potential = {
+		has_trait = dragon
+	}
+
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	health = -2.5
+	flag = subtract_dragon_combat_effectiveness_modifier_30
+
+ name = trait_dragon_ill
+ desc = trait_dragon_ill_desc
+ icon = "dragon_ill.dds"
+}
+
+dragon_blind = {
+
+	
+	shown_in_ruler_designer = no
+	potential = {
+		has_trait = dragon
+	}
+
+
+	flag = subtract_combat_effectiveness_modifier_75
+
+	physical = yes
+
+ name = trait_dragon_blind
+ desc = trait_dragon_blind_desc
+ icon = "dragon_blind.dds"
+}
+
+dragon_depressed = {
+
+	category = health
+	health = -0.5
+
+	
+
+	birth = 0
+	random_creation = 0.0
+	random_creation_weight = 0
+	shown_in_ruler_designer = no
+	potential = {
+		has_trait = dragon
+	}
+
+	flag = subtract_temperament_15
+
+
+ name = trait_dragon_depressed
+ desc = trait_dragon_depressed_desc
+ icon = "dragon_depressed.dds"
+}

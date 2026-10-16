@@ -1,0 +1,149 @@
+﻿l_english:
+ # accou_marriage.0001
+ accou_marriage.0001.t: "Courtier Requests to Marry (Preparation)"
+ accou_marriage.0001.desc: "My [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('courtier'))] [courtier.GetUIName] is requesting to marry [candidate.GetUIName]."
+ accou_marriage.0001.a: "OK"
+ # accou_marriage.0002
+ accou_marriage.0002.t: "Courtier Requests to Marry"
+ accou_marriage.0002.desc: "My [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('courtier'))] [courtier.GetUIName] is requesting to marry [Select_CString(ObjectsEqual(matchmaker, candidate), '', Concatenate(Select_CString(ObjectsEqual(matchmaker, ROOT.Char), 'my ', Concatenate(matchmaker.GetUIName, '\\'s ')), Concatenate(matchmaker.Custom2('RelationToMe', SCOPE.sC('candidate')), ' ')))][candidate.GetUIName]. "
+ accou_marriage.0002.more.desc: "[courtier.GetSheHe|U] assures me that [matchmaker.GetUIName] will agree to this marriage if the proposal comes on my behalf."
+ accou_marriage.0002.a: "May [ROOT.Char.GetFaith.HighGodName] bless your union!"
+ accou_marriage.0002.b: "I am not willing to let you marry right now."
+ accou_marriage.0002.c: "Let me consider this..."
+ accou_marriage.0002.c.tt.consider: "Opens #EMP Arrange Marriage#! for [courtier.GetUIName] and [candidate.GetUIName]"
+ accou_marriage.0002.c.tt.accept: "If you arrange this marriage, after 15 days"
+ accou_marriage.0002.c.tt.reject: "If you don't arrange this marriage, after 15 days"
+ # accou_marriage.0004
+ accou_marriage.0004.t: "Courtier Failed to Find a Spouse"
+ accou_marriage.0004.desc: "It looks like my [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('courtier'))] [courtier.GetUIName] could not find a suitable spouse for [courtier.GetHerselfHimself]. [courtier.GetSheHe|U] explains that all candidates [courtier.GetSheHe] evaluated were either not a good match for [courtier.GetHerHim], or their matchmaker would not accept the proposal."
+ accou_marriage.0004.a: "Fine, perhaps next time."
+ accou_marriage.0004.b: "Let me help you find someone good enough for #EMP ME#!..."
+ accou_marriage.0004.b.tt.help: "Opens #EMP Find Spouse#! for [courtier.GetUIName]"
+
+ # accou_marriage.* messages
+ accou_marriage_0001_failed_title: "$accou_marriage.0004.t$"
+ accou_marriage_0001_failed_message: "My [THIS.GetCharacter.Custom2('RelationToMe', SCOPE.sC('courtier'))] [courtier.GetUIName] searched for a suitable spouse for [courtier.GetHerselfHimself], but could not find one."
+
+ # accou_invite.0001
+ accou_invite.0001.t: "Courtier Recommends an Acquaintance (Preparation)"
+ accou_invite.0001.desc: "My [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('courtier'))] [courtier.GetUIName] is recommending to invite [candidate.GetUIName] to court."
+ accou_invite.0001.a: "OK"
+ # accou_invite.0002
+ accou_invite.0002.t: "Courtier Recommends an Acquaintance"
+ accou_invite.0002.desc: "My [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('courtier'))] [courtier.GetUIName] is recommending to invite [Select_CString(candidate.GetLiege.IsValid, Concatenate(candidate.GetLiege.GetUIName, Concatenate('\\'s ', Concatenate(candidate.GetLiege.Custom2('RelationToMe', SCOPE.sC('candidate')), ' '))), '')][candidate.GetUIName] to court. "
+ accou_invite.0002.more.desc: "[courtier.GetSheHe|U] assures me that [candidate.GetUIName] will accept my invitation."
+ accou_invite.0002.a: "Certainly, [candidate.GetSheHe] is welcome to join us!"
+ accou_invite.0002.b: "I would rather not invite [candidate.GetHerHim] right now."
+ accou_invite.0002.c: "Let me consider this..."
+ accou_invite.0002.c.tt.consider: "Opens #EMP Invite to Court#! for [candidate.GetUIName]"
+ accou_invite.0002.c.tt.accept: "If [candidate.GetSheHe] joins your court, after 15 days"
+ accou_invite.0002.c.tt.reject: "If [candidate.GetSheHe] doesn't join your court, after 15 days"
+ # accou_invite.0004
+ accou_invite.0004.t: "Failed to Get Recommendations"
+ accou_invite.0004.desc: "Unfortunately, none of the courtiers I asked could recommend a suitable character to invite to court. They explain that all candidates they evaluated were either not worthy, or would not accept my invitation."
+ accou_invite.0004.a: "Fine, perhaps next time."
+
+ # accou_invite.* messages
+ accou_invite_0001_failed_title: "$accou_invite.0004.t$"
+ accou_invite_0001_failed_message: "Some of my courtiers searched for a suitable character to invite to court, but could not find one."
+
+ # accou_guardian.0001
+ accou_guardian.0001.t: "Courtier Suggests a Guardian (Preparation)"
+ accou_guardian.0001.desc: "My [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('courtier'))] [courtier.GetUIName] is suggesting that my [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('candidate'))] [candidate.GetUIName] should become a guardian of [child.GetUIName]."
+ accou_guardian.0001.a: "OK"
+ # accou_guardian.0002
+ accou_guardian.0002.t: "Courtier Suggests a Guardian"
+ accou_guardian.0002.desc: "My [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('courtier'))] [courtier.GetUIName] is suggesting that my [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('candidate'))] [candidate.GetUIName] should become a guardian of [child.GetUIName]. "
+ accou_guardian.0002.focus.desc: "[courtier.GetSheHe|U] also insists that [child.GetUIName] should change [child.GetHerHis] education focus to one more appropriate for [child.GetHerHis] gender."
+ accou_guardian.0002.a: "Yes, [candidate.GetSheHe] may educate [child.GetUIName]."
+ accou_guardian.0002.b: "I would rather not let [candidate.GetHerHim] educate [child.GetUIName]."
+ accou_guardian.0002.c: "Let me consider this..."
+ accou_guardian.0002.c.tt.consider: "Opens #EMP Educate Child#! for [candidate.GetUIName] and [child.GetUIName]"
+ accou_guardian.0002.c.tt.accept: "If [candidate.GetSheHe] becomes a guardian of [child.GetUIName], after 15 days"
+ accou_guardian.0002.c.tt.reject: "If [candidate.GetSheHe] doesn't become a guardian of [child.GetUIName], after 15 days"
+ # accou_guardian.0004
+ accou_guardian.0004.t: "Failed to Get Suggestions"
+ accou_guardian.0004.desc: "Unfortunately, none of the courtiers I asked could suggest a suitable guardian for [child.GetUIName]. They explain that all candidates they evaluated were either not available, or would not be a good fit for [child.GetHerHim]."
+ accou_guardian.0004.a: "Fine, perhaps next time."
+ accou_guardian.0004.b: "I wonder if this is really the case..."
+ accou_guardian.0004.b.tt.help: "Opens #EMP Educate Child#! for [child.GetUIName]"
+
+ # accou_guardian.* messages
+ accou_guardian_0001_failed_title: "$accou_guardian.0004.t$"
+ accou_guardian_0001_failed_message: "Some of my courtiers searched for a suitable guardian for [child.GetUIName], but could not find one."
+
+ # accou_courtier.0001
+ accou_courtier.0001.t: "Courtier Jostles for Position (Councillor)"
+ accou_courtier.0001.desc: "My [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('candidate'))] [candidate.GetUIName] is requesting to be assigned as my [Localize(Concatenate('councillor_', SCOPE.GetFlagName('councillor')))]."
+ accou_courtier.0001.a: "OK"
+ # accou_courtier.0002
+ accou_courtier.0002.t: "Courtier Jostles for Position (Court Position)"
+ accou_courtier.0002.desc: "My [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('candidate'))] [candidate.GetUIName] is requesting to be appointed as my [Localize(Concatenate(SCOPE.GetFlagName('court_position'), '_court_position'))]."
+ accou_courtier.0002.a: "OK"
+ # accou_courtier.0003
+ accou_courtier.0003.t: "Courtier Jostles for Position"
+ accou_courtier.0003.councillor.desc: "My [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('candidate'))] [candidate.GetUIName] is requesting to be assigned as my [Localize(Concatenate('councillor_', SCOPE.GetFlagName('councillor')))]. [candidate.GetSheHe|U] claims that [candidate.GetSheHe] is the best choice for this job. "
+ accou_courtier.0003.court_position.desc: "My [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('candidate'))] [candidate.GetUIName] is requesting to be appointed as my [Localize(Concatenate(SCOPE.GetFlagName('court_position'), '_court_position'))]. [candidate.GetSheHe|U] claims that [candidate.GetSheHe] is the best choice for this position. "
+ accou_courtier.0003.incumbent.desc: "Naturally, my [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('incumbent'))] [incumbent.GetUIName] will be quite upset if I fire [incumbent.GetHerHim]."
+ accou_courtier.0003.a: "Fine, I am willing to give you a chance."
+ accou_courtier.0003.b: "No, I make my own choices."
+
+ accou_marriage.0002.reasons.desc: "#EMP \n\nReasons to accept [candidate.GetUIName] as courtier:\n#!"
+ accou_marriage.0002.better_councillor_options.desc: "#EMP $EFFECT_LIST_BULLET$$accou_better_councillor_options_start$ [candidate.Custom('accou_better_councillor_options')]\n#!"
+ accou_marriage.0002.better_court_position_options.desc: "#EMP $EFFECT_LIST_BULLET$$accou_better_court_position_options_start$ [candidate.Custom('accou_better_court_position_options')]\n#!"
+ accou_marriage.0002.better_knight.desc: "#EMP $EFFECT_LIST_BULLET$$accou_better_knight$\n#!"
+ accou_marriage.0002.better_commander.desc: "#EMP $EFFECT_LIST_BULLET$$accou_better_commander$\n#!"
+ accou_marriage.0002.claims.desc: "#EMP $EFFECT_LIST_BULLET$$guest_description.claim_start.desc$ [candidate.Custom2('accou_claims', ROOT.Char)]\n#!"
+ accou_marriage.0002.genetic_traits.desc: "#EMP $EFFECT_LIST_BULLET$[candidate.Custom('accou_genetic_traits')] [candidate.Custom('accou_genetic_end_desc')]\n#!"
+ accou_marriage.0002.prowess.desc: "#EMP $EFFECT_LIST_BULLET$[candidate.Custom('accou_prowess_skill')] [candidate.Custom('accou_prowess_desc')]\n#!"
+ accou_marriage.0002.martial.desc: "#EMP $EFFECT_LIST_BULLET$[candidate.Custom('accou_martial_skill')] $guest_description.martial_start.desc$ [candidate.Custom('accou_martial_desc')]\n#!"
+ accou_marriage.0002.diplomacy.desc: "#EMP $EFFECT_LIST_BULLET$[candidate.Custom('accou_diplomacy_skill')] [candidate.Custom('accou_diplomacy_desc')]\n#!"
+ accou_marriage.0002.stewardship.desc: "#EMP $EFFECT_LIST_BULLET$[candidate.Custom('accou_stewardship_skill')] [candidate.Custom('accou_stewardship_desc')]\n#!"
+ accou_marriage.0002.intrigue.desc: "#EMP $EFFECT_LIST_BULLET$[candidate.Custom('accou_intrigue_skill')] [candidate.Custom('accou_intrigue_desc')]\n#!"
+ accou_marriage.0002.learning.desc: "#EMP $EFFECT_LIST_BULLET$[candidate.Custom('accou_learning_skill')] $guest_description.learning_start.desc$ [candidate.Custom('accou_learning_desc')]\n#!"
+ accou_marriage.0002.vassal.desc: "#EMP $EFFECT_LIST_BULLET$$guest_description.vassal_start.desc$ [candidate.Custom('accou_vassal_qualities')]\n#!"
+
+ accou_guardian.0002.reasons.desc: "#EMP \n\nReasons why [candidate.GetUIName] could be a good guardian for [child.GetUIName]:\n#!"
+ accou_guardian.0002.educator_traits.desc: "#EMP $EFFECT_LIST_BULLET$[candidate.Custom('accou_educator_traits')] [candidate.Custom('accou_educator_end_desc')]\n#!"
+ accou_guardian.0002.diplomacy.desc: "#EMP $EFFECT_LIST_BULLET$[candidate.Custom('accou_guardian_diplomacy_skill')] [candidate.Custom('accou_guardian_diplomacy_desc')]\n#!"
+ accou_guardian.0002.martial.desc: "#EMP $EFFECT_LIST_BULLET$[candidate.Custom('accou_guardian_martial_skill')] [candidate.Custom('accou_guardian_martial_desc')]\n#!"
+ accou_guardian.0002.stewardship.desc: "#EMP $EFFECT_LIST_BULLET$[candidate.Custom('accou_guardian_stewardship_skill')] [candidate.Custom('accou_guardian_stewardship_desc')]\n#!"
+ accou_guardian.0002.intrigue.desc: "#EMP $EFFECT_LIST_BULLET$[candidate.Custom('accou_guardian_intrigue_skill')] [candidate.Custom('accou_guardian_intrigue_desc')]\n#!"
+ accou_guardian.0002.learning.desc: "#EMP $EFFECT_LIST_BULLET$[candidate.Custom('accou_guardian_learning_skill')] [candidate.Custom('accou_guardian_learning_desc')]\n#!"
+ accou_guardian.0002.tutor.desc: "#EMP $EFFECT_LIST_BULLET$[candidate.Custom('accou_guardian_learning_skill')] [candidate.Custom('accou_guardian_tutor_desc')]\n#!"
+ accou_guardian.0002.pedagogy_perk.desc: "#EMP $EFFECT_LIST_BULLET$$pedagogy_perk_name$: $CHILDREN_HAVE_CHANCE_OF_IMPROVEMENT$ ([perk|E])\n#!"
+ accou_guardian.0002.dynasty_urbanism_legacy.desc: "#EMP $EFFECT_LIST_BULLET$$fp2_urbanism_legacy_2_name$: $LEGACY_DYNASTY_EXTRA_TRAITS_FROM_CITIES$ ([dynasty_perk|E])\n#!"
+ accou_guardian.0002.culture_better_education.desc: "#EMP $EFFECT_LIST_BULLET$$culture_parameter_better_ward_education$ ([culture_tradition|E])\n#!"
+ accou_guardian.0002.culture_better_outcomes.desc: "#EMP $EFFECT_LIST_BULLET$$culture_parameter_guardian_education_better_outcomes$ ([culture_tradition|E])\n#!"
+ accou_guardian.0002.culture_commander_traits.desc: "#EMP $EFFECT_LIST_BULLET$$culture_parameter_guardians_can_transfer_commander_traits$ ([culture_tradition|E])\n#!"
+ accou_guardian.0002.culture_knighthood.desc: "#EMP $EFFECT_LIST_BULLET$$innovation_knighthood$: $students_of_knighthood$ ([innovation|E])\n#!"
+ accou_guardian.0002.faith_esotericism_mystic.desc: "#EMP $EFFECT_LIST_BULLET$$doctrine_parameter_tenet_esotericism_mystic_education$ ([doctrine|E])\n#!"
+ accou_guardian.0002.convert_culture.desc: "#EMP $EFFECT_LIST_BULLET$Can convert [child.GetUIName] to your culture\n#!"
+ accou_guardian.0002.convert_faith.desc: "#EMP $EFFECT_LIST_BULLET$Can convert [child.GetUIName] to your faith\n#!"
+
+ accou_better_councillor_options_start: "Better than all available options for the following [councillor|E] positions:"
+ accou_better_councillor_options_1: "[Localize(Concatenate('councillor_', SCOPE.GetFlagName('bc_option1')))]"
+ accou_better_councillor_options_2: "[Localize(Concatenate('councillor_', SCOPE.GetFlagName('bc_option1')))], [Localize(Concatenate('councillor_', SCOPE.GetFlagName('bc_option2')))]"
+ accou_better_councillor_options_3: "[Localize(Concatenate('councillor_', SCOPE.GetFlagName('bc_option1')))], [Localize(Concatenate('councillor_', SCOPE.GetFlagName('bc_option2')))], [Localize(Concatenate('councillor_', SCOPE.GetFlagName('bc_option3')))]"
+ accou_better_councillor_options_4: "[Localize(Concatenate('councillor_', SCOPE.GetFlagName('bc_option1')))], [Localize(Concatenate('councillor_', SCOPE.GetFlagName('bc_option2')))], [Localize(Concatenate('councillor_', SCOPE.GetFlagName('bc_option3')))], and others"
+
+ accou_better_court_position_options_start: "Better than all available options for the following [court_positions|E]:"
+ accou_better_court_position_options_1: "[Localize(Concatenate(SCOPE.GetFlagName('bcp_option1'), '_court_position'))]"
+ accou_better_court_position_options_2: "[Localize(Concatenate(SCOPE.GetFlagName('bcp_option1'), '_court_position'))], [Localize(Concatenate(SCOPE.GetFlagName('bcp_option2'), '_court_position'))]"
+ accou_better_court_position_options_3: "[Localize(Concatenate(SCOPE.GetFlagName('bcp_option1'), '_court_position'))], [Localize(Concatenate(SCOPE.GetFlagName('bcp_option2'), '_court_position'))], [Localize(Concatenate(SCOPE.GetFlagName('bcp_option3'), '_court_position'))]"
+ accou_better_court_position_options_4: "[Localize(Concatenate(SCOPE.GetFlagName('bcp_option1'), '_court_position'))], [Localize(Concatenate(SCOPE.GetFlagName('bcp_option2'), '_court_position'))], [Localize(Concatenate(SCOPE.GetFlagName('bcp_option3'), '_court_position'))], and others"
+
+ accou_better_knight: "Better [knight|E] than other available options"
+ accou_better_commander: "Top 3 [commander|E] by [martial|E] skill and [commander_traits|E]"
+
+ accou_guardian_description.shrewd.desc: "A [GetTrait('shrewd').GetName(ROOT.Char)]"
+ accou_guardian_description.educator_end.desc: "[ROOT.Char.GetWomanMan] ([trait|E])"
+ accou_guardian_description.average_skill.desc: "A decent"
+ accou_guardian_description.diplomacy.desc: "diplomacy educator (#V [ROOT.Char.GetSkill('diplomacy')]#! [diplomacy|E])"
+ accou_guardian_description.martial.desc: "martial educator (#V [ROOT.Char.GetSkill('martial')]#! [martial|E])"
+ accou_guardian_description.stewardship.desc: "stewardship educator (#V [ROOT.Char.GetSkill('stewardship')]#! [stewardship|E])"
+ accou_guardian_description.intrigue.desc: "intrigue educator (#V [ROOT.Char.GetSkill('intrigue')]#! [intrigue|E])"
+ accou_guardian_description.learning.desc: "learning educator (#V [ROOT.Char.GetSkill('learning')]#! [learning|E])"
+ accou_guardian_description.tutor.desc: "tutor (#V [ROOT.Char.GetSkill('learning')]#! [learning|E])"
+
+ accou_empty: ""

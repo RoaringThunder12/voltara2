@@ -1,0 +1,1052 @@
+﻿cof_ekue_lich_blessing_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	common_interaction = yes
+	category = interaction_category_magic
+	desc = cof_ekue_lich_blessing_interaction_desc
+	icon = icon_thralldom
+
+	can_send_despite_rejection = yes
+
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		NOT = { scope:actor = scope:recipient }
+		scope:actor = {
+				has_perk = necromancy_master_perk
+			}
+		scope:recipient = {
+			is_adult = yes
+			in_diplomatic_range = yes
+			NOT = {
+				OR = {
+					is_pregnant = yes
+					has_trait = laid_egg
+					has_trait = vt_ek_undead_character
+					has_trait = vt_ek_lich_character
+					is_vampire = yes
+					has_trait = reclusive_vampire
+					has_trait = lycan_character
+					has_trait = lifespan_7
+					has_trait = briarheart
+					has_character_modifier = secret_vampire_modifier
+					has_character_flag = race_daedra
+					has_relation_rival = scope:actor
+					has_relation_nemesis = scope:actor					
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = cof_ekue_magicka_100
+			scope:actor = {
+				var:magicka > 100
+			}
+		}
+		custom_tooltip = {
+			text = cof_ekue_lich_blessing_recently_rejected
+				NOT = {
+					scope:recipient = {
+						has_opinion_modifier = {
+							modifier = cof_ekue_lich_blessing_rejection_opinion
+							target = scope:actor
+						}
+				}
+			}
+		}
+	}
+	
+	ai_potential = {
+		always = no
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+
+	# Conditions for AI acceptance
+	ai_accept = {
+		base = 0
+
+		modifier = { #Zealous & Religion outlaws Necromancy
+			add = -1000
+			trigger = {
+				has_trait = zealous
+				scope:recipient.faith = {
+					has_doctrine = doctrine_necromancy_crime
+				}
+			}
+		}
+
+		modifier = { #Zealous & Religion shuns Necromancy
+			add = -250
+			trigger = {
+				has_trait = zealous
+				scope:recipient.faith = {
+					has_doctrine = doctrine_necromancy_shunned
+				}
+			}
+		}
+
+		modifier = { #Zealous & Religion enables Lichdom
+			add = 200
+			trigger = {
+				has_trait = zealous
+				scope:recipient.faith = {
+					has_doctrine = doctrine_necromancy_accepted
+				}
+			}
+		}
+
+		modifier = { #Religion enables Lichdom
+			add = 50
+			trigger = {
+				scope:recipient.faith = {
+					has_doctrine = doctrine_necromancy_accepted
+				}
+			}
+		}
+
+		modifier = { #Religion shuns Necromancy
+			add = -50
+			trigger = {
+				scope:recipient.faith = {
+					has_doctrine = doctrine_necromancy_shunned
+				}
+			}
+		}
+
+		modifier = { #Religion outlaws Necromancy
+			add = -100
+			trigger = {
+				scope:recipient.faith = {
+					has_doctrine = doctrine_necromancy_crime
+				}
+			}
+		}
+
+		modifier = {
+			add = 30
+			trigger = {
+				scope:actor = {
+					has_trait = vt_ek_lich_character
+				}
+			}
+		}
+
+		modifier = {
+			add = 100
+			trigger = {
+				scope:recipient = {
+					has_relation_soulmate = scope:actor
+				}
+			}
+		}
+
+		modifier = {
+			add = 50
+			trigger = {
+				scope:recipient = {
+					has_relation_best_friend = scope:actor
+				}
+			}
+		}
+
+		modifier = {
+			add = 75
+			trigger = {
+				scope:recipient = {
+					is_child_of = scope:actor
+				}
+			}
+		}
+
+		modifier = {
+			add = 30
+			trigger = {
+				scope:recipient = {
+					has_relation_friend = scope:actor
+				}
+			}
+		}
+
+		modifier = {
+			add = 40
+			trigger = {
+				scope:recipient = {
+					is_close_family_of = scope:actor
+						NOT = {
+							is_child_of = scope:actor
+						}
+				}
+			}
+		}	
+
+		modifier = {
+			add = 20
+			trigger = {
+				scope:recipient = {
+					is_extended_family_of = scope:actor
+				}
+			}
+		}
+
+		modifier = {
+			add = 15
+			trigger = {
+				scope:recipient = {
+					is_courtier_of = scope:actor
+				}
+			}
+		}		
+
+		modifier = {
+			add = 150
+			trigger = {
+				scope:recipient = {
+					has_trait = vt_ek_necromancer
+				}
+			}
+		}
+
+		modifier = {
+			add = 75
+			trigger = {
+				scope:recipient = {
+					has_trait = ambitious
+				}
+			}
+		}
+
+		modifier = {
+			add = 50
+			trigger = {
+				scope:recipient = {
+					has_trait = cynical
+				}
+			}
+		}
+
+		modifier = {
+			add = 15
+			trigger = {
+				scope:recipient = {
+					has_trait = reclusive
+				}
+			}
+		}
+
+		modifier = {
+			add = 75
+			trigger = {
+				scope:recipient = {
+					has_trait = physique_bad_3
+				}
+			}
+		}
+
+		modifier = {
+			add = 75
+			trigger = {
+				scope:recipient = {
+					has_trait = infertile
+				}
+			}
+		}
+
+		modifier = {
+			add = 50
+			trigger = {
+				has_trait = bleeder
+			}
+		}		
+
+		modifier = {
+			add = 50
+			trigger = {
+				scope:recipient = {
+					has_trait = weak
+				}
+			}
+		}
+
+		modifier = {
+			add = 50
+			trigger = {
+				scope:recipient = {
+					has_trait = occultist
+				}
+			}
+		}
+
+		modifier = {
+			add = 30
+			trigger = {
+				scope:recipient = {
+					has_trait = greedy
+				}
+			}
+		}
+
+		modifier = {
+			add = -20
+			trigger = {
+				scope:recipient = {
+					has_trait = gluttonous
+				}
+			}
+		}
+
+		modifier = {
+			add = 50
+			trigger = {
+				scope:recipient = {
+					has_trait = craven
+				}
+			}
+		}
+
+		modifier = {
+			add = 30
+			trigger = {
+				scope:recipient = {
+					has_trait = callous
+				}
+			}
+		}
+
+		modifier = {
+			add = 30
+			trigger = {
+				scope:recipient = {
+					has_trait = sadistic
+				}
+			}
+		}		
+
+		modifier = {
+			add = 15
+			trigger = {
+				scope:recipient = {
+					has_trait = eccentric
+				}
+			}
+		}
+
+		modifier = {
+			add = 25
+			trigger = {
+				scope:recipient = {
+					has_trait = trusting
+				}
+			}
+		}
+		
+		modifier = {
+			add = 30
+			trigger =  {
+				scope:recipient = {
+					has_trait = scholar
+				}
+			}
+		}
+
+		modifier = {
+			add = 30
+			trigger = {
+				scope:recipient = {
+					has_trait = murderer
+				}
+			}
+		}
+
+		modifier = {
+			add = 25
+			trigger = {
+				scope:recipient = {
+					has_trait = witch
+				}
+			}
+		}
+
+		modifier = {
+			add = 25
+			trigger = {
+				scope:recipient = {
+					has_trait = lunatic_1
+					has_trait = lunatic_genetic
+				}
+			}
+		}
+
+		modifier = {
+			add = 25
+			trigger = {
+				scope:recipient = {
+					has_trait = possessed_1
+					has_trait = possessed_genetic
+				}
+			}
+		}
+
+		modifier = {
+			add = 25
+			trigger = {
+				scope:recipient = {
+					has_trait = beauty_bad_3
+				}
+			}
+		}
+
+		modifier = {
+			add = 25
+			trigger = {
+				scope:recipient = {
+						has_trait = physique_bad_2
+				}
+			}
+		}
+
+
+
+		modifier = {
+			add = 15
+			trigger = {
+				scope:recipient = {
+					has_trait = wheezing
+				}
+			}
+		}
+
+		modifier = {
+			add = 15
+			trigger = {
+				scope:recipient = {
+					has_trait = physique_bad_1
+				}
+			}
+		}
+
+		modifier = {
+			add = 15
+			trigger = {
+				scope:recipient = {
+					OR = {
+						has_trait = beauty_bad_2
+						has_trait = beauty_bad_1
+					}
+				}
+			}
+		}
+
+		modifier = {
+			add = 15
+			trigger = {
+				scope:recipient = {
+					OR = {
+						has_trait = mystic_1
+						has_trait = mystic_2
+						has_trait = mystic_3
+					}
+				}
+			}
+		}
+
+		modifier = {
+			add = 15
+			trigger = {
+				scope:recipient = {
+					has_trait = chaste
+				}
+			}
+		}
+
+		modifier = {
+			add = 15
+			trigger = {
+				scope:recipient = {
+					has_trait = arbitrary
+				}
+			}
+		}		
+
+		modifier = {
+			add = -15
+			trigger = {
+				scope:recipient = {
+					has_trait = lazy
+				}
+			}
+		}
+
+		modifier = {
+			add = 25
+			trigger = {
+				scope:recipient = {
+					has_trait = vengeful
+				}
+			}
+		}
+
+		modifier = {
+			add = -15
+			trigger = {
+				scope:recipient = {
+					has_trait = brave
+				}
+			}
+		}
+
+		modifier = {
+			add = -15
+			trigger = {
+				scope:recipient = {
+					has_trait = shy
+				}
+			}
+		}
+
+		modifier = {
+			add = -25
+			trigger = {
+				scope:recipient = {
+					has_trait = temperate
+				}
+			}
+		}
+
+		modifier = {
+			add = -15
+			trigger = {
+				scope:recipient = {
+					OR = {
+						has_trait = beauty_good_2
+						has_trait = beauty_good_1
+					}
+				}
+			}
+		}
+
+		modifier = {
+			add = -25
+			trigger = {
+				scope:recipient = {
+					has_trait = fecund
+				}
+			}
+		}		
+
+		modifier = {
+			add = -25
+			trigger = {
+				scope:recipient = {
+					has_trait = beauty_good_3
+				}
+			}
+		}		
+
+		modifier = {
+			add = -25
+			trigger = {
+				scope:recipient = {
+					has_trait = seducer
+				}
+			}
+		}		
+
+		modifier = {
+			add = -25
+			trigger = {
+				scope:recipient = {
+					has_trait = content
+				}
+			}
+		}
+
+		modifier = {
+			add = -25
+			trigger = {
+				scope:recipient = {
+					has_trait = humble
+				}
+			}
+		}
+
+		modifier = {
+			add = 25
+			trigger = {
+				scope:recipient = {
+					has_trait = arrogant
+				}
+			}
+		}
+
+		modifier = {
+			add = -25
+			trigger = {
+				scope:recipient = {
+					has_trait = stubborn
+				}
+			}
+		}
+
+		modifier = {
+			add = -50
+			trigger = {
+				scope:recipient = {
+					has_trait = lustful
+				}
+			}
+		}
+
+		modifier = {
+			add = -50
+			trigger = {
+				scope:recipient = {
+					has_trait = rakish
+				}
+			}
+		}
+
+		modifier = {
+			add = -75
+			trigger = {
+				scope:recipient = {
+					has_trait = paranoid
+				}
+			}
+		}
+
+		modifier = {
+			add = -100
+			trigger = {
+				scope:recipient = {
+					OR = {
+						has_trait = depressed_1
+						has_trait = depressed_genetic
+					}
+				}
+			}
+		}
+
+		modifier = {
+			add = 75
+			trigger = {
+				scope:recipient = {
+					has_trait = loyal
+					is_vassal_or_below_of = scope:actor
+				}
+			}
+		}
+
+		modifier = {
+			add = 25
+			trigger = {
+				scope:recipient = {
+					NOT = {
+						OR = {
+							has_trait = loyal
+							has_trait = disloyal
+						}
+					}
+					is_vassal_or_below_of = scope:actor
+				}
+			}
+		}
+
+		modifier = {
+			add = -75
+			trigger = {
+				scope:recipient = {
+					has_trait = disloyal
+					is_vassal_or_below_of = scope:actor
+				}
+			}
+		}
+
+		modifier = {
+			add = 150
+			trigger = {
+				scope:recipient = {
+					health <= 1
+				}
+			}
+		}
+
+		modifier = {
+			add = 75
+			trigger = {
+				scope:recipient = {
+					health <= 3
+					NOT = {
+						health <= 1
+					}
+				}
+			}
+		}
+
+		modifier = {
+			add = -20
+			trigger = {
+				scope:recipient = {
+					health >= 5
+					NOT = {
+						health >= 7
+					}
+				}
+			}
+		}
+
+		modifier = {
+			add = -40
+			trigger = {
+				scope:recipient = {
+					health >= 7
+				}
+			}
+		}
+
+		modifier = {
+			add = 45
+			trigger = {
+				scope:recipient = {
+					opinion = {
+						target = scope:actor
+						value = 100
+					}
+				}
+			}
+		}
+
+		modifier = {
+			add = 30
+			trigger = {
+				scope:recipient = {
+					opinion = {
+						target = scope:actor
+						value >= 80
+					}
+					NOT = {
+						opinion = {
+							target = scope:actor
+							value = 100
+						}
+					}
+				}
+			}
+		}
+
+		modifier = {
+			add = 15
+			trigger = {
+				scope:recipient = {
+					opinion = {
+						target = scope:actor
+						value >= 50
+					}
+					NOT = {
+						opinion = {
+							target = scope:actor
+							value >= 80
+						}
+					}
+				}
+			}
+		}
+
+		modifier = {
+			add = 10
+			trigger = {
+				scope:recipient = {
+					opinion = {
+						target = scope:actor
+						value >= 25
+					}
+					NOT = {
+						opinion = {
+							target = scope:actor
+							value >= 50
+						}
+					}
+				}
+			}
+		}
+
+		modifier = {
+			add = -15
+			trigger = {
+				scope:recipient = {
+					opinion = {
+						target = scope:actor
+						value <= -20
+					}
+					NOT = {
+						opinion = {
+							target = scope:actor
+							value <= -40
+						}
+					}
+				}
+			}
+		}
+
+		modifier = {
+			add = -30
+			trigger = {
+				scope:recipient = {
+					opinion = {
+						target = scope:actor
+						value <= -40
+					}
+						NOT = {
+							opinion = {
+								target = scope:actor
+								value <= -60
+							}
+						}
+				}
+			}
+		}
+
+		modifier = {
+			add = -50
+			trigger = {
+				scope:recipient = {
+					opinion = {
+						target = scope:actor
+						value <= -60
+					}
+				}
+			}
+		}
+
+	}
+
+	on_accept = {
+		scope:recipient = {
+			add_trait = vt_ek_lich_character
+			add_character_flag = lich
+			set_starting_decay_effect = yes		
+
+			hidden_effect = {
+				substitute_lifespan_by_immortality_effect = yes
+				clear_aging_modifier_effect = yes
+			}
+
+
+
+			if = {
+				limit = {
+						has_trait = tsaesci_1
+				}
+				remove_trait = tsaesci_1
+				remove_character_flag = lifespan_1
+			}
+
+			if = {
+				limit = {
+						has_trait = tsaesci_2
+				}
+				remove_trait = tsaesci_2
+				remove_character_flag = lifespan_2
+			}
+
+			if = {
+				limit = {
+						has_trait = tsaesci_3
+				}
+				remove_trait = tsaesci_3
+				remove_character_flag = lifespan_3
+			}
+
+			if = {
+				limit = {
+						has_trait = tsaesci_4
+				}
+				remove_trait = tsaesci_4
+				remove_character_flag = lifespan_4
+			}
+
+			if = {
+				limit = {
+						has_trait = lifespan_1
+				}
+				remove_trait = lifespan_1
+				remove_character_flag = lifespan_1
+			}
+
+			if = {
+				limit = {
+						has_trait = lifespan_2
+				}
+				remove_trait = lifespan_2
+				remove_character_flag = lifespan_2
+			}
+
+			if = {
+				limit = {
+						has_trait = lifespan_3
+				}
+				remove_trait = lifespan_3
+				remove_character_flag = lifespan_3
+			}
+
+			if = {
+				limit = {
+						has_trait = lifespan_4
+				}
+				remove_trait = lifespan_4
+				remove_character_flag = lifespan_4
+			}
+
+			if = {
+				limit = {
+						has_trait = lifespan_5
+				}
+				remove_trait = lifespan_5
+				remove_character_flag = lifespan_5
+			}
+
+			if = {
+				limit = {
+						has_trait = lifespan_6
+				}
+				remove_trait = lifespan_6
+				remove_character_flag = lifespan_6
+			}
+
+			if = {
+				limit = {
+					has_trait = infirm
+				}
+				remove_trait = infirm
+			}
+		}
+		scope:recipient = {
+			custom_tooltip = {
+				text = cof_ekue_remove_aging
+			}
+		}
+
+		scope:actor = {
+				add_magicka = {
+					VALUE = 100.negate
+				}
+				change_variable = {
+					name = magicka
+					add = -100
+				}
+		}
+
+		scope:recipient = {
+			add_opinion = {
+				modifier = cof_ekue_lich_blessing_accept_opinion
+				years = 300
+				target = scope:actor
+			}
+		}		
+	}
+
+	on_decline = {
+		scope:recipient = {
+			add_opinion = {
+				modifier = cof_ekue_lich_blessing_rejection_opinion
+				years = 5
+				target = scope:actor
+			}
+		}
+	}
+
+	send_option = {
+		is_shown = {
+			scope:actor = { 
+				has_perk = necromancy_master_perk
+				magicka_max > 100				
+			 }
+		}
+		localization = "cof_ekue_lich_blessing_interaction_send"
+	}
+
+}
+
+cof_ekue_ascend_lich_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	common_interaction = yes
+	category = interaction_category_magic
+	desc = cof_ekue_ascend_lich_interaction_desc
+	icon = icon_thralldom
+
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		NOT = { scope:actor = scope:recipient }
+		scope:actor = {
+				has_perk = necromancy_master_perk
+				magicka_max > 60
+			}
+		scope:recipient = {
+					has_trait = vt_ek_undead_character
+				}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = cof_ekue_magicka_60
+			scope:actor = {
+				var:magicka > 60
+			}
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+
+	on_accept = {
+		scope:actor = {
+			add_hook = {
+				type = ascended_undead_hook
+				target = scope:recipient
+			}
+
+			add_magicka = { VALUE = 60.negate }
+			change_variable = { name = magicka add = -60 }
+		}
+
+		scope:recipient = {
+			remove_trait = vt_ek_undead_character
+			add_trait = vt_ek_lich_character
+
+			add_opinion = {
+				modifier = cof_ekue_ascend_lich_opinion
+				target = scope:actor
+				years = 100
+			}
+		}
+
+		custom_tooltip = {
+			text = cof_ekue_ascend_lich_interaction_tp
+		}
+	}
+	
+	auto_accept = yes
+}

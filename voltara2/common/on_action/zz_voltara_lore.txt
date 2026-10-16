@@ -1,0 +1,30 @@
+﻿on_game_start_after_lobby = { on_actions = { voltara_lore_initialization } }
+voltara_lore_initialization = {
+    effect = {
+        if = {
+            limit = { NOT = { has_global_variable = voltara_lore_initialized } exists = character:19060001 }
+            character:19060001 = {
+                if = {
+                    limit = { is_alive = yes }
+                    create_artifact = {
+                        name = vl_justice_name description = vl_justice_desc
+                        type = voltara_justice_type visuals = hammer template = voltara_heirloom_template
+                        wealth = 100 quality = 100 modifier = voltara_justice_modifier
+                        history = { type = created_before_history } decaying = no
+                        save_scope_as = voltara_new_heirloom
+                    }
+                    
+                    create_artifact = {
+                        name = vl_ring_name description = vl_ring_desc
+                        type = voltara_ring_type visuals = ring template = voltara_heirloom_template
+                        wealth = 100 quality = 100 modifier = voltara_emerald_ring_modifier
+                        history = { type = created_before_history } decaying = no
+                        save_scope_as = voltara_new_heirloom
+                    }
+                    scope:voltara_new_heirloom = { equip_artifact_to_owner = yes }
+                }
+            }
+            set_global_variable = { name = voltara_lore_initialized value = yes }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+﻿is_house_founder = {
+	trigger_if = {
+		limit = { exists = father }
+		NOT = { house = father.house }
+	}
+	trigger_if = {
+		limit = { exists = mother }
+		NOT = { house = mother.house }
+	}
+}
+
+is_dominant_gender = {
+	OR = {
+		AND = {
+			OR = {
+				has_realm_law = male_only_law
+				has_realm_law = male_preference_law
+				liege_or_court_owner = { has_realm_law = male_only_law }
+				liege_or_court_owner = { has_realm_law = male_preference_law }
+			}
+			is_female = no
+		}
+		AND = {
+			OR = {
+				has_realm_law = female_only_law
+				has_realm_law = female_preference_law
+				liege_or_court_owner = { has_realm_law = female_only_law }
+				liege_or_court_owner = { has_realm_law = female_preference_law }
+			}
+			is_female = yes
+		}
+		has_realm_law = equal_law
+		liege_or_court_owner = { has_realm_law = equal_law }
+	}
+}

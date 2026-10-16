@@ -1,0 +1,292 @@
+﻿at_get_merchant_effect = {
+	# Find an existing merchant character
+	random_pool_character = {
+		province = $LOCATION$
+		limit = {
+			vls_can_be_merchant_trigger = { CHARACTER = $CHARACTER$ }
+			var:at_merchant_type ?= flag:$TYPE$
+		}
+		save_scope_as = $MERCHANT$
+		save_scope_as = recurring_$MERCHANT$
+	}
+	if = {
+		limit = {
+			NOT = { exists = scope:$MERCHANT$ }
+		}
+		# Pick an appropriate character from the pool
+		random_pool_character = {
+			province = $LOCATION$
+			limit = {
+				vls_can_be_merchant_trigger = { CHARACTER = $CHARACTER$ }
+				NOT = { has_variable = at_merchant_type }
+				trigger_if = {
+					limit = {
+						vls_is_saved_vanilla_merchant_trigger = { CHARACTER = $CHARACTER$ }
+					}
+					vls_is_saved_vanilla_merchant_of_type_trigger = { CHARACTER = $CHARACTER$ TYPE = $TYPE$ }
+				}
+			}
+			save_scope_as = $MERCHANT$
+		}
+	}
+	if = {
+		limit = {
+			NOT = { exists = scope:$MERCHANT$ }
+		}
+		# Create a new merchant character
+		create_character = {
+			template = generic_peasant_character
+			location = $LOCATION$
+			dynasty = none
+			culture = $LOCATION$.culture
+			faith = $LOCATION$.faith
+			rite = $LOCATION$.rite
+			save_scope_as = $MERCHANT$
+		}
+		scope:$MERCHANT$ = {
+			set_variable = { name = last_visited_ruler value = dummy_female days = 1825 } # Prevent pruning
+		}
+	}
+
+	# Mark the character as a merchant
+	scope:$MERCHANT$ = {
+		set_variable = { name = at_merchant_type value = flag:$TYPE$ }
+	}
+}
+
+at_get_artifacts_effect = {
+	# Find existing artifacts for sale
+	if = {
+		limit = {
+			any_character_artifact = {
+				var:at_artifact_type ?= flag:$TYPE$
+			}
+		}
+		every_character_artifact = {
+			limit = {
+				var:at_artifact_type ?= flag:$TYPE$
+			}
+			set_variable = { name = at_artifact_type value = flag:$TYPE$ }
+			add_to_temporary_list = artifacts
+		}
+	}
+
+	# Create new artifacts for sale
+	while = {
+		limit = {
+			list_size = { name = artifacts value < 3 }
+		}
+
+		at_debug_log_effect = { MSG = at_debug_msg_creating_artifact }
+		at_set_artifact_quality_or_wealth_effect = {
+			NAME = quality
+			LOCATION = $LOCATION$
+			TYPE = $TYPE$
+		}
+		at_set_artifact_quality_or_wealth_effect = {
+			NAME = wealth
+			LOCATION = $LOCATION$
+			TYPE = $TYPE$
+		}
+		at_create_artifact_effect = {
+			TYPE = $TYPE$
+		}
+		scope:newly_created_artifact ?= {
+			set_variable = { name = at_artifact_type value = flag:$TYPE$ }
+			if = {
+				limit = { at_artifact_quality_wealth_average_value >= 20 }
+				at_add_scaled_artifact_modifiers_effect = yes
+			}
+			add_to_temporary_list = artifacts
+		}
+		clear_saved_scope = quality
+		clear_saved_scope = wealth
+	}
+}
+
+at_create_artifact_effect = {
+	save_temporary_scope_as = merchant
+	if = {
+		limit = { flag:$TYPE$ = flag:weapon }
+		create_artifact_weapon_effect = {
+			OWNER = scope:merchant
+			CREATOR = scope:merchant
+			SET_WEAPON_TYPE = flag:no
+		}
+	}
+	else_if = {
+		limit = { flag:$TYPE$ = flag:armor }
+		create_artifact_armor_effect = {
+			OWNER = scope:merchant
+			CREATOR = scope:merchant
+			SET_ARMOR_TYPE = flag:no
+		}
+	}
+	else_if = {
+		limit = { flag:$TYPE$ = flag:accessory }
+		random_list = {
+			50 = {
+				create_artifact_brooch_effect = {
+					OWNER = scope:merchant
+					SMITH = scope:merchant
+				}
+			}
+			50 = {
+				create_artifact_ring_effect = {
+					OWNER = scope:merchant
+					SMITH = scope:merchant
+				}
+			}
+			50 = {
+				create_artifact_necklace_effect = {
+					OWNER = scope:merchant
+					SMITH = scope:merchant
+				}
+			}
+			25 = {
+				create_artifact_crown_effect = {
+					OWNER = scope:merchant
+					SMITH = scope:merchant
+				}
+			}
+			25 = {
+				create_artifact_regalia_effect = {
+					OWNER = scope:merchant
+					SMITH = scope:merchant
+				}
+			}
+		}
+	}
+}
+
+at_set_artifact_quality_or_wealth_effect = {
+	save_scope_value_as = {
+		name = $NAME$
+		value = {
+			value = $LOCATION$.county.development_level
+			if = {
+				limit = {
+					$LOCATION$ = { vls_has_city_like_holding_trigger = yes }
+				}
+				add = { 5 10 }
+			}
+			if = {
+				limit = { flag:$TYPE$ = flag:accessory }
+				add = { 2 5 }
+			}
+			add = { -10 10 }
+			min = 5
+			max = 70
+		}
+	}
+}
+
+at_add_scaled_artifact_modifiers_effect = {
+	if = {
+		limit = {
+			OR = {
+				artifact_slot_type = primary_armament # prowess, combat / intrigue
+				artifact_slot_type = armor # prowess, combat
+			}
+		}
+		random_list = {
+			1 = {
+				add_scaled_artifact_modifier_prowess_effect = yes
+			}
+			1 = {
+				add_scaled_artifact_modifier_combat_effect = yes
+			}
+			1 = {
+				add_scaled_artifact_modifier_negate_prowess_penalty_effect = yes
+			}
+			1 = {
+				add_scaled_artifact_modifier_terrain_advantage_effect = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				artifact_type = brooch # minor prestige, attractiveness, rulesrship
+				artifact_type = ring # minor prestige, majesty, rulesrship
+				artifact_type = necklace # minor prestige, attractiveness, majesty
+			}
+		}
+		random_list = {
+			1 = {
+				add_scaled_artifact_modifier_minor_prestige_effect = yes
+			}
+			1 = {
+				add_scaled_artifact_modifier_attractiveness_effect = yes
+			}
+			1 = {
+				add_scaled_artifact_modifier_rulership_effect = yes
+			}
+			1 = {
+				add_scaled_artifact_modifier_majesty_effect = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				artifact_slot_type = helmet # minor prestige, majesty, rulesrship
+				artifact_slot_type = regalia # minor prestige, attractiveness, majesty
+			}
+		}
+		random_list = {
+			1 = {
+				add_scaled_artifact_modifier_prestige_effect = yes
+			}
+			1 = {
+				add_scaled_artifact_modifier_piety_effect = yes
+			}
+			1 = {
+				add_scaled_artifact_modifier_rulership_effect = yes
+			}
+			1 = {
+				add_scaled_artifact_modifier_majesty_effect = yes
+			}
+			1 = {
+				add_scaled_artifact_modifier_hire_mercenary_effect = yes
+			}
+		}
+	}
+}
+
+at_add_merchant_gold_effect = {
+	add_gold = {
+		value = $LOCATION$.county.development_level
+		if = {
+			limit = {
+				$LOCATION$ = { vls_has_city_like_holding_trigger = yes }
+			}
+			add = { 5 10 }
+		}
+		multiply = 5
+		min = 50
+		max = 200
+		add = { -10 10 }
+		subtract = gold
+		min = 1
+	}
+}
+
+at_destroy_random_artifact_effect = {
+	if = {
+		limit = { has_any_artifact = yes }
+		random_character_artifact = {
+			weight = {
+				base = 50
+				modifier = {
+					at_is_uncommon_artifact_trigger = yes
+					factor = 0.5
+				}
+			}
+			save_temporary_scope_as = destroyed_artifact
+		}
+		at_debug_log_effect = { MSG = at_debug_msg_destroying_artifact }
+		add_gold = scope:destroyed_artifact.at_artifact_base_price_value
+		destroy_artifact = scope:destroyed_artifact
+	}
+}

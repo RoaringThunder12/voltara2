@@ -1,0 +1,14 @@
+﻿agot_artifact_selecting = {
+	scope = character
+
+	is_valid = {
+	}
+
+	is_shown = {
+		var:selected_artifact ?= scope:selected_artifact
+	}
+
+	effect = {
+		set_variable = { name = selected_artifact value = scope:selected_artifact }
+	}
+}

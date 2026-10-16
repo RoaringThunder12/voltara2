@@ -1,0 +1,21 @@
+﻿voltara_active_dragonpit = { OR = { has_building = generic_dragon_pit_01 has_building = dragonpit_ruins_03 } }
+voltara_owns_dragonpit = { any_held_county = { any_county_province = { voltara_active_dragonpit = yes } } }
+voltara_controls_dragon = {
+ scope:recipient = { has_trait = dragon is_alive = yes }
+ OR = { scope:actor.var:current_dragon ?= scope:recipient
+  AND = { scope:recipient = { is_courtier_of = scope:actor } scope:recipient = { NOT = { exists = var:current_rider } } }
+ }
+}
+
+voltara_dragon_available_to = {
+ trigger_if = { limit = { has_character_flag = in_dragonpit }
+  exists = var:pitted_dragon_location.holder
+  OR = {
+   var:pitted_dragon_location.holder = $RIDER$
+   var:pitted_dragon_location.holder = { has_realm_law = dragonpit_everyone_law }
+   AND = { var:pitted_dragon_location.holder = { has_realm_law = dragonpit_house_law } exists = $RIDER$.house $RIDER$.house = var:pitted_dragon_location.holder.house }
+   AND = { var:pitted_dragon_location.holder = { has_realm_law = dragonpit_dynasty_law } exists = $RIDER$.dynasty $RIDER$.dynasty = var:pitted_dragon_location.holder.dynasty }
+   AND = { var:pitted_dragon_location.holder = { has_realm_law = dragonpit_close_family_law } $RIDER$ = { is_close_family_of = prev.var:pitted_dragon_location.holder } }
+  }
+ }
+}

@@ -1,0 +1,344 @@
+window = {
+	name = "at_find_artifacts_window"
+	position = { -50 65 }
+	parentanchor = top|right
+	allow_outside = yes
+	layer = middle
+
+	using = Window_Background
+	using = Window_Decoration_Spike
+	using = Window_Size_CharacterList
+
+	state = {
+		name = _show
+		using = Animation_FadeIn_Quick
+	}
+
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Quick
+	}
+
+	visible = "[GetVariableSystem.HasValue('at_find_artifacts_window_visible', 'yes')]"
+
+	vbox = {
+		using = Window_Margins
+
+		header_pattern = {
+			layoutpolicy_horizontal = expanding
+			minimumsize = { 100% 0 }
+
+			blockoverride "header_text" {
+				text = "AT_FIND_ARTIFACTS"
+			}
+
+			blockoverride "button_close" {
+				onclick = "[GetVariableSystem.Set('at_find_artifacts_window_visible', 'no')]"
+				onclick = "[GetScriptedGui('at_artifacts_window_close_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			}
+		}
+
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			spacing = 3
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+
+				at_hbox_artifacts_sort_buttons = {
+					layoutpolicy_horizontal = expanding
+				}
+
+				at_hbox_find_artifacts_sell_buy_buttons = {
+					layoutpolicy_horizontal = expanding
+				}
+			}
+
+			scrollbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				min_width = 640
+
+				blockoverride "scrollbox_content" {
+					vbox = {
+						datamodel = "[GetPlayer.MakeScope.GetList('at_artifacts_window_artifacts')]"
+						layoutpolicy_horizontal = expanding
+						visible = "[GetScriptedGui('at_artifacts_window_artifacts_gui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+						item = {
+							at_widget_find_artifacts_list_item = {
+								layoutpolicy_horizontal = expanding
+								size = { 600 90 }
+							}
+						}
+					}
+				}
+
+				blockoverride "scrollbox_empty" {
+					layoutpolicy_vertical = expanding
+					visible = "[IsDataModelEmpty(GetPlayer.MakeScope.GetList('at_artifacts_window_artifacts'))]"
+					text = "AT_NO_ARTIFACTS_FOUND"
+				}
+			}
+
+			at_hbox_artifacts_count = {
+				layoutpolicy_horizontal = growing
+			}
+		}
+
+		expand = {
+			minimumsize = { 0 10 }
+		}
+	}
+
+	at_window_artifact_filters = {
+		blockoverride "filters" {
+			at_hbox_artifact_filter = {
+				datacontext = "[GetScriptedGui('at_artifacts_window_select_rarity_filter_option_gui')]"
+				blockoverride "filter_text" {
+					text = "at_rarity"
+				}
+
+				blockoverride "filter_options_datamodel" {
+					datamodel = "[GetGlobalList('at_artifacts_window_rarity_filter_options')]"
+				}
+
+				blockoverride "selected_filter_option_text" {
+					text = "[Localize(Concatenate('at', GetPlayer.MakeScope.Var('at_artifacts_window_selected_rarity_filter_option').GetFlagName))]"
+				}
+			}
+
+			at_hbox_artifact_filter = {
+				datacontext = "[GetScriptedGui('at_artifacts_window_select_slot_type_filter_option_gui')]"
+				blockoverride "filter_text" {
+					text = "at_type"
+				}
+
+				blockoverride "filter_options_datamodel" {
+					datamodel = "[GetGlobalList('at_artifacts_window_slot_type_filter_options')]"
+				}
+
+				blockoverride "selected_filter_option_text" {
+					text = "[Localize(Concatenate('at', GetPlayer.MakeScope.Var('at_artifacts_window_selected_slot_type_filter_option').GetFlagName))]"
+				}
+			}
+
+			at_hbox_artifact_filter = {
+				datacontext = "[GetScriptedGui('at_artifacts_window_select_unique_filter_option_gui')]"
+				blockoverride "filter_text" {
+					text = "at_unique"
+				}
+
+				blockoverride "filter_options_datamodel" {
+					datamodel = "[GetGlobalList('at_artifacts_window_unique_filter_options')]"
+				}
+
+				blockoverride "selected_filter_option_text" {
+					text = "[Localize(Concatenate('at', GetPlayer.MakeScope.Var('at_artifacts_window_selected_unique_filter_option').GetFlagName))]"
+				}
+			}
+
+			at_hbox_artifact_filter = {
+				datacontext = "[GetScriptedGui('at_artifacts_window_select_modifier_filter_option_gui')]"
+				blockoverride "filter_text" {
+					text = "at_modifier"
+				}
+
+				blockoverride "filter_options_datamodel" {
+					datamodel = "[GetGlobalList('at_artifacts_window_modifier_filter_options')]"
+				}
+
+				blockoverride "selected_filter_option_text" {
+					text = "[Localize(Concatenate('at', GetPlayer.MakeScope.Var('at_artifacts_window_selected_modifier_filter_option').GetFlagName))]"
+				}
+			}
+
+			at_hbox_artifact_filter = {
+				datacontext = "[GetScriptedGui('at_artifacts_window_select_equipped_filter_option_gui')]"
+				blockoverride "filter_text" {
+					text = "at_equipped"
+				}
+
+				blockoverride "filter_options_datamodel" {
+					datamodel = "[GetGlobalList('at_artifacts_window_equipped_filter_options')]"
+				}
+
+				blockoverride "selected_filter_option_text" {
+					text = "[Localize(Concatenate('at', GetPlayer.MakeScope.Var('at_artifacts_window_selected_equipped_filter_option').GetFlagName))]"
+				}
+			}
+
+			at_hbox_artifact_filter = {
+				datacontext = "[GetScriptedGui('at_artifacts_window_select_owned_filter_option_gui')]"
+				blockoverride "filter_text" {
+					text = "at_owned"
+				}
+
+				blockoverride "filter_options_datamodel" {
+					datamodel = "[GetGlobalList('at_artifacts_window_owned_filter_options')]"
+				}
+
+				blockoverride "selected_filter_option_text" {
+					text = "[Localize(Concatenate('at', GetPlayer.MakeScope.Var('at_artifacts_window_selected_owned_filter_option').GetFlagName))]"
+				}
+			}
+
+			at_hbox_artifact_filter = {
+				datacontext = "[GetScriptedGui('at_artifacts_window_select_claimed_filter_option_gui')]"
+				blockoverride "filter_text" {
+					text = "at_claimed"
+				}
+
+				blockoverride "filter_options_datamodel" {
+					datamodel = "[GetGlobalList('at_artifacts_window_claimed_filter_options')]"
+				}
+
+				blockoverride "selected_filter_option_text" {
+					text = "[Localize(Concatenate('at', GetPlayer.MakeScope.Var('at_artifacts_window_selected_claimed_filter_option').GetFlagName))]"
+				}
+			}
+
+			at_hbox_artifact_filter = {
+				datacontext = "[GetScriptedGui('at_artifacts_window_select_equippable_filter_option_gui')]"
+				blockoverride "filter_text" {
+					text = "at_equippable"
+				}
+
+				blockoverride "filter_options_datamodel" {
+					datamodel = "[GetGlobalList('at_artifacts_window_equippable_filter_options')]"
+				}
+
+				blockoverride "selected_filter_option_text" {
+					text = "[Localize(Concatenate('at', GetPlayer.MakeScope.Var('at_artifacts_window_selected_equippable_filter_option').GetFlagName))]"
+				}
+			}
+
+			at_hbox_artifact_filter = {
+				datacontext = "[GetScriptedGui('at_artifacts_window_select_unwanted_filter_option_gui')]"
+				blockoverride "filter_text" {
+					text = "at_unwanted"
+				}
+
+				blockoverride "filter_options_datamodel" {
+					datamodel = "[GetGlobalList('at_artifacts_window_unwanted_filter_options')]"
+				}
+
+				blockoverride "selected_filter_option_text" {
+					text = "[Localize(Concatenate('at', GetPlayer.MakeScope.Var('at_artifacts_window_selected_unwanted_filter_option').GetFlagName))]"
+				}
+			}
+
+			at_hbox_artifact_filter = {
+				datacontext = "[GetScriptedGui('at_artifacts_window_select_trash_filter_option_gui')]"
+				blockoverride "filter_text" {
+					text = "at_trash_destroyed"
+				}
+
+				blockoverride "filter_options_datamodel" {
+					datamodel = "[GetGlobalList('at_artifacts_window_trash_filter_options')]"
+				}
+
+				blockoverride "selected_filter_option_text" {
+					text = "[Localize(Concatenate('at', GetPlayer.MakeScope.Var('at_artifacts_window_selected_trash_filter_option').GetFlagName))]"
+				}
+			}
+
+			at_hbox_artifact_filter = {
+				datacontext = "[GetScriptedGui('at_artifacts_window_select_special_filter_option_gui')]"
+				blockoverride "filter_text" {
+					text = "at_special"
+				}
+
+				blockoverride "filter_options_datamodel" {
+					datamodel = "[GetGlobalList('at_artifacts_window_special_filter_options')]"
+				}
+
+				blockoverride "selected_filter_option_text" {
+					text = "[Localize(Concatenate('at', GetPlayer.MakeScope.Var('at_artifacts_window_selected_special_filter_option').GetFlagName))]"
+				}
+			}
+
+			at_hbox_artifact_filter = {
+				datacontext = "[GetScriptedGui('at_artifacts_window_select_owner_filter_option_gui')]"
+				blockoverride "filter_text" {
+					text = "at_owner"
+				}
+
+				blockoverride "filter_options_datamodel" {
+					datamodel = "[GetGlobalList('at_artifacts_window_owner_filter_options')]"
+				}
+
+				blockoverride "selected_filter_option_text" {
+					text = "[Localize(Concatenate('at', GetPlayer.MakeScope.Var('at_artifacts_window_selected_owner_filter_option').GetFlagName))]"
+				}
+			}
+
+			at_hbox_artifact_filter = {
+				datacontext = "[GetScriptedGui('at_artifacts_window_select_owner_valid_buyer_or_seller_filter_option_gui')]"
+				blockoverride "filter_text" {
+					text = "at_owner_valid_buyer_or_seller"
+				}
+
+				blockoverride "filter_options_datamodel" {
+					datamodel = "[GetGlobalList('at_artifacts_window_owner_valid_buyer_or_seller_filter_options')]"
+				}
+
+				blockoverride "selected_filter_option_text" {
+					text = "[Localize(Concatenate('at', GetPlayer.MakeScope.Var('at_artifacts_window_selected_owner_valid_buyer_or_seller_filter_option').GetFlagName))]"
+				}
+			}
+		}
+	}
+}
+
+types at_types_find_artifacts_window {
+	type at_widget_find_artifacts_list_item = widget {
+		size = { 600 90 }
+
+		divider = {
+			parentanchor = bottom|hcenter
+			size = { 100% 3 }
+		}
+
+		block "button_content" {
+			at_hbox_artifact_info = {
+				datacontext = "[Scope.Artifact]"
+			}
+		}
+	}
+
+	type at_hbox_find_artifacts_sell_buy_buttons = hbox {
+		margin_left = 20
+		margin_right = 20
+		margin_top = 5
+		spacing = 10
+
+		visible = "[GetScriptedGui('at_artifacts_window_init_gui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('flavor', MakeScopeFlag('sell')).End)]"
+		expand = {}
+
+		button_standard = {
+			size = { 100 32 }
+			text = "AT_SELL_ARTIFACTS"
+			enabled = "[GetScriptedGui('at_artifacts_window_init_gui').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('flavor', MakeScopeFlag('sell')).End)]"
+			tooltip = "AT_SELL_ARTIFACTS_TOOLTIP"
+
+			onclick = "[GetScriptedGui('at_artifacts_window_init_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('flavor', MakeScopeFlag('sell')).End)]"
+			onclick = "[GetVariableSystem.Set('at_find_artifacts_window_visible', 'no')]"
+			onclick = "[GetVariableSystem.Set('at_artifacts_window_visible', 'yes')]"
+			onclick = "[GetVariableSystem.Set('at_artifacts_window_flavor', 'sell')]"
+		}
+
+		button_standard = {
+			size = { 100 32 }
+			text = "AT_BUY_ARTIFACTS"
+			enabled = "[GetScriptedGui('at_artifacts_window_init_gui').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('flavor', MakeScopeFlag('buy')).End)]"
+			tooltip = "AT_BUY_ARTIFACTS_TOOLTIP"
+
+			onclick = "[GetScriptedGui('at_artifacts_window_init_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('flavor', MakeScopeFlag('buy')).End)]"
+			onclick = "[GetVariableSystem.Set('at_find_artifacts_window_visible', 'no')]"
+			onclick = "[GetVariableSystem.Set('at_artifacts_window_visible', 'yes')]"
+			onclick = "[GetVariableSystem.Set('at_artifacts_window_flavor', 'buy')]"
+		}
+	}
+}

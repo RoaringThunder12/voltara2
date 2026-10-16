@@ -1,0 +1,474 @@
+﻿can_increase_lifespan_trigger = {
+	exists = var:mastered_schools
+	OR = {
+		AND = {
+			var:mastered_schools >= 1
+			NOR = {
+				has_trait = lifespan
+				has_trait = lifespan_magic
+			}
+		}
+		AND = {
+			var:mastered_schools >= 1
+			has_trait = lifespan
+		}
+		AND = {
+			var:mastered_schools >= 1
+			has_trait = lifespan_magic_1
+		}
+		AND = {
+			var:mastered_schools >= 2
+			has_trait = lifespan_magic_2
+		}
+		AND = {
+			var:mastered_schools >= 3
+			has_trait = lifespan_magic_3
+		}
+		AND = {
+			var:mastered_schools >= 4
+			has_trait = lifespan_magic_4
+		}
+		AND = {
+			var:mastered_schools >= 5
+			has_trait = lifespan_magic_5
+		}
+	}
+}
+
+has_students_magicka_background = {
+	OR = {
+		has_students_magicka_culture = yes
+		#has_students_magicka_faith = yes
+	}
+}
+
+is_briarheart = {
+	has_trait = briarheart
+}
+
+is_daedric_character = {
+	OR = { 
+		has_character_flag = summoned_daedra
+		culture = { has_cultural_pillar = heritage_dremora }
+	}
+}
+
+is_hagraven = {
+	has_trait = hagraven
+}
+
+is_important_lore_character = {
+	OR = {
+		this = character:mannimarco_1000 #Mannimarco
+		this = character:galerion_100 #Vanus Galerion
+		this = character:vastarie_100 #Vastarie
+		this = character:fyr_100 #Divayth Fyr
+		this = character:bal_100 #Lamae Bal
+		this = character:volkihar_1000 #Harkon
+		this = character:volkihar_1001 #Valerica
+		this = character:volkihar_1002 #Serana
+		this = character:saran_1000 #Rada "al-Saran" the "Pankratoengineer", inventor of the Pankratobomb
+		this = character:vardengroet_gyron #Vardengroet
+		this = character:bagarn_1000 #Yagrum Bagarn 
+		this = character:dremora_1000 #Velehk Sain
+		#EK TODO: doesn't cover all 440/450 lore characters yet
+	}
+}
+
+is_losing_defensive_war_trigger = {
+	any_character_war = {
+		primary_defender = root
+		attacker_war_score >= 25
+	}
+}
+
+is_lycan = { OR = { has_trait = supernatural_werewolf has_trait = lycan_character has_trait = irritable_lycan } }
+
+is_mindless_character = { #Note: when changing this one, also change the setup in 00_rules.txt, as using this scripted trigged there caused errors
+	has_trait_with_flag = mindless_character
+}
+
+is_undead_character = {
+	OR = {
+		has_trait = vt_ek_lich_character
+		has_trait = vt_ek_undead_character
+	}
+}
+
+is_vampire = { OR = { has_trait = supernatural_vampire has_trait = vampire_character has_trait = reclusive_vampire } }
+
+potential_undead_thrall = {
+	# these are groups that cannot be made into undead
+	NOR = {
+		has_character_flag = corpse_can_not_be_claimed # if the character is killed through execution, name-biting or the turn into thrall character interaction, don't apply the effect again
+		is_undead_character = yes # duh
+		has_trait = vampire_character # vamps just kinda turn to dust when killed
+		is_daedric_character = yes # daedra don't stick around when killed
+	}
+}
+
+valid_increase_lifespan_trigger = {
+	NOR = {
+		has_character_flag = race_daedra
+		has_trait_with_flag = is_immortal
+		has_trait_with_flag = tsaesci
+		is_vampire = yes
+		vt_ek_is_undead = yes
+		is_briarheart = yes
+		is_hagraven = yes
+	}
+}
+
+has_dwemer_constellation_names = {
+	culture = { has_cultural_pillar = heritage_dwemeri }
+	NOT = { culture = { has_cultural_tradition = tradition_reach_core }}
+	NOT = { faith = { religion_tag = celestial_religion } }
+}
+
+has_reachfolk_constellation_names = {
+	culture = { has_cultural_tradition = tradition_reach_core }
+	NOT = { culture = { has_cultural_pillar = heritage_dwemeri }}
+	NOT = { faith = { religion_tag = celestial_religion } }
+}
+
+has_students_magicka_culture = {
+	culture = {
+		OR = {
+			has_innovation = innovation_magical_studies
+			has_innovation_flag = innovation_magical_studies_replacement
+			has_cultural_parameter = unlocks_arcana_education
+			has_cultural_parameter = magic_preference
+			has_cultural_parameter = sorcerer_kings_tradition
+		}
+	}
+}
+
+is_magic_studies_location = {
+	OR = {
+		has_magic_special_building_trigger = yes
+		has_magic_academy_building_trigger = yes
+	}
+}
+
+has_magic_academy_building_trigger = {
+	has_building_or_higher = academymag_01
+}
+
+has_magic_special_building_trigger = {	
+	has_building_with_flag = { flag = arcane_education_location }
+}
+
+has_birthsign = {
+	has_trait = birthsign
+}
+
+trait_is_shunned_or_criminal_in_my_or_lieges_faith_trigger = {
+	OR = {
+		AND = {
+			faith = { #My faith doesn't approve
+				save_temporary_scope_as = check_faith
+			}
+			trait_is_shunned_or_criminal_in_faith_trigger = { TRAIT = $TRAIT$ FAITH = scope:check_faith GENDER_CHARACTER = $GENDER_CHARACTER$ }
+		}
+		AND = { #Liege's faith doesn't approve
+			liege ?= {
+				faith = {
+					save_temporary_scope_as = check_faith
+				}
+			}
+			trait_is_shunned_or_criminal_in_faith_trigger = { TRAIT = $TRAIT$ FAITH = scope:check_faith GENDER_CHARACTER = $GENDER_CHARACTER$ }
+		}
+	}
+}
+
+trait_is_shunned_or_criminal_in_faith_trigger = {
+	OR = {
+		trait_is_shunned_in_faith_trigger = { TRAIT = $TRAIT$ FAITH = $FAITH$ GENDER_CHARACTER = $GENDER_CHARACTER$ }
+		trait_is_criminal_in_faith_trigger = { TRAIT = $TRAIT$ FAITH = $FAITH$ GENDER_CHARACTER = $GENDER_CHARACTER$ }
+	}
+}
+
+trait_is_criminal_in_faith_trigger = {
+	OR = {
+		#KINSLAYER
+		AND = {
+			OR = {
+				$TRAIT$ = trait:kinslayer_3
+				$TRAIT$ = trait:kinslayer_2
+				$TRAIT$ = trait:kinslayer_1
+			}
+			$FAITH$ = { has_doctrine_parameter = kinslaying_any_dynasty_member_crime }
+		}
+		AND = {
+			OR = {
+				$TRAIT$ = trait:kinslayer_3
+				$TRAIT$ = trait:kinslayer_2
+			}
+			$FAITH$ = { has_doctrine_parameter = kinslaying_extended_family_crime }
+		}
+		AND = {
+			$TRAIT$ = trait:kinslayer_3
+			$FAITH$ = { has_doctrine_parameter = kinslaying_close_kin_crime }
+		}
+		#WITCH
+		AND = {
+			$TRAIT$ = trait:witch
+			$FAITH$ = { has_doctrine_parameter = witchcraft_illegal }
+		}
+		#CANNIBAL
+		AND = {
+			$TRAIT$ = trait:cannibal
+			NOT = {
+				$FAITH$ = { has_doctrine_parameter = cannibalism_legal }
+			}
+		}
+		#SODOMITE
+		AND = {
+			$TRAIT$ = trait:sodomite
+			$FAITH$ = { has_doctrine_parameter = homosexuality_illegal }
+		}
+		#DEVIANT
+		AND = {
+			$TRAIT$ = trait:deviant
+			$FAITH$ = { has_doctrine_parameter = deviancy_illegal }
+		}
+		#INCEST
+		AND = {
+			$TRAIT$ = trait:incestuous
+			$FAITH$ = { NOT = { has_doctrine_parameter = consanguinity_unrestricted_incest } }
+		}
+		#ADULTERER/FORNICATOR
+		AND = {
+			OR = {
+				$TRAIT$ = trait:adulterer
+				#$TRAIT$ = trait:fornicator #EK DISABLED
+			}
+			OR = {
+				AND = {
+					$FAITH$ = { has_doctrine_parameter = adultery_female_crime }
+					$GENDER_CHARACTER$ = { is_female = yes }
+				}
+				AND = {
+					$FAITH$ = { has_doctrine_parameter = adultery_male_crime }
+					$GENDER_CHARACTER$ = { is_male = yes }
+				}
+			}
+		}
+		###EK ADDITION: Added our own secrets
+		# NECROMANCER
+		AND = {
+			$TRAIT$ = trait:vt_ek_necromancer
+			$FAITH$ = { has_doctrine_parameter = necromancy_criminal }
+		}
+		# VAMPIRE
+		AND = {
+			$TRAIT$ = trait:vampire_character
+			$FAITH$ = { has_doctrine_parameter = vampirism_criminal }
+		}
+		# LYCAN
+		AND = {
+			$TRAIT$ = trait:lycan_character
+			$FAITH$ = { has_doctrine_parameter = lycanthropy_criminal }
+		}
+		# DAEDRA WORSHIPPER
+		AND = {
+			$TRAIT$ = trait:azura_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_azura_criminal_active }
+		}
+		AND = {
+			$TRAIT$ = trait:boethiah_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_boethiah_criminal_active }
+		}
+		AND = {
+			$TRAIT$ = trait:clavicus_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_clavicus_criminal_active }
+		}
+		AND = {
+			$TRAIT$ = trait:hermaeus_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_hermaeus_criminal_active }
+		}
+		AND = {
+			$TRAIT$ = trait:hircine_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_hircine_criminal_active }
+		}
+		AND = {
+			$TRAIT$ = trait:malacath_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_malacath_criminal_active }
+		}
+		AND = {
+			$TRAIT$ = trait:mehrunes_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_mehrunes_criminal_active }
+		}
+		AND = {
+			$TRAIT$ = trait:mephala_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_mephala_criminal_active }
+		}
+		AND = {
+			$TRAIT$ = trait:meridia_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_meridia_criminal_active }
+		}
+		AND = {
+			$TRAIT$ = trait:molag_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_molag_criminal_active }
+		}
+		AND = {
+			$TRAIT$ = trait:namira_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_namira_criminal_active }
+		}
+		AND = {
+			$TRAIT$ = trait:nocturnal_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_nocturnal_criminal_active }
+		}
+		AND = {
+			$TRAIT$ = trait:peryite_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_peryite_criminal_active }
+		}
+		AND = {
+			$TRAIT$ = trait:sanguine_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_sanguine_criminal_active }
+		}
+		AND = {
+			$TRAIT$ = trait:sheogorath_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_sheogorath_criminal_active }
+		}
+		AND = {
+			$TRAIT$ = trait:vaermina_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_vaermina_criminal_active }
+		}
+		#EK ADDITION END
+	}	
+}
+
+trait_is_shunned_in_faith_trigger = {
+	OR = {
+		#KINSLAYER
+		AND = {
+			OR = {
+				$TRAIT$ = trait:kinslayer_3
+				$TRAIT$ = trait:kinslayer_2
+				$TRAIT$ = trait:kinslayer_1
+			}
+			$FAITH$ = { has_doctrine = doctrine_kinslaying_shunned }
+		}
+		#WITCH
+		AND = {
+			$TRAIT$ = trait:witch
+			$FAITH$ = { has_doctrine_parameter = witchcraft_shunned }
+		}
+		#SODOMITE
+		AND = {
+			$TRAIT$ = trait:sodomite
+			$FAITH$ = { has_doctrine_parameter = homosexuality_shunned }
+		}
+		#DEVIANT
+		AND = {
+			$TRAIT$ = trait:deviant
+			$FAITH$ = { has_doctrine_parameter = deviancy_shunned }
+		}
+		#INCEST
+		AND = {
+			$TRAIT$ = trait:incestuous
+			secret_incest_is_shunned_trigger = {
+				OWNER = $GENDER_CHARACTER$
+			}
+		}
+		#ADULTERER/FORNICATOR
+		AND = {
+			OR = {
+				$TRAIT$ = trait:adulterer
+				#$TRAIT$ = trait:fornicator #EK DISABLED
+			}
+			OR = {
+				AND = {
+					$FAITH$ = { has_doctrine_parameter = adultery_female_shunned }
+					$GENDER_CHARACTER$ = { is_female = yes }
+				}
+				AND = {
+					$FAITH$ = { has_doctrine_parameter = adultery_male_shunned }
+					$GENDER_CHARACTER$ = { is_male = yes }
+				}
+			}
+		}
+		# NECROMANCER
+		AND = {
+			$TRAIT$ = trait:vt_ek_necromancer	
+			$FAITH$ = { has_doctrine_parameter = necromancy_shunned }
+		}
+		# VAMPIRE
+		AND = {
+			$TRAIT$ = trait:vampire_character	
+			$FAITH$ = { has_doctrine_parameter = vampirism_shunned }
+		}
+		# LYCAN
+		AND = {
+			$TRAIT$ = trait:lycan_character	
+			$FAITH$ = { has_doctrine_parameter = lycanthropy_shunned }
+		}
+		# DAEDRA WORSHIPPER
+		AND = {
+			$TRAIT$ = trait:azura_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_azura_shunned_active }
+		}
+		AND = {
+			$TRAIT$ = trait:boethiah_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_boethiah_shunned_active }
+		}
+		AND = {
+			$TRAIT$ = trait:clavicus_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_clavicus_shunned_active }
+		}
+		AND = {
+			$TRAIT$ = trait:hermaeus_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_hermaeus_shunned_active }
+		}
+		AND = {
+			$TRAIT$ = trait:hircine_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_hircine_shunned_active }
+		}
+		AND = {
+			$TRAIT$ = trait:malacath_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_malacath_shunned_active }
+		}
+		AND = {
+			$TRAIT$ = trait:mehrunes_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_mehrunes_shunned_active }
+		}
+		AND = {
+			$TRAIT$ = trait:mephala_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_mephala_shunned_active }
+		}
+		AND = {
+			$TRAIT$ = trait:meridia_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_meridia_shunned_active }
+		}
+		AND = {
+			$TRAIT$ = trait:molag_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_molag_shunned_active }
+		}
+		AND = {
+			$TRAIT$ = trait:namira_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_namira_shunned_active }
+		}
+		AND = {
+			$TRAIT$ = trait:nocturnal_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_nocturnal_shunned_active }
+		}
+		AND = {
+			$TRAIT$ = trait:peryite_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_peryite_shunned_active }
+		}
+		AND = {
+			$TRAIT$ = trait:sanguine_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_sanguine_shunned_active }
+		}
+		AND = {
+			$TRAIT$ = trait:sheogorath_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_sheogorath_shunned_active }
+		}
+		AND = {
+			$TRAIT$ = trait:vaermina_worshipper
+			$FAITH$ = { has_doctrine_parameter = worship_vaermina_shunned_active }
+		}
+		#EK ADDITION END
+	}
+}

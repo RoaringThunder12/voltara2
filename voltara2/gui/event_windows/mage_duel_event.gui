@@ -1,0 +1,1129 @@
+window = {
+	name = "mage_duel_event"
+	size = { 1220 680 }
+
+	parentanchor = center
+	widgetanchor = center
+	layer = events
+	alpha = 0
+
+	datacontext = "[EventWindow.AccessEventWindowData]"
+
+	widget = {
+		#visible = "[Not(GameHasMultiplePla23:38 26.09.2023yers)]"
+		size = { 100% 100% }
+
+		icon = {
+			visible = "[Not(GetVariableSystem.Exists( 'event_window_mouse_leave'))]"
+			parentanchor = center
+			size = { 200% 200% }
+			alwaystransparent = yes
+			texture = "gfx/interface/component_masks/mask_fade_circle.dds"
+			color = { 0.1 0.1 0.1 1 }
+			alpha = 0
+
+			state = {
+				name = appear
+				trigger_on_create = yes
+				delay = 0.2
+				using = Animation_Curve_Default
+				alpha = 0.6
+				duration = 0.8
+			}
+
+			state = {
+				name = _hide
+				using = Animation_Curve_Default
+				duration = 3
+				alpha = 0
+			}
+		}
+	}
+
+	widget = {
+		#size = { 100% 83% }
+		size = { 100% 84% }
+		using = Window_Background
+		using = Window_Decoration_Thin_Bottom
+		parentanchor = bottom
+	}
+
+	state = {
+		name = show
+		trigger_on_create = yes
+		using = Animation_FadeIn_Standard
+		duration = 0.7
+		using = Sound_Panel_Popup_Snapshot
+		on_start = "[GetVariableSystem.Clear( 'event_window_mouse_leave')]"
+
+		start_sound = {
+			soundeffect = "event:/SFX/Events/Panels/sfx_event_panel_large"
+
+			soundparam = {
+				name = StateChange
+				value = 1
+			}
+		}
+	}
+
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Standard
+
+		start_sound = {
+			soundeffect = "event:/MUSIC/Cues/Events/kill_mx_cue"
+		}
+	}
+
+	state = {
+		name = _mouse_hierarchy_leave
+		on_start = "[GetVariableSystem.Set( 'event_window_mouse_leave', 'true' )]"
+	}
+
+	widget = {
+		layoutpolicy_horizontal = expanding
+		size = { 1220 125 }
+		#size = { 1220 128 }
+		icon = {
+			name = "theme_header"
+			position = { 24 0 }
+			size = { 1171 128 }
+			texture = "gfx/interface/window_duel_event_window/header_duel.dds"
+
+			modify_texture = {
+				name = overlay
+				texture = "gfx/interface/component_effects/effect_header_blue_shine.dds"
+				blend_mode = colordodge
+				translate_uv = { 0.6 0 }
+			}
+
+			state = {
+				name = right
+				next = left
+
+				duration = 8
+				bezier = { 0.8 0.18 0.96 .05 }
+
+				modify_texture = {
+					name = overlay
+					translate_uv = { -0.6 0 }
+				}
+			}
+
+			state = {
+				name = left
+				next = right
+
+				duration = 0.0
+				delay = 5
+
+				modify_texture = {
+					name = overlay
+					translate_uv = { 0.6 0 }
+				}
+			}
+
+			state = {
+				trigger_on_create = yes
+				name = start
+				next = right
+
+				duration = 0.0
+
+				modify_texture = {
+					name = overlay
+					translate_uv = { 0.6 0 }
+				}
+			}
+		}
+
+		icon = {
+			name = "duel_window_decoration"
+			size = { 1171 128 }
+			position = { 24 0 }
+			texture = "gfx/interface/window_duel_event_window/decoration_frame_top_duel.dds"
+		}
+
+		text_single = {
+			name = "title"
+			parentanchor = center
+			fontsize = 29
+			fontsize_min = 16
+			position = { 0 26 }
+			text = "[EventWindowData.GetTitle]"
+			default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+			using = Font_Type_Flavor
+			max_width = 950
+
+			alpha = 0
+
+			state = {
+				name = start
+				trigger_on_create = yes
+				delay = 0.2
+				using = Animation_Curve_Default
+				alpha = 1
+				duration = 0.5
+			}
+		}
+	}
+
+	vbox = {
+		widget = {
+			name = "duel_event_content"
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			event_window_background_widget = {
+				margin = { 38 20 }
+				margin_top = 125
+				
+				blockoverride "event_picture_properties"
+				{
+					alpha = 0.7
+
+					using = Mask_Rough_Edges
+
+					modify_texture = {
+						name = "event_picture_fade"
+						texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_inverse.dds"
+						blend_mode = alphamultiply
+					}
+				}
+			}
+
+			background = {
+				name = "triangle_background"
+				alpha = 0.6
+				fittype = center
+				margin_top = -125
+				texture = "gfx/interface/window_duel_event_window/background_duel.dds"
+			}
+
+			### CHARACTERS
+			hbox = {
+				name = "character_box"
+				margin_bottom = 15
+
+				widget = {
+					name = "characters"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+
+					state = {
+						name = appear
+						trigger_on_create = yes
+						delay = 0.5
+						using = Animation_Curve_Default
+						alpha = 1
+						duration = 0.5
+					}
+
+					### PORTRAITS
+					hbox = {
+						name = "character_portraits"
+
+						widget = {
+							name = "portrait_left"
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = expanding
+							#datacontext = "[EventWindowWidget.GetScope.sCharacter('char1')]"
+
+							portrait_event_duel = {
+								name = "portrait_left"
+								datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
+								visible = "[And(EventWindowData.HasPortraitCharacter('left_portrait'), EventWindowData.HasPortraitCharacter('right_portrait'))]"
+								parentanchor = bottom|left
+								position = { -20 0 }
+								size = { 930 490 }
+
+								blockoverride "portrait_button"
+								{
+									portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('left_portrait', 'camera_event_duel_left', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+									alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('left_portrait'))]"
+									#tooltip_enabled = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
+									using = tooltip_ws
+									tooltip_offset = { -40 0 }
+								}
+
+								blockoverride "highlight_visible"
+								{
+									visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('left_portrait') ))]"
+									position = { -270 0 }
+								}
+
+								blockoverride "grayscale" {}
+
+								highlight_icon = {
+									name = "prison_bars"
+									visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('left_portrait')))]"
+									visible_at_creation = no
+									parentanchor = bottom|left
+									size = { 285 500 }
+
+									texture = "gfx/portraits/portrait_prison_body.dds"
+									effectname = "NoHighlight"
+									spriteType = corneredTiled
+									texture_density = 1.5
+
+									modify_texture = {
+										name = "mask"
+										texture =  "gfx/portraits/portrait_mask_event.dds"
+										spriteType = Corneredstretched
+										blend_mode = alphamultiply
+									}
+								}
+							}
+							vbox = {
+								name = "custom_widgets_container2"
+								layoutpolicy_horizontal = expanding
+								margin_top = 150
+								margin_right = 460
+								state = {
+									trigger_on_create = yes
+									name = appear_test
+									delay = 0.8
+									using = Animation_Curve_Default
+									alpha = 1
+									duration = 0.6
+								}
+							}
+							vbox = {
+								name = "custom_widgets_container3"
+								layoutpolicy_horizontal = expanding
+								margin_top = 520
+								margin_right = 250
+								state = {
+									trigger_on_create = yes
+									name = appear_test
+									delay = 0.8
+									using = Animation_Curve_Default
+									alpha = 1
+									duration = 0.6
+								}
+							}
+						}
+
+						### RIGHT CHARACTER ###
+						widget = {
+							name = "portrait_right"
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = expanding
+
+							### RIGHT CHARACTER ###
+							portrait_event_duel = {
+								name = "portrait_right"
+								datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
+								visible = "[EventWindowData.HasPortraitCharacter('right_portrait')]"
+								parentanchor = bottom|right
+								position = { -60 0 }
+								size = { 930 490 }
+
+								blockoverride "portrait_button"
+								{
+									portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('right_portrait', 'camera_event_duel_right', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+									alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('right_portrait'))]"
+									tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('right_portrait')]"
+									using = tooltip_es
+									tooltip_offset = { -40 0 }
+								}
+
+								blockoverride "highlight_visible"
+								{
+									visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('right_portrait') ))]"
+									position = { 270 }
+								}
+
+								blockoverride "grayscale" {}
+
+								highlight_icon = {
+									name = "prison_bars"
+									visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('right_portrait')))]"
+									visible_at_creation = no
+									parentanchor = bottom|right
+									size = { 285 500 }
+
+									texture = "gfx/portraits/portrait_prison_body.dds"
+									effectname = "NoHighlight"
+									spriteType = corneredTiled
+									texture_density = 1.5
+
+									modify_texture = {
+										name = "mask"
+										texture =  "gfx/portraits/portrait_mask_event.dds"
+										spriteType = Corneredstretched
+										blend_mode = alphamultiply
+									}
+								}
+							}
+							vbox = {
+								name = "custom_widgets_container4"
+								layoutpolicy_horizontal = expanding
+								margin_top = 150
+								margin_left = 460
+								state = {
+									trigger_on_create = yes
+									name = appear_test
+									delay = 0.8
+									using = Animation_Curve_Default
+									alpha = 1
+									duration = 0.6
+								}
+							}
+							vbox = {
+								name = "custom_widgets_container5"
+								layoutpolicy_horizontal = expanding
+								margin_top = 520
+								margin_left = 250
+								state = {
+									trigger_on_create = yes
+									name = appear_test
+									delay = 0.8
+									using = Animation_Curve_Default
+									alpha = 1
+									duration = 0.6
+								}
+							}
+						}
+					}
+					
+					
+				}
+			}
+
+			### EVENT
+			hbox = {
+				name = "event_text_box"
+				margin_top = 110
+
+				widget = {
+					name = "text"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+
+					vbox = {
+						name = "description_and_options"
+
+						state = {
+							name = appear
+							trigger_on_create = yes
+							delay = 0.2
+							using = Animation_Curve_Default
+							alpha = 1
+							duration = 1.5
+						}
+
+						hbox = {
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = expanding
+							margin_top = 20
+
+							scrollarea = {
+								name = "description_scrollarea"
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = expanding
+								minimumsize = { 470 -1 }	#470
+								maximumsize = { 470 -1 }
+
+								scrollbarpolicy_horizontal = always_off
+
+								scrollbar_vertical = {
+									using = Scrollbar_Vertical
+								}
+
+								scrollwidget = {
+									text_multi = {
+										name = "description"
+										minimumsize = { 470 -1 }
+										maximumsize = { 470 -1 }
+										autoresize = yes
+										margin = { 20 4 }
+										text = "[EventWindowData.GetDescription]"
+										align = left
+										fontsize = 16
+									}
+								}
+							}
+						}
+
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							#margin_right = 30
+							allow_outside = yes
+							#margin_top = 150
+							icon = {
+								size = { 30 30 }
+								texture = "gfx/interface/icons/flat_icons/arrow_duel.dds"
+								tooltip = "power_clash"
+							}
+						}
+
+						vbox = {
+							name = "custom_widgets_container"
+							layoutpolicy_horizontal = expanding
+							margin_top = -10
+							#margin_right = 30
+							#margin_right = 5
+							margin_right = 0
+							state = {
+								trigger_on_create = yes
+								name = appear_test
+								delay = 0.8
+								using = Animation_Curve_Default
+								alpha = 1
+								duration = 0.6
+							}
+						}
+
+
+						vbox = {
+							allow_outside = yes
+							ignoreinvisible = yes
+							spacing = 5
+							margin_bottom = 25
+							margin_right = 90
+							#margin_right = 150
+
+							fixedgridbox = {
+								name = "option_grid"
+								addcolumn = 500
+								addrow = 42
+								datamodel = "[EventWindowData.GetOptions]"
+
+								item = {
+									md_button_eventoption = {}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	flowcontainer = {
+		name = "debug_stuff"
+		visible = "[InDebugMode]"
+		parentanchor = top|right
+		position = { -40 135 }
+		ignoreinvisible = yes
+
+		button_round = {
+			alwaystransparent = no
+			tooltip = "REGENERATE_EVENT_CONTENTS"
+			using = tooltip_below
+
+			using = Animation_ShowHide_Quick
+			onclick = "[EventWindow.ResetContents]"
+
+			button_replace = {
+				parentanchor = center
+				alwaystransparent = yes
+			}
+		}
+
+		button_round = {
+			size = { 40 40 }
+
+			button_icon = {
+				size = { 100% 100% }
+				texture = "gfx/interface/icons/flat_icons/data_system.dds"
+				tooltip = "TOGGLE_DATA_SYSTEM"
+				using = tooltip_below
+				onclick = "[ExecuteConsoleCommand('Localization.ToggleSkipDataSystemInLocOutput')]"
+				fontsize = 24
+			}
+		}
+
+		button_round = {
+			size = { 40 40 }
+			button_copy = {
+				parentanchor = center
+				onclick = "[EventWindowData.CopyToClipboard]"
+				tooltip = "COPY_EVENT_CONTENTS"
+			}
+		}
+
+		container = {
+			tooltip = "[EventWindowData.GetTriggerBreakdown]"
+			using = tooltip_below
+			icon = {
+				visible = "[EventWindowData.IsTriggerFulfilled]"
+				size = { 40 40 }
+				texture = "gfx/interface/icons/symbols/icon_check.dds"
+			}
+
+			icon = {
+				visible = "[Not( EventWindowData.IsTriggerFulfilled )]"
+				size = { 40 40 }
+				texture = "gfx/interface/icons/symbols/icon_cross.dds"
+			}
+		}
+
+		button = {
+			name = "debug_icon"
+			size = { 40 40 }
+
+			button = {
+				size = { 100% 100% }
+				tooltip = "[EventWindowData.GetDebugInfo]"
+				using = tooltip_below
+				onclick = "[EventWindowData.CopyToClipboard]"
+				onrightclick = "[EventWindowData.DebugOpen]"
+				button_ignore = none
+				raw_text = "?"
+				fontsize = 24
+			}
+		}
+	}
+}
+
+types Custom4Mod
+{
+	type md_button_eventoption = button_event_standard
+	{
+		name = "event_option_button"
+		size = { 600 36 }
+		enabled = "[EventOption.IsValid]"
+
+		default_clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_icon_select"
+		onclick = "[EventOption.Select]"
+		clicksound = "[EventOption.GetClickSound]"
+
+		block "onmousehierarchy_callbacks" {
+			onmousehierarchyenter = "[EventOption.OnEnter]"
+			onmousehierarchyleave = "[EventOption.OnLeave]"
+		}
+
+		icon = {
+			texture = "gfx/interface/buttons/button_event.dds"
+			alpha = 1
+			spriteType = Corneredtiled
+			spriteborder = { 3 3 }
+			framesize = { 249 78 }
+			size = { 100% 100% }
+
+			modify_texture = {
+				name = "mask"
+				texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_thick.dds"
+				spriteType = Corneredtiled
+				spriteborder_left = 40
+				spriteborder_right = 40
+				blend_mode = alphamultiply
+			}
+		}
+
+		# Trick to not have the option text steal tooltips from the trait/skill grid
+		hbox = {
+			tooltip = "[EventOption.GetTooltip]"
+			tooltip_visible = "[Not( StringIsEmpty( EventOption.GetTooltip ) )]"
+
+			block "option_tooltip_position"
+			{
+				using = tooltip_ws
+				tooltip_offset = { -80 0 }
+			}
+
+			# Wider tooltips for the effects
+			tooltipwidget = {
+				using = DefaultTooltipWidget
+			}
+		}
+
+		modify_texture = {
+			name = "mask"
+			texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_thick.dds"
+			spriteType = Corneredtiled
+			spriteborder_left = 40
+			spriteborder_right = 40
+			blend_mode = alphamultiply
+		}
+
+		animation_glow_event = {
+			name = "special_option"
+			visible = "[And(EventOption.HasFlag('special'), Not(EventOption.HasFlag('dangerous')))]"
+			#using = Color_Blue	nope
+		}
+
+		animation_glow_event = {
+			name = "dangerous_option"
+			visible = "[EventOption.HasFlag('dangerous')]"
+			using = Color_Red
+			#using = Color_Blue
+			#using = Color_Purple
+			#using = Color_Grey
+		}
+
+		### BUTTON CONTENT ####
+		hbox = {
+			margin = { 5 0 }
+
+			hbox = {
+				fixedgridbox = {
+					name = "reason_icons"
+					datamodel = "[EventOption.Reasons]"
+					addcolumn = 34
+					addrow = 34
+					flipdirection = yes
+
+					item = {
+						container = {
+							icon = {
+								name = "trait_icon"
+								datacontext = "[ReasonItem.GetTrait]"
+
+								visible = "[ReasonItem.IsTrait]"
+								alwaystransparent = yes
+
+								texture = "[Trait.GetIcon(GetPlayer)]"
+								size = { 34 34 }
+
+								tooltip = "EVENT_WINDOW_OPTION_AVAILABLE_TRAIT"
+								using = tooltip_nw
+							}
+
+							icon = {
+								name = "skill_icon"
+								datacontext = "[ReasonItem.GetSkillItem]"
+
+								visible = "[ReasonItem.IsSkill]"
+								alwaystransparent = yes
+
+								texture = "gfx/interface/icons/icon_skills.dds"
+								size = { 34 34 }
+								framesize = { 60 60 }
+								frame = "[SkillItem.GetFrame]"
+
+								tooltip = "EVENT_WINDOW_OPTION_AVAILABLE_SKILL"
+								using = tooltip_ws
+							}
+
+							icon = {
+								name = "dread_icon"
+								visible = "[ReasonItem.IsFlag( 'dread' )]"
+								size = { 34 34 }
+								texture = "gfx/interface/icons/icon_dread.dds"
+								tooltip = "EVENT_WINDOW_OPTION_AVAILABLE_DREAD"
+							}
+
+							icon = {
+								name = "activity_intent_icon"
+								visible = "[ReasonItem.IsFlag( 'activity_intent' )]"
+								size = { 34 34 }
+								texture = "[GetPlayer.GetInvolvedActivity.GetType.GetIcon]"
+								tooltip = "EVENT_WINDOW_OPTION_AVAILABLE_ACTIVITY_INTENT"
+							}
+
+							icon = {
+								name = "influence_icon"
+								visible = "[ReasonItem.IsFlag( 'influence_level')]"
+								size = { 34 34 }
+								texture = "[GetPlayer.GetInfluenceLevelTexture]"
+								tooltip = "EVENT_WINDOW_OPTION_AVAILABLE_INFLUENCE_LEVEL"
+							}
+
+							icon = {
+								name = "prestige_icon"
+								visible = "[ReasonItem.IsFlag( 'prestige_level' )]"
+								size = { 34 34 }
+								texture = "[GetPlayer.GetPrestigeLevelTexture]"
+								tooltip = "EVENT_WINDOW_OPTION_AVAILABLE_PRESTIGE_LEVEL"
+							}
+
+							icon = {
+								name = "piety_icon"
+								visible = "[ReasonItem.IsFlag( 'piety_level' )]"
+								size = { 34 34 }
+								texture = "[GetPlayer.GetPietyLevelTexture]"
+								tooltip = "EVENT_WINDOW_OPTION_AVAILABLE_PIETY_LEVEL"
+							}
+
+							icon = {
+								name = "faith_icon"
+								visible = "[ReasonItem.IsFlag( 'faith' )]"
+								size = { 34 34 }
+								texture = "[GetPlayer.GetFaith.GetIcon]"
+								tooltip = "EVENT_WINDOW_OPTION_AVAILABLE_FAITH"
+							}
+
+							icon = {
+								name = "friendship_icon"
+								visible = "[ReasonItem.IsFlag( 'friend' )]"
+								size = { 34 34 }
+								texture = "gfx/interface/icons/portraits/friend.dds"
+								frame = 1
+								tooltip = "EVENT_WINDOW_OPTION_AVAILABLE_FRIEND"
+							}
+
+						}
+					}
+				}
+
+				warning_icon = {
+					visible = "[And( EventOption.IsTimeoutOption, And( GameHasMultiplePlayers, LessThanOrEqualTo_int32( EventWindowData.GetDaysRemaining, '(int32)30' ) ) )]"
+					name = "timeout_icon"
+					size = { 30 30 }
+					tooltip = EVENT_WINDOW_DAYS_REMAINING
+				}
+				icon = {
+					#datacontext = "[EventWindowWidget.GetScope.sCharacter('char1')]"
+					#visible = "[EqualTo_int32( FixedPointToInt(Character.MakeScope.Var( 'pclash' ).GetValue ), '(int32)9' )]"
+					name = "doom_icon"
+					#visible = "[EqualTo_int32( '(int32)9', '(int32)10' )]"
+					#visible = "[And(EventOption.HasFlag('special'), Not(EventOption.HasFlag('dangerous')))]"
+					visible = "[EventOption.HasFlag('test0')]"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/character_interactions/doom2.dds"
+					tooltip = "enemy_doom_spell"
+				}
+			}
+
+			###### SPACER ######
+			hbox = {
+				name = "spacer_effects"
+				datamodel = "[EventOption.Effects]"
+
+				item = {
+					container = {
+						container = {
+							visible = "[OptionEffectItem.IsTrait]"
+							alwaystransparent = yes
+
+							spacer = {
+								datacontext = "[OptionEffectItem.GetTrait]"
+								size = { 34 34 }
+							}
+						}
+
+						#spacer = {
+						#	visible = "[OptionEffectItem.IsStress]"
+						#	size = { 34 34 }
+						#}
+
+						spacer = {
+							visible = "[OptionEffectItem.IsScheme]"
+							size = { 34 34 }
+						}
+
+						spacer = {
+							visible = "[OptionEffectItem.IsDeath]"
+							size = { 34 34 }
+						}
+					}
+				}
+
+			}
+			hbox = {
+				name = "element_spacer"
+				visible = "[EventOption.HasFlag('spacer1')]"
+
+				spacer = {
+					size = { 34 34 }
+				}
+			}
+			hbox = {
+				name = "element_spacer2"
+				visible = "[EventOption.HasFlag('spacer2')]"
+				spacer = {
+					size = { 34 34 }
+				}
+			}
+			hbox = {
+				name = "element_spacer3"
+				visible = "[EventOption.HasFlag('spacer3')]"
+				spacer = {
+					size = { 34 34 }
+				}
+			}
+			hbox = {
+				name = "element_spacer4"
+				visible = "[EventOption.HasFlag('spacer4')]"
+				spacer = {
+					size = { 34 34 }
+				}
+			}
+
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				margin = { 5 0 }
+				alwaystransparent = yes
+
+				text = "[EventOption.GetText]"
+				autoresize = no
+				default_format = "#high"
+				align = center|nobaseline
+				fontsize_min = 12
+			}
+
+			##### SPACER #####
+			hbox = {
+				hbox = {
+					name = "reason_spacers"
+					datamodel = "[EventOption.Reasons]"
+					item = {
+						spacer = {
+							size = { 34 34 }
+						}
+					}
+				}
+
+				hbox = {
+					name = "timeout_spacer"
+					visible = "[And( EventOption.IsTimeoutOption, And( GameHasMultiplePlayers, LessThanOrEqualTo_int32( EventWindowData.GetDaysRemaining, '(int32)30' ) ) )]"
+
+					spacer = {
+						size = { 34 34 }
+					}
+				}
+
+				
+			}
+			hbox = {
+				name = "elements_grid"
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('power_flag')]"
+					name = "power"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/flash.dds"
+					tooltip = "power_element_tooltip"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('fire_flag')]"
+					name = "fire"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/flame.dds"
+					tooltip = "fire_element_tooltip"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('kinetic_flag')]"
+					name = "kinetic"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/strike.dds"
+					tooltip = "kinetic_element_tooltip"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('shadow_flag')]"
+					name = "shadow"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/shadows.dds"
+					tooltip = "shadow_element_tooltip"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('necrotic_flag')]"
+					name = "necro"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/necro.dds"
+					tooltip = "necrotic_element_tooltip"
+				}
+			}
+			hbox = {
+				name = "elements_grid2"
+				
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('power_flag2')]"
+					name = "power2"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/flash.dds"
+					tooltip = "power_element_tooltip"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('fire_flag2')]"
+					name = "fire2"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/flame.dds"
+					tooltip = "fire_element_tooltip"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('kinetic_flag2')]"
+					name = "kinetic2"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/strike.dds"
+					tooltip = "kinetic_element_tooltip"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('shadow_flag2')]"
+					name = "shadow2"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/shadows.dds"
+					tooltip = "shadow_element_tooltip"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('necrotic_flag2')]"
+					name = "necro2"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/necro.dds"
+					tooltip = "necrotic_element_tooltip"
+				}
+			}
+			hbox = {
+				name = "elements_grid3"
+				
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('shield_flag')]"
+					name = "shield"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/protection.dds"
+					tooltip = "magic_shield_tooltip"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('special_effect_flag')]"
+					name = "special"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/character_interactions/doom2.dds"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('power_flag3')]"
+					name = "power3"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/flash.dds"
+					tooltip = "power_element_tooltip"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('fire_flag3')]"
+					name = "fire3"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/flame.dds"
+					tooltip = "fire_element_tooltip"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('kinetic_flag3')]"
+					name = "kinetic3"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/strike.dds"
+					tooltip = "kinetic_element_tooltip"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('shadow_flag3')]"
+					name = "shadow3"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/shadows.dds"
+					tooltip = "shadow_element_tooltip"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('necrotic_flag3')]"
+					name = "necro3"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/necro.dds"
+					tooltip = "necrotic_element_tooltip"
+				}
+			}
+			hbox = {
+				name = "elements_grid4"
+				
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('shield_flag2')]"
+					name = "shield"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/protection.dds"
+					tooltip = "magic_shield_tooltip"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('special_effect_flag2')]"
+					name = "special"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/character_interactions/doom2.dds"
+				}
+				icon = {
+					#datacontext = "[OptionEffectItem.GetTrait]"
+					visible = "[EventOption.HasFlag('light_flag2')]"
+					name = "kinetic2"
+					size = { 34 34 }
+					texture = "gfx/interface/icons/duel/bang.dds"
+				}
+			}
+			hbox = {
+				name = "effects_grid"
+				datamodel = "[EventOption.Effects]"
+
+				item = {
+					container = {
+						#container = {
+						#	visible = "[OptionEffectItem.IsTrait]"
+						#	alwaystransparent = yes
+						#
+						#	icon = {
+						#		datacontext = "[OptionEffectItem.GetTrait]"
+						#		name = "trait_icon"
+						#		size = { 34 34 }
+						#		texture = "[Trait.GetIcon(GetPlayer)]"
+						#	}
+						#
+						#	icon = {
+						#		visible = "[OptionEffectItem.IsGain]"
+						#		texture = "gfx/interface/icons/symbols/icon_plus_small.dds"
+						#		name = "gain"
+						#		size = { 20 20 }
+						#	}
+						#
+						#	icon = {
+						#		visible = "[OptionEffectItem.IsLoss]"
+						#		texture = "gfx/interface/icons/symbols/icon_minus_small.dds"
+						#		name = "loss"
+						#		size = { 20 20 }
+						#	}
+						#}
+
+						#container = {
+						##	visible = "[OptionEffectItem.IsStress]"
+						#	alwaystransparent = yes
+						#
+						#	icon = {
+						#		visible = "[And(OptionEffectItem.IsGain,Not(OptionEffectItem.IsCritical))]"
+						#		texture = "gfx/interface/icons/stress/icon_stress_gain.dds"
+						#		name = "stress_gain"
+						#		size = { 34 34 }
+						#	}
+						#
+						#	icon = {
+						#		visible = "[OptionEffectItem.IsLoss]"
+						#		texture = "gfx/interface/icons/stress/icon_stress_loss.dds"
+						#		name = "stress_loss"
+						#		size = { 34 34 }
+						#	}
+						#
+						#	icon = {
+						#		visible = "[OptionEffectItem.IsCritical]"
+						#		texture = "gfx/interface/icons/stress/icon_stress_gain_critical.dds"
+						#		name = "stress_critical"
+						#		size = { 34 34 }
+						#	}
+						#}
+
+						icon = {
+							name = "death"
+							visible = "[OptionEffectItem.IsDeath]"
+							size = { 34 34 }
+							texture = "gfx/interface/icons/icon_dead.dds"
+						}
+
+						icon = {
+							name = "scheme"
+							visible = "[OptionEffectItem.IsScheme]"
+							size = { 34 34 }
+							texture = "[OptionEffectItem.GetScheme.GetIcon]"
+						}
+					}
+				}
+			}
+		}
+	}
+}

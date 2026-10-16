@@ -1,0 +1,1853 @@
+﻿##### AI CASTING EFFECTS
+### SPELLS
+# Saves relevant spell targets, checks for high priority spells and chooses a school to cast from. Triggers every 3 years.
+ai_magic_general_effect = {
+    if = {
+        limit = {
+            is_ai = yes
+            has_magic_perk_trigger = yes
+            is_ruler = yes
+            is_incapable = no
+            has_magicka_more_than = { VALUE = t1_spell_cost }
+            NAND = {
+                any_held_title = { is_head_of_faith = yes }
+                is_landed = no
+            }
+        }
+        # Get potential hostile spell target
+        if = { 
+            limit = {
+                any_relation = { 
+                    type = nemesis
+                    NOT = { has_truce = root }
+                    can_be_hostile_ai_spell_target = yes
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                }
+            }
+            random_relation = {
+                type = nemesis
+                limit = {
+                    NOT = { has_truce = root }
+                    can_be_hostile_ai_spell_target = yes 
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                }
+                save_scope_as = hostile_spell_target
+            }
+        }
+        else_if = {
+            limit = {
+                any_primary_war_enemy = { 
+                    can_be_hostile_ai_spell_target = yes 
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                    NOT = { has_character_modifier = modifier_ritual_magic_ward }
+                }
+            }
+            random_primary_war_enemy = {
+                limit = {
+                    can_be_hostile_ai_spell_target = yes 
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                    NOT = { has_character_modifier = modifier_ritual_magic_ward }
+                }
+                save_scope_as = hostile_spell_target
+            }
+        }
+        else_if = {
+            limit = {
+                any_relation = {
+                    type = rival
+                    NOT = { has_truce = root }
+                    can_be_hostile_ai_spell_target = yes
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                }
+            }
+            random_relation = {
+                type = rival
+                limit = {
+                    NOT = { has_truce = root }
+                    can_be_hostile_ai_spell_target = yes 
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                }
+                save_scope_as = hostile_spell_target
+            }
+        }
+        else_if = {
+            limit = {
+                any_prisoner = {
+                    can_be_hostile_ai_spell_target = yes 
+                    is_available_adult = yes
+                }
+            }
+            random_prisoner = {
+                limit = {
+                    can_be_hostile_ai_spell_target = yes 
+                    is_available_adult = yes 
+                }
+                save_scope_as = hostile_spell_target
+            }
+        }
+        # Get beneficial spell target
+        if = {
+            limit = {
+                any_relation = { 
+                    type = soulmate
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                }
+            }
+            random_relation = {
+                type = soulmate
+                limit = {
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                }
+                save_scope_as = beneficial_spell_target
+            }
+        }
+        else_if = {
+            limit = {
+                any_relation = { 
+                    type = best_friend
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                }
+            }
+            random_relation = {
+                type = best_friend
+                limit = {
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                }
+                save_scope_as = beneficial_spell_target
+            }
+        }
+        else_if = {
+            limit = {
+                any_relation = { 
+                    type = lover
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                }
+            }
+            random_relation = {
+                type = lover
+                limit = {
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                }
+                save_scope_as = beneficial_spell_target
+            }
+        }
+        else_if = {
+            limit = {
+                any_relation = { 
+                    type = friend
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                }
+            }
+            random_relation = {
+                type = friend
+                limit = {
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                }
+                save_scope_as = beneficial_spell_target
+            }
+        }
+        # Get Manipulation Spell Target
+        if = {
+            limit = {
+                any_councillor = {
+                    is_available_adult = yes
+                    can_be_hostile_ai_spell_target = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                    opinion = {
+                        target = root
+                        value <= 20
+                    }
+                }
+            }
+            random_councillor = {
+                limit = {
+                    is_available_adult = yes
+                    can_be_hostile_ai_spell_target = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                    opinion = {
+                        target = root
+                        value <= 20
+                    }
+                }
+                save_scope_as = manipulation_spell_target
+            }
+        }
+        else_if = {
+            limit = {
+                any_powerful_vassal = { 
+                    is_available_adult = yes
+                    can_be_hostile_ai_spell_target = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                    opinion = {
+                        target = root
+                        value <= 20
+                    }
+                }
+            }
+            random_powerful_vassal = {
+                limit = {
+                    is_available_adult = yes
+                    can_be_hostile_ai_spell_target = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                    opinion = {
+                        target = root
+                        value <= 20
+                    }
+                }
+                save_scope_as = manipulation_spell_target
+            }
+        }
+        else_if = {
+            limit = {
+                any_vassal = { 
+                    is_available_adult = yes
+                    can_be_hostile_ai_spell_target = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                    opinion = {
+                        target = root
+                        value <= 20
+                    }
+                }
+            }
+            random_vassal = {
+                limit = {
+                    is_available_adult = yes
+                    can_be_hostile_ai_spell_target = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                    opinion = {
+                        target = root
+                        value <= 20
+                    }
+                }
+                save_scope_as = manipulation_spell_target
+            }
+        }
+        else_if = {
+            limit = {
+                any_courtier = { 
+                    is_available_adult = yes
+                    can_be_hostile_ai_spell_target = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                    opinion = {
+                        target = root
+                        value <= 20
+                    }
+                }
+            }
+            random_courtier = {
+                limit = {
+                    is_available_adult = yes
+                    can_be_hostile_ai_spell_target = yes
+                    location = {
+                        squared_distance = {
+							target = root.location
+							value > "root.spell_range"
+						}
+                    }
+                    opinion = {
+                        target = root
+                        value <= 20
+                    }
+                }
+                save_scope_as = manipulation_spell_target
+            }
+        }
+        # Get potential enemy county spell target
+        random_county = {
+            limit = {
+                is_landless_type_title = no
+                exists = title_province # don't target county-level noble titles
+                holder ?= {
+                    OR = {
+                        has_relation_nemesis = root
+                        has_relation_rival = root
+                        is_at_war_with = root
+                    }
+                }
+                NOT = { county_is_warded = yes }
+                squared_distance = {
+                    target = root.location
+                    value < "root.spell_range"
+                }
+            }
+            save_scope_as = hostile_spell_location
+        }
+        save_scope_as = friendly_spell_target # saves themselves as friendly spell target
+        cast_magic_effect = yes
+    }
+}
+
+ai_court_mage_magic_effect = {
+    if = {
+        limit = {
+            is_ai = yes
+            has_magic_perk_trigger = yes
+            is_court_mage_trigger = yes
+            is_incapable = no
+            has_magicka_more_than = { VALUE = t1_spell_cost }
+            OR = {
+                has_character_flag = autonomous_magic_use
+                liege = { is_ai = yes }
+            }
+        }
+        # Get lieges enemies as hostile spell target
+        liege = {
+            random_primary_war_enemy = {
+                limit = {
+                    can_be_hostile_ai_spell_target = yes
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+                            target = root.location
+                            value > "root.spell_range"
+                        }
+                    }                    
+                }
+                save_scope_as = hostile_spell_target
+            }
+        }
+        # Get lieges courtiers as manipulation spell target
+        liege = {
+            random_powerful_vassal = {
+                limit = {
+                    can_be_hostile_ai_spell_target = yes
+                    is_available_adult = yes
+                    location = {
+                        squared_distance = {
+                            target = root.location
+                            value > "root.spell_range"
+                        }
+                    }
+                    opinion = {
+                        target = root
+                        value <= 20
+                    }
+                }
+                save_scope_as = manipulation_spell_target
+            }
+        }
+        # Get liege as friendy spell target
+        liege = {
+            save_scope_as = friendly_spell_target
+        }
+        cast_magic_effect = yes
+    }
+}
+
+cast_magic_effect = {
+    # Choose high priority spell (dispel, mend wound, cure disease, remove curse, remedy illness)
+    if = { # dispel
+        limit = { 
+            has_perk = alteration_expert_perk
+            has_magicka_more_than = { VALUE = dispel_petty_cost }
+            has_hostile_spell_effect = yes
+        }
+        cast_spell_effect = { SPELL = dispel CASTER = root RECIPIENT = root TIER = petty }
+    }
+    else_if = { # mend wound
+        limit = {
+            has_perk = restoration_journeyman_perk
+            has_magicka_more_than = { VALUE = mend_wound_petty_cost}
+            has_trait = wounded
+        }
+        cast_spell_effect = { SPELL = mend_wound CASTER = root RECIPIENT = root TIER = petty }
+    } 
+    else_if = { # cure disease
+        limit = {                 
+            has_perk = restoration_expert_perk
+            has_magicka_more_than = { VALUE = cure_disease_petty_cost}
+            has_curable_disease = yes
+        }
+        cast_spell_effect = { SPELL = cure_disease CASTER = root RECIPIENT = root TIER = petty }
+    }
+    else_if = { # remove curse
+        limit = {
+            has_perk = restoration_master_perk
+            has_magicka_more_than = { VALUE = remove_curse_petty_cost }
+            has_daedric_curse = yes
+        }
+        cast_spell_effect = { SPELL = remove_curse CASTER = root RECIPIENT = root TIER = petty }
+	}
+    else = { # No need for a high priorty spell, lets go through the normal list then             
+        random_list = { # Choose magic school
+            20 = { # AI will use necromancy spells
+                trigger = {
+                    has_trait = vt_ek_necromancer
+                    has_perk = necromancy_novice_perk
+                } 
+                ai_necromancy_magic_modifier = yes   
+                ai_cast_necromancy_spell_effect = yes # cast necromancy spell
+            }
+            5 = { # AI will use conjuration spells
+                trigger = { 
+                    has_perk = conjuration_novice_perk
+                }
+                ai_conjuration_magic_modifier = yes   
+                ai_cast_conjuration_spell_effect = yes # cast conjuration spell
+            }                    
+            5 = { # AI will use alteration spells
+                trigger = { 
+                    has_perk = alteration_novice_perk
+                }
+                ai_alteration_magic_modifier = yes   
+                ai_cast_alteration_spell_effect = yes # cast alteration spell
+            }
+            5 = { # AI will use illusion spells
+                trigger = { 
+                    has_perk = illusion_novice_perk
+                }
+                ai_illusion_magic_modifier = yes   
+                ai_cast_illusion_spell_effect = yes # cast illusion spell
+                }
+            5 = { # AI will use destruction spells
+                trigger = { 
+                    has_perk = destruction_novice_perk
+                }
+                ai_destruction_magic_modifier = yes   
+                ai_cast_destruction_spell_effect = yes # cast destruction spell
+            }
+            5 = { # AI will use restoration spells
+                trigger = { 
+                    has_perk = restoration_novice_perk
+                }
+                ai_restoration_magic_modifier = yes   
+                modifier = { 
+                    has_trait = compassionate
+                    add = 10
+                }
+                ai_cast_restoration_spell_effect = yes # cast restoration spell
+            }
+        }
+    }
+}
+
+### NECROMANCY
+ai_cast_necromancy_spell_effect = {
+    random_list = { # Choose specific necromancy spell
+        20 = { # Summon Skeleton    
+            modifier = {
+                add = 30
+                scope:friendly_spell_target = {
+                    number_of_knights < max_number_of_knights
+                }
+            }
+            cast_spell_effect = { SPELL = summon_skeleton CASTER = root RECIPIENT = scope:friendly_spell_target TIER = petty }                    
+        }
+        20 = { # Leech Health
+            trigger = {
+                exists = scope:hostile_spell_target
+                has_perk = necromancy_apprentice_perk
+                has_magicka_more_than = { VALUE = leech_health_petty_cost }
+            }
+            modifier = {
+                add = 80
+                health <= poor_health
+            }  
+            if = {
+                limit = { has_magicka_less_than = { VALUE = leech_health_lesser_cost } }
+                cast_spell_effect = { SPELL = leech_health CASTER = root RECIPIENT = scope:hostile_spell_target TIER = petty }
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = leech_health_common_cost } }
+                cast_spell_effect = { SPELL = leech_health CASTER = root RECIPIENT = scope:hostile_spell_target TIER = lesser }
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = leech_health_greater_cost } }
+                cast_spell_effect = { SPELL = leech_health CASTER = root RECIPIENT = scope:hostile_spell_target TIER = common }      
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = leech_health_grand_cost } }
+                cast_spell_effect = { SPELL = leech_health CASTER = root RECIPIENT = scope:hostile_spell_target TIER = greater }
+            }
+            else = {
+                cast_spell_effect = { SPELL = leech_health CASTER = root RECIPIENT = scope:hostile_spell_target TIER = grand }
+            }
+        }
+        50 = { # Claim Corpse
+            trigger = {
+                exists = scope:hostile_spell_target
+                scope:hostile_spell_target = { 
+                    is_imprisoned_by = scope:friendly_spell_target
+                    potential_undead_thrall = yes
+                }
+                has_perk = necromancy_journeyman_perk
+                has_magicka_more_than = { VALUE = claim_corpse_petty_cost }
+            }
+            modifier = {
+                any_equipped_character_artifact = { has_artifact_modifier = bloodworm_helmet_modifier }
+                add = 50
+            }
+            cast_spell_effect = { SPELL = claim_corpse CASTER = scope:friendly_spell_target RECIPIENT = scope:hostile_spell_target TIER = petty }  
+            scope:hostile_spell_target = {
+                death = {
+                    death_reason = death_execution_thralldom
+                    killer = root
+                }                
+            }
+        }
+        100 = { # Restless Dead
+            trigger = { 
+                has_perk = necromancy_expert_perk
+                exists = scope:hostile_spell_location
+                has_magicka_more_than = { VALUE = restless_dead_petty_cost }
+            }
+            modifier = {
+                any_equipped_character_artifact = { 
+                    has_artifact_modifier = staff_worms_modifier
+                }
+                add = 25
+            }
+            cast_county_spell_effect = { SPELL = restless_dead CASTER = root COUNTY = scope:hostile_spell_location TIER = petty }
+        }
+        50 = { # Raise Undead Horde
+            trigger = { 
+                has_perk = necromancy_master_perk
+                has_magicka_more_than = { VALUE = create_undead_petty_cost }
+                location = { NOT = { is_sea_province = yes } }
+            }
+            modifier = {
+                any_equipped_character_artifact = { 
+                    has_artifact_modifier = staff_worms_modifier
+                }
+                add = 25
+            }
+            if = {
+                limit = { has_magicka_less_than = { VALUE = create_undead_lesser_cost } }
+                random_list = {
+                    1 = { cast_multi_spell_effect = { SPELL = create_undead CASTER = root RECIPIENT = scope:friendly_spell_target TIER = petty VALUE = undead_soldiers } }
+                    1 = { cast_multi_spell_effect = { SPELL = create_undead CASTER = root RECIPIENT = scope:friendly_spell_target TIER = petty VALUE = undead_archers } }
+                    1 = { cast_multi_spell_effect = { SPELL = create_undead CASTER = root RECIPIENT = scope:friendly_spell_target TIER = petty VALUE = bone_colossus } }
+                }
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = create_undead_common_cost } }
+                random_list = {
+                    1 = { cast_multi_spell_effect = { SPELL = create_undead CASTER = root RECIPIENT = scope:friendly_spell_target TIER = lesser VALUE = undead_soldiers } }
+                    1 = { cast_multi_spell_effect = { SPELL = create_undead CASTER = root RECIPIENT = scope:friendly_spell_target TIER = lesser VALUE = undead_archers } }
+                    1 = { cast_multi_spell_effect = { SPELL = create_undead CASTER = root RECIPIENT = scope:friendly_spell_target TIER = lesser VALUE = bone_colossus } }
+                }
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = create_undead_greater_cost } }
+                random_list = {
+                    1 = { cast_multi_spell_effect = { SPELL = create_undead CASTER = root RECIPIENT = scope:friendly_spell_target TIER = common VALUE = undead_soldiers } }
+                    1 = { cast_multi_spell_effect = { SPELL = create_undead CASTER = root RECIPIENT = scope:friendly_spell_target TIER = common VALUE = undead_archers } }
+                    1 = { cast_multi_spell_effect = { SPELL = create_undead CASTER = root RECIPIENT = scope:friendly_spell_target TIER = common VALUE = bone_colossus } }
+                }    
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = create_undead_grand_cost } }
+                random_list = {
+                    1 = { cast_multi_spell_effect = { SPELL = create_undead CASTER = root RECIPIENT = scope:friendly_spell_target TIER = greater VALUE = undead_soldiers } }
+                    1 = { cast_multi_spell_effect = { SPELL = create_undead CASTER = root RECIPIENT = scope:friendly_spell_target TIER = greater VALUE = undead_archers } }
+                    1 = { cast_multi_spell_effect = { SPELL = create_undead CASTER = root RECIPIENT = scope:friendly_spell_target TIER = greater VALUE = bone_colossus } }
+                }
+            }
+            else = {
+                random_list = {
+                    1 = { cast_multi_spell_effect = { SPELL = create_undead CASTER = root RECIPIENT = scope:friendly_spell_target TIER = grand VALUE = undead_soldiers } }
+                    1 = { cast_multi_spell_effect = { SPELL = create_undead CASTER = root RECIPIENT = scope:friendly_spell_target TIER = grand VALUE = undead_archers } }
+                    1 = { cast_multi_spell_effect = { SPELL = create_undead CASTER = root RECIPIENT = scope:friendly_spell_target TIER = grand VALUE = bone_colossus } }
+                }
+            }
+        }
+    }
+}
+
+### ALTERATION
+ai_cast_alteration_spell_effect = {
+    random_list = { # Choose specific alteration spell
+        30 = { # Burden
+            trigger = {                
+                exists = scope:hostile_spell_target                          
+                scope:hostile_spell_target = {
+                    is_imprisoned = no
+                }
+                has_magicka_more_than = { VALUE = burden_petty_cost }
+            }
+            if = { 
+                limit = { has_magicka_less_than = { VALUE = burden_lesser_cost } }
+                cast_spell_effect = { SPELL = burden CASTER = root RECIPIENT = scope:hostile_spell_target TIER = petty }
+            }
+            else_if = { 
+                limit = { has_magicka_less_than = { VALUE = burden_common_cost } }
+                cast_spell_effect = { SPELL = burden CASTER = root RECIPIENT = scope:hostile_spell_target TIER = lesser }
+            }
+            else_if = { 
+                limit = { has_magicka_less_than = { VALUE = burden_greater_cost } }
+                cast_spell_effect = { SPELL = burden CASTER = root RECIPIENT = scope:hostile_spell_target TIER = common }
+            }
+            else_if = { 
+                limit = { has_magicka_less_than = { VALUE = burden_grand_cost } }
+                cast_spell_effect = { SPELL = burden CASTER = root RECIPIENT = scope:hostile_spell_target TIER = greater }
+            }
+            else = { 
+                cast_spell_effect = { SPELL = burden CASTER = root RECIPIENT = scope:hostile_spell_target TIER = grand }
+            }
+        }
+        50 = { # Fortify Walls
+            trigger = {
+                has_perk = alteration_apprentice_perk 
+                is_at_war = yes
+                exists = capital_county
+                scope:friendly_spell_target.capital_county = {
+                    NOR = { 
+                        has_county_modifier = modifier_spell_fortify_buildings_petty 
+                        has_county_modifier = modifier_spell_fortify_buildings_lesser
+                        has_county_modifier = modifier_spell_fortify_buildings_common
+                        has_county_modifier = modifier_spell_fortify_buildings_greater
+                        has_county_modifier = modifier_spell_fortify_buildings_grand
+                    }
+                }
+            }
+            if = { 
+                limit = { has_magicka_less_than = { VALUE = fortify_buildings_lesser_cost } }
+                cast_county_spell_effect = { SPELL = fortify_buildings CASTER = root COUNTY = scope:friendly_spell_target.capital_county TIER = petty }
+            }
+            else_if = { 
+                limit = { has_magicka_less_than = { VALUE = fortify_buildings_common_cost } }
+                cast_county_spell_effect = { SPELL = fortify_buildings CASTER = root COUNTY = scope:friendly_spell_target.capital_county TIER = lesser }
+            }
+            else_if = { 
+                limit = { has_magicka_less_than = { VALUE = fortify_buildings_greater_cost } }
+                cast_county_spell_effect = { SPELL = fortify_buildings CASTER = root COUNTY = scope:friendly_spell_target.capital_county TIER = common }
+            }
+            else_if = { 
+                limit = { has_magicka_less_than = { VALUE = fortify_buildings_grand_cost } }
+                cast_county_spell_effect = { SPELL = fortify_buildings CASTER = root COUNTY = scope:friendly_spell_target.capital_county TIER = greater }
+            }
+            else = { 
+                cast_county_spell_effect = { SPELL = fortify_buildings CASTER = root COUNTY = scope:friendly_spell_target.capital_county TIER = grand }
+            }
+        }  
+        20 = { # Transmute
+            trigger = { 
+                has_perk = alteration_journeyman_perk
+                has_magicka_more_than = { VALUE = transmute_petty_cost }
+            } 
+            modifier = {
+                scope:friendly_spell_target = {
+                    gold < 0                    
+                }
+                add = 80
+            }
+            modifier = {
+                has_trait = greedy
+                add = 30
+            }                           
+            if = {
+                limit = { has_magicka_less_than = { VALUE = transmute_lesser_cost } }
+                transmute_spell_effect = { CASTER = root RECIPIENT = scope:friendly_spell_target TIER = petty }               
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = transmute_common_cost } }
+                transmute_spell_effect = { CASTER = root RECIPIENT = scope:friendly_spell_target TIER = lesser }   
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = transmute_greater_cost } }
+                transmute_spell_effect = { CASTER = root RECIPIENT = scope:friendly_spell_target TIER = common }   
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = transmute_grand_cost } }
+                transmute_spell_effect = { CASTER = root RECIPIENT = scope:friendly_spell_target TIER = greater }   
+            }
+            else = {
+                transmute_spell_effect = { CASTER = root RECIPIENT = scope:friendly_spell_target TIER = grand }   
+            }
+        }        
+        50 = { # Absorb Skill
+            trigger = {
+                has_perk = alteration_master_perk
+                has_magicka_more_than = { VALUE = absorb_skill_petty_cost }
+                exists = scope:hostile_spell_target
+            }
+            if = {
+                if = {
+                    limit = { has_magicka_less_than = { VALUE = absorb_skill_lesser_cost } }
+                    random_list = { # Choose Skill
+                        10 = { # Diplomacy
+                            modifier = { 
+                                has_lifestyle = diplomacy_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = diplomacy TIER = petty }
+                        }
+                        10 = { # Martial
+                            modifier = { 
+                                has_lifestyle = martial_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = martial TIER = petty }
+                        }
+                        10 = { # Stewardship
+                            modifier = { 
+                                has_lifestyle = stewardship_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = stewardship TIER = petty }
+                        }
+                        10 = { # Intrigue
+                            modifier = { 
+                                has_lifestyle = intrigue_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = intrigue TIER = petty }
+                        }
+                        10 = { # Learning
+                            modifier = { 
+                                has_lifestyle = learning_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = learning TIER = petty }
+                        }             
+                    }              
+                }
+                if = {
+                    limit = { has_magicka_less_than = { VALUE = absorb_skill_common_cost } }
+                    random_list = { # Choose Skill
+                        10 = { # Diplomacy
+                            modifier = { 
+                                has_lifestyle = diplomacy_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = diplomacy TIER = lesser }
+                        }
+                        10 = { # Martial
+                            modifier = { 
+                                has_lifestyle = martial_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = martial TIER = lesser }
+                        }
+                        10 = { # Stewardship
+                            modifier = { 
+                                has_lifestyle = stewardship_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = stewardship TIER = lesser }
+                        }
+                        10 = { # Intrigue
+                            modifier = { 
+                                has_lifestyle = intrigue_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = intrigue TIER = lesser }
+                        }
+                        10 = { # Learning
+                            modifier = { 
+                                has_lifestyle = learning_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = learning TIER = lesser }
+                        }             
+                    }              
+                }
+                if = {
+                    limit = { has_magicka_less_than = { VALUE = absorb_skill_greater_cost } }
+                    random_list = { # Choose Skill
+                        10 = { # Diplomacy
+                            modifier = { 
+                                has_lifestyle = diplomacy_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = diplomacy TIER = common }
+                        }
+                        10 = { # Martial
+                            modifier = { 
+                                has_lifestyle = martial_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = martial TIER = common }
+                        }
+                        10 = { # Stewardship
+                            modifier = { 
+                                has_lifestyle = stewardship_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = stewardship TIER = common }
+                        }
+                        10 = { # Intrigue
+                            modifier = { 
+                                has_lifestyle = intrigue_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = intrigue TIER = common }
+                        }
+                        10 = { # Learning
+                            modifier = { 
+                                has_lifestyle = learning_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = learning TIER = common }
+                        }             
+                    }              
+                }
+                if = {
+                    limit = { has_magicka_less_than = { VALUE = absorb_skill_grand_cost } }
+                    random_list = { # Choose Skill
+                        10 = { # Diplomacy
+                            modifier = { 
+                                has_lifestyle = diplomacy_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = diplomacy TIER = greater }
+                        }
+                        10 = { # Martial
+                            modifier = { 
+                                has_lifestyle = martial_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = martial TIER = greater }
+                        }
+                        10 = { # Stewardship
+                            modifier = { 
+                                has_lifestyle = stewardship_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = stewardship TIER = greater }
+                        }
+                        10 = { # Intrigue
+                            modifier = { 
+                                has_lifestyle = intrigue_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = intrigue TIER = greater }
+                        }
+                        10 = { # Learning
+                            modifier = { 
+                                has_lifestyle = learning_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = learning TIER = greater }
+                        }             
+                    }              
+                }
+                else = {
+                    random_list = { # Choose Skill
+                        10 = { # Diplomacy
+                            modifier = { 
+                                has_lifestyle = diplomacy_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = diplomacy TIER = grand }
+                        }
+                        10 = { # Martial
+                            modifier = { 
+                                has_lifestyle = martial_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = martial TIER = grand }
+                        }
+                        10 = { # Stewardship
+                            modifier = { 
+                                has_lifestyle = stewardship_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = stewardship TIER = grand }
+                        }
+                        10 = { # Intrigue
+                            modifier = { 
+                                has_lifestyle = intrigue_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = intrigue TIER = grand }
+                        }
+                        10 = { # Learning
+                            modifier = { 
+                                has_lifestyle = learning_lifestyle
+                                add = 40
+                            }
+                            cast_multi_spell_effect = { SPELL = absorb_skill CASTER = root RECIPIENT = scope:hostile_spell_target VALUE = learning TIER = grand }
+                        }             
+                    }              
+                }
+            }
+        }
+    }
+}
+
+### CONJURATION
+ai_cast_conjuration_spell_effect = {
+    random_list = { # Choose specific conjuration spell
+        50 = { # Summon Atronach
+            trigger = {
+                scope:friendly_spell_target = {
+                    NOR = { 
+                        has_character_modifier = modifier_spell_summon_atronach_petty
+                        has_character_modifier = modifier_spell_summon_atronach_lesser
+                        has_character_modifier = modifier_spell_summon_atronach_common
+                        has_character_modifier = modifier_spell_summon_atronach_greater
+                        has_character_modifier = modifier_spell_summon_atronach_grand                    
+                    }
+                }                         
+            }
+            if = {
+                limit = { has_magicka_less_than = { VALUE = summon_atronach_lesser_cost } }
+                cast_spell_effect = { SPELL = summon_atronach CASTER = root RECIPIENT = scope:friendly_spell_target TIER = petty }   
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = summon_atronach_common_cost } }
+                cast_spell_effect = { SPELL = summon_atronach CASTER = root RECIPIENT = scope:friendly_spell_target TIER = lesser } 
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = summon_atronach_greater_cost } }                
+                cast_spell_effect = { SPELL = summon_atronach CASTER = root RECIPIENT = scope:friendly_spell_target TIER = common } 
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = summon_atronach_grand_cost } }
+                cast_spell_effect = { SPELL = summon_atronach CASTER = root RECIPIENT = scope:friendly_spell_target TIER = greater } 
+            }
+            else = {
+                cast_spell_effect = { SPELL = summon_atronach CASTER = root RECIPIENT = scope:friendly_spell_target TIER = grand } 
+            }
+        }
+        100 = { # Banish Daedra
+            trigger = {
+                has_perk = conjuration_apprentice_perk
+                exists = scope:hostile_spell_target
+                scope:hostile_spell_target = {                       
+                    is_daedric_character = yes
+                }
+                has_magicka_more_than = { VALUE = banish_daedra_petty_cost }                                
+            }
+            cast_spell_effect = { SPELL = banish_daedra CASTER = root RECIPIENT = scope:hostile_spell_target TIER = petty }                      
+        }
+        100 = { # Daedric Horde
+            trigger = { 
+                has_perk = conjuration_journeyman_perk
+                exists = scope:hostile_spell_location
+                has_magicka_more_than = { VALUE = daedric_horde_petty_cost }
+            }
+            cast_county_spell_effect = { SPELL = daedric_horde CASTER = root COUNTY = scope:hostile_spell_location TIER = petty }
+        }
+        25 = { # Summon Dremora
+            trigger = {
+                has_perk = conjuration_expert_perk
+                scope:friendly_spell_target = {
+                    NOT = { any_courtier = { has_character_flag = summoned_daedra } }
+                }
+                has_magicka_more_than = { VALUE = summon_dremora_petty_cost }                              
+            }
+            modifier = {
+                add = 25
+                scope:friendly_spell_target = {
+                    number_of_knights < max_number_of_knights
+                }
+            }
+            cast_spell_effect = { SPELL = summon_dremora CASTER = root RECIPIENT = scope:friendly_spell_target TIER = petty }
+        }
+        100 = { # Summon Daedric Army
+            trigger = {
+                has_perk = conjuration_master_perk
+                has_magicka_more_than = { VALUE = daedric_army_petty_cost }
+                is_at_war = yes
+            }
+            if = {
+                limit = { has_magicka_less_than = { VALUE = daedric_army_lesser_cost } }
+                cast_spell_effect = { SPELL = daedric_army CASTER = root RECIPIENT = scope:friendly_spell_target TIER = petty }
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = daedric_army_common_cost} }
+                cast_spell_effect = { SPELL = daedric_army CASTER = root RECIPIENT = scope:friendly_spell_target TIER = lesser }
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = daedric_army_greater_cost} }
+                cast_spell_effect = { SPELL = daedric_army CASTER = root RECIPIENT = scope:friendly_spell_target TIER = common }  
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = daedric_army_grand_cost} }
+                cast_spell_effect = { SPELL = daedric_army CASTER = root RECIPIENT = scope:friendly_spell_target TIER = greater }  
+            }
+            else = {
+                cast_spell_effect = { SPELL = daedric_army CASTER = root RECIPIENT = scope:friendly_spell_target TIER = grand }
+            }
+        }
+    }
+}
+
+### DESTRUCTION
+ai_cast_destruction_spell_effect = {
+    random_list = { # Choose specific destruction spell
+        10 = { # Detract Magicka
+            trigger = {   
+                exists = scope:hostile_spell_target                        
+                scope:hostile_spell_target = {
+                    is_ruler = yes                                     
+                    can_magic_trigger = yes
+                    is_imprisoned = no
+                    has_magicka_more_than = { VALUE = 50 }
+                }                                     
+            }
+            cast_spell_effect = { SPELL = detract_magicka CASTER = root RECIPIENT = scope:hostile_spell_target TIER = petty }         
+        }
+        50 = { # Inflict Wounds
+            trigger = {
+                has_perk = destruction_apprentice_perk
+                exists = scope:hostile_spell_target
+                has_magicka_more_than = { VALUE = inflict_wounds_petty_cost }
+            }
+            cast_spell_effect = { SPELL = inflict_wounds CASTER = root RECIPIENT = scope:hostile_spell_target TIER = petty } 
+        }      
+        50 = { # Destroy Walls            
+            trigger = { 
+                has_perk = destruction_journeyman_perk
+                exists = scope:hostile_spell_location
+                has_magicka_more_than = { VALUE = destroy_walls_petty_cost }
+            }
+            if = {
+                limit = { has_magicka_less_than = { VALUE = destroy_walls_lesser_cost } }
+                cast_county_spell_effect = { SPELL = destroy_walls CASTER = root COUNTY = scope:hostile_spell_location TIER = petty }          
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = destroy_walls_common_cost } }
+                cast_county_spell_effect = { SPELL = destroy_walls CASTER = root COUNTY = scope:hostile_spell_location TIER = lesser }            
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = destroy_walls_greater_cost } }
+                cast_county_spell_effect = { SPELL = destroy_walls CASTER = root COUNTY = scope:hostile_spell_location TIER = common }        
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = destroy_walls_grand_cost } }
+                cast_county_spell_effect = { SPELL = destroy_walls CASTER = root COUNTY = scope:hostile_spell_location TIER = greater }           
+            }
+            else = {
+                cast_county_spell_effect = { SPELL = destroy_walls CASTER = root COUNTY = scope:hostile_spell_location TIER = grand }         
+            }
+        }
+        20 = { # Display of Might
+            trigger = { 
+                has_perk = destruction_expert_perk
+                has_magicka_more_than = { VALUE = display_of_might_petty_cost }
+                exists = scope:friendly_spell_target.capital_county
+                scope:friendly_spell_target.capital_county = {
+                    NOR = {
+                        has_county_modifier = modifier_spell_display_of_might_petty
+                        has_county_modifier = modifier_spell_display_of_might_lesser
+                        has_county_modifier = modifier_spell_display_of_might_common
+                        has_county_modifier = modifier_spell_display_of_might_greater
+                        has_county_modifier = modifier_spell_display_of_might_grand
+                    }
+                    county_control >= 90
+                }
+            }
+            modifier = {
+                add = 20
+                scope:friendly_spell_target.capital_county = { county_control >= 80 }
+            }
+            modifier = {
+                add = 20
+                scope:friendly_spell_target.capital_county = { county_control >= 70 }
+            }
+            modifier = {
+                add = 20
+                scope:friendly_spell_target.capital_county = { county_control >= 60 }
+            }
+            modifier = {
+                add = 20
+                scope:friendly_spell_target.capital_county = { county_control >= 50 }
+            }
+            if = {
+                limit = { has_magicka_less_than = { VALUE = display_of_might_lesser_cost } }
+                cast_county_spell_effect = { SPELL = display_of_might CASTER = root COUNTY = scope:friendly_spell_target.capital_county TIER = petty }    
+            }
+            else_if = { 
+                limit = { has_magicka_less_than = { VALUE = display_of_might_common_cost } }
+                cast_county_spell_effect = { SPELL = display_of_might CASTER = root COUNTY = scope:friendly_spell_target.capital_county TIER = lesser }  
+            }
+            else_if = { 
+                limit = { has_magicka_less_than = { VALUE = display_of_might_greater_cost } }
+                cast_county_spell_effect = { SPELL = display_of_might CASTER = root COUNTY = scope:friendly_spell_target.capital_county TIER = common }  
+            }
+            else_if = { 
+                limit = { has_magicka_less_than = { VALUE = display_of_might_grand_cost } }
+                cast_county_spell_effect = { SPELL = display_of_might CASTER = root COUNTY = scope:friendly_spell_target.capital_county TIER = greater }  
+            }
+            else = { 
+                cast_county_spell_effect = { SPELL = display_of_might CASTER = root COUNTY = scope:friendly_spell_target.capital_county TIER = grand }  
+            } 
+        }
+        100 = { # Devastate Province
+            trigger = { 
+                has_perk = destruction_master_perk
+                exists = scope:hostile_spell_location
+                has_magicka_more_than = { VALUE = devastate_province_petty_cost }
+            }
+            cast_county_spell_effect = { SPELL = devastate_province CASTER = root COUNTY = scope:hostile_spell_location TIER = petty }
+        }
+    }
+}
+
+### ILLUSION
+ai_cast_illusion_spell_effect = { 
+    random_list = { # Choose specific illusion spell
+        30 = { # Muffled senses
+            trigger = { 
+                exists = scope:hostile_spell_target
+                scope:hostile_spell_target = {
+                    is_imprisoned = no
+                }
+            }
+            cast_spell_effect = { SPELL = muffled_senses CASTER = root RECIPIENT = scope:hostile_spell_target TIER = petty }  
+        }
+        20 = { #Charm
+            trigger = { 
+                has_perk = illusion_apprentice_perk
+                has_magicka_more_than = { VALUE = charm_petty_cost }
+                exists = scope:manipulation_spell_target
+                scope:manipulation_spell_target = {
+                    is_imprisoned = no
+                }
+            }
+            if = {
+                limit = { has_magicka_less_than = { VALUE = charm_lesser_cost } }
+                cast_spell_effect = { SPELL = charm CASTER = root RECIPIENT = scope:manipulation_spell_target TIER = petty }          
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = charm_common_cost } }
+                cast_spell_effect = { SPELL = charm CASTER = root RECIPIENT = scope:manipulation_spell_target TIER = lesser }         
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = charm_greater_cost } }
+                cast_spell_effect = { SPELL = charm CASTER = root RECIPIENT = scope:manipulation_spell_target TIER = common }  
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = charm_grand_cost } }
+                cast_spell_effect = { SPELL = charm CASTER = root RECIPIENT = scope:manipulation_spell_target TIER = greater }  
+            }
+            else = {
+                cast_spell_effect = { SPELL = charm CASTER = root RECIPIENT = scope:manipulation_spell_target TIER = grand }         
+            }
+        }
+        100 = { # Calm
+            trigger = {
+                has_perk = illusion_journeyman_perk                
+                has_magicka_more_than = { VALUE = calm_petty_cost }
+                scope:friendly_spell_target = {
+                    stress_level >= 1
+                }
+            }
+            modifier = {
+                scope:friendly_spell_target = {
+                    stress_level >= 2
+                }
+                add = 10
+            }
+            modifier = {
+                scope:friendly_spell_target = {
+                    stress_level >= 3
+                }
+                add = 10
+            }
+            modifier = {
+                scope:friendly_spell_target = {
+                    stress_level >= 4
+                }
+                add = 10
+            }
+            if = {
+                limit = { has_magicka_less_than = { VALUE = calm_lesser_cost } }
+                cast_spell_effect = { SPELL = calm CASTER = root RECIPIENT = scope:friendly_spell_target TIER = petty }            
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = calm_common_cost } }
+                cast_spell_effect = { SPELL = calm CASTER = root RECIPIENT = scope:friendly_spell_target TIER = lesser }             
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = calm_greater_cost } }
+                cast_spell_effect = { SPELL = calm CASTER = root RECIPIENT = scope:friendly_spell_target TIER = common }             
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = calm_grand_cost } }
+                cast_spell_effect = { SPELL = calm CASTER = root RECIPIENT = scope:friendly_spell_target TIER = greater }             
+            }
+            else = {
+                cast_spell_effect = { SPELL = calm CASTER = root RECIPIENT = scope:friendly_spell_target TIER = grand }                          
+            }
+        }
+        50 = { # Mass Frenzy
+            trigger = {
+                has_perk = illusion_expert_perk
+                has_magicka_more_than = { VALUE = mass_paranoia_petty_cost }
+                exists = scope:hostile_spell_target
+                scope:hostile_spell_target = {
+                    is_imprisoned = no
+                }
+            }
+            if = {
+                limit = { has_magicka_less_than = { VALUE = mass_paranoia_lesser_cost } }
+                cast_county_spell_effect = { SPELL = destroy_walls CASTER = root COUNTY = scope:hostile_spell_location TIER = petty }          
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = mass_paranoia_common_cost } }
+                cast_county_spell_effect = { SPELL = destroy_walls CASTER = root COUNTY = scope:hostile_spell_location TIER = lesser }         
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = mass_paranoia_greater_cost } }
+                cast_county_spell_effect = { SPELL = destroy_walls CASTER = root COUNTY = scope:hostile_spell_location TIER = common }           
+            }
+            else_if = {
+                limit = { has_magicka_less_than = { VALUE = mass_paranoia_grand_cost } }
+                cast_county_spell_effect = { SPELL = destroy_walls CASTER = root COUNTY = scope:hostile_spell_location TIER = greater }           
+            }
+            else = {
+                cast_county_spell_effect = { SPELL = destroy_walls CASTER = root COUNTY = scope:hostile_spell_location TIER = grand }
+            }
+        }
+        30 = { # Mind Bending
+            trigger = {
+                has_perk = illusion_master_perk
+                has_magicka_more_than = { VALUE = mind_bending_petty_cost }
+                exists = scope:manipulation_spell_target
+                scope:manipulation_spell_target = {
+                    is_imprisoned = no
+                }
+            }
+            cast_spell_effect = { SPELL = mind_bending CASTER = root RECIPIENT = scope:manipulation_spell_target TIER = petty }  
+        }
+    }
+} 
+
+### RESTORATION
+ai_cast_restoration_spell_effect = {
+    random_list = { # Choose specific restoration spell
+        30 = {  # Resilience
+            trigger = {
+                scope:friendly_spell_target = {
+                    NOR = { 
+                        has_character_modifier = modifier_spell_resilience_petty
+                        has_character_modifier = modifier_spell_resilience_lesser
+                        has_character_modifier = modifier_spell_resilience_common
+                        has_character_modifier = modifier_spell_resilience_greater
+                        has_character_modifier = modifier_spell_resilience_grand
+                        is_immortal = yes
+                    }
+                }
+            }
+            modifier = {
+                scope:friendly_spell_target = { health <= poor_health }
+                add = 70
+            }
+            if = { 
+                limit = { has_magicka_less_than = { VALUE = resilience_lesser_cost } }
+                cast_spell_effect = { SPELL = resilience CASTER = root RECIPIENT = scope:friendly_spell_target TIER = petty }   
+            }
+            else_if = {
+                limit = {
+                    has_perk = restoration_apprentice_perk
+                    has_magicka_less_than = { VALUE = resilience_common_cost } 
+                }
+                cast_spell_effect = { SPELL = resilience CASTER = root RECIPIENT = scope:friendly_spell_target TIER = lesser }   
+            }
+            else_if = {
+                limit = {
+                    has_perk = restoration_journeyman_perk
+                    has_magicka_less_than = { VALUE = resilience_greater_cost } 
+                }
+                cast_spell_effect = { SPELL = resilience CASTER = root RECIPIENT = scope:friendly_spell_target TIER = common }   
+            }
+            else_if = {
+                limit = {
+                    has_perk = restoration_expert_perk
+                    has_magicka_less_than = { VALUE = resilience_grand_cost } 
+                }
+                cast_spell_effect = { SPELL = resilience CASTER = root RECIPIENT = scope:friendly_spell_target TIER = greater }   
+            }
+            else = {
+                limit = {
+                    has_perk = restoration_master_perk
+                }
+                cast_spell_effect = { SPELL = resilience CASTER = root RECIPIENT = scope:friendly_spell_target TIER = grand }   
+            }     
+        }
+        100 = { # mend wound
+            trigger = {
+                has_perk = restoration_journeyman_perk
+                has_magicka_more_than = { VALUE = mend_wound_petty_cost }
+                OR = {
+                    AND = {
+                        exists = scope:friendly_spell_target
+                        scope:friendly_spell_target = {
+                            has_trait = wounded
+                        }
+                    }
+                    AND = {
+                        exists = scope:beneficial_spell_target
+                        scope:beneficial_spell_target = {
+                            has_trait = wounded
+                        }
+                    }
+                }
+            }
+            if = { 
+                limit = { 
+                    scope:friendly_spell_target = {
+                        has_trait = wounded
+                    }
+                }
+                cast_spell_effect = { SPELL = resilience CASTER = root RECIPIENT = scope:friendly_spell_target TIER = petty }   
+            }
+            else = {
+                cast_spell_effect = { SPELL = resilience CASTER = root RECIPIENT = scope:beneficial_spell_target TIER = petty }  
+            }
+        }
+        100 = { # Turn Undead
+            trigger = {
+                has_perk = restoration_journeyman_perk
+                has_magicka_more_than = { VALUE = turn_undead_petty_cost }
+                exists = scope:hostile_spell_target
+                scope:hostile_spell_target = { 
+                    vt_ek_is_undead = yes 
+                }
+            }
+            cast_spell_effect = { SPELL = turn_undead CASTER = root RECIPIENT = scope:hostile_spell_target TIER = petty }
+        }
+        100 = { # Cure Disease
+            trigger = {
+                has_perk = restoration_expert_perk
+                has_magicka_more_than = { VALUE = cure_disease_petty_cost }
+                OR = {
+                    AND = {
+                        exists = scope:friendly_spell_target
+                        scope:friendly_spell_target = {
+                            has_curable_disease = yes
+                        }
+                    }
+                    AND = {
+                        exists = scope:beneficial_spell_target
+                        scope:beneficial_spell_target = {
+                            has_curable_disease = yes
+                        }
+                    }
+                }
+            }
+            if = { 
+                limit = { 
+                    scope:friendly_spell_target = {
+                        has_curable_disease = yes
+                    }
+                }
+                cast_spell_effect = { SPELL = resilience CASTER = root RECIPIENT = scope:friendly_spell_target TIER = petty }  
+            }
+            else = { 
+                cast_spell_effect = { SPELL = resilience CASTER = root RECIPIENT = scope:beneficial_spell_target TIER = petty }
+            }
+        }
+        50 = { # Spred Vitality
+            trigger = {
+                has_perk = restoration_master_perk
+                has_magicka_more_than = { VALUE = spread_vitality_petty_cost }
+                exists = scope:friendly_spell_target.capital_county
+                scope:friendly_spell_target.capital_county = {
+                    NOR = { 
+                        has_county_modifier = modifier_spell_spread_vitality_petty 
+                        has_county_modifier = modifier_spell_spread_vitality_lesser 
+                        has_county_modifier = modifier_spell_spread_vitality_common
+                        has_county_modifier = modifier_spell_spread_vitality_greater
+                        has_county_modifier = modifier_spell_spread_vitality_grand
+                    }
+                }
+            }
+            if = { 
+                limit = { has_magicka_less_than = { VALUE = spread_vitality_lesser_cost } }
+                cast_county_spell_effect = { SPELL = spread_vitality CASTER = root COUNTY = scope:friendly_spell_target.capital_county TIER = petty }
+            }
+            else_if = { 
+                limit = { has_magicka_less_than = { VALUE = spread_vitality_common_cost } }
+                cast_county_spell_effect = { SPELL = spread_vitality CASTER = root COUNTY = scope:friendly_spell_target.capital_county TIER = lesser }
+            }
+            else_if = { 
+                limit = { has_magicka_less_than = { VALUE = spread_vitality_greater_cost } }
+                cast_county_spell_effect = { SPELL = spread_vitality CASTER = root COUNTY = scope:friendly_spell_target.capital_county TIER = common }
+            }
+            else_if = { 
+                limit = { has_magicka_less_than = { VALUE = spread_vitality_grand_cost } }
+                cast_county_spell_effect = { SPELL = spread_vitality CASTER = root COUNTY = scope:friendly_spell_target.capital_county TIER = greater }
+            }
+            else = { 
+                cast_county_spell_effect = { SPELL = spread_vitality CASTER = root COUNTY = scope:friendly_spell_target.capital_county TIER = grand }
+            }
+        }
+        100 = { # Remove Curse
+            trigger = {
+                has_perk = restoration_master_perk
+                has_magicka_more_than = { VALUE = remove_curse_petty_cost }
+                OR = {
+                    AND = {
+                        exists = scope:friendly_spell_target
+                        scope:friendly_spell_target = {
+                            has_daedric_curse = yes
+                        }
+                    }
+                    AND = {
+                        exists = scope:beneficial_spell_target
+                        scope:beneficial_spell_target = {
+                            has_daedric_curse = yes
+                        }
+                    }
+                }
+            }
+            if = { 
+                limit = { 
+                    scope:friendly_spell_target = {
+                        has_daedric_curse = yes
+                    }
+                }
+                cast_spell_effect = { SPELL = remove_curse CASTER = root RECIPIENT = scope:friendly_spell_target TIER = petty }
+            }
+            else = { 
+                cast_spell_effect = { SPELL = remove_curse CASTER = root RECIPIENT = scope:beneficial_spell_target TIER = petty }
+            }
+        }
+    }
+}
+
+##### RITUALS
+# Chooses rituals depending on a characters arcana. The higher it is, the more rituals they will apply.
+ai_magic_ritual_effect = {
+    if = {
+        limit = {
+            is_ai = yes
+            has_ritual_perk_trigger = yes
+            is_ruler = yes
+            has_arcana = { VALUE >= 10 }
+            NOR = {
+                has_character_flag = has_first_minor_ritual
+                has_character_flag = has_second_minor_ritual
+                has_character_flag = has_medium_ritual
+                has_character_flag = has_major_ritual
+            }
+        }
+        if = { # Apply first minor ritual
+            limit = { 
+                NOT = { has_character_flag = has_first_minor_ritual }
+            }
+            remove_minor_ritual_modifier_effect = yes
+            if = {
+                limit = { 
+                    NOT = { has_character_flag = pays_first_minor_ritual_cost }
+                }                
+                if = {
+			        limit = { NOT = { has_variable = ritual_upkeep } }
+			        set_variable = { name = ritual_upkeep value = 0 }
+		        }
+                change_variable = { name = ritual_upkeep add = t1_ritual_cost }
+                add_character_flag = pays_first_minor_ritual_cost
+            } 
+            add_character_flag = {
+                flag = has_first_minor_ritual
+                years = 10
+            }
+            ai_magic_choose_minor_ritual_effect = yes
+        }
+        if = { # Apply second minor ritual
+            limit = { 
+                NOT = { has_character_flag = has_second_minor_ritual }
+                has_arcana = { VALUE >= 15 }
+            }
+            add_character_flag = {
+                flag = has_second_minor_ritual
+                years = 10
+            }   
+            ai_magic_choose_minor_ritual_effect = yes 
+            if = {
+                limit = { 
+                    NOT = { has_character_flag = pays_second_minor_ritual_cost }
+                }                
+                if = {
+                    limit = { NOT = { has_variable = ritual_upkeep } }
+                    set_variable = { name = ritual_upkeep value = 0 }
+                }
+                change_variable = { name = ritual_upkeep add = t1_ritual_cost }
+                add_character_flag = pays_second_minor_ritual_cost
+            }          
+        }
+        if = { # Apply medium ritual
+            limit = { 
+                NOT = { has_character_flag = has_medium_ritual }
+                has_arcana = { VALUE >= 20 } 
+            }
+            remove_medium_ritual_modifier_effect = yes
+            add_character_flag = {
+                flag = has_medium_ritual
+                years = 10
+            } 
+            if = {
+                limit = { 
+                    NOT = { has_character_flag = pays_medium_ritual_cost }
+                }                
+                if = {
+			        limit = { NOT = { has_variable = ritual_upkeep } }
+			        set_variable = { name = ritual_upkeep value = 0 }
+		        }
+                change_variable = { name = ritual_upkeep add = t2_ritual_cost }
+                add_character_flag = pays_medium_ritual_cost
+            }
+            ai_magic_choose_medium_ritual_effect = yes             
+        }
+        if = { # Apply major ritual
+            limit = { 
+                NOT = { has_character_flag = has_major_ritual }
+                has_arcana = { VALUE >= 30 } 
+            }
+            remove_major_ritual_modifier_effect = yes
+            add_character_flag = {
+                flag = has_major_ritual
+                years = 10
+            }
+            if = {
+                limit = { 
+                    NOT = { has_character_flag = pays_major_ritual_cost }
+                }                
+                if = {
+			        limit = { NOT = { has_variable = ritual_upkeep } }
+			        set_variable = { name = ritual_upkeep value = 0 }
+		        }
+                change_variable = { name = ritual_upkeep add = t3_ritual_cost }
+                add_character_flag = pays_major_ritual_cost
+            }    
+            ai_magic_choose_major_ritual_effect = yes
+        }      
+    }
+}
+
+# Chooses up to two minor rituals
+ai_magic_choose_minor_ritual_effect = {
+    random_list = { # Choose magic school
+        20 = { # AI will use first minor necromancy ritual
+            trigger = {
+                has_trait = vt_ek_necromancer
+                has_perk = necromancy_minor_rituals_perk
+                NOT = { has_character_modifier = modifier_ritual_bone_mantle }
+            } 
+            ai_necromancy_magic_modifier = yes   
+            add_character_modifier = modifier_ritual_bone_mantle              
+        }
+        10 = { # AI will use minor alteration ritual
+            trigger = {
+                has_perk = alteration_minor_rituals_perk
+                NOT = { has_character_modifier = modifier_ritual_feather }
+            } 
+            ai_alteration_magic_modifier = yes
+            add_character_modifier = modifier_ritual_feather
+        }
+        10 = { # AI will use minor conjuration ritual
+            trigger = {
+                has_perk = conjuration_minor_rituals_perk
+                NOT = { has_character_modifier = modifier_ritual_oblivion_counsel }
+            }
+            ai_conjuration_magic_modifier = yes
+            add_character_modifier = modifier_ritual_oblivion_counsel                
+        }
+        10 = { # AI will use minor destruction ritual
+            trigger = {
+                has_perk = destruction_minor_rituals_perk
+                NOT = { has_character_modifier = modifier_ritual_arcane_outlet }
+            }
+            ai_destruction_magic_modifier = yes
+            add_character_modifier = modifier_ritual_arcane_outlet
+        }
+        10 = { # AI will use minor illusion ritual
+            trigger = {
+                has_perk = illusion_minor_rituals_perk
+                NOT = { has_character_modifier = modifier_ritual_conceal }
+            } 
+            ai_illusion_magic_modifier = yes
+            modifier = { # A lich can use this to hide their true self
+                has_trait = vt_ek_lich_character
+                add = 30
+            }
+            modifier = { # A vampire can use this to hide their true self
+                is_vampire = yes
+                add = 30
+            }
+            modifier = { # A hidden vampire most likely want to use this
+                has_trait = reclusive_vampire
+                add = 100
+            }
+            modifier = { 
+                has_trait = beauty_bad
+                add = 30 
+            }         
+            add_character_modifier = modifier_ritual_conceal
+        }
+        10 = { # AI will use minor restoration ritual
+            trigger = {
+                has_perk = restoration_minor_rituals_perk
+                NOT = { has_character_modifier = modifier_ritual_exuberance }
+            }
+            ai_restoration_magic_modifier = yes   
+            if = {
+                limit = { has_trait = education_stewardship }
+                add_character_modifier = modifier_ritual_fortify_stewardship
+            }
+            else_if = {
+                limit = { has_trait = education_intrigue }
+                add_character_modifier = modifier_ritual_fortify_intrigue
+            }
+            else_if = {
+                limit = { has_trait = education_martial }
+                add_character_modifier = modifier_ritual_fortify_martial
+            }
+            else_if = {
+                limit = { has_trait = education_diplomacy }
+                add_character_modifier = modifier_ritual_fortify_diplomacy
+            }
+            else = {
+                add_character_modifier = modifier_ritual_fortify_learning
+            }               
+        }            
+    }
+}
+
+# Chooses one medium ritual
+ai_magic_choose_medium_ritual_effect = {
+    random_list = { # Choose magic school
+        20 = { # AI will use medium necromancy ritual
+            trigger = {
+                has_trait = vt_ek_necromancer
+                has_perk = necromancy_medium_rituals_perk
+            } 
+            ai_necromancy_magic_modifier = yes          
+            add_character_modifier = modifier_ritual_unhallowed_earth 
+        }
+        10 = { # AI will use medium alteration ritual
+            trigger = {
+                has_perk = alteration_medium_rituals_perk
+            } 
+            ai_alteration_magic_modifier = yes      
+            add_character_modifier = modifier_ritual_oakflesh
+        }
+        10 = { # AI will use medium conjuration ritual
+            trigger = {
+                has_perk = conjuration_medium_rituals_perk
+            } 
+            ai_conjuration_magic_modifier = yes     
+            add_character_modifier = modifier_ritual_bound_armor              
+        }
+        10 = { # AI will use medium destruction ritual
+            trigger = {
+                has_perk = destruction_medium_rituals_perk
+            } 
+            ai_destruction_magic_modifier = yes               
+            add_character_modifier = modifier_ritual_elemental_cloak
+        }
+        10 = { # AI will use medium illusion ritual
+            trigger = {
+                has_perk = illusion_medium_rituals_perk
+            } 
+            ai_illusion_magic_modifier = yes       
+            add_character_modifier = modifier_ritual_invisibility
+        }
+        10 = { # AI will use medium restoration ritual
+            trigger = {
+                has_perk = restoration_medium_rituals_perk
+            } 
+            ai_restoration_magic_modifier = yes          
+            add_character_modifier = modifier_ritual_exuberance
+        }
+    }
+}
+
+# Chooses one major ritual
+ai_magic_choose_major_ritual_effect = {
+    random_list = { # Choose magic school
+        20 = { # AI will use major necromancy ritual
+            trigger = {
+                has_trait = vt_ek_necromancer
+                has_perk = necromancy_major_rituals_perk
+            } 
+            ai_necromancy_magic_modifier = yes          
+            add_character_modifier = modifier_ritual_undead_frenzy    
+        }
+        10 = { # AI will use major alteration ritual - Swiftness
+            trigger = {
+                has_perk = alteration_major_rituals_perk
+            } 
+            ai_alteration_magic_modifier = yes             
+            add_character_modifier = modifier_ritual_swiftness
+        }
+        10 = { # AI will use major alteration ritual - Ward
+            trigger = {
+                has_perk = alteration_major_rituals_perk
+            } 
+            ai_alteration_magic_modifier = yes             
+            add_character_modifier = modifier_ritual_magic_ward
+        }
+        10 = { # AI will use major conjuration ritual
+            trigger = {
+                has_perk = conjuration_major_rituals_perk
+            } 
+            ai_conjuration_magic_modifier = yes    
+            add_character_modifier = modifier_ritual_empower_magic             
+        }
+        10 = { # AI will use major destruction ritual
+            trigger = {
+                has_perk = destruction_major_rituals_perk
+            } 
+            ai_destruction_magic_modifier = yes          
+            add_character_modifier = modifier_ritual_ignited_weapons
+        }
+        10 = { # AI will use major illusion ritual
+            trigger = {
+                has_perk = illusion_major_rituals_perk
+            } 
+            ai_illusion_magic_modifier = yes            
+            add_character_modifier = modifier_ritual_rally
+        }
+        10 = { # AI will use major restoration ritual
+            trigger = {
+                has_perk = restoration_major_rituals_perk
+            } 
+            ai_restoration_magic_modifier = yes       
+            add_character_modifier = modifier_ritual_mass_healing
+        }
+    }
+}
+
+##### OTHER EFFECTS
+
+remove_courtmage_focus = {
+    if = { 
+        limit = { has_character_flag = focus_necromancy }
+        remove_character_flag = focus_necromancy
+    }
+    if = { 
+        limit = { has_character_flag = focus_alteration }
+        remove_character_flag = focus_alteration
+    }
+    if = { 
+        limit = { has_character_flag = focus_conjuration }
+        remove_character_flag = focus_conjuration
+    }
+    if = { 
+        limit = { has_character_flag = focus_destruction }
+        remove_character_flag = focus_destruction
+    }
+    if = { 
+        limit = { has_character_flag = focus_illusion }
+        remove_character_flag = focus_illusion
+    }
+    if = { 
+        limit = { has_character_flag = focus_restoration }
+        remove_character_flag = focus_restoration
+    }
+}

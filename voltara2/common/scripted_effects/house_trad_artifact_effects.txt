@@ -1,0 +1,100 @@
+﻿find_artisan_creator = {
+	if = {
+		limit = { 
+			liege_or_court_owner = {
+				any_courtier_or_guest = {
+					has_character_flag = artifact_smith_type
+				}
+			}
+		}
+		liege_or_court_owner = {
+			random_courtier_or_guest = {
+				limit = { 
+					has_character_flag = artifact_smith_type
+				}
+				save_scope_as = creator
+			}
+		}
+	}
+	else_if = {
+		limit = { 
+			liege_or_court_owner = {
+				any_courtier_or_guest = {
+					has_character_flag = local_artisan
+				}
+			}
+		}
+		liege_or_court_owner = {
+			random_courtier_or_guest = {
+				limit = { 
+					any_courtier_or_guest = {
+						has_character_flag = local_artisan
+					}
+				}
+				save_scope_as = creator
+			}
+		}
+	}
+	else_if = {
+		limit = { 
+			liege_or_court_owner = {
+				any_courtier_or_guest = {
+					has_court_position = court_artificer_court_position
+				}
+			}
+		}
+		liege_or_court_owner = {
+			random_courtier_or_guest = {
+				limit = { 
+					has_court_position = court_artificer_court_position
+				}
+				save_scope_as = creator
+			}
+		}
+	}
+	else_if = {
+		limit = { 
+			liege_or_court_owner = {
+				any_courtier_or_guest = {
+					exists = inspiration
+					# inspiration = { inspiration = { has_inspiration_type = smith_inspiration } }
+				}
+			}
+		}
+		liege_or_court_owner = {
+			random_courtier_or_guest = {
+				limit = { 
+					inspiration = { has_inspiration_type = smith_inspiration }
+				}
+				save_scope_as = creator
+			}
+		}
+	}
+	else_if = {
+		limit = { 
+			liege_or_court_owner = {
+				any_courtier_or_guest = {
+					has_completed_inspiration = yes	
+				}
+			}
+		}
+		liege_or_court_owner = {
+			random_courtier_or_guest = {
+				limit = { 
+					has_completed_inspiration = yes	
+				}
+				save_scope_as = creator
+			}
+		}
+	}
+	########### FIX BY cuomo860 Jan 29 @ 11:09am ###########
+	else = {
+		create_character = {
+			location = root.location
+			# location = root.capital_province
+			template = scholar_character
+			save_scope_as = creator
+		}
+	}
+	########################################################
+}

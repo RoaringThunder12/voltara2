@@ -1,0 +1,16 @@
+﻿voltara_cradle_dragon_egg = {
+ picture = { reference = "gfx/interface/illustrations/activity_header_backgrounds/activity_dragon_hatching.dds" }
+ desc = voltara_cradle_dragon_egg_desc selection_tooltip = voltara_cradle_dragon_egg_tooltip confirm_text = voltara_cradle_dragon_egg_confirm
+ is_shown = { voltara_has_dragon_egg = yes NOT = { has_trait = dragon } }
+ is_valid = { is_imprisoned = no NOT = { has_character_flag = voltara_cradling_egg } any_character_artifact = { has_variable = voltara_dragon_egg NOT = { has_variable = dud_egg } NOT = { has_variable = agot_artifact_cannot_gift } } }
+ cooldown = { years = 1 } ai_check_interval = 12 ai_will_do = { base = 30 }
+ effect = { add_character_flag = { flag = voltara_cradling_egg years = 1 } random_character_artifact = { limit = { has_variable = voltara_dragon_egg NOT = { has_variable = dud_egg } NOT = { has_variable = agot_artifact_cannot_gift } } save_scope_as = egg } trigger_event = { id = voltara_dragon_expansion.1 months = 6 } }
+}
+voltara_study_dragonlore = {
+ picture = { reference = "gfx/interface/illustrations/event_scenes/agot_dragonpit.dds" }
+ desc = voltara_study_dragonlore_desc selection_tooltip = voltara_study_dragonlore_tooltip confirm_text = voltara_study_dragonlore_confirm
+ is_shown = { is_landed = yes NOT = { has_trait = dragon } }
+ is_valid = { is_adult = yes is_imprisoned = no }
+ cost = { gold = 100 } cooldown = { years = 2 } ai_check_interval = 0
+ effect = { if = { limit = { NOT = { has_variable = dragonlore } } set_variable = { name = dragonlore value = 0 } } change_variable = { name = dragonlore add = 2 max = 12 } add_learning_lifestyle_xp = 100 }
+}

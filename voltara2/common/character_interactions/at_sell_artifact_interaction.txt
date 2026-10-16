@@ -1,0 +1,607 @@
+﻿# Sell one of your artifacts to another character.
+# Scopes: actor is the artifact owner (seller), recipient is the buyer, target is the artifact.
+at_sell_artifact_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	category = interaction_category_diplomacy
+	interface_priority = 60
+	common_interaction = yes
+	needs_recipient_to_open = yes
+	icon = artisan_inspiration
+
+	desc = {
+		desc = at_sell_artifact_interaction_desc
+		triggered_desc = {
+			trigger = {
+				scope:actor = {
+					exists = current_travel_plan
+				}
+			}
+			desc = at_warning_reduced_range_desc
+		}
+	}
+
+	target_type = artifact
+	target_filter = actor_artifacts
+
+	greeting = positive
+	send_name = at_sell_artifact_interaction
+
+	ai_min_reply_days = 0
+	ai_max_reply_days = 0
+
+	redirect = {
+		if = {
+			limit = {
+				scope:actor = {
+					is_ai = yes
+					this = scope:recipient
+					exists = location
+				}
+			}
+			# Redirect to a random peddler in or near this location
+			scope:actor.location = {
+				every_character_in_location = {
+					add_to_temporary_list = potential_recipients
+				}
+			}
+			every_pool_character = {
+				province = scope:actor.location
+				add_to_temporary_list = potential_recipients
+			}
+			random_in_list = {
+				list = potential_recipients
+				limit = {
+					this != scope:actor
+					var:at_merchant_type ?= flag:peddler
+					at_can_own_artifacts_trigger = yes
+					at_can_sell_artifact_to_trigger = { PARTY = scope:actor }
+				}
+				save_scope_as = recipient
+			}
+		}
+	}
+
+	is_available = {
+		NOT = { has_game_rule = at_artifact_trading_disabled }
+		has_any_artifact = yes
+	}
+
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		scope:actor != scope:recipient
+		scope:recipient = {
+			at_can_own_artifacts_trigger = yes
+		}
+		NAND = { # Prevent ai from spamming you with sell artifact requests
+			scope:actor = { is_ai = yes }
+			scope:recipient = { is_ai = no }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			at_can_trade_artifacts_trigger = yes
+		}
+		scope:recipient = {
+			at_can_sell_artifact_to_trigger = { PARTY = scope:actor }
+			trigger_if = {
+				limit = {
+					scope:actor = { is_ai = no }
+				}
+				custom_description = {
+					text = "at_valid_buyer_or_seller_tt"
+					at_valid_buyer_or_seller_trigger = { PARTY = scope:actor }
+				}
+			}
+		}
+		scope:actor = {
+			custom_description = {
+				text = "at_any_artifact_can_be_sold_and_bought_by_tt"
+				any_character_artifact = {
+					at_artifact_can_be_sold_trigger = yes
+					at_artifact_can_be_bought_by_trigger = { BUYER = scope:recipient }
+				}
+			}
+			trigger_if = {
+				limit = { is_ai = no }
+				custom_description = {
+					text = "any_unequipped_artifact_tt"
+					any_character_artifact = {
+						is_equipped = no
+					}
+				}
+			}
+		}
+	}
+
+	can_be_picked_artifact = {
+		scope:actor = {
+			any_character_artifact = {
+				this = scope:target
+			}
+			trigger_if = {
+				limit = {
+					is_ai = no
+				}
+				scope:target = { is_equipped = no }
+				trigger_if = {
+					limit = {
+						has_variable = at_artifacts_window_selected_artifact
+					}
+					var:at_artifacts_window_selected_artifact = scope:target
+				}
+			}
+		}
+		scope:target = {
+			at_artifact_can_be_sold_trigger = yes
+			at_artifact_can_be_bought_by_trigger = { BUYER = scope:recipient }
+		}
+		# Performance: AI should not attempt unlikely interactions
+		trigger_if = {
+			limit = {
+				scope:actor = { is_ai = yes }
+			}
+			scope:target = {
+				# Not unwanted, cursed, worthless, or recently bought artifact
+				at_ai_artifact_could_be_traded_trigger = yes
+			}
+			scope:recipient = {
+				# Buyer can equip and benefit from artifact
+				at_ai_could_buy_artifact_trigger = { ARTIFACT = scope:target }
+				# Buyer can afford the artifact
+				save_temporary_scope_as = buyer
+				at_short_term_gold_value >= scope:target.at_artifact_bid_price_value
+			}
+			scope:actor = {
+				# Not of special significance to the seller
+				at_ai_could_sell_artifact_trigger = { ARTIFACT = scope:target }
+			}
+		}
+	}
+
+	cost = {
+		influence = {
+			value = 0
+			if = {
+				limit = { scope:influence_send_option = yes }
+				add = scope:actor.medium_influence_value
+				desc = INFLUENCE_INTERACTION_ACCEPTANCE_SEND_OPTION
+			}
+		}
+	}
+
+	send_option = { # EP3 Influence
+		is_shown = { # Actor must have a government that uses influence
+			scope:actor = {
+				government_has_flag = government_has_influence
+			}
+		}
+		is_valid = {
+			# Actor has enough influence
+			scope:actor = { influence >= medium_influence_value }
+			# Both characters are within the same top realm
+			custom_tooltip = {
+				text = not_same_realm_tt
+				scope:recipient.top_liege = scope:actor.top_liege
+			}
+		}
+		flag = influence_send_option
+		localization = TRADE_INFLUENCE_FOR_BETTER_AI_ACCEPTANCE
+	}
+
+	# Use hook
+	send_option = {
+		is_valid = {
+			exists = scope:recipient
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+		}
+		flag = hook
+		localization = SCHEME_HOOK
+	}
+	should_use_extra_icon = {
+		scope:actor = { has_usable_hook = scope:recipient }
+	}
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+
+	send_options_exclusive = no
+
+	on_accept = {
+		if = {
+			limit = {
+				scope:hook = yes
+				scope:actor = {
+					has_usable_hook = scope:recipient
+				}
+			}
+			scope:actor = {
+				use_hook = scope:recipient
+			}
+		}
+		scope:actor = { save_scope_as = seller }
+		scope:recipient = { save_scope_as = buyer }
+		scope:target = { save_scope_as = artifact }
+		at_buy_artifact_interaction_effect = {
+			ARTIFACT_PRICE = scope:artifact.at_artifact_bid_price_value
+		}
+	}
+
+	auto_accept = no
+
+	ai_accept = {
+		base = 0
+
+		modifier = {
+			add = -50
+			desc = at_reluctant_to_spend_gold_reason
+		}
+
+		modifier = {
+			scope:hook = yes
+			NOT = { scope:actor = { has_strong_hook = scope:recipient } }
+			add = 50
+			desc = SCHEME_WEAK_HOOK_USED
+		}
+		modifier = {
+			scope:hook = yes
+			scope:actor = { has_strong_hook = scope:recipient }
+			add = 100
+			desc = SCHEME_STRONG_HOOK_USED
+		}
+
+		modifier = {
+			scope:influence_send_option = yes
+			add = 25
+			desc = INFLUENCE_INTERACTION_ACCEPTANCE_SEND_OPTION
+		}
+
+		# Avoid spending money if at war
+		modifier = {
+			is_at_war = yes
+			add = -50
+			desc = at_recipient_at_war_reason
+		}
+
+		# Artifact QWA (rarity)
+		modifier = {
+			add = {
+				value = scope:target.at_artifact_quality_wealth_average_value
+				subtract = 100
+				multiply = at_ai_positive_qwa_impact_value
+			}
+			desc = at_target_qwa_reason
+		}
+
+		# Artifact claims
+		modifier = {
+			scope:target = { can_be_claimed_by = scope:recipient }
+			add = at_ai_positive_claim_impact_value
+			desc = ARTIFACT_CLAIM_REASON
+		}
+
+		# Difference between the QWA of the target artifact
+		# and the QWA of the n-th artifact of the same type owned and equippable by scope:buyer
+		modifier = {
+			at_can_equip_and_benefit_from_artifact_trigger = { ARTIFACT = scope:target }
+			save_temporary_scope_as = buyer
+			scope:target.at_nth_buyer_equippable_artifact_quality_wealth_average_difference_value > 0
+			add = {
+				value = scope:target.at_nth_buyer_equippable_artifact_quality_wealth_average_difference_value
+				multiply = at_ai_positive_qwa_difference_impact_value
+			}
+			desc = at_target_better_than_owned_artifacts_reason
+		}
+
+		# Artifact durability
+		modifier = {
+			scope:target.artifact_durability < scope:target.artifact_max_durability
+			add = {
+				value = scope:target.artifact_max_durability
+				subtract = scope:target.artifact_durability
+				divide = scope:target.artifact_max_durability
+				multiply = at_ai_negative_durability_impact_value
+			}
+			desc = at_target_below_max_durability_reason
+		}
+
+		# Artifact uniqueness
+		modifier = {
+			scope:target = { at_is_unique_artifact_trigger = yes }
+			add = at_ai_positive_uniqueness_impact_value
+			desc = at_target_unique_reason
+		}
+
+		# Useless, not relevant, unwanted, or cursed artifacts
+		modifier = {
+			NOT = { at_can_equip_artifact_trigger = { ARTIFACT = scope:target } }
+			add = -50
+			desc = ARTIFACT_NOT_EQUIPPABLE_REASON
+		}
+		modifier = {
+			NOT = { can_benefit_from_artifact = scope:target }
+			add = -50
+			desc = ARTIFACT_NOT_BENEFIT_REASON
+		}
+		modifier = {
+			scope:target = { has_variable = unwanted_artifact }
+			add = -100
+			desc = at_target_unwanted_reason
+		}
+		modifier = {
+			scope:target = { has_variable = cursed_artifact }
+			add = -200
+			desc = at_target_cursed_reason
+		}
+
+		# Trash or common low durability artifacts
+		modifier = {
+			scope:target = { at_is_worthless_artifact_trigger = yes }
+			add = at_ai_negative_trash_impact_value
+			desc = at_target_trash_reason
+		}
+
+		# Dynasty or house banner
+		modifier = {
+			at_is_dynasty_banner_trigger = { ARTIFACT = scope:target }
+			add = {
+				if = {
+					limit = { this = dynasty.dynast }
+					value = at_ai_positive_relationship_impact_value
+				}
+				else = {
+					value = at_ai_positive_relationship_impact_reduced_value
+				}
+			}
+			desc = ARTIFACT_DYNASTY_BANNER_REASON
+		}
+		modifier = {
+			at_is_house_banner_trigger = { ARTIFACT = scope:target }
+			add = {
+				if = {
+					limit = { this = house.house_head }
+					value = at_ai_positive_relationship_impact_value
+				}
+				else = {
+					value = at_ai_positive_relationship_impact_reduced_value
+				}
+			}
+			desc = at_artifact_house_banner_reason
+		}
+
+		# Religious relic
+		modifier = {
+			at_is_religion_relic_trigger = { ARTIFACT = scope:target }
+			add = {
+				if = {
+					limit = { any_held_title = { is_head_of_faith = yes } }
+					value = at_ai_positive_relationship_impact_value
+				}
+				else = {
+					value = at_ai_positive_relationship_impact_reduced_value
+				}
+			}
+			desc = at_artifact_religion_relic_reason
+		}
+
+		# Holds succession title
+		modifier = {
+			at_has_artifact_succession_title_trigger = { ARTIFACT = scope:target }
+			add = at_ai_positive_relationship_impact_value
+			desc = at_artifact_succession_title_reason
+		}
+
+		# Price
+		modifier = {
+			save_temporary_scope_as = buyer
+			scope:target.at_artifact_bid_price_value < scope:recipient.minor_gold_value
+			add = at_ai_positive_price_impact_value
+			desc = at_target_cheap_reason
+		}
+		modifier = {
+			save_temporary_scope_as = buyer
+			scope:target.at_artifact_bid_price_value > scope:recipient.major_gold_value
+			add = at_ai_negative_price_impact_value
+			desc = at_target_expensive_reason
+		}
+
+		# Buyer wealth
+		modifier = {
+			at_is_character_poor_trigger = yes
+			add = at_ai_negative_wealth_impact_value
+			desc = at_recipient_poor_reason
+		}
+		modifier = {
+			at_is_character_rich_trigger = yes
+			add = at_ai_positive_wealth_impact_value
+			desc = at_recipient_rich_reason
+		}
+
+		# Peddlers are more willing to buy
+		modifier = {
+			var:at_merchant_type ?= flag:peddler
+			add = at_ai_positive_merchant_impact_value
+			desc = at_recipient_merchant_reason
+		}
+
+		# Opinion of seller
+		opinion_modifier = {
+			trigger = {
+				scope:actor != scope:recipient
+			}
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = at_buy_sell_artifact_ai_opinion_multiplier
+			desc = AI_OPINION_REASON
+		}
+
+		# Avoid doing business with rivals or nemesises
+		modifier = {
+			has_relation_rival = scope:actor
+			add = -100
+			desc = ACTOR_RIVAL_TO_ME_REASON
+		}
+		modifier = {
+			has_relation_nemesis = scope:actor
+			add = -200
+			desc = ACTOR_NEMESIS_TO_ME_REASON
+		}
+	}
+
+	ai_targets = {
+		ai_recipients = self # Redirect to a nearby merchant
+		ai_recipients = liege
+	}
+	ai_targets = {
+		ai_recipients = vassals
+		max = 10
+	}
+	ai_targets = {
+		ai_recipients = peer_vassals
+		ai_recipients = neighboring_rulers
+		ai_recipients = nearby_domicile_owners
+		max = 10
+	}
+	ai_targets = {
+		ai_recipients = courtiers
+		ai_recipients = guests
+		max = 5
+	}
+	ai_targets = {
+		ai_recipients = family
+		ai_recipients = scripted_relations
+		max = 5
+	}
+
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 48
+		duchy = 36
+		kingdom = 24
+		empire = 24
+		hegemony = 24
+	}
+
+	ai_will_do = {
+		base = 50
+
+		# Artifact QWA (rarity)
+		modifier = {
+			add = {
+				value = scope:target.at_artifact_quality_wealth_average_value
+				multiply = at_ai_negative_qwa_impact_value
+			}
+		}
+
+		# Artifact equipped
+		modifier = {
+			scope:target = { is_equipped = yes }
+			add = at_ai_negative_equipped_impact_value
+		}
+
+		# Difference between the QWA of the target artifact
+		# and the QWA of the n+1-th artifact of the same type owned and equippable by scope:seller
+		modifier = {
+			at_can_equip_and_benefit_from_artifact_trigger = { ARTIFACT = scope:target }
+			save_temporary_scope_as = seller
+			scope:target.at_np1th_seller_equippable_artifact_quality_wealth_average_difference_value > 0
+			add = {
+				value = scope:target.at_np1th_seller_equippable_artifact_quality_wealth_average_difference_value
+				multiply = at_ai_negative_qwa_difference_impact_value
+			}
+		}
+
+		# Artifact durability
+		modifier = {
+			scope:target.artifact_durability < scope:target.artifact_max_durability
+			add = {
+				value = scope:target.artifact_max_durability
+				subtract = scope:target.artifact_durability
+				divide = scope:target.artifact_max_durability
+				multiply = at_ai_positive_durability_impact_value
+			}
+		}
+
+		# Artifact uniqueness
+		modifier = {
+			scope:target = { at_is_unique_artifact_trigger = yes }
+			add = at_ai_negative_uniqueness_impact_value
+		}
+
+		# Useless or not relevant artifacts
+		modifier = {
+			NOT = { at_can_equip_artifact_trigger = { ARTIFACT = scope:target } }
+			add = 50
+		}
+		modifier = {
+			NOT = { can_benefit_from_artifact = scope:target }
+			add = 50
+		}
+
+		# Price
+		modifier = {
+			scope:recipient = {
+				save_temporary_scope_as = buyer
+			}
+			scope:target.at_artifact_bid_price_value < scope:actor.minor_gold_value
+			add = at_ai_negative_price_impact_value
+		}
+		modifier = {
+			scope:recipient = {
+				save_temporary_scope_as = buyer
+			}
+			scope:target.at_artifact_bid_price_value > scope:actor.major_gold_value
+			add = at_ai_positive_price_impact_value
+		}
+
+		# Seller wealth
+		modifier = {
+			at_is_character_poor_trigger = yes
+			add = at_ai_positive_wealth_impact_value
+		}
+		modifier = {
+			at_is_character_rich_trigger = yes
+			add = at_ai_negative_wealth_impact_value
+		}
+
+		# Landless adventurers are more willing to sell to merchants
+		modifier = {
+			is_landless_adventurer = yes
+			scope:recipient = {
+				has_variable = at_merchant_type
+			}
+			add = {
+				value = at_ai_positive_laamp_impact_value
+				multiply = at_attempted_artifact_haggle_multiplier
+			}
+		}
+
+		# Opinion of buyer
+		opinion_modifier = {
+			trigger = {
+				scope:actor != scope:recipient
+			}
+			who = scope:actor
+			opinion_target = scope:recipient
+			multiplier = at_buy_sell_artifact_ai_opinion_multiplier
+		}
+
+		# Avoid doing business with rivals or nemesises
+		modifier = {
+			has_relation_rival = scope:recipient
+			add = -100
+		}
+		modifier = {
+			has_relation_nemesis = scope:recipient
+			add = -200
+		}
+	}
+}

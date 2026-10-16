@@ -1,0 +1,27 @@
+﻿voltara_elven_1_01 = {
+ construction_time = 730 cost_gold = 600
+ type_icon = "icon_building_ruin.dds"
+ can_construct_potential = { always = yes }
+ can_construct = { has_holding_type = castle_holding }
+ is_enabled = { NOT = { has_holding_type = voltara_ruin_holding } NOT = { has_holding_type = voltara_wasteland_holding } NOT = { has_holding_type = voltara_settlement_holding } }
+ character_modifier = { learning = 2 } county_modifier = { development_growth_factor = 0.1 }
+ ai_value = { base = 20 }
+}
+voltara_elven_2_01 = {
+ construction_time = 730 cost_gold = 600
+ type_icon = "icon_building_ruin.dds"
+ can_construct_potential = { always = yes }
+ can_construct = { has_holding_type = castle_holding }
+ is_enabled = { NOT = { has_holding_type = voltara_ruin_holding } NOT = { has_holding_type = voltara_wasteland_holding } NOT = { has_holding_type = voltara_settlement_holding } }
+ character_modifier = { monthly_piety = 0.5 } county_modifier = { county_opinion_add = 5 }
+ ai_value = { base = 20 }
+}
+voltara_elven_3_01 = {
+ construction_time = 730 cost_gold = 600
+ type_icon = "icon_building_ruin.dds"
+ can_construct_potential = { always = yes }
+ can_construct = { has_holding_type = castle_holding }
+ is_enabled = { NOT = { has_holding_type = voltara_ruin_holding } NOT = { has_holding_type = voltara_wasteland_holding } NOT = { has_holding_type = voltara_settlement_holding } }
+ character_modifier = { learning = 1 monthly_prestige = 0.25 } county_modifier = { development_growth_factor = 0.15 }
+ ai_value = { base = 20 }
+}

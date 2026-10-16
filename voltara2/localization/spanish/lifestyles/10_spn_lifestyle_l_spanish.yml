@@ -1,0 +1,107 @@
+﻿l_spanish:
+ #########################
+ # Vampire
+ #########################
+vampire_lifestyle_name:0 "Vampiro"
+vampire_lifestyle_desc:0 "Un cadáver animado por un alma que no ha encontrado descanso o por un demonio; abandona la tumba y atormenta a los vivos hasta que es exhumado y empalado o reducido a cenizas."
+vampire_lifestyle_highlight_desc:0 "Por mi naturaleza vampírica, obtengo #P [GetPlayer.Custom('GetEducationLifestylePercentageBoost')]#! más [experience|E] en este estilo de vida."
+monthly_vampire_lifestyle_xp_gain_mult:0 "[experience|E] mensual del [lifestyle|E] vampírico"
+vampire_focus_desc:0 "Sigue la senda de la sangre inmortal y aprende sus secretos."
+vampire_vampirism_focus_effect_desc:0 "Centrarse en el vampirismo otorga:"
+vampirism_name:0 "Vampirismo"
+vampire_vampirism_focus:0 "Vampirismo"
+vampire_vampirism_focus_modifier:0 "Enfoque de vampirismo"
+vampire_adventurer_focus:0 "Vampirismo"
+vampire_adventurer_focus_effect_desc:0 "Centrarse en el vampirismo otorga:"
+vampire_adventurer_focus_modifier:0 "Enfoque de vampirismo"
+vampire_master_focus:0 "Vampirismo ancestral"
+vampire_focus_master_desc:0 "Ahora que has completado la senda, encarnas todos los secretos que puede ofrecer el vampirismo."
+vampire_master_focus_effect_desc:0 "#italic Este enfoque no otorga experiencia de estilo de vida, solo poder.#!\nCentrarse en el vampirismo ancestral otorga:"
+vampire_master_focus_modifier:0 "Enfoque de vampirismo ancestral"
+
+ #########################
+ # Werewolf
+ #########################
+werewolf_lifestyle_name:0 "Hombre lobo"
+werewolf_lifestyle_desc:0 "Un humano maldito, condenado a transformarse en lobo bajo la luna llena. El corazón de la bestia late en su interior."
+werewolf_lifestyle_highlight_desc:0 "Por mi naturaleza de hombre lobo, obtengo #P [GetPlayer.Custom('GetEducationLifestylePercentageBoost')]#! más [experience|E] en este estilo de vida."
+monthly_werewolf_lifestyle_xp_gain_mult:0 "[experience|E] mensual del [lifestyle|E] de hombre lobo"
+werewolf_lycanthropy_focus_desc:0 "Sigue la senda del hombre lobo y aprende sus secretos."
+werewolf_lycanthropy_focus_effect_desc:0 "Centrarse en la licantropía otorga:"
+lycanthropy_name:0 "Licantropía"
+werewolf_lycanthropy_focus:0 "Licantropía"
+werewolf_lycanthropy_focus_modifier:0 "Enfoque de licantropía"
+werewolf_adventurer_focus:0 "Licantropía"
+werewolf_adventurer_focus_effect_desc:0 "Centrarse en la licantropía otorga:"
+werewolf_master_focus:0 "Licantropía indomable"
+werewolf_focus_master_desc:0 "Ahora que has completado el viaje, encarnas todos los aspectos de la licantropía."
+werewolf_master_focus_effect_desc:0 "#italic Este enfoque no otorga experiencia de estilo de vida, solo poder.#!\nCentrarse en la licantropía indomable otorga:"
+werewolf_master_focus_modifier:0 "Enfoque de licantropía indomable"
+
+ #########################
+ # Hybrid
+ #########################
+hybrid_lifestyle_name:0 "Híbrido"
+hybrid_lifestyle_desc:0 "Una abominación de la naturaleza: el cruce entre un vampiro y un hombre lobo. Nadie sabe hasta dónde puede llegar el poder de esta criatura."
+hybrid_lifestyle_highlight_desc:0 "Por mi naturaleza híbrida, obtengo #P [GetPlayer.Custom('GetEducationLifestylePercentageBoost')]#! más [experience|E] en este estilo de vida."
+monthly_hybrid_lifestyle_xp_gain_mult:0 "[experience|E] mensual del [lifestyle|E] híbrido"
+werewolf_name:0 "Licantropía"
+vampire_name:0 "Vampirismo"
+hybrid_name:0 "Híbrido vampiro-hombre lobo"
+hybrid_hybrid_focus:0 "Híbrido"
+hybrid_hybrid_focus_desc:0 "Sigue la senda del híbrido y accede a sus inmensos poderes."
+hybrid_hybrid_focus_effect_desc:0 "Centrarse en la naturaleza híbrida otorga:"
+hybrid_hybrid_focus_modifier:0 "Enfoque híbrido"
+hybrid_adventurer_focus:0 "Híbrido"
+hybrid_adventurer_focus_effect_desc:0 "Centrarse en la naturaleza híbrida otorga:"
+hybrid_adventurer_focus_modifier:0 "Enfoque híbrido"
+hybrid_master_focus:0 "El híbrido inmortal"
+hybrid_master_focus_desc:0 "Por fin eres el híbrido inmortal, una abominación de la propia naturaleza."
+hybrid_master_focus_effect_desc:0 "#italic Este enfoque no otorga experiencia de estilo de vida, solo poder.#!\nCentrarse en el híbrido inmortal otorga:"
+hybrid_master_focus_modifier:0 "Enfoque del híbrido inmortal"
+
+ #########################
+ # Hunter
+ #########################
+hunter_lifestyle_name:0 "Cazador"
+hunter_lifestyle_desc:0 "Un humano que ha consagrado su vida a destruir seres sobrenaturales."
+hunter_lifestyle_highlight_desc:0 "Por mis aptitudes como cazador, obtengo #P [GetPlayer.Custom('GetEducationLifestylePercentageBoost')]#! más [experience|E] en este estilo de vida."
+hunter_focus_desc:0 "Sigue la senda del cazador de monstruos y aprende sus técnicas."
+monthly_hunter_lifestyle_xp_gain_mult:0 "[experience|E] mensual del [lifestyle|E] de cazador"
+hunter_monster_hunter_focus_effect_desc:0 "Centrarse en la caza de monstruos otorga:"
+monster_hunter_name:0 "Cazador de monstruos"
+hunter_monster_hunter_focus:0 "Cazador de monstruos"
+hunter_monster_hunter_focus_modifier:0 "Cazador de monstruos"
+
+ #########################
+ # Magic
+ #########################
+magic_lifestyle_name:0 "Magia"
+magic_lifestyle_desc:0 "Céntrate en estudiar conocimientos ocultos y poderes mágicos."
+magic_lifestyle_highlight_desc:0 "Tienes acceso a este estilo de vida porque practicas la brujería."
+
+witch_name:0 "Brujería"
+magic_name:0 "Artes arcanas"
+blackmagic_name:0 "Magia negra"
+
+witch_focus:0 "Enfoque de brujería"
+witch_focus_modifier:0 "Enfoque de brujería"
+witch_focus_effect_desc:0 "Centrarse en la brujería otorga:"
+magic_witch_focus_desc:0 "Sigue la senda de la brujería y aprende toda clase de hechizos y rituales."
+true_witch_perk_tt:0 "Al convertirte en una Bruja Verdadera, no podrás elegir la ventaja final de los otros árboles de ventajas."
+
+arcane_focus:0 "Enfoque arcano"
+arcane_focus_modifier:0 "Enfoque arcano"
+arcane_focus_effect_desc:0 "Centrarse en las artes arcanas otorga:"
+magic_arcane_focus_desc:0 "Sigue la senda de lo arcano y profundiza en la hechicería y las invocaciones."
+archmage_perk_tt:0 "Cuando te conviertas en mago, no podrás elegir la ventaja final de los otros árboles de ventajas."
+
+blackmagic_focus:0 "Enfoque de magia negra"
+blackmagic_focus_modifier:0 "Enfoque de magia negra"
+blackmagic_focus_effect_desc:0 "Centrarse en la magia negra otorga:"
+magic_blackmagic_focus_desc:0 "Sigue la senda de las artes oscuras y aprende toda clase de maldiciones y rituales demoníacos."
+warlock_perk_tt:0 "Al convertirte en brujo, no podrás elegir la ventaja final de los otros árboles de ventajas."
+
+REQUIRMENTS_MAGIC1:0 "Requiere: rasgo de bruja o secreto de brujería"
+REQUIRMENTS_MAGIC2:0 "Requiere: rasgo de objeto mágico o rasgo de fuente"
+REQUIREMENTS_MASTER:0 "Requiere: desbloquear las ventajas finales del árbol de estilo de vida"

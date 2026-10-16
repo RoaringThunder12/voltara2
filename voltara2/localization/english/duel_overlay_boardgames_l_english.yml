@@ -1,0 +1,14 @@
+﻿l_english:
+failure: "$board_games.0001.tt.failure$"
+crit_failure: "$board_games.0001.tt.crit_failure$"
+success: "$board_games.0001.tt.success$"
+crit_success: "$board_games.0001.tt.crit_success$"
+
+boardgame_overlay: "Board game overlay"
+bg_sudden_death_losing: "You might lose due to [board_game_winning_sudden_death|E] if you don't gain more than 10 points, as you are the attacker"
+bg_sudden_death_winning: "You might win due to [board_game_winning_sudden_death|E] if your opponent doesn't gain more than 10 points, as you are the defender"
+bg_last_move: "Your last move was a [GetPlayer.MakeScope.Var('bg_move_result').GetFlagName]"
+bg_your_score: "#t Your score#!\nYou neeed more than 10 points to win[AddTextIf(GetPlayer.MakeScope.Var('bg_current_round').IsSet, '. Or to survive 4 rounds, as you are the defender.')]"
+bg_win_tally: "#t Total games: #!\nVictories: [GetPlayer.MakeScope.Var('bg_win_tally').GetValue|0+]\nLosses: [GetPlayer.MakeScope.Var('bg_loss_tally').GetValue|0-]"
+bg_current_round: "#T Current round"
+bg_enemy_score: "#t Oponnent's score#! \nThey need more than 10 points to win[AddTextIf(Not(GetPlayer.MakeScope.Var('bg_current_round').IsSet), '. Or to survive 4 rounds, as they are the defender.')]"

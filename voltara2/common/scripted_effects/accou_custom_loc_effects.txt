@@ -1,0 +1,41 @@
+﻿accou_get_better_councillor_option_scopes_effect = {
+	every_in_list = {
+		variable = accou_better_councillor_options
+		if = {
+			limit = { NOT = { exists = scope:bc_option1 } }
+			save_scope_as = bc_option1
+		}
+		else_if = {
+			limit = { NOT = { exists = scope:bc_option2 } }
+			save_scope_as = bc_option2
+		}
+		else_if = {
+			limit = { NOT = { exists = scope:bc_option3 } }
+			save_scope_as = bc_option3
+		}
+		else = {
+			save_scope_as = bc_option4
+		}
+	}
+}
+
+accou_get_better_court_position_option_scopes_effect = {
+	every_in_list = {
+		variable = accou_better_court_position_options
+		if = {
+			limit = { NOT = { exists = scope:bcp_option1 } }
+			save_scope_as = bcp_option1
+		}
+		else_if = {
+			limit = { NOT = { exists = scope:bcp_option2 } }
+			save_scope_as = bcp_option2
+		}
+		else_if = {
+			limit = { NOT = { exists = scope:bcp_option3 } }
+			save_scope_as = bcp_option3
+		}
+		else = {
+			save_scope_as = bcp_option4
+		}
+	}
+}

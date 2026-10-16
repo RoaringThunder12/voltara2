@@ -1,0 +1,15 @@
+﻿jdb_bc_has_commander_flavor_text_retreat = {
+	scope = character
+
+	is_shown = {
+		has_variable = jdb_bc_commander_flavor_text_retreat
+	}
+}
+
+jdb_bc_has_commander_flavor_text_siege = {
+	scope = character
+
+	is_shown = {
+		has_variable = jdb_bc_commander_flavor_text_siege
+	}
+}

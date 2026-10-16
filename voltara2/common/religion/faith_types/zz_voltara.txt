@@ -1,0 +1,17 @@
+﻿voltara_faith_0 = {
+ faith_details = { religion = voltara_folk_religion color = { 136 136 136 } icon = voltara_folk graphical_faith = pagan_gfx }
+ tenets = { tenet_ancestor_worship tenet_sanctity_of_nature tenet_ritual_celebrations }
+}
+voltara_aeluinist = {
+ main_rite = voltara_order_rite_23
+ faith_details = { religion = voltara_religion color = { 236 171 46 } icon = voltara_23 graphical_faith = catholic_gfx religious_head = k_voltara_luminous_see }
+ eminent_holy_sites = { voltara_first_measure voltara_titania voltara_kartholos }
+ holy_sites = { voltara_thornfall voltara_enderal }
+ doctrines = { special_doctrine_has_clerical_electors voltara_order_hostility doctrine_spiritual_head }
+}
+voltara_khaotism = {
+ main_rite = voltara_khaotism_rite
+ faith_details = { religion = voltara_khaos_religion color = { 120 40 160 } icon = voltara_khaos graphical_faith = pagan_gfx }
+ eminent_holy_sites = { voltara_khaos_site_0 voltara_khaos_site_1 voltara_khaos_site_2 }
+ doctrines = { voltara_khaos_hostility }
+}

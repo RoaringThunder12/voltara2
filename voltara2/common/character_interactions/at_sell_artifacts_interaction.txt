@@ -1,0 +1,101 @@
+﻿# Sell a previously selected artifact to other characters that are willing to buy it from you.
+# The previously selected artifact is saved in the at_artifacts_window_selected_artifact variable.
+# Scopes: actor / recipient is the artifact owner (seller), secondary_recipient is the buyer, target is the artifact.
+# Human player only.
+at_sell_artifacts_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	category = interaction_category_diplomacy
+	desc = at_sell_artifacts_interaction_desc
+	interface_priority = 60
+	common_interaction = yes
+	needs_recipient_to_open = no
+	icon = artisan_inspiration
+
+	target_type = artifact
+	target_filter = actor_artifacts
+
+	greeting = positive
+	send_name = at_sell_artifacts_interaction_send_name
+
+	hidden = yes
+
+	populate_recipient_list = {
+		scope:actor = {
+			at_get_valid_buyers_or_sellers_effect = { LIST = valid_buyers }
+			var:at_artifacts_window_selected_artifact = {
+				save_temporary_scope_as = artifact
+			}
+		}
+		ordered_in_list = {
+			list = valid_buyers
+			limit = {
+				is_ai = yes
+				at_can_sell_artifact_to_trigger = { PARTY = scope:actor }
+				save_temporary_scope_as = buyer
+				scope:artifact = {
+					at_artifact_can_be_bought_by_trigger = { BUYER = scope:buyer }
+				}
+				save_temporary_opinion_value_as = {
+					name = opinion_of_actor
+					target = scope:actor
+				}
+				at_sell_artifact_ai_accept_value > 0
+			}
+			order_by = {
+				save_temporary_scope_as = buyer
+				value = scope:artifact.at_artifact_bid_price_value
+				max = at_short_term_gold_value
+			}
+			max = at_number_of_potential_buyers_value
+			check_range_bounds = no
+			add_to_list = characters
+		}
+	}
+
+	can_be_picked_artifact = {
+		scope:actor = {
+			trigger_if = {
+				limit = {
+					exists = scope:target
+				}
+				var:at_artifacts_window_selected_artifact = scope:target
+			}
+			var:at_artifacts_window_selected_artifact = {
+				at_artifact_can_be_sold_trigger = yes
+			}
+		}
+	}
+
+	on_accept = {
+		show_as_tooltip = {
+			scope:actor = { save_scope_as = seller }
+			scope:secondary_recipient = { save_scope_as = buyer }
+			scope:secondary_recipient = { save_scope_as = recipient }
+			scope:target = { save_scope_as = artifact }
+			at_buy_artifact_interaction_effect = {
+				ARTIFACT_PRICE = scope:artifact.at_artifact_bid_price_value
+			}
+		}
+		open_interaction_window = {
+			interaction = at_sell_artifact_interaction
+			actor = scope:actor
+			recipient = scope:secondary_recipient
+		}
+		scope:actor = {
+			remove_variable = at_artifacts_window_selected_artifact
+		}
+	}
+
+	auto_accept = yes
+}

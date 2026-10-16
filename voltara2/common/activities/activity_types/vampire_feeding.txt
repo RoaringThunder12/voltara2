@@ -1,0 +1,1269 @@
+﻿vampire_feeding = {
+	is_shown = {
+		OR = {
+			is_landed_or_landless_administrative = yes
+			is_landless_adventurer = yes
+		}
+		#years_from_game_start >= 3
+		is_playable_character = yes
+		is_available_adult = yes
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}
+			is_at_war = no
+		}
+		OR = {
+			has_trait = supernatural_vampire
+			has_trait = supernatural_hybrid
+		}
+		# 2.35 -- a vampire that has gone to ground from a hunter (spn_hunt.0020 / .0200) stays in for the year.
+		NOT = { has_character_modifier = spn_gone_to_ground_modifier }
+	}
+	
+	#is_grand_activity = no
+	
+	can_start_showing_failures_only = {
+		is_available = yes
+		age >= 16
+
+		#custom_description = {
+		#	NOT = { has_trait = spn_known_vampire }
+		#	text = known_vampire_feed
+		#}
+		#custom_description = {
+		#	NOT = { has_trait = spn_known_hybrid }
+		#	text = known_hybrid_feed
+		#}
+	}
+
+	is_valid = {
+		NOT = {
+			has_variable = activity_invalidated
+		}
+		scope:host = {
+			OR = {
+				is_landed_or_landless_administrative = yes
+				is_landless_adventurer = yes
+			}
+			is_alive = yes
+			is_imprisoned = no			
+			NOT = { is_incapable = yes }
+		}
+		
+	}
+	on_start = {
+		#space for invitation event
+		#every_player instead of a full every_living_character walk - the old limit's first line
+		#was is_ai = no, so this was scanning ~190k characters to find the handful of players.
+		every_player = {
+			limit = {
+				NOT = {
+					THIS = scope:host
+				}
+				is_adult = yes
+				is_imprisoned = no
+				OR = {
+					has_trait = supernatural_hybrid
+					has_trait = supernatural_vampire
+				}
+				#The host has to have some way of knowing what they are.
+				spn_host_knows_supernatural_trigger = { HOST = scope:host }
+			}
+			trigger_event = supernatural_ev1.01
+		}
+
+		# --- Success Chance bar (vanilla widget; mirrors Hunt / Inspection) ---
+		scope:activity ?= {
+			set_variable = { name = vampire_feeding_success_chance value = vf_feeding_success_chance }
+		}
+	}
+
+	on_invalidated = {
+		if = { #Host becomes braindead
+			limit = {
+				scope:host = { is_incapable = yes }
+			}
+			scope:activity = {
+				activity_type = { save_scope_as = activity_type }
+			}
+			scope:host = {
+				trigger_event = activity_system.0330
+			}
+			every_attending_character = {
+				limit = { NOT = { this = scope:host } }
+				trigger_event = activity_system.0331
+			}
+		}
+	}
+
+	on_host_death = {
+		scope:activity = {
+			set_variable = {
+				name = activity_invalidated
+			}
+		}
+	}
+
+	### Bottom-of-window progress bar widget (vanilla) ###
+	activity_window_widgets = {
+		vampire_feeding_success_chance = "activity_plugin_widgets_summary"
+	}
+
+	###################
+	# COST
+	###################
+
+	cost = {
+		gold = {
+			add = {
+				value = standard_camp_party_activity_cost
+				desc = hunt_base_cost
+			}
+			if = {
+				limit = {
+					OR = {
+						has_perk = true_vampire_perk
+						has_perk = true_vampire_hybrid_perk
+					}
+				}
+				multiply = {
+					value = 0.5
+					#desc = magic_tradition_modifier
+				}
+			}
+		}
+	}
+	
+	ui_predicted_cost = {
+		gold = {
+			# Base Cost
+			value = standard_camp_party_activity_cost
+			if = {
+				limit = {
+					OR = {
+						has_perk = true_vampire_perk
+						has_perk = true_vampire_hybrid_perk
+					}
+				}
+				multiply = 0.5
+			}
+			# Make it a multiple of 5 (rounded up)
+			divide = 5 
+			ceiling = yes 
+			multiply = 5
+		}
+	}
+	cooldown = { years = 7 }
+
+	wait_time_before_start = { weeks = 1 }
+	max_guest_arrival_delay_time = { months = 3 }
+	is_single_location = yes
+
+	###################
+	# AI VALUES
+	###################
+
+	# desc is only shown in debug AI watch window
+	ai_will_do = {
+		value = 30
+
+		# 2.33 -- PERSONALITY. Before this, ai_will_do read track progress and known-vampire status and
+		# NOTHING ELSE -- not one personality trait in the whole block, which is exactly the thing the
+		# design doc objects to: "I don't want a random lord who's content doing all these feedings."
+		# Root is the character evaluating the activity (_activity_type.info:441).
+		#
+		# Appetite pushes up; restraint, cowardice and contentment pull down. Paranoid is a pull
+		# because this is a party with witnesses, not because a paranoid vampire is less hungry.
+		if = { limit = { has_trait = gluttonous }    add = 20 }
+		if = { limit = { has_trait = sadistic }      add = 15 }
+		if = { limit = { has_trait = callous }       add = 10 }
+		if = { limit = { has_trait = ambitious }     add = 12 }
+		if = { limit = { has_trait = wrathful }      add = 10 }
+		if = { limit = { has_trait = arrogant }      add = 8 }
+		if = { limit = { has_trait = lustful }       add = 8 }
+		if = { limit = { has_trait = impatient }     add = 6 }
+
+		if = { limit = { has_trait = content }       add = -20 }
+		if = { limit = { has_trait = temperate }     add = -15 }
+		if = { limit = { has_trait = paranoid }      add = -15 }
+		if = { limit = { has_trait = calm }          add = -12 }
+		if = { limit = { has_trait = compassionate } add = -12 }
+		if = { limit = { has_trait = craven }        add = -10 }
+		if = { limit = { has_trait = zealous }       add = -10 }
+		if = { limit = { has_trait = shy }           add = -10 }
+		if = { limit = { has_trait = humble }        add = -8 }
+		if = { limit = { has_trait = chaste }        add = -8 }
+
+		# Hunger still overrides temperament. A starving vampire feeds whatever they are like.
+		if = { limit = { stress_level >= 2 } add = 15 }
+
+		
+		#Vampires
+		if = {
+			limit = {
+				AND = {
+					has_trait = supernatural_vampire
+					has_trait_xp = { 
+						trait = supernatural_vampire 
+						track = vampirism 
+						value < 20 
+					}
+				}
+			}
+			add = 20
+		}
+		if = {
+			limit = {
+				AND = {
+					has_trait = supernatural_vampire
+					has_trait_xp = { 
+						trait = supernatural_vampire 
+						track = vampirism 
+						value < 40 
+					}
+				}
+			}
+			add = 20
+		}
+		if = {
+			limit = {
+				has_trait = spn_known_vampire
+			}
+			add = -30
+		}
+		#Hybrids
+		if = {
+			limit = {
+				AND = {
+					has_trait = supernatural_hybrid
+					has_trait_xp = { 
+						trait = supernatural_hybrid
+						track = hybrid_vampirism 
+						value < 20 
+					}
+				}
+			}
+			add = 20
+		}
+		if = {
+			limit = {
+				AND = {
+					has_trait = supernatural_hybrid
+					has_trait_xp = { 
+						trait = supernatural_hybrid
+						track = hybrid_vampirism 
+						value < 40 
+					}
+				}
+			}
+			add = 20
+		}
+		if = {
+			limit = {
+				has_trait = spn_known_hybrid
+			}
+			add = -30
+		}
+		
+
+	}
+
+	ai_check_interval = 60
+
+	ai_will_select_province = {
+		value = { value = 20 add = scope:score }
+	}
+
+	###################
+	# OPTIONS
+	###################
+
+	options = {
+		
+		options_preparations = { # How do you prepare for a night of feeding?
+			preparations_option_instinct = { #No Increased Success Chance
+				default = yes
+				#is_shown = { has_dlc_feature = advanced_activities }
+				
+				cost = {
+					gold = 0
+				}
+				
+				ai_will_do = {
+					value = 0
+					# Financial preference.
+					add = activity_option_likes_cheap_expense_value
+					# Fanciness preference.
+					add = activity_option_likes_functional_food_option_value
+				}
+			}
+			preparations_option_scout = { #Increase Success Chance
+				cost = {
+					gold = 25
+				}
+
+				ai_will_do = {
+					value = 0
+					# Financial preference.
+					add = activity_option_likes_middling_expense_value
+					# Fanciness preference.
+					## We just use slightly reduced fanciness prefs here.
+					add = {
+						value = activity_option_likes_ostentatious_food_option_value
+						multiply = 0.5
+					}
+				}
+			}
+			preparations_option_trap = { #Increase Greater Success Chance
+				#is_shown = { has_dlc_feature = advanced_activities }
+
+				cost = {
+					gold = {
+						add = {
+							add = {
+								value = 35
+								desc = feast_food_good
+							}
+							add = {
+								value = 25
+								multiply = activity_cost_scale_by_tier
+								subtract = 25
+								desc = activity_cost_scale_by_tier_desc
+							}
+							add = {
+								value = 25
+								multiply = activity_cost_scale_by_era
+								subtract = 25
+								desc = activity_cost_scale_by_era_desc
+							}
+							min = 0
+						}
+					}
+				}
+
+				ai_will_do = {
+					value = 0
+					# Financial preference.
+					add = activity_option_likes_heavy_expense_value
+					# Fanciness preference.
+					add = activity_option_likes_ostentatious_food_option_value
+				}
+			}
+		}
+		options_spoils = {
+			spoils_option_dead_respect = { #Gain Piety (restrained)
+				default = yes
+				cost = {
+					gold = 0
+				}
+				ai_will_do = {
+					value = 0
+					# Free option.
+					add = activity_option_likes_cheap_expense_value
+					# Honorable, restrained, pious characters prefer sparing the dead.
+					if = { limit = { has_trait = generous } add = { value = 20 desc = "Generous" } }
+					if = { limit = { has_trait = just } add = { value = 15 desc = "Just" } }
+					if = { limit = { has_trait = compassionate } add = { value = 15 desc = "Compassionate" } }
+					if = { limit = { has_trait = zealous } add = { value = 10 desc = "Zealous" } }
+				}
+			}
+			spoils_option_robbing = { #Gain Gold (rob the victim)
+				cost = {
+					piety = 20
+				}
+				ai_will_do = {
+					value = 0
+					# No gold cost.
+					add = activity_option_likes_cheap_expense_value
+					# Greedy, dishonorable characters are drawn to robbing.
+					if = { limit = { has_trait = greedy } add = { value = 20 desc = "Greedy" } }
+					if = { limit = { has_trait = avaricious } add = { value = 20 desc = "Avaricious" } }
+					if = { limit = { has_trait = deceitful } add = { value = 10 desc = "Deceitful" } }
+					# Honorable characters avoid robbing the dead.
+					if = { limit = { has_trait = generous } add = { value = -15 desc = "Generous" } }
+					if = { limit = { has_trait = just } add = { value = -15 desc = "Just" } }
+				}
+			}
+			spoils_option_casing = { #Gain Extra Gold (target the wealthy)
+				cost = {
+					gold = 50
+				}
+				ai_will_do = {
+					value = 0
+					# Costs gold.
+					add = activity_option_likes_middling_expense_value
+					# Calculating, ambitious greed.
+					if = { limit = { has_trait = greedy } add = { value = 20 desc = "Greedy" } }
+					if = { limit = { has_trait = avaricious } add = { value = 20 desc = "Avaricious" } }
+					if = { limit = { has_trait = ambitious } add = { value = 15 desc = "Ambitious" } }
+				}
+			}
+		}
+	}
+
+	###################
+	# PHASES
+	###################
+
+	phases = {
+		searching_phase = {
+			is_predefined = yes
+			order = 1
+			on_phase_active = {
+				st_clear_flags_effect = yes
+				if = {
+					limit = {
+						is_ai = yes
+					}
+					st_load_intents_for_ai_effect = yes
+				}
+				if = {
+					limit = { this = scope:host }
+					scope:activity = { progress_activity_phase_after = { weeks = 3 } }
+					# Check that there are guests apart from the host.
+					if = {
+						limit = {
+							scope:activity = {
+								any_attending_character = {
+									count < 1
+									NOT = {	this = scope:host }
+								}
+							}
+						}
+						# If no other vampires are present.
+						trigger_event = supernatural_ev1.02
+					}
+					else = {
+						# If other vampires are present.
+						trigger_event = supernatural_ev1.03
+						random = {
+							chance = 50
+							trigger_event = {
+								id = supernatural_ev1.08
+								days = 4
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						scope:activity = {
+							any_attending_character = {
+								has_character_flag = mikaelson_vampire
+							}
+						}
+					}
+					random = {
+						chance = 80
+						trigger_event = {
+							id = supernatural_ev1.06 # Mikaelson Vampire Event
+							days = 5
+						}
+					}
+				}
+			}
+
+			on_end = {
+				if = {
+					limit = {
+						scope:activity = {
+							has_activity_option = { category = options_preparations option = preparations_option_scout }
+						}
+					}
+					trigger_event = {
+						id = supernatural_ev1.13
+					}
+				}
+				else_if = {
+					limit = {
+						scope:activity = {
+							has_activity_option = { category = options_preparations option = preparations_option_trap }
+						}
+					}
+					trigger_event = {
+						id = supernatural_ev1.14
+					}
+				}
+			}
+
+			on_weekly_pulse = {
+				trigger_event = { on_action = st_default_event_selection }
+			}
+		}
+
+		feeding_phase = {
+			is_predefined = yes
+			order = 2
+			on_enter_phase = {
+				if = {
+					limit = { this = scope:host }
+					# No passive state, just jump right into it
+					scope:activity = { progress_activity_phase_after = { days = 5 } }
+				}
+				trigger_event = {
+					id = supernatural_ev1.21
+					days = 2 
+				}
+			}
+			on_phase_active = {
+				if = {
+					limit = { this = scope:host }
+					scope:activity = { progress_activity_phase_after = { days = 14 } }
+				}
+				trigger_event = supernatural_ev1.22
+			}
+
+			on_end = {
+				# Run conclusion stuff here
+				trigger_event = supernatural_ev1.23
+			}
+		}
+	}
+
+	###################
+	# LOCATION
+	###################
+	
+	is_location_valid = {
+		# Cheapest test first: province_filter is `all` now, so this runs against every province
+		# in the world when the planner opens. city_holding stays first to keep the short-circuit.
+		# 2.34: tribal holdings too -- a tribal ruler in an early tribal region had no city within reach and could never
+		# feed (Workshop report, Jul 2026). A vampire preying on a tribal hall is squarely in the lore.
+		OR = {
+			has_holding_type = city_holding
+			has_holding_type = tribal_holding
+		}
+		# 2.32 -- and this is the leash. `large` is vanilla's own "roughly one France away", which
+		# reaches a neighbour's capital or a friend's realm across the way without putting
+		# Constantinople on the menu from Ireland. Travel time does the rest of the limiting.
+		# This is the tuning knob if the range ever feels wrong: small / medium / large / huge.
+		# The threshold is its own script value so the AGOT patch can retune it for that map.
+		# 2.35a -- WRAPPED, same defect as the hunt: the bare comparison printed
+		# `province_named_script_value_less_or_equal` in red on the feeding planner. Unchanged otherwise.
+		custom_tooltip = {
+			text = spn_vf_location_too_far_tt
+			vf_host_distance_to_province <= spn_vf_max_feeding_distance
+		}
+	}
+
+	# 2.32 -- was domicile_realm for both, which meant every city on the picker was yours or a
+	# vassal's -- so "feed in a foreign city" was unreachable no matter what the victim code did.
+	# The player roams; the AI stays home, so no worldwide scan runs on every AI planner tick.
+	# Vanilla splits these the same way in monument_expedition (all / top_realm).
+	province_filter = all
+	# 2.35 -- WIDENED from domicile_realm. The AI never once started this activity in a 20-year test
+	# campaign: domicile_realm confined it to its own realm, is_location_valid needs a city or tribal
+	# holding, and an AI vampire whose realm is all castles therefore had no valid province, ever.
+	# top_realm gives a vassal the whole of his top liege's realm -- a count can now feed in his
+	# neighbour's city, which is the point -- without `all`, which the engine explicitly warns against
+	# because the planner rescans it on every AI tick.
+	# TRADE-OFF: a landless AI adventurer has no realm, so it loses the domicile province it used to
+	# get here. Landless AI creatures are rare; the landless PLAYER is unaffected (province_filter = all).
+	ai_province_filter = top_realm
+
+	max_province_icons = 6
+	allow_zero_guest_invites = yes
+	open_invite = no
+	
+		province_score = {
+		value = 0
+		# Smooth development gradient: lower dev = greener = easier feeding. Guarded so no-county provinces don't error.
+		if = {
+			limit = { exists = county }
+			add = 150
+			county = { add = { value = spn_county_prosperity_value multiply = -2.5 } }
+			# Lawless counties (low control) feed easier (greener).
+			add = { value = county.county_control multiply = -0.4 }
+			# War / plague = chaos, a perfect cover to feed (much greener).
+			if = { limit = { county = { any_county_province_epidemic = { count >= 1 outbreak_intensity < apocalyptic } } } add = 30 }
+			if = { limit = { county = { holder ?= { is_at_war = yes } } } add = 20 }
+		}
+	}
+	province_description = {
+		desc = vf_prov_base
+		# Development (one tag via first_valid).
+		first_valid = {
+			triggered_desc = { trigger = { exists = county county = { spn_county_prosperity_value >= 55 } } desc = vf_tag_dev_terrible }
+			triggered_desc = { trigger = { exists = county county = { spn_county_prosperity_value >= 40 } } desc = vf_tag_dev_bad }
+			triggered_desc = { trigger = { exists = county county = { spn_county_prosperity_value < 15 } } desc = vf_tag_dev_best }
+			triggered_desc = { trigger = { exists = county county = { spn_county_prosperity_value < 25 } } desc = vf_tag_dev_good }
+		}
+		# County control (one tag via first_valid) - vanilla county.county_control.
+		first_valid = {
+			triggered_desc = { trigger = { exists = county county.county_control <= 25 } desc = vf_tag_control_best }
+			triggered_desc = { trigger = { exists = county county.county_control <= 50 } desc = vf_tag_control_good }
+			triggered_desc = { trigger = { exists = county county.county_control >= 90 } desc = vf_tag_control_bad }
+			triggered_desc = { trigger = { exists = county county.county_control >= 75 } desc = vf_tag_control_mid }
+		}
+	}
+	
+	###################
+	# ACTIVITY-SPECIFIC PULSES
+	###################
+	
+	pulse_actions = {
+		entries = {
+			won_arm_wrestling_bet
+			compelled_drunkard
+			unholy_communion
+			instilled_fear_in_citizen
+			rumors_of_vampires
+			expertise_display
+		}
+		chance_of_no_event = 25
+	}
+
+
+	###################
+	# GUEST HANDLING
+	###################
+
+	max_guests = 5
+
+	guest_invite_rules = {
+		defaults = {
+			1 = activity_invite_rule_vampires
+			2 = activity_invite_rule_supernatural_mp
+		}
+		rules = {
+			3 = activity_invite_rule_hybrids
+		}
+	}
+
+	can_be_activity_guest = {
+		is_alive = yes
+		is_adult = yes
+		is_travelling = no
+		is_imprisoned = no
+		is_incapable = no
+		is_in_army = no
+		NOT = {
+			exists = involved_activity
+		}
+		OR = {
+			has_trait = supernatural_vampire
+			has_trait = supernatural_hybrid
+		}
+		#root = the candidate, scope:host = the inviter.
+		#This is the chokepoint the guest list is filtered through, so it closes the invite-rule
+		#path as well as the letter. (The earlier commented-out attempt referenced secret_vampire,
+		#which does not exist in this mod - the real key is spn_secret_vampire - and had no
+		#is_known_by clause, so it tested "has the secret" rather than "the host knows it".)
+		spn_host_knows_supernatural_trigger = { HOST = scope:host }
+	}
+
+	host_intents = {
+		intents = { satiate_thirst_intent embrace_the_night_intent strengthen_the_blood_intent }
+		default = satiate_thirst_intent
+		player_defaults = { strengthen_the_blood_intent }
+	}
+
+	guest_intents = {
+		intents = { satiate_thirst_intent embrace_the_night_intent strengthen_the_blood_intent }
+		default = satiate_thirst_intent
+		player_defaults = { strengthen_the_blood_intent }
+	}
+
+	guest_join_chance = {
+		base = 20
+		base_activity_modifier = yes
+
+		# 2.33 -- PERSONALITY, both ends of the invitation. This block also had zero personality in it.
+		# Root is the candidate guest; scope:host is the inviter (_activity_type.info:726).
+		#
+		# THE HOST'S END is why "a paranoid lord shouldn't invite a whole bunch of people" lands here
+		# rather than on max_guests: max_guests is scriptable, but no vanilla activity reads a character
+		# trait inside it and its root is not documented, so using has_trait there would be a guess.
+		# Suppressing acceptances gets the same small gathering through a scope the docs guarantee.
+		modifier = {
+			scope:host = { has_trait = paranoid }
+			add = -25
+			desc = vf_join_host_paranoid
+		}
+		modifier = {
+			scope:host = { has_trait = shy }
+			add = -10
+			desc = vf_join_host_shy
+		}
+		modifier = {
+			scope:host = { has_trait = gregarious }
+			add = 15
+			desc = vf_join_host_gregarious
+		}
+
+		# THE GUEST'S END -- would this vampire travel to somebody else's feeding?
+		modifier = { has_trait = gluttonous   add = 15  desc = vf_join_guest_eager }
+		modifier = { has_trait = gregarious   add = 12  desc = vf_join_guest_eager }
+		modifier = { has_trait = lustful      add = 8   desc = vf_join_guest_eager }
+		modifier = { has_trait = brave        add = 5   desc = vf_join_guest_eager }
+		modifier = { has_trait = paranoid     add = -20 desc = vf_join_guest_wary }
+		modifier = { has_trait = shy          add = -15 desc = vf_join_guest_wary }
+		modifier = { has_trait = temperate    add = -12 desc = vf_join_guest_wary }
+		modifier = { has_trait = content      add = -10 desc = vf_join_guest_wary }
+		modifier = { has_trait = craven       add = -10 desc = vf_join_guest_wary }
+
+
+		# Scripted Modifiers
+		activity_guest_shared_ai_accept_modifier = yes
+		modifier = {
+			AND = {
+				has_trait = supernatural_vampire
+				has_trait_xp = { 
+					trait = supernatural_vampire 
+					track = vampirism 
+					value < 33 
+				}
+			}
+			add = {
+				value = 30
+			}
+			desc = ms_guest_important_event
+		}
+		modifier = {
+			AND = {
+				has_trait = supernatural_hybrid
+				has_trait_xp = { 
+					trait = supernatural_hybrid 
+					track = hybrid_vampirism 
+					value < 33 
+				}
+			}
+			add = {
+				value = 30
+			}
+			desc = ms_guest_important_event
+		}
+		modifier = {
+			AND = {
+				has_trait = supernatural_vampire
+				has_trait_xp = { 
+					trait = supernatural_vampire 
+					track = vampirism 
+					value < 66 
+				}
+			}
+			add = {
+				value = 50
+			}
+			desc = ms_guest_important_event
+		}
+		modifier = {
+			AND = {
+				has_trait = supernatural_hybrid
+				has_trait_xp = { 
+					trait = supernatural_hybrid 
+					track = hybrid_vampirism 
+					value < 66 
+				}
+			}
+			add = {
+				value = 50
+			}
+			desc = ms_guest_important_event
+		}
+	}
+	
+	on_complete = {
+		if = {
+			limit = { this = scope:host }
+			scope:activity = {
+				add_activity_log_entry = {
+					key = feeding_activity_conclusion
+					tags = { completed }
+					show_in_conclusion = yes
+					character = scope:host
+
+					# Award XP to all attending characters
+					every_attending_character = {
+						# 2.32 -- routed through the capped-track conversion. Identical below 100; at 100 the
+						# reward arrives as lifestyle XP for that creature's own tree instead of being thrown
+						# away. This is the ONLY place in 2.32 that grants creature lifestyle XP.
+						spn_capped_track_lifestyle_convert_effect = { AMOUNT_MIN = 3 AMOUNT_MAX = 8 }
+						add_character_modifier = {
+							modifier = vf_recently_fed_modifier
+							years = 3
+						}
+					}
+				}
+			}
+
+			# Optional: Major stress loss for the host
+			scope:host = {
+				add_stress = medium_stress_loss
+			}
+		}
+	}
+
+
+	###################
+	# GRAPHICS
+	###################
+	
+	map_entity = {
+		trigger = {
+			activity_location.culture = {
+				OR = {
+					has_graphical_mena_culture_group_trigger = yes
+					has_graphical_steppe_culture_group_trigger = yes
+					has_graphical_african_culture_group_trigger = yes
+				}
+			}
+		}
+		reference = "building_indian_feast_01_entity"
+	}
+
+	map_entity = {
+		trigger = {
+			activity_location.culture = {
+				has_graphical_india_culture_group_trigger = yes
+			}
+		}
+		reference = "building_indian_feast_01_entity"
+	}
+	
+	#map_entity = "building_indian_feast_01_entity"
+
+	# Travel
+	background = { # Bridge
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				is_riverside_province = yes
+				#geographical_region = world_europe
+				OR = {
+					terrain = farmlands
+					terrain = plains
+					terrain = mountains
+					terrain = hills
+				}
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_bridge.dds"
+		environment = "environment_travel_bridge"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+	
+	background = { # Farmland, settled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				terrain = farmlands
+				exists = province_owner
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_farm.dds"
+		environment = "environment_travel_farmlands"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+	background = { # Farmland, unsettled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				terrain = farmlands
+				NOT = { exists = province_owner }
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/farms.dds"
+		environment = "environment_event_farms"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+
+	background = { #Desert, settled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_desert_trigger = yes
+				exists = province_owner
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_desert.dds"
+		environment = "environment_travel_desert"
+		ambience = "event:/SFX/Events/Backgrounds/desert_day"
+	}
+	background = { #Desert, unsettled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_desert_trigger = yes
+				NOT = { exists = province_owner }
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/desert.dds"
+		environment = "environment_event_bp1_desert"
+		ambience = "event:/SFX/Events/Backgrounds/desert_day"
+	}
+
+	background = { #forest snowy
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location ?= { hunt_snowy_forest_trigger = yes }
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_hunt_snowy_forest.dds"
+		environment = "environment_hunt_snowy_forest"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day" 
+	}
+
+	background = { #forest_pine
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_forest_pine_trigger = yes
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/forest_pine.dds"
+		environment = "environment_event_forest_pine"
+		ambience = "event:/SFX/Events/Backgrounds/coniferous_forest_day"
+	}
+
+	background = { #forest
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_forest_trigger = yes
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/forest.dds"
+		environment = "environment_event_forest"
+		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
+	}
+
+	background = { #mountains, settled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_mountains_trigger = yes
+				exists = province_owner
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_mountains.dds"
+		environment = "environment_travel_mountain_settlement"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+	background = { #mountains, unsettled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_mountains_trigger = yes
+				NOT = { exists = province_owner }
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/mountains.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+
+	background = { #steppe, settled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_steppe_trigger = yes
+				exists = province_owner
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_steppe.dds"
+		environment = "environment_travel_steppe_settlement"
+		ambience = "event:/SFX/Events/Backgrounds/steppe_day"
+	}
+	background = { #steppe, unsettled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_steppe_trigger = yes
+				NOT = { exists = province_owner }
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/steppe.dds"
+		environment = "environment_event_steppe"
+		ambience = "event:/SFX/Events/Backgrounds/steppe_day"
+	}
+
+	background = { #drylands (formerly desert)
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_drylands_trigger = yes
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/drylands.dds"
+		environment = "environment_event_desert"
+		ambience = "event:/SFX/Events/Backgrounds/desert_day"
+	}
+
+	background = { #wetlands
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_wetlands_trigger = yes
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/bp1_wetlands.dds"
+		environment = "environment_event_bp1_wetlands" 
+		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
+	}
+
+	background = { #jungle
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_jungle_trigger = yes
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/bp1_jungle.dds"
+		environment = "environment_event_bp1_jungle"
+		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
+	}
+
+	background = { #plains, settled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_plains_trigger = yes
+				exists = province_owner
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_hills.dds"
+		environment = "environment_travel_hills_settlement"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+	background = { #plains, unsettled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_plains_trigger = yes
+				NOT = { exists = province_owner }
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/bp1_plains.dds"
+		environment = "environment_event_bp1_plains"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+
+	background = { #hills, settled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_hills_trigger = yes
+				exists = province_owner
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_hills.dds"
+		environment = "environment_travel_hills_settlement"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+	background = { #hills, unsettled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_hills_trigger = yes
+				NOT = { exists = province_owner }
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/bp1_hills.dds"
+		environment = "environment_event_bp1_hills"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+
+	background = { #sea
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				is_sea_province = yes
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
+		environment = "environment_event_fp1_ocean"
+		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
+	}
+
+	# End Travel
+	
+	background = {
+		trigger = {
+			NOR = {
+				has_current_phase = searching_phase
+				has_current_phase = feeding_phase
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/tavern.dds"
+		environment = "environment_event_bp1_courtyard_mena" 
+		ambience = "event:/SFX/Events/Backgrounds/tavern"
+	}
+	background = {
+		trigger = {
+			has_current_phase = searching_phase
+		}
+		texture = "gfx/interface/illustrations/event_scenes/tavern.dds"
+		environment = "environment_event_feast"
+		ambience = "event:/SFX/Events/Backgrounds/feasthall"
+		music = "grandfeast_cue"
+	}
+	background = {
+		trigger = {
+			has_current_phase = feeding_phase
+		}
+		texture = "gfx/interface/illustrations/event_scenes/alley.dds"
+		environment = "environment_event_fp2_throneroom" 
+		ambience = "event:/DLC/FP2/SFX/Events/throneroom"
+	}
+
+	window_characters = {
+
+		guest = {
+			camera = camera_event_center
+			
+			effect = {
+				every_attending_character = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+					}
+					add_to_list = characters
+				}
+			}
+
+			scripted_animation = {
+				triggered_animation = {
+					trigger = {
+						scope:character = {
+							NOT = { has_trait = craven }
+						}
+					}
+					animation = { drink scheme spymaster ecstasy }
+				}
+				animation = worry
+			}
+		}
+
+		guest = {
+			camera = camera_event_center
+			
+			effect = {
+				every_attending_character = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+					}
+					add_to_list = characters
+				}
+			}
+
+			scripted_animation = {
+				triggered_animation = {
+					trigger = {
+						scope:character = {
+							NOT = { has_trait = craven }
+						}
+					}
+					animation = { drink scheme spymaster ecstasy }
+				}
+				animation = worry
+			}
+		}
+		
+		host = {
+			camera = camera_event_center
+			
+			effect = {
+				if = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+					}
+					scope:host = {
+						add_to_list = characters
+					}
+				}
+			}
+
+			scripted_animation = {
+				triggered_animation = {
+					trigger = {	scope:character = { NOT = { has_trait = craven }	} }
+					animation = { marshal toast idle steward }
+				}
+				animation = worry
+			}
+		}
+		
+		travel_host = {
+			camera = camera_activity_horse
+			
+			effect = {
+				if = {
+					limit = {
+						NOT = {
+							scope:host.location = scope:activity.activity_location
+						}
+					}
+					scope:host = {
+						add_to_list = characters
+					}
+				}
+			}
+
+			scripted_animation = {
+				triggered_animation = {
+					trigger = {
+						scope:character.location = { is_sea_province = yes }
+					}
+					animation = { idle }
+				}
+				triggered_animation = {
+					trigger = { scope:character = { has_trait = impatient } }
+					animation = { jockey_gallop }
+				}
+				animation = jockey_walk
+			}
+		}
+
+		guest = {
+			camera = camera_event_center
+			
+			effect = {
+				every_attending_character = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+					}
+					add_to_list = characters
+				}
+			}
+
+			scripted_animation = {
+				triggered_animation = {
+					trigger = {
+						scope:character = {
+						NOT = { has_trait = craven }
+						}
+					}
+					animation = { drink scheme spymaster ecstasy }
+				}
+				animation = worry
+			}
+		}
+
+		guest = {
+			camera = camera_event_center
+			
+			effect = {
+				every_attending_character = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+					}
+					add_to_list = characters
+				}
+			}
+
+			scripted_animation = {
+				triggered_animation = {
+					trigger = {
+						scope:character = {
+						NOT = { has_trait = craven }
+						}
+					}
+					animation = { drink scheme spymaster ecstasy }
+				}
+				animation = worry
+			}
+		}
+	}
+
+	# CK3 1.20: the activity windows read the header art from the activity type.
+	header_background = "gfx/interface/illustrations/activity_header_backgrounds/vampire_feeding.dds"
+}

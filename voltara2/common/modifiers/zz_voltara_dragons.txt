@@ -1,0 +1,5 @@
+﻿voltara_dragon_egg_modifier = { monthly_prestige = 0.1 }
+voltara_dragon_warfare = { }
+voltara_dragon_training = { prowess = 2 martial = 1 }
+voltara_dragon_wounded = { health = -1 prowess = -10 }
+voltara_battlefield_veteran = { prowess = 2 monthly_prestige = 0.1 }

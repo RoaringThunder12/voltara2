@@ -1,0 +1,20 @@
+﻿cof_ekue_decay_monthly_pulse = {
+	trigger = {
+		is_alive = yes
+		OR = { 
+			vt_ek_is_undead = yes 
+			is_briarheart = yes
+		}
+		OR = {
+			has_character_modifier = cof_ekue_decay_slow
+			has_character_modifier = cof_ekue_decay_slow_rejuv
+		}
+	}
+	effect = {
+		update_cof_decay_monthly_effect = yes
+		trigger_event = { 
+			on_action = cof_ekue_decay_monthly_pulse
+			months = 1
+		}
+	}
+}

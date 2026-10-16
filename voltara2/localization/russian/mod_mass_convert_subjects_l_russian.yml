@@ -1,0 +1,48 @@
+﻿l_russian:
+ mod_mass_convert_subjects_decision: "$game_concept_demand_conversion$"
+ mod_mass_convert_subjects_decision_desc: "$game_concept_demand_conversion_desc$"
+ mod_mass_convert_subjects_decision_tooltip: "$game_concept_demand_conversion_desc$"
+
+ mod_convert_direct_vassals_loc: "$game_concept_direct_vassals$ ([SCOPE.ScriptValue('mod_convert_direct_vassals_number')])"
+ mod_convert_direct_vassals_tooltip: "Потребовать обращения всех ваших неверных [Concept( 'vassal', 'прямых вассалов' )|E]."
+
+ mod_convert_indirect_vassals_loc: "Косвенные вассалы ([SCOPE.ScriptValue('mod_convert_indirect_vassals_number')])"
+ mod_convert_indirect_vassals_tooltip: "Потребовать обращения всех ваших неверных [Concept( 'vassal', 'косвенных вассалов' )|E]."
+
+ mod_convert_tributaries_loc: "Данники ([SCOPE.ScriptValue('mod_convert_tributaries_number')])"
+ mod_convert_tributaries_tooltip: "Потребовать обращения всех ваших неверных данников."
+
+ mod_convert_courtiers_loc: "Придворные ([SCOPE.ScriptValue('mod_convert_courtiers_number')])"
+ mod_convert_courtiers_tooltip: "Потребовать обращения всех ваших неверных [Concept( 'courtiers', 'придворных' )|E]."
+
+ mod_convert_house_loc: "Члены дома ([SCOPE.ScriptValue('mod_convert_house_number')])"
+ mod_convert_house_tooltip: "Потребовать обращения всех ваших неверных членов [Concept( 'house', 'дома' )|E]."
+
+ mod_mass_convert_subjects_decision_confirm: "Отправить требования"
+
+ # Acceptance only; actual conversion may finish through a later native event.
+ mdc_conversion_accepted_title:0 "Просьба об обращении принята"
+ mdc_conversion_accepted_desc:0 "[recipient.GetShortUIName] принимает просьбу об обращении."
+
+ # Immediate acceptance filter; no persistent player preference.
+ mdc_chance_filter_heading:0 "Согласие:"
+ mdc_chance_filter_none:0 "Без фильтра"
+ mdc_chance_filter_80:0 "≥ 80 %"
+ mdc_chance_filter_100:0 "100 %"
+ mdc_chance_filter_scope_note:0 "Только для прямых/косвенных вассалов и данников. Придворные и члены дома остаются без изменений."
+ mdc_chance_filter_tooltip:0 "$mdc_chance_filter_scope_note$\n\nФильтр рассчитанной вероятности немедленного согласия. Последующие переговоры и завершённые обращения не учитываются. 100 % не гарантирует завершённого обращения. Числа означают подходящие запросы; перед отправкой цели проверяются повторно."
+ mdc_convert_direct_vassals_80_loc:0 "$game_concept_direct_vassals$ ([SCOPE.ScriptValue('mdc_convert_direct_vassals_80_number')])"
+ mdc_convert_direct_vassals_80_tooltip:0 "$mod_convert_direct_vassals_tooltip$\n$mdc_chance_filter_80$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_direct_vassals_100_loc:0 "$game_concept_direct_vassals$ ([SCOPE.ScriptValue('mdc_convert_direct_vassals_100_number')])"
+ mdc_convert_direct_vassals_100_tooltip:0 "$mod_convert_direct_vassals_tooltip$\n$mdc_chance_filter_100$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_indirect_vassals_80_loc:0 "Косвенные вассалы ([SCOPE.ScriptValue('mdc_convert_indirect_vassals_80_number')])"
+ mdc_convert_indirect_vassals_80_tooltip:0 "$mod_convert_indirect_vassals_tooltip$\n$mdc_chance_filter_80$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_indirect_vassals_100_loc:0 "Косвенные вассалы ([SCOPE.ScriptValue('mdc_convert_indirect_vassals_100_number')])"
+ mdc_convert_indirect_vassals_100_tooltip:0 "$mod_convert_indirect_vassals_tooltip$\n$mdc_chance_filter_100$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_tributaries_80_loc:0 "Данники ([SCOPE.ScriptValue('mdc_convert_tributaries_80_number')])"
+ mdc_convert_tributaries_80_tooltip:0 "$mod_convert_tributaries_tooltip$\n$mdc_chance_filter_80$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_tributaries_100_loc:0 "Данники ([SCOPE.ScriptValue('mdc_convert_tributaries_100_number')])"
+ mdc_convert_tributaries_100_tooltip:0 "$mod_convert_tributaries_tooltip$\n$mdc_chance_filter_100$\n$mdc_chance_filter_tooltip$"
+
+ # Decision preview only; request outcomes remain native.
+ mdc_mass_conversion_requests_effect:0 "Отправляет обычные просьбы об обращении выбранным персонажам."

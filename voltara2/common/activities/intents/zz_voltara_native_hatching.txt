@@ -1,0 +1,11 @@
+﻿hatch_dragon_intent = {
+	scripted_animation = {
+		animation = personality_rational
+	}
+}
+
+witness_hatch_dragon_intent = {
+	scripted_animation = {
+		animation = personality_rational
+	}
+}

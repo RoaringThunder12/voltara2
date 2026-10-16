@@ -1,0 +1,144 @@
+﻿voltara_register_dragon_effect = {
+ add_trait = dragon add_character_flag = voltara_dragon
+ set_variable = { name = dragon_size value = { value = age multiply = 1.5 min = 1 max = 400 } }
+ random_list = { 1 = { add_trait = dragon_aggressive } 1 = { add_trait = dragon_friendly } }
+ random_list = { 1 = { add_trait = dragon_solitary } 1 = { add_trait = dragon_cooperative } }
+ random_list = { 1 = { add_trait = dragon_impulsive } 1 = { add_trait = dragon_calculating } }
+ random_list = { 5 = { } 2 = { add_trait = dragon_physique_good_1 } 1 = { add_trait = dragon_physique_good_2 } 1 = { add_trait = dragon_swift } }
+ add_to_global_variable_list = { name = voltara_living_dragons target = this }
+
+voltara_dragon_start_lifecycle_effect = yes
+random_list = { 14 = { } 1 = { add_trait = dragon_agile } 1 = { add_trait = dragon_obtuse } }
+random_list = { 14 = { } 1 = { add_trait = dragon_thick_scales } 1 = { add_trait = dragon_thin_scales } }
+random_list = { 14 = { } 1 = { add_trait = dragon_large_wingspan } 1 = { add_trait = dragon_small_wingspan } }
+random_list = { 30 = { } 1 = { add_trait = dragon_glowing_scales } 1 = { add_trait = dragon_aerodynamic } 1 = { add_trait = dragon_toothless } 1 = { add_trait = dragon_withered_wings } 1 = { add_trait = dragon_picky_eater } }
+
+}
+
+voltara_bond_dragon_effect = {
+ if = { limit = { is_alive = yes NOT = { voltara_has_living_dragon = yes } scope:dragon = { voltara_free_dragon = yes voltara_dragon_available_to = { RIDER = prev } } }
+ save_scope_as = voltara_bond_owner
+ set_variable = { name = current_dragon value = scope:dragon } add_trait = dragonrider
+ set_relation_agot_dragon = { reason = voltara_dragon_bond_reason target = scope:dragon }
+ scope:dragon = { set_variable = { name = current_rider value = scope:voltara_bond_owner } add_character_flag = owned_dragon }
+ add_courtier = scope:dragon
+ trigger_event = { id = voltara_dragons.90 days = 30 }
+ }
+}
+voltara_create_egg_effect = { random_list = {
+1 = { create_artifact = { name = voltara_egg_balerion_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_balerion wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:balerion } } }
+1 = { create_artifact = { name = voltara_egg_meraxes_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_meraxes wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:meraxes } } }
+1 = { create_artifact = { name = voltara_egg_vhagar_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_vhagar wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:vhagar } } }
+1 = { create_artifact = { name = voltara_egg_black_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_black wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:black } } }
+1 = { create_artifact = { name = voltara_egg_blackdarkred_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_blackdarkred wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:blackdarkred } } }
+1 = { create_artifact = { name = voltara_egg_icefire_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_icefire wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:icefire } } }
+1 = { create_artifact = { name = voltara_egg_brown_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_brown wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:brown } } }
+1 = { create_artifact = { name = voltara_egg_blue_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_blue wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:blue } } }
+1 = { create_artifact = { name = voltara_egg_red_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_red wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:red } } }
+1 = { create_artifact = { name = voltara_egg_purple_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_purple wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:purple } } }
+1 = { create_artifact = { name = voltara_egg_yellow_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_yellow wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:yellow } } }
+1 = { create_artifact = { name = voltara_egg_tan_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_tan wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:tan } } }
+1 = { create_artifact = { name = voltara_egg_green_1_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_green_1 wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:green_1 } } }
+1 = { create_artifact = { name = voltara_egg_green_2_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_green_2 wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:green_2 } } }
+1 = { create_artifact = { name = voltara_egg_pink_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_pink wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:pink } } }
+1 = { create_artifact = { name = voltara_egg_white_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_white wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:white } } }
+1 = { create_artifact = { name = voltara_egg_orange_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_orange wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:orange } } }
+1 = { create_artifact = { name = voltara_egg_grey_1_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_grey_1 wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:grey_1 } } }
+1 = { create_artifact = { name = voltara_egg_grey_2_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_grey_2 wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:grey_2 } } }
+1 = { create_artifact = { name = voltara_egg_rainbow_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_rainbow wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:rainbow } } }
+1 = { create_artifact = { name = voltara_egg_gold_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_gold wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:gold } } }
+1 = { create_artifact = { name = voltara_egg_whitegold_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_whitegold wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:whitegold } } }
+1 = { create_artifact = { name = voltara_egg_purplegold_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_purplegold wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:purplegold } } }
+1 = { create_artifact = { name = voltara_egg_flame_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_flame wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:flame } } }
+1 = { create_artifact = { name = voltara_egg_blackred_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_blackred wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:blackred } } }
+1 = { create_artifact = { name = voltara_egg_brownspots_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_brownspots wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:brownspots } } }
+1 = { create_artifact = { name = voltara_egg_redblackgold_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_redblackgold wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:redblackgold } } }
+1 = { create_artifact = { name = voltara_egg_palered_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_palered wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:palered } } }
+1 = { create_artifact = { name = voltara_egg_darkblue_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_darkblue wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:darkblue } } }
+1 = { create_artifact = { name = voltara_egg_darkred_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_darkred wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:darkred } } }
+1 = { create_artifact = { name = voltara_egg_frost_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_frost wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:frost } } }
+1 = { create_artifact = { name = voltara_egg_greengrey_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_greengrey wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:greengrey } } }
+1 = { create_artifact = { name = voltara_egg_magma_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_magma wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:magma } } }
+1 = { create_artifact = { name = voltara_egg_darkpurple_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_darkpurple wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:darkpurple } } }
+1 = { create_artifact = { name = voltara_egg_palepink_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_palepink wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:palepink } } }
+1 = { create_artifact = { name = voltara_egg_palebluepink_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_palebluepink wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:palebluepink } } }
+1 = { create_artifact = { name = voltara_egg_pinkspot_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_pinkspot wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:pinkspot } } }
+1 = { create_artifact = { name = voltara_egg_rainbowgold_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_rainbowgold wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:rainbowgold } } }
+1 = { create_artifact = { name = voltara_egg_sunburst_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_sunburst wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:sunburst } } }
+1 = { create_artifact = { name = voltara_egg_goldpink_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_goldpink wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:goldpink } } }
+1 = { create_artifact = { name = voltara_egg_bluebronze_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_bluebronze wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:bluebronze } } }
+1 = { create_artifact = { name = voltara_egg_greenorange_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_greenorange wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:greenorange } } }
+1 = { create_artifact = { name = voltara_egg_bronze_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_bronze wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:bronze } } }
+1 = { create_artifact = { name = voltara_egg_blackgreen_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_blackgreen wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:blackgreen } } }
+1 = { create_artifact = { name = voltara_egg_greygreenyellow_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_greygreenyellow wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:greygreenyellow } } }
+1 = { create_artifact = { name = voltara_egg_blackyellow_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_blackyellow wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:blackyellow } } }
+1 = { create_artifact = { name = voltara_egg_yellowgreen_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_yellowgreen wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:yellowgreen } } }
+1 = { create_artifact = { name = voltara_egg_silver_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_silver wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:silver } } }
+1 = { create_artifact = { name = voltara_egg_america_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_america wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:america } } }
+1 = { create_artifact = { name = voltara_egg_greyBlue_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_greyBlue wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:greyBlue } } }
+1 = { create_artifact = { name = voltara_egg_redGreen_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_redGreen wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:redGreen } } }
+1 = { create_artifact = { name = voltara_egg_lightBrown_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_lightBrown wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:lightBrown } } }
+1 = { create_artifact = { name = voltara_egg_redYellow_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_redYellow wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:redYellow } } }
+1 = { create_artifact = { name = voltara_egg_blackWhite_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_blackWhite wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:blackWhite } } }
+1 = { create_artifact = { name = voltara_egg_spotPurple_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_spotPurple wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:spotPurple } } }
+1 = { create_artifact = { name = voltara_egg_teal_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_teal wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:teal } } }
+1 = { create_artifact = { name = voltara_egg_tealSpot_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_tealSpot wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:tealSpot } } }
+1 = { create_artifact = { name = voltara_egg_weirwood_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_weirwood wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:weirwood } } }
+1 = { create_artifact = { name = voltara_egg_lime_name description = voltara_dragon_egg_desc type = pedestal template = voltara_dragon_egg_template visuals = dragon_egg_lime wealth = 25 quality = 50 modifier = voltara_dragon_egg_modifier save_scope_as = voltara_new_egg } scope:voltara_new_egg = { set_variable = { name = egg_color value = flag:lime } } }
+ }
+ scope:voltara_new_egg = { set_variable = { name = voltara_dragon_egg value = yes } set_variable = { name = dragon_egg value = yes } }
+ if = { limit = { exists = scope:egg_mother }
+ scope:voltara_new_egg = { set_variable = { name = dragon_mother value = scope:egg_mother } }
+ }
+ random = { chance = 10 scope:voltara_new_egg = { set_variable = { name = dud_egg value = yes } } }
+}
+voltara_hatch_egg_effect = {
+ if = { limit = { exists = scope:egg scope:egg = { owner = root } }
+ voltara_spawn_hatchling_effect = yes
+ destroy_artifact = scope:egg
+ if = { limit = { NOT = { voltara_has_living_dragon = yes } } voltara_bond_dragon_effect = yes }
+ }
+}
+voltara_spawn_hatchling_effect = {
+ save_scope_as = voltara_hatcher
+ create_character = { name = Voltara_Emberwing age = 0 gender_female_chance = 50 dynasty = none ethnicity = dragon
+ culture = scope:voltara_hatcher.culture faith = scope:voltara_hatcher.faith location = scope:voltara_hatcher.capital_province
+ random_traits = no trait = dragon trait = education_dragon_1 save_scope_as = dragon }
+ scope:dragon = { voltara_register_dragon_effect = yes
+ if = { limit = { exists = scope:egg.var:egg_color } set_variable = { name = egg_color value = scope:egg.var:egg_color } }
+ random_list = {
+ 1 = { change_first_name = Voltara_Emberwing } 1 = { change_first_name = Voltara_Dawnscale }
+ 1 = { change_first_name = Voltara_Ashwhisper } 1 = { change_first_name = Voltara_Nightflare }
+ 1 = { change_first_name = Voltara_Stormtalon } 1 = { change_first_name = Voltara_Sunfang }
+ }
+ if = { limit = { exists = scope:egg.var:dragon_mother } set_mother = scope:egg.var:dragon_mother
+if = { limit = { scope:egg.var:dragon_mother = { has_trait = dragon_agile } } random = { chance = 25 add_trait = dragon_agile } }
+if = { limit = { scope:egg.var:dragon_mother = { has_trait = dragon_obtuse } } random = { chance = 25 add_trait = dragon_obtuse } }
+if = { limit = { scope:egg.var:dragon_mother = { has_trait = dragon_large_wingspan } } random = { chance = 25 add_trait = dragon_large_wingspan } }
+if = { limit = { scope:egg.var:dragon_mother = { has_trait = dragon_small_wingspan } } random = { chance = 25 add_trait = dragon_small_wingspan } }
+if = { limit = { scope:egg.var:dragon_mother = { has_trait = dragon_thick_scales } } random = { chance = 25 add_trait = dragon_thick_scales } }
+if = { limit = { scope:egg.var:dragon_mother = { has_trait = dragon_thin_scales } } random = { chance = 25 add_trait = dragon_thin_scales } }
+if = { limit = { scope:egg.var:dragon_mother = { has_trait = dragon_withered_wings } } random = { chance = 25 add_trait = dragon_withered_wings } }
+if = { limit = { scope:egg.var:dragon_mother = { has_trait = dragon_glowing_scales } } random = { chance = 25 add_trait = dragon_glowing_scales } }
+if = { limit = { scope:egg.var:dragon_mother = { has_trait = dragon_aerodynamic } } random = { chance = 25 add_trait = dragon_aerodynamic } }
+if = { limit = { scope:egg.var:dragon_mother = { has_trait = dragon_toothless } } random = { chance = 25 add_trait = dragon_toothless } }
+if = { limit = { scope:egg.var:dragon_mother = { has_trait = dragon_picky_eater } } random = { chance = 25 add_trait = dragon_picky_eater } }
+if = { limit = { scope:egg.var:dragon_mother = { has_trait = dragon_physique_good_4 } } random = { chance = 25 add_trait = dragon_physique_good_4 } }
+if = { limit = { scope:egg.var:dragon_mother = { has_trait = dragon_physique_bad_4 } } random = { chance = 25 add_trait = dragon_physique_bad_4 } } }
+ }
+ add_courtier = scope:dragon
+
+}
+voltara_clear_deployment = { remove_character_flag = voltara_dragon_deployed remove_character_modifier = voltara_dragon_warfare }
+voltara_dragon_duel_cleanup = {
+ scope:actor ?= { remove_character_flag = voltara_dragon_duel_pending add_character_flag = { flag = voltara_duel_cooldown days = 90 } }
+ scope:recipient ?= { remove_character_flag = voltara_dragon_duel_pending add_character_flag = { flag = voltara_duel_cooldown days = 90 } }
+}
+voltara_dragon_duel_victory = {
+ scope:voltara_winner = { add_prestige = 150 add_trait_xp = { trait = dragonrider track = dragon_training value = 10 }
+ change_variable = { name = voltara_dragon_victories add = 1 } }
+ scope:voltara_loser = { voltara_clear_deployment = yes add_trait = wounded_1
+ var:current_dragon ?= { add_trait = dragon_wounded_2 }
+ }
+ voltara_dragon_duel_cleanup = yes
+}

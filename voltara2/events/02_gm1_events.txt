@@ -1,0 +1,512 @@
+﻿namespace = gm1_interaction
+
+##############################
+## GM1 interaction_events
+##############################
+
+### To the author at PDX who wrote this original line, 
+### "- there is no god nor consistency when it comes to localization.", 
+### You're goddamn right.
+
+# based on ./common/scripted_effects/05_dlc_bp2_effects.txt/take_hostage
+## IMPRISONER (character)
+## PRISONER (character)
+scripted_effect take_prisoner = {
+	custom_description = {
+		text = "take_prisoner_tooltip_effect"
+		subject = $PRISONER$
+		object = $IMPRISONER$
+	}
+}
+
+# based on ./common/scripted_effects/05_dlc_bp2_effects.txt/take_hostage
+## PETITIONER (character)
+## PRISONER (character)
+scripted_effect ransom_prisoner = {
+	show_as_tooltip = {
+		$PRISONER$ = { release_from_prison = yes }
+		
+		$PETITIONER$ = {
+			reverse_add_opinion = {
+				target = $PRISONER$
+				modifier = ransomed_from_prison
+				years = 1
+			}
+
+			if = {
+				limit = {
+					$PRISONER$ = {
+						is_ai = yes
+						ai_honor >= 25
+						ai_greed <= 0
+					}
+				}
+				if = {
+					limit = {
+						can_add_hook = {
+							target = $PRISONER$
+							type = favor_hook
+						}
+					}
+					add_hook = {
+						target = $PRISONER$
+						type = indebted_hook
+					}
+				}
+			}
+			else = {
+				progress_towards_hook_effect = {
+					CHARACTER = $PRISONER$
+					HOOK_TYPE = indebted_hook
+				}
+			}
+		}
+	}
+}
+
+#------------------------------
+# Transfer Prisoner Notifications
+# 0001 - 0009
+#------------------------------
+
+# based on ./common/character_interactions/00_prison_interactions.txt/pay_ransom_interaction
+## scopes:
+## - prisoner
+## - beneficiary
+## - benefactor
+### This is the notification for the imprisoned prisoner.
+gm1_interaction.0001 = {
+	hidden = yes
+
+	immediate = {
+		send_interface_message = {
+			type = event_prison_bad
+			title = notification_transfer_prisoner_interaction_title
+			left_icon = scope:benefactor
+			right_icon = scope:beneficiary
+			
+			show_as_tooltip = {
+				take_prisoner = {
+					IMPRISONER = scope:benefactor
+					PRISONER = scope:prisoner
+				}
+			}
+		}
+	}
+}
+
+# based on ./common/character_interactions/00_prison_interactions.txt/pay_ransom_interaction
+## - prisoner
+## - beneficiary
+## - benefactor
+### This is the notification for the prisoner's beneficiary.
+gm1_interaction.0002 = {
+	hidden = yes
+
+	immediate = {
+		send_interface_message = {
+			type = event_prison_neutral
+			title = notification_transfer_prisoner_interaction_title
+			left_icon = scope:prisoner
+			right_icon = scope:benefactor
+			
+			show_as_tooltip = {
+				take_prisoner = {
+					IMPRISONER = scope:benefactor
+					PRISONER = scope:prisoner
+				}
+
+				#opinion
+		
+				prisoner_interaction_payment_effect = {
+					PAYER = scope:benefactor
+					PAYEE = scope:beneficiary
+				}
+			}				
+		}
+	}
+}
+
+# based on ./common/character_interactions/00_prison_interactions.txt/pay_ransom_interaction
+## - prisoner
+## - beneficiary
+## - benefactor
+### This is the notification for the prisoner's benefactor.
+gm1_interaction.0003 = {
+	hidden = yes
+
+	immediate = {
+		send_interface_message = {
+			type = event_prison_neutral
+			title = notification_transfer_prisoner_interaction_title
+			left_icon = scope:prisoner
+			right_icon = scope:beneficiary
+			
+			show_as_tooltip = {
+				take_prisoner = {
+					IMPRISONER = scope:benefactor
+					PRISONER = scope:prisoner
+				}
+
+				# opinion
+		
+				prisoner_interaction_payment_effect = {
+					PAYER = scope:benefactor
+					PAYEE = scope:beneficiary
+				}
+			}
+		}
+
+		trigger_event = {
+			id = gm1_interaction.0031
+			days = 3
+		}
+	}
+}
+
+#------------------------------
+# Offer Prisoner Interaction
+# 0010 - 0019
+#------------------------------
+
+# based on ./events/interaction_events/character_interaction_events.txt/char_interaction.0330
+## Offer Prisoner: Accepted
+gm1_interaction.0016 = {
+	type = letter_event
+	opening = {
+		desc = char_interaction.0001.opening
+	}
+	desc = {
+		desc = gm1_interaction.0011.desc_1
+		desc = gm1_interaction.0011.desc_2
+	}
+		
+	sender = scope:recipient
+
+	immediate = {
+		show_as_tooltip = {	
+			take_prisoner = {
+				IMPRISONER = scope:recipient
+				PRISONER = scope:secondary_actor
+			}
+
+			prisoner_interaction_payment_effect = {
+				PAYER = scope:recipient
+				PAYEE = scope:actor
+			}
+		}
+	}
+
+	option = {
+		name = gm1_interaction.0011.a
+	}
+}
+
+# based on ./events/interaction_events/character_interaction_events.txt/char_interaction.0300
+## Offer Prisoner: Declined
+gm1_interaction.0012 = {
+	type = letter_event
+	opening = {
+		desc = char_interaction.0001.opening
+	}
+	desc = gm1_interaction.0012.desc
+		
+	sender = {
+		character = scope:recipient
+		animation = dismissal
+	}
+
+	option = {
+		name = gm1_interaction.0012.a
+	}
+}
+
+#------------------------------
+# Demand Prisoner Interaction
+# 0020 - 0029
+#------------------------------
+
+# based on ./events/interaction_events/character_interaction_events.txt/char_interaction.0331
+## Demand Prisoner: Accepted
+gm1_interaction.0026 = {
+	type = letter_event
+	opening = {
+		desc = char_interaction.0001.opening
+	}
+	desc = {
+		desc = gm1_interaction.0021.desc_1
+		desc = gm1_interaction.0021.desc_2
+	}
+		
+	sender = scope:recipient
+
+	immediate = {
+		show_as_tooltip = {
+			take_prisoner = {
+				IMPRISONER = scope:actor
+				PRISONER = scope:secondary_recipient
+			}
+
+			prisoner_interaction_payment_effect = {
+				PAYER = scope:actor
+				PAYEE = scope:recipient
+			}
+		}
+	}
+
+	option = {
+		name = gm1_interaction.0021.a
+	}
+}
+
+# based on ./events/interaction_events/character_interaction_events.txt/char_interaction.0301
+## Demand Prisoner: Declined
+gm1_interaction.0022 = {
+	type = letter_event
+	opening = {
+		desc = char_interaction.0001.opening
+	}
+	desc = {
+		random_valid = {
+			desc = gm1_interaction.0022.desc_a
+			desc = gm1_interaction.0022.desc_b
+		}
+	}
+		
+	sender = {
+		character = scope:recipient
+		animation = dismissal
+	}
+
+	immediate = {
+		
+	}
+
+	option = {
+		name = gm1_interaction.0022.a
+
+		if = {
+			limit = { has_global_variable = rv_is_loaded }
+			rv_rescue_imprisoned_character_cb_effect = {
+				ATTACKER = scope:actor
+				DEFENDER = scope:recipient
+				TARGET = scope:secondary_recipient
+			}
+		}
+	}
+}
+
+#------------------------------
+# Transfer Prisoner Interaction
+# 0030 - 0049
+#------------------------------
+
+# based on ./events/interaction_events/character_interaction_events.txt/char_interaction.0231
+## Direct Vassal Received. 
+gm1_interaction.0031 = {
+	type = character_event
+	title = gm1_interaction.0031.title
+	desc = { 
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:prisoner = { is_in_prison_type = house_arrest }
+				}
+				desc = gm1_interaction.0031.desc_house_arrest
+			}
+			desc = gm1_interaction.0031.desc_prison
+		}
+	}
+		
+	right_portrait = {
+		character = scope:prisoner
+		animation = sadness
+	}
+	theme = prison
+	
+	trigger = {
+		exists = scope:prisoner.liege
+		scope:prisoner.liege ?= this
+	}
+	
+	immediate = {
+		show_as_tooltip = {
+			if = {
+				limit = { scope:illegal_imprisonment ?= yes }
+				add_legitimacy = miniscule_legitimacy_loss
+			}
+		}
+	}
+
+	option = {
+		name = gm1_interaction.0031.a
+	}
+}
+
+#------------------------------
+# Ransom Prisoner Notifications
+# 1001 - 1009
+#------------------------------
+
+# based on ./common/character_interactions/00_prison_interactions.txt/pay_ransom_interaction
+## scopes:
+## - prisoner
+## - beneficiary
+## - benefactor
+### This is the notification for the ransomed prisoner.
+gm1_interaction.1001 = {
+	hidden = yes
+
+	immediate = {
+		send_interface_toast = {
+			type = event_toast_effect_good
+			title = notification_ransom_prisoner_interaction_title_prisoner
+			left_icon = scope:benefactor
+			right_icon = scope:beneficiary
+
+			ransom_prisoner = {
+				PETITIONER = scope:benefactor
+				PRISONER = this
+			}
+		}
+
+		liege ?= {
+			if = {
+				limit = {
+					NOT = { this = scope:beneficiary }
+					NOT = { this = scope:benefactor }
+					OR = {
+						is_close_or_extended_family_of = prev
+						is_consort_of = prev
+						has_relation_lover = prev
+						has_relation_friend = prev
+					}
+				}
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = notification_ransom_prisoner_interaction_title_prisoner_liege
+					left_icon = scope:benefactor
+					right_icon = prev
+	
+					custom_tooltip = notification_ransom_prisoner_interaction_prisoner_liege_desc
+				}
+			}
+		}
+	}
+}
+
+# based on ./common/character_interactions/00_prison_interactions.txt/pay_ransom_interaction
+## scopes:
+## - prisoner
+## - beneficiary
+## - benefactor
+### This is the notification for the ransomed prisoner's beneficiary.
+gm1_interaction.1002 = {
+	hidden = yes
+
+	immediate = {
+		send_interface_message = {
+			type = event_generic_neutral
+			title = notification_ransom_prisoner_interaction_title
+			right_icon = scope:prisoner
+			left_icon = scope:benefactor
+
+			ransom_prisoner = {
+				PETITIONER = scope:benefactor
+				PRISONER = scope:prisoner
+			}
+
+			show_as_tooltip = {
+				prisoner_interaction_payment_effect = {
+					PAYER = scope:benefactor
+					PAYEE = this
+				}
+			}
+		}
+	}
+}
+
+# based on ./common/character_interactions/00_prison_interactions.txt/pay_ransom_interaction
+## scopes:
+## - prisoner
+## - beneficiary
+## - benefactor
+### This is the notification for the ransomed prisoner's benefactor.
+gm1_interaction.1003 = {
+	hidden = yes
+
+	immediate = {
+		send_interface_message = {
+			type = event_generic_neutral
+			title = notification_ransom_prisoner_interaction_title
+			right_icon = scope:prisoner
+			left_icon = scope:beneficiary
+
+			ransom_prisoner = {
+				PETITIONER = this
+				PRISONER = scope:prisoner
+			}
+
+			show_as_tooltip = {
+				prisoner_interaction_payment_effect = {
+					PAYER = scope:benefactor
+					PAYEE = this
+				}
+			}
+		}
+	}
+}
+
+#------------------------------
+# Ransom Prisoner Interaction
+# 1010 - 1019
+#------------------------------
+
+# based on ./events/interaction_events/character_interaction_events.txt/char_interaction.0140
+## Ransom Prisoner: Accepted
+gm1_interaction.1016 = {
+	type = letter_event
+	opening = {
+		desc = char_interaction.0010.opening
+	}
+	desc = char_interaction.0140.desc
+	
+	sender = scope:recipient
+
+	immediate = {
+		ransom_prisoner = {
+			PETITIONER = this
+			PRISONER = scope:secondary_recipient
+		}
+
+		show_as_tooltip = {
+			prisoner_interaction_payment_effect = {
+				PAYER = this
+				PAYEE = scope:recipient
+			}
+		}
+	}
+
+	option = {
+		name = gm1_interaction.0011.a
+	}
+}
+
+# based on ./events/interaction_events/character_interaction_events.txt/char_interaction.0141
+## Ransom Prisoner: Declined
+gm1_interaction.1012 = {
+	type = letter_event
+	opening = {
+		desc = char_interaction.0001.opening
+	}
+	desc = char_interaction.0141.desc
+		
+	sender = {
+		character = scope:recipient
+		animation = dismissal
+	}
+
+	option = {
+		name = gm1_interaction.0012.a
+	}
+}

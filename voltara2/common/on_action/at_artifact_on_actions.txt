@@ -1,0 +1,84 @@
+﻿# Called from code after history generation
+# Empty scope
+on_game_start = {
+	on_actions = { at_on_game_start }
+}
+
+at_on_game_start = {
+	effect = {
+		set_global_variable = {
+			name = at_artifact_trade_loaded
+			value = yes
+		}
+
+		# Avoid errors in error.log
+		if = {
+			limit = { has_global_variable = at_artifact_trade_loaded }
+			at_debug_log_effect = { MSG = at_debug_msg_artifact_trade_loaded }
+		}
+	}
+}
+
+# Called from code once a year for all characters, at a random point that year (individually for each character)
+# Root is the character
+random_yearly_everyone_pulse = {
+	on_actions = { at_random_yearly_everyone_pulse }
+}
+
+at_random_yearly_everyone_pulse = {
+	effect = {
+		if = {
+			limit = { has_variable = at_merchant_type }
+			at_destroy_random_artifact_effect = yes
+		}
+	}
+}
+
+at_on_artifact_bought = {
+	effect = {
+		if = {
+			limit = { exists = scope:recipient }
+			save_temporary_scope_value_as = { name = source value = flag:interaction }
+		}
+		else = {
+			save_temporary_scope_value_as = { name = source value = flag:event }
+		}
+		scope:actor = {
+			if = {
+				limit = { this = scope:buyer }
+				at_debug_log_4_effect = {
+					MSG = at_debug_msg_artifact_bought
+					NAME1 = artifact TYPE1 = flag:artifact
+					NAME2 = seller TYPE2 = flag:character
+					NAME3 = artifact_price TYPE3 = flag:value
+					NAME4 = source TYPE4 = flag:flag
+				}
+			}
+			else = {
+				at_debug_log_4_effect = {
+					MSG = at_debug_msg_artifact_sold
+					NAME1 = artifact TYPE1 = flag:artifact
+					NAME2 = buyer TYPE2 = flag:character
+					NAME3 = artifact_price TYPE3 = flag:value
+					NAME4 = source TYPE4 = flag:flag
+				}
+			}
+		}
+	}
+}
+
+at_on_artifact_destroyed = {
+	effect = {
+		scope:destroyer = {
+			if = {
+				limit = { at_has_aniconist_faith_trigger = yes }
+				save_scope_value_as = { name = aniconist value = yes }
+			}
+			at_debug_log_2_effect = {
+				MSG = at_debug_msg_artifact_destroyed
+				NAME1 = artifact TYPE1 = flag:artifact
+				NAME2 = aniconist TYPE2 = flag:boolean
+			}
+		}
+	}
+}

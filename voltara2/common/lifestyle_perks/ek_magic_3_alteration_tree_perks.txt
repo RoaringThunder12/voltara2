@@ -1,0 +1,201 @@
+﻿alteration_novice_perk = {
+	lifestyle = vt_threadbinding_magic_lifestyle
+	tree = alteration
+	position = { 0 0 }
+	icon = node_stewardship
+	
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = { has_students_magicka_background = yes }
+			add = 1989
+		}
+		if = {
+			limit = {
+				exists = dynasty
+				dynasty = { has_dynasty_modifier = magicka_legacy_alteration_focus }
+			}
+			add = 500
+		}
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_alteration_spells } } ###EK EDIT: new parameter
+            add = 200
+        }
+		if = {
+			limit = {
+				can_start_new_lifestyle_tree_trigger = no
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				can_magic_trigger = no
+			}
+			multiply = 0
+		}
+	}
+	
+	effect = {	
+		custom_description_no_bullet = {
+			text = alteration_novice_perk_effect
+		}
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_alteration_spells } } ###EK EDIT: new parameter
+            add_vt_threadbinding_magic_lifestyle_xp = 330
+        }
+	}
+}
+
+alteration_apprentice_perk = {
+	lifestyle = vt_threadbinding_magic_lifestyle
+	tree = alteration
+	position = { 0 1 }
+	icon = node_stewardship
+	
+	parent = alteration_novice_perk
+	
+	effect = {	
+		custom_description_no_bullet = {
+			text = alteration_apprentice_perk_effect
+		}
+	}
+}
+
+alteration_minor_rituals_perk = {
+	lifestyle = vt_threadbinding_magic_lifestyle
+	tree = alteration
+	position = { 1.5 1 }
+	icon = node_stewardship
+	
+	parent = alteration_novice_perk
+	
+	effect = {	
+		custom_description_no_bullet = {
+			text = alteration_minor_rituals_perk_effect
+		}
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_alteration_spells } } ###EK EDIT: new parameter
+            add_vt_threadbinding_magic_lifestyle_xp = 330
+        }
+	}
+}
+
+alteration_journeyman_perk = {
+	lifestyle = vt_threadbinding_magic_lifestyle
+	tree = alteration
+	position = { 0 2 }
+	icon = node_stewardship
+	
+	parent = alteration_apprentice_perk
+	
+	effect = {	
+		custom_description_no_bullet = {
+			text = alteration_journeyman_perk_effect
+		}
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_alteration_spells } } ###EK EDIT: new parameter
+            add_vt_threadbinding_magic_lifestyle_xp = 330
+        }
+	}
+}
+
+alteration_medium_rituals_perk = {
+	lifestyle = vt_threadbinding_magic_lifestyle
+	tree = alteration
+	position = { 1.5 2 }
+	icon = node_stewardship
+	
+	parent = alteration_minor_rituals_perk
+	parent = alteration_apprentice_perk
+	
+	effect = {	
+		custom_description_no_bullet = {
+			text = alteration_medium_rituals_perk_effect
+		}
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_alteration_spells } } ###EK EDIT: new parameter
+            add_vt_threadbinding_magic_lifestyle_xp = 330
+        }
+	}
+}
+
+alteration_expert_perk = {
+	lifestyle = vt_threadbinding_magic_lifestyle
+	tree = alteration
+	position = { 0 3 }
+	icon = node_stewardship
+	
+	parent = alteration_journeyman_perk
+	
+	effect = {	
+		custom_description_no_bullet = {
+			text = alteration_expert_perk_effect
+		}
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_alteration_spells } } ###EK EDIT: new parameter
+            add_vt_threadbinding_magic_lifestyle_xp = 330
+        }
+	}
+}
+
+alteration_major_rituals_perk = {
+	lifestyle = vt_threadbinding_magic_lifestyle
+	tree = alteration
+	position = { 1.5 3 }
+	icon = node_stewardship
+	
+	parent = alteration_medium_rituals_perk
+	parent = alteration_journeyman_perk
+	
+	effect = {	
+		custom_description_no_bullet = {
+			text = alteration_major_rituals_perk_effect
+		}
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_alteration_spells } } ###EK EDIT: new parameter
+            add_vt_threadbinding_magic_lifestyle_xp = 330
+        }
+	}
+}
+
+alteration_master_perk = {
+	lifestyle = vt_threadbinding_magic_lifestyle
+	tree = alteration
+	position = { 0 4 }
+	icon = school_alteration
+	
+	parent = alteration_expert_perk
+	parent = alteration_major_rituals_perk 
+	
+	effect = {	
+		custom_description_no_bullet = {
+			text = alteration_master_perk_effect
+		}
+		custom_description_no_bullet = {
+			text = restoration_master_perk_effect_lifespan
+		}
+		if = {
+			limit = {
+				NOT = { exists = var:mastered_schools }
+			}
+			set_variable = {
+				name = mastered_schools
+				value = 1
+			}
+		}
+		else = {
+			change_variable = {
+				name = mastered_schools
+				add = 1
+			}
+		}
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_alteration_spells } } ###EK EDIT: new parameter
+            add_vt_threadbinding_magic_lifestyle_xp = 330
+        }
+		if = {
+			limit = { can_increase_lifespan_trigger = yes }
+			ek_can_extend_lifespan_notification_effect = yes
+		}
+	}
+}

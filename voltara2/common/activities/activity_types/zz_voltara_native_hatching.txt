@@ -1,0 +1,1121 @@
+﻿activity_dragon_hatching = {
+	is_shown = { is_landed = yes NOT = { has_trait = dragon } voltara_has_dragon_egg = yes NOT = { government_has_flag = government_is_nw } has_dlc_feature = tours_and_tournaments }
+
+	can_start_showing_failures_only = { is_available_adult = yes learning > 0 NOT = { is_incapable = yes } }
+
+	can_always_plan = no
+
+	is_valid = {
+		scope:host = {
+			is_alive = yes
+			is_imprisoned = no
+			is_ruler = yes
+			NOT = { is_incapable = yes }
+		}
+	}
+
+	on_invalidated = { var:selected_egg ?= { remove_variable = agot_artifact_cannot_gift } }
+
+	on_host_death = { var:selected_egg ?= { remove_variable = agot_artifact_cannot_gift } }
+
+	# Where will be evaluated to host this activity
+	province_filter = domicile_realm
+	ai_province_filter = domicile_domain
+
+	# Is the province valid to pick for this activity at all
+	# root = the province
+	# scope:host = host of the activity
+	# scope:special_option = flag of the selected special option, not set if activity has no special option category
+	is_location_valid = { OR = { this = scope:host.capital_province has_building = generic_dragon_pit_01 has_building = dragonpit_ruins_03 } }
+
+	# Script value to score how "good" the activity location is to host in
+	# root = the province
+	# scope:host = host of the activity
+	province_score = { value = 10 if = { limit = { OR = { has_building = generic_dragon_pit_01 has_building = dragonpit_ruins_03 } } add = 50 } }
+
+	# Activity options scripted per activity type
+	options = {
+		# Multiple categories allowed per activity, must be unique named categories
+		hatching_type = {
+			hatching_type_knowledge = { #summon maesters and ppl with dragon lore knowlege to hatch da dragon
+				default = yes
+				ai_will_do = {
+					add = {
+						value = 60
+						desc = "base"
+					}
+					if = {
+						limit = { ai_boldness < -75 }
+						add = {
+							value = 25
+							desc = "Cowardly"
+						}
+					}
+					if = {
+						limit = {
+							has_trait = lifestyle_mystic
+						}
+						add = {
+							value = -30
+							desc = "Mystic"
+						}
+					}
+					if = {
+						limit = {
+							has_trait = cynical
+						}
+						add = {
+							value = 20
+							desc = "Doesn't Believe in Esoterics"
+						}
+					}
+				}
+			}
+
+			hatching_type_esoteric = { #summon witches, alchemists, and whatever esoteric knowlege ppl to hatch da dragon
+				ai_will_do = {
+					add = {
+						value = 40
+						desc = "base"
+					}
+					if = {
+						limit = { ai_boldness > 75 }
+						add = {
+							value = 25
+							desc = "Bold"
+						}
+					}
+					if = {
+						limit = {
+							has_trait = lifestyle_mystic
+						}
+						add = {
+							value = 30
+							desc = "Mystic"
+						}
+					}
+				}
+			}
+		}
+
+		hatching_sacrifice = {
+			hatching_sacrifice_animal = { #sacrifice an animal to hatch the dragon
+				default = yes
+				cost = {
+					piety = {
+						value = 50
+					}
+				}
+			}
+
+			#TODO Wealth perhaps?
+
+			hatching_sacrifice_blood = { #sacrifice blood to hatch the dragon
+				cost = {
+					piety = {
+						value = 100
+					}
+				}
+			}
+		}
+
+		hatching_catalyst = {
+			hatching_catalyst_minor = { # Simple hatching catalyst
+				default = yes
+				cost = {
+					gold = {
+						value = 20
+					}
+				}
+			}
+
+			hatching_catalyst_medium = { #use a furnace as a catalyst to hatch the dragon
+				cost = {
+					gold = {
+						value = 50
+					}
+				}
+			}
+
+			hatching_catalyst_major = { #use wildfire as a catalyst to hatch the dragon
+				# When alchemist guild is done, make this restricted to those that have it
+				cost = {
+					gold = {
+						value = 80
+					}
+				}
+			}
+
+			hatching_catalyst_massive = { #use lava as a catalyst to hatch the dragon
+				is_shown = {
+					exists = var:dragonlore
+					var:dragonlore > 4
+				}
+				cost = {
+					gold = {
+						value = 120
+					}
+				}
+			}
+		}
+	}
+
+	### Special option category (optional)
+	# When special option category is specified, the player will have to pick from this category before selecting a location.
+	# Each option in this category requires an illustration in the ACTIVITY_OPTION_TEXTURE_PATH folder and a flat icon in the ACTIVTY_OPTION_ICON_PATH folder
+	special_option_category = hatching_type
+
+	# Active phases of of an activity, each activity has at least one active phase, each must be uniquely named
+	phases = {
+		ceremony = {
+			is_predefined = yes
+			order = 1
+
+			# Run when this phase is set as to be active
+			# root = character in this phase
+			# scope:activity = the activity
+			# scope:host = host of the activity
+			on_phase_active = {
+				if = {
+					limit = {
+						NOT = { this = scope:host }
+					}
+					trigger_event = agot_dragon_hatching.0007
+				}
+				else = {
+					trigger_event = agot_dragon_hatching.0006
+				}
+				scope:activity = { progress_activity_phase_after = { days = 3 } }
+			}
+
+			on_end = {
+			}
+		}
+
+		hatching_attempt = {
+			is_predefined = yes
+			order = 2
+
+			on_enter_phase = {
+				if = {
+					limit = { # First event - sacrifice selection
+						this = scope:host
+						NOT = { exists = scope:activity.var:sacrifice_type }
+					}
+					if = {
+						limit = {
+							scope:activity = {
+								has_activity_option = {
+									category = hatching_sacrifice
+									option = hatching_sacrifice_animal
+								}
+							}
+						}
+						trigger_event = agot_dragon_hatching.0008
+					}
+					else_if = {
+						limit = {
+							scope:activity = {
+								has_activity_option = {
+									category = hatching_sacrifice
+									option = hatching_sacrifice_blood
+								}
+								NOT = {
+									has_activity_option = {
+										category = hatching_type
+										option = hatching_type_esoteric
+									}
+								}
+							}
+						}
+						trigger_event = agot_dragon_hatching.0009
+					}
+					else_if = {
+						limit = {
+							scope:activity = {
+								has_activity_option = {
+									category = hatching_sacrifice
+									option = hatching_sacrifice_blood
+								}
+								has_activity_option = {
+									category = hatching_type
+									option = hatching_type_esoteric
+								}
+							}
+						}
+						trigger_event = agot_dragon_hatching.0017
+					}
+				}
+			}
+		}
+
+		hatching_outcome = {
+			is_predefined = yes
+			order = 3
+
+			on_enter_phase = {
+				if = {
+					limit = { this = scope:host }
+					scope:activity = {
+						if = {
+							limit = {
+								has_variable = host_folded
+							}
+							skip_activity_phase = yes
+						}
+						else = {
+							# Determine outcome
+							random_list = {
+								10 = { # Catastrophe
+									set_variable = {
+										name = outcome
+										value = flag:catastrophe
+									}
+								}
+								30 = { # Disaster
+									set_variable = {
+										name = outcome
+										value = flag:disaster
+									}
+								}
+								30 = { # Nothing happens
+									modifier = {
+										add = -10
+										has_activity_option = {
+											category = hatching_type
+											option = hatching_type_esoteric
+										}
+									}
+									set_variable = {
+										name = outcome
+										value = flag:nothing
+									}
+									random_list = {
+										50 = {
+											set_variable = {
+												name = egg_status
+												value = flag:egg_cracked
+											}
+										}
+										50 = {
+											set_variable = {
+												name = egg_status
+												value = flag:egg_intact
+											}
+										}
+									}
+								}
+								30 = { # Success
+									modifier = {
+										add = -20
+										var:hatching_likelihood = flag:very_low
+									}
+									modifier = {
+										add = -10
+										var:hatching_likelihood = flag:low
+									}
+									modifier = {
+										add = 0
+										var:hatching_likelihood = flag:medium
+									}
+									modifier = {
+										add = 10
+										var:hatching_likelihood = flag:high
+									}
+									modifier = {
+										add = 20
+										var:hatching_likelihood = flag:very_high
+									}
+									set_variable = {
+										name = outcome
+										value = flag:success
+									}
+								}
+							}
+						}
+					}
+					# Apply result if not folded
+					if = {
+						limit = { scope:activity = { NOT = { has_variable = host_folded } } }
+						# First, calculate the results for each attending character if catastrophe or disaster
+						if = {
+							limit = {
+								scope:activity.var:outcome = flag:catastrophe
+							}
+							scope:activity = {
+								every_attending_character = {
+									limit = {
+										# Don't do stuff with the host if they're already 'dead'
+										NOT = { has_character_flag = agot_should_be_dead_for_dragon_hatching_host }
+										is_alive = yes
+										# Unwilling sacrifices that escaped are in hiding and won't be affected
+										NOT = { has_character_flag = unwilling_sacrifice }
+									}
+									random_list = {
+										20 = {
+											add_character_flag = {
+												flag = agot_burned_in_dragon_hatching
+												weeks = 1
+											}
+											scope:activity = {
+												add_to_variable_list = {
+													name = burned_characters
+													target = prev
+												}
+											}
+										}
+										80 = {
+											add_character_flag = {
+												flag = agot_dead_in_dragon_hatching
+												weeks = 1
+											}
+											scope:activity = {
+												add_to_variable_list = {
+													name = dead_characters
+													target = prev
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						else_if = {
+							limit = {
+								scope:activity.var:outcome = flag:disaster
+							}
+							scope:activity = {
+								every_attending_character = {
+									limit = {
+										NOT = { has_character_flag = agot_should_be_dead_for_dragon_hatching_host }
+										is_alive = yes
+										NOT = { has_character_flag = unwilling_sacrifice }
+									}
+									random_list = {
+										10 = { }
+										40 = {
+											add_character_flag = {
+												flag = agot_burned_in_dragon_hatching
+												weeks = 1
+											}
+											scope:activity = {
+												add_to_variable_list = {
+													name = burned_characters
+													target = prev
+												}
+											}
+										}
+										50 = {
+											add_character_flag = {
+												flag = agot_dead_in_dragon_hatching
+												weeks = 1
+											}
+											scope:activity = {
+												add_to_variable_list = {
+													name = dead_characters
+													target = prev
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						# Send host event if they're not dead
+						if = { # Host is 'dead', so do things then kill them
+							limit = {
+								has_character_flag = agot_should_be_dead_for_dragon_hatching_host
+							}
+							# Set up results event and mark as successfull if so
+							scope:host = {
+								if = {
+									limit = {
+										scope:activity.var:outcome = flag:success
+										has_activity_intent = hatch_dragon_intent
+									}
+									complete_activity_intent = yes
+								}
+								trigger_event = {
+									id = agot_dragon_hatching.9999
+									days = 2 # Delay to give time for the other events to fire
+								}
+							}
+						}
+						else = { # Host is alive, send them results event
+							if = {
+								limit = {
+									scope:activity.var:outcome = flag:catastrophe
+								}
+								trigger_event = agot_dragon_hatching.0101
+							}
+							else_if = {
+								limit = {
+									scope:activity.var:outcome = flag:disaster
+								}
+								trigger_event = agot_dragon_hatching.0201
+							}
+							else_if = {
+								limit = {
+									scope:activity.var:outcome = flag:nothing
+								}
+								trigger_event = agot_dragon_hatching.0301
+							}
+							else_if = {
+								limit = {
+									scope:activity.var:outcome = flag:success
+								}
+								trigger_event = agot_dragon_hatching.0401
+							}
+						}
+						# Then, send guests results event
+						scope:activity = {
+							if = {
+								limit = {
+									var:outcome = flag:catastrophe
+								}
+								every_attending_character = {
+									limit = {
+										NOT = { this = scope:host }
+										is_alive = yes
+									}
+									trigger_event = agot_dragon_hatching.0102
+								}
+							}
+							else_if = {
+								limit = {
+									var:outcome = flag:disaster
+								}
+								every_attending_character = {
+									limit = {
+										NOT = { this = scope:host }
+										is_alive = yes
+									}
+									trigger_event = agot_dragon_hatching.0202
+								}
+							}
+							else_if = {
+								limit = {
+									var:outcome = flag:nothing
+								}
+								every_attending_character = {
+									limit = {
+										NOT = { this = scope:host }
+										is_alive = yes
+									}
+									trigger_event = agot_dragon_hatching.0302
+								}
+							}
+							else_if = {
+								limit = {
+									var:outcome = flag:success
+								}
+								every_attending_character = {
+									limit = {
+										NOT = { this = scope:host }
+										is_alive = yes
+									}
+									trigger_event = agot_dragon_hatching.0402
+								}
+							}
+						}
+					}
+				}
+			}
+
+			on_end = {
+			}
+		}
+	}
+
+	wait_time_before_start = {
+		months = 2
+	}
+
+	max_guest_arrival_delay_time = {
+		months = 2
+	}
+
+	max_route_deviation_mult = 2.0
+
+	cooldown = {
+		years = 10
+	}
+
+	activity_group_type = grand
+	is_single_location = yes
+	planner_type = province
+
+	ai_will_do = {
+		add = {
+			value = 0
+			desc = "Base"
+		}
+		if = {
+			limit = {
+				has_trait = lunatic
+			}
+			add = {
+				value = 2
+				desc = "Is lunatic"
+			}
+		}
+		if = {
+			limit = {
+				has_trait = ambitious
+				agot_has_dragonblood_heritage = yes
+			}
+			add = {
+				value = 2
+				desc = "Is ambitious"
+			}
+		}
+	}
+
+	ai_check_interval = 60
+
+	ai_will_select_province = {
+		value = 1
+		if = {
+			limit = {
+				OR = {
+					has_building_or_higher = generic_dragon_pit_01
+					has_building = dragonpit_ruins_03
+					has_building_or_higher = dragonpit_ruins_03
+				}
+			}
+			add = 10
+		}
+	}
+
+	cost = {
+		gold = {
+			add = {
+				if = {
+					limit = {
+						primary_title = {
+							tier = tier_county
+						}
+					}
+					add = {
+						value = 100
+					}
+				}
+				if = {
+					limit = {
+						primary_title = {
+							tier = tier_duchy
+						}
+					}
+					add = {
+						value = 200
+					}
+				}
+				if = {
+					limit = {
+						primary_title = {
+							tier = tier_kingdom
+						}
+					}
+					add = {
+						value = 400
+					}
+				}
+				if = {
+					limit = {
+						primary_title = {
+							tier = tier_empire
+						}
+					}
+					add = {
+						value = 600
+					}
+				}
+				if = {
+					limit = {
+						primary_title = {
+							tier = tier_hegemony
+						}
+					}
+					add = {
+						value = 800
+					}
+				}
+			}
+		}
+		prestige = {
+			add = {
+				value = 1000
+			}
+		}
+		piety = {
+			value = 500
+		}
+	}
+
+	# Predicted average cost for this activity if you plan one
+	# Used to show a rough minimum or expected cost at all to plan this
+	#
+	# root = character trying to host this activity
+	ui_predicted_cost = {
+		gold = {
+			add = 100
+			add = {
+				if = {
+					limit = {
+						primary_title = {
+							tier = tier_county
+						}
+					}
+					add = {
+						value = 100
+					}
+				}
+				if = {
+					limit = {
+						primary_title = {
+							tier = tier_duchy
+						}
+					}
+					add = {
+						value = 200
+					}
+				}
+				if = {
+					limit = {
+						primary_title = {
+							tier = tier_kingdom
+						}
+					}
+					add = {
+						value = 400
+					}
+				}
+				if = {
+					limit = {
+						primary_title = {
+							tier = tier_empire
+						}
+					}
+					add = {
+						value = 600
+					}
+				}
+				if = {
+					limit = {
+						primary_title = {
+							tier = tier_hegemony
+						}
+					}
+					add = {
+						value = 800
+					}
+				}
+			}
+		}
+		prestige = {
+			add = {
+				value = 1000
+			}
+		}
+		piety = {
+			value = 500
+		}
+	}
+
+	max_guests = 40
+	allow_zero_guest_invites = yes
+
+	# What guest invite rules this activity shows
+	guest_invite_rules = {
+		# All rules to pick from
+		# Left value is priority with which to invite them, lower his higher prio, priority must be >= 1
+		rules = {
+			4 = activity_invite_rule_friends
+			4 = activity_invite_rule_lovers
+			5 = activity_invite_rule_guests
+		}
+
+		# Same as above but these rules are enabled by default for the player
+		# They will be appended to the main rules and insert their priority, so they should not be in the above list
+		defaults = {
+			1 = activity_invite_rule_close_family
+			1 = activity_invite_spouses
+			2 = activity_invite_rule_courtiers
+			3 = activity_invite_rule_extended_family
+		}
+	}
+
+	# Can this character be a guest at this specific activity type, checked in addition to the base
+	# can_be_activity_guest scripted rule, so don't need to check what that also checks for basic requirements
+	# root = character
+	# scope:host = the activity host
+	# scope:special_option = flag of the selected special option, not set if activity has no special option category
+	can_be_activity_guest = {
+		custom_description = {
+			text = ALREADY_IN_ACTIVITY
+			NOR = {
+				exists = involved_activity
+				has_variable = homage_liege_scope
+				has_character_flag = meditation_character_flag
+				has_character_flag = petition_liege_character_flag
+				has_character_flag = holding_court_character_flag
+				is_being_visited_on_tour_strict = yes
+			}
+		}
+		agot_can_be_activity_guest = yes
+	}
+
+	open_invite = no
+
+	# List of valid intents for the host (default should be in the `intents` list too)
+	host_intents = {
+		intents = { hatch_dragon_intent }
+		# Default intent needs to be always valid
+		default = hatch_dragon_intent
+		# Optional list of intents to try to default to for the player
+		player_defaults = { hatch_dragon_intent }
+	}
+
+	# List of valid intents for the guests (default should be in the `intents` list too)
+	guest_intents = {
+		intents = { witness_hatch_dragon_intent }
+		default = witness_hatch_dragon_intent
+		player_defaults = { witness_hatch_dragon_intent }
+	}
+
+	# Chance for a guest to accept an invitation to join this activity
+	# root = character being invited
+	# scope:host = host of the activity
+	# scope:minimal_travel_time = the estimated "direct line" travel time for the guest to arrive in days
+	# scope:activity_start_diff_days = how many days from the activity start date the guest is estimated to arrive (negative = late)
+	# scope:<special_guest_key> = for every special guest type defined, will be the picked character if set or not be provided
+	# scope:<option_category_key> = for every option category defined, will have a the flag of the selected option
+	# scope:special_guests = list of special guest characters
+	guest_join_chance = {
+		base = 10
+		base_activity_modifier = yes
+
+		# Scripted Modifiers
+		activity_guest_shared_ai_accept_modifier = yes
+	}
+
+	# Effects run when a character enters a travel state
+	# root = character in this phase
+	# scope:activity = the activity
+	# scope:host = host of the activity
+	on_enter_travel_state = {
+		scope:host = {
+			if = {
+				limit = {
+					NOT = { exists = var:blocker_3 }
+				}
+				trigger_event = {
+					id = agot_dragon_hatching.0003
+					days = 1
+				}
+				set_variable = blocker_3
+			}
+		}
+		root = {
+			if = {
+				limit = {
+					NOT = { this = scope:host }
+				}
+				trigger_event = agot_dragon_hatching.0005
+			}
+		}
+	}
+
+	# Effects run when a character enters a passive state after travel
+	# root = character in this phase
+	# scope:activity = the activity
+	# scope:host = host of the activity
+	on_enter_passive_state = {
+	}
+
+	# Effects run when the activity is created
+	# root = the activity
+	# scope:activity = the activity
+	# scope:host = host of the activity
+	on_start = {
+		scope:host = {
+			every_character_artifact = {
+				limit = {
+					has_variable = dragon_egg
+				}
+				scope:host = {
+					add_to_variable_list = {
+						name = possible_artifacts
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_artifact }
+						}
+						set_variable = { name = selected_artifact value = prev }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_activity_option = {
+					category = hatching_type
+					option = hatching_type_knowledge
+				}
+			}
+			scope:host = {
+				trigger_event = agot_dragon_hatching.0001
+			}
+		}
+		else_if = {
+			limit = {
+				has_activity_option = {
+					category = hatching_type
+					option = hatching_type_esoteric
+				}
+			}
+			scope:host = {
+				trigger_event = agot_dragon_hatching.0002
+			}
+		}
+	}
+
+	# Effects run when the activity completes after its last phase
+	# Note: AI-only activities will not persist more than 1 day after this.
+	# root = character in this phase
+	# scope:activity = the activity
+	# scope:host = host of the activity
+	on_complete = {
+		if = {
+			limit = {
+				this = scope:host
+				has_character_flag = agot_dead_in_dragon_hatching
+			}
+			death = {
+				death_reason = death_dragon_hatching_accident
+				killer = scope:host
+			}
+		}
+		# Burned dealt with in the event
+	}
+
+	###################
+	# GRAPHICS
+	###################
+
+	map_entity = {
+		trigger = {
+			activity_location.culture = {
+				OR = {
+					has_graphical_mena_culture_group_trigger = yes
+					has_graphical_steppe_culture_group_trigger = yes
+					has_graphical_african_culture_group_trigger = yes
+				}
+			}
+		}
+		reference = "building_mena_feast_01_entity"
+	}
+
+	map_entity = {
+		trigger = {
+			activity_location.culture = {
+				has_graphical_india_culture_group_trigger = yes
+			}
+		}
+		reference = "building_indian_feast_01_entity"
+	}
+
+	map_entity = "building_western_feast_01_entity"
+
+	# Travel
+	
+
+	
+
+	
+
+	
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	# End Travel
+
+	# Has arrived
+	
+
+	window_characters = {
+
+		host = {
+			camera = camera_event_center
+
+			effect = {
+				if = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+					}
+					scope:host = {
+						add_to_list = characters
+					}
+				}
+			}
+
+			scripted_animation = {
+				animation = throne_room_writer
+			}
+		}
+
+		travel_host = {
+			camera = camera_event_center
+
+			effect = {
+				if = {
+					limit = {
+						NOT = {
+							scope:host.location = scope:activity.activity_location
+						}
+					}
+					scope:host = {
+						add_to_list = characters
+					}
+				}
+			}
+
+			scripted_animation = {
+				triggered_animation = {
+					trigger = {
+						scope:character.location = { is_sea_province = yes }
+					}
+					animation = { idle }
+				}
+				triggered_animation = {
+					trigger = { scope:character = { has_trait = impatient } }
+					animation = { jockey_gallop }
+				}
+				animation = jockey_walk
+			}
+		}
+	}
+
+	# Description for hosting the activity, defaults to "<key>_province_desc"
+	# root = the province
+	# scope:host = character trying to host this activity
+	# scope:special_option = flag of the selected special option, not set if activity has no special option category
+	province_description = { desc = voltara_dragon_ceremony_location }
+
+	# Description for hosting the activity, defaults to "<key>_host_desc"
+	# root = character trying to host this activity
+	host_description = {
+		first_valid = {
+			desc = agot_host_hatching_potential_reward
+		}
+	}
+
+	# Description for concluding the activity, defaults to "<key>_conclusion_desc"
+	# root = character in the conclusion screen
+	# scope:activity = the activity
+	# scope:host = host of the activity
+	conclusion_description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					this = scope:host
+					scope:activity = { exists = var:host_folded }
+				}
+				desc = agot_hatching_host_folded
+			}
+			triggered_desc = {
+				trigger = {
+					NOT = { this = scope:host }
+					scope:activity = { exists = var:host_folded }
+				}
+				desc = agot_hatching_host_folded_guest
+			}
+			triggered_desc = {
+				trigger = {
+					this = scope:host
+					scope:activity = { var:outcome = flag:success }
+				}
+				desc = agot_hatching_success
+			}
+			triggered_desc = {
+				trigger = {
+					NOT = { this = scope:host }
+					scope:activity = { var:outcome = flag:success }
+				}
+				desc = agot_hatching_success_guest
+			}
+			triggered_desc = {
+				trigger = {
+					this = scope:host
+					scope:activity = { NOT = { var:outcome = flag:success } }
+				}
+				desc = agot_hatching_fail
+			}
+			triggered_desc = {
+				trigger = {
+					NOT = { this = scope:host }
+					scope:activity = { NOT = { var:outcome = flag:success } }
+				}
+				desc = agot_hatching_fail_guest
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						OR = {
+							NOT = { exists = var:outcome }
+							NOT = { exists = var:host_folded }
+						}
+					}
+				}
+				desc = agot_hatching_something_broke
+			}
+		}
+	}
+
+background = { texture = "gfx/interface/illustrations/event_scenes/agot_dragonpit.dds" environment = "environment_event_dungeon" ambience = "event:/SFX/Events/Backgrounds/dungeon" }
+}

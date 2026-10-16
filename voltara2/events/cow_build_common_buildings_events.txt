@@ -1,0 +1,755 @@
+﻿namespace = cow_build_common_buildings
+
+cow_build_common_buildings.8999 = {
+	type = character_event 
+	title = repopulate.0002.t
+	desc = repopulate.0002.desc
+	theme = realm
+	override_background = {
+		reference = cow_rebuild
+	}
+	left_portrait = { 
+		character = root
+		animation = thinking
+	}
+	right_portrait = {
+		character = cp:councillor_steward
+		animation = admiration
+	}
+	
+
+	immediate= {
+		
+
+		random_in_list = {
+			list = cows_to_rebuild
+			save_scope_as = target_cow1
+			remove_from_list = cows_to_rebuild
+		}
+
+		if = {
+			limit = {
+				any_in_list = {
+					list = cows_to_rebuild
+					count >= 1
+				}
+			}
+			random_in_list = {
+				list = cows_to_rebuild
+				save_scope_as = target_cow2
+				remove_from_list = cows_to_rebuild
+			}
+		}
+
+		if = {
+			limit = {
+				any_in_list = {
+					list = cows_to_rebuild
+					count >= 1
+				}
+			}
+			random_in_list = {
+				list = cows_to_rebuild
+				save_scope_as = target_cow3
+				remove_from_list = cows_to_rebuild
+			}
+		}
+
+		if = {
+			limit = {
+				any_in_list = {
+					list = cows_to_rebuild
+					count >= 1
+				}
+			}
+			random_in_list = {
+				list = cows_to_rebuild
+				save_scope_as = target_cow4
+				remove_from_list = cows_to_rebuild
+			}
+		}
+
+		if = {
+			limit = {
+				any_in_list = {
+					list = cows_to_rebuild
+					count >= 1
+				}
+			}
+			random_in_list = {
+				list = cows_to_rebuild
+				save_scope_as = target_cow5
+				remove_from_list = cows_to_rebuild
+			}
+		}
+	}
+
+	option = {
+        name = cow_rebuild1
+		custom_tooltip = ow_rebuild1.tt				
+		trigger = {
+			exists = scope:target_cow1
+		}		
+		hidden_effect = {
+			scope:target_cow1 = {
+				save_scope_as = my_barony
+			}
+			trigger_event = cow_build_common_buildings.9000
+		}
+	}
+
+	option = {
+        name = cow_rebuild2
+		custom_tooltip = ow_rebuild2.tt				
+		trigger = {
+			exists = scope:target_cow2
+		}
+		hidden_effect = {
+			scope:target_cow2 = {
+				save_scope_as = my_barony
+			}
+			trigger_event = cow_build_common_buildings.9000
+		}
+	}
+
+	option = {
+        name = cow_rebuild3
+		custom_tooltip = ow_rebuild3.tt		
+		trigger = {
+			exists = scope:target_cow3
+		}		
+		hidden_effect = {
+			scope:target_cow3 = {
+				save_scope_as = my_barony
+			}
+			trigger_event = cow_build_common_buildings.9000
+		}
+	}
+
+	option = {
+        name = cow_rebuild4
+		custom_tooltip = ow_rebuild4.tt		
+		trigger = {
+			exists = scope:target_cow4
+		}		
+		hidden_effect = {
+			scope:target_cow4 = {
+				save_scope_as = my_barony
+			}
+			trigger_event = cow_build_common_buildings.9000
+		}
+	}
+
+	option = {
+        name = cow_rebuild5
+		custom_tooltip = ow_rebuild5.tt		
+		trigger = {
+			exists = scope:target_cow5
+		}		
+		hidden_effect = {
+			scope:target_cow5 = {
+				save_scope_as = my_barony
+			}
+			trigger_event = cow_build_common_buildings.9000
+		}
+	}
+}
+
+cow_build_common_buildings.9000 = {
+	type = character_event 
+	title = repopulate.0003.t
+	desc = repopulate.0003.desc
+	theme = realm
+	override_background = {
+		reference = cow_rebuild
+	}
+	left_portrait = { 
+		character = root
+		animation = thinking
+	}
+	right_portrait = {
+		character = cp:councillor_steward
+		animation = admiration
+	}
+	
+
+	immediate= {
+		
+	}
+
+	option = {
+        name = populate.0002.a
+		custom_tooltip = populate.0002.tt.a
+		trigger = { 
+			scope:my_barony = {
+				# barony_has_hist_cow_university_trigger = no
+				barony_is_hist_vanilla_cow_university_trigger = yes		
+				NOT = {
+					has_building_or_higher = cow_generic_university_01
+				}
+			}
+			
+		}
+		if = {
+			limit = {
+				scope:my_barony.title_province= {
+					free_building_slots < 1	
+				}
+			}
+			scope:my_barony.title_province = {
+					add_province_modifier = extra_building_slot
+				}
+			scope:my_barony.title_province = {
+				add_building = cow_generic_university_01
+			}
+			
+		}		
+		if = {
+			limit = {
+				scope:my_barony.title_province = {
+					free_building_slots >= 1	
+				}
+			}		
+			scope:my_barony.title_province = {
+				add_building = cow_generic_university_01
+			}
+			
+		}
+    }
+	option = {
+        name = populate.0002.b
+		custom_tooltip = populate.0002.tt.b
+		trigger = { 
+			scope:my_barony = {
+				barony_has_hist_cow_library_trigger = no	
+				NOT = {
+					has_building_or_higher = cow_generic_library_01
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:my_barony.title_province= {
+					free_building_slots < 1	
+				}
+			}
+			scope:my_barony.title_province = {
+					add_province_modifier = extra_building_slot
+				}
+			scope:my_barony.title_province = {
+				add_building = cow_generic_library_01
+			}
+			
+		}		
+		if = {
+			limit = {
+				scope:my_barony.title_province = {
+					free_building_slots >= 1	
+				}
+			}		
+			scope:my_barony.title_province = {
+				add_building = cow_generic_library_01
+			}
+			
+		}
+    }
+	option = {
+        name = populate.0001.c
+		custom_tooltip = populate.0001.tt.c
+		trigger = {
+			faith = { religion_tag = voltara_religion }
+			scope:my_barony = {
+				NOT = { barony = { is_holy_site_of = root.faith }}
+				NOR = {
+					always = no # Holy Sites (Orthodox)
+					always = no
+					always = no
+					always = no # + Catholic
+					always = no # + Catholic
+					
+					always = no # Holy Sites (Catholic)
+					always = no
+					always = no
+				}	
+				NOT = {
+					has_building_or_higher = cow_christian_cathedral_01
+				}		
+			}
+		}
+		if = {
+			limit = {
+				scope:my_barony.title_province= {
+					free_building_slots < 1	
+				}
+			}
+			scope:my_barony.title_province = {
+					add_province_modifier = extra_building_slot
+				}
+			scope:my_barony.title_province = {
+				add_building = cow_christian_cathedral_01
+			}
+			
+		}		
+		if = {
+			limit = {
+				scope:my_barony.title_province = {
+					free_building_slots >= 1	
+				}
+			}		
+			scope:my_barony.title_province = {
+				add_building = cow_christian_cathedral_01
+			}
+			
+		}
+    }
+	option = {
+        name = populate.0001.d
+		custom_tooltip = populate.0001.tt.d
+		trigger = {
+			faith = { religion_tag = islam_religion }
+			scope:my_barony = {
+				NOT = { barony = { is_holy_site_of = root.faith }}
+				NOR = {
+					always = no # Holy Sites (Islam)
+					always = no
+					always = no
+					always = no
+				}	
+				NOT = {
+					has_building_or_higher = cow_muslim_mosque_01
+				}				
+			}
+			
+		}
+		if = {
+			limit = {
+				scope:my_barony.title_province= {
+					free_building_slots < 1	
+				}
+			}
+			scope:my_barony.title_province = {
+					add_province_modifier = extra_building_slot
+				}
+			scope:my_barony.title_province = {
+				add_building = cow_muslim_mosque_01
+			}
+			
+		}		
+		if = {
+			limit = {
+				scope:my_barony.title_province = {
+					free_building_slots >= 1	
+				}
+			}		
+			scope:my_barony.title_province = {
+				add_building = cow_muslim_mosque_01
+			}
+			
+		}
+    }
+	option = {
+        name = populate.0001.e
+		custom_tooltip = populate.0001.tt.e
+		trigger = {
+			faith = { religion_tag = judaism_religion }
+			scope:my_barony = {
+				NOT = { barony = { is_holy_site_of = root.faith }}
+				NOR = {
+					always = no # Holy Sites (Judaism)
+					always = no
+				}						
+				NOT = {
+					has_building_or_higher = cow_jewish_synagogue_01
+				}		
+			}
+			
+		}
+		if = {
+			limit = {
+				scope:my_barony.title_province= {
+					free_building_slots < 1	
+				}
+			}
+			scope:my_barony.title_province = {
+					add_province_modifier = extra_building_slot
+				}
+			scope:my_barony.title_province = {
+				add_building = cow_jewish_synagogue_01
+			}
+			
+		}		
+		if = {
+			limit = {
+				scope:my_barony.title_province = {
+					free_building_slots >= 1	
+				}
+			}		
+			scope:my_barony.title_province = {
+				add_building = cow_jewish_synagogue_01
+			}
+			
+		}
+    }
+	option = {
+        name = populate.0001.f
+		custom_tooltip = populate.0001.tt.f
+		trigger = {
+			root = {
+				faith = { religion = { is_in_family = rf_pagan } }
+			}
+			scope:my_barony = {	
+				NOT = { barony = { is_holy_site_of = root.faith }}
+				barony_has_hist_cow_temple_trigger = no		
+				NOT = {
+					has_building_or_higher = cow_pagan_temple_01
+				}						
+			}
+			
+		}
+		if = {
+			limit = {
+				scope:my_barony.title_province= {
+					free_building_slots < 1	
+				}
+			}
+			scope:my_barony.title_province = {
+					add_province_modifier = extra_building_slot
+				}
+			scope:my_barony.title_province = {
+				add_building = cow_pagan_temple_01
+			}
+			
+		}		
+		if = {
+			limit = {
+				scope:my_barony.title_province = {
+					free_building_slots >= 1	
+				}
+			}		
+			scope:my_barony.title_province = {
+				add_building = cow_pagan_temple_01
+			}
+			
+		}
+    }
+	option = {
+        name = populate.0001.h
+		custom_tooltip = populate.0001.tt.h
+		trigger = {
+			root = {
+				OR = {
+					faith = { religion = { is_in_family = rf_eastern } }
+					faith = { religion_tag = dualism_religion }
+				}
+				NOT = { faith = { religion_tag = zoroastrianism_religion } }
+			}
+			scope:my_barony = {	
+				NOT = { barony = { is_holy_site_of = root.faith }}	
+				NOT = {
+					has_building_or_higher = cow_indian_temple_01
+				}		
+			}
+			
+		}
+		if = {
+			limit = {
+				scope:my_barony.title_province= {
+					free_building_slots < 1	
+				}
+			}
+			scope:my_barony.title_province = {
+					add_province_modifier = extra_building_slot
+				}
+			scope:my_barony.title_province = {
+				add_building = cow_indian_temple_01
+			}
+			
+		}		
+		if = {
+			limit = {
+				scope:my_barony.title_province = {
+					free_building_slots >= 1	
+				}
+			}		
+			scope:my_barony.title_province = {
+				add_building = cow_indian_temple_01
+			}
+			
+		}
+    }
+	option = {
+        name = populate.0001.i
+		custom_tooltip = populate.0001.tt.i
+		trigger = {
+			faith = { religion_tag = zoroastrianism_religion }
+			scope:my_barony = {	
+				NOT = { barony = { is_holy_site_of = root.faith }}		
+				NOT = {
+					has_building_or_higher = cow_zoroastrian_temple_01
+				}
+			}			
+		}
+		if = {
+			limit = {
+				scope:my_barony.title_province= {
+					free_building_slots < 1	
+				}
+			}
+			scope:my_barony.title_province = {
+					add_province_modifier = extra_building_slot
+				}
+			scope:my_barony.title_province = {
+				add_building = cow_zoroastrian_temple_01
+			}
+			
+		}		
+		if = {
+			limit = {
+				scope:my_barony.title_province = {
+					free_building_slots >= 1	
+				}
+			}		
+			scope:my_barony.title_province = {
+				add_building = cow_zoroastrian_temple_01
+			}
+			
+		}
+    }
+	option = {
+        name = populate.0001.j
+		custom_tooltip = populate.0001.tt.j
+		trigger = { 
+			scope:my_barony = {
+				barony_has_hist_cow_royal_palace_trigger = no		
+				NOT = {
+					has_building_or_higher = cow_royal_palace_01
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:my_barony.title_province= {
+					free_building_slots < 1	
+				}
+			}
+			scope:my_barony.title_province = {
+					add_province_modifier = extra_building_slot
+				}
+			scope:my_barony.title_province = {
+				add_building = cow_royal_palace_01
+			}
+			
+		}		
+		if = {
+			limit = {
+				scope:my_barony.title_province = {
+					free_building_slots >= 1	
+				}
+			}		
+			scope:my_barony.title_province = {
+				add_building = cow_royal_palace_01
+			}
+			
+		}
+    }
+	option = {
+        name = populate.0001.k
+		custom_tooltip = populate.0001.tt.k
+		trigger = { 
+			scope:my_barony = {
+				barony_has_hist_cow_great_harbor_trigger = no
+				building_common_tradeport_requirement_terrain = yes			
+				NOT = {
+					has_building_or_higher = cow_great_harbor_01
+				}	
+			}
+		}
+		if = {
+			limit = {
+				scope:my_barony.title_province= {
+					free_building_slots < 1	
+				}
+			}
+			scope:my_barony.title_province = {
+					add_province_modifier = extra_building_slot
+				}
+			scope:my_barony.title_province = {
+				add_building = cow_great_harbor_01
+			}
+			
+		}		
+		if = {
+			limit = {
+				scope:my_barony.title_province = {
+					free_building_slots >= 1	
+				}
+			}		
+			scope:my_barony.title_province = {
+				add_building = cow_great_harbor_01
+			}
+			
+		}
+    }
+	option = {
+        name = populate.0001.l
+		custom_tooltip = populate.0001.tt.l
+		trigger = { 
+			scope:my_barony = {
+				barony_has_hist_cow_great_walls_trigger = no	
+				NOT = {
+					has_building_or_higher = cow_walls_new_01
+				}		
+			}
+		}
+		if = {
+			limit = {
+				scope:my_barony.title_province= {
+					free_building_slots < 1	
+				}
+			}
+			scope:my_barony.title_province = {
+					add_province_modifier = extra_building_slot
+				}
+			scope:my_barony.title_province = {
+				add_building = cow_walls_new_01
+			}
+			
+		}		
+		if = {
+			limit = {
+				scope:my_barony.title_province = {
+					free_building_slots >= 1	
+				}
+			}		
+			scope:my_barony.title_province = {
+				add_building = cow_walls_new_01
+			}
+			
+		}
+    }
+	option = {
+        name = populate.0001.m
+		custom_tooltip = populate.0001.tt.m
+		trigger = { 
+			scope:my_barony = {
+				barony_has_hist_cow_grand_fortress_trigger = no		
+				NOT = {
+					has_building_or_higher = cow_grand_fortress_01
+				}	
+			}
+		}
+		if = {
+			limit = {
+				scope:my_barony.title_province= {
+					free_building_slots < 1	
+				}
+			}
+			scope:my_barony.title_province = {
+					add_province_modifier = extra_building_slot
+				}
+			scope:my_barony.title_province = {
+				add_building = cow_grand_fortress_01
+			}
+			
+		}		
+		if = {
+			limit = {
+				scope:my_barony.title_province = {
+					free_building_slots >= 1	
+				}
+			}		
+			scope:my_barony.title_province = {
+				add_building = cow_grand_fortress_01
+			}
+			
+		}
+    }
+	option = {
+        name = populate.0001.n
+		custom_tooltip = populate.0001.tt.n
+		trigger = { 
+			scope:my_barony = {
+				is_coastal = yes
+				barony_has_hist_cow_lighthouse_trigger = no			
+				NOT = {
+					has_building_or_higher = cow_great_lighthouse_01
+				}	
+			}
+		}
+		if = {
+			limit = {
+				scope:my_barony.title_province= {
+					free_building_slots < 1	
+				}
+			}
+			scope:my_barony.title_province = {
+					add_province_modifier = extra_building_slot
+				}
+			scope:my_barony.title_province = {
+				add_building = cow_great_lighthouse_01
+			}
+			
+		}		
+		if = {
+			limit = {
+				scope:my_barony.title_province = {
+					free_building_slots >= 1	
+				}
+			}		
+			scope:my_barony.title_province = {
+				add_building = cow_great_lighthouse_01
+			}
+			
+		}
+    }
+	option = {
+        name = populate.0001.o
+		custom_tooltip = populate.0001.tt.o
+		trigger = { 
+			scope:my_barony = {
+				barony_has_hist_cow_amphitheater_trigger = no		
+				NOT = {
+					has_building_or_higher = cow_grand_amphitheatre_01
+				}		
+			}
+		}
+		if = {
+			limit = {
+				scope:my_barony.title_province= {
+					free_building_slots < 1	
+				}
+			}
+			scope:my_barony.title_province = {
+					add_province_modifier = extra_building_slot
+				}
+			scope:my_barony.title_province = {
+				add_building = cow_grand_amphitheatre_01
+			}
+			
+		}		
+		if = {
+			limit = {
+				scope:my_barony.title_province = {
+					free_building_slots >= 1	
+				}
+			}		
+			scope:my_barony.title_province = {
+				add_building = cow_grand_amphitheatre_01
+			}
+			
+		}
+    }
+}
+
+cow_build_common_buildings.9999 = {
+	type = character_event 
+	hidden = yes
+	
+
+	immediate= {
+		capital_province = {
+			add_province_modifier = extra_building_slot
+			add_building = preburge_01
+		}
+	}
+}

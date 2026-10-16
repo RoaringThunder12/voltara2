@@ -1,0 +1,4518 @@
+﻿
+namespace = ek_court_position
+namespace = ek_stress_trait_coping_decisions
+namespace = ek_ymis_events
+namespace = life_extension
+life_extension.0410 = {
+    type = character_event
+
+    title = life_extension.0410.t
+	desc = life_extension.0410.desc
+    theme = necromancy
+    left_portrait = root 
+
+    # Ascend
+    option = {
+        name = life_extension.0410a
+        flavor = life_extension.0410a.tt
+        add_piety = -1000
+        random_list = {
+            1 = { 
+                modifier = {
+                    factor = prowess
+				}
+				custom_tooltip = {
+					text = life_extension.0410.success
+					trigger_event = life_extension.0411
+					give_briarheart_trait_effect = yes
+				}
+            }
+            15 = { 
+                custom_tooltip = {
+                    text = life_extension.0410.failure
+                    trigger_event = life_extension.0412
+                }
+            }
+            5 = {
+                custom_tooltip = {
+                    text = life_extension.0410.death
+                    trigger_event = life_extension.0413
+                }
+            }
+        }
+        ai_chance = { base = 100 } 
+    }
+
+    # Don't do it
+    option = {
+        name = life_extension.0410b
+        custom_tooltip = life_extension.0410b.tt
+
+        ai_chance = { base = 0 }
+    }   
+}
+
+life_extension.0413 = {
+    type = character_event
+
+    title = life_extension.0413.t
+    desc = life_extension.0413.desc
+    theme = death
+    override_background = { reference = study_necromancer }
+    left_portrait = {
+        character = root
+        animation = severelywounded
+    }
+
+    option = {
+        name = life_extension.0413a
+        death = {
+            death_reason = death_failed_during_briarheart_ascension
+        }
+    }   
+}
+
+life_extension.0412 = {
+    type = character_event
+
+    title = life_extension.0412.t
+    desc = life_extension.0412.desc
+    theme = mental_break
+    override_background = { reference = study_necromancer }
+    left_portrait = {
+        character = root
+        animation = sick
+    }
+
+    option = {
+        name = life_extension.0412a
+        add_character_modifier = {
+            modifier = failed_briarheart_ascension
+            years = 3
+        }
+        add_stress = medium_stress_gain
+    }   
+}
+
+life_extension.0411 = {
+    type = character_event
+
+    title = life_extension.0411.t
+    desc = life_extension.0411.desc
+    theme = necromancy
+    left_portrait = root
+
+    option = {
+        name = life_extension.0411a
+    }   
+}
+
+life_extension.0400 = {
+    type = character_event
+
+    title = life_extension.0400.t
+	desc = life_extension.0400.desc
+    theme = necromancy
+    left_portrait = root 
+
+    # Ascend
+    option = {
+        name = life_extension.0400a
+        flavor = life_extension.0400a.tt
+        add_piety = -1000
+		add_magicka = { VALUE = -100 }
+        random_list = {
+            1 = { 
+                modifier = {
+                    factor = arcana
+                }
+                custom_tooltip = {
+                    text = life_extension.0400.success
+                    trigger_event = life_extension.0401
+                    give_hagraven_trait_effect = yes
+                } 
+            }
+            30 = {
+                custom_tooltip = {
+                    text = life_extension.0400.failure
+                    trigger_event = life_extension.0402
+                }
+            }
+            10 = {
+                custom_tooltip = {
+                    text = life_extension.0400.death
+                    trigger_event = life_extension.0403
+                }
+            }
+        }
+        ai_chance = { base = 100 } 
+    }
+
+    # Don't do it
+    option = {
+        name = life_extension.0400b
+        custom_tooltip = life_extension.0400b.tt
+
+        ai_chance = { base = 0 }
+    }   
+}
+
+life_extension.0403 = {
+    type = character_event
+
+    title = life_extension.0403.t
+    desc = life_extension.0403.desc
+    theme = death
+    override_background = { reference = study_necromancer }
+    left_portrait = {
+        character = root
+        animation = severelywounded
+    }
+
+    option = {
+        name = life_extension.0403a
+        death = {
+            death_reason = death_failed_during_hagraven_ascension
+        }
+    }   
+}
+
+life_extension.0402 = {
+    type = character_event
+
+    title = life_extension.0402.t
+    desc = life_extension.0402.desc
+    theme = mental_break
+    override_background = { reference = study_necromancer }
+    left_portrait = {
+        character = root
+        animation = sick
+    }
+
+    option = {
+        name = life_extension.0402a
+        add_character_modifier = {
+            modifier = failed_hagraven_ascension
+            years = 3
+        }
+        add_stress = medium_stress_gain
+    }   
+}
+
+life_extension.0401 = {
+    type = character_event
+
+    title = life_extension.0401.t
+    desc = life_extension.0401.desc
+    theme = necromancy
+    left_portrait = root
+
+    option = {
+        name = life_extension.0401a
+    }   
+}
+
+life_extension.0290 = {
+    type = character_event
+
+    title = life_extension.0290.t
+    theme = necromancy
+    left_portrait = root 
+
+    desc = {
+		first_valid = {
+            triggered_desc = {
+				trigger = {
+					root = character:mannimarco_1000
+				}
+				desc = life_extension.0290.desc_mannimarco
+			}
+            triggered_desc = {
+				trigger = {
+					root = character:sosildor_100
+					root = {
+						has_character_flag = flag_tsaesci_act_passed
+					}
+				}
+				desc = life_extension.0290.desc_attrebus
+			}	
+            triggered_desc = {
+				trigger = {
+					root = character:rilis_100
+				}
+				desc = life_extension.0290.desc_rilis_xii
+			}	
+			#triggered_desc = {
+				#trigger = { uncomment when alternative desc exists
+				#	faith = { has_doctrine = tenet_necromancy_worship }
+				#}
+				#desc = life_extension.0290.desc2
+			#}	
+			desc = life_extension.0290.desc1
+		}	
+	}
+
+    # Ascend
+    option = {
+        name = life_extension.0290a
+        flavor = life_extension.0290a.tt
+        add_piety = -1000
+		add_magicka = { VALUE = -100 }
+        random_list = {
+            1 = { 
+                modifier = {
+                    factor = arcana
+                }
+                modifier = {
+                    faith = { has_doctrine = tenet_necromancy_worship }
+                    add = 10
+                }
+                modifier = {
+                    faith = { has_doctrine = doctrine_necromancy_accepted}
+                    add = 10
+                }                                        
+                custom_tooltip = {
+                    text = life_extension.0290.success
+                    trigger_event = life_extension.0300
+                    give_lich_trait_effect = yes
+                } 
+            }
+            30 = { 
+                modifier = {
+                    faith = { has_doctrine = doctrine_necromancy_shunned }
+                    add = 10
+                } 
+                custom_tooltip = {
+                    text = life_extension.0290.failure
+                    trigger_event = life_extension.0301
+                }
+            }
+            10 = {
+                modifier = {
+                    faith = { has_doctrine = doctrine_necromancy_crime }
+                    add = 10
+                }
+                modifier = {
+                    faith = { has_doctrine = tenet_necromancy_worship }
+                    add = -5
+                }
+                custom_tooltip = {
+                    text = life_extension.0290.death
+                    trigger_event = life_extension.0302
+                }
+            }
+        }
+        ai_chance = { base = 100 } 
+    }
+
+    # Don't do it
+    option = {
+        name = life_extension.0290b
+        custom_tooltip = life_extension.0290b.tt
+
+        ai_chance = { base = 0 }
+    }   
+}
+
+life_extension.0302 = {
+    type = character_event
+
+    title = life_extension.0302.t
+    desc = life_extension.0302.desc
+    theme = death
+    override_background = { reference = study_necromancer }
+    left_portrait = {
+        character = root
+        animation = severelywounded
+    }
+
+    option = {
+        name = life_extension.0302a
+        death = {
+            death_reason = death_failed_during_lich_ascension
+        }
+    }   
+}
+
+life_extension.0301 = {
+    type = character_event
+
+    title = life_extension.0301.t
+    desc = life_extension.0301.desc
+    theme = mental_break
+    override_background = { reference = study_necromancer }
+    left_portrait = {
+        character = root
+        animation = sick
+    }
+
+    option = {
+        name = life_extension.0301a
+        add_character_modifier = {
+            modifier = failed_lich_ascension
+            years = 3
+        }
+        add_stress = medium_stress_gain
+    }   
+}
+
+life_extension.0300 = {
+    type = character_event
+
+    title = life_extension.0300.t
+    desc = life_extension.0300.desc
+    theme = necromancy
+    left_portrait = root
+
+    option = {
+        name = life_extension.0300a
+    }   
+}
+
+life_extension.0260 = {
+    type = character_event
+
+    title = life_extension.0260.t
+    desc = life_extension.0260.desc
+    theme = necromancy
+    left_portrait = scope:revealed_necromancer
+    right_portrait = scope:undead_skeleton
+    
+    option = {
+        name = life_extension.0260a
+
+        trigger = {
+            OR = { 
+                faith = { has_doctrine = doctrine_necromancy_accepted }
+                vt_ek_is_necromancer = yes
+            }
+        }
+    }
+
+    option = {
+        name = life_extension.0260b
+
+        trigger = {
+            faith = { has_doctrine = doctrine_necromancy_shunned }
+            NOT = { vt_ek_is_necromancer = yes }
+        }
+    }
+
+    option = {
+        name = life_extension.0260c
+
+        trigger = {
+            faith = { has_doctrine = doctrine_necromancy_crime }
+            NOT = { vt_ek_is_necromancer = yes }
+        }
+    }
+}
+
+life_extension.0150 = { # Start
+	type = character_event
+
+	title = life_extension.0150.t
+	desc = {
+		desc = life_extension.0150.desc
+		triggered_desc = {
+            trigger = { has_variable = cl_cloning_insights }
+			desc = make_a_clone_decision_insights_desc
+		}
+	}
+
+	theme = cloning
+
+	left_portrait = {
+		character = root
+	}
+	immediate = {
+		if = { # Just in case the story already exists, restart it
+			limit = {
+				any_owned_story = { story_type = story_cycle_cloning }
+			}
+			every_owned_story = {
+				limit = { story_type = story_cycle_cloning }
+				add_to_list = cl_story_list
+			}
+			every_in_list = {
+				list = cl_story_list
+				end_story = yes
+			}
+		}
+		custom_tooltip = start_a_clone_project_tt
+		custom_tooltip = start_a_clone_project_options_tt
+		add_character_modifier = ongoing_cloning_project
+		create_story = story_cycle_cloning
+	}
+	option = {
+		name = life_extension.0150.a
+	}
+}
+
+life_extension.0100 = {
+	type = character_event
+
+	title = life_extension.0100.t
+	desc = life_extension.0100.desc
+	theme = cloning
+	override_background = {
+		reference = study
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	immediate = {
+		custom_tooltip = life_extension.0100.a.tt
+		add_character_modifier = learning_cloning
+		trigger_event = {
+			id = life_extension.0101
+			days = { 50 150 }
+		}
+	}
+	option = {
+		name = life_extension.0100.a
+		add_character_flag = cloning_minor_investment
+	}
+	option = {
+		name = life_extension.0100.b
+		remove_short_term_gold = minor_gold_value
+		add_character_flag = cloning_medium_investment
+	}
+	option = {
+		name = life_extension.0100.c
+		remove_short_term_gold = medium_gold_value
+		add_character_flag = cloning_large_investment
+	}
+}
+
+life_extension.0101 = { # Research continues
+	type = character_event
+
+	title = life_extension.0101.t
+	desc = life_extension.0101.desc
+	theme = cloning
+	override_background = {
+		reference = study
+	}
+	
+	left_portrait = {
+		character = root
+	}
+
+	option = {
+		name = life_extension.0101.a
+		trait = lifestyle_physician
+		add_piety = -200
+		custom_tooltip = life_extension.0101.a.tt
+		custom_tooltip = life_extension.0101.a.tt2
+		duel = {
+				skill = learning
+				value = high_skill_rating
+				50 = {
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 2
+						min = -40
+					}
+					#Investment
+					modifier = {
+						add = 10
+						has_character_flag = cloning_medium_investment
+					}
+					modifier = {
+						add = 20
+						has_character_flag = cloning_large_investment
+					}
+					#AI Easier
+					modifier = {
+						is_ai = yes
+						add = 50
+					}
+					# Physician
+					modifier = {
+						has_trait = lifestyle_physician
+						add = 15
+					}
+
+					desc = life_extension.0101.a.win.desc
+					send_interface_toast = {
+						type = event_toast_effect_good
+						title = life_extension.0101.a.win.desc
+						left_icon = root
+						custom_tooltip = life_extension.0101.a.win.tt
+						add_vt_threadbinding_magic_lifestyle_xp = medium_lifestyle_xp
+						trigger_event = {
+							id = life_extension.0102
+							#TEMPTEST days = { 50 150 }
+						}
+					}
+				}
+				50 = {
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -2
+						min = 5
+					}
+					desc = life_extension.0101.a.fail.desc
+					send_interface_toast = {
+						type = event_toast_effect_bad
+						title = life_extension.0101.a.fail.desc
+						left_icon = root
+						remove_character_modifier = learning_cloning
+						random_list = {
+							30 = { } #Nothing Happens
+							45 = { #Wound
+								increase_wounds_effect = { REASON = failed_experiment }
+							}
+							10 = { #Cancer
+								trigger = { can_contract_disease_trigger = { DISEASE = cancer } }
+								contract_disease_effect = { DISEASE = cancer TREATMENT_EVENT = yes }
+							}
+							5 = { #Disfigurement
+								add_trait = disfigured
+							}
+							5 = { #Maiming
+								add_trait = maimed
+							}
+							5 = { #Death
+								hidden_effect = {
+									random_list = {
+										6 = {
+											set_variable = { name = cloningdeath value = flag:death_failed_experiment }
+										}
+										3 = {
+											set_variable = { name = cloningdeath value = flag:death_leech_health_magic }
+										}
+										1 = {
+											set_variable = { name = cloningdeath value = flag:transform_flesh_atronach }
+										}
+									}
+								}
+								if = {
+									limit = { var:cloningdeath ?= flag:death_failed_experiment }
+									death = { death_reason = death_failed_experiment }
+								}
+								else_if = {
+									limit = { var:cloningdeath ?= flag:death_leech_health_magic }
+									death = { death_reason = death_leech_health_magic }
+								}
+								else_if = {
+									limit = { var:cloningdeath ?= flag:transform_flesh_atronach }
+									death = { death_reason = transform_flesh_atronach }
+								}
+								else = { death = { death_reason = death_failed_experiment } }
+							}
+						}
+					}
+				}
+			}
+		ai_chance = {
+			base = 100
+			modifier = {
+				learning < 10
+				add = -200
+			}
+			modifier = {
+				learning < 20
+				add = -100
+			}
+			modifier = {
+				health >= good_health
+				add = 100
+			}
+			modifier = {
+				health >= fine_health
+				add = 100
+			}
+			modifier = {
+				health <= poor_health
+				add = -60
+			}
+			modifier = {
+				health <= dying_health
+				add = -100
+			}
+			modifier = {
+				has_trait = craven
+				add = -30
+			}
+		}
+
+		stress_impact = {
+			base = minor_stress_impact_gain
+			craven = medium_stress_impact_gain
+			brave = medium_stress_impact_loss
+			arbitrary = minor_stress_impact_loss
+		}
+	}
+
+	option = { # This is far enough
+		name = life_extension.0101.b
+		ai_chance = {
+			base = 100
+		}
+		trait = craven
+		add_vt_threadbinding_magic_lifestyle_xp = minor_lifestyle_xp
+		if = {
+			limit = { has_character_modifier = learning_cloning }
+			remove_character_modifier = learning_cloning
+		}
+		stress_impact = {
+			craven = minor_stress_impact_loss
+			brave = minor_stress_impact_gain
+		}
+	}
+
+	after = {
+		if = {
+			limit = { has_variable = cloningdeath }
+			remove_variable = cloningdeath
+		}
+		remove_character_flag = cloning_minor_investment
+		remove_character_flag = cloning_medium_investment
+		remove_character_flag = cloning_large_investment
+	}
+}
+
+life_extension.0102 = {
+	# Juke Note: I've scrapped the ability to select a mum
+	# I'd need to work it out with the regular pregnancy system
+	# Instead, all clones are grown from tubes
+	type = character_event
+
+	title = life_extension.0102.t
+	desc = life_extension.0102.desc
+	theme = cloning
+	override_background = {
+		reference = study
+	}
+	
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	immediate = {
+		if = {
+			limit = { has_character_modifier = learning_cloning }
+			remove_character_modifier = learning_cloning
+		}
+		add_character_modifier = cloning_mastery
+		add_learning_lifestyle_xp = 500
+	}
+
+	option = { # Grow it in a tube
+		name = life_extension.0102.a
+		custom_tooltip = start_a_clone_project_tt
+		show_as_tooltip = { add_character_modifier = ongoing_cloning_project }
+		trigger_event = {
+			id = life_extension.0150
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { # This is far enough
+		name = life_extension.0102.d
+		add_vt_threadbinding_magic_lifestyle_xp = 500
+		stress_impact = {
+			base = minor_stress_impact_loss
+			lazy = minor_stress_impact_loss
+			diligent = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+
+	after = {
+		remove_character_flag = cloning_minor_investment
+		remove_character_flag = cloning_medium_investment
+		remove_character_flag = cloning_large_investment
+	}
+}
+
+life_extension.0002 = {
+	type = character_event
+
+	title = life_extension.0002.t
+	desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = { scope:life_extension_outcome = flag:lifespan_1 }
+                desc = life_extension.0002.life1.desc
+            }
+            triggered_desc = {
+                trigger = { scope:life_extension_outcome = flag:lifespan_2 }
+                desc = life_extension.0002.life2.desc
+            }
+            triggered_desc = {
+                trigger = { scope:life_extension_outcome = flag:lifespan_3 }
+                desc = life_extension.0002.life3.desc
+            }
+            triggered_desc = {
+                trigger = { scope:life_extension_outcome = flag:lifespan_4 }
+                desc = life_extension.0002.life4.desc
+            }
+            triggered_desc = {
+                trigger = { scope:life_extension_outcome = flag:lifespan_5 }
+                desc = life_extension.0002.life5.desc
+            }
+            triggered_desc = {
+                trigger = { scope:life_extension_outcome = flag:lifespan_6 }
+                desc = life_extension.0002.life6.desc
+            }
+        }
+    }
+	theme = learning_scholarship_focus
+	
+	trigger = {
+		NOT = { has_character_modifier = failed_life_extension }
+	}
+
+    immediate = {
+		add_magicka = { VALUE = -100 }
+		# to make the event display the new lifespan trait you gained
+		# the actual lifespan increase is handled by the effect. we however want both the decision and the event itself to make it clear what happened
+		increase_lifespan_effect = yes
+    }
+	
+	left_portrait = {
+		character = root
+	}
+
+	option = {
+		name = life_extension.0002.a
+
+		add_stress = medium_stress_impact_loss
+	}
+}
+
+life_extension.0001 = {
+	type = character_event
+
+	title = life_extension.0001.t
+	desc = life_extension.0001.desc
+	theme = learning_scholarship_focus
+	
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+	
+	trigger = {
+		NOT = { has_character_modifier = failed_life_extension }
+	}
+
+    immediate = {
+		add_magicka = { VALUE = -100 }
+    }
+
+	option = {
+		name = life_extension.0001.a
+        add_character_modifier = {
+            modifier = failed_life_extension
+            years = 3
+        }
+		add_stress = medium_stress_impact_gain
+	}
+}
+
+ek_ymis_events.0050 = {
+    type = character_event
+
+    title = ek_ymis_events.0050.t
+    desc = ek_ymis_events.0050.desc   
+    theme = stewardship
+    left_portrait = {
+        character = court_position:court_mage_court_position
+        animation = personality_dishonorable 
+    }
+
+    immediate = {
+        court_position:court_mage_court_position = {
+            save_scope_as = court_mage
+        }
+
+        hidden_effect = {
+            scope:court_mage = {
+                add_gold = 100
+            }
+        }       
+    }
+
+    # Accept the 10 gold
+    option = { 
+        name = ek_ymis_events.0050a
+
+        scope:court_mage = {
+            pay_short_term_gold = {
+                target = root
+				gold = 10
+			}
+            add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 5
+			}
+        }
+
+        stress_impact = {
+            greedy = medium_stress_impact_gain
+            paranoid = minor_stress_impact_gain
+            trusting = minor_stress_impact_loss
+        }   
+    }
+
+    # Uncover their lies
+    option = { 
+        name = ek_ymis_events.0050b
+        skill = intrigue
+
+        trigger = {
+            intrigue >= high_skill_rating
+        }
+
+        duel = {
+            skill = intrigue
+            value = decent_skill_rating
+            desc = outcome_in_a_few_days
+            20 = {      
+                compare_modifier = {
+                    value = scope:duel_value
+                }
+                desc = ek_ymis_events.0050b.success
+                trigger_event = ek_ymis_events.0051
+                custom_tooltip = {
+                    text = ek_ymis_events.0050b.tt
+                }
+            }
+            20 = {      
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = -1
+                }
+                desc = ek_ymis_events.0050b.failure
+                send_interface_toast = {
+                    type =  event_toast_effect_bad
+                    title = ek_ymis_events.00050b.tt_failure
+                    left_icon = root
+                    scope:court_mage = {
+                        pay_short_term_gold = {
+                            target = root
+                            gold = 10
+                        }
+                    }
+                }
+            }
+        }
+
+        stress_impact = {
+            greedy = medium_stress_impact_loss
+            paranoid = minor_stress_impact_loss
+            trusting = medium_stress_impact_gain
+        } 
+    }
+    
+    # Take the gold by force
+    option = { 
+        name = ek_ymis_events.0050c
+
+        scope:court_mage = {
+            pay_short_term_gold = {
+                target = root
+                gold = 100
+            }
+			add_opinion = {
+				target = root
+				modifier = cruelty_opinion
+				opinion = -20
+			}
+		}
+
+        add_tyranny = minor_tyranny_gain
+        add_dread = minor_dread_gain
+
+        stress_impact = {
+            wrathful = medium_stress_impact_loss
+            sadistic = minor_stress_impact_loss
+            greedy = medium_stress_impact_loss
+            compassionate = medium_stress_impact_gain
+        }
+    }
+
+    # Fire them!
+    option = { 
+        name = ek_ymis_events.0050d
+
+        revoke_court_position = {
+			recipient = scope:court_mage
+			court_position = court_mage_court_position
+		}
+
+        scope:court_mage = {
+			add_opinion = {
+				target = root
+				modifier = disappointed_opinion
+				opinion = -20
+			}
+            move_to_pool = yes
+		}
+
+        stress_impact = {
+            wrathful = medium_stress_impact_loss
+            greedy = minor_stress_impact_gain
+            compassionate = minor_stress_impact_gain
+        }
+    }
+}
+
+ek_ymis_events.0051 = {
+    type = character_event
+
+    title = ek_ymis_events.0051.t
+    desc = ek_ymis_events.0051.desc   
+    theme = stewardship
+    left_portrait = {
+        character = court_position:court_mage_court_position
+        animation = shame
+    }
+
+    immediate = {
+        scope:court_mage = {
+            pay_short_term_gold = {
+                target = root
+				gold = 100
+			}
+        }
+    }
+
+    # Grant a second chance
+    option = { 
+        name = ek_ymis_events.0051a
+        
+        add_hook = {
+       	    target = scope:court_mage
+		    type = favor_hook
+        }
+
+        stress_impact = {
+            trusting = medium_stress_impact_loss
+            compassionate = minor_stress_impact_loss
+        }   
+    }
+    
+    # Fire them! You have a good reason this time.
+    option = { 
+        name = ek_ymis_events.0051b
+
+        revoke_court_position = {
+			recipient = scope:court_mage
+			court_position = court_mage_court_position
+		}
+
+        scope:court_mage = {
+			add_opinion = {
+				target = root
+				modifier = disappointed_opinion
+				opinion = -5
+			}
+            move_to_pool = yes
+		}
+
+        stress_impact = {
+            wrathful = medium_stress_impact_loss
+            vengeful = medium_stress_impact_loss
+            compassionate = minor_stress_impact_gain
+        }
+    }
+    
+    # Jail them
+    option = { 
+        name = ek_ymis_events.0051c
+
+        imprison = {
+			target = scope:court_mage
+			type = dungeon
+		}
+        scope:court_mage = {
+			add_opinion = {
+				target = root
+				modifier = cruelty_opinion
+				opinion = -30
+			}
+		}
+
+        stress_impact = {
+            wrathful = medium_stress_impact_loss
+            sadistic = medium_stress_impact_loss
+            vengeful = medium_stress_impact_loss
+            compassionate = medium_stress_impact_gain
+        }
+    }
+}
+
+ek_stress_trait_coping_decisions.1151 = {
+	type = character_event
+
+	title = ek_stress_trait_coping_decisions.1151.t
+	desc = ek_stress_trait_coping_decisions.1151.desc
+	theme = mental_break
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	option = {
+		name = ek_stress_trait_coping_decisions.1151.a
+		trait = experimentalist
+
+		custom_tooltip = {
+			text = ek_stress_trait_coping_decisions.1151.a.tt 
+		}
+
+		hidden_effect = {
+			magical_experiment_effect = yes
+		}		
+		add_stress = medium_stress_loss
+	}
+}
+
+ek_court_position.0001 = {
+	type = character_event
+
+	title = ek_court_position.0001.t
+	desc = ek_court_position.0001.desc
+	theme = learning
+	left_portrait = scope:high_skill_option
+	lower_left_portrait = scope:necromancer_option
+	right_portrait = scope:low_skill_option
+	lower_right_portrait = scope:excellent_skill_option
+
+	trigger = { exists = capital_province } #If I lost it before I got this event, I shouldn't get a mage
+	
+
+	immediate = {
+		hidden_effect = {
+			#Find some appropriate options
+
+			if = { #Performance heavy option finding is only for players
+				limit = { is_ai = no }
+
+				#EXCELLENT SKILL CHARACTER
+				if = {
+					limit = {
+						OR = {
+							has_trait = education_magic	# Is a mage
+							any_sub_realm_barony = { title_province = { is_magic_studies_location = yes } } # has magic academy in subrealm to recruit from
+						}
+					}
+					random_pool_character = {
+						province = capital_province
+						limit = {
+							is_adult = yes
+							is_imprisoned = no
+							is_alive = yes # Because apparently there can be dead characters in the pool (remove when fixed)
+							is_claimant = no # We don't want recruiting mages to be a cheap way of getting claimants
+							arcana >= extremely_high_skill_rating
+							can_magic_trigger = yes
+							has_magic_perk_trigger = yes
+							OR = {
+								has_trait = arcana_good
+								has_trait = education_magic
+							}
+						}
+						alternative_limit = {
+							is_adult = yes
+							is_imprisoned = no
+							is_alive = yes # Because apparently there can be dead characters in the pool (remove when fixed)
+							is_claimant = no # We don't want recruiting mages to be a cheap way of getting claimants
+							arcana >= extremely_high_skill_rating
+							can_magic_trigger = yes
+							has_magic_perk_trigger = yes
+						}
+						weight = {
+							base = 1
+							modifier = {
+								faith = root.faith
+								factor = 10
+							}
+						}
+
+						save_scope_as = excellent_skill_option
+						if = {
+							limit = { 
+								NOR = { 
+									has_trait = arcana_good
+									has_trait = education_magic
+								}
+							}
+							random_list = { 
+								5 = { add_trait = vt_ek_education_magic_4 }
+								10 = { add_trait = vt_ek_education_magic_3 }
+								5 = { add_trait = vt_ek_education_magic_2 }
+							}
+						}
+
+						#Backup generation
+						if = {
+							limit = { NOT = { exists = scope:excellent_skill_option } }
+
+							create_character = {
+								location = root.capital_province
+								template = court_mage_template
+								dynasty = none
+								save_scope_as = excellent_skill_option
+								after_creation = {
+									add_arcana_skill = { VALUE = "{ 3 6 }" }
+								}
+							}
+							scope:excellent_skill_option = {
+								random_list = { 
+									5 = { add_trait = vt_ek_education_magic_4 }
+									10 = { add_trait = vt_ek_education_magic_3 }
+									5 = { add_trait = vt_ek_education_magic_2 }
+								}
+								if = {
+									limit = { has_magic_perk_trigger = no }
+									ek_magic_perks_effect = yes
+								}
+							}
+						}
+					}				
+				}
+
+				#HIGH-SKILL CHARACTER
+				random_pool_character = {
+					province = capital_province
+					limit = {
+						is_adult = yes
+						is_imprisoned = no
+						is_alive = yes # Because apparently there can be dead characters in the pool (remove when fixed)
+						is_claimant = no # We don't want recruiting mages to be a cheap way of getting claimants
+						can_magic_trigger = yes
+						has_magic_perk_trigger = yes
+						arcana >= high_skill_rating
+						trigger_if = {
+							limit = {
+								exists = scope:excellent_skill_option
+							}
+							NOT = { this = scope:excellent_skill_option }
+						}
+					}
+					weight = {
+						base = 1
+						modifier = {
+							faith = root.faith
+							factor = 10
+						}
+					}
+					save_scope_as = high_skill_option
+				}
+
+				#Backup generation
+				if = {
+					limit = { NOT = { exists = scope:high_skill_option } }
+
+					create_character = {
+						location = root.capital_province
+						template = court_mage_template
+						dynasty = none
+						save_scope_as = high_skill_option
+						after_creation = {
+							add_arcana_skill = { VALUE = "{ 1 4 }" }
+						}
+					}
+					scope:high_skill_option = {
+						random_list = { 
+							5 = { add_trait = vt_ek_education_magic_3 }
+							10 = { add_trait = vt_ek_education_magic_2 }
+							5 = { add_trait = vt_ek_education_magic_1 }
+						}
+						if = {
+							limit = { has_magic_perk_trigger = no }
+							ek_magic_perks_effect = yes
+						}
+					}
+				}
+
+				#NECROMANCER CHARACTER (optional, only if available in pool)
+				random_pool_character = {
+					province = root.capital_province
+					limit = { 
+						is_adult = yes
+						is_imprisoned = no
+						is_alive = yes # Because apparently there can be dead characters in the pool (remove when fixed)
+						is_claimant = no # We don't want recruiting mages to be a cheap way of getting claimants
+						can_magic_trigger = yes
+						has_magic_perk_trigger = yes
+						# Is Necromancer
+						has_trait = vt_ek_necromancer
+						trigger_if = {
+							limit = {
+								exists = scope:excellent_skill_option
+							}
+							NOT = { this = scope:excellent_skill_option }
+						}
+						trigger_if = {
+							limit = {
+								exists = scope:high_skill_option
+							}
+							NOT = { this = scope:high_skill_option }
+						}
+					}
+					weight = {
+						base = 1
+						modifier = {
+							has_trait = vt_ek_necromancer
+							factor = 100
+						}
+						modifier = {
+							faith = root.faith
+							factor = 10
+						}
+					}
+					save_scope_as = necromancer_option
+				}
+
+				#Low-medium skill character
+				random_pool_character = {
+					province = root.capital_province
+					limit = { 
+						is_adult = yes
+						is_imprisoned = no
+						is_alive = yes # Because apparently there can be dead characters in the pool (remove when fixed)
+						is_claimant = no # We don't want recruiting mages to be a cheap way of getting claimants
+						can_magic_trigger = yes
+						has_magic_perk_trigger = yes
+						arcana > medium_skill_rating
+						NOR = {
+							has_vt_threadbinding_magic_lifestyle_mastery_trigger = yes
+							has_trait = education_magic
+						}
+						trigger_if = {
+							limit = {
+								exists = scope:excellent_skill_option
+							}
+							NOT = { this = scope:excellent_skill_option }
+						}
+						trigger_if = {
+							limit = {
+								exists = scope:high_skill_option
+							}
+							NOT = { this = scope:high_skill_option }
+						}
+						trigger_if = {
+							limit = {
+								exists = scope:necromancer_option
+							}
+							NOT = { this = scope:necromancer_option }
+						}
+					}
+					weight = {
+						base = 1
+						modifier = {
+							faith = root.faith
+							factor = 10
+						}
+					}
+					save_scope_as = low_skill_option
+				}
+			}
+			else = { #Ai get someone simple
+				random_pool_character = {
+					province = root.capital_province
+					limit = { 
+						is_adult = yes
+						is_imprisoned = no
+						is_alive = yes # Because apparently there can be dead characters in the pool (remove when fixed)
+						is_claimant = no # We don't want recruiting physicians to be a cheap way of getting claimants
+						arcana > medium_skill_rating
+					}
+					weight = {
+						base = 1
+						modifier = {
+							faith = root.faith
+							factor = 10
+						}
+					}
+					save_scope_as = low_skill_option
+				}
+			}
+			
+			#Backup generation
+			if = {
+				limit = { NOT = { exists = scope:low_skill_option } }
+
+				create_character = {
+					location = root.capital_province
+					template = low_court_mage_template
+					dynasty = none
+					save_scope_as = low_skill_option
+				}
+				scope:low_skill_option = {
+					if = {
+						limit = { has_magic_perk_trigger = no }
+						ek_magic_perks_effect = yes
+					}
+				}
+			}
+		}
+	}
+
+	#Excellent skill
+	option = {
+		trigger = {
+			exists = scope:excellent_skill_option
+			is_landed = yes #extra check to make sure they haven't lost their status
+		}
+		name = health.3001.e
+		
+		pay_short_term_gold = {
+			target = scope:excellent_skill_option
+			gold = high_skill_court_physician_cost
+		}
+
+		set_court_mage_effect = {
+			EMPLOYER = root
+			MAGE = scope:excellent_skill_option
+		}
+
+		ai_chance = {
+			factor = 500
+			modifier = {
+				short_term_gold < medium_gold_value
+				factor = 0
+			}
+		}
+	}
+
+	#High skill
+	option = {
+		trigger = {
+			is_landed = yes #extra check to make sure they haven't lost their status
+			exists = scope:high_skill_option #Doesn't exists for AI
+		}
+		name = health.3001.a
+		
+		pay_short_term_gold = {
+			target = scope:high_skill_option
+			gold = high_skill_court_physician_cost
+		}
+
+		set_court_mage_effect = {
+			EMPLOYER = root
+			MAGE = scope:high_skill_option
+		}
+
+		ai_chance = {
+			factor = 100
+			modifier = {
+				short_term_gold < medium_gold_value
+				factor = 0
+			}
+		}
+	}
+
+	#Low skill
+	option = {
+		trigger = {
+			is_landed = yes #extra check to make sure they haven't lost their status
+		}
+		name = health.3001.b
+		
+		if = {
+			limit = {
+				OR = {
+					is_ai = no
+					short_term_gold >= low_skill_court_physician_cost #Because AI would never have enough money and everyone would die
+				}
+			}
+			pay_short_term_gold = {
+				target = scope:low_skill_option
+				gold = low_skill_court_physician_cost
+			}
+		}
+
+		set_court_mage_effect = {
+			EMPLOYER = root
+			MAGE = scope:low_skill_option
+		}
+
+		ai_chance = {
+			factor = 100
+		}
+	}
+
+	# Necromancer
+	option = {
+		trigger = {
+			exists = scope:necromancer_option
+			is_landed = yes #extra check to make sure they haven't lost their status
+		}
+		name = health.3001.c
+		
+		pay_short_term_gold = {
+			target = scope:necromancer_option
+			gold = medium_gold_value
+		}		
+
+		set_court_mage_effect = {
+			EMPLOYER = root
+			MAGE = scope:necromancer_option
+		}
+
+		if = {
+			limit = {
+				faith = { has_doctrine = doctrine_necromancy_shunned }
+			}
+			add_piety = medium_piety_loss
+			stress_impact = {
+				zealous = minor_stress_impact_gain
+			}
+		}	
+		else_if = {
+			limit = { 
+				faith = { has_doctrine = doctrine_necromancy_crime }
+			}
+			add_piety = major_piety_loss
+			stress_impact = {
+				zealous = medium_stress_impact_gain
+			}
+		}
+
+		ai_chance = {
+			factor = 30
+			modifier = {
+				short_term_gold < minor_gold_value
+				factor = 0
+			}
+			ai_value_modifier = {
+				ai_zeal = tiny_chance_impact_negative_ai_value
+				max = 20
+			}	
+		}
+	}
+
+	#None...
+	option = {
+		name = {
+			trigger = {
+				NOR = {
+					exists = scope:necromancer_option
+					exists = scope:excellent_skill_option
+				}
+			}
+			text = health.3001.d.two
+		}
+		name = {
+			trigger = {
+				OR = {
+					exists = scope:necromancer_option
+					exists = scope:excellent_skill_option
+				}
+			}
+			text = health.3001.d.more
+		}
+
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+namespace = life_extension
+life_extension.0251 = { # Fails - Half-alive Clone
+	type = character_event
+
+	title = life_extension.0251.t
+	desc = {
+		desc = life_extension.0251.desc.intro
+		desc = life_extension.0251.desc.mid.fallback
+		desc = life_extension.0251.desc.outro.fallback
+	}
+
+	theme = cloning
+
+	left_portrait = {
+		character = root
+		animation = disappointed
+	}
+	right_portrait = {
+		trigger = {
+			exists = scope:clone
+			scope:clone.age >= 1
+			scope:clone ?= { is_alive = yes }
+		}
+		character = scope:clone
+		animation = worry
+	}
+	lower_right_portrait = {
+		trigger = {
+			exists = scope:clone
+			NAND = {
+				scope:clone.age >= 1
+				scope:clone ?= { is_alive = yes }
+			}
+		}
+		character = scope:clone
+	}
+	trigger = {
+		any_owned_story = { story_type = story_cycle_cloning }
+	}
+	immediate = {
+		remove_character_modifier = ongoing_cloning_project
+		hidden_effect = {
+			# Create the Clone!
+			cl_create_clone_effect = { CREATOR = ROOT }
+			scope:clone ?= { cl_weak_clone_effect = yes }
+			
+			# For names
+			create_character = {
+				location = root.location
+				template = peasant_character
+				gender = scope:clone
+				save_scope_as = new_name_dummy
+			}
+		}
+
+		# End the story cycle
+		scope:story ?= {
+			hidden_effect = { end_story = yes }
+		}
+	}
+	option = { # Dispose of the Clone
+		trigger = {
+			exists = scope:clone
+			scope:clone = { is_alive = yes }
+		}
+		name = {
+			trigger = { has_trait = compassionate }
+			text = life_extension.0251.a_compassionate
+		}
+		name = {
+			trigger = {
+				OR = {
+					has_trait = callous
+					has_trait = sadistic
+				}
+			}
+			text = life_extension.0251.a_callous
+		}
+		name = life_extension.0251.a
+		trait = compassionate
+		trait = callous
+		trait = sadistic
+		scope:clone ?= { death = { death_reason = death_sickly } }
+		cl_gain_cloning_insight_effect = yes # Gain 1 Cloning Insight
+		stress_impact = {
+			base = minor_stress_impact_gain
+			compassionate = medium_stress_impact_gain
+			generous = miniscule_stress_impact_gain
+			forgiving = minor_stress_impact_gain
+			patient = miniscule_stress_impact_gain
+			callous = minor_stress_impact_loss
+			sadistic = medium_stress_impact_loss
+		}
+	}
+	option = { # Try to save it anyways
+		name = life_extension.0251.b
+		trigger = {
+			scope:clone ?= { is_alive = yes }
+			has_perk = restoration_master_perk
+			has_magicka_more_than = { VALUE = 60 }
+		}
+		show_as_unavailable = {
+			always = yes
+		}
+		trait = lifestyle_physician
+		add_magicka = { VALUE = -60 }
+		duel = {
+			skill = learning
+			value = very_high_skill_rating
+			50 = {
+				desc = life_extension.0251.b.win.desc
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3
+					min = -49
+				}
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = life_extension.0251.b.win.desc
+					left_icon = root
+					if = {
+						limit = { scope:clone = { has_trait = cancer } }
+						scope:clone = { recover_from_disease_effect = { DISEASE = cancer } }
+					}
+					remove_trait = sickly
+					remove_trait = wounded_1
+					remove_trait = wounded_2
+					remove_trait = wounded_3
+					# Hatchling
+					if = {
+						limit = {
+							NOT = {
+								scope:clone.culture ?= {
+									has_cultural_pillar = heritage_argonian
+									NOT = {
+										this = culture:ojel
+										any_parent_culture_or_above = {
+											this = culture:ojel
+										}
+									}
+								}
+							}
+						}
+						scope:clone = { change_first_name = { template_character = scope:creator } }
+					}
+					adopt_effect = {
+						CHILD = scope:clone
+						ADOPTER = scope:creator
+					}
+					add_character_flag = clone_was_sickly
+					trigger_event = life_extension.0201 # Name the clone
+				}
+				modifier = {
+					add = 15
+					has_trait = lifestyle_physician
+				}
+			}
+			50 = {
+				desc = life_extension.0251.b.fail.desc
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3
+					min = -49
+				}
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = life_extension.0251.b.fail.desc
+					left_icon = root
+					# Kill clone, if exists
+					scope:clone ?= { death = { death_reason = death_sickly } }
+					cl_gain_cloning_insight_effect = yes # Gain 1 Cloning Insight
+					stress_impact = {
+						base = medium_stress_impact_gain
+						compassionate = medium_stress_impact_gain
+						generous = minor_stress_impact_gain
+						forgiving = minor_stress_impact_gain
+						patient = minor_stress_impact_gain
+					}
+				}
+			}
+		}
+	}
+	after = {
+		hidden_effect = {
+			scope:new_name_dummy ?= {
+				silent_disappearance_effect = yes
+			}
+		}
+	}
+}
+
+life_extension.0201 = { # Name the Clone
+	type = character_event
+
+	title = life_extension.0201.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = clone_was_sickly }
+				desc = life_extension.0201.desc.sickly
+			}
+			desc = life_extension.0201.desc
+		}
+	}
+	theme = cloning
+	override_background = {
+		reference = study
+	}
+	
+	left_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = {
+				exists = scope:clone
+				scope:clone.age < 1
+			}
+			animation = newborn
+		}
+	}
+	right_portrait = {
+		trigger = {
+			exists = scope:clone
+			scope:clone.age >= 1
+		}
+		character = scope:clone
+	}
+	lower_center_portrait = {
+		trigger = {
+			exists = scope:clone
+			scope:clone.age < 1
+		}
+		character = scope:clone
+	}
+	lower_right_portrait = {
+		trigger = {
+			exists = scope:clone_2
+		}
+		character = scope:clone_2
+	}
+
+	trigger = {
+		exists = scope:clone
+		scope:clone = { is_alive = yes }
+	}
+
+	immediate = {
+		play_music_cue_once = { TRACK = mx_cue_birth }
+		scope:clone = { save_scope_as = child }
+		scope:clone_2 ?= { save_scope_as = child_2 } #In case I add twins
+		save_scope_as = mother
+		save_scope_as = father
+	}
+	
+	#NAMING WIDGET
+	widgets = {
+		widget = {
+			is_shown = {
+				allow_naming_on_birth_of_child_trigger = { CHILD = scope:child }
+			}
+			gui = "event_window_widget_name_child"
+			container = "dynamic_birth_name"
+			controller = name_character
+			setup_scope = { scope:child = { save_scope_as = name_character_target } }
+		}
+		widget = {
+			is_shown = {
+				allow_naming_on_birth_of_child_trigger = { CHILD = scope:child_2 }
+			}
+			gui = "event_window_widget_name_child"
+			container = "dynamic_birth_name"
+			controller = name_character
+			setup_scope = { scope:child_2 = { save_scope_as = name_character_target } }
+		}
+	}
+
+	option = {
+		name = life_extension.0201.a
+	}
+
+	after = { remove_character_flag = clone_was_sickly }
+}
+
+life_extension.0250 = { # Fails - Dead or No Clone
+	type = character_event
+
+	title = life_extension.0250.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = scope:clone }
+				desc = life_extension.0250.desc.stillborn
+			}
+			desc = life_extension.0250.desc.slurry
+		}
+	}
+	theme = cloning
+
+	left_portrait = {
+		character = root
+		animation = disappointed
+	}
+	lower_right_portrait = {
+		character ?= scope:clone
+	}
+	trigger = { any_owned_story = { story_type = story_cycle_cloning } }
+	immediate = {
+		remove_character_modifier = ongoing_cloning_project
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = scope:story.var:cl_months
+					scope:story.var:cl_months >= 8
+				}
+				random = { # Either dont spawn a clone or spawn one that dies immediately
+					chance = 80
+					# Create the Clone!
+					cl_create_clone_effect = { CREATOR = ROOT }
+					scope:clone ?= { cl_weak_clone_effect = yes }
+				}
+			}
+		}
+		# Kill stillborn clone, if exists
+		scope:clone ?= { death = { death_reason = death_sickly } }
+
+		# End the story cycle
+		scope:story ?= {
+			hidden_effect = { end_story = yes }
+		}
+	}
+	option = { # Oh well
+		name = {
+			trigger = { has_trait = compassionate }
+			text = life_extension.0250.a_compassionate
+		}
+		name = {
+			trigger = {
+				OR = {
+					has_trait = callous
+					has_trait = sadistic
+				}
+			}
+			text = life_extension.0250.a_callous
+		}
+		name = life_extension.0250.a
+		trait = compassionate
+		trait = callous
+		trait = sadistic
+		show_as_tooltip = { scope:clone ?= { death = { death_reason = death_sickly } } }
+		cl_gain_cloning_insight_effect = yes # Gain 1 Cloning Insight
+		stress_impact = {
+			base = minor_stress_impact_gain
+			compassionate = minor_stress_impact_gain
+		}
+	}
+}
+
+life_extension.0200 = { # Cloning Project Succeeds
+	type = character_event
+
+	title = life_extension.0200.t
+	desc = {
+		desc = life_extension.0200.desc.intro
+		first_valid = { # One/Two Infants/Children
+			# Two Children
+			triggered_desc = {
+				trigger = {
+					exists = scope:clone
+					exists = scope:clone_2
+					scope:clone ?= { age > 2 }
+				}
+				desc = life_extension.0200.desc.mid.twin_kids
+			}
+			# Two Infants
+			triggered_desc = {
+				trigger = {
+					exists = scope:clone
+					exists = scope:clone_2
+				}
+				desc = life_extension.0200.desc.mid.twin_infants
+			}
+			# One Child
+			triggered_desc = {
+				trigger = {
+					exists = scope:clone
+					scope:clone ?= { age > 2 }
+				}
+				desc = life_extension.0200.desc.mid.kid
+			}
+			# One Infant
+			desc = life_extension.0200.desc.mid.fallback
+		}
+		desc = life_extension.0200.desc.outro.fallback
+	}
+
+	theme = cloning
+
+	left_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = {
+				exists = scope:clone
+				scope:clone.age < 1
+			}
+			animation = newborn
+		}
+	}
+	right_portrait = {
+		trigger = {
+			exists = scope:clone
+			scope:clone.age >= 1
+		}
+		character = scope:clone
+		animation = worry
+	}
+	lower_center_portrait = {
+		trigger = {
+			exists = scope:clone
+			scope:clone.age < 1
+		}
+		character = scope:clone
+	}
+	lower_right_portrait = {
+		trigger = {
+			exists = scope:clone_2
+		}
+		character = scope:clone_2
+	}
+	trigger = { any_owned_story = { story_type = story_cycle_cloning } }
+	immediate = {
+		random_owned_story = {
+			limit = { story_type = story_cycle_cloning }
+			save_scope_as = story
+		}
+		remove_character_modifier = ongoing_cloning_project
+		hidden_effect = {
+			# Create the Clone!
+			cl_create_clone_effect = { CREATOR = ROOT }
+
+			# If Im getting twins, save clone as clone 2 and make another
+			if = {
+				limit = { scope:story ?= { has_variable = cl_twins } }
+				scope:clone = {
+					add_trait = twin
+					save_scope_as = clone_2
+				}
+				cl_create_clone_effect = { CREATOR = ROOT }
+				scope:clone = { add_trait = twin }
+			}
+			
+			# For names
+			create_character = {
+				location = root.location
+				template = peasant_character
+				gender = scope:clone
+				save_scope_as = new_name_dummy
+			}
+			if = {
+				limit = { exists = scope:clone_2 }
+				create_character = {
+					location = root.location
+					template = peasant_character
+					gender = scope:clone_2
+					save_scope_as = new_name_dummy_2
+				}
+			}
+		}
+
+		# End the story cycle
+		scope:story ?= {
+			hidden_effect = { end_story = yes }
+		}
+	}
+	option = { # Adopt the Clone
+		name = life_extension.0200.a
+		# Hatchling
+		if = {
+			limit = {
+				NOT = {
+					scope:clone.culture ?= {
+						has_cultural_pillar = heritage_argonian
+						NOT = {
+							this = culture:ojel
+							any_parent_culture_or_above = {
+								this = culture:ojel
+							}
+						}
+					}
+				}
+			}
+			scope:clone = { change_first_name = { template_character = scope:creator } }
+			scope:clone_2 ?= { change_first_name = { template_character = scope:creator } }
+		}
+		adopt_effect = {
+			CHILD = scope:clone
+			ADOPTER = scope:creator
+		}
+		if = {
+			limit = { exists = scope:clone_2 }
+			adopt_effect = {
+				CHILD = scope:clone_2
+				ADOPTER = scope:creator
+			}
+		}
+		trigger_event = life_extension.0201 # Name the clone
+	}
+	option = { # Banish the Clone
+		name = life_extension.0200.b
+		scope:clone = {
+			change_first_name = { template_character = scope:new_name_dummy }
+			banish = yes
+			set_relation_grudge = {
+				reason = grudge_ek_creator_abandonment_desc
+				target = scope:creator
+			}
+		}
+		scope:clone_2 ?= {
+			change_first_name = { template_character = scope:new_name_dummy_2 }
+			banish = yes
+			set_relation_grudge = {
+				reason = grudge_ek_creator_abandonment_desc
+				target = scope:creator
+			}
+		}
+
+		stress_impact = {
+			base = minor_stress_impact_gain
+			compassionate = minor_stress_impact_gain
+			forgiving = minor_stress_impact_gain
+			patient = minor_stress_impact_gain
+			arbitrary = minor_stress_impact_loss
+			fickle = miniscule_stress_impact_loss
+			callous = minor_stress_impact_loss
+			sadistic = minor_stress_impact_loss
+		}
+	}
+	option = { # Eat the Clone
+		name = life_extension.0200.c
+		trigger = { has_trait = cannibal }
+		trait = cannibal
+		scope:clone = { death = { death_reason = death_eaten killer = ROOT } }
+		scope:clone_2 ?= { death = { death_reason = death_eaten killer = ROOT } }
+		cl_gain_cloning_insight_effect = yes # Gain 1 Cloning Insight
+		if = {
+			limit = { exists = scope:clone_2 }
+			cl_gain_cloning_insight_effect = yes # Gain 1 Cloning Insight
+		}
+		
+		#CK2 Cannibal easter egg: Find a congenital trait you may gain by consuming the clone
+		if = {
+			limit = {
+				scope:clone ?= {
+					has_trait_rank = {
+						trait = arcana_good
+						character > scope:creator
+					}
+				}
+			}
+			cl_improve_creator_congenital_effect = { TRAIT = arcana }
+		}
+		else_if = {
+			limit = {
+				scope:clone ?= {
+					has_trait_rank = {
+						trait = intellect_good
+						character > scope:creator
+					}
+				}
+			}
+			cl_improve_creator_congenital_effect = { TRAIT = intellect }
+		}
+		else_if = {
+			limit = {
+				scope:clone ?= {
+					has_trait_rank = {
+						trait = physique_good
+						character > scope:creator
+					}
+				}
+			}
+			cl_improve_creator_congenital_effect = { TRAIT = physique }
+		}
+		else_if = {
+			limit = {
+				scope:clone ?= {
+					has_trait_rank = {
+						trait = beauty_good
+						character > scope:creator
+					}
+				}
+			}
+			cl_improve_creator_congenital_effect = { TRAIT = beauty }
+		}
+
+		add_character_modifier = {
+			modifier = best_meal_of_my_life_modifier
+			years = 15
+		}
+		stress_impact = {
+			compassionate = major_stress_impact_gain
+			forgiving = medium_stress_impact_gain
+			patient = minor_stress_impact_gain
+			temperate = medium_stress_impact_gain
+			gluttonous = medium_stress_impact_loss
+			callous = medium_stress_impact_loss
+			sadistic = medium_stress_impact_loss
+		}
+	}
+	option = { # Dispose of the Clone
+		name = life_extension.0200.d
+		trait = callous
+		trait = sadistic
+		scope:clone = { death = { death_reason = death_execution killer = ROOT } }
+		scope:clone_2 ?= { death = { death_reason = death_execution killer = ROOT } }
+		cl_gain_cloning_insight_effect = yes # Gain 1 Cloning Insight
+		if = {
+			limit = { exists = scope:clone_2 }
+			cl_gain_cloning_insight_effect = yes # Gain 1 Cloning Insight
+		}
+		stress_impact = {
+			base = major_stress_impact_gain
+			compassionate = medium_stress_impact_gain
+			forgiving = minor_stress_impact_gain
+			patient = minor_stress_impact_gain
+			arbitrary = minor_stress_impact_loss
+			fickle = miniscule_stress_impact_loss
+			callous = major_stress_impact_loss
+			sadistic = major_stress_impact_loss
+		}
+	}
+	after = {
+		hidden_effect = {
+			scope:new_name_dummy ?= {
+				silent_disappearance_effect = yes
+			}
+			scope:new_name_dummy_2 ?= {
+				silent_disappearance_effect = yes
+			}
+		}
+	}
+}
+
+life_extension.0158 = { # Lycanthrope
+	# Only triggers for werewolves or hircine worshippers
+	type = character_event
+
+	title = life_extension.0158.t
+	desc = {
+		desc = life_extension.0158.desc.intro
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					is_lycan = yes
+				}
+				desc = life_extension.0158.desc.werewolf
+			}
+			desc = life_extension.0158.desc.hircine
+		}
+	}
+	theme = cloning
+
+	left_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = {
+				is_lycan = yes
+			}
+			animation = anger
+		}
+	}
+
+	trigger = { any_owned_story = { story_type = story_cycle_cloning } }
+
+	immediate = {
+		random_owned_story = {
+			limit = { story_type = story_cycle_cloning }
+			save_scope_as = story
+		}
+		scope:story = {
+			add_to_variable_list = {
+				name = cl_event_list
+				target = flag:0158
+			}
+			change_variable = { #Number of Events
+				name = cl_num_of_events
+				add = 1
+			}
+		}
+	}
+
+	option = { # Pointless Cruelty
+		name = life_extension.0158.a
+		flavor = life_extension.0158.a.flavor
+		if = {
+			limit = {
+				OR = {
+					faith = { has_doctrine = doctrine_hircine_pantheon }
+					secret_faith ?= { has_doctrine = doctrine_hircine_pantheon }
+				}
+			}
+			add_piety = -300
+		}
+		ai_chance = {
+			base = 200
+		}
+	}
+
+	option = { # Make the clone a Werewolf using hircine worship
+		name = life_extension.0158.b
+		flavor = life_extension.0158.b.flavor
+		trait = lycan_character
+		trait = irritable_lycan
+
+		# This should probably give daedric ardor with hircine
+		fake_duel = {
+			skill = arcana
+			target = this
+			value = mediocre_skill_rating
+		}
+		random_list = {
+			30 = { # Success - Clone will be Werewolf
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_win
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_win
+					type = event_toast_effect_good
+					left_icon = root
+					custom_tooltip = life_extension.0158.werewolf
+					scope:story = { set_variable = cl_werewolf }
+				}
+
+				#Modifiers
+				min = 10
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = 1
+					}
+				}
+				modifier = {
+					is_lycan = yes
+					add = 17
+				}
+			}
+			65 = { # Failure - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Unforeseen Consequences
+					custom_tooltip = life_extension.cloning_duel.negative_traits
+					scope:story = {
+						change_variable = { #Chance of Negative Traits at conclusion
+							name = cl_negative_traits
+							add = 1
+						}
+					}
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -1 }
+				}
+
+				#Modifiers
+				min = 20
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.6
+					}
+				}
+				modifier = {
+					is_lycan = yes
+					add = -12
+				}
+			}
+			30 = { # Critical Failure - Project fails instantly
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_critical_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_critical_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					custom_tooltip = life_extension.cloning_duel.clone_dies
+					# Make sure no cloning events trigger in the meantime
+					scope:story = {
+						set_variable = { #Number of Events
+							name = cl_num_of_events
+							value = 10
+						}
+					}
+					trigger_event = { # Project Fails
+						id = life_extension.0250
+						days = 5
+					}
+				}
+
+				#Modifiers
+				min = 6
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.4
+					}
+				}
+				modifier = {
+					is_lycan = yes
+					add = -5
+				}
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				has_arcana = { VALUE >= high_skill_rating }
+				is_lycan = yes
+				add = 200
+			}
+		}
+	}
+}
+
+life_extension.0157 = { # Twins
+	type = character_event
+
+	title = life_extension.0157.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:story = {
+						has_variable = cl_months
+						var:cl_months >= 5
+					}
+				}
+				desc = life_extension.0157.desc.late
+			}
+			desc = life_extension.0157.desc.early
+		}
+	}
+	theme = cloning
+
+	left_portrait = {
+		character = root
+	}
+
+	trigger = { any_owned_story = { story_type = story_cycle_cloning } }
+
+	immediate = {
+		random_owned_story = {
+			limit = { story_type = story_cycle_cloning }
+			save_scope_as = story
+		}
+		scope:story = {
+			add_to_variable_list = {
+				name = cl_event_list
+				target = flag:0157
+			}
+			change_variable = { #Number of Events
+				name = cl_num_of_events
+				add = 1
+			}
+		}
+	}
+
+	option = { # One clone is fine
+		name = life_extension.0157.a
+		flavor = life_extension.0157.a.tt
+		trigger = {
+			NOT = {
+				scope:story = {
+					has_variable = cl_months
+					var:cl_months >= 5
+				}
+			}
+		}
+		# Less than five months have passed, we can separate them no issue
+		ai_chance = {
+			base = 200
+		}
+	}
+
+	option = { # Save the one I have
+		name = life_extension.0157.b
+		flavor = life_extension.0157.b.tt
+		trigger = {
+			scope:story = {
+				has_variable = cl_months
+				var:cl_months >= 5
+			}
+		}
+		# More than five months have passed, easy saving throw to remove tumor
+		fake_duel = {
+			skill = arcana
+			target = this
+			value = mediocre_skill_rating
+		}
+		random_list = {
+			70 = { # Success - Clone is Cured
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_win
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_win
+					type = event_toast_effect_good
+					left_icon = root
+					custom_tooltip = life_extension.0157.cured
+				}
+
+				#Modifiers
+				min = 10
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = 1
+					}
+				}
+			}
+			55 = { # Failure - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -1 }
+				}
+
+				#Modifiers
+				min = 20
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -1
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 200
+		}
+	}
+
+	option = { # Go for Twins!
+		name = life_extension.0157.c
+		flavor = life_extension.0157.c.tt
+
+		fake_duel = {
+			skill = arcana
+			target = this
+			value = high_skill_rating
+		}
+		random_list = {
+			50 = { # Success - Get two Clones instead of one
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_win
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_win
+					type = event_toast_effect_good
+					left_icon = root
+					custom_tooltip = life_extension.0157.twins
+					scope:story = {
+						set_variable = cl_twins
+					}
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = 1
+					}
+				}
+			}
+			60 = { # Failure - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Unforeseen Consequences
+					custom_tooltip = life_extension.cloning_duel.negative_traits
+					scope:story = {
+						change_variable = { #Chance of Negative Traits at conclusion
+							name = cl_negative_traits
+							add = 1
+						}
+					}
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -2 }
+				}
+
+				#Modifiers
+				min = 30
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.75
+					}
+				}
+			}
+			15 = { # Critical Failure - Project fails instantly
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_critical_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_critical_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					custom_tooltip = life_extension.cloning_duel.clone_dies
+					# Make sure no cloning events trigger in the meantime
+					scope:story = {
+						set_variable = { #Number of Events
+							name = cl_num_of_events
+							value = 10
+						}
+					}
+					trigger_event = { # Project Fails
+						id = life_extension.0250
+						days = 5
+					}
+				}
+
+				#Modifiers
+				min = 6
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.25
+					}
+				}
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				has_arcana = { VALUE >= high_skill_rating }
+				add = 100
+			}
+		}
+	}
+}
+
+life_extension.0156 = { # Age
+	type = character_event
+
+	title = life_extension.0156.t
+	desc = life_extension.0156.desc
+	theme = cloning
+
+	left_portrait = {
+		character = root
+	}
+
+	trigger = { any_owned_story = { story_type = story_cycle_cloning } }
+
+	immediate = {
+		random_owned_story = {
+			limit = { story_type = story_cycle_cloning }
+			save_scope_as = story
+		}
+		scope:story = {
+			add_to_variable_list = {
+				name = cl_event_list
+				target = flag:0156
+			}
+			change_variable = { #Number of Events
+				name = cl_num_of_events
+				add = 1
+			}
+		}
+	}
+
+	option = { # Baby is fine
+		name = life_extension.0156.a
+		flavor = life_extension.0156.a.tt
+		ai_chance = {
+			base = 300
+		}
+	}
+
+	option = { # 4 years old
+		name = life_extension.0156.b
+		flavor = life_extension.0156.b.tt
+		
+		fake_duel = {
+			skill = arcana
+			target = this
+			value = high_skill_rating
+		}
+		random_list = {
+			65 = { # Success
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_win
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_win
+					type = event_toast_effect_good
+					left_icon = root
+					custom_tooltip = life_extension.0156.age_4
+					scope:story = {
+						set_variable = {
+							name = cl_age
+							value = 4
+						}
+					}
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = 1
+					}
+				}
+			}
+			55 = { # Failure - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Unforeseen Consequences
+					custom_tooltip = life_extension.cloning_duel.negative_traits
+					scope:story = {
+						change_variable = { #Chance of Negative Traits at conclusion
+							name = cl_negative_traits
+							add = 1
+						}
+					}
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -1 }
+				}
+
+				#Modifiers
+				min = 10
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.93
+					}
+				}
+			}
+			5 = { # Critical Failure - Significantly Decrease Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_critical_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_critical_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -2 }
+				}
+
+				#Modifiers
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.07
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				has_arcana = { VALUE >= high_skill_rating }
+				add = 100
+			}
+		}
+	}
+
+	option = { # 8 years old
+		name = life_extension.0156.c
+		flavor = life_extension.0156.c.tt
+		
+		fake_duel = {
+			skill = arcana
+			target = this
+			value = high_skill_rating
+		}
+		random_list = {
+			55 = { # Success
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_win
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_win
+					type = event_toast_effect_good
+					left_icon = root
+					custom_tooltip = life_extension.0156.age_8
+					scope:story = {
+						set_variable = {
+							name = cl_age
+							value = 8
+						}
+					}
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = 1
+					}
+				}
+			}
+			60 = { # Failure - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Unforeseen Consequences
+					custom_tooltip = life_extension.cloning_duel.negative_traits
+					scope:story = {
+						change_variable = { #Chance of Negative Traits at conclusion
+							name = cl_negative_traits
+							add = 1
+						}
+					}
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -1 }
+				}
+
+				#Modifiers
+				min = 10
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -1
+					}
+				}
+			}
+			10 = { # Critical Failure - Significantly Decrease Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_critical_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_critical_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -2 }
+				}
+
+				#Modifiers
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.07
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				has_arcana = { VALUE >= high_skill_rating }
+				add = 60
+			}
+		}
+	}
+
+	option = { # 12 years old
+		name = life_extension.0156.d
+		flavor = life_extension.0156.d.tt
+		
+		fake_duel = {
+			skill = arcana
+			target = this
+			value = high_skill_rating
+		}
+		random_list = {
+			45 = { # Success
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_win
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_win
+					type = event_toast_effect_good
+					left_icon = root
+					custom_tooltip = life_extension.0156.age_12
+					scope:story = {
+						set_variable = {
+							name = cl_age
+							value = 12
+						}
+					}
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = 1
+					}
+				}
+			}
+			60 = { # Failure - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Unforeseen Consequences
+					custom_tooltip = life_extension.cloning_duel.negative_traits
+					scope:story = {
+						change_variable = { #Chance of Negative Traits at conclusion
+							name = cl_negative_traits
+							add = 1
+						}
+					}
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -1 }
+				}
+
+				#Modifiers
+				min = 10
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -1
+					}
+				}
+			}
+			15 = { # Critical Failure - Significantly Decrease Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_critical_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_critical_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -2 }
+				}
+
+				#Modifiers
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.07
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				has_arcana = { VALUE >= high_skill_rating }
+				add = 30
+			}
+		}
+	}
+}
+
+life_extension.0155 = { # Size
+	type = character_event
+
+	title = life_extension.0155.t
+	desc = {
+		desc = life_extension.0155.desc.intro
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_trait = giant }
+				desc = life_extension.0155.desc.giant
+			}
+			triggered_desc = {
+				trigger = { has_trait = dwarf }
+				desc = life_extension.0155.desc.dwarf
+			}
+			desc = life_extension.0155.desc.fallback
+		}
+	}
+	theme = cloning
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	trigger = { any_owned_story = { story_type = story_cycle_cloning } }
+
+	immediate = {
+		random_owned_story = {
+			limit = { story_type = story_cycle_cloning }
+			save_scope_as = story
+		}
+		scope:story = {
+			add_to_variable_list = {
+				name = cl_event_list
+				target = flag:0155
+			}
+			change_variable = { #Number of Events
+				name = cl_num_of_events
+				add = 1
+			}
+		}
+	}
+
+	option = { # Dont change anything
+		name = life_extension.0155.a
+		flavor = life_extension.0155.a.tt
+	}
+	
+	option = { # Make it standard!
+		name = life_extension.0155.b
+		flavor = life_extension.0155.b.tt
+		trigger = {
+			custom_tooltip = {
+				text = life_extension.0155.b.notgiantordwarf
+				or = {
+					has_trait = giant
+					has_trait = dwarf
+				}
+			}
+		}
+		show_as_unavailable = { always = yes }
+		trait = dwarf
+		trait = giant
+
+		fake_duel = {
+			skill = arcana
+			target = this
+			value = high_skill_rating
+		}
+		random_list = {
+			50 = { # Success
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_win
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_win
+					type = event_toast_effect_good
+					left_icon = root
+					custom_tooltip = life_extension.0155.standard # Clone will be normal sized
+					scope:story = {
+						set_variable = cl_size_standard
+					}
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = 1
+					}
+				}
+			}
+			70 = { # Failure - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Unforeseen Consequences
+					custom_tooltip = life_extension.cloning_duel.negative_traits
+					scope:story = {
+						change_variable = { #Chance of Negative Traits at conclusion
+							name = cl_negative_traits
+							add = 1
+						}
+					}
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -1 }
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.85
+					}
+				}
+			}
+			5 = { # Critical Failure - Project fails instantly
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_critical_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_critical_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					custom_tooltip = life_extension.cloning_duel.clone_dies
+					# Make sure no cloning events trigger in the meantime
+					scope:story = {
+						set_variable = { #Number of Events
+							name = cl_num_of_events
+							value = 10
+						}
+					}
+					trigger_event = { # Project Fails
+						id = life_extension.0250
+						days = 5
+					}
+				}
+
+				#Modifiers
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.15
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				has_arcana = { VALUE >= high_skill_rating }
+				add = 100
+			}
+		}
+	}
+
+	option = { # Make it giant!
+		name = life_extension.0155.c
+		flavor = life_extension.0155.c.tt
+		trigger = { NOT = { has_trait = giant } }
+		show_as_unavailable = { always = yes }
+
+		fake_duel = {
+			skill = arcana
+			target = this
+			value = high_skill_rating
+		}
+		random_list = {
+			50 = { # Success
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_win
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_win
+					type = event_toast_effect_good
+					left_icon = root
+					custom_tooltip = life_extension.0155.giant # Clone will be giant
+					scope:story = {
+						set_variable = cl_size_giant
+					}
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = 1
+					}
+				}
+				modifier = { # More difficult as dwarf
+					add = -25
+					has_trait = dwarf
+				}
+			}
+			70 = { # Failure - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Unforeseen Consequences
+					custom_tooltip = life_extension.cloning_duel.negative_traits
+					scope:story = {
+						change_variable = { #Chance of Negative Traits at conclusion
+							name = cl_negative_traits
+							add = 1
+						}
+					}
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -1 }
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.85
+					}
+				}
+				modifier = { # More difficult as dwarf
+					add = 22
+					has_trait = dwarf
+				}
+			}
+			5 = { # Critical Failure - Project fails instantly
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_critical_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_critical_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					custom_tooltip = life_extension.cloning_duel.clone_dies
+					# Make sure no cloning events trigger in the meantime
+					scope:story = {
+						set_variable = { #Number of Events
+							name = cl_num_of_events
+							value = 10
+						}
+					}
+					trigger_event = { # Project Fails
+						id = life_extension.0250
+						days = 5
+					}
+				}
+
+
+				#Modifiers
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.15
+					}
+				}
+				modifier = { # More difficult as dwarf
+					add = 3
+					has_trait = dwarf
+				}
+			}
+		}
+	}
+
+	option = { # Make it dwarf!
+		name = {
+			trigger = { has_trait = eccentric }
+			text = life_extension.0155.d.mini_me
+		}
+		name = {
+			trigger = { NOT = { has_trait = eccentric } }
+			text = life_extension.0155.d
+		}
+		flavor = life_extension.0155.d.tt
+		trigger = { NOT = { has_trait = dwarf } }
+		show_as_unavailable = { always = yes }
+		trait = eccentric
+
+		fake_duel = {
+			skill = arcana
+			target = this
+			value = high_skill_rating
+		}
+		random_list = {
+			50 = { # Success
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_win
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_win
+					type = event_toast_effect_good
+					left_icon = root
+					custom_tooltip = life_extension.0155.dwarf # Clone will be dwarf
+					scope:story = {
+						set_variable = cl_size_dwarf
+					}
+				}
+
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = 1
+					}
+				}
+				modifier = { # More difficult as giant
+					add = -25
+					has_trait = giant
+				}
+			}
+			70 = { # Failure - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Unforeseen Consequences
+					custom_tooltip = life_extension.cloning_duel.negative_traits
+					scope:story = {
+						change_variable = { #Chance of Negative Traits at conclusion
+							name = cl_negative_traits
+							add = 1
+						}
+					}
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -1 }
+				}
+
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.85
+					}
+				}
+				modifier = { # More difficult as giant
+					add = 22
+					has_trait = giant
+				}
+			}
+			5 = { # Critical Failure - Project fails instantly
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_critical_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_critical_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					custom_tooltip = life_extension.cloning_duel.clone_dies
+					# Make sure no cloning events trigger in the meantime
+					scope:story = {
+						set_variable = { #Number of Events
+							name = cl_num_of_events
+							value = 10
+						}
+					}
+					trigger_event = { # Project Fails
+						id = life_extension.0250
+						days = 5
+					}
+				}
+
+
+				#Modifiers
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.15
+					}
+				}
+				modifier = { # More difficult as giant
+					add = 3
+					has_trait = giant
+				}
+			}
+		}
+	}
+}
+
+life_extension.0154 = { # Gender
+	type = character_event
+
+	title = life_extension.0154.t
+	desc = life_extension.0154.desc
+	theme = cloning
+
+	left_portrait = {
+		character = root
+	}
+
+	trigger = { any_owned_story = { story_type = story_cycle_cloning } }
+
+	immediate = {
+		random_owned_story = {
+			limit = { story_type = story_cycle_cloning }
+			save_scope_as = story
+		}
+		scope:story = {
+			add_to_variable_list = {
+				name = cl_event_list
+				target = flag:0154
+			}
+			change_variable = { #Number of Events
+				name = cl_num_of_events
+				add = 1
+			}
+		}
+	}
+
+	option = { # Dont change
+		name = life_extension.0154.a
+		flavor = life_extension.0154.a.tt
+		ai_chance = {
+			base = 200
+		}
+	}
+
+	option = { # Change to male
+		name = life_extension.0154.b
+		flavor = life_extension.0154.b.tt
+		trigger = {
+			is_female = yes
+			NOT = { culture = { has_cultural_pillar = heritage_argonian } }
+		}
+
+		fake_duel = {
+			skill = arcana
+			target = this
+			value = medium_skill_rating
+		}
+		random_list = {
+			50 = { # Success
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_win
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_win
+					type = event_toast_effect_good
+					left_icon = root
+					custom_tooltip = life_extension.0154.male
+					scope:story = { set_variable = cl_switch_gender }
+				}
+
+				#Modifiers
+				min = 20
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = 1
+					}
+				}
+			}
+			75 = { # Failure - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Clone may be infertile
+					custom_tooltip = life_extension.0154.infertile
+					scope:story = { set_variable = cl_infertile_chance }
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -1 }
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -1
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				has_arcana = { VALUE >= high_skill_rating }
+				add = 100
+			}
+		}
+	}
+
+	option = { # Change to female
+		name = life_extension.0154.c
+		flavor = life_extension.0154.c.tt
+		trigger = {
+			is_male = yes
+			NOT = { culture = { has_cultural_pillar = heritage_argonian } }
+		}
+
+		fake_duel = {
+			skill = arcana
+			target = this
+			value = medium_skill_rating
+		}
+		random_list = {
+			50 = { # Success
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_win
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_win
+					type = event_toast_effect_good
+					left_icon = root
+					custom_tooltip = life_extension.0154.female
+					scope:story = { set_variable = cl_switch_gender }
+				}
+
+				#Modifiers
+				min = 20
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = 1
+					}
+				}
+			}
+			75 = { # Failure - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Clone may be infertile
+					custom_tooltip = life_extension.0154.infertile
+					scope:story = { set_variable = cl_infertile_chance }
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -1 }
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -1
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				has_arcana = { VALUE >= high_skill_rating }
+				add = 100
+			}
+		}
+	}
+
+	
+	option = { # Change to male (Argonian)
+		name = life_extension.0154.d
+		flavor = life_extension.0154.d.tt
+		trigger = {
+			is_female = yes
+			culture = { has_cultural_pillar = heritage_argonian }
+		}
+		custom_tooltip = life_extension.0154.male
+		scope:story = { set_variable = cl_switch_gender }
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = { # Change to female (Argonian)
+		name = life_extension.0154.e
+		flavor = life_extension.0154.e.tt
+		trigger = {
+			is_male = yes
+			culture = { has_cultural_pillar = heritage_argonian }
+		}
+		custom_tooltip = life_extension.0154.female
+		scope:story = { set_variable = cl_switch_gender }
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+life_extension.0153 = { # Improve Congenital
+	type = character_event
+
+	title = life_extension.0153.t
+	desc = life_extension.0153.desc
+	theme = cloning
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	trigger = { any_owned_story = { story_type = story_cycle_cloning } }
+
+	immediate = {
+		random_owned_story = {
+			limit = { story_type = story_cycle_cloning }
+			save_scope_as = story
+		}
+		scope:story = {
+			add_to_variable_list = {
+				name = cl_event_list
+				target = flag:0153
+			}
+			change_variable = { #Number of Events
+				name = cl_num_of_events
+				add = 1
+			}
+		}
+
+		# Save our trait level for localization
+		cl_save_congenital_trait_effect = { TRAIT = physique }
+		cl_save_congenital_trait_effect = { TRAIT = beauty }
+		cl_save_congenital_trait_effect = { TRAIT = intellect }
+		cl_save_congenital_trait_effect = { TRAIT = arcana }
+	}
+
+	option = { # Do Nothing
+		name = life_extension.0153.a
+		flavor = life_extension.0153.a.tt
+		ai_chance = {
+			base = 100
+			modifier = {
+				has_arcana = { VALUE >= very_high_skill_rating }
+				add = -75
+			}
+		}
+	}
+
+	option = { # Improve Physique
+		name = {
+			trigger = { scope:story ?= { has_variable = cl_physique_attempt }}
+			text = life_extension.0153.b.repeat_attempt
+		}
+		name = life_extension.0153.b
+		flavor = life_extension.0153.b.tt
+		trigger = {
+			NOT = { has_trait = physique_good_3 }
+			NAND = {
+				has_trait = physique_good_2
+				scope:story = { exists = var:cl_congenital_physique }
+			}
+			NOT = { scope:story = { exists = var:cl_congenital_physique_2 } }
+		}
+		trait = physique_bad_3
+		trait = physique_bad_2
+		trait = physique_bad_1
+		trait = physique_good_1
+		trait = physique_good_2
+		trait = physique_good_3
+
+		# Save the attempt
+		scope:story = { set_variable = cl_physique_attempt }
+
+		fake_duel = {
+			skill = arcana
+			target = this
+			value = high_skill_rating
+		}
+		random_list = {
+			50 = { # Success - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_win
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_win
+					type = event_toast_effect_good
+					left_icon = root
+					custom_tooltip = life_extension.0153.physique
+					# Upgrade 2
+					if = {
+						limit = { scope:story = { exists = var:cl_congenital_physique } }
+						scope:story = { set_variable = cl_congenital_physique_2 }
+					}
+					# Upgrade 1
+					else = { scope:story = { set_variable = cl_congenital_physique } }
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -1 }
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = 1
+					}
+				}
+				modifier = { # More difficult with good trait
+					add = -15
+					has_trait = physique_good_1
+				}
+				modifier = { # More difficult with good trait
+					add = -30
+					has_trait = physique_good_2
+				}
+			}
+			60 = { # Failure - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -2 }
+				}
+
+				#Modifiers
+				min = 20
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.75
+					}
+				}
+				modifier = { # More difficult with good trait
+					add = 12
+					has_trait = physique_good_1
+				}
+				modifier = { # More difficult with good trait
+					add = 24
+					has_trait = physique_good_2
+				}
+			}
+			15 = { # Critical Failure - Project fails instantly
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_critical_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_critical_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					custom_tooltip = life_extension.cloning_duel.clone_dies
+					# Make sure no cloning events trigger in the meantime
+					scope:story = {
+						set_variable = { #Number of Events
+							name = cl_num_of_events
+							value = 10
+						}
+					}
+					trigger_event = { # Project Fails
+						id = life_extension.0250
+						days = 5
+					}
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.25
+					}
+				}
+				modifier = { # More difficult with good trait
+					add = 3
+					has_trait = physique_good_1
+				}
+				modifier = { # More difficult with good trait
+					add = 6
+					has_trait = physique_good_2
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				has_arcana = { VALUE >= high_skill_rating }
+				add = 100
+			}
+		}
+	}
+
+	option = { # Improve Beauty
+		name = {
+			trigger = { scope:story ?= { has_variable = cl_beauty_attempt }}
+			text = life_extension.0153.c.repeat_attempt
+		}
+		name = life_extension.0153.c
+		flavor = life_extension.0153.c.tt
+		trigger = {
+			NOT = { has_trait = beauty_good_3 }
+			NAND = {
+				has_trait = beauty_good_2
+				scope:story = { exists = var:cl_congenital_beauty }
+			}
+			NOT = { scope:story = { exists = var:cl_congenital_beauty_2 } }
+		}
+		trait = beauty_bad_3
+		trait = beauty_bad_2
+		trait = beauty_bad_1
+		trait = beauty_good_1
+		trait = beauty_good_2
+		trait = beauty_good_3
+
+		# Save the attempt
+		scope:story = { set_variable = cl_beauty_attempt }
+
+		fake_duel = {
+			skill = arcana
+			target = this
+			value = high_skill_rating
+		}
+		random_list = {
+			50 = { # Success - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_win
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_win
+					type = event_toast_effect_good
+					left_icon = root
+					custom_tooltip = life_extension.0153.beauty
+					# Upgrade 2
+					if = {
+						limit = { scope:story = { exists = var:cl_congenital_beauty } }
+						scope:story = { set_variable = cl_congenital_beauty_2 }
+					}
+					# Upgrade 1
+					else = { scope:story = { set_variable = cl_congenital_beauty } }
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -1 }
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = 1
+					}
+				}
+				modifier = { # More difficult with good trait
+					add = -15
+					has_trait = beauty_good_1
+				}
+				modifier = { # More difficult with good trait
+					add = -30
+					has_trait = beauty_good_2
+				}
+			}
+			60 = { # Failure - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -2 }
+				}
+
+				#Modifiers
+				min = 20
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.75
+					}
+				}
+				modifier = { # More difficult with good trait
+					add = 12
+					has_trait = beauty_good_1
+				}
+				modifier = { # More difficult with good trait
+					add = 24
+					has_trait = beauty_good_2
+				}
+			}
+			15 = { # Critical Failure - Project fails instantly
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_critical_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_critical_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					custom_tooltip = life_extension.cloning_duel.clone_dies
+					# Make sure no cloning events trigger in the meantime
+					scope:story = {
+						set_variable = { #Number of Events
+							name = cl_num_of_events
+							value = 10
+						}
+					}
+					trigger_event = { # Project Fails
+						id = life_extension.0250
+						days = 5
+					}
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.25
+					}
+				}
+				modifier = { # More difficult with good trait
+					add = 3
+					has_trait = beauty_good_1
+				}
+				modifier = { # More difficult with good trait
+					add = 6
+					has_trait = beauty_good_2
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				has_arcana = { VALUE >= high_skill_rating }
+				add = 100
+			}
+		}
+	}
+
+	option = { # Improve Intellect
+		name = {
+			trigger = { scope:story ?= { has_variable = cl_intellect_attempt }}
+			text = life_extension.0153.d.repeat_attempt
+		}
+		name = life_extension.0153.d
+		flavor = life_extension.0153.d.tt
+		trigger = {
+			NOT = { has_trait = intellect_good_3 }
+			NAND = {
+				has_trait = intellect_good_2
+				scope:story = { exists = var:cl_congenital_intellect }
+			}
+			NOT = { scope:story = { exists = var:cl_congenital_intellect_2 } }
+		}
+		trait = intellect_bad_3
+		trait = intellect_bad_2
+		trait = intellect_bad_1
+		trait = intellect_good_1
+		trait = intellect_good_2
+		trait = intellect_good_3
+
+		# Save the attempt
+		scope:story = { set_variable = cl_intellect_attempt }
+
+		fake_duel = {
+			skill = arcana
+			target = this
+			value = high_skill_rating
+		}
+		random_list = {
+			50 = { # Success - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_win
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_win
+					type = event_toast_effect_good
+					left_icon = root
+					custom_tooltip = life_extension.0153.intellect
+					# Upgrade 2
+					if = {
+						limit = { scope:story = { exists = var:cl_congenital_intellect } }
+						scope:story = { set_variable = cl_congenital_intellect_2 }
+					}
+					# Upgrade 1
+					else = { scope:story = { set_variable = cl_congenital_intellect } }
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -1 }
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = 1
+					}
+				}
+				modifier = { # More difficult with good trait
+					add = -15
+					has_trait = intellect_good_1
+				}
+				modifier = { # More difficult with good trait
+					add = -30
+					has_trait = intellect_good_2
+				}
+			}
+			60 = { # Failure - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -2 }
+				}
+
+				#Modifiers
+				min = 20
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.75
+					}
+				}
+				modifier = { # More difficult with good trait
+					add = 12
+					has_trait = intellect_good_1
+				}
+				modifier = { # More difficult with good trait
+					add = 24
+					has_trait = intellect_good_2
+				}
+			}
+			15 = { # Critical Failure - Project fails instantly
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_critical_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_critical_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					custom_tooltip = life_extension.cloning_duel.clone_dies
+					# Make sure no cloning events trigger in the meantime
+					scope:story = {
+						set_variable = { #Number of Events
+							name = cl_num_of_events
+							value = 10
+						}
+					}
+					trigger_event = { # Project Fails
+						id = life_extension.0250
+						days = 5
+					}
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.25
+					}
+				}
+				modifier = { # More difficult with good trait
+					add = 3
+					has_trait = intellect_good_1
+				}
+				modifier = { # More difficult with good trait
+					add = 6
+					has_trait = intellect_good_2
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				has_arcana = { VALUE >= high_skill_rating }
+				add = 100
+			}
+		}
+	}
+
+	option = { # Improve Arcana
+		name = {
+			trigger = { scope:story ?= { has_variable = cl_arcana_attempt }}
+			text = life_extension.0153.e.repeat_attempt
+		}
+		name = life_extension.0153.e
+		flavor = life_extension.0153.e.tt
+		trigger = {
+			NOT = { has_trait = vt_ek_arcana_good_3 }
+			NAND = {
+				has_trait = vt_ek_arcana_good_2
+				scope:story = { exists = var:cl_congenital_arcana }
+			}
+			NOT = { scope:story = { exists = var:cl_congenital_arcana_2 } }
+		}
+		trait = vt_ek_arcana_bad_3
+		trait = vt_ek_arcana_bad_2
+		trait = vt_ek_arcana_bad_1
+		trait = vt_ek_arcana_good_1
+		trait = vt_ek_arcana_good_2
+		trait = vt_ek_arcana_good_3
+
+		# Save the attempt
+		scope:story = { set_variable = cl_arcana_attempt }
+		
+		fake_duel = {
+			skill = arcana
+			target = this
+			value = high_skill_rating
+		}
+		random_list = {
+			50 = { # Success - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_win
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_win
+					type = event_toast_effect_good
+					left_icon = root
+					custom_tooltip = life_extension.0153.arcana
+					# Upgrade 2
+					if = {
+						limit = { scope:story = { exists = var:cl_congenital_arcana } }
+						scope:story = { set_variable = cl_congenital_arcana_2 }
+					}
+					# Upgrade 1
+					else = { scope:story = { set_variable = cl_congenital_arcana } }
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -1 }
+				}
+
+				#Modifiers
+				min = 5
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = 1
+					}
+				}
+				modifier = { # More difficult with good trait
+					add = -15
+					has_trait = vt_ek_arcana_good_1
+				}
+				modifier = { # More difficult with good trait
+					add = -30
+					has_trait = vt_ek_arcana_good_2
+				}
+			}
+			60 = { # Failure - Decreased Success Chance
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					# Reduce Cloning Success Chance
+					cl_change_success_chance_effect = { VALUE = -2 }
+				}
+
+				#Modifiers
+				min = 20
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.75
+					}
+				}
+				modifier = { # More difficult with good trait
+					add = 12
+					has_trait = vt_ek_arcana_good_1
+				}
+				modifier = { # More difficult with good trait
+					add = 24
+					has_trait = vt_ek_arcana_good_2
+				}
+			}
+			15 = { # Critical Failure - Project fails instantly
+				compare_modifier = {
+					value = scope:fake_duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = life_extension.cloning_duel.tt_critical_fail
+				send_interface_toast = {
+					title = life_extension.cloning_duel.tt_critical_fail
+					type = event_toast_effect_bad
+					left_icon = root
+					custom_tooltip = life_extension.cloning_duel.clone_dies
+					# Make sure no cloning events trigger in the meantime
+					scope:story = {
+						set_variable = { #Number of Events
+							name = cl_num_of_events
+							value = 10
+						}
+					}
+					trigger_event = { # Project Fails
+						id = life_extension.0250
+						days = 5
+					}
+				}
+
+				#Modifiers
+				min = 5
+				modifier = { # Easier through Cloning Insights
+					has_variable = cl_cloning_insights
+					add = {
+						value = var:cl_cloning_insights
+						multiply = -0.25
+					}
+				}
+				modifier = { # More difficult with good trait
+					add = 3
+					has_trait = vt_ek_arcana_good_1
+				}
+				modifier = { # More difficult with good trait
+					add = 6
+					has_trait = vt_ek_arcana_good_2
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				has_arcana = { VALUE >= high_skill_rating }
+				add = 100
+			}
+		}
+	}
+}
+
+life_extension.0152 = { # Base Skill
+	type = character_event
+
+	title = life_extension.0152.t
+	desc = life_extension.0152.desc
+	theme = cloning
+
+	left_portrait = {
+		character = root
+	}
+
+	trigger = { any_owned_story = { story_type = story_cycle_cloning } }
+
+	immediate = {
+		random_owned_story = {
+			limit = { story_type = story_cycle_cloning }
+			save_scope_as = story
+		}
+		scope:story = {
+			add_to_variable_list = {
+				name = cl_event_list
+				target = flag:0152
+			}
+			change_variable = { #Number of Events
+				name = cl_num_of_events
+				add = 1
+			}
+			# If any variables are missing in the story, reset them
+			if = {
+				limit = {
+					NAND = {
+						exists = var:cl_diplomacy
+						exists = var:cl_martial	
+						exists = var:cl_stewardship
+						exists = var:cl_intrigue
+						exists = var:cl_learning
+						exists = var:cl_prowess
+						exists = var:cl_arcana
+					}
+				}
+				# Clone Stat Variables
+				set_variable = { name = cl_diplomacy	value = 1 }
+				set_variable = { name = cl_martial		value = 1 }
+				set_variable = { name = cl_stewardship	value = 1 }
+				set_variable = { name = cl_intrigue		value = 1 }
+				set_variable = { name = cl_learning		value = 1 }
+				set_variable = { name = cl_prowess		value = 1 }
+				set_variable = { name = cl_arcana		value = 1 }
+			}
+		}
+	}
+
+	option = { # Standard spread - 1 in all
+		name = life_extension.0152.a
+		flavor = life_extension.0152.a.tt
+		#scope:story = { # They stay the same
+		#	#Change clones base stats
+		#	change_variable = { name = cl_diplomacy	add = 1 }
+		#	change_variable = { name = cl_martial		add = 1 }
+		#	change_variable = { name = cl_stewardship	add = 1 }
+		#	change_variable = { name = cl_intrigue		add = 1 }
+		#	change_variable = { name = cl_learning		add = 1 }
+		#	change_variable = { name = cl_prowess		add = 1 }
+		#	change_variable = { name = cl_arcana		add = 1 }
+		#}
+	}
+
+	option = { # Warrior spread - Martial, Prowess
+		name = life_extension.0152.b
+		flavor = life_extension.0152.b.tt
+		scope:story = {
+			# Change clones base stats
+			change_variable = { name = cl_diplomacy		add = -1	}
+			change_variable = { name = cl_martial		add = 2		}
+			change_variable = { name = cl_stewardship	add = -1	}
+			change_variable = { name = cl_intrigue		add = -1	}
+			change_variable = { name = cl_learning		add = -1	}
+			change_variable = { name = cl_prowess		add = 3		}
+			change_variable = { name = cl_arcana		add = -1	}
+		}
+	}
+
+	option = { # Realm spread - Diplo, Steward, Intrigue
+		name = life_extension.0152.c
+		flavor = life_extension.0152.c.tt
+		scope:story = {
+			# Change clones base stats
+			change_variable = { name = cl_diplomacy		add = 1 }
+			change_variable = { name = cl_martial		add = -1 }
+			change_variable = { name = cl_stewardship	add = 2 }
+			change_variable = { name = cl_intrigue		add = 1 }
+			change_variable = { name = cl_learning		add = -1 }
+			change_variable = { name = cl_prowess		add = -1 }
+			change_variable = { name = cl_arcana		add = -1 }
+		}
+	}
+
+	option = { # Mage spread - Learning, Arcana
+		name = life_extension.0152.d
+		flavor = life_extension.0152.d.tt
+		scope:story = {
+			# Change clones base stats
+			change_variable = { name = cl_diplomacy		add = -1 }
+			change_variable = { name = cl_martial		add = -1 }
+			change_variable = { name = cl_stewardship	add = -1 }
+			change_variable = { name = cl_intrigue		add = -1 }
+			change_variable = { name = cl_learning		add = 2 }
+			change_variable = { name = cl_prowess		add = -1 }
+			change_variable = { name = cl_arcana		add = 3 }
+		}
+	}
+}
+
+life_extension.0151 = { # Improve Success Chance by dedicating more Resources
+	type = character_event
+
+	title = life_extension.0151.t
+	desc = life_extension.0151.desc
+	theme = cloning
+
+	override_background = {
+		reference = dungeon
+	}
+
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	trigger = { any_owned_story = { story_type = story_cycle_cloning } }
+
+	immediate = {
+		random_owned_story = {
+			limit = { story_type = story_cycle_cloning }
+			save_scope_as = story
+		}
+		scope:story = {
+			add_to_variable_list = {
+				name = cl_event_list
+				target = flag:0151
+			}
+			change_variable = { #Number of Events
+				name = cl_num_of_events
+				add = 1
+			}
+		}
+	}
+
+	option = {
+		name = life_extension.0151.a
+	}
+	option = { # Purchase Additional Equipment
+		name = life_extension.0151.b
+		trigger = { gold >= major_gold_value }
+		show_as_unavailable = { gold < major_gold_value }
+		remove_short_term_gold = major_gold_value
+		# Improve Cloning Success Chance
+		cl_change_success_chance_effect = { VALUE = 1 }
+	}
+	option = { # Unorthodox Scholarly sources
+		name = life_extension.0151.c
+		trigger = { has_trait = scholar }
+		trait = scholar
+		add_prestige = -300
+		# Improve Cloning Success Chance
+		cl_change_success_chance_effect = { VALUE = 1 }
+	}
+	option = { # Dedicate myself to this full time!
+		name = life_extension.0151.d
+		trigger = {
+			has_active_diarchy = no
+			basic_eligible_for_diarchy_trigger = yes
+		}
+		add_character_modifier = cloning_isolation_modifier
+		try_start_diarchy = regency
+		# Improve Cloning Success Chance
+		cl_change_success_chance_effect = { VALUE = 2 }
+		stress_impact = {
+			base = minor_stress_impact_gain
+			lazy = minor_stress_impact_gain
+			diligent = minor_stress_impact_loss
+		}
+	}
+	option = { # Consult Oblivion
+		name = life_extension.0151.e
+		trigger = {
+			has_perk = conjuration_minor_rituals_perk
+			has_magicka_more_than = { VALUE = 30 }
+		}
+		show_as_unavailable = {
+			always = yes
+		}
+		add_magicka = { VALUE = -30 }
+		# Improve Cloning Success Chance
+		cl_change_success_chance_effect = { VALUE = 2 }
+	}
+	option = { # Hermaeus Mora will help
+		name = life_extension.0151.f
+		trigger = {
+			OR = {
+				secret_faith ?= { has_doctrine = doctrine_pantheon_hermaeus }
+				has_trait = p_ob_hermaeus
+			}
+		}
+		reason = faith
+		trait = p_ob_hermaeus
+		#TBD: When we have daedric ardor, remove hermaeus mora ardor
+		add_piety = -300
+		# Improve Cloning Success Chance
+		cl_change_success_chance_effect = { VALUE = 2 }
+	}
+}
+

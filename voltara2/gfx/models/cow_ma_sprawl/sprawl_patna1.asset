@@ -1,0 +1,32 @@
+pdxmesh = {
+	name = "sprawl_patna1_mesh"
+	file = "sprawl_patna1.mesh"
+
+	meshsettings = {
+		name = "patna1"
+		index = 0
+		texture_diffuse = "building_indian_atlas_diffuse.dds"
+		texture_normal = "building_indian_atlas_normal.dds"
+		texture_specular = "building_indian_atlas_properties.dds"
+		texture = { file = "sprawl_patna.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "patna1_decal"
+		index = 0
+		texture_diffuse = "ep2_building_special_canterbury_decal_01_diffuse.dds"
+		texture_normal = "ep2_building_special_canterbury_decal_01_normal.dds"
+		texture_specular = "ep2_building_special_canterbury_decal_01_properties.dds"
+		shader = "decal_local"
+		shader_file = "gfx/FX/pdxmesh_decal.shader"
+		subpass = "LocalDecals"
+	}
+
+}
+
+entity = {
+	name = "sprawl_patna1_entity"
+	pdxmesh = "sprawl_patna1_mesh"
+}

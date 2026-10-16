@@ -1,0 +1,289 @@
+﻿
+### HUNTER - WITCH HUNTING PERKS
+
+
+# Anti-Mage
+antimage_perk = {
+	lifestyle = hunter_lifestyle
+	tree = witch_hunter
+	position = { 2.15 0 }
+	icon = node_hunter
+
+	can_be_picked = {
+		has_hunter_trigger = yes
+	}
+	
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				has_hunter_interest_trigger = yes
+			}
+			add = 3000
+		}
+		if = {
+			limit = {
+				has_focus = hunter_witch_hunter_focus
+			}
+			multiply = 5
+		}
+		if = {
+			limit = {
+				can_start_new_lifestyle_tree_trigger = no
+			}
+			multiply = 0
+		}
+	}
+	
+	# 2.34: the root perk carried no payload at all (the monster-hunter root gives +2/+2/+2). The ability its tooltip
+	# advertises is now real: antimage_perk is an OR branch on witch_hunting_decision.
+	character_modifier = {
+		learning = 2
+		intrigue = 2
+		prowess = 2
+	}
+	effect = {
+		custom_description_no_bullet = {
+			text = antimage_perk_custom_effect
+		}
+	}
+}
+
+
+# Mage Slayer
+mageslayer_perk = {
+	lifestyle = hunter_lifestyle
+	tree = witch_hunter
+	auto_selection_weight = {
+		# 2.32 -- only the ROOT perk of each of the six trees carried a weight, so the AI had
+		# nothing telling it to climb toward the capstone: it entered a tree and stopped.
+		# Witchcraft's demon tree weights all sixteen of its perks and was the template.
+		# Same shape as the root -- interested characters push hard, the matching focus
+		# multiplies -- so progression stays personality-driven rather than flat.
+		value = 11
+		if = {
+			limit = { has_hunter_interest_trigger = yes }
+			add = 3000
+		}
+		if = {
+			limit = { has_focus = hunter_witch_hunter_focus }
+			multiply = 5
+		}
+	}
+	position = { 1.15 1.5 }
+	icon = node_hunter
+
+	can_be_picked = {
+		has_hunter_trigger = yes
+	}
+	
+	parent = antimage_perk
+	
+	character_modifier = {
+		health = 0.15
+		martial = 3
+		intrigue = 2
+	}
+}
+
+
+# Combat Spells
+combat_spells_perk = {
+	lifestyle = hunter_lifestyle
+	tree = witch_hunter
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = { has_hunter_interest_trigger = yes }
+			add = 3000
+		}
+		if = {
+			limit = { has_focus = hunter_witch_hunter_focus }
+			multiply = 5
+		}
+	}
+	position = { 3.15 1.5 }
+	icon = node_hunter
+
+	can_be_picked = {
+		has_hunter_trigger = yes
+	}
+
+	parent = antimage_perk
+	
+	# 2.34: the power_saturated1 -> 2 upgrade was dead -- every grant of power_saturated1 is spellcaster/demon content,
+	# all of which supernatural_hunter opposes. The perk now has a real payload, and the tooltip it always showed
+	# (Create Potion, the Witcher's elixirs) is true: create_potion_decision accepts this perk since 2.34.
+	character_modifier = {
+		prowess = 2
+		learning = 1
+	}
+	effect = {
+		custom_tooltip = combat_spells_p3_perk_effect
+	}
+}
+
+
+# Protection Runes
+protection_runes_perk = {
+	lifestyle = hunter_lifestyle
+	tree = witch_hunter
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = { has_hunter_interest_trigger = yes }
+			add = 3000
+		}
+		if = {
+			limit = { has_focus = hunter_witch_hunter_focus }
+			multiply = 5
+		}
+	}
+	position = { 0 3.5 } 
+	icon = node_hunter
+
+	can_be_picked = {
+		has_hunter_trigger = yes
+	}
+	
+	parent = mageslayer_perk
+	
+	effect = {
+		custom_tooltip = protective_runes_perk_effect
+		custom_tooltip = protective_runes_perk_effect2
+		# 2.34: the witch-tree perk is `protective_runes_perk` (all 31 protection gates test that id); this hunter perk is
+		# `protection_runes_perk`, one letter off, and conferred nothing. Deliberate design -- a hunter cannot be a witch,
+		# so granting the witch-tree perk is the clean way to give them its protection.
+		hidden_effect = { add_perk = protective_runes_perk }
+	}
+}
+
+
+# Hunter's Training
+hunter_training_perk = {
+	lifestyle = hunter_lifestyle
+	tree = witch_hunter
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = { has_hunter_interest_trigger = yes }
+			add = 3000
+		}
+		if = {
+			limit = { has_focus = hunter_witch_hunter_focus }
+			multiply = 5
+		}
+	}
+	position = { 1.4 4.5 }
+	icon = node_hunter
+
+	can_be_picked = {
+		has_hunter_trigger = yes
+	}
+	
+	parent = protection_runes_perk
+	
+	character_modifier = {
+		knight_effectiveness_mult = 0.25
+		counter_efficiency = 0.10
+	}
+
+}
+
+
+# Pious Hunter
+pious_perk = {
+	lifestyle = hunter_lifestyle
+	tree = witch_hunter
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = { has_hunter_interest_trigger = yes }
+			add = 3000
+		}
+		if = {
+			limit = { has_focus = hunter_witch_hunter_focus }
+			multiply = 5
+		}
+	}
+	position = { 4.2 3.5}
+	icon = node_hunter
+
+	can_be_picked = {
+		has_hunter_trigger = yes
+	}
+	
+	parent = combat_spells_perk
+	
+	character_modifier = {
+		monthly_piety = 1
+		learning_per_piety_level = 2
+		piety_level_impact_mult = 0.25
+		monthly_piety_gain_per_knight_mult = 0.01
+	}
+}
+
+# Hunter Academy
+hunter_academy_perk = {
+	lifestyle = hunter_lifestyle
+	tree = witch_hunter
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = { has_hunter_interest_trigger = yes }
+			add = 3000
+		}
+		if = {
+			limit = { has_focus = hunter_witch_hunter_focus }
+			multiply = 5
+		}
+	}
+	position = { 2.9 4.5 } 
+	icon = node_hunter
+
+	can_be_picked = {
+		has_hunter_trigger = yes
+	}
+	
+	parent = pious_perk
+	
+	character_modifier = {
+		men_at_arms_cap = 1
+		# 2.35 -- the academy trains Hunter Trainees (witchhunters, a skirmishers-type regiment): one more sub-regiment.
+		skirmishers_max_size_add = 1
+	}
+	
+}
+
+# Witch-Hunter
+witch_hunter_perk = {
+	lifestyle = hunter_lifestyle
+	tree = witch_hunter
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = { has_hunter_interest_trigger = yes }
+			add = 3000
+		}
+		if = {
+			limit = { has_focus = hunter_witch_hunter_focus }
+			multiply = 5
+		}
+	}
+	position = { 2.15 2.75 }
+	icon = witch_hunter
+
+	can_be_picked = {
+		has_hunter_trigger = yes
+	}
+	
+	parent = hunter_academy_perk
+	parent = hunter_training_perk
+
+	trait = witch_hunter # 2.34: the UI advertisement vanilla pairs with add_trait_force_tooltip in 18/18 capstones
+	
+	effect = {
+		add_trait_force_tooltip = witch_hunter
+		hidden_effect = { set_focus = no } # 2.34: every other capstone in the mod clears the focus
+	}
+}

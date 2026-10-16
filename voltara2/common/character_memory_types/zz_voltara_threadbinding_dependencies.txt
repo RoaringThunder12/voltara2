@@ -1,0 +1,115 @@
+﻿became_necromancer_memory = {
+	categories = { positive death major }
+	icon = "necromancy.dds"
+
+	description = {
+		first_valid = {
+			desc = became_necromancer_memory_desc
+		}
+	}
+
+	second_perspective_description = {
+		first_valid = {
+			desc = became_necromancer_memory_desc_second_perspective
+		}
+	}
+
+	third_perspective_description = {
+		first_valid = {
+			desc = became_necromancer_memory_desc_third_perspective
+		}
+	}
+
+	#no relevant participants here
+
+	duration = {
+		years = memory_default_duration
+	}
+}
+
+became_briarheart_memory = {
+	categories = { positive death health major }
+	icon = "necromancy.dds"
+
+	description = {
+		first_valid = {
+			desc = became_briarheart_memory_desc
+		}
+	}
+
+	second_perspective_description = {
+		first_valid = {
+			desc = became_briarheart_memory_desc_second_perspective
+		}
+	}
+
+	third_perspective_description = {
+		first_valid = {
+			desc = became_briarheart_memory_desc_third_perspective
+		}
+	}
+
+	#no relevant participants here
+
+	duration = {
+		years = memory_default_duration
+	}
+}
+
+became_hagraven_memory = {
+	categories = { positive death health major }
+	icon = "necromancy.dds"
+
+	description = {
+		first_valid = {
+			desc = became_hagraven_memory_desc
+		}
+	}
+
+	second_perspective_description = {
+		first_valid = {
+			desc = became_hagraven_memory_desc_second_perspective
+		}
+	}
+
+	third_perspective_description = {
+		first_valid = {
+			desc = became_hagraven_memory_desc_third_perspective
+		}
+	}
+
+	#no relevant participants here
+
+	duration = {
+		years = memory_default_duration
+	}
+}
+
+became_lich_memory = {
+	categories = { positive death health major }
+	icon = "necromancy.dds"
+
+	description = {
+		first_valid = {
+			desc = became_lich_memory_desc
+		}
+	}
+
+	second_perspective_description = {
+		first_valid = {
+			desc = became_lich_memory_desc_second_perspective
+		}
+	}
+
+	third_perspective_description = {
+		first_valid = {
+			desc = became_lich_memory_desc_third_perspective
+		}
+	}
+
+	#no relevant participants here
+
+	duration = {
+		years = memory_default_duration
+	}
+}

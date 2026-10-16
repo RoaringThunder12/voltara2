@@ -1,0 +1,15 @@
+﻿voltara_skeleton_body = {
+ usage = game priority = 100
+ skeleton = {
+  dna_modifiers = {
+ accessory = { mode = add gene = hairstyles template = no_hairstyles value = 0.5 }
+ accessory = { mode = add gene = beards template = no_beard value = 0.5 }
+   morph = { mode = add gene = gene_no_portrait template = no_portrait value = 1.0 }
+   accessory = { mode = add gene = vt_race_beast_body_shaders template = skeleton_body value = 1.0 }
+   accessory = { mode = add gene = vt_race_beast_head_shaders template = skeleton_head value = 1.0 }
+   accessory = { mode = modify gene = teeth_accessory template = no_teeth value = 0.5 }
+   accessory = { mode = modify gene = eyelashes_accessory template = no_eyelashes value = 0.5 }
+  }
+  weight = { base = 0 modifier = { add = 1000 vt_ek_is_undead = yes var:ek_undead_decay >= 0.6 NOT = { has_character_modifier = modifier_ritual_conceal } } }
+ }
+}

@@ -1,0 +1,79 @@
+﻿# Mod: replace only this acceptance ID using the CK3 1.20 override contract.
+# A full Vanilla-file replacement is no longer needed; equal-priority ID overrides still conflict.
+namespace = religious_interaction
+
+#####################
+# Demand Conversion #
+#####################
+
+religious_interaction.2002 = {
+	id_override_priority = 1
+	type = character_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				has_title = title:e_minister_of_rites
+			}
+			change_influence = {
+				value = minor_influence_gain
+				multiply = scope:recipient.primary_title.tier
+			}
+			add_piety = {
+				value = minor_piety_gain
+				multiply = scope:recipient.primary_title.tier
+			}
+		}
+		notify_puppeteer_of_outcome_effect = {
+			TYPE = event_toast_effect_good
+			TITLE = religious_interaction.2002.toast_puppeteer
+		}
+
+		# The old single-option rewards run explicitly without a confirmation click.
+		if = {
+			limit = {
+				has_government = landless_adventurer_government
+				scope:recipient.highest_held_title_tier >= tier_barony
+			}
+			faith = {
+				change_fervor = {
+					value = {
+						add = trivial_fervor_value
+						multiply = scope:recipient.highest_held_title_tier
+					}
+					desc = imperial_capital_sacked_fervor_gain
+				}
+			}
+			add_prestige = {
+				value = 200
+				multiply = scope:recipient.highest_held_title_tier
+				if = {
+					limit = {
+						scope:recipient.highest_held_title_tier >= tier_kingdom
+					}
+					multiply = 2
+				}
+			}
+		}
+
+		# Current scope is the original event receiver (puppet_or_actor), not necessarily actor.
+		send_interface_message = {
+			type = mdc_conversion_accepted_message
+			# Resolve the recipient description in this event context before feed rendering.
+			desc = mdc_conversion_accepted_desc
+			left_icon = scope:recipient
+			# Native interactions already initiate conversion; these are previews only.
+			if = {
+				limit = {
+					has_government = landless_adventurer_government
+				}
+				show_as_tooltip = { demand_conversion_interaction_effect = yes }
+			}
+			else = {
+				show_as_tooltip = { demand_conversion_vassal_ruler_interaction_effect = yes }
+			}
+		}
+	}
+}
+
+# Refusal events stay native: hooks, negotiations and other choices still need player input.

@@ -1,0 +1,27 @@
+﻿on_join_court = { on_actions = { voltara_slave_court_changed } }
+on_leave_court = { on_actions = { voltara_slave_court_changed } }
+voltara_slave_court_changed = {
+ trigger = { has_trait = voltara_slave }
+ effect = { trigger_event = { id = voltara_slavery.1 days = 1 } }
+}
+yearly_global_pulse = { on_actions = { voltara_slavery_maintenance } }
+voltara_slavery_maintenance = { effect = {
+ every_living_character = { limit = { has_trait = voltara_slave } voltara_check_slave_owner = yes }
+} }
+quarterly_playable_pulse = { on_actions = { voltara_slave_realm_check } }
+on_vassal_change = { on_actions = { voltara_slavery_liege_changed } }
+voltara_slavery_liege_changed = { effect = {
+ voltara_report_slavery_crime = yes
+ every_courtier = { limit = { has_trait = voltara_slave } voltara_check_slave_owner = yes }
+ every_vassal_or_below = { voltara_report_slavery_crime = yes every_courtier = { limit = { has_trait = voltara_slave } voltara_check_slave_owner = yes } }
+} }
+voltara_slave_realm_check = { effect = { voltara_report_slavery_crime = yes every_courtier = { limit = { has_trait = voltara_slave } voltara_check_slave_owner = yes } } }
+on_death = { on_actions = { voltara_slavery_death } }
+voltara_slavery_death = { effect = {
+ if = { limit = { has_trait = voltara_slaver exists = scope:killer scope:killer != this }
+  scope:killer = { add_trait = voltara_liberator add_trait_xp = { trait = voltara_liberator value = 10 } }
+ }
+ every_courtier = { limit = { has_trait = voltara_slave var:voltara_slave_owner ?= root }
+  voltara_free_character = yes
+ }
+} }

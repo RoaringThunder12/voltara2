@@ -1,0 +1,11 @@
+﻿##############################
+## GM1 scripted_effects
+##############################
+
+l_english:
+ CHANGE_IMPRISONER_FACTION_RETALIATION_WARNING: "#high Imprisoning [imprisonment_target.GetShortUIName] may incite the [retaliating_faction.GetName] to revolt!#!"
+
+ TRANSFER_PRISONER_FACTION_FAILED_IMPRISONMENT_RETALIATION: "[imprisoner.GetShortUIName] has unjustly attempted to imprison [prisoner.GetShortUIName], who is one of my fellow faction members."
+ TRANSFER_PRISONER_FACTION_SUCCESSFUL_IMPRISONMENT_RETALIATION: "[imprisoner.GetShortUIName] has unjustly imprisoned [prisoner.GetShortUIName], who was one of my fellow faction members."
+ TRANSFER_PRISONER_FACTION_IMPRISONMENT_RETALIATION_END: "\n\nSuch a brazen attack on the [retaliating_faction.GetName] can only been seen as an act of war, and unless we defend ourselves now we will surely be picked off one by one!"
+ TRANSFER_PRISONER_FACTION_IMPRISONMENT_RETALIATION_OPT: "To war!"

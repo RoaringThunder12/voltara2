@@ -1,0 +1,18 @@
+﻿texticon = {
+	icon = skill_arcana_icon
+	iconsize = {
+		texture = "gfx/interface/icons/icon_arcana.dds"	
+		size = { 25 25 }
+		offset = { 0 6 }
+		fontsize = 16
+	}
+}
+texticon = {
+	icon = magicka_icon
+	iconsize = {
+		texture = "gfx/interface/icons/icon_magicka.dds"	
+		size = { 25 25 }
+		offset = { 0 6 }
+		fontsize = 16
+	}
+}

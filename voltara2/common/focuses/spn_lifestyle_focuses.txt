@@ -1,0 +1,1613 @@
+﻿
+vampire_vampirism_focus = {
+	lifestyle = vampire_lifestyle
+
+	is_shown = {
+		NOT = { government_has_flag = government_is_landless_adventurer }
+	}
+	is_valid = {
+		NOT = { government_has_flag = government_is_landless_adventurer }
+	}
+	
+	modifier = {
+		intrigue = 4
+		character_travel_speed_mult = 0.1
+		character_travel_safety = 10
+	}
+
+	desc = {
+		desc = vampire_focus_desc
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				has_vampire_interest_trigger = yes
+			}
+			add = 2489 # 2.34: 11 + 2489 = 2500, exactly 25% above a vanilla education-matched focus (2000)
+		}
+		if = {
+			limit = {
+				age > 55
+			}
+			multiply = 2
+		}
+		if = {
+			limit = {
+				has_trait = sadistic
+			}
+			multiply = 3
+		}
+		# 2.35 part two: the flat 2500 could not compete with witch_focus/arcane_focus, which stack past 5000.
+		# These branches stack ON TOP of the 2.34 interest gate so a fitting character outbids the magic trees.
+		# Mismatches REDUCE, never zero -- the focus drops down the list, it does not disappear.
+		if = {
+			limit = { has_trait = deceitful }
+			add = 600  # a vampire's first virtue is not being seen
+		}
+		if = {
+			limit = { has_trait = patient }
+			add = 400  # the long game
+		}
+		if = {
+			limit = { has_trait = shrewd }
+			add = 400
+		}
+		if = {
+			limit = { intrigue > 14 }
+			add = 500
+		}
+		if = {
+			limit = { has_trait = craven }
+			add = 300  # hiding suits it -- the one focus craven likes
+		}
+		if = {
+			limit = { has_trait = brave }
+			subtract = 400  # an open fighter is drawn elsewhere
+		}
+		if = {
+			limit = { has_trait = zealous }
+			subtract = 600  # a zealot resists what he has become
+		}
+		if = {
+			limit = { has_trait = supernatural_hunter }
+			multiply = 0.25  # the hunter problem, from the other side
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_vampire track = vampirism value >= 50 } }
+			add = 600
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_vampire track = vampirism value >= 90 } }
+			add = 600
+		}
+	}
+	
+}
+
+vampire_adventurer_focus = {
+	lifestyle = vampire_lifestyle
+
+	is_shown = {
+		government_has_flag = government_is_landless_adventurer
+	}
+	is_valid = {
+		government_has_flag = government_is_landless_adventurer
+	}
+	
+	modifier = {
+		intrigue = 3
+		intrigue_scheme_phase_duration = -15
+		owned_scheme_secrecy_add = 10
+		character_travel_speed_mult = 0.2
+		character_travel_safety = 15
+	}
+
+	desc = {
+		desc = vampire_focus_desc
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 5000 # 2.34: vanilla's landless adventurer focuses sit at 5000 + 50000; this was 11 + 2000, so a landless supernatural picked it ~2.6% of the time
+		if = {
+			limit = {
+				has_vampire_interest_trigger = yes
+			}
+			add = 63750 # 2.34: 5000 + 63750 = 68750, exactly 25% above vanilla's 55000
+		}
+		if = {
+			limit = {
+				age > 55
+			}
+			multiply = 2
+		}
+		if = {
+			limit = {
+				has_trait = sadistic
+			}
+			multiply = 2
+		}
+		# 2.35 part two: the flat 2500 could not compete with witch_focus/arcane_focus, which stack past 5000.
+		# These branches stack ON TOP of the 2.34 interest gate so a fitting character outbids the magic trees.
+		# Mismatches REDUCE, never zero -- the focus drops down the list, it does not disappear.
+		if = {
+			limit = { has_trait = deceitful }
+			add = 600  # a vampire's first virtue is not being seen
+		}
+		if = {
+			limit = { has_trait = patient }
+			add = 400  # the long game
+		}
+		if = {
+			limit = { has_trait = shrewd }
+			add = 400
+		}
+		if = {
+			limit = { intrigue > 14 }
+			add = 500
+		}
+		if = {
+			limit = { has_trait = craven }
+			add = 300  # hiding suits it -- the one focus craven likes
+		}
+		if = {
+			limit = { has_trait = brave }
+			subtract = 400  # an open fighter is drawn elsewhere
+		}
+		if = {
+			limit = { has_trait = zealous }
+			subtract = 600  # a zealot resists what he has become
+		}
+		if = {
+			limit = { has_trait = supernatural_hunter }
+			multiply = 0.25  # the hunter problem, from the other side
+		}
+		if = {
+			limit = { has_trait = gregarious }
+			add = 400  # a road needs a face
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_vampire track = vampirism value >= 50 } }
+			add = 600
+		}
+	}
+	
+}
+
+vampire_master_focus = {
+	lifestyle = vampire_lifestyle
+
+	is_shown = {
+		OR = {
+			government_has_flag = government_is_landless_adventurer
+			NOT = { government_has_flag = government_is_landless_adventurer }
+		}
+	}
+	is_valid = {
+		has_perk = true_vampire_perk
+	}
+	
+	modifier = {
+		monthly_vampire_lifestyle_xp_gain_mult = -10.00
+		diplomacy = 5
+		martial = 5
+		intrigue = 5
+		learning = 5
+		stewardship = 5
+		monthly_income_mult = 0.07		
+		owned_scheme_secrecy_add = 10
+		character_travel_speed_mult = 0.2
+		character_travel_safety = 20
+	}
+
+	desc = {
+		first_valid = {
+			# Shown if the character does NOT have the True Vampire capstone
+			triggered_desc = {
+				trigger = { NOT = { has_perk = true_vampire_perk } }
+				desc = REQUIREMENTS_MASTER   # localization key for the "locked" blurb
+			}
+
+			# Shown if they DO have the True Vampire capstone
+			triggered_desc = {
+				trigger = { has_perk = true_vampire_perk }
+				desc = vampire_focus_master_desc           # localization key for the real focus description
+			}
+		}
+
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				has_vampire_interest_trigger = yes
+			}
+			add = 2489 # 2.34: 11 + 2489 = 2500, exactly 25% above a vanilla education-matched focus (2000)
+		}
+		if = {
+			limit = {
+				age > 55
+			}
+			multiply = 2
+		}
+		if = {
+			limit = {
+				has_trait = sadistic
+			}
+			multiply = 2
+		}
+		# 2.35 part two: the flat 2500 could not compete with witch_focus/arcane_focus, which stack past 5000.
+		# These branches stack ON TOP of the 2.34 interest gate so a fitting character outbids the magic trees.
+		# Mismatches REDUCE, never zero -- the focus drops down the list, it does not disappear.
+		if = {
+			limit = { has_trait = deceitful }
+			add = 600  # a vampire's first virtue is not being seen
+		}
+		if = {
+			limit = { has_trait = patient }
+			add = 400  # the long game
+		}
+		if = {
+			limit = { has_trait = shrewd }
+			add = 400
+		}
+		if = {
+			limit = { intrigue > 14 }
+			add = 500
+		}
+		if = {
+			limit = { has_trait = craven }
+			add = 300  # hiding suits it -- the one focus craven likes
+		}
+		if = {
+			limit = { has_trait = brave }
+			subtract = 400  # an open fighter is drawn elsewhere
+		}
+		if = {
+			limit = { has_trait = zealous }
+			subtract = 600  # a zealot resists what he has become
+		}
+		if = {
+			limit = { has_trait = supernatural_hunter }
+			multiply = 0.25  # the hunter problem, from the other side
+		}
+		if = {
+			limit = { has_trait = ambitious }
+			add = 800  # mastery is the ambitious one's focus
+		}
+		if = {
+			limit = { has_trait = arrogant }
+			add = 500
+		}
+		if = {
+			limit = { age > 80 }
+			add = 600  # time enough to have learned it
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_vampire track = vampirism value >= 75 } }
+			add = 800
+		}
+	}
+	
+}
+
+werewolf_lycanthropy_focus = {
+	lifestyle = werewolf_lifestyle
+
+	is_shown = {
+		NOT = { government_has_flag = government_is_landless_adventurer }
+	}
+	is_valid = {
+		NOT = { government_has_flag = government_is_landless_adventurer }
+	}
+	
+	modifier = {
+		martial = 5
+		character_travel_safety = 10
+	}
+
+	desc = {
+		desc = werewolf_lycanthropy_focus_desc
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				has_werewolf_interest_trigger = yes
+			}
+			add = 2489 # 2.34: 11 + 2489 = 2500, exactly 25% above a vanilla education-matched focus (2000)
+		}
+		# 2.35 part two: Thomas's gradient -- brave takes it off the bat, craven takes it late.
+		if = {
+			limit = { has_trait = brave }
+			add = 800  # off the bat
+		}
+		if = {
+			limit = { has_trait = wrathful }
+			add = 600
+		}
+		if = {
+			limit = { prowess > 14 }
+			add = 600
+		}
+		if = {
+			limit = { martial > 12 }
+			add = 500
+		}
+		if = {
+			limit = { OR = { has_trait = athletic  has_trait = strong } }
+			add = 400
+		}
+		if = {
+			limit = { age < 30 }
+			add = 600  # the young take to it
+		}
+		if = {
+			limit = { has_trait = craven }
+			subtract = 800  # down the list, not off it
+		}
+		if = {
+			limit = { has_trait = calm }
+			subtract = 300
+		}
+		if = {
+			limit = { has_trait = supernatural_hunter }
+			multiply = 0.25
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_werewolf track = lycanthropy value >= 50 } }
+			add = 600
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_werewolf track = lycanthropy value >= 90 } }
+			add = 600
+		}
+	}
+	
+}
+
+werewolf_adventurer_focus = {
+	lifestyle = werewolf_lifestyle
+
+	is_shown = {
+		government_has_flag = government_is_landless_adventurer
+	}
+	is_valid = {
+		government_has_flag = government_is_landless_adventurer
+	}
+	
+	modifier = {
+		martial = 3
+		prowess_scheme_phase_duration = -15
+		maa_toughness_mult = 0.15
+		character_travel_safety = 15
+	}
+
+	desc = {
+		desc = werewolf_lycanthropy_focus_desc
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 5000 # 2.34: vanilla's landless adventurer focuses sit at 5000 + 50000; this was 11 + 2000, so a landless supernatural picked it ~2.6% of the time
+		if = {
+			limit = {
+				has_werewolf_interest_trigger = yes
+			}
+			add = 63750 # 2.34: 5000 + 63750 = 68750, exactly 25% above vanilla's 55000
+		}
+		# 2.35 part two: Thomas's gradient -- brave takes it off the bat, craven takes it late.
+		if = {
+			limit = { has_trait = brave }
+			add = 800  # off the bat
+		}
+		if = {
+			limit = { has_trait = wrathful }
+			add = 600
+		}
+		if = {
+			limit = { prowess > 14 }
+			add = 600
+		}
+		if = {
+			limit = { martial > 12 }
+			add = 500
+		}
+		if = {
+			limit = { OR = { has_trait = athletic  has_trait = strong } }
+			add = 400
+		}
+		if = {
+			limit = { age < 30 }
+			add = 600  # the young take to it
+		}
+		if = {
+			limit = { has_trait = craven }
+			subtract = 800  # down the list, not off it
+		}
+		if = {
+			limit = { has_trait = calm }
+			subtract = 300
+		}
+		if = {
+			limit = { has_trait = supernatural_hunter }
+			multiply = 0.25
+		}
+		if = {
+			limit = { has_trait = gregarious }
+			add = 300
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_werewolf track = lycanthropy value >= 50 } }
+			add = 600
+		}
+	}
+	
+}
+
+werewolf_master_focus = {
+	lifestyle = werewolf_lifestyle
+
+	is_shown = {
+		OR = {
+			government_has_flag = government_is_landless_adventurer
+			NOT = { government_has_flag = government_is_landless_adventurer }
+		}
+	}
+	is_valid = {
+		has_perk = true_werewolf_perk
+	}
+	
+	modifier = {
+		monthly_werewolf_lifestyle_xp_gain_mult = -10.00
+		diplomacy = 3
+		martial = 3
+		intrigue = 3
+		learning = 3
+		stewardship = 3
+		monthly_income_mult = 0.05		
+		prowess_scheme_phase_duration = -15
+		maa_toughness_mult = 0.15
+		character_travel_safety = 15
+	}
+
+	desc = {
+		first_valid = {
+			# Shown if the character does NOT have the True Werewolf capstone
+			triggered_desc = {
+				trigger = { NOT = { has_perk = true_werewolf_perk } }
+				desc = REQUIREMENTS_MASTER   # localization key for the "locked" blurb
+			}
+
+			# Shown if they DO have the True Werewolf capstone
+			triggered_desc = {
+				trigger = { has_perk = true_werewolf_perk }
+				desc = werewolf_focus_master_desc           # localization key for the real focus description
+			}
+		}
+
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				has_werewolf_interest_trigger = yes
+			}
+			add = 2489 # 2.34: 11 + 2489 = 2500, exactly 25% above a vanilla education-matched focus (2000)
+		}
+		# 2.35 part two: Thomas's gradient -- brave takes it off the bat, craven takes it late.
+		if = {
+			limit = { has_trait = brave }
+			add = 800  # off the bat
+		}
+		if = {
+			limit = { has_trait = wrathful }
+			add = 600
+		}
+		if = {
+			limit = { prowess > 14 }
+			add = 600
+		}
+		if = {
+			limit = { martial > 12 }
+			add = 500
+		}
+		if = {
+			limit = { OR = { has_trait = athletic  has_trait = strong } }
+			add = 400
+		}
+		if = {
+			limit = { age < 30 }
+			add = 600  # the young take to it
+		}
+		if = {
+			limit = { has_trait = craven }
+			subtract = 800  # down the list, not off it
+		}
+		if = {
+			limit = { has_trait = calm }
+			subtract = 300
+		}
+		if = {
+			limit = { has_trait = supernatural_hunter }
+			multiply = 0.25
+		}
+		if = {
+			limit = { has_trait = ambitious }
+			add = 800
+		}
+		if = {
+			limit = { has_trait = stubborn }
+			add = 400  # an alpha does not yield
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_werewolf track = lycanthropy value >= 75 } }
+			add = 800
+		}
+	}
+	
+}
+
+hybrid_hybrid_focus = {
+	lifestyle = hybrid_lifestyle
+
+	is_shown = {
+		NOT = { government_has_flag = government_is_landless_adventurer }
+	}
+	is_valid = {
+		NOT = { government_has_flag = government_is_landless_adventurer }
+	}
+	
+	modifier = {
+		martial = 4
+		intrigue = 4
+		advantage = 3
+		character_travel_safety = 15
+	}
+
+	desc = {
+		desc = hybrid_hybrid_focus_desc
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				has_hybrid_interest_trigger = yes
+			}
+			add = 2489 # 2.34: 11 + 2489 = 2500, exactly 25% above a vanilla education-matched focus (2000)
+		}
+		# 2.35 part two: a hybrid answers to both natures, so it takes the lighter half of each list.
+		if = {
+			limit = { has_trait = brave }
+			add = 500
+		}
+		if = {
+			limit = { has_trait = deceitful }
+			add = 500
+		}
+		if = {
+			limit = { prowess > 14 }
+			add = 400
+		}
+		if = {
+			limit = { intrigue > 14 }
+			add = 400
+		}
+		if = {
+			limit = { has_trait = ambitious }
+			add = 500  # being both is an ambition
+		}
+		if = {
+			limit = { has_trait = craven }
+			subtract = 400
+		}
+		if = {
+			limit = { has_trait = content }
+			subtract = 400  # contentment is the one thing a hybrid is not
+		}
+		if = {
+			limit = { has_trait = supernatural_hunter }
+			multiply = 0.25
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_hybrid track = hybrid_vampirism value >= 50 } }
+			add = 500
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_hybrid track = hybrid_lycanthropy value >= 50 } }
+			add = 500
+		}
+	}
+	
+}
+
+hybrid_adventurer_focus = {
+	lifestyle = hybrid_lifestyle
+
+	is_shown = {
+		government_has_flag = government_is_landless_adventurer
+	}
+	is_valid = {
+		government_has_flag = government_is_landless_adventurer
+	}
+	
+	modifier = {
+		martial = 1
+		intrigue = 1
+		owned_contract_scheme_success_chance_growth_add = 5
+		character_travel_speed_mult = 0.2
+		prowess_scheme_phase_duration = -15
+		character_travel_safety = 15
+	}
+
+	desc = {
+		desc = hybrid_hybrid_focus_desc
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 5000 # 2.34: vanilla's landless adventurer focuses sit at 5000 + 50000; this was 11 + 2000, so a landless supernatural picked it ~2.6% of the time
+		if = {
+			limit = {
+				has_hybrid_interest_trigger = yes
+			}
+			add = 63750 # 2.34: 5000 + 63750 = 68750, exactly 25% above vanilla's 55000
+		}
+		# 2.35 part two: a hybrid answers to both natures, so it takes the lighter half of each list.
+		if = {
+			limit = { has_trait = brave }
+			add = 500
+		}
+		if = {
+			limit = { has_trait = deceitful }
+			add = 500
+		}
+		if = {
+			limit = { prowess > 14 }
+			add = 400
+		}
+		if = {
+			limit = { intrigue > 14 }
+			add = 400
+		}
+		if = {
+			limit = { has_trait = ambitious }
+			add = 500  # being both is an ambition
+		}
+		if = {
+			limit = { has_trait = craven }
+			subtract = 400
+		}
+		if = {
+			limit = { has_trait = content }
+			subtract = 400  # contentment is the one thing a hybrid is not
+		}
+		if = {
+			limit = { has_trait = supernatural_hunter }
+			multiply = 0.25
+		}
+		if = {
+			limit = { has_trait = gregarious }
+			add = 300
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_hybrid track = hybrid_vampirism value >= 50 } }
+			add = 500
+		}
+	}
+	
+}
+
+hybrid_master_focus = {
+	lifestyle = hybrid_lifestyle
+
+	is_shown = {
+		OR = {
+			government_has_flag = government_is_landless_adventurer
+			NOT = { government_has_flag = government_is_landless_adventurer }
+		}
+	}
+	is_valid = {
+		AND = {
+			has_perk = true_vampire_hybrid_perk
+			has_perk = true_werewolf_hybrid_perk
+		}
+	}
+	
+	modifier = {
+		monthly_hybrid_lifestyle_xp_gain_mult = -10.00
+		diplomacy = 5
+		martial = 5
+		intrigue = 5
+		learning = 5
+		stewardship = 5
+		monthly_income_mult = 0.1
+		owned_contract_scheme_success_chance_growth_add = 5
+		character_travel_speed_mult = 0.3
+		prowess_scheme_phase_duration = -15
+		character_travel_safety = 25
+	}
+
+	desc = {
+		first_valid = {
+			# Shown if the character does NOT have the True Werewolf capstone
+			triggered_desc = {
+				trigger = { NOT = { AND = { has_perk = true_werewolf_hybrid_perk has_perk = true_vampire_hybrid_perk } } }
+				desc = REQUIREMENTS_MASTER   # localization key for the "locked" blurb
+			}
+
+			# Shown if they DO have the True Werewolf capstone
+			triggered_desc = {
+				trigger = { AND = { has_perk = true_werewolf_hybrid_perk has_perk = true_vampire_hybrid_perk } }
+				desc = hybrid_master_focus_desc         # localization key for the real focus description
+			}
+		}
+
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				has_hybrid_interest_trigger = yes
+			}
+			add = 2489 # 2.34: 11 + 2489 = 2500, exactly 25% above a vanilla education-matched focus (2000)
+		}
+		# 2.35 part two: a hybrid answers to both natures, so it takes the lighter half of each list.
+		if = {
+			limit = { has_trait = brave }
+			add = 500
+		}
+		if = {
+			limit = { has_trait = deceitful }
+			add = 500
+		}
+		if = {
+			limit = { prowess > 14 }
+			add = 400
+		}
+		if = {
+			limit = { intrigue > 14 }
+			add = 400
+		}
+		if = {
+			limit = { has_trait = ambitious }
+			add = 500  # being both is an ambition
+		}
+		if = {
+			limit = { has_trait = craven }
+			subtract = 400
+		}
+		if = {
+			limit = { has_trait = content }
+			subtract = 400  # contentment is the one thing a hybrid is not
+		}
+		if = {
+			limit = { has_trait = supernatural_hunter }
+			multiply = 0.25
+		}
+		if = {
+			limit = { has_trait = arrogant }
+			add = 500
+		}
+		if = {
+			limit = { age > 60 }
+			add = 400
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_hybrid track = hybrid_lycanthropy value >= 75 } }
+			add = 800
+		}
+	}
+	
+}
+
+hunter_monster_hunter_focus = {
+	lifestyle = hunter_lifestyle
+
+	is_valid = {
+		has_trait = supernatural_hunter
+	}
+	
+	modifier = {
+		martial = 3
+	}
+
+	desc = {
+		desc = hunter_focus_desc
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				has_hunter_interest_trigger = yes
+			}
+			add = 2489 # 2.34: 11 + 2489 = 2500, exactly 25% above a vanilla education-matched focus (2000)
+		}
+		# 2.35 part two: THE reported bug. A hunter holding a magic artifact drifted into a magic focus
+		# because ours was a flat 2500 and witch_focus/arcane_focus stack past 5000. This competes.
+		if = {
+			limit = { has_trait = brave }
+			add = 800  # you go toward the thing
+		}
+		if = {
+			limit = { has_trait = vengeful }
+			add = 600
+		}
+		if = {
+			limit = { has_trait = zealous }
+			add = 500
+		}
+		if = {
+			limit = { martial > 12 }
+			add = 600
+		}
+		if = {
+			limit = { prowess > 14 }
+			add = 600
+		}
+		if = {
+			limit = { has_trait = lifestyle_blademaster }
+			add = 400
+		}
+		if = {
+			limit = { age < 40 }
+			add = 400  # field work is young work
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_hunter track = monster_hunting value >= 50 } }
+			add = 800
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_hunter track = monster_hunting value >= 90 } }
+			add = 600
+		}
+		if = {
+			limit = { has_trait = craven }
+			subtract = 800  # down the list, not off it
+		}
+		if = {
+			limit = { is_witch_trigger = yes }
+			multiply = 0.5  # a witch has another calling first
+		}
+	}
+	
+} 
+
+hunter_witch_hunter_focus = {
+	lifestyle = hunter_lifestyle
+
+	is_valid = {
+		has_trait = supernatural_hunter
+	}
+	
+	modifier = {
+		intrigue = 3
+	}
+
+	desc = {
+		desc = witch_hunter_focus_desc
+		desc = line_break
+	}
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				has_hunter_interest_trigger = yes
+			}
+			add = 2489 # 2.34: 11 + 2489 = 2500, exactly 25% above a vanilla education-matched focus (2000)
+		}
+		# 2.35 part two: the witch hunter is the reading, watching half of the trait -- weighted on
+		# learning and suspicion where the monster hunter is weighted on nerve and prowess.
+		if = {
+			limit = { has_trait = zealous }
+			add = 900  # the defining one
+		}
+		if = {
+			limit = { has_trait = paranoid }
+			add = 600
+		}
+		if = {
+			limit = { has_trait = diligent }
+			add = 400
+		}
+		if = {
+			limit = { learning > 14 }
+			add = 600
+		}
+		if = {
+			limit = { intrigue > 14 }
+			add = 500
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_hunter track = witch_hunting value >= 50 } }
+			add = 800
+		}
+		if = {
+			limit = { has_trait_xp = { trait = supernatural_hunter track = witch_hunting value >= 90 } }
+			add = 600
+		}
+		if = {
+			limit = { has_trait = craven }
+			subtract = 400  # a witch hunter is allowed to be careful
+		}
+		if = {
+			limit = { has_trait = cynical }
+			subtract = 600
+		}
+		if = {
+			limit = { is_witch_trigger = yes }
+			multiply = 0.5
+		}
+	}
+	
+}
+
+witch_focus = {
+	lifestyle = magic_lifestyle
+	#icon=witch_focus
+	is_valid = {
+		OR = {
+			has_trait = witch
+			any_secret = { type = secret_witch }
+		}
+		NOT = { has_trait = true_witch }
+	 }
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { 
+					NOT={
+						OR = {
+							has_trait = witch
+							any_secret = { type = secret_witch }
+						}
+					}
+				 }
+				desc = REQUIRMENTS_MAGIC1
+				
+			}
+
+			triggered_desc = {
+				trigger = { 
+					
+						OR = {
+							has_trait = witch
+							any_secret = { type = secret_witch }
+						}
+					
+				 }
+				 desc = magic_witch_focus_desc
+				
+			}
+		}
+		
+		
+		desc = line_break
+	}
+	
+	modifier = {
+		learning = 1
+		intrigue = 2
+		#monthly_magic_lifestyle_xp_gain_mult = 0.5
+	}
+
+	auto_selection_weight = {
+		value = 0
+		if = {
+			limit = {
+				OR = {
+					has_trait = witch
+					any_secret = { type = secret_witch }
+				}
+			}
+			add = 500
+		}
+		if = {
+			limit = {
+				exists = dynasty
+				dynasty = {
+					has_dynasty_perk = witchcraft_legacy_1
+				}
+			}
+			add = 500
+		}
+		if = {
+			limit = {
+				culture = {
+					has_cultural_tradition = coven_rule_tradition
+				}
+			}
+			add = 1000
+		}
+		if = {
+			limit = {
+				culture = {
+					has_cultural_tradition = mage_rulership_tradition
+				}
+				can_unlock_arcane_focus_trigger = no
+			}
+			add = 2000
+		}
+		if = {
+			limit = {
+				has_trait = source2
+			}
+			add = 1000
+		}
+		if = {
+			limit = {
+				exists = house
+				house = {
+					has_house_modifier = witch_coven
+				}
+			}
+			add = 1000
+		}
+		if = {
+			limit = {
+				has_trait = archmage
+			}
+			add = 1000
+		}
+		if = {
+			limit = {
+				has_trait = archmage
+				NOT = {
+					any_character_artifact = {
+						has_variable = magic1
+					}
+				}
+			}
+			add = 1000
+		}
+		if = {
+			limit = {
+				has_trait = zealous
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				is_a_demon_trigger = yes
+				NOT = {
+					has_character_modifier = diabolist_modifier
+				}
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				has_character_flag = special_magic_character
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				has_trait = true_witch
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				is_witch_hunter = yes
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				is_true_mage = yes
+			}
+			multiply = 0.25
+		}
+		if = {
+			limit = {
+				has_game_rule = min_num_of_mages
+			}
+			multiply = 0.1
+		}
+		if = {
+			limit = {
+				has_game_rule = low_num_of_mages
+			}
+			multiply = 0.2
+		}
+		# 2.35 part two: a supernatural_hunter holding a magic artifact was outbid into this focus.
+		# Reduced, never zeroed -- a hunter CAN end up here, it just stops being his first pick.
+		if = {
+			limit = { has_trait = supernatural_hunter }
+			multiply = 0.25
+		}
+		# 2.38e (Supernatural): the AI walks the path that fits its nature. Two fitting traits or more: x4; one: x2. Any
+		# opposed trait: x0.5. Capped so no path runs away with the weight.
+		if = {
+			limit = {
+				calc_true_if = {
+					amount >= 2
+					has_trait = content
+					has_trait = gregarious
+					has_trait = trusting
+				}
+			}
+			multiply = 4
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_trait = content
+					has_trait = gregarious
+					has_trait = trusting
+				}
+			}
+			multiply = 2
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = sadistic
+				}
+			}
+			multiply = 0.5
+		}
+	}
+
+	#focus_id = 31
+}
+
+arcane_focus = {
+	lifestyle = magic_lifestyle
+	#icon=arcane_focus
+	is_valid = {
+
+		OR = {
+			has_trait = witch
+			has_trait = archmage
+			has_trait = true_witch
+			any_secret = { type = secret_witch }
+			can_unlock_arcane_focus_trigger = yes
+		}
+		can_unlock_arcane_focus_trigger = yes
+	 }
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { 
+					NOT={
+						AND={
+							OR = {
+								has_trait = witch
+								has_trait = true_witch
+								any_secret = { type = secret_witch }
+							}
+							OR = {
+								any_character_artifact = { has_variable = magic1 }
+								any_character_artifact = { has_variable = magic_ring }
+								any_character_artifact = { has_variable = singularity2 }
+								has_trait = source
+								#has_trait = source2
+								#has_trait = source3
+								#has_trait = source4
+								has_perk = magical_experiments_p1_perk
+								has_character_flag = arcane_unlocked_flag
+								has_power_place_trigger = yes
+							}
+						}
+					}
+				 }
+				desc = REQUIRMENTS_MAGIC2
+				#desc = line_break
+			}
+
+			triggered_desc = {
+				trigger = { 
+					
+						AND={
+							OR = {
+								has_trait = witch
+								has_trait = true_witch
+								any_secret = { type = secret_witch }
+								}
+							OR = {
+								any_character_artifact = { has_variable = magic1 }
+								any_character_artifact = { has_variable = magic_ring }
+								any_character_artifact = { has_variable = singularity2 }
+								has_trait = source
+								#has_trait = source2
+								#has_trait = source3
+								#has_trait = source4
+								has_perk = magical_experiments_p1_perk
+								has_character_flag = arcane_unlocked_flag
+								has_power_place_trigger = yes
+							}
+						}
+					
+				 }
+				desc = magic_arcane_focus_desc
+				#desc = line_break
+			}
+		}
+		
+		desc = line_break
+	}
+	
+	modifier = {
+		learning = 2
+		intrigue = 1
+		#monthly_magic_lifestyle_xp_gain_mult = -0.1
+	}
+
+	auto_selection_weight = {
+		value = 0
+		if = {
+			limit = {
+				AND={
+					OR = {
+						has_trait = witch
+						any_secret = { type = secret_witch }
+					}
+					OR = {
+						any_character_artifact = { has_variable = magic1 }
+						any_character_artifact = { has_variable = magic_ring }
+						any_character_artifact = { has_variable = singularity2 }
+						has_trait = source
+						#has_trait = source3
+						#has_trait = source4
+						has_perk = magical_experiments_p1_perk
+						has_character_flag = arcane_unlocked_flag
+						has_power_place_trigger = yes
+						has_character_modifier = research_cooperation
+					}
+				}
+			}
+			add = 6000
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = true_witch
+					is_the_choosen_one_trigger = yes
+				}
+			}
+			add = 14000
+		}
+		if = {
+			limit = {
+				culture = {
+					has_cultural_tradition = mage_rulership_tradition
+				}
+			}
+			multiply = 2
+		}
+		if = {
+			limit = {
+				has_trait = zealous
+				trait_is_criminal_in_rite_trigger = { TRAIT = trait:witch RITE = this.rite GENDER_CHARACTER = this }
+			}
+			multiply = 0.1
+		}
+		if = {
+			limit = {
+				is_a_demon_trigger = yes
+				NOT = {
+					has_character_modifier = diabolist_modifier
+				}
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				has_character_flag = special_magic_character
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				has_trait = archmage
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				is_witch_hunter = yes
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				has_trait = yaga
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				has_game_rule = min_num_of_mages
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				has_game_rule = low_num_of_mages
+			}
+			multiply = 0.1
+		}		
+		# 2.35 part two: a supernatural_hunter holding a magic artifact was outbid into this focus.
+		# Reduced, never zeroed -- a hunter CAN end up here, it just stops being his first pick.
+		if = {
+			limit = { has_trait = supernatural_hunter }
+			multiply = 0.25
+		}
+		# 2.38e (Supernatural): the AI walks the path that fits its nature. Two fitting traits or more: x4; one: x2. Any
+		# opposed trait: x0.5. Capped so no path runs away with the weight.
+		if = {
+			limit = {
+				calc_true_if = {
+					amount >= 2
+					has_trait = just
+					has_trait = compassionate
+					has_trait = honest
+					has_trait = patient
+					has_trait = diligent
+					has_trait = ambitious
+				}
+			}
+			multiply = 4
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_trait = just
+					has_trait = compassionate
+					has_trait = honest
+					has_trait = patient
+					has_trait = diligent
+					has_trait = ambitious
+				}
+			}
+			multiply = 2
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = sadistic
+					has_trait = callous
+				}
+			}
+			multiply = 0.5
+		}
+	}
+
+	#focus_id = 32
+}
+
+blackmagic_focus = {
+	lifestyle = magic_lifestyle
+	#icon=arcane_focus
+	is_valid = {
+		#NOT = { has_trait = true_witch } #As of 1.19, You can use Black Magic no matter what
+		OR = {
+			has_trait = witch
+			has_trait = true_witch
+			any_secret = { type = secret_witch }
+			any_character_artifact = { has_variable = magic1 }
+			any_character_artifact = { has_variable = magic_ring }
+			has_trait = source
+			has_perk = magical_experiments_p1_perk
+		}
+	}
+	
+	desc = {
+		desc = magic_blackmagic_focus_desc
+		desc = line_break
+	}
+	
+	modifier = {
+		learning = 2
+		intrigue = 3
+		#monthly_magic_lifestyle_xp_gain_mult = -0.1
+	}
+
+	auto_selection_weight = {
+		value = 0
+		if = {
+			limit = {
+				AND={
+					OR = {
+						has_trait = witch
+						any_secret = { type = secret_witch }
+					}
+					OR = {
+						any_character_artifact = { has_variable = magic1 }
+						any_character_artifact = { has_variable = magic_ring }
+						has_trait = source
+						has_perk = magical_experiments_p1_perk
+					}
+				}
+			}
+			add = 8000
+		}
+		if = {
+			limit = {
+				has_trait = true_witch
+			}
+			add = 0
+		}
+		if = {
+			limit = {
+				has_trait = zealous
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				is_a_demon_trigger = yes
+			}
+			add = 8000 # 2.34: was multiply -- 8000 x 8000 x 4000 made this focus mathematically inevitable for any demon witch
+		}
+		if = {
+			limit = {
+				has_trait = archmage
+			}
+			add = 4000 # 2.34: was multiply -- 8000 x 8000 x 4000 made this focus mathematically inevitable for any demon witch
+		}
+		if = {
+			limit = {
+				has_trait = source2
+			}
+			add = 3000 # 2.34: was multiply -- 8000 x 8000 x 4000 made this focus mathematically inevitable for any demon witch
+		}
+		# 2.35 part two: a supernatural_hunter holding a magic artifact was outbid into this focus.
+		# Reduced, never zeroed -- a hunter CAN end up here, it just stops being his first pick.
+		if = {
+			limit = { has_trait = supernatural_hunter }
+			multiply = 0.25
+		}
+		# 2.38e (Supernatural): the AI walks the path that fits its nature. Two fitting traits or more: x4; one: x2. Any
+		# opposed trait: x0.5. Capped so no path runs away with the weight.
+		if = {
+			limit = {
+				calc_true_if = {
+					amount >= 2
+					has_trait = arbitrary
+					has_trait = vengeful
+					has_trait = wrathful
+					has_trait = deceitful
+					has_trait = callous
+				}
+			}
+			multiply = 4
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_trait = arbitrary
+					has_trait = vengeful
+					has_trait = wrathful
+					has_trait = deceitful
+					has_trait = callous
+				}
+			}
+			multiply = 2
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = compassionate
+					has_trait = just
+					has_trait = honest
+				}
+			}
+			multiply = 0.5
+		}
+	}
+
+}
+
+manipulation_focus = {
+	lifestyle = demon_lifestyle
+	#icon=witch_focus
+	
+	desc = manipulation_focus_desc
+	is_valid = {
+		has_access_to_demon_lifestyle_trigger = yes
+	}
+	modifier = {
+		intrigue = 6
+		diplomacy = 2
+		stress_gain_mult = 0.3
+	}
+
+	auto_selection_weight = {
+		value = 20000
+		if = {
+			limit = {
+				OR = {
+					has_trait = deceitful
+					has_trait = arbitrary
+					has_trait = calm
+					has_trait = patient
+				}
+			}
+			multiply = 4
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = sadistic
+					has_trait = wrathful
+					has_trait = irritable
+					has_trait = impatient
+				}
+			}
+			multiply = 0.5
+		}
+		# 2.35 part two: a supernatural_hunter holding a magic artifact was outbid into this focus.
+		# Reduced, never zeroed -- a hunter CAN end up here, it just stops being his first pick.
+		if = {
+			limit = { has_trait = supernatural_hunter }
+			multiply = 0.25
+		}
+	}
+
+}
+destruction_focus = {
+	lifestyle = demon_lifestyle
+	#icon=witch_focus
+	
+	desc = destruction_focus_desc
+	
+	modifier = {
+		prowess = 6
+		martial = 2
+		stress_gain_mult = 0.3
+	}
+
+	auto_selection_weight = {
+		value = 20000
+		if = {
+			limit = {
+				OR = {
+					has_trait = sadistic
+					has_trait = wrathful
+					has_trait = irritable
+					has_trait = impatient
+				}
+			}
+			multiply = 4
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = deceitful
+					has_trait = arbitrary
+					has_trait = calm
+					has_trait = patient
+				}
+			}
+			multiply = 0.5
+		}
+		# 2.35 part two: a supernatural_hunter holding a magic artifact was outbid into this focus.
+		# Reduced, never zeroed -- a hunter CAN end up here, it just stops being his first pick.
+		if = {
+			limit = { has_trait = supernatural_hunter }
+			multiply = 0.25
+		}
+	}
+	is_valid = {
+		has_access_to_demon_lifestyle_trigger = yes
+	}
+}

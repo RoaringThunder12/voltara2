@@ -1,0 +1,569 @@
+﻿request_vassal_support = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	common_interaction = yes
+	interface_priority = 66
+	category = interaction_category_diplomacy
+	desc = request_vassal_support_desc
+	interface = call_ally
+	special_interaction = call_ally_interaction
+	icon = alliance
+	notification_text = CALL_ALLY_NOTIFICATION
+	ai_min_reply_days = 0
+	ai_max_reply_days = 0
+	greeting = positive
+	popup_on_receive = yes
+	pause_on_receive = yes
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		NOT = {
+			has_game_rule = request_vassal_support_miv_disabled
+		}
+		trigger_if = {
+			limit = {
+				has_game_rule = bannermen_mode_enabled
+			}
+			interactive_bannermen_foreign_enabled_trigger = yes
+		}
+		NOT = {
+			AND = {
+				scope:actor = {
+					government_has_flag = government_has_influence
+				}
+				scope:recipient = {
+					government_has_flag = government_has_influence
+				}
+				has_game_rule = bannermen_mode_disabled
+			}
+		}
+		scope:actor = {
+			OR ={
+				has_game_rule = bannermen_mode_enabled
+
+				any_character_war = {
+					is_war_leader = prev
+					NOT = {
+						is_civil_war = yes
+					}
+				}
+				NOT = {
+					is_allied_to = scope:recipient
+				}
+			}
+
+		}
+		scope:recipient = {
+			is_vassal_of = scope:actor
+			interactive_bannermen_callable_vassal_trigger = {
+				LIEGE = scope:actor
+			}
+			trigger_if = {
+				limit = {
+					NOT = {
+						has_game_rule = bannermen_mode_enabled
+					}
+				}
+				NOT = {
+					is_at_war_with = scope:actor
+				}
+			}
+		}
+	}
+	has_valid_target = {
+		exists = scope:target
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			custom_description = {
+				text = miv_request_support_not_at_war_text
+				is_at_war = yes
+			}
+		}
+		trigger_if = {
+			limit = {
+				scope:actor = {
+					is_at_war = yes
+					NOT = {
+						any_character_war = {
+							count >= 2
+						}
+					}
+				}
+			}
+			scope:actor = {
+				trigger_if = {
+					limit = {
+						has_game_rule = bannermen_mode_enabled
+					}
+					custom_description = {
+						text = ASK_VASSAL_MILITARY_SUPPORT_CIVIL_WAR_BLOCKED_TEXT
+						subject = scope:recipient
+						any_character_war = {
+							interactive_bannermen_foreign_war_trigger = yes
+						}
+					}
+				}
+				trigger_if = {
+					limit = {
+						miv_vassal_support_distance_applies_trigger = yes
+					}
+					custom_description = {
+						text = interactive_bannermen_distance_target_text
+						subject = scope:recipient
+						any_character_war = {
+							miv_vassal_support_war_reaches_enemy_trigger = yes
+						}
+					}
+				}
+				trigger_if = {
+					limit = {
+						NOT = {
+							has_game_rule = bannermen_mode_enabled
+						}
+					}
+					custom_description = {
+						text = ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR_TEXT
+						any_character_war = {
+							NOT = {
+								is_civil_war = yes
+							}
+						}
+					}
+				}
+				custom_description = {
+					text = interactive_bannermen_already_called_text
+					subject = scope:recipient
+					any_character_war = {
+						NOT = {
+							was_called = scope:recipient
+						}
+					}
+				}
+				custom_description = {
+					text = miv_request_support_already_in_war_text
+					subject = scope:recipient
+					any_character_war = {
+						miv_vassal_support_recipient_not_in_war_trigger = yes
+					}
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = {
+				scope:actor = {
+					is_at_war = yes
+				}
+			}
+			trigger_if = {
+				limit = {
+					scope:actor = {
+						any_character_war = {
+							miv_vassal_support_war_open_trigger = yes
+						}
+					}
+				}
+				scope:actor = {
+					custom_description = {
+						text = interactive_request_support_all_called_text
+						subject = scope:recipient
+						any_character_war = {
+							miv_vassal_support_war_trigger = yes
+						}
+					}
+				}
+			}
+			trigger_else = {
+				scope:actor = {
+					custom_description = {
+						text = interactive_request_support_no_wars_text
+						subject = scope:recipient
+						any_character_war = {
+							miv_vassal_support_war_open_trigger = yes
+						}
+					}
+				}
+			}
+		}
+		trigger_else = {
+			always = yes
+		}
+		scope:recipient = {
+			custom_description = {
+				text = miv_request_support_not_ruler_text
+				is_ruler = yes
+			}
+		}
+		trigger_if = {
+			limit = {
+				NOT = {
+					has_game_rule = bannermen_mode_enabled
+				}
+			}
+			scope:recipient = {
+				custom_description = {
+					text = ASK_VASSAL_MILITARY_SUPPORT_NOT_VALID_TEXT
+					NOT = {
+						has_hook = scope:actor
+					}
+				}
+			}
+		}
+		OR = {
+			has_game_rule = bannermen_mode_enabled
+			scope:actor = {
+				custom_description = {
+					text = must_be_war_leader
+					any_character_war = {
+						is_war_leader = scope:actor
+					}
+				}
+			}
+		}
+
+		scope:actor = {
+			custom_description = {
+				text = ASK_SUPPORT_CANNOT_AFFORD_PRESTIGE_TEXT
+				OR = {
+					has_game_rule = bannermen_mode_enabled
+					prestige > 0
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				scope:recipient = {
+					interactive_governor_support_trigger = {
+						LIEGE = scope:actor
+					}
+				}
+			}
+			scope:actor = {
+				custom_description = {
+					text = ASK_SUPPORT_CANNOT_AFFORD_INFLUENCE_TEXT
+					influence >= interactive_admin_governor_support_cost
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				has_game_rule = bannermen_mode_enabled
+			}
+			scope:recipient = {
+				custom_description = {
+					text = interactive_bannermen_recipient_rebellion_text
+					NOT = {
+						interactive_bannermen_rebellion_trigger = {
+							LIEGE = scope:actor
+						}
+					}
+				}
+				custom_description = {
+					text = interactive_bannermen_recipient_indisposed_text
+					interactive_bannermen_fit_trigger = yes
+				}
+			}
+		}
+	}
+	can_be_picked = {
+		scope:target = {
+			miv_vassal_support_war_trigger = yes
+		}
+	}
+	on_accept = {
+		scope:target ?= {
+			hidden_effect = {
+				set_called_to = scope:recipient
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_game_rule = bannermen_mode_enabled
+					}
+				}
+				scope:actor = {
+					add_prestige = interactive_request_vassal_support_military_strength_negative
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_game_rule = bannermen_mode_enabled
+					}
+				}
+				scope:recipient = {
+					add_hook = {
+						target = scope:actor
+						type = obligation_hook
+					}
+				}
+			}
+			if = {
+				limit = {
+					scope:recipient = {
+						interactive_governor_support_trigger = {
+							LIEGE = scope:actor
+						}
+					}
+				}
+				save_scope_as = miv_support_war
+				scope:actor = {
+					save_scope_as = miv_support_liege
+				}
+				scope:recipient = {
+					save_scope_as = miv_support_vassal
+				}
+				scope:actor = {
+					custom_description = {
+						text = interactive_governor_support_mobilization
+						value = interactive_admin_governor_support_cost
+						change_influence = interactive_admin_governor_military_strength_negative
+					}
+				}
+				scope:recipient = {
+					change_influence = interactive_admin_governor_military_strength
+					hidden_effect = {
+						trigger_event = {
+							id = interactive.0009
+							days = { 10 30 }
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_game_rule = bannermen_mode_enabled
+				}
+				interactive_bannermen_support_exhaustion_effect = yes
+				interactive_bannermen_support_delay_effect = yes
+			}
+			else_if = {
+				limit = {
+					is_attacker = scope:actor
+				}
+				add_attacker = scope:recipient
+				scope:recipient = {
+					interactive_bannermen_toll_pay_effect = {
+						LIEGE = scope:actor
+						WAR = scope:target
+					}
+				}
+			}
+			else = {
+				add_defender = scope:recipient
+				scope:recipient = {
+					interactive_bannermen_toll_pay_effect = {
+						LIEGE = scope:actor
+						WAR = scope:target
+					}
+				}
+			}
+		}
+	}
+	on_decline = {
+	}
+	auto_accept = no
+	ai_accept = {
+		base = -20
+		modifier = {
+			has_game_rule = bannermen_mode_enabled
+			NOT = {
+				scope:recipient = {
+					interactive_governor_support_trigger = {
+						LIEGE = scope:actor
+					}
+				}
+			}
+			add = miv_bannermen_accept_value
+			desc = interactive_bannermen_accept_ladder
+		}
+		modifier = {
+			scope:recipient = {
+				interactive_governor_support_trigger = {
+					LIEGE = scope:actor
+				}
+			}
+			add = 120
+			desc = interactive_governor_support_accept
+		}
+		modifier = {
+			NOT = {
+				has_game_rule = bannermen_mode_enabled
+			}
+			add = -1000
+			exists = scope:recipient.player_heir
+			trigger_if = {
+				limit = {
+					scope:target.casus_belli.primary_defender = scope:actor
+				}
+				scope:target.casus_belli.primary_attacker = scope:recipient.player_heir
+			}
+			trigger_else = {
+				scope:target.casus_belli.primary_defender = scope:recipient.player_heir
+			}
+			desc = WONT_FIGHT_HEIR_REASON
+		}
+		modifier = {
+			NOT = {
+				has_game_rule = bannermen_mode_enabled
+			}
+			add = -1000
+			scope:recipient = {
+				trigger_if = {
+					limit = {
+						scope:target.casus_belli.primary_defender = scope:actor
+					}
+					any_spouse = {
+						this = scope:target.casus_belli.primary_attacker
+					}
+				}
+				trigger_else = {
+					any_spouse = {
+						this = scope:target.casus_belli.primary_defender
+					}
+				}
+			}
+			desc = WONT_FIGHT_SPOUSE_REASON
+		}
+		opinion_modifier = {
+			trigger = {
+				NOT = {
+					has_game_rule = bannermen_mode_enabled
+				}
+			}
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = 1
+			desc = AI_OPINION_REASON
+		}
+		modifier = {
+			NOT = {
+				has_game_rule = bannermen_mode_enabled
+			}
+			add = -50
+			scope:target.casus_belli.primary_attacker = scope:actor
+			scope:recipient = {
+				is_allied_to = scope:target.casus_belli.primary_defender
+			}
+			desc = ATTACK_ON_ALLY_REASON
+		}
+		modifier = {
+			NOT = {
+				has_game_rule = bannermen_mode_enabled
+			}
+			add = -50
+			scope:target.casus_belli.primary_defender = scope:actor
+			scope:recipient = {
+				is_allied_to = scope:target.casus_belli.primary_attacker
+			}
+			desc = WAR_WITH_ALLY_REASON
+		}
+		modifier = {
+			NOT = {
+				has_game_rule = bannermen_mode_enabled
+			}
+			add = -50
+			trigger_if = {
+				limit = {
+					scope:target.casus_belli.primary_defender = scope:actor
+				}
+				has_relation_friend = scope:target.casus_belli.primary_attacker
+			}
+			trigger_else = {
+				has_relation_friend = scope:target.casus_belli.primary_defender
+			}
+			desc = WONT_FIGHT_FRIEND_REASON
+		}
+		modifier = {
+			NOT = {
+				has_game_rule = bannermen_mode_enabled
+			}
+			add = -50
+			trigger_if = {
+				limit = {
+					scope:target.casus_belli.primary_defender = scope:actor
+				}
+				has_relation_best_friend = scope:target.casus_belli.primary_attacker
+			}
+			trigger_else = {
+				has_relation_best_friend = scope:target.casus_belli.primary_defender
+			}
+			desc = WONT_FIGHT_BEST_FRIEND_REASON
+		}
+		modifier = {
+			NOT = {
+				has_game_rule = bannermen_mode_enabled
+			}
+			add = -50
+			trigger_if = {
+				limit = {
+					scope:target.casus_belli.primary_defender = scope:actor
+				}
+				has_relation_lover = scope:target.casus_belli.primary_attacker
+			}
+			trigger_else = {
+				has_relation_lover = scope:target.casus_belli.primary_defender
+			}
+			desc = WONT_FIGHT_LOVER_REASON
+		}
+		modifier = {
+			NOT = {
+				has_game_rule = bannermen_mode_enabled
+			}
+			add = -50
+			trigger_if = {
+				limit = {
+					scope:target.casus_belli.primary_defender = scope:actor
+				}
+				has_relation_soulmate = scope:target.casus_belli.primary_attacker
+			}
+			trigger_else = {
+				has_relation_soulmate = scope:target.casus_belli.primary_defender
+			}
+			desc = WONT_FIGHT_SOULMATE_REASON
+		}
+		modifier = {
+			NOT = {
+				has_game_rule = bannermen_mode_enabled
+			}
+			any_home_court_hostage = {
+				warden = {
+					OR = {
+						is_at_war_with = scope:actor
+						any_ally = {
+							is_at_war_with = scope:actor
+						}
+					}
+				}
+			}
+			add = {
+				value = 0
+				every_home_court_hostage = {
+					limit = {
+						warden = {
+							OR = {
+								is_at_war_with = scope:actor
+								any_ally = {
+									is_at_war_with = scope:actor
+								}
+							}
+						}
+					}
+					subtract = call_to_arms_hostage_value
+				}
+				multiply = 0.25
+			}
+			desc = HOSTAGE_ENEMY_CALL_TO_ARMS_REASON
+		}
+		fp3_struggle_resist_allied_wars_modifier = yes
+	}
+	ai_will_do = {
+		base = 0
+	}
+}

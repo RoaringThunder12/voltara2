@@ -1,0 +1,12 @@
+﻿1783 = {
+ culture = voltara_culture_44
+ religion = voltara_faith_0
+
+# Provisional holding layout; source culture/faith retained.
+
+
+holding = voltara_ruin_holding
+
+ special_building_slot = voltara_elven_2_01
+ special_building = voltara_elven_2_01
+}

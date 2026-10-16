@@ -1,0 +1,125 @@
+﻿miv_stop_attacker_vassal_war_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	common_interaction = yes
+	interface_priority = 66
+	category = interaction_category_diplomacy
+	icon = alliance
+	interface = interfere_in_war
+	special_interaction = interfere_in_war_interaction
+	ai_accept_negotiation = yes
+	popup_on_receive = yes
+	pause_on_receive = yes
+	ai_min_reply_days = 2
+	ai_max_reply_days = 5
+	send_name = "miv_stop_attacker_vassal_war_interaction"
+	prompt = STOP_VASSAL_WAR_ATTACKER
+	desc = miv_stop_vassal_war_negotiation
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		has_game_rule = miv_ask_to_end_war_enabled
+		NOT = {
+			scope:recipient = scope:actor
+		}
+		scope:recipient = {
+			exists = liege
+			liege = scope:actor
+			highest_held_title_tier > tier_barony
+			any_character_war = {
+				primary_attacker ?= scope:recipient
+				save_temporary_scope_as = target_war
+			}
+		}
+		scope:actor = {
+			NOT = {
+				is_participant_in_war = scope:target_war
+			}
+		}
+	}
+	is_valid_showing_failures_only = {
+		custom_description = {
+			text = ASK_STOP_VASSAL_WAR_TEXT
+			object = scope:recipient
+			scope:recipient = {
+				opinion = {
+					target = scope:actor
+					value > 0
+				}
+			}
+		}
+		custom_description = {
+			text = cannot_stop_war_when_already_fighting
+			object = scope:recipient
+			scope:recipient = {
+				NOT = {
+					any_war_enemy = {
+						this = scope:actor
+					}
+				}
+			}
+		}
+	}
+	can_be_picked = {
+		exists = scope:target
+		exists = scope:target.casus_belli
+		exists = scope:target.casus_belli.primary_attacker
+		scope:target.casus_belli = {
+			exists = primary_attacker
+			primary_attacker = scope:recipient
+		}
+	}
+	on_accept = {
+		hidden_effect = {
+			scope:recipient = {
+				trigger_event = interactive.0003
+			}
+		}
+		show_as_tooltip = {
+			scope:target ?= {
+				end_war = white_peace
+			}
+		}
+		show_as_tooltip = {
+			if = {
+				limit = {
+					exists = scope:recipient.house
+					exists = scope:actor.house
+					NOT = {
+						scope:recipient.house = scope:actor.house
+					}
+				}
+				add_clan_unity_interaction_effect = {
+					CHARACTER = scope:actor
+					TARGET = scope:target.primary_defender
+					VALUE = medium_unity_gain
+					DESC = clan_unity_aided_in_war.desc
+					REVERSE_NON_HOUSE_TARGET = no
+				}
+			}
+			else_if = {
+				limit = {
+					exists = scope:actor.house
+					exists = scope:target.primary_defender.house
+					NOT = {
+						scope:target.primary_defender.house = scope:actor.house
+					}
+				}
+				add_clan_unity_interaction_effect = {
+					CHARACTER = scope:actor
+					TARGET = scope:recipient
+					VALUE = medium_unity_loss
+					DESC = clan_unity_stopped_vassal_war.desc
+					REVERSE_NON_HOUSE_TARGET = no
+				}
+			}
+		}
+	}
+	auto_accept = yes
+}

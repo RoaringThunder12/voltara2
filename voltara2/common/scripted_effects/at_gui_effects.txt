@@ -1,0 +1,805 @@
+﻿at_artifacts_window_get_artifacts_effect = {
+	if = {
+		limit = {
+			NOT = { has_variable = at_artifacts_window_is_getting_artifacts }
+		}
+		set_variable = at_artifacts_window_is_getting_artifacts
+
+		at_artifacts_window_get_all_artifacts_effect = yes
+		at_artifacts_window_get_filtered_artifacts_effect = yes
+		at_artifacts_window_get_sorted_artifacts_effect = yes
+
+		remove_variable = at_artifacts_window_is_getting_artifacts
+	}
+}
+
+at_artifacts_window_get_all_artifacts_effect = {
+	clear_variable_list = at_artifacts_window_all_artifacts
+	if = {
+		limit = { scope:flavor = flag:sell }
+		at_get_valid_buyers_or_sellers_effect = { LIST = valid_buyers }
+		save_temporary_scope_as = actor
+		every_character_artifact = {
+			limit = {
+				is_equipped = no
+				at_artifact_can_be_sold_trigger = yes
+				save_temporary_scope_as = artifact
+				any_in_list = {
+					list = valid_buyers
+					is_ai = yes
+					at_can_sell_artifact_to_trigger = { PARTY = ROOT }
+					save_temporary_scope_as = buyer
+					scope:artifact = {
+						at_artifact_can_be_bought_by_trigger = { BUYER = scope:buyer }
+					}
+					save_temporary_opinion_value_as = {
+						name = opinion_of_actor
+						target = ROOT
+					}
+					at_sell_artifact_ai_accept_value > 0
+				}
+			}
+			ROOT = {
+				add_to_variable_list = {
+					name = at_artifacts_window_all_artifacts
+					target = PREV
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = { scope:flavor = flag:buy }
+		at_get_valid_buyers_or_sellers_effect = { LIST = valid_sellers }
+		save_temporary_scope_as = actor
+		every_in_list = {
+			list = valid_sellers
+			limit = {
+				is_ai = yes
+				at_can_buy_artifact_from_trigger = { PARTY = ROOT }
+			}
+			save_temporary_scope_as = seller
+			save_temporary_opinion_value_as = {
+				name = opinion_of_actor
+				target = ROOT
+			}
+			every_character_artifact = {
+				limit = {
+					at_artifact_can_be_sold_trigger = yes
+					at_artifact_can_be_bought_by_trigger = { BUYER = ROOT }
+					at_buy_artifact_ai_accept_value > 0
+				}
+				ROOT = {
+					add_to_variable_list = {
+						name = at_artifacts_window_all_artifacts
+						target = PREV
+					}
+				}
+			}
+		}
+	}
+	else = {
+		every_artifact = {
+			ROOT = {
+				add_to_variable_list = {
+					name = at_artifacts_window_all_artifacts
+					target = PREV
+				}
+			}
+		}
+	}
+}
+
+at_artifacts_window_get_filtered_artifacts_effect = {
+	clear_variable_list = at_artifacts_window_filtered_artifacts
+	every_in_list = {
+		variable = at_artifacts_window_all_artifacts
+		limit = {
+			# Filter by rarity
+			trigger_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_rarity_filter_option = flag:_common }
+				rarity = common
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_rarity_filter_option = flag:_masterwork }
+				rarity = masterwork
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_rarity_filter_option = flag:_famed }
+				rarity = famed
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_rarity_filter_option = flag:_illustrious }
+				rarity = illustrious
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_rarity_filter_option = flag:_not_common }
+				NOT = { rarity = common }
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_rarity_filter_option = flag:_not_masterwork }
+				NOT = { rarity = masterwork }
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_rarity_filter_option = flag:_not_famed }
+				NOT = { rarity = famed }
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_rarity_filter_option = flag:_not_illustrious }
+				NOT = { rarity = illustrious }
+			}
+			trigger_else = {
+				always = yes
+			}
+
+			# Filter by slot type
+			trigger_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_inventory }
+				category = inventory
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_court }
+				category = court
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_helmet }
+				artifact_slot_type = helmet
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_regalia }
+				artifact_slot_type = regalia
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_armor }
+				artifact_slot_type = armor
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_primary_armament }
+				artifact_slot_type = primary_armament
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_miscellaneous }
+				artifact_slot_type = miscellaneous
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_journal }
+				artifact_slot_type = journal
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_sculpture }
+				artifact_slot_type = sculpture
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_pedestal }
+				artifact_slot_type = pedestal
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_wall_big }
+				artifact_slot_type = wall_big
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_wall_small }
+				artifact_slot_type = wall_small
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_throne }
+				artifact_slot_type = throne
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_book }
+				artifact_slot_type = book
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_not_helmet }
+				NOT = { artifact_slot_type = helmet }
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_not_regalia }
+				NOT = { artifact_slot_type = regalia }
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_not_armor }
+				NOT = { artifact_slot_type = armor }
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_not_primary_armament }
+				NOT = { artifact_slot_type = primary_armament }
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_not_miscellaneous }
+				NOT = { artifact_slot_type = miscellaneous }
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_not_journal }
+				NOT = { artifact_slot_type = journal }
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_not_sculpture }
+				NOT = { artifact_slot_type = sculpture }
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_not_pedestal }
+				NOT = { artifact_slot_type = pedestal }
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_not_wall_big }
+				NOT = { artifact_slot_type = wall_big }
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_not_wall_small }
+				NOT = { artifact_slot_type = wall_small }
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_not_throne }
+				NOT = { artifact_slot_type = throne }
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_slot_type_filter_option = flag:_not_book }
+				NOT = { artifact_slot_type = book }
+			}
+			trigger_else = {
+				always = yes
+			}
+
+			# Filter by unique
+			trigger_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_unique_filter_option = flag:_unique }
+				at_is_unique_artifact_trigger = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_unique_filter_option = flag:_not_unique }
+				is_unique = no
+			}
+			trigger_else = {
+				always = yes
+			}
+
+			# Filter by modifier
+			# Prestige, piety, court grandeur, renown, tyranny, dread, fertility, health, stress
+			trigger_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_prestige }
+				at_has_artifact_prestige_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_piety }
+				at_has_artifact_piety_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_short_reign_duration }
+				at_has_artifact_short_reign_duration_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_court_grandeur_baseline }
+				at_has_artifact_court_grandeur_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_dynasty_prestige }
+				at_has_artifact_dynasty_prestige_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_tyranny }
+				at_has_artifact_tyranny_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_dread }
+				at_has_artifact_dread_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_fertility }
+				at_has_artifact_fertility_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_health }
+				at_has_artifact_health_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_stress_gain }
+				at_has_artifact_stress_gain_modifier = yes
+			}
+			# Opinion
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_general_opinion }
+				at_has_artifact_general_opinion_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_vassal_opinion }
+				at_has_artifact_vassal_opinion_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_independent_ruler_opinion }
+				at_has_artifact_independent_ruler_opinion_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_courtier_and_guest_opinion }
+				at_has_artifact_courtier_and_guest_opinion_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_spouse_opinion }
+				at_has_artifact_spouse_opinion_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_dynasty_opinion }
+				at_has_artifact_dynasty_opinion_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_attraction_opinion }
+				at_has_artifact_attraction_opinion_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_child_opinion }
+				at_has_artifact_child_opinion_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_clergy_opinion }
+				at_has_artifact_clergy_opinion_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_same_faith_opinion }
+				at_has_artifact_same_faith_opinion_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_different_faith_opinion }
+				at_has_artifact_different_faith_opinion_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_same_culture_opinion }
+				at_has_artifact_same_culture_opinion_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_different_culture_opinion }
+				at_has_artifact_different_culture_opinion_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_county_opinion }
+				at_has_artifact_county_opinion_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_religion_opinion }
+				at_has_artifact_religion_opinion_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_culture_opinion }
+				at_has_artifact_culture_opinion_modifier = yes
+			}
+			# Domain, vassals, income, buildings, development
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_domain_limit }
+				at_has_artifact_domain_limit_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_vassal_limit }
+				at_has_artifact_vassal_limit_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_monthly_income }
+				at_has_artifact_monthly_income_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_men_at_arms_maintenance }
+				at_has_artifact_men_at_arms_maintenance_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_mercenary_hire_cost }
+				at_has_artifact_mercenary_hire_cost_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_domain_tax }
+				at_has_artifact_domain_tax_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_vassal_tax_contribution }
+				at_has_artifact_vassal_tax_contribution_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_vassal_levy_contribution }
+				at_has_artifact_vassal_levy_contribution_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_development_growth }
+				at_has_artifact_development_growth_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_build_gold_cost }
+				at_has_artifact_build_gold_cost_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_build_speed }
+				at_has_artifact_build_speed_modifier = yes
+			}
+			# Scheme
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_scheme_success_chance }
+				at_has_artifact_scheme_success_chance_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_scheme_secrecy }
+				at_has_artifact_scheme_secrecy_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_scheme_power }
+				at_has_artifact_scheme_power_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_seduce_scheme_power }
+				at_has_artifact_seduce_scheme_power_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_courting_scheme_power }
+				at_has_artifact_courting_scheme_power_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_befriend_scheme_power }
+				at_has_artifact_befriend_scheme_power_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_learn_language_scheme_power }
+				at_has_artifact_learn_language_scheme_power_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_hostile_scheme_resistance }
+				at_has_artifact_hostile_scheme_resistance_modifier = yes
+			}
+			# Lifestyle XP
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_lifestyle_xp }
+				at_has_artifact_lifestyle_xp_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_diplomacy_lifestyle_xp }
+				at_has_artifact_diplomacy_lifestyle_xp_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_martial_lifestyle_xp }
+				at_has_artifact_martial_lifestyle_xp_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_stewardship_lifestyle_xp }
+				at_has_artifact_stewardship_lifestyle_xp_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_intrigue_lifestyle_xp }
+				at_has_artifact_intrigue_lifestyle_xp_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_learning_lifestyle_xp }
+				at_has_artifact_learning_lifestyle_xp_modifier = yes
+			}
+			# Skills
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_diplomacy }
+				at_has_artifact_diplomacy_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_martial }
+				at_has_artifact_martial_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_stewardship }
+				at_has_artifact_stewardship_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_intrigue }
+				at_has_artifact_intrigue_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_learning }
+				at_has_artifact_learning_modifier = yes
+			}
+			# Prowess
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_prowess }
+				at_has_artifact_prowess_modifier = yes
+			}
+			# Combat
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_knights }
+				at_has_artifact_knights_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_levy_reinforcement_rate }
+				at_has_artifact_levy_reinforcement_rate_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_raid_speed }
+				at_has_artifact_raid_speed_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_hard_casualty_modifier }
+				at_has_artifact_hard_casualty_modifier_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_damage_toughness_pursuit_screen }
+				at_has_artifact_damage_toughness_pursuit_screen_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_advantage }
+				at_has_artifact_advantage_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_naval_speed }
+				at_has_artifact_naval_speed_modifier = yes
+			}
+			# CE1
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_legend_spread }
+				at_has_artifact_legend_spread_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_epidemic_resistance }
+				at_has_artifact_epidemic_resistance_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_legitimacy }
+				at_has_artifact_legitimacy_modifier = yes
+			}
+			# RtP
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_travel }
+				at_has_artifact_travel_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_influence }
+				at_has_artifact_influence_modifier = yes
+			}
+			# MPO
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_fertility_growth }
+				at_has_artifact_fertility_growth_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_herd_gain }
+				at_has_artifact_herd_gain_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_herd_conversion }
+				at_has_artifact_herd_conversion_modifier = yes
+			}
+			# TGP
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_merit }
+				at_has_artifact_merit_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_poet_trait_xp }
+				at_has_artifact_poet_trait_xp_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_confucian_education_trait_xp }
+				at_has_artifact_confucian_education_trait_xp_modifier = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_modifier_filter_option = flag:_study_confucian_classics_power }
+				at_has_artifact_study_confucian_classics_power_modifier = yes
+			}
+			trigger_else = {
+				always = yes
+			}
+
+			# Filter by equipped
+			trigger_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_equipped_filter_option = flag:_equipped }
+				is_equipped = yes
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_equipped_filter_option = flag:_not_equipped }
+				is_equipped = no
+			}
+			trigger_else = {
+				always = yes
+			}
+
+			# Filter by owned
+			trigger_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_owned_filter_option = flag:_owned_by_you }
+				artifact_owner = ROOT
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_owned_filter_option = flag:_not_owned_by_you }
+				artifact_owner != ROOT
+			}
+			trigger_else = {
+				always = yes
+			}
+
+			# Filter by claimed
+			trigger_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_claimed_filter_option = flag:_claimed_by_you }
+				can_be_claimed_by = ROOT
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_claimed_filter_option = flag:_claimed_by_others }
+				any_artifact_claimant = {
+					exists = this
+					this != ROOT
+				}
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_claimed_filter_option = flag:_not_claimed }
+				NOT = {
+					any_artifact_claimant = {
+						exists = this
+					}
+				}
+			}
+			trigger_else = {
+				always = yes
+			}
+
+			# Filter by equippable
+			trigger_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_equippable_filter_option = flag:_equippable_by_you }
+				ROOT = {
+					at_can_equip_and_benefit_from_artifact_trigger = { ARTIFACT = PREV }
+				}
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_equippable_filter_option = flag:_not_equippable_by_you }
+				ROOT = {
+					NOT = { at_can_equip_and_benefit_from_artifact_trigger = { ARTIFACT = PREV } }
+				}
+			}
+			trigger_else = {
+				always = yes
+			}
+
+			# Filter by unwanted
+			trigger_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_unwanted_filter_option = flag:_unwanted }
+				OR = {
+					has_variable = unwanted_artifact
+					has_variable = cursed_artifact
+				}
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_unwanted_filter_option = flag:_not_unwanted }
+				NOR = {
+					has_variable = unwanted_artifact
+					has_variable = cursed_artifact
+				}
+			}
+			trigger_else = {
+				always = yes
+			}
+
+			# Filter by trash
+			trigger_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_trash_filter_option = flag:_trash }
+				has_variable = ai_to_ai_destroy_in_sieges
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_trash_filter_option = flag:_not_trash }
+				NOT = { has_variable = ai_to_ai_destroy_in_sieges }
+			}
+			trigger_else = {
+				always = yes
+			}
+
+			# Filter by special
+			trigger_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_special_filter_option = flag:_historical_unique }
+				has_variable = historical_unique_artifact
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_special_filter_option = flag:_relic }
+				OR = {
+					has_variable = relic_religion
+					has_variable = relic
+				}
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_special_filter_option = flag:_not_historical_unique }
+				NOT = { has_variable = historical_unique_artifact }
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_special_filter_option = flag:_not_relic }
+				NOR = {
+					has_variable = relic_religion
+					has_variable = relic
+				}
+			}
+			trigger_else = {
+				at_artifacts_window_selected_special_filter_option_trigger = yes
+			}
+
+			# Filter by owner
+			trigger_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_owner_filter_option = flag:_ruler_with_rc }
+				artifact_owner = {
+					is_ruler = yes
+					has_royal_court = yes
+				}
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_owner_filter_option = flag:_ruler_without_rc }
+				artifact_owner = {
+					is_ruler = yes
+					has_royal_court = no
+				}
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_owner_filter_option = flag:_not_ruler }
+				artifact_owner = {
+					is_ruler = no
+				}
+			}
+			trigger_else = {
+				always = yes
+			}
+
+			# Filter by owner valid buyer or seller
+			trigger_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_owner_valid_buyer_or_seller_filter_option = flag:_valid_buyer_or_seller }
+				artifact_owner = {
+					at_valid_buyer_or_seller_trigger = { PARTY = ROOT }
+				}
+			}
+			trigger_else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_owner_valid_buyer_or_seller_filter_option = flag:_not_valid_buyer_or_seller }
+				artifact_owner = {
+					NOT = { at_valid_buyer_or_seller_trigger = { PARTY = ROOT } }
+				}
+			}
+			trigger_else = {
+				always = yes
+			}
+		}
+
+		ROOT = {
+			add_to_variable_list = {
+				name = at_artifacts_window_filtered_artifacts
+				target = PREV
+			}
+		}
+	}
+}
+
+at_artifacts_window_get_sorted_artifacts_effect = {
+	clear_variable_list = at_artifacts_window_artifacts
+	ordered_in_list = {
+		variable = at_artifacts_window_filtered_artifacts
+		order_by = {
+			# Apply sort option
+			if = {
+				limit = { ROOT.var:at_artifacts_window_selected_artifact_sort_option = flag:_rarity }
+				value = artifact_rarity
+			}
+			else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_artifact_sort_option = flag:_durability }
+				value = artifact_durability
+			}
+			else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_artifact_sort_option = flag:_type }
+				value = at_artifact_type_value
+			}
+			else_if = {
+				limit = { ROOT.var:at_artifacts_window_selected_artifact_sort_option = flag:_price }
+				value = at_artifact_base_price_value
+			}
+
+			# Apply sort order
+			if = {
+				limit = {
+					ROOT = { has_variable = at_artifacts_window_is_artifact_sort_order_ascending }
+				}
+				multiply = -1
+			}
+		}
+		max = ROOT.at_artifacts_window_max_count_value
+		check_range_bounds = no
+
+		ROOT = {
+			add_to_variable_list = {
+				name = at_artifacts_window_artifacts
+				target = PREV
+			}
+		}
+	}
+}
+
+at_artifacts_window_clear_artifacts_effect = {
+	clear_variable_list = at_artifacts_window_all_artifacts
+	clear_variable_list = at_artifacts_window_filtered_artifacts
+	clear_variable_list = at_artifacts_window_artifacts
+}
+
+at_artifacts_window_add_special_filter_options_effect = {
+}

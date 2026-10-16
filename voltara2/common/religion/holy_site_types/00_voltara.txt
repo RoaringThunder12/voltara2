@@ -1,0 +1,15 @@
+﻿voltara_first_measure = { county = c_voltara_4509 barony = b_voltara_4509
+ faith_character_modifier = { monthly_piety_gain_mult = 0.03 } county_modifier_scaled = { scale = holy_site_total_artifact_rarity monthly_county_control_growth_factor = 0.01 }
+}
+voltara_titania = { county = c_voltara_323 barony = b_voltara_4504
+ faith_character_modifier = { monthly_piety_gain_mult = 0.03 } county_modifier_scaled = { scale = holy_site_total_artifact_rarity monthly_county_control_growth_factor = 0.01 }
+}
+voltara_kartholos = { county = c_voltara_471 barony = b_voltara_6919
+ faith_character_modifier = { monthly_piety_gain_mult = 0.03 } county_modifier_scaled = { scale = holy_site_total_artifact_rarity monthly_county_control_growth_factor = 0.01 }
+}
+voltara_thornfall = { county = c_voltara_226 barony = b_voltara_3294
+ faith_character_modifier = { monthly_piety_gain_mult = 0.03 } county_modifier_scaled = { scale = holy_site_total_artifact_rarity monthly_county_control_growth_factor = 0.01 }
+}
+voltara_enderal = { county = c_voltara_267 barony = b_voltara_3934
+ faith_character_modifier = { monthly_piety_gain_mult = 0.03 } county_modifier_scaled = { scale = holy_site_total_artifact_rarity monthly_county_control_growth_factor = 0.01 }
+}

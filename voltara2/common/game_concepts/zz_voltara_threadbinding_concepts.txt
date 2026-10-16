@@ -1,0 +1,447 @@
+﻿ek_features = {
+	alias = { ek_feature ek_features_pg }
+	texture = "gfx/interface/icons/icon_septim_dragon_main_logo.dds"
+}
+ek_features_page2 = {
+	alias = { ek_feature_page2 ek_features_page2_pg }
+	texture = "gfx/interface/icons/icon_septim_dragon_main_logo.dds"
+}
+fervor_equilibrium = {
+	parent = fervor
+	texture = "gfx/interface/icons/icon_fervor.dds"
+}
+pantheon = {
+	alias = { pantheons patron patrons patron_deity patron_deities personal_deity personal_deities }
+	parent = faith
+	texture = "gfx/interface/icons/event_types/type_faith.dds"
+}
+pantheon_secondary = {
+	alias = { secondary_pantheon secondary }
+	parent = faith
+	texture = "gfx/interface/icons/event_types/type_faith.dds"
+}
+patron_trait = {
+	alias = { patron_traits }
+	parent = trait
+	texture = "gfx/interface/icons/traits/p_dv_dibella.dds"
+}
+abomination = {
+	alias = { abominations }
+	texture = "gfx/interface/icons/text_icons/action_can_righteously_imprison.dds"
+	parent = ek_feature
+}
+cleanse_abomination = {
+	alias = { cleanse_abomination_war abomination_cleansing abomination_cleansing_war }
+	parent = abomination
+	texture = "gfx/interface/icons/casus_bellis/religious_war.dds"
+}
+pariah = {
+	alias = { pariahs monster monsters }
+	texture = "gfx/interface/icons/text_icons/action_can_righteously_imprison.dds"
+	parent = ek_feature
+}
+expel_monsters = {
+	alias = { expel_monsters_war }
+	parent = pariah
+	texture = "gfx/interface/icons/casus_bellis/religious_war.dds"
+}
+pariah_discrimination = {
+	alias = { pariah_discriminate }
+	parent = pariah
+	texture = "gfx/interface/icons/text_icons/action_can_righteously_imprison.dds"
+}
+daedric_race = {
+	alias = { demon_race daedric_race_adj }
+	texture = "gfx/interface/icons/text_icons/action_can_righteously_imprison.dds"
+	parent = ek_feature
+}
+banish_demon = {
+	alias = { banish_demon_war }
+	texture = "gfx/interface/icons/casus_bellis/religious_war.dds"
+	parent = daedric_race
+}
+liturgical_language = {
+	parent = language
+	texture = "gfx/interface/icons/icon_septim_dragon_main_logo.dds"
+}
+clutch_raid_war = {
+	alias = { clutch_raid_wars clutch_raid_warring }
+}
+nativity_region = {
+	alias = { nativity_regions native natives }
+	parent = culture
+	texture = "gfx/interface/icons/icon_culture.dds"
+}
+local_culture = {
+	alias = { local_cultures local locals }
+	parent = culture
+	texture = "gfx/interface/icons/icon_culture.dds"
+}
+migratory_culture = {
+	alias = { migratory }
+	parent = culture
+	texture = "gfx/interface/icons/icon_culture.dds"
+}
+culture_revival = {
+	alias = { culture_revived }
+	parent = culture
+	texture = "gfx/interface/icons/icon_culture.dds"
+}
+living_culture = {
+	alias = { living_culture_short }
+	parent = culture
+	texture = "gfx/interface/icons/icon_culture.dds"
+}
+dead_culture = {
+	alias = { dead_culture_short }
+	parent = culture
+	texture = "gfx/interface/icons/icon_culture.dds"
+}
+valid_conversion_culture = {
+	alias = { valid_conversion_culture_short valid_conversion_culture_medium }
+	parent = culture
+	texture = "gfx/interface/icons/icon_culture.dds"
+}
+core_traditions = {
+	alias = { core_traditions_short }
+	parent = culture
+	texture = "gfx/interface/icons/icon_culture.dds"
+}
+slavery = {
+	alias = { slave slaves slaver }
+	texture = "gfx/interface/icons/text_icons/action_can_righteously_imprison.dds"
+}
+grand_council_morrowind = {
+	alias = { grand_council }
+	texture = "gfx/interface/icons/hud_maintab/grand_council_button.dds"
+}
+grand_council_member = {
+	parent = grand_council_morrowind
+	alias = { grand_council_members members }
+	texture = "gfx/interface/icons/hud_maintab/grand_council_button.dds"
+}
+high_councilor = {
+	parent = grand_council_morrowind
+	texture = "gfx/interface/icons/hud_maintab/grand_council_button.dds"
+}
+great_house_head = {
+	parent = grand_council_morrowind
+	alias = { great_house_heads }
+	texture = "gfx/interface/icons/hud_maintab/grand_council_button.dds"
+}
+writ_of_war = {
+	parent = grand_council_morrowind
+	alias = { writs_of_war }
+	texture = "gfx/interface/icons/hud_maintab/grand_council_button.dds"
+}
+writ_of_execution = {
+	parent = grand_council_morrowind
+	alias = { writs_of_execution }
+	texture = "gfx/interface/icons/hud_maintab/grand_council_button.dds"
+}
+outlander = {
+	parent = grand_council_morrowind
+	alias = { outlanders }
+	texture = "gfx/interface/icons/hud_maintab/grand_council_button.dds"
+}
+great_house_value = {
+	parent = grand_council_morrowind
+	texture = "gfx/interface/icons/hud_maintab/grand_council_button.dds"
+}
+great_house_tomb = {
+	parent = grand_council_morrowind
+	alias = { tomb }
+	texture = "gfx/interface/icons/hud_maintab/grand_council_button.dds"
+}
+summerset_isolationism = {
+	texture = "gfx/interface/icons/icon_praxis.dds"
+	alias = { alinor_isolationism }
+	parent = ek_feature
+}
+academy = {
+	alias = { academy_government academic academies academy_i }
+	parent = government
+	texture = "gfx/interface/icons/government_types/academy_government.dds"
+}
+autocracy = {
+	alias = { autocracy_government autocratic autocracy_i }
+	parent = government
+	texture = "gfx/interface/icons/government_types/autocracy_government.dds"
+}
+ceremoniarchy = {
+	alias = { ceremoniarchy_government ceremoniarchic }
+	parent = ek_feature
+	texture = "gfx/interface/icons/government_types/praxis_government.dds"
+}
+landed_order = {
+	alias = { landed_order_government military_order landed_order_i }
+	parent = ek_feature
+	texture = "gfx/interface/icons/government_types/landed_order_government.dds"
+}
+praxis = {
+	alias = { praxis_i }
+	texture = "gfx/interface/icons/icon_praxis.dds"
+	parent = ek_feature
+}
+feudal_like_government = {
+	parent = government
+	texture = "gfx/interface/icons/icon_septim_dragon_main_logo.dds"
+}
+pirate = {
+	alias = { pirate_government pirate_i pirates }
+	parent = government
+	texture = "gfx/interface/icons/government_types/pirate_government.dds"
+}
+might_makes_right = {
+	texture = "gfx/interface/icons/icon_septim_dragon_main_logo.dds"
+	parent = ek_feature
+}
+daedric_secret = { shown_in_encyclopedia = no }
+astronomy = {
+	texture = "gfx/interface/icons/lunar_cycle/stars_color.dds"
+	parent = ek_feature
+}
+furstocks = {
+	texture = "gfx/interface/icons/traits/furstock_cathay.dds"
+	alias = { furstock furstock_trait}
+	parent = astronomy
+}
+star_sign = {
+	texture = "gfx/interface/icons/lunar_cycle/stars_color.dds"
+	alias = { birthsign birthsign_trait star_signs sky_tale sky_tales }
+	parent = astronomy
+}
+sign_serpent = {
+	texture = "gfx/interface/icons/lunar_cycle/sign_serpent_color.dds"
+	alias = { sign_serpent_reachfolk }
+	parent = star_sign
+}
+sign_ritual = {
+	texture = "gfx/interface/icons/lunar_cycle/sign_ritual_color.dds"
+	alias = { sign_ritual_dwemer }
+	parent = star_sign
+}
+sign_lover = {
+	texture = "gfx/interface/icons/lunar_cycle/sign_lover_color.dds"
+	parent = star_sign
+}
+sign_lord = {
+	texture = "gfx/interface/icons/lunar_cycle/sign_lord_color.dds"
+	parent = star_sign
+}
+sign_mage = {
+	texture = "gfx/interface/icons/lunar_cycle/sign_mage_color.dds"
+	alias = { sign_mage_reachfolk sign_mage_dwemer }
+	parent = star_sign
+}
+sign_shadow = {
+	texture = "gfx/interface/icons/lunar_cycle/sign_shadow_color.dds"
+	parent = star_sign
+}
+sign_steed = {
+	texture = "gfx/interface/icons/lunar_cycle/sign_steed_color.dds"
+	parent = star_sign
+}
+sign_apprentice = {
+	texture = "gfx/interface/icons/lunar_cycle/sign_apprentice_color.dds"
+	alias = { sign_apprentice_dwemer }
+	parent = star_sign
+}
+sign_warrior = {
+	texture = "gfx/interface/icons/lunar_cycle/sign_warrior_color.dds"
+	alias = { sign_warrior_reachfolk }
+	parent = star_sign
+}
+sign_lady = {
+	texture = "gfx/interface/icons/lunar_cycle/sign_lady_color.dds"
+	parent = star_sign
+}
+sign_tower = {
+	texture = "gfx/interface/icons/lunar_cycle/sign_tower_color.dds"
+	parent = star_sign
+}
+sign_atronach = {
+	texture = "gfx/interface/icons/lunar_cycle/sign_atronach_color.dds"
+	alias = { sign_atronach_dwemer }
+	parent = star_sign
+}
+sign_thief = {
+	texture = "gfx/interface/icons/lunar_cycle/sign_thief_color.dds"
+	alias = { sign_thief_reachfolk }
+	parent = star_sign
+}
+mages = {
+	texture = "gfx/interface/icons/regimenttypes/mages.dds"
+	parent = men_at_arms
+}
+dragon = {	
+	texture = "gfx/interface/icons/regimenttypes/dragon_maa.dds"
+	parent = men_at_arms
+}
+gryphon = {	
+	texture = "gfx/interface/icons/regimenttypes/gryphon.dds"
+	parent = men_at_arms
+}
+arcana_skill = {
+	alias = { arcana_i arcana }
+	parent = skills
+
+	texture = "gfx/interface/icons/icon_arcana.dds"
+	framesize = { 60 60 }
+	frame = 5
+}
+magic_lifestyle = {
+	texture = "gfx/interface/icons/alerts/action_lifestyle_magic.dds"
+	framesize = { 144 144 }
+	frame = 2
+	parent = focus
+}
+dark_arts_lifestyle = {
+	texture = "gfx/interface/icons/alerts/action_lifestyle_dark_arts.dds"
+	framesize = { 144 144 }
+	frame = 2
+	parent = focus
+}
+magicka = {
+	alias = { magicka_i }
+	texture = "gfx/interface/icons/icon_magicka.dds"
+	parent = magic
+}
+magic_ritual = {
+	alias = { magic_rituals magic_ritual_i }
+	texture = "gfx/interface/spellbook_widget/spell_ritual.dds"
+	parent = magic
+}
+spell = {
+	alias = { spells }
+	texture = "gfx/interface/icons/icon_magicka.dds"
+	parent = magic
+}
+spell_range = {
+	texture = "gfx/interface/icons/icon_magicka.dds"
+	parent = magic
+}
+magic = {
+	texture = "gfx/interface/icons/icon_magicka.dds"
+	parent = ek_feature
+}
+magical_education_trait = {
+	texture = "gfx/interface/icons/traits/education_magic_3.dds"
+	parent = trait
+}
+petty = {
+	parent = magic
+}
+lesser = {
+	parent = magic
+}
+common = {
+	parent = magic
+}
+greater = {
+	parent = magic
+}
+grand = {
+	parent = magic
+}
+cloning = {
+	parent = magic
+	alias = { self_replication clone clones clone_possessive }
+}
+cloning_insights = {
+	parent = magic
+	alias = { cloning_insight }
+}
+alteration = {
+	texture = "gfx/interface/icons/lifestyles_perks/school_alteration.dds"
+	parent = magic
+}
+conjuration = {
+	texture = "gfx/interface/icons/lifestyles_perks/school_conjuration.dds"
+	parent = magic
+}
+destruction = {
+	texture = "gfx/interface/icons/lifestyles_perks/school_destruction.dds"
+	parent = magic
+}
+illusion = {
+	texture = "gfx/interface/icons/lifestyles_perks/school_illusion.dds"
+	parent = magic
+}
+restoration = {
+	texture = "gfx/interface/icons/lifestyles_perks/school_restoration.dds"
+	parent = magic
+}
+necromancy = {
+	texture = "gfx/interface/icons/lifestyles_perks/school_necromancy.dds"
+	parent = magic
+}
+crisis_faction = {
+	texture = "gfx/interface/icons/icon_septim_dragon_main_logo.dds"
+	alias = { crisis_factions crisis }
+	parent = faction
+}
+holiday_calendar = {
+	texture = "gfx/interface/icons/lunar_cycle/stars_color.dds"
+	alias = { holiday }
+	parent = ek_feature
+}
+curable_illness = {
+	parent = magic
+	alias = { curable_illnesses }
+}
+magic_ward_long = {
+	texture = "gfx/interface/icons/lifestyles_perks/school_alteration.dds"
+	parent = magic
+	alias = { magic_ward_short magic_warded }
+}
+mindless_character = {
+	parent = ek_feature
+	texture = "gfx/interface/icons/icon_mindless.dds"
+	alias = { mindless mindless_characters }
+}
+tsaescence = {
+	texture = "gfx/interface/icons/traits/tsaesci_2.dds"
+	parent = ek_feature
+}
+gc_lifespan = {
+	alias = { gc_longlived }
+	texture = "gfx/interface/icons/traits/lifespan_6.dds"
+	parent = ek_feature
+}
+ek_age_modifiers = {
+	alias = {ek_age_modifier ek_age_modifiers_aging ek_age_modifiers_advanced ek_age_modifiers_borrowed }
+	parent = ek_feature
+}
+daedric_curse = {
+	alias = { curse }
+	parent = ek_feature
+}
+hist_holding = {
+	parent = holding_type
+	alias = { hist hist_holdings hist_tree }
+	texture = "gfx/interface/icons/map_icons/recently_raided.dds"
+}
+hist_communion = {
+	parent = activity
+	alias = { hist_communions }
+}
+adult_education = {
+	parent = activity
+	texture = "gfx/interface/icons/activities/activity_adult_education.dds"
+}
+isolationist_tradition = {
+	parent = culture
+}
+sorcerer_kings_tradition = {
+	parent = culture
+}
+dynamic_catalyst = {
+	parent = situation_catalyst
+	requires_dlc_flag = all_under_heaven
+	alias = { dynamic_catalyst_short dynamic_catalyst_short_praxic dynamic_catalyst_short_apraxic }
+}
+balance_of_power = {
+	parent = situation_catalyst
+	requires_dlc_flag = all_under_heaven
+}

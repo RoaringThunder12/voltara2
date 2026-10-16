@@ -1,0 +1,10 @@
+﻿
+undead_thrall_hook = {
+	strong = yes
+	expiration_days = -1	
+}
+
+ascended_undead_hook = {
+	strong = yes
+	expiration_days = 36500
+}

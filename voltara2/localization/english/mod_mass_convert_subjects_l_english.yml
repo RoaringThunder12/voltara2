@@ -1,0 +1,48 @@
+﻿l_english:
+ mod_mass_convert_subjects_decision: "$game_concept_demand_conversion$"
+ mod_mass_convert_subjects_decision_desc: "$game_concept_demand_conversion_desc$"
+ mod_mass_convert_subjects_decision_tooltip: "$game_concept_demand_conversion_desc$"
+
+ mod_convert_direct_vassals_loc: "$game_concept_direct_vassals$ ([SCOPE.ScriptValue('mod_convert_direct_vassals_number')])"
+ mod_convert_direct_vassals_tooltip: "Demand conversion from all your infidel $game_concept_direct_vassals$."
+
+ mod_convert_indirect_vassals_loc: "Indirect $game_concept_vassals$ ([SCOPE.ScriptValue('mod_convert_indirect_vassals_number')])"
+ mod_convert_indirect_vassals_tooltip: "Demand conversion from all your infidel indirect $game_concept_vassals$."
+
+ mod_convert_tributaries_loc: "Tributaries ([SCOPE.ScriptValue('mod_convert_tributaries_number')])"
+ mod_convert_tributaries_tooltip: "Demand conversion from all your infidel tributaries."
+
+ mod_convert_courtiers_loc: "Courtiers ([SCOPE.ScriptValue('mod_convert_courtiers_number')])"
+ mod_convert_courtiers_tooltip: "Demand conversion from all your infidel [courtiers|E]."
+
+ mod_convert_house_loc: "House members ([SCOPE.ScriptValue('mod_convert_house_number')])"
+ mod_convert_house_tooltip: "Demand conversion from all your infidel house members."
+
+ mod_mass_convert_subjects_decision_confirm: "Send requests"
+
+ # Acceptance only; actual conversion may finish through a later native event.
+ mdc_conversion_accepted_title:0 "Conversion request accepted"
+ mdc_conversion_accepted_desc:0 "[recipient.GetShortUIName] has accepted the conversion request."
+
+ # Immediate acceptance filter; no persistent player preference.
+ mdc_chance_filter_heading:0 "Acceptance:"
+ mdc_chance_filter_none:0 "None"
+ mdc_chance_filter_80:0 "≥ 80 %"
+ mdc_chance_filter_100:0 "100 %"
+ mdc_chance_filter_scope_note:0 "Applies only to direct/indirect vassals and tributaries. Courtiers and house members are unchanged."
+ mdc_chance_filter_tooltip:0 "$mdc_chance_filter_scope_note$\n\nFilters the calculated immediate acceptance chance. Later negotiations and completed conversions are not included. 100% does not promise completed conversion. Counts are eligible requests; targets are checked again before sending."
+ mdc_convert_direct_vassals_80_loc:0 "$game_concept_direct_vassals$ ([SCOPE.ScriptValue('mdc_convert_direct_vassals_80_number')])"
+ mdc_convert_direct_vassals_80_tooltip:0 "$mod_convert_direct_vassals_tooltip$\n$mdc_chance_filter_80$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_direct_vassals_100_loc:0 "$game_concept_direct_vassals$ ([SCOPE.ScriptValue('mdc_convert_direct_vassals_100_number')])"
+ mdc_convert_direct_vassals_100_tooltip:0 "$mod_convert_direct_vassals_tooltip$\n$mdc_chance_filter_100$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_indirect_vassals_80_loc:0 "Indirect $game_concept_vassals$ ([SCOPE.ScriptValue('mdc_convert_indirect_vassals_80_number')])"
+ mdc_convert_indirect_vassals_80_tooltip:0 "$mod_convert_indirect_vassals_tooltip$\n$mdc_chance_filter_80$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_indirect_vassals_100_loc:0 "Indirect $game_concept_vassals$ ([SCOPE.ScriptValue('mdc_convert_indirect_vassals_100_number')])"
+ mdc_convert_indirect_vassals_100_tooltip:0 "$mod_convert_indirect_vassals_tooltip$\n$mdc_chance_filter_100$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_tributaries_80_loc:0 "Tributaries ([SCOPE.ScriptValue('mdc_convert_tributaries_80_number')])"
+ mdc_convert_tributaries_80_tooltip:0 "$mod_convert_tributaries_tooltip$\n$mdc_chance_filter_80$\n$mdc_chance_filter_tooltip$"
+ mdc_convert_tributaries_100_loc:0 "Tributaries ([SCOPE.ScriptValue('mdc_convert_tributaries_100_number')])"
+ mdc_convert_tributaries_100_tooltip:0 "$mod_convert_tributaries_tooltip$\n$mdc_chance_filter_100$\n$mdc_chance_filter_tooltip$"
+
+ # Decision preview only; request outcomes remain native.
+ mdc_mass_conversion_requests_effect:0 "Sends standard conversion requests to the selected targets."

@@ -1,0 +1,75 @@
+﻿##############################
+## GM1 character_memory_types
+##############################
+#------------------------------
+# list
+#------------------------------
+# change_imprisoner_prisoner_memory
+# change_imprisoner_old_imprisoner_memory
+# change_imprisoner_new_imprisoner_memory
+
+change_imprisoner_prisoner_memory = {
+	categories = { negative prison intimidation }
+	icon = "prison.dds"
+	description = {
+		desc = change_imprisoner_prisoner_desc
+	}
+
+	second_perspective_description = {
+		desc = change_imprisoner_prisoner_desc_perspective
+	}
+
+	third_perspective_description = {
+		desc = change_imprisoner_prisoner_desc_perspective
+	}
+
+	participants = { old_imprisoner new_imprisoner }
+
+	duration = {
+		years = memory_default_duration
+	}
+}
+
+change_imprisoner_old_imprisoner_memory = {
+	categories = { prison intimidation }
+	icon = "prison.dds"
+	description = {
+		desc = change_imprisoner_old_imprisoner_desc
+	}
+
+	second_perspective_description = {
+		desc = change_imprisoner_old_imprisoner_desc_perspective
+	}
+
+	third_perspective_description = {
+		desc = change_imprisoner_old_imprisoner_desc_perspective
+	}
+
+	participants = { prisoner new_imprisoner }
+
+	duration = {
+		years = memory_default_duration
+	}
+}
+
+change_imprisoner_new_imprisoner_memory = {
+	categories = { prison intimidation }
+	icon = "prison.dds"
+	description = {
+		desc = change_imprisoner_new_imprisoner_desc
+	}
+
+	second_perspective_description = {
+		desc = change_imprisoner_new_imprisoner_desc_perspective
+	}
+
+	third_perspective_description = {
+		desc = change_imprisoner_new_imprisoner_desc_perspective
+	}
+
+	participants = { prisoner old_imprisoner }
+
+	duration = {
+		years = memory_default_duration
+	}
+}

@@ -1,0 +1,24 @@
+﻿# Mod: replace only the native house acceptance ID; keep refusal/decision events native.
+namespace = char_interaction
+
+char_interaction.0181 = {
+	id_override_priority = 1
+	type = character_event
+	hidden = yes
+	immediate = {
+		notify_puppeteer_of_outcome_effect = {
+			TYPE = event_toast_effect_good
+			TITLE = char_interaction.0181.toast_puppeteer
+		}
+
+		# Deliver to the original event receiver; the native notifier retains its puppet guards.
+		send_interface_message = {
+			type = mdc_conversion_accepted_message
+			# Resolve the recipient description in this event context before feed rendering.
+			desc = mdc_conversion_accepted_desc
+			left_icon = scope:recipient
+			# The old EXCELLENT option only previewed conversion; do not execute it again.
+			show_as_tooltip = { demand_conversion_interaction_effect = yes }
+		}
+	}
+}

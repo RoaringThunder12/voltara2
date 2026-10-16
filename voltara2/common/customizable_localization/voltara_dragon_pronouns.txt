@@ -1,0 +1,63 @@
+﻿GetDragonSheHe = {
+	type = character
+
+	text = {
+		trigger = {
+			is_alive = yes
+			has_variable = dragon_gender_hidden
+		}
+		localization_key = CHARACTER_SHEHE_HE
+	}
+
+	text = {
+		trigger = { is_male = yes }
+		localization_key = CHARACTER_SHEHE_HE
+	}
+
+	text = {
+		trigger = { is_female = yes }
+		localization_key = CHARACTER_SHEHE_SHE
+	}
+}
+GetDragonHerHim = {
+	type = character
+
+	text = {
+		trigger = {
+			is_alive = yes
+			has_variable = dragon_gender_hidden
+		}
+		localization_key = CHARACTER_HERHIM_HIM
+	}
+
+	text = {
+		trigger = { is_male = yes }
+		localization_key = CHARACTER_HERHIM_HIM
+	}
+
+	text = {
+		trigger = { is_female = yes }
+		localization_key = CHARACTER_HERHIM_HER
+	}
+}
+GetDragonHerHis = {
+	type = character
+
+	text = {
+		trigger = {
+			is_alive = yes
+			has_variable = dragon_gender_hidden
+		}
+		localization_key = CHARACTER_HERHIS_HIS
+	}
+
+	text = {
+		trigger = { is_male = yes }
+		localization_key = CHARACTER_HERHIS_HIS
+	}
+
+	text = {
+		trigger = { is_female = yes }
+		localization_key = CHARACTER_HERHIS_HER
+	}
+}

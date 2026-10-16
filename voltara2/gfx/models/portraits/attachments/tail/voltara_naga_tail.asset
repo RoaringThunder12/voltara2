@@ -1,0 +1,50 @@
+﻿pdxmesh = {
+	name = "arg_tail_mesh"
+	file = "arg_tail_model.mesh"
+
+
+	additive_animation = { id = "tail_length" type = "tail_length.anim" }
+	additive_animation = { id = "tail_height" 				type = "tail_height.anim" }
+	additive_animation = { id = "tail_infant_proportions"	type = "tail_child_proportions.anim" }
+
+	animation = { id = "tail_idle"		type = "tail_idle.anim" }
+
+	meshsettings = {
+		name = "tailShape.002"
+		index = 0
+		texture_diffuse = "vt_naga_no_diffuse.dds"
+		texture_normal = "vt_naga_argonians_body_normal.dds"
+		texture_specular = "vt_naga_argonians_body_properties.dds"
+		texture = { file = "vt_naga_female_body_ssao_color.dds" index = 3 }
+		shader = "portrait_skin"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+entity = {
+	name = "arg_tail_entity"
+	pdxmesh = "arg_tail_mesh"
+	
+    game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+			portrait_decal = {
+				body_part = torso
+			}
+		}
+	 }	
+	 
+	#get_state_from_parent = yes
+
+	attribute = { name = "tail_length" 						additive_animation = "tail_length" default = 1.0 }
+	attribute = { name = "body_height" 						additive_animation = "tail_height" default = 0.5 }
+	attribute = { name = "body_infant_proportions" 			additive_animation = "tail_infant_proportions" default = 0.5 }
+
+	default_state = "idle"
+	
+	state = { 	name = "idle"
+				animation = "tail_idle"
+				looping = yes 
+			}
+}

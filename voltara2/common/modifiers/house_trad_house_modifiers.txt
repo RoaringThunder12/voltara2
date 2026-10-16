@@ -1,0 +1,458 @@
+﻿trad_valor = {
+	icon = prowess_positive
+	# Brave, Stubborn, Impatiant	- Prefers Martial Training, Likes Knights? Not currently supported for modding.
+	# Discourages Craven
+#	martial = 1
+#	prowess = 1
+	martial_per_prestige_level = 1
+	# prowess_per_prestige_level = 1
+	# Replaced fame-based prowess with stress since all Valor kids gets perma-trained with prowess
+	prowess_per_stress_level = 2
+	pursue_efficiency = 0.20
+	movement_speed = 0.05
+	glory_hound_opinion = 10 # Double dips from Brave? But Stubborn and Impatient remains in theme and can use this boost.
+	tourney_participant_xp_gain_mult = 0.1
+	# Legitimacy
+#	legitimacy_gain_mult = 0.25
+#	legitimacy_loss_mult = 0.50		# Since most legitimacy changes come from war and Valor revolves around victories.
+	# Edited the above out. There may have already been nerfs/rework to legitimacy gains and losses from vanilla.
+	monthly_legitimacy_add = -0.25
+	# Assuming an average of 25 year reign, you are expected to win 2 wars with no losses to break even/maintain baseline to be considered a competent Valor house ruler.
+		# Nerfed loss from -0.75 to -0.25 for 1.18. Didn't formally check numbers yet. Mandala government may destroy Valor houses?
+		ai_boldness = 50
+		ai_rationality = -20
+		#ai_zeal = 50 # This is creating too many zealot stances.
+}
+
+trad_honor = {
+	icon = social_positive
+	# Honest, Just, Stubborn
+	# Discourages Deceitful, Arbitrary, Fickle
+#	martial = 1
+#	diplomacy = 1
+	martial_per_prestige_level = 1
+	diplomacy_per_prestige_level = 1
+	hostile_county_attrition = -0.2
+	supply_duration = 0.5
+#	vassal_opinion = 10
+# Replaced by Automatic oaths on succession
+	fellow_vassal_opinion = -10
+	enemy_hostile_scheme_success_chance_add = 10
+
+		ai_boldness = 50 # Just and Stubborn traits oddly don't add ai_boldness by default.
+		ai_honor = 50
+		ai_greed = -50
+		ai_vengefulness = 20
+}
+
+trad_duty = {
+	icon = dog_positive
+	# Diligent, Humble, Impatient
+	# Discourages Lazy, Arrogant, Ambitious
+#	diplomacy = 1
+#	stewardship = 1
+	diplomacy_per_prestige_level = 1
+	stewardship_per_prestige_level = 1
+	army_maintenance_mult = -0.10
+	levy_reinforcement_rate = 0.20
+	opinion_of_liege = 20
+	vassal_opinion = 10
+#	character_travel_speed_mult = 0.1
+	#ZGC
+	# travel_speed = 10
+	character_travel_speed = 10
+	#/ZGC
+
+		ai_honor = 50
+		ai_rationality = 50 # For Parochial vassal stance purposes. Impatient members will probably end up Zealots
+		ai_zeal = 20 		# To join defensive wars
+		ai_greed = -50
+		ai_vengefulness = -20
+
+}
+
+trad_justice = {
+	icon = prison_positive
+	# Just, Vengeful, Zealous
+	# Discourages Arbitrary, Forgiving
+#	martial = 1
+#	stewardship = 1
+	martial_per_prestige_level = 1
+	stewardship_per_prestige_level = 1
+	dread_baseline_add = 20
+	dread_decay_mult = -0.50
+#	minority_opinion = 10 # Double Dips from Just. Vengeful and Zealous may not necessarily be in theme for this boost.
+
+		ai_boldness = 20
+		ai_rationality = 50 # For Parochial vassal stance purposes. Impatient members will probably end up Zealots
+		ai_compassion = 50
+		ai_greed = -50
+		ai_sociability = -20 # Less likely to become Courtly vassal stance
+		ai_vengefulness = -20
+}
+
+trad_vengeance = {
+	icon = blood_positive
+	# Vengeful, Just, Sadistic
+	# Discourages Forgiving, Compassionate
+#	prowess = 1
+#	intrigue = 1
+	prowess_per_prestige_level = 1
+	intrigue_per_prestige_level = 1
+	dread_baseline_add = 20
+	dread_per_tyranny_add = 1
+	tyranny_loss_mult = 1.0
+	#house_relation_change_mult = 2 #Affects both gains and loss on house relations
+
+		ai_boldness = 20
+		ai_compassion = -50
+		ai_rationality = -20
+		ai_vengefulness = 50
+		ai_zeal = -50	# Set to negative to avoid always getting "Zealot" vassal stance; Vengeance isn't necessarily religious.
+}
+
+trad_pride = {
+	icon = drink_positive
+	# Arrogant, Ambitious, Wrathful
+	# Discourages Humble, Content
+#	martial = 1
+	martial_per_prestige_level = 1
+	diplomacy_per_stress_level = 2
+	monthly_prestige_gain_mult = 0.1
+	development_growth = 0.2			# Throws modifier type errors. Is a county modifier.
+	development_growth_factor = 0.1
+#	character_capital_county_monthly_development_growth_add = 0.2
+#	cultural_head_fascination_add = 1.0	# Doesn't seem to work
+	cultural_head_fascination_mult = 0.10
+	courtly_opinion = 10
+	owned_legend_spread_mult = 0.1
+
+		ai_boldness = 25
+		# Unlike Power, Pride should be spending cash for greater development and prestige
+		ai_greed = -75 # Counteract greed from ambitious; ai_greed just means hoard cash
+		ai_honor = 20
+		ai_sociability = 25 # For Courtly Vassal Stance Purposes
+		ai_energy = 20
+}
+
+trad_respect = { # Authority
+	icon = prestige_positive
+	# Callous, Arrogant, Vengeful
+	# Discourages Humble, Compassionate
+#	diplomacy = 1
+	diplomacy_per_prestige_level = 1
+	martial_per_stress_level = 2
+	monthly_prestige_gain_mult = 0.1
+	dread_baseline_add = 20
+	owned_personal_scheme_success_chance_add = -10
+	intimidated_vassal_tax_contribution_mult = 0.10
+	cowed_vassal_tax_contribution_mult = 0.20
+	vassal_opinion = -5
+	fellow_vassal_opinion = -5
+	courtly_opinion = 10
+	
+		ai_boldness = 25
+		ai_compassion = -20
+		ai_sociability = 25 # For Courtly Vassal Stance Purposes
+		ai_vengefulness = 20
+}
+
+trad_power = {
+	icon = dread_positive
+	# Ambitious, Wrathful, Impatient
+	# Discourages Lazy, Content
+#	diplomacy = 1
+#	martial = 1
+	diplomacy_per_prestige_level = 1
+	martial_per_prestige_level = 1
+	dread_baseline_add = 20
+	intimidated_vassal_levy_contribution_mult = 0.10
+	cowed_vassal_levy_contribution_mult = 0.20
+	vassal_opinion = -5
+	fellow_vassal_opinion = -5
+	enemy_hostile_scheme_success_chance_add = 10
+
+		ai_boldness = 25
+		ai_rationality = 10
+		# Cash hoarding may be relevant for Power tradition for mercs. Still playtesting/observing
+		#ai_greed = -75 # Counteract greed from ambitious; ai_greed just means hoard cash
+}
+
+trad_influence = {
+	icon = letter_positive
+	# Gregarious, Calm, Deceitful		- Prefers Diplomacy training
+	# Discourages Trusting, Content
+#	diplomacy = 1
+#	intrigue = 1
+	diplomacy_per_prestige_level = 1
+	intrigue_per_prestige_level = 1
+	owned_personal_scheme_success_chance_add = 10
+	courtly_opinion = 5
+	barons_and_minor_landholders_opinion = 5
+
+		ai_sociability = 20
+		ai_rationality = 20
+}
+
+trad_guile = {
+	icon = intrigue_positive
+	# Deceitful, Fickle, Arbitrary	- Prefers Intrigue training
+	# Discourages Trusting, Honest
+#	intrigue = 1
+#	diplomacy = 1
+	intrigue_per_prestige_level = 1
+	diplomacy_per_prestige_level = 1
+	owned_scheme_secrecy_add = 10
+
+		ai_sociability = 20
+		ai_honor = -20
+		ai_rationality = 20
+}
+
+trad_survival = { #perseverance
+	icon = spoon_positive #outdoors_positive
+	# Craven, Paranoid, Deceitful
+	# Discourages Brave, Trusting
+#	intrigue = 1
+	diplomacy_per_stress_level = 2
+	martial_per_stress_level = 2
+	intrigue_per_stress_level = 2
+	enemy_hostile_scheme_success_chance_add = -10
+#	negate_fertility_penalty_add = 0.25 # The family will live on.
+	health = 0.5 # Cockroaches like Walder Frey somehow always manage to live long.
+	negate_health_penalty_add = 0.5
+	travel_danger = -10
+
+		ai_boldness = -100
+		ai_honor = -20
+		ai_rationality = 100
+		ai_zeal = -50
+}
+
+trad_vigilance = {
+	icon = county_modifier_control_positive
+	# Diligent, Patient, Paranoid
+	# Discourages Impatient, Trusting
+#	martial = 1
+#	intrigue = 1
+	martial_per_prestige_level = 1
+	intrigue_per_prestige_level = 1
+	#monthly_county_control_change_add = 0.2 # Doesn't show up in neither house nor county modifier buffs, but is the same modifier used for life style Authority serve_the_crown_perk
+	#monthly_county_control_change_factor = 0.2
+	monthly_county_control_growth_add = 0.2
+	garrison_size = 0.10
+	travel_danger = -10
+
+		ai_honor = 20
+		ai_rationality = 50
+}
+
+trad_peace = {
+	icon = asatru_raven_positive
+	# Forgiving, Honest, Trusting
+	# Discourages Wratfhul, Vengeful
+#	diplomacy = 1
+#	stewardship = 1
+	diplomacy_per_prestige_level = 1
+	stewardship_per_prestige_level = 1
+	independent_ruler_opinion = 10
+	fellow_vassal_opinion = 10
+	vassal_opinion = 10
+	minority_opinion = 10
+	glory_hound_opinion = -15
+	short_reign_duration_mult = -0.35
+	# Legitimacy
+	legitimacy_loss_mult = 1.00 # You have ONE job!
+	monthly_legitimacy_add = 2.00
+	# Assuming an average 25 year reign, this nets 600 legitimacy; keeps the peasants happy.
+
+		ai_boldness = -50
+		ai_compassion = 20
+		ai_rationality = 100
+		ai_vengefulness = -20
+		ai_zeal = -50
+}
+
+trad_fortune = {
+	icon = stewardship_positive
+	# Greedy, Diligent, Gregarious	- Prefers Stewardship training
+	# Discourages shy, content
+#	stewardship = 1
+#	intrigue = 1
+	stewardship_per_prestige_level = 1
+	intrigue_per_prestige_level = 1
+	domain_tax_mult = 0.10
+	republic_government_tax_contribution_mult = 0.10
+	fellow_vassal_opinion = 10
+	parochial_opinion = 10
+
+		ai_sociability = 20
+		ai_greed = -200	
+#-200 to counter the effects on greed trait but still keep the positives.
+# ai_greed just means it hoards gold. Fortune is intended to be investment-minded. 
+		ai_rationality = 20
+}
+
+trad_knowledge = {
+	icon = learning_positive
+	# Patient, Cynical, Shy			- Prefers Scholar training
+	# Discourages Lazy, Paranoid
+#	learning = 1
+#	stewardship = 1
+	learning_per_prestige_level = 1
+	stewardship_per_prestige_level = 1
+	monthly_lifestyle_xp_gain_mult = 0.20
+	cultural_head_fascination_mult = 0.15
+}
+
+trad_truth = {
+	icon = stress_positive
+	# Cynical, Honest, Just
+	# Discourages Arbitrary, Fickle
+#	learning = 1
+#	intrigue = 1
+	learning_per_stress_level = 3
+	intrigue_per_stress_level = 3
+	scheme_discovery_chance_mult = 0.1
+	ignore_different_faith_opinion = yes
+}
+
+trad_wisdom = {
+	icon = county_modifier_opinion_positive
+	# Temperate, Calm, Patient
+	# Discourages Wrathful, Impatient
+#	diplomacy = 1
+#	learning = 1
+	diplomacy_per_prestige_level = 1
+	learning_per_prestige_level = 1
+#	general_opinion = 10
+	powerful_vassal_opinion = 20
+
+		ai_boldness = -20
+		ai_compassion = 20
+		ai_rationality = 20
+		ai_vengefulness = -20
+		ai_zeal = -10
+}
+
+trad_devotion = {
+	icon = piety_positive
+	# Content, Diligent, Zealous
+	# Discourages Cynical, Fickle
+#	learning = 1
+	martial_per_piety_level = 1
+	prowess_per_piety_level = 1
+	stress_gain_mult = -0.2 # Being devoted to the work is its own reward
+	monthly_piety = 0.75
+	religious_head_opinion = 10
+	religious_vassal_opinion = 10
+	holy_order_hire_cost_mult = -0.5
+#	zealot_opinion = 10  # Double dips with Zealous
+
+		ai_boldness = 10
+		ai_honor = 20
+		ai_zeal = 50
+}
+
+trad_family = {
+	icon = family_positive
+	# Compassionate, Forgiving, Chaste
+	# Discourages Lustful, Sadistic
+#	diplomacy = 1
+	diplomacy_per_stress_level = 2
+	martial_per_stress_level = 2
+	prowess_per_stress_level = 2
+	fertility = 0.2	
+	negate_fertility_penalty_add = 0.5
+	#More likely to generate stress from dying relatives due to large families
+
+		ai_boldness = -20
+		ai_sociability = 10
+}
+
+trad_compassion = {
+	icon = fertility_positive
+	# Compassionate, Forgiving, Generous
+	# Discourages Callous, Sadistic
+#	diplomacy = 1
+#	stewardship = 1
+	diplomacy_per_prestige_level = 1
+	stewardship_per_prestige_level = 1
+	county_opinion_add = 10
+
+		ai_boldness = -20
+		ai_compassion = 50
+		ai_rationality = 50
+		ai_vengefulness = -100
+}
+
+trad_joy = {
+	icon = love_positive
+	# Lustful, Gluttonous, Generous
+	# Discourages Chaste, Temperate
+#	diplomacy = 1
+#	intrigue = 1
+	diplomacy_per_prestige_level = 1
+	intrigue_per_prestige_level = 1	
+	attraction_opinion = 15
+	stress_loss_mult = 0.2
+	stress_gain_mult = -0.20
+
+		ai_sociability = 20
+		ai_greed = 20
+		ai_energy = 20
+		ai_rationality = 20
+}
+
+trad_distinction = {
+	icon = magic_positive
+	# Arbitrary, Eccentric, Brave
+	# Discourages Humble, Shy
+	martial_per_prestige_level = 1
+	stewardship_per_prestige_level = 1
+	intrigue_per_prestige_level = -1	# Trying to standout makes it easier to plot against them.
+	prowess_per_prestige_level = 1
+	monthly_prestige_gain_mult = 0.1
+	courtier_and_guest_opinion = 10
+	accolade_glory_gain_mult = 0.1
+	owned_legend_spread_mult = 0.1
+
+		ai_boldness = 50
+		ai_sociability = 20
+		ai_energy = 20
+}
+
+trad_freedom = {
+	icon = county_modifier_development_positive
+	# Requires Lazy
+	# Catch-all as based on python script the only combo w/o a tradition is Lazy, Greedy, Shy.
+
+	diplomacy_per_stress_level = 2
+	stewardship_per_stress_level = 2
+	learning_per_stress_level = 2
+	liege_opinion = -25
+	opinion_of_liege = -50
+	feudal_government_opinion = -20
+	republic_government_opinion = 20	# Same ideas as Freecities in medieval times.
+	#mercenary_count_mult = 1.0			# Doubles available mercenary list.
+	mercenary_hire_cost_mult = -0.50	# Per Cuomo860's suggestion. The other one causes crashes?
+	# development_growth = 0.2			# Throws modifier type errors. Is a county modifier.
+	character_capital_county_monthly_development_growth_add = 0.2
+	barons_and_minor_landholders_opinion = 10
+
+	# Isolationists
+	ai_boldness = 100
+	ai_honor = -100
+	ai_sociability = -20
+	ai_greed = 100 # Hoards cash
+	ai_energy = -20
+	ai_rationality = 100
+	ai_zeal = -100
+}
+
+new_cadet_house_modifier = {
+	icon = magic_positive
+	fertility = 0.2	
+	negate_fertility_penalty_add = 0.5
+	negate_health_penalty_add = 0.5
+}

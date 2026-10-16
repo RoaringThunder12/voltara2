@@ -1,0 +1,6 @@
+﻿on_combat_end_winner = { on_actions = { voltara_dragon_combat_cleanup } }
+on_combat_end_loser = { on_actions = { voltara_dragon_combat_cleanup } }
+voltara_dragon_combat_cleanup = { effect = {
+ every_side_commander = { voltara_clear_battle_support = yes remove_character_flag = voltara_dragon_battle_notice }
+ every_side_knight = { voltara_clear_battle_support = yes remove_character_flag = voltara_dragon_battle_notice }
+} }

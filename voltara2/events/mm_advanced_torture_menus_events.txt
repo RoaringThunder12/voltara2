@@ -1,0 +1,385 @@
+﻿namespace = advanced_torture
+
+advanced_torture.0001 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+
+ title = advanced_torture.0001.t
+ desc = advanced_torture.0001.desc
+
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.0001.light
+  trigger = {
+   exists = scope:advanced_torture_prisoner
+   scope:advanced_torture_prisoner = {
+    is_alive = yes
+    NOT = { has_character_modifier = advanced_torture_cooldown }
+   }
+  }
+  hidden_effect = { trigger_event = { id = advanced_torture.0002 } }
+ }
+
+ option = {
+  name = advanced_torture.0001.medium
+  trigger = {
+   exists = scope:advanced_torture_prisoner
+   scope:advanced_torture_prisoner = {
+    is_alive = yes
+    NOT = { has_character_modifier = advanced_torture_cooldown }
+   }
+  }
+  hidden_effect = { trigger_event = { id = advanced_torture.0003 } }
+ }
+
+ option = {
+  name = advanced_torture.0001.strong
+  trigger = {
+   exists = scope:advanced_torture_prisoner
+   scope:advanced_torture_prisoner = {
+    is_alive = yes
+    NOT = { has_character_modifier = advanced_torture_cooldown }
+   }
+  }
+  hidden_effect = { trigger_event = { id = advanced_torture.0004 } }
+ }
+
+ option = {
+  name = advanced_torture.0001.long_tortures
+  trigger = {
+   exists = scope:advanced_torture_prisoner
+   scope:advanced_torture_prisoner = {
+    is_alive = yes
+    NOT = { has_character_modifier = advanced_torture_cooldown }
+   }
+  }
+  hidden_effect = { trigger_event = { id = advanced_torture.6001 } }
+ }
+
+ option = {
+  name = advanced_torture.0001.unique
+  trigger = {
+   exists = scope:advanced_torture_prisoner
+   scope:advanced_torture_prisoner = {
+    is_alive = yes
+    NOT = { has_character_modifier = advanced_torture_cooldown }
+   }
+  }
+  hidden_effect = { trigger_event = { id = advanced_torture.0005 } }
+ }
+
+ option = {
+  name = advanced_torture.0001.cancel
+ }
+}
+
+advanced_torture.0002 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+
+ title = advanced_torture.0002.t
+ desc = advanced_torture.0002.desc
+
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.0002.simple_whipping
+  custom_tooltip = advanced_torture_light_torture_tt
+  trigger = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7001 } }
+ }
+
+ option = {
+  name = advanced_torture.0002.branding_iron
+  custom_tooltip = advanced_torture_light_torture_tt
+  trigger = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7002 } }
+ }
+
+ option = {
+  name = advanced_torture.0002.stocks
+  custom_tooltip = advanced_torture_light_torture_tt
+  trigger = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7003 } }
+ }
+
+ option = {
+  name = advanced_torture.0002.walk_of_shame
+  custom_tooltip = advanced_torture_light_torture_tt
+  trigger = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7004 } }
+ }
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = { trigger_event = { id = advanced_torture.0001 } }
+ }
+}
+
+advanced_torture.0003 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+
+ title = advanced_torture.0003.t
+ desc = advanced_torture.0003.desc
+
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.0003.bastinado
+  custom_tooltip = advanced_torture_medium_torture_tt
+  trigger = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7011 } }
+ }
+
+ option = {
+  name = advanced_torture.0003.water_torment
+  custom_tooltip = advanced_torture_medium_torture_tt
+  trigger = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7012 } }
+ }
+
+ option = {
+  name = advanced_torture.0003.compression_cords
+  custom_tooltip = advanced_torture_medium_torture_tt
+  trigger = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7013 } }
+ }
+
+ option = {
+  name = advanced_torture.0003.strappado
+  custom_tooltip = advanced_torture_medium_torture_tt
+  trigger = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7014 } }
+ }
+
+ option = {
+  name = advanced_torture.0003.thumbscrew
+  custom_tooltip = advanced_torture_medium_torture_tt
+  trigger = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7015 } }
+ }
+
+ option = {
+  name = advanced_torture.0003.short_stretching_bench
+  custom_tooltip = advanced_torture_medium_torture_tt
+  trigger = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7016 } }
+ }
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = { trigger_event = { id = advanced_torture.0001 } }
+ }
+}
+
+advanced_torture.0004 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+
+ title = advanced_torture.0004.t
+ desc = advanced_torture.0004.desc
+
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.0004.rack
+  custom_tooltip = advanced_torture_strong_torture_tt
+  trigger = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7021 } }
+ }
+
+ option = {
+  name = advanced_torture.0004.wedged_boot
+  custom_tooltip = advanced_torture_strong_torture_tt
+  trigger = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7022 } }
+ }
+
+ option = {
+  name = advanced_torture.0004.rats
+  custom_tooltip = advanced_torture_strong_torture_tt
+  trigger = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7023 } }
+ }
+
+ option = {
+  name = advanced_torture.0004.enucleation
+  custom_tooltip = advanced_torture_enucleation_tt
+  trigger = {
+   exists = scope:advanced_torture_prisoner
+   scope:advanced_torture_prisoner = {
+    is_alive = yes
+    NOT = { has_trait = blind }
+   }
+  }
+  hidden_effect = { trigger_event = { id = advanced_torture.7024 } }
+ }
+
+ option = {
+  name = advanced_torture.0004.leg_amputation
+  custom_tooltip = advanced_torture_leg_amputation_tt
+  trigger = {
+   exists = scope:advanced_torture_prisoner
+   scope:advanced_torture_prisoner = {
+    is_alive = yes
+    NOT = { has_trait = one_legged }
+   }
+  }
+  hidden_effect = { trigger_event = { id = advanced_torture.7025 } }
+ }
+
+ option = {
+  name = advanced_torture.0004.nail_cleaner
+  custom_tooltip = advanced_torture_strong_torture_tt
+  trigger = { exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7026 } }
+ }
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = { trigger_event = { id = advanced_torture.0001 } }
+ }
+}
+
+advanced_torture.0005 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+
+ title = advanced_torture.0005.t
+ desc = advanced_torture.0005.desc
+
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.0005.sadistic
+  custom_tooltip = advanced_torture_sadistic_torture_tt
+  trigger = {
+   root = { has_trait = sadistic }
+   exists = scope:advanced_torture_prisoner
+   scope:advanced_torture_prisoner = { is_alive = yes }
+  }
+  hidden_effect = { trigger_event = { id = advanced_torture.0006 } }
+ }
+
+ option = {
+  name = advanced_torture.0005.cultural
+  trigger = { advanced_torture_show_default_cultural_tortures_trigger = yes }
+  hidden_effect = { advanced_torture_open_cultural_tortures_effect = yes }
+ }
+
+ option = {
+  name = advanced_torture_unique_slot_01
+  trigger = { advanced_torture_unique_slot_01_available_trigger = yes }
+  hidden_effect = { advanced_torture_unique_slot_01_effect = yes }
+ }
+
+ option = {
+  name = advanced_torture_unique_slot_02
+  trigger = { advanced_torture_unique_slot_02_available_trigger = yes }
+  hidden_effect = { advanced_torture_unique_slot_02_effect = yes }
+ }
+
+ option = {
+  name = advanced_torture_unique_slot_03
+  trigger = { advanced_torture_unique_slot_03_available_trigger = yes }
+  hidden_effect = { advanced_torture_unique_slot_03_effect = yes }
+ }
+
+ option = {
+  name = advanced_torture_unique_slot_04
+  trigger = { advanced_torture_unique_slot_04_available_trigger = yes }
+  hidden_effect = { advanced_torture_unique_slot_04_effect = yes }
+ }
+
+ option = {
+  name = advanced_torture_unique_slot_05
+  trigger = { advanced_torture_unique_slot_05_available_trigger = yes }
+  hidden_effect = { advanced_torture_unique_slot_05_effect = yes }
+ }
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = { trigger_event = { id = advanced_torture.0001 } }
+ }
+}
+
+advanced_torture.0006 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+
+ title = advanced_torture.0006.t
+ desc = advanced_torture.0006.desc
+
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.0006.phalaris_bull
+  custom_tooltip = advanced_torture_sadistic_torture_tt
+  trigger = { root = { has_trait = sadistic } exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7031 } }
+ }
+
+ option = {
+  name = advanced_torture.0006.judas_cradle
+  custom_tooltip = advanced_torture_sadistic_torture_tt
+  trigger = { root = { has_trait = sadistic } exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7032 } }
+ }
+
+ option = {
+  name = advanced_torture.0006.pear_of_anguish
+  custom_tooltip = advanced_torture_sadistic_torture_tt
+  trigger = { root = { has_trait = sadistic } exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7033 } }
+ }
+
+ option = {
+  name = advanced_torture.0006.iron_spider
+  custom_tooltip = advanced_torture_sadistic_torture_tt
+  trigger = { root = { has_trait = sadistic } exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7034 } }
+ }
+
+ option = {
+  name = advanced_torture.0006.torture_chair
+  custom_tooltip = advanced_torture_sadistic_torture_tt
+  trigger = { root = { has_trait = sadistic } exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7035 } }
+ }
+
+ option = {
+  name = advanced_torture.0006.skull_crusher
+  custom_tooltip = advanced_torture_sadistic_torture_tt
+  trigger = { root = { has_trait = sadistic } exists = scope:advanced_torture_prisoner scope:advanced_torture_prisoner = { is_alive = yes } }
+  hidden_effect = { trigger_event = { id = advanced_torture.7036 } }
+ }
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = { trigger_event = { id = advanced_torture.0005 } }
+ }
+}
+
+advanced_torture.0007 = {
+ type = character_event
+ hidden = yes
+
+ immediate = {
+  advanced_torture_open_cultural_tortures_effect = yes
+ }
+}
+

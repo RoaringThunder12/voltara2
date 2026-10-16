@@ -1,0 +1,229 @@
+﻿interactive_bribe_to_leave_war_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	common_interaction = yes
+	interface_priority = 65
+	category = interaction_category_diplomacy
+	desc = interactive_bribe_to_leave_war_desc
+	icon = alliance
+	force_notification = yes
+	greeting = positive
+	ai_min_reply_days = 0
+	ai_max_reply_days = 0
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		scope:actor = {
+			is_ai = no
+		}
+		OR = {
+			NOT = {
+				has_game_rule = bribe_to_leave_war_miv_disabled
+			}
+			NOT = {
+				has_game_rule = politics_miv_disabled
+			}
+		}
+		scope:recipient = {
+			NOT = {
+				this = scope:actor
+			}
+			exists = liege
+			is_at_war_with = scope:actor
+		}
+		scope:actor = {
+			any_character_war = {
+				miv_leave_war_valid_war_trigger = {
+					ACTOR = scope:actor
+					RECIPIENT = scope:recipient
+				}
+			}
+		}
+	}
+	on_accept = {
+		scope:actor = {
+			every_character_war = {
+				limit = {
+					miv_leave_war_valid_war_trigger = {
+						ACTOR = scope:actor
+						RECIPIENT = scope:recipient
+					}
+				}
+				scope:recipient = {
+					custom_description = {
+						text = interactive_bribe_to_leave_war_tooltip_text
+						subject = this
+						object = prev
+					}
+				}
+				miv_leave_war_withdraw_effect = yes
+			}
+		}
+		scope:actor = {
+			if = {
+				limit = {
+					scope:gold = yes
+					gold > medium_gold_value
+				}
+				pay_short_term_gold = {
+					target = scope:recipient
+					gold = medium_gold_value
+				}
+			}
+			if = {
+				limit = {
+					scope:influence = yes
+					influence > medium_influence_value
+				}
+				change_influence = medium_influence_loss
+			}
+			if = {
+				limit = {
+					scope:hook = yes
+					has_hook = scope:recipient
+				}
+				use_hook = scope:recipient
+			}
+			if = {
+				limit = {
+					scope:prisoner = yes
+					scope:recipient = {
+						is_imprisoned_by = scope:actor
+					}
+				}
+				scope:recipient = {
+					release_from_prison = yes
+				}
+			}
+			if = {
+				limit = {
+					scope:alliance = yes
+					is_allied_to = scope:recipient
+				}
+				scope:recipient = {
+					add_opinion = {
+						modifier = ally_called_on_alliance_opinion
+						target = scope:actor
+						opinion = -10
+					}
+				}
+			}
+		}
+	}
+	on_decline = {
+	}
+	send_option = {
+		is_valid = {
+			scope:actor.gold > scope:actor.medium_gold_value
+		}
+		flag = gold
+		localization = interactive_political_maneuver_gold_option
+	}
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				government_has_flag = government_has_influence
+			}
+			scope:recipient = {
+				government_has_flag = government_has_influence
+			}
+		}
+		is_valid = {
+			scope:actor.influence > medium_influence_value
+		}
+		flag = influence
+		localization = interactive_leave_war_influence_option
+	}
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+		}
+		flag = hook
+		localization = interactive_political_maneuver_hook_option
+	}
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				is_allied_to = scope:recipient
+			}
+		}
+		flag = alliance
+		localization = interactive_political_maneuver_alliance_option
+	}
+	send_option = {
+		is_valid = {
+			scope:recipient = {
+				is_imprisoned_by = scope:actor
+			}
+		}
+		flag = prisoner
+		localization = interactive_political_maneuver_prisoner_option
+	}
+	send_options_exclusive = no
+	ai_accept = {
+		base = 0
+		modifier = {
+			scope:recipient.liege ?= {
+				is_at_war_with = scope:recipient
+			}
+			add = scope:recipient.liege.miv_leave_war_against_liege
+			desc = interactive_leave_war_against_liege_tooltip
+		}
+		modifier = {
+			scope:recipient.liege ?= {
+				NOT = {
+					is_at_war_with = scope:recipient
+				}
+				is_at_war_with = scope:actor
+			}
+			add = scope:recipient.liege.miv_leave_war_for_liege
+			desc = interactive_leave_war_loyalty_tooltip
+		}
+		modifier = {
+			scope:recipient.liege ?= {
+				NOR = {
+					is_at_war_with = scope:recipient
+					is_at_war_with = scope:actor
+				}
+			}
+			add = -55
+			desc = interactive_leave_war_liege_absent_tooltip
+		}
+		modifier = {
+			scope:gold = yes
+			add = 10
+			desc = interactive_political_maneuver_gold_tooltip
+		}
+		modifier = {
+			scope:influence = yes
+			add = 10
+			desc = interactive_leave_war_influence_tooltip
+		}
+		modifier = {
+			scope:hook = yes
+			add = 30
+			desc = interactive_political_maneuver_hook_tooltip
+		}
+		modifier = {
+			scope:alliance = yes
+			add = 60
+			desc = interactive_political_maneuver_alliance_tooltip
+		}
+		modifier = {
+			scope:prisoner = yes
+			add = 60
+			desc = interactive_political_maneuver_prisoner_tooltip
+		}
+	}
+	ai_will_do = {
+		base = 0
+	}
+}

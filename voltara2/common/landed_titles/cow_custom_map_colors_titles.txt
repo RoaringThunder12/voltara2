@@ -1,0 +1,33 @@
+﻿# Here are the titles the baronies get their color from. Uses RGB 255.
+d_map_base_color = {
+	color = { 84 78 60 }
+	can_create = { always = no }
+}
+d_map_color_red = {
+	color = { 178 34 34 }
+	can_create = { always = no }
+}
+d_map_color_green = {
+	color = { 34 139 34 }
+	can_create = { always = no }
+}
+d_map_color_blue = {
+	color = { 0 0 200 }
+	can_create = { always = no }
+}
+d_map_color_cyan = {
+	color = { 0 200 200 }
+	can_create = { always = no }
+}
+d_map_color_yellow = {
+	color = { 200 200 0 }
+	can_create = { always = no }
+}
+d_map_color_orange = {
+	color = { 200 200 0 }
+	can_create = { always = no }
+}
+d_map_color_pink = {
+	color = { 200 0 200 }
+	can_create = { always = no }
+}

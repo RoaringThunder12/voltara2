@@ -1,0 +1,64 @@
+﻿voltara_dragon_battle_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+ icon = declare_war_interaction category = interaction_category_hostile common_interaction = yes auto_accept = yes
+ desc = voltara_dragon_battle_interaction_desc
+ is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:actor = { is_current_dragonrider_warfare = yes } scope:recipient = { is_current_dragonrider_warfare = yes } }
+ is_valid_showing_failures_only = { voltara_opposing_commander = yes scope:actor = { voltara_duel_ready = yes } scope:recipient = { voltara_duel_ready = yes } }
+ on_accept = { scope:actor = { add_character_flag = { flag = voltara_dragon_duel_pending days = 30 } trigger_event = voltara_dragons.60 }
+ scope:recipient = { add_character_flag = { flag = voltara_dragon_duel_pending days = 30 } } }
+ ai_will_do = { base = 0 }
+}
+voltara_battlefield_duel_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+ icon = declare_war_interaction category = interaction_category_hostile common_interaction = yes auto_accept = yes
+ desc = voltara_battlefield_duel_interaction_desc
+ is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:actor = { is_commanding_army = yes } scope:recipient = { is_commanding_army = yes } }
+ is_valid_showing_failures_only = { voltara_opposing_commander = yes
+ scope:actor = { voltara_duel_ready = yes NOT = { is_current_dragonrider_warfare = yes } }
+ scope:recipient = { voltara_duel_ready = yes NOT = { is_current_dragonrider_warfare = yes } battlefield_duel_agot_not_war_decider_from_actor_army_strict_trigger = yes } }
+ on_accept = {
+ scope:recipient = { add_character_flag = { flag = voltara_duel_cooldown days = 90 } }
+ scope:actor = { add_character_flag = { flag = voltara_duel_cooldown days = 90 }
+ configure_start_single_combat_effect = { SC_INITIATOR = scope:actor SC_ATTACKER = scope:actor SC_DEFENDER = scope:recipient
+ FATALITY = possible FIXED = no LOCALE = battlefield INVALIDATION_EVENT = single_combat.1006 OUTPUT_EVENT = voltara_dragons.70 } }
+ }
+ ai_will_do = { base = 0 }
+}
+voltara_suggest_dragon_bond_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+ icon = befriend_interaction category = interaction_category_friendly common_interaction = yes auto_accept = yes
+ desc = voltara_suggest_dragon_bond_interaction_desc cooldown = { years = 3 }
+ is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:actor = { is_landed = yes } scope:recipient = { is_adult = yes NOT = { has_trait = dragon } NOT = { this = scope:actor } }
+ OR = { scope:recipient = { is_courtier_of = scope:actor } scope:recipient = { is_vassal_of = scope:actor } } }
+ is_valid_showing_failures_only = { scope:recipient = { is_alive = yes is_imprisoned = no is_incapable = no NOT = { voltara_has_living_dragon = yes } }
+ any_in_global_list = { variable = voltara_living_dragons voltara_free_dragon = yes } scope:actor = { gold >= 300 } }
+ on_accept = { scope:actor = { remove_short_term_gold = 300 } scope:recipient = { trigger_event = voltara_dragons.1 } }
+ ai_will_do = { base = 0 }
+}

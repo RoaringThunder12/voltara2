@@ -1,0 +1,47 @@
+﻿# Default combat values
+dragon_advantage_values_1 = 30
+dragon_advantage_values_2 = 50
+dragon_advantage_values_3 = 70
+dragon_advantage_values_4 = 100
+dragon_advantage_values_5 = 130
+dragon_advantage_values_6 = 160
+dragon_advantage_values_7 = 190
+dragon_advantage_values_8 = 240
+dragon_advantage_values_9 = 275
+dragon_advantage_values_10 = 350
+dragon_advantage_counter_values_1 = -10
+dragon_advantage_counter_values_2 = -15
+dragon_advantage_counter_values_3 = -35
+dragon_advantage_counter_values_4 = -50
+dragon_advantage_counter_values_5 = -60
+dragon_advantage_counter_values_6 = -75
+dragon_advantage_counter_values_7 = -90
+dragon_advantage_counter_values_8 = -115
+dragon_advantage_counter_values_9 = -135
+dragon_advantage_counter_values_10 = -155
+
+# Dragon size values
+level_one_dragon_size = 0
+level_two_dragon_size = 20
+level_three_dragon_size = 40
+level_four_dragon_size = 60
+level_five_dragon_size = 80
+level_six_dragon_size = 100
+level_seven_dragon_size = 125
+level_eight_dragon_size = 150
+level_nine_dragon_size = 175
+level_ten_dragon_size = 200
+
+# Dragon combat levels
+level_one_dragon_combat = 30
+level_two_dragon_combat = 40
+level_three_dragon_combat = 60
+level_four_dragon_combat = 80
+level_five_dragon_combat = 100
+level_six_dragon_combat = 120
+level_seven_dragon_combat = 140
+level_eight_dragon_combat = 170
+level_nine_dragon_combat = 200
+level_ten_dragon_combat = 250
+
+

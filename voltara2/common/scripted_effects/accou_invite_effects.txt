@@ -1,0 +1,58 @@
+﻿# Actually add scope:recipient as courtier of scope:actor
+# See invite_to_court_interaction (on_accept)
+accou_invite_to_court_on_accept_effect = {
+	accou_invite_to_court_on_accept_vanilla_effect = yes
+}
+
+accou_invite_to_court_on_accept_vanilla_effect = {
+	hidden_effect = {
+		scope:recipient = {
+			set_variable = {
+				name = invite_to_court_cooldown
+				years = 5
+			}
+		}
+
+		if = {
+			limit = {
+				exists = scope:recipient.liege
+			}
+			scope:recipient.liege = {
+				send_interface_message = {
+					type = event_generic_neutral
+					title = msg_courtier_left_court_interaction_title
+
+					right_icon = scope:recipient
+
+					show_as_tooltip = {
+						remove_courtier_or_guest = scope:recipient
+					}
+				}
+			}
+		}
+	}
+
+	scope:actor = {
+		send_interface_message = {
+			type = event_generic_neutral
+			title = invite_to_court_interaction_notification
+			right_icon = scope:recipient
+
+			scope:recipient = {
+				every_traveling_family_member = {
+					scope:actor = { add_courtier = prev }
+					hidden_effect = {
+						return_to_court = yes
+					}
+				}
+			}
+
+			if = {
+				limit = { always = scope:hook }
+				scope:actor = {
+					use_hook = scope:recipient
+				}
+			}
+		}
+	}
+}

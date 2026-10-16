@@ -1,0 +1,16 @@
+﻿##############################
+## GM1 character_memory_types
+##############################
+
+l_english:
+ change_imprisoner_prisoner_memory: "Moved Prison"
+ change_imprisoner_prisoner_desc: "My jailor, [old_imprisoner.GetTitledFirstName], sent me to become [new_imprisoner.GetFullNamePossessive] own prisoner"
+ change_imprisoner_prisoner_desc_perspective: "[owner.GetTitledFirstNamePossessive|U] jailor, [old_imprisoner.GetTitledFirstName], sent [owner.GetHerHim] to become [new_imprisoner.GetFullNamePossessive] own prisoner"
+
+ change_imprisoner_old_imprisoner_memory: "Sent Prisoner"
+ change_imprisoner_old_imprisoner_desc: "I sent my prisoner, [prisoner.GetTitledFirstName], to become [new_imprisoner.GetFullNamePossessive] own prisoner"
+ change_imprisoner_old_imprisoner_desc_perspective: "[owner.GetTitledFirstNamePossessive|U] sent [owner.GetHerHis] prisoner, [prisoner.GetTitledFirstName], to become [new_imprisoner.GetFullNamePossessive] own prisoner"
+
+ change_imprisoner_new_imprisoner_memory: "Received Prisoner"
+ change_imprisoner_new_imprisoner_desc: "I received [old_imprisoner.GetFullNamePossessive] prisoner, [prisoner.GetTitledFirstName], as my own prisoner"
+ change_imprisoner_new_imprisoner_desc_perspective: "[owner.GetTitledFirstNamePossessive|U] received [old_imprisoner.GetFullNamePossessive] prisoner, [prisoner.GetTitledFirstName], as [owner.GetHerHim] own prisoner"

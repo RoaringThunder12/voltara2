@@ -1,0 +1,32 @@
+﻿dragonpit_close_family_law = {
+ law_group_type = dragonpit_laws index = 0 flag = dragonpit_close_family
+ can_realm_have = { voltara_owns_dragonpit = yes }
+ should_start_with = { always = yes }
+ can_pass = { voltara_owns_dragonpit = yes NOT = { has_character_flag = voltara_dragonpit_law_cooldown } }
+ pass_cost = { prestige = 150 }
+ on_after_pass = { add_character_flag = { flag = voltara_dragonpit_law_cooldown years = 5 } }
+}
+dragonpit_house_law = {
+ law_group_type = dragonpit_laws index = 1 flag = dragonpit_house
+ can_realm_have = { voltara_owns_dragonpit = yes }
+ should_start_with = { always = no }
+ can_pass = { voltara_owns_dragonpit = yes NOT = { has_character_flag = voltara_dragonpit_law_cooldown } }
+ pass_cost = { prestige = 150 }
+ on_after_pass = { add_character_flag = { flag = voltara_dragonpit_law_cooldown years = 5 } }
+}
+dragonpit_dynasty_law = {
+ law_group_type = dragonpit_laws index = 2 flag = dragonpit_dynasty
+ can_realm_have = { voltara_owns_dragonpit = yes }
+ should_start_with = { always = no }
+ can_pass = { voltara_owns_dragonpit = yes NOT = { has_character_flag = voltara_dragonpit_law_cooldown } }
+ pass_cost = { prestige = 150 }
+ on_after_pass = { add_character_flag = { flag = voltara_dragonpit_law_cooldown years = 5 } }
+}
+dragonpit_everyone_law = {
+ law_group_type = dragonpit_laws index = 3 flag = dragonpit_everyone
+ can_realm_have = { voltara_owns_dragonpit = yes }
+ should_start_with = { always = no }
+ can_pass = { voltara_owns_dragonpit = yes NOT = { has_character_flag = voltara_dragonpit_law_cooldown } }
+ pass_cost = { prestige = 150 }
+ on_after_pass = { add_character_flag = { flag = voltara_dragonpit_law_cooldown years = 5 } }
+}

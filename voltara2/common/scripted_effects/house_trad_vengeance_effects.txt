@@ -1,0 +1,74 @@
+﻿setup_vendetta_list = {
+	if = {
+		limit = {
+			exists = father.killer
+			killer = { is_alive = yes }
+		}
+		house = {
+			add_to_variable_list = {
+				name = killed_house_members
+				target = father
+			}
+		} # House
+	}
+	if = {
+		limit = {
+			exists = mother.killer
+			killer = { is_alive = yes }
+		}
+		house = {
+			add_to_variable_list = {
+				name = killed_house_members
+				target = mother
+			}
+		} # House
+	}
+	if = {
+		limit = {
+			exists = father.father.killer
+			killer = { is_alive = yes }
+		}
+		house = {
+			add_to_variable_list = {
+				name = killed_house_members
+				target = father.father
+			}
+		} # House
+	}
+	if = {
+		limit = {
+			exists = father.mother.killer
+			killer = { is_alive = yes }
+		}
+		house = {
+			add_to_variable_list = {
+				name = killed_house_members
+				target = father.mother
+			}
+		} # House
+	}
+	if = {
+		limit = {
+			exists = mother.father.killer
+			killer = { is_alive = yes }
+		}
+		house = {
+			add_to_variable_list = {
+				name = killed_house_members
+				target = mother.father
+			}
+		} # House
+	}
+	if = {
+		limit = {
+			exists = mother.mother.killer
+			killer = { is_alive = yes }
+		}
+		house = {
+			add_to_variable_list = {
+				name = killed_house_members
+				target = mother.mother
+			}
+		} # House
+	}
+}

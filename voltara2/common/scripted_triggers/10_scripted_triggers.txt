@@ -1,0 +1,135 @@
+﻿# =====================================================================================
+# Supernatural - overrides of VANILLA scripted triggers.
+#
+# This file used to be a whole renamed copy of vanilla's 00_scripted_triggers.txt: 42 keys,
+# loading later and silently replacing every one of them. Only FOUR of those 42 carried any
+# Supernatural change. The other 38 were pure staleness - the mod was freezing vanilla's
+# versions at whatever patch the copy was taken on, and quietly losing every fix Paradox
+# shipped afterwards (the Roads to Power landless clauses, the ?= safe-access rewrites, the
+# secret_cannibal / secret_murder key rename, faction_leader ?=, secret_target ?=).
+#
+# Those 38 are DELETED. Vanilla's current versions now win automatically, and keep winning
+# through every future patch. Only the four below are overridden, and each says why.
+#
+# RULE FOR THIS FILE: never add a trigger here unless Supernatural actually changes it, and
+# when you do, base it on vanilla's CURRENT text, not on the old copy.
+# =====================================================================================
+
+
+# Supernatural adds three lifestyles. Vanilla's five are unchanged.
+has_any_lifestyle_focus_trigger = {
+	OR = {
+		has_lifestyle = diplomacy_lifestyle
+		has_lifestyle = martial_lifestyle
+		has_lifestyle = stewardship_lifestyle
+		has_lifestyle = intrigue_lifestyle
+		has_lifestyle = learning_lifestyle
+		# --- Supernatural ---
+		has_lifestyle = vampire_lifestyle
+		has_lifestyle = werewolf_lifestyle
+		has_lifestyle = hybrid_lifestyle
+	}
+}
+
+# Same three, on the trait side.
+has_any_lifestyle_trait_trigger = {
+	OR = {
+		has_diplomacy_lifestyle_trait_trigger = yes
+		has_martial_lifestyle_trait_trigger = yes
+		has_stewardship_lifestyle_trait_trigger = yes
+		has_intrigue_lifestyle_trait_trigger = yes
+		has_learning_lifestyle_trait_trigger = yes
+		# --- Supernatural ---
+		has_vampire_lifestyle_trait_trigger = yes
+		has_werewolf_lifestyle_trait_trigger = yes
+		has_hybrid_lifestyle_trait_trigger = yes
+	}
+}
+
+# Vanilla's current text, with is_landless_adventurer kept ALONGSIDE the government check
+# rather than replacing it. AGOT ships custom landless governments, so the two tests do not
+# necessarily match the same characters and dropping either could change who can be imprisoned.
+# (Same call the AGOT compatibility patch makes - see supernatural-agot-conflict-ledger.md.)
+basic_allowed_to_imprison_character_trigger = { #Only to be used in is_shown for imprison interaction and similar
+	save_temporary_scope_as = allowed_imprisoner
+	$CHARACTER$ = {
+		OR = {
+			AND = {
+				target_is_liege_or_above = scope:allowed_imprisoner
+				trigger_if = {
+					limit = { is_foreign_court_guest = yes }
+					host = {
+						target_is_liege_or_above = scope:allowed_imprisoner
+					}
+				}
+			}
+			is_foreign_court_or_pool_guest_of = scope:allowed_imprisoner
+			AND = {
+				# EP3 EVICTION
+				OR = {
+				has_government = landless_adventurer_government
+					is_landless_adventurer = yes
+				}
+				reverse_has_opinion_modifier = {
+					target = scope:allowed_imprisoner
+					modifier = eviction_ignored_opinion
+				}
+			}
+		}
+		NOT = {
+			is_imprisoned_by = scope:allowed_imprisoner
+		}
+	}
+}
+
+# Same treatment. Everything else here is vanilla's current version verbatim, including the
+# hostage_travelling tooltip and the domicile county check the old copy predated.
+advanced_allowed_to_imprison_character_trigger = {
+	save_temporary_scope_as = allowed_imprisoner
+	$CHARACTER$ = {
+		save_temporary_scope_as = allowed_prisoner
+		is_imprisoned = no
+		NOT = { is_at_war_with = scope:allowed_imprisoner }
+		custom_description = {
+			text = "character_interactions_imprison_recently_ransomed"
+			object = scope:allowed_prisoner
+			NOT = {
+				has_opinion_modifier = {
+					target = scope:allowed_imprisoner
+					modifier = ransomed_from_prison
+				}
+			}
+		}
+		NOT = { has_strong_hook = scope:allowed_imprisoner }
+		custom_tooltip = {
+			text = hostage_travelling_tt
+			NOT = { exists = var:hostage_travelling_to_warden }
+		}
+		trigger_if = {
+			limit = {
+				OR = {
+					has_government = landless_adventurer_government
+					is_landless_adventurer = yes
+				}
+				is_ruler = yes
+			}
+			scope:allowed_imprisoner = { is_landed = yes }
+			reverse_has_opinion_modifier = {
+				target = scope:allowed_imprisoner
+				modifier = eviction_ignored_opinion
+			}
+			domicile.domicile_location.county ?= { target_is_de_facto_liege_or_above = scope:allowed_imprisoner.primary_title }
+		}
+	}
+	scope:allowed_imprisoner = {
+		custom_description = {
+			text = "character_interactions_imprison_ally_without_reason"
+			object = scope:allowed_prisoner
+			OR = {
+				NOT = { is_allied_to = scope:allowed_prisoner }
+				has_imprisonment_reason = scope:allowed_prisoner
+				is_spouse_of = scope:allowed_prisoner
+			}
+		}
+	}
+}

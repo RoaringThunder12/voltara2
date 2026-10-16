@@ -1,0 +1,73 @@
+﻿agot_can_be_activity_guest = { NOT = { has_trait = dragon } NOT = { has_trait = voltara_ruins_keeper } }
+
+agot_has_dragonblood_heritage = { OR = { agot_is_dragonblood_character = yes real_father ?= { agot_is_dragonblood_character = yes } real_mother ?= { agot_is_dragonblood_character = yes } } }
+
+agot_is_dragonblood_character = { OR = { has_trait = dragonrider has_trait = dragonless_dragonrider any_relation = { type = agot_dragon } is_target_in_global_variable_list = { name = historical_dragonseed target = this } } }
+
+agot_is_independent_ruler = {
+	custom_description = {
+		text = "is_independent_ruler"
+		AND = {
+			is_independent_ruler = yes
+			NOT = { has_variable = agot_pwl_direct }
+			NOT = { has_character_flag = bookmark_independent }
+		}
+	}
+}
+
+has_countsblood = {
+	OR = {
+		has_dukesblood = yes
+		highest_held_title_tier = tier_county
+		any_close_family_member = {
+			highest_held_title_tier = tier_county
+		}
+	}
+}
+
+has_dukesblood = {
+	OR = {
+		has_paramountblood = yes
+		highest_held_title_tier = tier_kingdom
+		any_close_family_member = {
+			highest_held_title_tier = tier_kingdom
+		}
+		highest_held_title_tier = tier_duchy
+		any_close_family_member = {
+			highest_held_title_tier = tier_duchy
+		}
+	}
+}
+
+has_kingsblood = {
+	OR = {
+		highest_held_title_tier = tier_hegemony
+		AND = {
+			agot_is_independent_ruler = yes
+			any_held_title = {
+				tier >= tier_kingdom
+			}
+		}
+		any_close_family_member = {
+			OR = {
+				highest_held_title_tier = tier_hegemony
+				AND = {
+					agot_is_independent_ruler = yes
+					any_held_title = {
+						tier >= tier_kingdom
+					}
+				}
+			}
+		}
+	}
+}
+
+has_paramountblood = {
+	OR = {
+		has_kingsblood = yes
+		highest_held_title_tier = tier_empire
+		any_close_family_member = {
+			highest_held_title_tier = tier_empire
+		}
+	}
+}

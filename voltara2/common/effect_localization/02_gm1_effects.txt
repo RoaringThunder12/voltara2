@@ -1,0 +1,54 @@
+﻿##############################
+## GM1 scripted_effects
+##############################
+
+#------------------------------
+# events-related
+#------------------------------
+
+take_prisoner_tooltip_effect = {
+	global = TAKE_PRISONER_TOOLTIP_EFFECT
+	first = CHARACTER_TAKE_PRISONER_TOOLTIP_EFFECT
+	third = CHARACTER_TAKE_PRISONER_TOOLTIP_EFFECT
+	global_past = TOOK_PRISONER_TOOLTIP_EFFECT
+	first_past = CHARACTER_TOOK_PRISONER_TOOLTIP_EFFECT
+	third_past = CHARACTER_TOOK_PRISONER_TOOLTIP_EFFECT
+}
+
+#------------------------------
+# prison-effects-related
+#------------------------------
+
+release_prisoner_tooltip_effect = {
+	global = RELEASE_PRISONER_TOOLTIP_EFFECT
+	first = CHARACTER_RELEASE_PRISONER_TOOLTIP_EFFECT
+	third = CHARACTER_RELEASE_PRISONER_TOOLTIP_EFFECT
+	global_past = RELEASED_PRISONER_TOOLTIP_EFFECT 
+	first_past = CHARACTER_RELEASED_PRISONER_TOOLTIP_EFFECT
+	third_past = CHARACTER_RELEASED_PRISONER_TOOLTIP_EFFECT
+}
+
+move_prison_tooltip_effect = {
+	global = MOVE_PRISON_TOOLTIP_EFFECT
+	first = CHARACTER_MOVE_PRISON_TOOLTIP_EFFECT
+	third = CHARACTER_MOVE_PRISON_TOOLTIP_EFFECT
+	global_past = MOVED_PRISON_TOOLTIP_EFFECT
+	first_past = CHARACTER_MOVED_PRISON_TOOLTIP_EFFECT
+	third_past = CHARACTER_MOVED_PRISON_TOOLTIP_EFFECT
+}
+
+change_imprisoner_court_chaplain_tooltip = {
+	global = CHANGE_IMPRISONER_COURT_CHAPLAIN_TOOLTIP_EFFECT
+}
+
+change_imprisoner_head_of_faith_tooltip = {
+	global = CHANGE_IMPRISONER_HEAD_OF_FAITH_TOOLTIP_EFFECT
+}
+
+change_imprisoner_vassal_tooltip = {
+	global = CHANGE_IMPRISONER_VASSAL_TOOLTIP_EFFECT
+}
+
+change_imprisoner_war_tooltip = {
+	global = CHANGE_IMPRISONER_WAR_TOOLTIP_EFFECT
+}

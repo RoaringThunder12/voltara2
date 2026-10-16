@@ -1,0 +1,6 @@
+﻿voltara_deep_elf_skin_bridge = { usage = game priority = 160
+ deep_elf = { dna_modifiers = {
+ morph = { mode = add gene = vt_demon_race_gene_mer_forehead template = dremora_face value = 0.659 }
+ morph = { mode = add gene = vt_demon_eye_pupil template = dremora_pupils value = 1.0 }
+ } weight = { base = 0 modifier = { add = 100 culture = culture:voltara_culture_42 } } }
+}

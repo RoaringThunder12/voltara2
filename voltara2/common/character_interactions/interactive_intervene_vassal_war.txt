@@ -1,0 +1,176 @@
+﻿interactive_intervene_war_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	common_interaction = yes
+	interface_priority = 67
+	category = interaction_category_diplomacy
+	interface = interfere_in_war
+	special_interaction = interfere_in_war_interaction
+	popup_on_receive = yes
+	desc = interactive_intervene_war_interaction_desc
+	icon = alliance
+	greeting = positive
+	notification_text = join_war_interaction_notification
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		NOT = {
+			has_game_rule = intervention_war_miv_disabled
+		}
+		scope:recipient = {
+			NOT = {
+				house = scope:actor.house
+			}
+			is_at_war = yes
+			is_vassal_or_below_of = scope:actor
+			NOR = {
+				this = scope:actor
+				is_at_war_with = scope:actor
+			}
+			is_ai = yes
+		}
+		scope:recipient = {
+			any_character_war = {
+				is_war_leader = prev
+			}
+		}
+	}
+	can_be_picked = {
+		exists = scope:target
+		scope:target = {
+			is_war_leader = scope:recipient
+		}
+	}
+	on_accept = {
+		scope:target ?= {
+			hidden_effect = {
+				set_called_to = scope:actor
+			}
+			if = {
+				limit = {
+					is_attacker = scope:recipient
+				}
+				add_attacker = scope:actor
+				scope:target.casus_belli.primary_defender = {
+					add_opinion = {
+						modifier = angry_opinion
+						target = scope:actor
+						opinion = -50
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							scope:actor = {
+								any_home_court_hostage = {
+									warden ?= {
+										is_defender_in_war = scope:target
+									}
+								}
+							}
+							scope:target = {
+								any_war_defender = {
+									any_warden_hostage = {
+										home_court ?= scope:actor
+									}
+								}
+							}
+						}
+					}
+					custom_tooltip = hostage_execution_warning_tt
+				}
+				if = {
+					limit = {
+						scope:target.casus_belli.primary_defender = {
+							is_vassal_or_below_of = scope:actor
+						}
+					}
+					scope:actor = {
+						add_tyranny = {
+							value = minor_tyranny_gain
+						}
+					}
+				}
+				else = {
+					scope:actor = {
+						add_prestige = {
+							value = medium_prestige_loss
+						}
+					}
+				}
+			}
+			else = {
+				add_defender = scope:actor
+				scope:target.casus_belli.primary_attacker = {
+					add_opinion = {
+						modifier = angry_opinion
+						target = scope:actor
+						opinion = -50
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							scope:actor = {
+								any_home_court_hostage = {
+									warden ?= {
+										is_attacker_in_war = scope:target
+									}
+								}
+							}
+							scope:target = {
+								any_war_attacker = {
+									any_warden_hostage = {
+										home_court ?= scope:actor
+									}
+								}
+							}
+						}
+					}
+					custom_tooltip = hostage_execution_warning_tt
+				}
+				if = {
+					limit = {
+						scope:target.casus_belli.primary_attacker = {
+							is_vassal_or_below_of = scope:actor
+						}
+					}
+					scope:actor = {
+						add_tyranny = {
+							value = minor_tyranny_gain
+						}
+					}
+				}
+				else = {
+					scope:actor = {
+						add_prestige = {
+							value = medium_prestige_loss
+						}
+					}
+				}
+			}
+		}
+		scope:recipient = {
+			add_opinion = {
+				modifier = grateful_opinion
+				target = scope:actor
+				opinion = 25
+			}
+		}
+	}
+	on_decline = {
+		scope:actor = {
+			trigger_event = char_interaction.0236
+		}
+	}
+	auto_accept = yes
+	ai_accept = {
+		base = 100
+	}
+}

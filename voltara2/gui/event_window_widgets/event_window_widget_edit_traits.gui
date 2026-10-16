@@ -1,0 +1,849 @@
+widget = {
+	name = "event_window_widget_edit_traits"
+	layoutpolicy_horizontal = expanding
+	size = { 400 300 }
+	allow_outside = yes
+	
+	datacontext = "[EventWindowWidget.GetScope.sC('ansf_family_member')]"
+	datacontext = "[GetVariableSystem]"
+	
+	container = {
+		allow_outside = yes
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		position = { 0 0 }
+		
+		visible = "[Not( GetVariableSystem.Exists('ansf_trait_window') )]"
+		
+		vbox = {
+			margin_left = 0
+			margin_right = 20
+			margin_top = 20
+			ignoreinvisible = yes
+			restrictparent_min = yes
+			
+			text_single = {
+				margin_bottom = 10
+				block "editbox_label"
+				{
+					default_format = "#high"
+					text = ansf_modify_traits_header
+				}
+			}
+			
+			spacing = 5
+			
+			hbox = {
+				spacing = 10
+				margin_bottom = 10
+				button_primary = {
+					size = { 120 30 }
+					text = ansf_personality_traits
+					tooltip = ansf_personality_traits_tt
+					using = tooltip_ne
+					enabled = "[GetScriptedGui('ansf_can_modify_personality').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetScriptedGui('ansf_can_modify_personality').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Toggle('ansf_trait_window')]"
+				}
+				button_primary = {
+					size = { 120 30 }
+					text = ansf_education_traits
+					tooltip = ansf_education_traits_tt
+					using = tooltip_ne
+					visible = "[Character.IsAdult]"
+					onclick = "[GetScriptedGui('ansf_can_modify_education').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Toggle('ansf_trait_window')]"
+				}
+				button_primary = {
+					size = { 120 30 }
+					text = ansf_education_traits
+					tooltip = ansf_education_focus_tt
+					using = tooltip_ne
+					visible = "[Not( Character.IsAdult )]"
+					enabled = "[GetScriptedGui('ansf_can_modify_education').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetScriptedGui('ansf_can_modify_education').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Toggle('ansf_trait_window')]"
+				}
+				button_primary = {
+					size = { 120 30 }
+					text = ansf_lifestyle_traits
+					tooltip = ansf_lifestyle_traits_tt
+					enabled = "[Character.IsAdult]"
+					onclick = "[GetScriptedGui('ansf_can_modify_lifestyle').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Toggle('ansf_trait_window')]"
+					using = tooltip_ne
+				}
+			}
+			
+			hbox = {
+				spacing = 10
+				margin_bottom = 10
+				ignoreinvisible = yes
+				button_primary = {
+					size = { 120 30 }
+					text = ansf_physical_traits
+					tooltip = ansf_physical_traits_tt
+					onclick = "[GetScriptedGui('ansf_can_modify_physical').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Toggle('ansf_trait_window')]"
+					using = tooltip_ne
+				}
+				button_primary = {
+					size = { 120 30 }
+					text = ansf_childhood_traits
+					visible = "[Not( Character.IsAdult )]"
+					enabled = "[GetScriptedGui('ansf_can_modify_childhood').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetScriptedGui('ansf_can_modify_childhood').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Toggle('ansf_trait_window')]"
+					tooltip = ansf_childhood_traits_tt
+					using = tooltip_ne
+				}
+				button_primary = {
+					size = { 120 30 }
+					text = ansf_commander_traits
+					visible = "[Character.IsAdult]"
+					enabled = "[GetScriptedGui('ansf_can_modify_commander').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetScriptedGui('ansf_can_modify_commander').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Toggle('ansf_trait_window')]"
+					tooltip = ansf_commander_traits_tt
+					using = tooltip_ne
+				}
+				button_primary = {
+					size = { 120 30 }
+					text = ansf_stress_traits
+					tooltip = ansf_stress_traits_tt
+					enabled = "[Character.IsAdult]"
+					onclick = "[GetScriptedGui('ansf_can_modify_stress').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Toggle('ansf_trait_window')]"
+					using = tooltip_ne
+				}
+			}
+			
+			hbox = {
+				spacing = 10
+				margin_bottom = 10
+				button_primary = {
+					size = { 120 30 }
+					text = ansf_flaw_traits
+					tooltip = ansf_flaw_traits_tt
+					onclick = "[GetScriptedGui('ansf_can_modify_flaws').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Toggle('ansf_trait_window')]"
+					using = tooltip_ne
+				}
+				button_primary = {
+					size = { 120 30 }
+					text = ansf_special_traits
+					tooltip = ansf_special_traits_tt
+					enabled = "[Character.IsAdult]"
+					onclick = "[GetScriptedGui('ansf_can_modify_special').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Toggle('ansf_trait_window')]"
+					using = tooltip_ne
+				}
+				button_primary = {
+					size = { 120 30 }
+					text = ansf_sexuality_traits
+					tooltip = ansf_sexuality_traits_tt
+					using = tooltip_ne
+					enabled = "[GetScriptedGui('ansf_can_modify_sexuality').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetScriptedGui('ansf_can_modify_sexuality').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Toggle('ansf_trait_window')]"
+				}
+			}
+			
+			background = {
+				using = Background_Area_ExtraDark
+				margin_top = 30
+				margin_right = 10
+				margin_left = 10
+				margin_bottom = 40
+				
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_fade_horizontal_middle.dds"
+					blend_mode = alphamultiply
+				}
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+					blend_mode = alphamultiply
+				}
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_fade_textured_vertical_down.dds"
+					spriteType = corneredtiled
+					spriteborder_top = 20
+					texture_density = 4
+					blend_mode = alphamultiply
+				}
+			}
+		}
+	}
+	
+	container = {
+		name = "main_traits_panel"
+		allow_outside = yes
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		ignoreinvisible = yes
+		position = { 50 -20 }
+		
+		visible = "[And( GetVariableSystem.Exists('ansf_trait_window'), Not( GetScriptedGui('ansf_use_sexuality_traits_panel').IsValid(GuiScope.SetRoot(Character.MakeScope).End) ) )]"
+		
+        widget = {
+            size = { 380 300 }
+            layoutpolicy_vertical = expanding
+            
+			vbox = {
+				name = "trait_start_panel"
+				ignoreinvisible = yes
+				restrictparent_min = yes
+
+				using =  Animation_Tab_Switch
+				
+				text_label_center = {
+					margin_bottom = 10
+					block "editbox_label"
+					{
+						default_format = "#high"
+						text = ansf_modify_traits_header
+					}
+				}
+				
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					restrictparent_min = yes
+					ignoreinvisible = yes
+				
+					scrollbox = {
+						name = "main_trait_start_list"
+						layoutpolicy_vertical = expanding
+						layoutpolicy_horizontal = expanding
+						minimumsize = { 100 50% }
+
+						blockoverride "scrollbox_content"
+						{
+							vbox_ansf_trait_start = {
+								layoutpolicy_horizontal = expanding
+								datamodel = "[GetGlobalList('ansf_trait_list')]"
+								
+								blockoverride "test_visible"
+								{
+									visible = "[GetScriptedGui('ansf_current_trait').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('trait', Trait.MakeScope).End)]"
+								}
+							}
+							
+							button_standard_hover = {
+								name = add_new_trait_button
+								layoutpolicy_horizontal = expanding
+								size = { 0 30 }
+								visible = "[GetScriptedGui('ansf_can_add_new_trait').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+								onclick = "[GetScriptedGui('ansf_can_add_new_trait').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+
+								hbox = {
+									margin = { 8 0 }
+									margin_right = 10
+									spacing = 10
+			
+									button_checkbox = {
+										size = { 25 25 }
+										checked = "[GetScriptedGui('ansf_checkmark_new_trait').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+									}
+			
+									text_single = {
+										margin_left = 2
+										layoutpolicy_horizontal = expanding
+										text = ansf_add_new_trait
+										default_format = "#clickable"
+									}
+								}
+							}
+						}
+					}
+					
+					scrollbox = {
+						name = "main_trait_selection_list"
+						layoutpolicy_vertical = expanding
+						layoutpolicy_horizontal = expanding
+						minimumsize = { 100 50% }
+
+						visible = "[GetScriptedGui('ansf_can_change_trait').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+
+						blockoverride "scrollbox_content"
+						{
+							button_standard_hover = {
+								name = remove_trait_button
+								layoutpolicy_horizontal = expanding
+								size = { 0 30 }
+								visible = "[GetScriptedGui('ansf_remove_trait').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+								onclick = "[GetScriptedGui('ansf_remove_trait').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+
+								hbox = {
+									margin = { 5 0 }
+									margin_right = 10
+									spacing = 10
+			
+									icon = {
+										size = { 30 30 }
+										texture = "gfx/interface/icons/symbols/icon_cross.dds"
+									}
+			
+									text_single = {
+										margin_left = 2
+										layoutpolicy_horizontal = expanding
+										text = ansf_remove_trait
+										default_format = "#clickable"
+									}
+								}
+							}
+							
+							vbox_ansf_trait_selection = {
+								layoutpolicy_horizontal = expanding
+								datamodel = "[GetGlobalList('ansf_trait_list')]"
+								
+								blockoverride "test_visible"
+								{
+									visible = "[GetScriptedGui('ansf_change_trait').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('trait', Trait.MakeScope).End)]"
+								}
+							}
+						}
+					}
+				}
+				
+				hbox = {
+					margin_top = 20
+					button_primary = {
+						size = { 120 30 }
+						text = ansf_return_main_menu
+						onclick = "[GetScriptedGui('ansf_clear_current_trait').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+						onclick = "[GetVariableSystem.Toggle('ansf_trait_window')]"
+					}
+				}
+			}
+		}
+	}
+	
+	container = {
+		name = "sexuality_traits_panel"
+		allow_outside = yes
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		ignoreinvisible = yes
+		position = { 40 -20 }
+		
+		visible = "[And( GetVariableSystem.Exists('ansf_trait_window'), GetScriptedGui('ansf_use_sexuality_traits_panel').IsValid(GuiScope.SetRoot(Character.MakeScope).End) )]"
+		
+        widget = {
+            size = { 380 300 }
+            layoutpolicy_vertical = expanding
+            
+			vbox = {
+				name = "trait_start_panel"
+				ignoreinvisible = yes
+				restrictparent_min = yes
+
+				using =  Animation_Tab_Switch
+				
+				text_label_center = {
+					margin_bottom = 10
+					block "editbox_label"
+					{
+						text = ansf_modify_sexuality_header
+					}
+				}
+				
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					restrictparent_min = yes
+					ignoreinvisible = yes
+					
+					scrollbox = {
+						name = "sexuality_start_list"
+						layoutpolicy_vertical = expanding
+						layoutpolicy_horizontal = expanding
+						minimumsize = { 100 50% }
+
+						blockoverride "scrollbox_content"
+						{	
+							button_standard_hover = {
+								name = "hetrosexual_start"
+								layoutpolicy_horizontal = expanding
+								size = { 0 30 }
+								visible = "[GetScriptedGui('ansf_is_heterosexual').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+								onclick = "[GetScriptedGui('ansf_modify_sexuality').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+
+								hbox = {
+									margin = { 8 0 }
+									margin_right = 10
+									spacing = 10
+									
+									background = {
+										name = "interaction_glow"
+										visible = "[GetScriptedGui('ansf_checkmark_new_trait').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+										texture = "gfx/interface/component_tiles/tile_selected.dds"
+										spriteType = corneredtiled
+										spriteborder = { 30 30 }
+									}
+									
+									icon = {
+										visible = "[Character.IsFemale]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "1"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_female.dds"
+									}
+									
+									icon = {
+										visible = "[Not(Character.IsFemale)]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "1"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_male.dds"
+									}
+			
+									text_single = {
+										margin_left = 2
+										layoutpolicy_horizontal = expanding
+										text = ansf_heterosexual
+										default_format = "#clickable"
+									}
+								}
+							}
+							
+							button_standard_hover = {
+								name = "bisexual_start"
+								layoutpolicy_horizontal = expanding
+								size = { 0 30 }
+								visible = "[GetScriptedGui('ansf_is_bisexual').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+								onclick = "[GetScriptedGui('ansf_modify_sexuality').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+
+								hbox = {
+									margin = { 8 0 }
+									margin_right = 10
+									spacing = 10
+									
+									background = {
+										name = "interaction_glow"
+										visible = "[GetScriptedGui('ansf_checkmark_new_trait').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+										texture = "gfx/interface/component_tiles/tile_selected.dds"
+										spriteType = corneredtiled
+										spriteborder = { 30 30 }
+									}
+									
+									icon = {
+										visible = "[Character.IsFemale]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "3"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_female.dds"
+									}
+									
+									icon = {
+										visible = "[Not(Character.IsFemale)]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "3"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_male.dds"
+									}
+			
+									text_single = {
+										margin_left = 2
+										layoutpolicy_horizontal = expanding
+										text = ansf_bisexual
+										default_format = "#clickable"
+									}
+								}
+							}
+							
+							button_standard_hover = {
+								name = "homosexual_start"
+								layoutpolicy_horizontal = expanding
+								size = { 0 30 }
+								visible = "[GetScriptedGui('ansf_is_homosexual').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+								onclick = "[GetScriptedGui('ansf_modify_sexuality').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+
+								hbox = {
+									margin = { 8 0 }
+									margin_right = 10
+									spacing = 10
+									
+									background = {
+										name = "interaction_glow"
+										visible = "[GetScriptedGui('ansf_checkmark_new_trait').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+										texture = "gfx/interface/component_tiles/tile_selected.dds"
+										spriteType = corneredtiled
+										spriteborder = { 30 30 }
+									}
+									
+									icon = {
+										visible = "[Character.IsFemale]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "2"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_female.dds"
+									}
+									
+									icon = {
+										visible = "[Not(Character.IsFemale)]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "2"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_male.dds"
+									}
+			
+									text_single = {
+										margin_left = 2
+										layoutpolicy_horizontal = expanding
+										text = ansf_homosexual
+										default_format = "#clickable"
+									}
+								}
+							}
+							
+							button_standard_hover = {
+								name = "asexual_start"
+								layoutpolicy_horizontal = expanding
+								size = { 0 30 }
+								visible = "[GetScriptedGui('ansf_is_asexual').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+								onclick = "[GetScriptedGui('ansf_modify_sexuality').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+
+								hbox = {
+									margin = { 8 0 }
+									margin_right = 10
+									spacing = 10
+									
+									background = {
+										name = "interaction_glow"
+										visible = "[GetScriptedGui('ansf_checkmark_new_trait').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+										texture = "gfx/interface/component_tiles/tile_selected.dds"
+										spriteType = corneredtiled
+										spriteborder = { 30 30 }
+									}
+									
+									icon = {
+										visible = "[Character.IsFemale]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "4"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_female.dds"
+									}
+									
+									icon = {
+										visible = "[Not(Character.IsFemale)]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "4"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_male.dds"
+									}
+			
+									text_single = {
+										margin_left = 2
+										layoutpolicy_horizontal = expanding
+										text = ansf_asexual
+										default_format = "#clickable"
+									}
+								}
+							}
+						}
+					}
+					
+					scrollbox = {
+						name = "sexuality_selection_list"
+						layoutpolicy_vertical = expanding
+						layoutpolicy_horizontal = expanding
+						minimumsize = { 100 50% }
+
+						visible = "[GetScriptedGui('ansf_can_change_trait').IsValid(GuiScope.SetRoot(Character.MakeScope).End)]"
+
+						blockoverride "scrollbox_content"
+						{
+							button_standard_hover = {
+								name = "heterosexual_select"
+								layoutpolicy_horizontal = expanding
+								size = { 0 30 }
+								visible = "[Not( GetScriptedGui('ansf_is_heterosexual').IsValid(GuiScope.SetRoot(Character.MakeScope).End) )]"
+								onclick = "[GetScriptedGui('ansf_set_heterosexual').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+								tooltip = ansf_replace_trait_tt
+
+								hbox = {
+									margin = { 5 0 }
+									margin_right = 10
+									spacing = 10
+									ignoreinvisible = yes
+			
+									icon = {
+										visible = "[Character.IsFemale]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "1"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_female.dds"
+									}
+									
+									icon = {
+										visible = "[Not(Character.IsFemale)]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "1"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_male.dds"
+									}
+			
+									text_single = {
+										margin_left = 2
+										layoutpolicy_horizontal = expanding
+										text = ansf_heterosexual
+										default_format = "#clickable"
+									}
+								}
+							}
+							
+							button_standard_hover = {
+								name = "bisexual_select"
+								layoutpolicy_horizontal = expanding
+								size = { 0 30 }
+								visible = "[Not( GetScriptedGui('ansf_is_bisexual').IsValid(GuiScope.SetRoot(Character.MakeScope).End) )]"
+								onclick = "[GetScriptedGui('ansf_set_bisexual').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+								tooltip = ansf_replace_trait_tt
+
+								hbox = {
+									margin = { 8 0 }
+									margin_right = 10
+									spacing = 10
+									ignoreinvisible = yes
+									
+									icon = {
+										visible = "[Character.IsFemale]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "3"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_female.dds"
+									}
+									
+									icon = {
+										visible = "[Not(Character.IsFemale)]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "3"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_male.dds"
+									}
+			
+									text_single = {
+										margin_left = 2
+										layoutpolicy_horizontal = expanding
+										text = ansf_bisexual
+										default_format = "#clickable"
+									}
+								}
+							}
+							
+							button_standard_hover = {
+								name = "homosexual_select"
+								layoutpolicy_horizontal = expanding
+								size = { 0 30 }
+								visible = "[Not( GetScriptedGui('ansf_is_homosexual').IsValid(GuiScope.SetRoot(Character.MakeScope).End) )]"
+								onclick = "[GetScriptedGui('ansf_set_homosexual').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+								tooltip = ansf_replace_trait_tt
+
+								hbox = {
+									margin = { 8 0 }
+									margin_right = 10
+									spacing = 10
+									ignoreinvisible = yes
+									
+									icon = {
+										visible = "[Character.IsFemale]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "2"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_female.dds"
+									}
+									
+									icon = {
+										visible = "[Not(Character.IsFemale)]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "2"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_male.dds"
+									}
+			
+									text_single = {
+										margin_left = 2
+										layoutpolicy_horizontal = expanding
+										text = ansf_homosexual
+										default_format = "#clickable"
+									}
+								}
+							}
+							
+							button_standard_hover = {
+								name = "asexual_select"
+								layoutpolicy_horizontal = expanding
+								size = { 0 30 }
+								visible = "[Not( GetScriptedGui('ansf_is_asexual').IsValid(GuiScope.SetRoot(Character.MakeScope).End) )]"
+								onclick = "[GetScriptedGui('ansf_set_asexual').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+								tooltip = ansf_replace_trait_tt
+
+								hbox = {
+									margin = { 8 0 }
+									margin_right = 10
+									spacing = 10
+									ignoreinvisible = yes
+									
+									icon = {
+										visible = "[Character.IsFemale]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "4"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_female.dds"
+									}
+									
+									icon = {
+										visible = "[Not(Character.IsFemale)]"
+										size = { 30 30 }
+										framesize = { 40 40 }
+										frame = "4"
+										texture = "gfx/interface/icons/character_status/sexuality_icons_male.dds"
+									}
+			
+									text_single = {
+										margin_left = 2
+										layoutpolicy_horizontal = expanding
+										text = ansf_asexual
+										default_format = "#clickable"
+									}
+								}
+							}
+						}
+					}
+				}
+				
+				hbox = {
+					margin_top = 20
+					button_primary = {
+						size = { 120 30 }
+						text = ansf_return_main_menu
+						onclick = "[GetScriptedGui('ansf_clear_current_trait').Execute(GuiScope.SetRoot(Character.MakeScope).End)]"
+						onclick = "[GetVariableSystem.Toggle('ansf_trait_window')]"
+					}
+				}
+			}
+		}
+	}
+
+}
+
+types ansf_trait_menu_types
+{
+
+	type vbox_ansf_trait_start = vbox
+	{
+		spacing = 3
+
+		item = {
+			hbox = {
+				datacontext = "[Scope.Trait]"
+				layoutpolicy_horizontal = expanding
+				block "test_visible"
+				{
+					visible = "[GetScriptedGui('ansf_current_trait').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('trait', Trait.MakeScope).End)]"
+				}
+				button_standard_hover = {
+					name = "trait_item"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					size = { 0 30 }
+					onclick = "[GetScriptedGui('ansf_current_trait').Execute(GuiScope.SetRoot(Character.MakeScope).AddScope('trait', Trait.MakeScope).End)]"
+					button_ignore = none
+
+					hbox = {
+						margin = { 5 0 }
+						margin_right = 10
+						spacing = 10
+
+						icon_trait = {
+							blockoverride "faith_context"
+							{
+								datacontext = "[Character.GetFaith]"
+								datacontext = "[Character.GetRite]"
+							}
+							blockoverride "tooltip_placement"
+							{
+								using = tooltip_ws
+							}
+							blockoverride "icon_size"
+							{
+								size = { 30 30 }
+							}
+						}
+						
+						background = {
+							name = "interaction_glow"
+							visible = "[GetScriptedGui('ansf_highlight_current_trait').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('trait', Trait.MakeScope).End)]"
+							texture = "gfx/interface/component_tiles/tile_selected.dds"
+							spriteType = corneredtiled
+							spriteborder = { 30 30 }
+						}
+
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							text = "[Trait.GetNameNoTooltip( Character.Self )]"
+							default_format = "#clickable"
+						}
+						
+					}
+				}
+			}
+		}
+	}
+
+	type vbox_ansf_trait_selection = vbox
+	{
+		spacing = 3
+
+		item = {
+			hbox = {
+				datacontext = "[Scope.Trait]"
+				layoutpolicy_horizontal = expanding
+				block "test_visible"
+				{
+					visible = "[And( Not( GetScriptedGui('ansf_current_trait').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('trait', Trait.MakeScope).End) ), GetScriptedGui('ansf_is_valid_gui_trait').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('trait', Trait.MakeScope).End) )]"
+				}
+				button_standard_hover = {
+					name = "trait_item"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					size = { 0 30 }
+					onclick = "[GetScriptedGui('ansf_change_trait').Execute(GuiScope.SetRoot(Character.MakeScope).AddScope('trait', Trait.MakeScope).End)]"
+					button_ignore = none
+					tooltip = ansf_replace_trait_tt
+
+					hbox = {
+						margin = { 5 0 }
+						margin_right = 10
+						spacing = 10
+
+						icon_trait = {
+							blockoverride "faith_context"
+							{
+								datacontext = "[Character.GetFaith]"
+								datacontext = "[Character.GetRite]"
+							}
+							blockoverride "tooltip_placement"
+							{
+								using = tooltip_ws
+							}
+							blockoverride "icon_size"
+							{
+								size = { 30 30 }
+							}
+						}
+
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							text = "[Trait.GetNameNoTooltip( Character.Self )]"
+							default_format = "#clickable"
+						}
+						
+					}
+				}
+			}
+		}
+	}
+}
+

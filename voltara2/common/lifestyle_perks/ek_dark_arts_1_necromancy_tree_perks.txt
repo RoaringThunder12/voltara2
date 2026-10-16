@@ -1,0 +1,257 @@
+﻿necromancy_novice_perk = {
+	lifestyle = dark_arts_lifestyle
+	tree = necromancy
+	position = { 0 0 }
+	icon = node_necromancy
+
+	can_be_picked = { 
+		vt_ek_is_necromancer = yes
+	}
+	
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				OR = {
+					has_trait = vt_ek_necromancer
+					has_trait = vt_ek_experimentalist_necromancer
+				}
+			}
+			add = 1989
+		}
+		if = {
+			limit = {
+				exists = dynasty
+				dynasty = { has_dynasty_modifier = magicka_legacy_necromancy_focus }
+			}
+			add = 500
+		}
+		if = {
+            limit = { faith = { has_doctrine_parameter = cheaper_necromancy_spells } } ###EK EDIT: new parameter
+            add = 100
+        }
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_necromancy_spells } } ###EK EDIT: new parameter
+            add = 100
+        }
+		if = {
+			limit = {
+				can_start_new_lifestyle_tree_trigger = no
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				can_magic_trigger = no
+			}
+			multiply = 0
+		}
+	}
+	
+	effect = {	
+		if = {
+			limit = { vt_ek_is_necromancer = yes }
+			custom_description_no_bullet = {
+				text = necromancy_novice_perk_effect
+			}
+		}
+		else = {
+			custom_description_no_bullet = {
+				text = no_necromancy_trait_perk_effect
+			}
+		}
+    }
+}
+
+necromancy_apprentice_perk = {
+	lifestyle = dark_arts_lifestyle
+	tree = necromancy
+	position = { 0 1 }
+	icon = node_necromancy
+	
+	parent = necromancy_novice_perk
+	
+	effect = {	
+		if = {
+			limit = { vt_ek_is_necromancer = yes }
+			custom_description_no_bullet = {
+				text = necromancy_apprentice_perk_effect
+			}
+		}
+		else = {
+			custom_description_no_bullet = {
+				text = no_necromancy_trait_perk_effect
+			}
+		}
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_necromancy_spells } } ###EK EDIT: new parameter
+            add_dark_arts_lifestyle_xp = 330
+        }
+	}
+}
+
+necromancy_minor_rituals_perk = {
+	lifestyle = dark_arts_lifestyle
+	tree = necromancy
+	position = { 2 1 }
+	icon = node_necromancy
+	
+	parent = necromancy_novice_perk
+	
+	effect = {	
+		custom_description_no_bullet = {
+			text = necromancy_minor_rituals_perk_effect
+		}
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_necromancy_spells } } ###EK EDIT: new parameter
+            add_dark_arts_lifestyle_xp = 330
+        }
+	}
+}
+
+necromancy_journeyman_perk = {
+	lifestyle = dark_arts_lifestyle
+	tree = necromancy
+	position = { 0 2 }
+	icon = node_necromancy
+	
+	parent = necromancy_apprentice_perk
+	
+	effect = {	
+		if = {
+			limit = { vt_ek_is_necromancer = yes }
+			custom_description_no_bullet = {
+				text = necromancy_journeyman_perk_effect
+			}
+		}
+		else = {
+			custom_description_no_bullet = {
+				text = no_necromancy_trait_perk_effect
+			}
+		}
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_necromancy_spells } } ###EK EDIT: new parameter
+            add_dark_arts_lifestyle_xp = 330
+        }
+	}
+}
+
+necromancy_medium_rituals_perk = {
+	lifestyle = dark_arts_lifestyle
+	tree = necromancy
+	position = { 2 2 }
+	icon = node_necromancy
+	
+	parent = necromancy_minor_rituals_perk
+	parent = necromancy_apprentice_perk
+	
+	effect = {	
+		custom_description_no_bullet = {
+			text = necromancy_medium_rituals_perk_effect
+		}
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_necromancy_spells } } ###EK EDIT: new parameter
+            add_dark_arts_lifestyle_xp = 330
+        }
+	}
+}
+
+necromancy_expert_perk = {
+	lifestyle = dark_arts_lifestyle
+	tree = necromancy
+	position = { 0 3 }
+	icon = node_necromancy
+	
+	parent = necromancy_journeyman_perk
+	
+	effect = {
+		if = {
+			limit = { vt_ek_is_necromancer = yes }	
+			custom_description_no_bullet = {
+				text = necromancy_expert_perk_effect
+			}
+		}
+		else = {
+			custom_description_no_bullet = {
+				text = no_necromancy_trait_perk_effect
+			}
+		}
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_necromancy_spells } } ###EK EDIT: new parameter
+            add_dark_arts_lifestyle_xp = 330
+        }
+	}
+}
+
+necromancy_major_rituals_perk = {
+	lifestyle = dark_arts_lifestyle
+	tree = necromancy
+	position = { 2 3 }
+	icon = node_necromancy
+	
+	parent = necromancy_medium_rituals_perk
+	parent = necromancy_journeyman_perk
+	
+	effect = {	
+		custom_description_no_bullet = {
+			text = necromancy_major_rituals_perk_effect
+		}
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_necromancy_spells } } ###EK EDIT: new parameter
+            add_dark_arts_lifestyle_xp = 330
+        }
+	}
+}
+
+necromancy_master_perk = {
+	lifestyle = dark_arts_lifestyle
+	tree = necromancy
+	position = { 0 4 }
+	icon = school_necromancy
+	
+	parent = necromancy_expert_perk
+	parent = necromancy_major_rituals_perk
+	
+	effect = {
+		if = {
+			limit = { vt_ek_is_necromancer = yes }	
+			custom_description_no_bullet = {
+				text = necromancy_master_perk_effect
+			}
+			custom_description_no_bullet = {
+				text = necromancy_master_perk_effect_lich
+			}
+		}
+		else = {
+			custom_description_no_bullet = {
+				text = no_necromancy_trait_perk_effect
+			}
+		}
+		custom_description_no_bullet = {
+			text = restoration_master_perk_effect_lifespan
+		}
+		if = {
+			limit = {
+				NOT = { exists = var:mastered_schools }
+			}
+			set_variable = {
+				name = mastered_schools
+				value = 1
+			}
+		}
+		else = {
+			change_variable = {
+				name = mastered_schools
+				add = 1
+			}
+		}
+		if = {
+            limit = { culture = { has_cultural_parameter = cheaper_necromancy_spells } } ###EK EDIT: new parameter
+            add_dark_arts_lifestyle_xp = 330
+        }
+		if = {
+			limit = { can_increase_lifespan_trigger = yes }
+			ek_can_extend_lifespan_notification_effect = yes
+		}
+	}
+}

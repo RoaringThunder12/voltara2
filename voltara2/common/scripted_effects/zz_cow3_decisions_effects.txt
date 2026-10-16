@@ -1,0 +1,657 @@
+﻿cow_feudal_stash_cow_buildings_effect = {
+	if = {
+		limit = { has_building = cow_generic_university_01 }
+		add_province_modifier = cow_generic_university_modifier
+		remove_building = cow_generic_university_01
+	}
+	if = {
+		limit = { has_building = cow_generic_library_01 }
+		add_province_modifier = cow_generic_library_modifier
+		remove_building = cow_generic_library_01
+	}
+	if = {
+		limit = { has_building = cow_christian_cathedral_01 }
+		add_province_modifier = cow_christian_cathedral_modifier
+		remove_building = cow_christian_cathedral_01
+	}
+	if = {
+		limit = { has_building = cow_muslim_mosque_01 }
+		add_province_modifier = cow_muslim_mosque_modifier
+		remove_building = cow_muslim_mosque_01
+	}
+	if = {
+		limit = { has_building = cow_zoroastrian_temple_01 }
+		add_province_modifier = cow_zoroastrian_temple_modifier
+		remove_building = cow_zoroastrian_temple_01
+	}
+	if = {
+		limit = { has_building = cow_pagan_temple_01 }
+		add_province_modifier = cow_pagan_temple_modifier
+		remove_building = cow_pagan_temple_01
+	}
+	if = {
+		limit = { has_building = cow_indian_temple_01 }
+		add_province_modifier = cow_indian_temple_modifier
+		remove_building = cow_indian_temple_01
+	}
+	if = {
+		limit = { has_building = cow_jewish_synagogue_01 }
+		add_province_modifier = cow_jewish_synagogue_modifier
+		remove_building = cow_jewish_synagogue_01
+	}
+	if = {
+		limit = { has_building = cow_royal_palace_01 }
+		add_province_modifier = cow_royal_palace_modifier
+		remove_building = cow_royal_palace_01
+	}
+	if = {
+		limit = { has_building = cow_great_harbor_01 }
+		add_province_modifier = cow_great_harbor_modifier
+		remove_building = cow_great_harbor_01
+	}
+	if = {
+		limit = { has_building = cow_walls_new_01 }
+		add_province_modifier = cow_walls_new_modifier
+		remove_building = cow_walls_new_01
+	}
+	if = {
+		limit = { has_building = cow_grand_fortress_01 }
+		add_province_modifier = cow_grand_fortress_modifier
+		remove_building = cow_grand_fortress_01
+	}
+	if = {
+		limit = { has_building = cow_great_lighthouse_01 }
+		add_province_modifier = cow_great_lighthouse_modifier
+		remove_building = cow_great_lighthouse_01
+	}
+	if = {
+		limit = { has_building = cow_grand_amphitheatre_01 }
+		add_province_modifier = cow_grand_amphitheatre_modifier
+		remove_building = cow_grand_amphitheatre_01
+	}
+	if = {
+		limit = { has_building = cow_city_gates_01 }
+		add_province_modifier = cow_city_gates_modifier
+		remove_building = cow_city_gates_01
+	}
+}
+
+cow_feudal_restore_cow_buildings_effect = {
+	if = {
+		limit = { has_province_modifier = cow_generic_university_modifier }
+		add_building = cow_generic_university_01
+		remove_province_modifier = cow_generic_university_modifier
+	}
+	if = {
+		limit = { has_province_modifier = cow_generic_library_modifier }
+		add_building = cow_generic_library_01
+		remove_province_modifier = cow_generic_library_modifier
+	}
+	if = {
+		limit = { has_province_modifier = cow_christian_cathedral_modifier }
+		add_building = cow_christian_cathedral_01
+		remove_province_modifier = cow_christian_cathedral_modifier
+	}
+	if = {
+		limit = { has_province_modifier = cow_muslim_mosque_modifier }
+		add_building = cow_muslim_mosque_01
+		remove_province_modifier = cow_muslim_mosque_modifier
+	}
+	if = {
+		limit = { has_province_modifier = cow_zoroastrian_temple_modifier }
+		add_building = cow_zoroastrian_temple_01
+		remove_province_modifier = cow_zoroastrian_temple_modifier
+	}
+	if = {
+		limit = { has_province_modifier = cow_pagan_temple_modifier }
+		add_building = cow_pagan_temple_01
+		remove_province_modifier = cow_pagan_temple_modifier
+	}
+	if = {
+		limit = { has_province_modifier = cow_indian_temple_modifier }
+		add_building = cow_indian_temple_01
+		remove_province_modifier = cow_indian_temple_modifier
+	}
+	if = {
+		limit = { has_province_modifier = cow_jewish_synagogue_modifier }
+		add_building = cow_jewish_synagogue_01
+		remove_province_modifier = cow_jewish_synagogue_modifier
+	}
+	if = {
+		limit = { has_province_modifier = cow_royal_palace_modifier }
+		add_building = cow_royal_palace_01
+		remove_province_modifier = cow_royal_palace_modifier
+	}
+	if = {
+		limit = { has_province_modifier = cow_great_harbor_modifier }
+		add_building = cow_great_harbor_01
+		remove_province_modifier = cow_great_harbor_modifier
+	}
+	if = {
+		limit = { has_province_modifier = cow_walls_new_modifier }
+		add_building = cow_walls_new_01
+		remove_province_modifier = cow_walls_new_modifier
+	}
+	if = {
+		limit = { has_province_modifier = cow_grand_fortress_modifier }
+		add_building = cow_grand_fortress_01
+		remove_province_modifier = cow_grand_fortress_modifier
+	}
+	if = {
+		limit = { has_province_modifier = cow_great_lighthouse_modifier }
+		add_building = cow_great_lighthouse_01
+		remove_province_modifier = cow_great_lighthouse_modifier
+	}
+	if = {
+		limit = { has_province_modifier = cow_grand_amphitheatre_modifier }
+		add_building = cow_grand_amphitheatre_01
+		remove_province_modifier = cow_grand_amphitheatre_modifier
+	}
+	if = {
+		limit = { has_province_modifier = cow_city_gates_modifier }
+		add_building = cow_city_gates_01
+		remove_province_modifier = cow_city_gates_modifier
+	}
+}
+
+convert_whole_realm_to_feudalism_effect = {
+	#TOOLTIP INFO
+	#PLAYER EFFECTS
+	
+	hidden_effect = {
+		## Spawn holdings in tribal counties
+		
+		every_sub_realm_county = { # Spawn temples in your holy sites
+			limit = {
+				any_county_province = {
+					has_holding_type = tribal_holding
+				}
+				NOT = {
+					any_county_province = {
+						has_holding_type = church_holding
+					}
+				}
+				any_county_province = {
+					has_holding = no
+					barony = {
+						is_holy_site_of = root.faith
+					}
+				}
+			}
+			random_county_province = {
+				limit = {
+					has_holding = no
+					barony_cannot_construct_holding = no
+					barony = {
+						is_holy_site_of = root.faith
+					}
+				}
+				set_holding_type = church_holding
+			}
+		}
+		
+		every_sub_realm_county = { # Spawn a City
+			limit = {
+				any_county_province = {
+					has_holding_type = tribal_holding
+				}
+				any_county_province = {
+					has_holding = no
+				}
+				NOT = {
+					any_county_province = {
+						has_holding_type = city_holding
+					}
+				}
+			}
+			random_county_province = {
+				limit = {
+					has_holding = no
+					OR = {
+						terrain = floodplains
+						terrain = oasis
+						terrain = farmlands
+						terrain = terraced_hills
+					}
+					is_coastal = yes
+					has_special_building_slot = no
+					barony_cannot_construct_holding = no
+				}
+				alternative_limit = {
+					has_holding = no
+					OR = {
+						terrain = floodplains
+						terrain = oasis
+						terrain = farmlands
+						terrain = terraced_hills
+					}
+					has_special_building_slot = no
+					barony_cannot_construct_holding = no
+				}
+				alternative_limit = {
+					has_holding = no
+					OR = {
+						terrain = floodplains
+						terrain = oasis
+						terrain = farmlands
+						terrain = terraced_hills
+					}
+					barony_cannot_construct_holding = no
+				}
+				alternative_limit = {
+					has_holding = no
+					barony_cannot_construct_holding = no
+				}
+				random = {
+					chance = 60
+					modifier = {
+						add = county.development_level
+					}
+					modifier = {
+						add = 50
+						this.county = root.capital_county
+					}
+					modifier = {
+						add = 20
+						OR = {
+							terrain = floodplains
+							terrain = oasis
+							terrain = farmlands
+							terrain = terraced_hills
+						}
+					}
+					set_holding_type = city_holding
+				}
+			}
+		}
+		
+		every_sub_realm_county = { # Spawn a Temple
+			limit = {
+				any_county_province = {
+					has_holding_type = tribal_holding
+				}
+				any_county_province = {
+					has_holding = no
+				}
+				NOT = {
+					any_county_province = {
+						has_holding_type = church_holding
+					}
+				}
+			}
+			random_county_province = {
+				limit = {
+					has_holding = no
+					OR = {
+						terrain = floodplains
+						terrain = oasis
+						terrain = farmlands
+						terrain = terraced_hills
+					}
+					is_coastal = yes
+					has_special_building_slot = no
+					barony_cannot_construct_holding = no
+				}
+				alternative_limit = {
+					has_holding = no
+					OR = {
+						terrain = floodplains
+						terrain = oasis
+						terrain = farmlands
+						terrain = terraced_hills
+					}
+					has_special_building_slot = no
+					barony_cannot_construct_holding = no
+				}
+				alternative_limit = {
+					has_holding = no
+					OR = {
+						terrain = floodplains
+						terrain = oasis
+						terrain = farmlands
+						terrain = terraced_hills
+					}
+					barony_cannot_construct_holding = no
+				}
+				alternative_limit = {
+					has_holding = no
+					barony_cannot_construct_holding = no
+				}
+				random = {
+					chance = 50
+					modifier = {
+						add = county.development_level
+					}
+					modifier = {
+						add = 50
+						this.county = root.capital_county
+					}
+					modifier = {
+						add = 20
+						OR = {
+							terrain = floodplains	
+							terrain = oasis
+							terrain = farmlands
+							terrain = terraced_hills
+						}
+					}
+					set_holding_type = church_holding
+				}
+			}
+		}
+
+		##Sort out new buildings for liege and all vassals
+		every_realm_province = {
+			limit = {
+				has_holding_type = tribal_holding
+				NOT = { is_in_list = feudal_conversion }
+			}
+
+			cow_feudal_stash_cow_buildings_effect = yes
+			add_to_list = feudal_conversion
+		}
+		every_vassal_or_below = {
+			every_realm_province = {
+				limit = {
+					has_holding_type = tribal_holding
+					NOT = { is_in_list = feudal_conversion }
+				}
+				cow_feudal_stash_cow_buildings_effect = yes
+				add_to_list = feudal_conversion
+			}
+		}
+		every_in_list = {
+			list = feudal_conversion
+			set_variable = {
+				name = tribal_to_feudal_building_level
+				value = combined_building_level
+				days = 1
+			}
+			holding_pre_feudalize_effect = yes
+			set_holding_type = castle_holding
+			cow_feudal_restore_cow_buildings_effect = yes
+			while = {
+				limit = {
+					var:tribal_to_feudal_building_level > 1
+				}
+				generate_building = yes
+				change_variable = {
+					name = tribal_to_feudal_building_level
+					subtract = 1
+				}
+			}
+			remove_variable = tribal_to_feudal_building_level
+			remove_from_list = feudal_conversion
+		}
+	}
+	
+	##Liege has Soryo? Convert to Soryo!
+	if = {
+		limit = {
+			has_tgp_dlc_trigger = yes
+			top_liege != this
+			liege = { government_has_flag = government_is_japan_feudal }
+		}
+		change_government = japan_feudal_government
+		if = {
+			limit = {
+				is_house_head = yes
+			}
+			save_scope_as = new_head
+			house = {
+				set_house_name = japanese_dynasty_name
+				save_scope_as = new_house
+			}
+			create_noble_family_effect = { GOVERNMENT_GIVER = this }
+			scope:new_title = {
+				#set_title_name_dynamic = japanese_noble_family_name
+				set_coa = scope:new_house
+			}
+		}
+	}
+	##Liege has clan? Convert to clan!
+	else_if = {
+		limit = {
+			top_liege != this
+			OR = {
+				liege = { government_has_flag = government_is_clan }
+				AND = {
+					liege = { government_has_flag = government_is_tribal }
+					religion = religion:islam_religion
+				}
+			}
+		}
+		change_government = clan_government
+	}
+	##Liege has feudal? Convert to feudal!
+	else_if = {
+		limit = {
+			top_liege != this
+			OR = {
+				liege = { government_has_flag = government_is_feudal }
+				AND = {
+					liege = { government_has_flag = government_is_tribal }
+					NOT = { religion = religion:islam_religion }
+				}
+			}
+		}
+		change_government = feudal_government
+	}
+	##You're an independent Japanese Heritage Character? Convert to Soryo!
+	else_if = {
+		limit = {
+			has_tgp_dlc_trigger = yes
+			top_liege = this
+			culture.culture_head ?= { government_is_japanese_trigger = yes }
+		}
+		add_character_flag = can_become_japanese_feudal # Used in the can_get_government of japan_feudal_government
+		change_government = japan_feudal_government
+		if = {
+			limit = {
+				is_house_head = yes
+			}
+			save_scope_as = new_head
+			house = {
+				set_house_name = japanese_dynasty_name
+				save_scope_as = new_house
+			}
+			create_noble_family_effect = { GOVERNMENT_GIVER = this }
+			scope:new_title = {
+				#set_title_name_dynamic = japanese_noble_family_name
+				set_coa = scope:new_house
+			}
+		}
+	}
+	##You're an independent Muslim? Convert to clan!
+	else_if = {
+		limit = {
+			top_liege = this
+			faith = { religion_tag = islam_religion }
+		}
+		change_government = clan_government
+	}
+	##You're an independent anything else? Convert to feudal!
+	else = { change_government = feudal_government }
+	if = {
+		limit = {
+			government_has_flag = government_is_tribal
+		}
+		##General
+		custom_tooltip = all_holding_will_change
+		##Liege has clan? Convert to clan!
+		if = {
+			limit = {
+				top_liege != this
+				liege = { government_has_flag = government_is_clan }
+			}
+			custom_tooltip = clan_liege_vassals_will_convert
+		}
+		#Liege has feudal? Convert to feudal!
+		if = {
+			limit = {
+				top_liege != this
+				liege = { government_has_flag = government_is_feudal }
+			}
+			custom_tooltip = feudal_liege_vassals_will_convert
+		}
+		##If I am Islamic, we will become clan.
+		if = {
+			limit = {
+				top_liege = this
+				faith = { religion_tag = islam_religion }
+			}
+			custom_tooltip = islamic_vassals_will_convert
+		}
+		##If I am not Islamic, we will become feudal.
+		else_if = {
+			limit = { top_liege = this }
+			custom_tooltip = other_vassals_will_convert
+		}
+	}
+
+	hidden_effect = {
+		#Nuke tribal authorities.
+		if = {
+			limit = { has_realm_law = tribal_authority_0 }
+			remove_realm_law = tribal_authority_0
+		}
+		if = {
+			limit = { has_realm_law = tribal_authority_1 }
+			remove_realm_law = tribal_authority_1
+		}
+		if = {
+			limit = { has_realm_law = tribal_authority_2 }
+			remove_realm_law = tribal_authority_2
+		}
+		if = {
+			limit = { has_realm_law = tribal_authority_3 }
+			remove_realm_law = tribal_authority_3
+		}
+		#Start off crown authorities.
+		if = {
+			limit = {
+				NOT = { has_realm_law = crown_authority_0 }
+			}
+			add_realm_law_skip_effects = crown_authority_0
+		}
+
+		#Also convert every vassal.
+		#Liege has taken soryo, so become soryo.
+		if = {
+			limit = {
+				government_has_flag = government_is_japan_feudal
+			}
+			every_vassal_or_below = {
+				limit = { government_has_flag = government_is_tribal }
+				add_character_flag = can_become_japanese_feudal # Used in the can_get_government of japan_feudal_government
+				change_government = japan_feudal_government
+				if = {
+					limit = {
+						is_house_head = yes
+					}
+					save_scope_as = new_head
+					house = {
+						set_house_name = japanese_dynasty_name
+						save_scope_as = new_house
+					}
+					if = {
+						limit = {
+							highest_held_title_tier >= tier_county
+						}
+						create_noble_family_effect = { GOVERNMENT_GIVER = this }
+						scope:new_title = {
+							#set_title_name_dynamic = japanese_noble_family_name
+							set_coa = scope:new_house
+						}
+					}
+				}
+				#Nuke tribal authorities.
+				if = {
+					limit = { has_realm_law = tribal_authority_0 }
+					remove_realm_law = tribal_authority_0
+				}
+				if = {
+					limit = { has_realm_law = tribal_authority_1 }
+					remove_realm_law = tribal_authority_1
+				}
+				if = {
+					limit = { has_realm_law = tribal_authority_2 }
+					remove_realm_law = tribal_authority_2
+				}
+				if = {
+					limit = { has_realm_law = tribal_authority_3 }
+					remove_realm_law = tribal_authority_3
+				}
+				if = {
+					limit = {
+						NOT = { has_realm_law = japanese_bureaucracy_0 }
+					}
+					add_realm_law_skip_effects = japanese_bureaucracy_0
+				}
+			}
+		}
+		#Liege has taken clan, so become clan.
+		else_if = {
+			limit = {
+				government_has_flag = government_is_clan
+			}
+			every_vassal_or_below = {
+				limit = { government_has_flag = government_is_tribal }
+				change_government = clan_government
+				#Nuke tribal authorities.
+				if = {
+					limit = { has_realm_law = tribal_authority_0 }
+					remove_realm_law = tribal_authority_0
+				}
+				if = {
+					limit = { has_realm_law = tribal_authority_1 }
+					remove_realm_law = tribal_authority_1
+				}
+				if = {
+					limit = { has_realm_law = tribal_authority_2 }
+					remove_realm_law = tribal_authority_2
+				}
+				if = {
+					limit = { has_realm_law = tribal_authority_3 }
+					remove_realm_law = tribal_authority_3
+				}
+				if = {
+					limit = {
+						NOT = { has_realm_law = crown_authority_0 }
+					}
+					add_realm_law_skip_effects = crown_authority_0
+				}
+			}
+		}
+		#Liege is not clan, become feudal.
+		else = {
+			every_vassal_or_below = {
+				limit = { government_has_flag = government_is_tribal }
+				change_government = feudal_government
+				#Nuke tribal authorities.
+				if = {
+					limit = { has_realm_law = tribal_authority_0 }
+					remove_realm_law = tribal_authority_0
+				}
+				if = {
+					limit = { has_realm_law = tribal_authority_1 }
+					remove_realm_law = tribal_authority_1
+				}
+				if = {
+					limit = { has_realm_law = tribal_authority_2 }
+					remove_realm_law = tribal_authority_2
+				}
+				if = {
+					limit = { has_realm_law = tribal_authority_3 }
+					remove_realm_law = tribal_authority_3
+				}
+				if = {
+					limit = {
+						NOT = { has_realm_law = crown_authority_0 }
+					}
+					add_realm_law_skip_effects = crown_authority_0
+				}
+			}
+		}
+	}
+}

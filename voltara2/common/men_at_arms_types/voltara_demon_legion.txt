@@ -1,0 +1,12 @@
+﻿voltara_demon_legion = {
+ type = heavy_infantry
+ damage = 45 toughness = 40
+ counters = { pikemen = 1 heavy_infantry = 1 }
+ can_recruit = { culture = culture:voltara_demon OR = { has_trait = demon1 has_trait = demon2 } }
+ buy_cost = { gold = 150 }
+ low_maintenance_cost = { gold = 0.5 }
+ high_maintenance_cost = { gold = 1 }
+ max_sub_regiments = 5 stack = 50
+ allowed_in_hired_troops = no
+ icon = daedra
+}

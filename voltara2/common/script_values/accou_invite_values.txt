@@ -1,0 +1,800 @@
+﻿accou_invite_candidate_quality_value = {
+	value = 0
+
+	# Liege opinion (-20 to 20)
+	# Includes: attraction, relations, faith, culture, traits, etc.
+	add = {
+		value = scope:liege_opinion
+		multiply = 0.2
+	}
+
+	# Opinion of liege (-20 to 20)
+	add = {
+		value = scope:opinion_of_liege
+		multiply = 0.2
+	}
+
+	# Heirs
+	if = {
+		limit = {
+			OR = {
+				is_player_heir_of = scope:liege
+				is_heir_of = scope:liege
+			}
+		}
+		add = 20
+	}
+
+	# Close family, consort, extended family, or dynasty
+	if = {
+		limit = {
+			OR = {
+				is_close_family_of = scope:liege
+				is_consort_of = scope:liege
+			}
+		}
+		add = 20
+	}
+	else_if = {
+		limit = {
+			is_extended_family_of = scope:liege
+		}
+		add = 10
+	}
+
+	# Positive relations
+	if = {
+		limit = {
+			OR = {
+				has_relation_best_friend = scope:liege
+				has_relation_soulmate = scope:liege
+			}
+		}
+		add = 50
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_relation_friend = scope:liege
+				has_relation_lover = scope:liege
+			}
+		}
+		add = 20
+	}
+
+	# Negative relations
+	if = {
+		limit = {
+			has_relation_nemesis = scope:liege
+		}
+		add = -50
+	}
+	else_if = {
+		limit = {
+			has_relation_rival = scope:liege
+		}
+		add = -20
+	}
+
+	# Not lowborn (10)
+	if = {
+		limit = { is_lowborn = no }
+		add = 5
+	}
+
+	# Genetic traits (-15 to 15 assuming a single genetic trait)
+	if = {
+		limit = { accou_is_fertile_trigger = yes }
+		add = {
+			value = genetic_character_value
+			multiply = 5
+		}
+	}
+
+	# Court position traits (0 to 15 assuming a single trait)
+	add = {
+		value = accou_court_position_traits_character_value
+		multiply = 5
+	}
+
+	# Skills (approx -40 to 40)
+	add = {
+		value = sum_of_all_skills_value
+		subtract = 40 # 5 * 8
+	}
+
+	# Best skill (approx -16 to 44)
+	add = {
+		value = accou_best_skill_value
+		subtract = 8
+		multiply = 2
+	}
+
+	# Commander traits (0 to 15) / prowess (-8 to 22)
+	if = {
+		limit = {
+			can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:liege }
+		}
+		add = {
+			value = number_of_commander_traits
+			multiply = 5
+		}
+		add = {
+			value = prowess
+			subtract = 8
+		}
+	}
+
+	# Claims
+	if = {
+		limit = {
+			accou_has_useful_claims_trigger = { RULER = scope:liege }
+		}
+		add = 10
+	}
+
+	# Inspired
+	if = {
+		limit = { exists = inspiration }
+		add = 10
+	}
+
+	round = yes
+}
+
+accou_court_position_traits_character_value = {
+	value = accou_vanilla_court_position_traits_character_value
+}
+
+accou_vanilla_court_position_traits_character_value = {
+	# Positive
+	value = 0
+	if = {
+		limit = { has_trait = lifestyle_physician } # Court Physician
+		add = {
+			value = 1
+			if = {
+				limit = {
+					has_trait_xp = { trait = lifestyle_physician value >= 50 }
+				}
+				add = 1
+			}
+			if = {
+				limit = {
+					has_trait_xp = { trait = lifestyle_physician value >= 100 }
+				}
+				add = 1
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = lifestyle_traveler } # Travel Leader
+		add = {
+			value = 1
+			if = {
+				limit = {
+					OR = {
+						has_trait_xp = { trait = lifestyle_traveler track = travel value >= 50 }
+						has_trait_xp = { trait = lifestyle_traveler track = danger value >= 50 }
+					}
+				}
+				add = 1
+			}
+			if = {
+				limit = {
+					OR = {
+						has_trait_xp = { trait = lifestyle_traveler track = travel value >= 75 }
+						has_trait_xp = { trait = lifestyle_traveler track = danger value >= 75 }
+					}
+				}
+				add = 1
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = lifestyle_hunter } # Master of Hunt
+		add = {
+			value = 1
+			if = {
+				limit = {
+					has_trait_xp = { trait = lifestyle_hunter track = hunter value >= 50 }
+				}
+				add = 1
+			}
+			if = {
+				limit = {
+					has_trait_xp = { trait = lifestyle_hunter track = hunter value >= 100 }
+				}
+				add = 1
+			}
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_mystic  # Court Physician
+			has_trait_xp = { trait = lifestyle_mystic value >= 100 }
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_blademaster  # Bodyguard, Champion
+			has_trait_xp = { trait = lifestyle_blademaster value >= 100 }
+		}
+		add = 1
+	}
+	if = {
+		limit = { has_trait = lifestyle_herbalist } # Court Physician
+		add = 1
+	}
+	if = {
+		limit = { has_trait = strong } # Wet Nurse, Akolouthos
+		add = 1
+	}
+	if = {
+		limit = { has_trait = shrewd } # Court Tutor, Court Jester
+		add = 1
+	}
+	if = {
+		limit = { has_trait = diplomat } # Chronicler
+		add = 1
+	}
+	if = {
+		limit = { has_trait = administrator } # Seneschal
+		add = 1
+	}
+	if = {
+		limit = { has_trait = overseer } # Seneschal, Antiquarian
+		add = 1
+	}
+	if = {
+		limit = { has_trait = lifestyle_poet } # Court Jester, Court Poet, Chronicler
+		add = 1
+	}
+	if = {
+		limit = { # Court Eunuch
+			OR = {
+				has_trait = eunuch_1
+				has_trait = beardless_eunuch
+			}
+		}
+		add = 1
+	}
+	if = {
+		limit = { has_completed_inspiration = yes } # Antiquarian
+		add = 2
+	}
+	if = {
+		limit = { has_trait = charioteer_blue } # Charioteer
+		add = {
+			value = 0
+			if = {
+				limit = {
+					has_trait_xp = { trait = charioteer_blue value >= 40 }
+				}
+				add = 1
+			}
+			if = {
+				limit = {
+					has_trait_xp = { trait = charioteer_blue value >= 90 }
+				}
+				add = 1
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = charioteer_green } # Charioteer
+		add = {
+			value = 0
+			if = {
+				limit = {
+					has_trait_xp = { trait = charioteer_green value >= 40 }
+				}
+				add = 1
+			}
+			if = {
+				limit = {
+					has_trait_xp = { trait = charioteer_green value >= 90 }
+				}
+				add = 1
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = charioteer_white } # Charioteer
+		add = {
+			value = 0
+			if = {
+				limit = {
+					has_trait_xp = { trait = charioteer_white value >= 40 }
+				}
+				add = 1
+			}
+			if = {
+				limit = {
+					has_trait_xp = { trait = charioteer_white value >= 90 }
+				}
+				add = 1
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = charioteer_red } # Charioteer
+		add = {
+			value = 0
+			if = {
+				limit = {
+					has_trait_xp = { trait = charioteer_red value >= 40 }
+				}
+				add = 1
+			}
+			if = {
+				limit = {
+					has_trait_xp = { trait = charioteer_red value >= 90 }
+				}
+				add = 1
+			}
+		}
+	}
+
+	# Modifiers and flags
+	if = {
+		limit = { has_character_modifier = possessed_prophetic_visions } # Court Poet, Court Musician, Cave Hermit, Chronicler
+		add = 2
+	}
+	if = {
+		limit = { has_character_flag = best_knight_position } # Bodyguard, Champion, Akolouthos
+		add = 1
+	}
+
+	# Negative
+	if = {
+		limit = { has_trait = blind } # Court Physician, Travel Leader, Master of Hunt, Champion
+		add = -3
+	}
+}
+
+accou_best_skill_value = {
+	value = diplomacy
+	min = martial
+	min = stewardship
+	min = intrigue
+	min = learning
+}
+
+# Quick checking of invite AI acceptance
+# See invite_to_court_interaction (ai_accept)
+accou_quick_invite_ai_accept_modifier_value = {
+	value = -50
+
+	# Opinions
+	add = {
+		value = scope:opinion_of_liege
+		multiply = -0.5
+		divide = 5
+		if = {
+			limit = { scope:opinion_of_liege <= 0 }
+			floor = yes
+		}
+		else = {
+			ceiling = yes
+		}
+		multiply = 5
+		max = 25
+	}
+	add = {
+		value = scope:opinion_of_actor
+		multiply = 0.5
+		divide = 5
+		if = {
+			limit = { scope:opinion_of_actor >= 0 }
+			floor = yes
+		}
+		else = {
+			ceiling = yes
+		}
+		multiply = 5
+		max = 25
+	}
+
+	# Stooge modifier
+	if = {
+		limit = {
+			has_variable = non_recruitable_var
+			var:non_recruitable_var = scope:actor
+		}
+		add = -200
+	}
+
+	# Current roles (simplified)
+	if = {
+		limit = { is_knight = yes }
+		add = -20
+	}
+	if = {
+		limit = { is_commanding_army = yes }
+		add = -30
+	}
+	if = {
+		limit = { is_councillor = yes }
+		add = -40
+	}
+	if = {
+		limit = { has_court_position = court_physician_court_position }
+		add = -20
+	}
+
+	# Relations & relatives (with actor)
+	if = {
+		limit = { has_relation_lover = scope:actor }
+		add = 100
+	}
+	if = {
+		limit = { has_relation_friend = scope:actor }
+		add = 75
+	}
+	if = {
+		limit = { is_child_of = scope:actor }
+		add = 160
+	}
+	else_if = {
+		limit = { is_close_family_of = scope:actor }
+		add = 75
+	}
+	else_if = {
+		limit = { is_extended_family_of = scope:actor }
+		add = 30
+	}
+
+	if = {
+		limit = { is_spouse_of = scope:actor }
+		add = 160
+	}
+
+	if = {
+		limit = { this.dynasty.dynast = scope:actor }
+		add = 30
+	}
+	if = {
+		limit = { this.house.house_head = scope:actor }
+		add = 30
+	}
+	if = {
+		limit = { this.top_liege = scope:actor }
+		add = 60
+	}
+
+	# Relations & relatives (with host)
+	if = {
+		limit = { exists = liege }
+		if = {
+			limit = { has_relation_lover = liege }
+			add = -100
+		}
+		if = {
+			limit = { has_relation_friend = liege }
+			add = -75
+		}
+		if = {
+			limit = { is_child_of = liege }
+			add = -160
+		}
+		else_if = {
+			limit = { is_close_family_of = liege }
+			add = -75
+		}
+	}
+
+	# Family (at location)
+	if = {
+		limit = { exists = location }
+		if = {
+			limit = { any_consort_not_in_traveling_family_trigger = yes }
+			add = -100
+		}
+		if = {
+			limit = { any_child_not_in_traveling_family_trigger = yes }
+			add = -100
+		}
+	}
+
+	# Married with "wrong" marriage type
+	if = {
+		limit = { is_married = yes }
+		if = {
+			limit = {
+				is_male = yes
+				any_spouse = {
+					matrilinear_marriage = yes
+					host = scope:recipient.host
+				}
+			}
+			add = -50
+		}
+		else_if = {
+			limit = {
+				is_female = yes
+				any_spouse = {
+					patrilinear_marriage = yes
+					host = scope:recipient.host
+				}
+			}
+			add = -50
+		}
+	}
+
+	# Inspired
+	if = {
+		limit = { exists = inspiration }
+		if = {
+			limit = {
+				inspiration = { exists = inspiration_sponsor }
+			}
+			add = -500
+		}
+		else = {
+			add = -50
+		}
+	}
+
+	# Wanderlust
+	if = {
+		limit = {
+			is_child_of = scope:actor
+			has_character_modifier = lust_for_adventure
+		}
+		add = -500
+	}
+
+	# Eluding castrator
+	if = {
+		limit = {
+			is_adult = no
+			any_memory = {
+				memory_type = family_castration_fled_memory
+				memory_participant:castrator ?= {
+					this = scope:actor
+				}
+			}
+		}
+		add = -180
+	}
+
+	# Landed liege, unlanded actor
+	if = {
+		limit = {
+			liege ?= { is_landed = yes }
+			scope:actor = { is_landed = no }
+		}
+		add = -50
+	}
+
+	# Wandering characters (who aren't doing anything else)
+	if = {
+		limit = {
+			is_pool_guest = no
+			location.province_owner ?= {
+				OR = {
+					any_liege_or_above = { this = scope:actor }
+					this = scope:actor
+				}
+			}
+			NOR = {
+				has_relation_rival = scope:actor
+				exists = liege
+				is_child_of = scope:actor
+				has_character_modifier = lust_for_adventure
+			}
+		}
+		add = {
+			value = 10
+			add = scope:actor.diplomacy
+			if = {
+				limit = {
+					faith = scope:actor.faith
+				}
+				add = 10
+			}
+			else_if = {
+				limit = {
+					faith = {
+						religion = scope:actor.faith.religion
+						faith_hostility_level = {
+							target = scope:actor.faith
+							value < 2
+						}
+					}
+				}
+				add = 5
+			}
+			if = {
+				limit = {
+					culture = scope:actor.culture
+				}
+				add = 10
+			}
+			else_if = {
+				limit = {
+					culture = {
+						has_same_culture_heritage = scope:actor.culture
+					}
+				}
+				add = 5
+			}
+			if = {
+				limit = {
+					OR = {
+						has_trait = content
+						has_trait = lazy
+						has_trait = trusting
+					}
+				}
+				add = 10
+			}
+		}
+	}
+
+	# Amenities impact
+	# Actor's amenities increases acceptance
+	if = {
+		limit = {
+			scope:actor = { 
+				has_royal_court = yes
+				has_dlc_feature = royal_court
+			}
+		}
+		add = {
+			value = scope:actor.accou_court_lodging_standards_amenity_level_value
+			multiply = 10
+		}
+	}
+	# Target's liege amenities decreases acceptance
+	if = {
+		limit = {
+			exists = liege
+			is_courtier_of = liege
+			liege = {
+				has_royal_court = yes
+				has_dlc_feature = royal_court
+			}
+		}
+		add = {
+			value = liege.accou_court_lodging_standards_amenity_level_value
+			multiply = -10
+		}
+	}
+
+	# House unity
+	if = {
+		limit = {
+			scope:actor = {
+				government_has_flag = government_is_clan
+			}
+			exists = house
+			exists = scope:actor.house
+			house = scope:actor.house
+			house = {
+				OR = {
+					has_house_unity_stage = harmonious
+					has_house_unity_stage = friendly
+				}
+			}
+		}
+		add = {
+			value = scope:actor.house.house_unity_value
+			multiply = 0.5
+		}
+	}
+
+	# Estate parameters
+	if = {
+		limit = {
+			scope:actor = {
+				domicile ?= { has_domicile_parameter = estate_increase_invite_to_court_acceptance }
+			}
+		}
+		add = estate_invite_to_court_acceptance_value
+	}
+
+	# Imperial eunuchs
+	if = {
+		limit = {
+			is_eunuch_trigger = yes
+			liege ?= {
+				government_has_mechanic = administrative
+				primary_title.tier = tier_empire
+				culture = { has_cultural_parameter = can_appoint_chief_eunuch }
+			}
+		}
+		add = -1000
+	}
+
+	# Devoted to clerical liege
+	if = {
+		limit = {
+			has_trait = devoted
+			liege ?= {
+				OR = {
+					government_has_flag = government_is_theocracy
+					government_has_flag = government_is_monastic_holy_order
+				}
+				faith = prev.faith
+			}
+		}
+		add = -100
+	}
+
+	# Ritual Hospitality personal tenet
+	if = {
+		limit = {
+			scope:actor = {
+				has_personal_tenet_flag = tenet_ritual_hospitality_invite_to_court_acceptance
+			}
+		}
+		add = 50
+	}
+
+	# Additional reasons
+	if = {
+		limit = {
+			scope:actor.culture = {
+				has_cultural_parameter = invite_courtiers_reasons
+			}
+		}
+		add = 15
+	}
+}
+
+accou_court_lodging_standards_amenity_level_value = {
+	value = 0
+	if = {
+		limit = {
+			amenity_level = { target = court_lodging_standards value >= medium_amenity_level }
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			amenity_level = { target = court_lodging_standards value >= high_amenity_level }
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			amenity_level = { target = court_lodging_standards value >= very_high_amenity_level }
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			amenity_level = { target = court_lodging_standards value >= max_amenity_level }
+		}
+		add = 2
+	}
+}
+
+accou_invite_candidate_quality_threshold_value = {
+	if = {
+		limit = { has_game_rule = accou_invite_candidate_quality_threshold_very_high }
+		value = 30
+	}
+	else_if = {
+		limit = { has_game_rule = accou_invite_candidate_quality_threshold_high }
+		value = 20
+	}
+	else_if = {
+		limit = { has_game_rule = accou_invite_candidate_quality_threshold_medium }
+		value = 10
+	}
+	else_if = {
+		limit = { has_game_rule = accou_invite_candidate_quality_threshold_low }
+		value = 0
+	}
+	else_if = {
+		limit = { has_game_rule = accou_invite_candidate_quality_threshold_very_low }
+		value = -10
+	}
+	else = {
+		value = 20
+	}
+}

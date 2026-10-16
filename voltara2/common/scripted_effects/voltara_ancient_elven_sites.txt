@@ -1,0 +1,7 @@
+﻿voltara_restore_ancient_elven_site = {
+ if = { limit = { this = title:c_voltara_116 } province:116 = { add_special_building_slot = voltara_elven_1_01 add_special_building = voltara_elven_1_01 } }
+ if = { limit = { this = title:c_voltara_1783 } province:1783 = { add_special_building_slot = voltara_elven_2_01 add_special_building = voltara_elven_2_01 } }
+ if = { limit = { this = title:c_voltara_1172 } province:1172 = { add_special_building_slot = voltara_elven_3_01 add_special_building = voltara_elven_3_01 } }
+ if = { limit = { this = title:c_voltara_2492 } province:2492 = { add_special_building_slot = voltara_shattered_crystal_tower_01 add_special_building = voltara_shattered_crystal_tower_01 } }
+ voltara_restore_dwarven_keeps = yes
+}

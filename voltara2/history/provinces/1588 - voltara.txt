@@ -1,0 +1,9 @@
+﻿1588 = {
+# Provisional holding layout; source culture/faith retained.
+culture = voltara_culture_23
+rite = voltara_eternal_legacy
+holding = tribal_holding
+
+ special_building_slot = voltara_ancient_dwarven_keep_5_01
+ special_building = voltara_ancient_dwarven_keep_5_01
+}

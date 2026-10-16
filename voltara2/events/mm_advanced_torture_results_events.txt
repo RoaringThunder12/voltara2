@@ -1,0 +1,664 @@
+﻿namespace = advanced_torture
+
+advanced_torture.1001 = {
+ type = character_event
+ theme = prison
+
+ override_background = {
+  reference = dungeon
+ }
+
+ title = advanced_torture.1001.t
+
+ desc = {
+  first_valid = {
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_simple_whipping
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_simple_whipping_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_simple_whipping
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_simple_whipping_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_simple_whipping
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_simple_whipping_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_stocks
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_stocks_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_stocks
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_stocks_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_stocks
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_stocks_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_walk_of_shame
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_walk_of_shame_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_walk_of_shame
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_walk_of_shame_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_walk_of_shame
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_walk_of_shame_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_bastinado
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_bastinado_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_bastinado
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_bastinado_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_bastinado
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_bastinado_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_water_torment
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_water_torment_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_water_torment
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_water_torment_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_water_torment
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_water_torment_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_compression_cords
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_compression_cords_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_compression_cords
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_compression_cords_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_compression_cords
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_compression_cords_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_strappado
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_strappado_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_strappado
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_strappado_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_strappado
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_strappado_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_thumbscrew
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_thumbscrew_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_thumbscrew
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_thumbscrew_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_thumbscrew
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_thumbscrew_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_short_stretching_bench
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_short_stretching_bench_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_short_stretching_bench
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_short_stretching_bench_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_short_stretching_bench
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_short_stretching_bench_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_rack
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_rack_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_rack
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_rack_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_rack
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_rack_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_rats
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_rats_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_rats
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_rats_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_rats
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_rats_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_nail_cleaner
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_nail_cleaner_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_nail_cleaner
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_nail_cleaner_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_nail_cleaner
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_nail_cleaner_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_phalaris_bull
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_phalaris_bull_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_phalaris_bull
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_phalaris_bull_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_phalaris_bull
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_phalaris_bull_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_judas_cradle
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_judas_cradle_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_judas_cradle
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_judas_cradle_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_judas_cradle
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_judas_cradle_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_pear_of_anguish
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_pear_of_anguish_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_pear_of_anguish
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_pear_of_anguish_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_pear_of_anguish
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_pear_of_anguish_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_iron_spider
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_iron_spider_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_iron_spider
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_iron_spider_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_iron_spider
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_iron_spider_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_torture_chair
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_torture_chair_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_torture_chair
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_torture_chair_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_torture_chair
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_torture_chair_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_skull_crusher
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_skull_crusher_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_skull_crusher
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_skull_crusher_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_skull_crusher
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_skull_crusher_03_desc
+   }
+
+   desc = advanced_torture.1001.desc
+  }
+ }
+
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.1001.a
+
+  hidden_effect = {
+   advanced_torture_clear_last_result_text_flags_effect = yes
+  }
+ }
+}
+
+advanced_torture.1002 = {
+ type = character_event
+ theme = prison
+
+ override_background = {
+  reference = dungeon
+ }
+
+ title = advanced_torture.1002.t
+
+ desc = {
+  first_valid = {
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_branding_iron
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_branding_iron_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_branding_iron
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_branding_iron_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_branding_iron
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_branding_iron_03_desc
+   }
+
+   desc = advanced_torture.1002.desc
+  }
+ }
+
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.1002.a
+
+  hidden_effect = {
+   advanced_torture_clear_last_result_text_flags_effect = yes
+  }
+ }
+}
+
+advanced_torture.1004 = {
+ type = character_event
+ theme = prison
+
+ override_background = {
+  reference = dungeon
+ }
+
+ title = advanced_torture.1004.t
+
+ desc = {
+  first_valid = {
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_enucleation
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_enucleation_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_enucleation
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_enucleation_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_enucleation
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_enucleation_03_desc
+   }
+
+   desc = advanced_torture.1004.desc
+  }
+ }
+
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.1004.a
+
+  hidden_effect = {
+   advanced_torture_clear_last_result_text_flags_effect = yes
+  }
+ }
+}
+
+advanced_torture.1007 = {
+ type = character_event
+ theme = prison
+
+ override_background = {
+  reference = dungeon
+ }
+
+ title = advanced_torture.1007.t
+
+ desc = {
+  first_valid = {
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_wedged_boot
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_wedged_boot_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_wedged_boot
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_wedged_boot_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_wedged_boot
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_wedged_boot_03_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_leg_amputation
+     has_character_flag = advanced_torture_result_variant_01
+    }
+    desc = advanced_torture_result_leg_amputation_01_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_leg_amputation
+     has_character_flag = advanced_torture_result_variant_02
+    }
+    desc = advanced_torture_result_leg_amputation_02_desc
+   }
+
+   triggered_desc = {
+    trigger = {
+     has_character_flag = advanced_torture_result_leg_amputation
+     has_character_flag = advanced_torture_result_variant_03
+    }
+    desc = advanced_torture_result_leg_amputation_03_desc
+   }
+
+   desc = advanced_torture.1007.desc
+  }
+ }
+
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.1007.a
+
+  hidden_effect = {
+   advanced_torture_clear_last_result_text_flags_effect = yes
+  }
+ }
+}
+
+advanced_torture.1008 = {
+ type = character_event
+ theme = prison
+
+ override_background = {
+  reference = dungeon
+ }
+
+ title = advanced_torture.1008.t
+ desc = advanced_torture.1008.desc
+
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.1008.a
+
+  hidden_effect = {
+   advanced_torture_clear_last_result_text_flags_effect = yes
+  }
+ }
+}

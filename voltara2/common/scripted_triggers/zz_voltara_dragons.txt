@@ -1,0 +1,31 @@
+﻿voltara_has_living_dragon = {
+ exists = var:current_dragon var:current_dragon ?= { is_alive = yes has_trait = dragon exists = var:current_rider var:current_rider = prev }
+}
+is_current_dragonrider = { is_alive = yes is_adult = yes is_imprisoned = no is_incapable = no
+ has_trait = dragonrider voltara_has_living_dragon = yes var:current_dragon = { age >= 15 NOT = { has_character_flag = in_dragonpit } } }
+is_current_dragonrider_warfare = { is_current_dragonrider = yes has_character_flag = voltara_dragon_deployed }
+voltara_has_dragon_egg = { any_character_artifact = { has_variable = voltara_dragon_egg } }
+voltara_free_dragon = { is_alive = yes has_trait = dragon NOT = { exists = var:current_rider } }
+voltara_duel_ready = { is_alive = yes is_adult = yes is_imprisoned = no is_incapable = no
+ NOT = { has_trait = dragon } NOT = { has_variable = engaged_in_single_combat }
+ NOT = { has_character_flag = voltara_duel_cooldown } NOT = { has_character_flag = voltara_dragon_duel_pending } }
+voltara_opposing_commander = {
+ scope:actor = { is_commanding_army = yes commanding_army = { is_army_in_combat = yes } }
+ scope:recipient = { is_commanding_army = yes commanding_army = { is_army_in_combat = yes }
+ commanding_army.involved_combat_side = scope:actor.commanding_army.involved_combat_side.enemy_side }
+}
+
+battlefield_duel_agot_not_war_decider_from_actor_army_strict_trigger = {
+	OR = {
+
+		NOT = { exists = scope:actor.commanding_army.involved_combat_side.combat.combat_war }
+		AND = {
+			NOT = { scope:actor.commanding_army.involved_combat_side.combat.combat_war.primary_attacker ?= this }
+			NOT = { scope:actor.commanding_army.involved_combat_side.combat.combat_war.primary_defender ?= this }
+			NOT = { scope:actor.commanding_army.involved_combat_side.combat.combat_war.primary_attacker.primary_heir ?= this }
+			NOT = { scope:actor.commanding_army.involved_combat_side.combat.combat_war.primary_defender.primary_heir ?= this }
+			NOT = { scope:actor.commanding_army.involved_combat_side.combat.combat_war.primary_attacker.player_heir ?= this }
+			NOT = { scope:actor.commanding_army.involved_combat_side.combat.combat_war.primary_defender.player_heir ?= this }
+		}
+	}
+}

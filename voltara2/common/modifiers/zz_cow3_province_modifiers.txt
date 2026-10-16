@@ -1,0 +1,106 @@
+﻿# Sets a province to being a City of Wonder
+city_of_wonder_modifier = {
+	icon = cow3
+	levy_size = 0.1
+	monthly_income = normal_building_tax_tier_6
+	holding_build_gold_cost = -0.1
+	stationed_maa_damage_mult = normal_maa_damage_tier_5
+	stationed_maa_toughness_mult = normal_maa_toughness_tier_5
+	stationed_siege_weapon_siege_value_mult = normal_maa_siege_value_tier_5
+	garrison_size = 0.15
+}
+
+city_of_wonder_2_modifier = {
+	icon = cow3
+	levy_size = 0.2
+	monthly_income = good_building_tax_tier_8
+	holding_build_gold_cost = -0.15
+	stationed_maa_damage_mult = normal_maa_damage_tier_6
+	stationed_maa_toughness_mult = normal_maa_toughness_tier_6
+	stationed_siege_weapon_siege_value_mult = normal_maa_siege_value_tier_6
+	garrison_size = 0.2
+}
+
+city_of_wonder_3_modifier = {
+	icon = cow3
+	levy_size = 0.3
+	monthly_income = excellent_building_tax_tier_8
+	holding_build_gold_cost = -0.2
+	stationed_maa_damage_mult = normal_maa_damage_tier_7
+	stationed_maa_toughness_mult = normal_maa_toughness_tier_7
+	stationed_siege_weapon_siege_value_mult = normal_maa_siege_value_tier_7
+	garrison_size = 0.25
+}
+
+# Sets a province to being a City of Wonder - Graphics Only
+city_of_wonder_NO_modifier = {
+	icon = cow3
+}
+
+city_of_wonder_2_NO_modifier = {
+	icon = cow3
+}
+
+city_of_wonder_3_NO_modifier = {
+	icon = cow3
+}
+
+cow_generic_university_modifier = {
+	icon = cow3
+}
+
+cow_christian_cathedral_modifier = {
+	icon = cow3
+}
+
+cow_muslim_mosque_modifier = {
+	icon = cow3
+}
+
+cow_zoroastrian_temple_modifier = {
+	icon = cow3
+}
+
+cow_pagan_temple_modifier = {
+	icon = cow3
+}
+
+cow_indian_temple_modifier = {
+	icon = cow3
+}
+
+cow_jewish_synagogue_modifier = {
+	icon = cow3
+}
+
+cow_royal_palace_modifier = {
+	icon = cow3
+}
+
+cow_great_harbor_modifier = {
+	icon = cow3
+}
+
+cow_walls_new_modifier = {
+	icon = cow3
+}
+
+cow_grand_fortress_modifier = {
+	icon = cow3
+}
+
+cow_great_lighthouse_modifier = {
+	icon = cow3
+}
+
+cow_grand_amphitheatre_modifier = {
+	icon = cow3
+}
+
+cow_city_gates_modifier = {
+	icon = cow3
+}
+
+cow_generic_library_modifier = {
+	icon = cow3
+}

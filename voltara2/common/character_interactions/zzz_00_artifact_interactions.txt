@@ -1,0 +1,481 @@
+﻿destroy_artifact_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	interface_priority = 30
+	common_interaction = yes
+	icon = artifact
+	category = interaction_category_friendly
+	desc = destroy_artifact_interaction_desc
+
+	target_type = artifact
+	target_filter = actor_artifacts
+	show_all_targets = no
+
+	ai_targets = {
+		ai_recipients = self
+	}
+
+	is_available = {
+		has_any_artifact = yes
+		trigger_if = {
+			limit = {
+				is_ai = yes
+				NOT = { has_game_rule = at_improved_destroy_artifact_enabled }
+			}
+			OR = {
+				gold <= minor_gold_value # Poor rulers will consider getting rid of their trash for gold
+				rite ?= { # Aniconists will always want to destroy artifacts
+					rite_has_parameter = destroying_artifacts_is_pious
+				}
+				AND = { # Economic boom personalities will bolster their treasury by getting rid of trash more often
+					ai_has_builder_or_pious_builder_personality = yes
+					gold <= medium_gold_value
+				}
+				any_character_artifact = { # All rulers want to get rid of actively detrimental trash
+					has_variable = unwanted_artifact
+				}
+			}
+		}
+	}
+
+	# You can only destroy your own artifacts
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		scope:recipient = scope:actor
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			at_can_destroy_artifacts_trigger = yes
+			custom_description = {
+				text = "at_any_artifact_can_be_destroyed_tt"
+				any_character_artifact = {
+					at_artifact_can_be_destroyed_trigger = yes
+				}
+			}
+		}
+	}
+
+	can_be_picked_artifact = {
+		custom_tooltip = {
+			text = artifact_is_related_to_contract_tt
+			scope:target = {
+				has_none_of_variables = {
+					name = 1025_treasure_map
+					name = is_tribute_mission_artifact
+				}
+			}
+		}
+		custom_tooltip = {
+			text = artifact_is_related_to_great_project_construction_tt
+			scope:target = {
+				NOT = { has_variable = mandala_capital_05_unconfirmed_talisman }
+			}
+		}
+		# don't mess the list
+		scope:target = { is_equipped = no }
+		scope:actor = {
+			trigger_if = {
+				limit = {
+					involved_activity ?= {
+						activity_host = scope:puppet_or_actor
+						has_activity_type = activity_coronation
+					}
+				}
+				scope:target = {
+					NOR = {
+						artifact_slot_type = helmet
+						artifact_slot_type = regalia
+					}
+				}
+			}
+		}
+		scope:target = {
+			at_artifact_can_be_destroyed_trigger = yes
+		}
+	}
+
+	has_valid_target_showing_failures_only = {
+		trigger_if = {
+			limit = {
+				NOT = { has_game_rule = at_improved_destroy_artifact_enabled }
+			}
+			trigger_if = {
+				limit = {
+					NOT = {
+						scope:recipient.rite = { rite_has_parameter = destroying_artifacts_is_pious }
+					}
+				}
+				custom_tooltip = {
+					text = artifact_is_rarer_than_masterwork_tt
+					OR = {
+						scope:target = { rarity = common }
+						scope:target = { rarity = masterwork }
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					NOR = {
+						scope:target = { rarity = common }
+						scope:target = { rarity = masterwork }
+					}
+				}
+				custom_tooltip = {
+					text = destroying_artifacts_is_not_pious_tt
+					scope:recipient.rite = { rite_has_parameter = destroying_artifacts_is_pious }
+				}
+			}
+		}
+		scope:actor = {
+			trigger_if = {
+				limit = { has_government = landless_adventurer_government }
+				employs_court_position = armorer_camp_officer
+			}
+		}
+	}
+
+	on_accept = {
+		if = {
+			limit = {
+				has_game_rule = at_improved_destroy_artifact_enabled
+			}
+			at_destroy_artifact_effect = { ARTIFACT = scope:target DESTROYER = scope:actor }
+		}
+		else = {
+			destroy_artifact_aniconist_effect = {
+				ARTIFACT = scope:target
+				DESTROYER = scope:actor
+				GIVE_GOLD = yes
+				PIETY_BY_DEFAULT = no
+			}
+		}
+	}
+
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 48
+		duchy = 24
+		kingdom = 24
+		empire = 24
+		hegemony = 24
+	}
+
+	ai_will_do = {
+		base = 0
+
+		# Base
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			add = 10
+		}
+
+		# Artifact recently bought
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			scope:target = {
+				has_variable = at_artifact_recently_bought
+			}
+			NOT = { has_variable = at_merchant_type }
+			add = -100
+		}
+
+		# Artifact QWA (rarity)
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			add = {
+				value = scope:target.at_artifact_quality_wealth_average_value
+				multiply = at_ai_negative_qwa_impact_value
+			}
+		}
+
+		# Artifact equipped
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			scope:target = { is_equipped = yes }
+			add = at_ai_negative_equipped_impact_value
+		}
+
+		# Difference between the QWA of the target artifact
+		# and the QWA of the n+1-th artifact of the same type owned and equippable by scope:seller
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			at_can_equip_and_benefit_from_artifact_trigger = { ARTIFACT = scope:target }
+			save_temporary_scope_as = seller
+			scope:target.at_np1th_seller_equippable_artifact_quality_wealth_average_difference_value > 0
+			add = {
+				value = scope:target.at_np1th_seller_equippable_artifact_quality_wealth_average_difference_value
+				multiply = at_ai_negative_qwa_difference_impact_value
+			}
+		}
+
+		# Artifact durability
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			scope:target.artifact_durability < scope:target.artifact_max_durability
+			add = {
+				value = scope:target.artifact_max_durability
+				subtract = scope:target.artifact_durability
+				divide = scope:target.artifact_max_durability
+				multiply = at_ai_positive_durability_impact_value
+			}
+		}
+
+		# Useless, not relevant, unwanted, or cursed artifacts
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			NOT = { at_can_equip_artifact_trigger = { ARTIFACT = scope:target } }
+			add = 50
+		}
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			NOT = { can_benefit_from_artifact = scope:target }
+			add = 50
+		}
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			scope:target = { has_variable = unwanted_artifact }
+			add = 100
+		}
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			scope:target = { has_variable = cursed_artifact }
+			add = 200
+		}
+
+		# Trash or common low durability artifacts
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			scope:target = { at_is_worthless_artifact_trigger = yes }
+			add = at_ai_positive_trash_impact_value
+		}
+
+		# Dynasty or house banner
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			at_is_dynasty_banner_trigger = { ARTIFACT = scope:target }
+			add = {
+				if = {
+					limit = { this = dynasty.dynast }
+					value = at_ai_negative_relationship_impact_value
+				}
+				else = {
+					value = at_ai_negative_relationship_impact_reduced_value
+				}
+			}
+		}
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			at_is_house_banner_trigger = { ARTIFACT = scope:target }
+			add = {
+				if = {
+					limit = { this = house.house_head }
+					value = at_ai_negative_relationship_impact_value
+				}
+				else = {
+					value = at_ai_negative_relationship_impact_reduced_value
+				}
+			}
+		}
+
+		# Religious relic
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			at_is_religion_relic_trigger = { ARTIFACT = scope:target }
+			add = {
+				if = {
+					limit = { any_held_title = { is_head_of_faith = yes } }
+					value = at_ai_negative_relationship_impact_value
+				}
+				else = {
+					value = at_ai_negative_relationship_impact_reduced_value
+				}
+			}
+		}
+
+		# Holds succession title
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			at_has_artifact_succession_title_trigger = { ARTIFACT = scope:target }
+			add = at_ai_negative_relationship_impact_value
+		}
+
+		# Price
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			scope:target.at_destroy_artifact_gold_value < scope:actor.minor_gold_value
+			add = at_ai_negative_price_impact_value
+		}
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			scope:target.at_destroy_artifact_gold_value > scope:actor.major_gold_value
+			add = at_ai_positive_price_impact_value
+		}
+
+		# Destroyer wealth
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			at_is_character_poor_trigger = yes
+			add = at_ai_positive_wealth_impact_value
+		}
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			at_is_character_rich_trigger = yes
+			add = at_ai_negative_wealth_impact_value
+		}
+
+		# Destroyer in debt
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			gold <= 0
+			add = 10
+		}
+
+		# More reluctant to destroy higher rarity artifacts
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			scope:target = {
+				OR = {
+					rarity = famed
+					rarity = illustrious
+				}
+			}
+			add = -50
+		}
+
+		# Don't destroy unique artifacts
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			scope:target = { at_is_unique_artifact_trigger = yes }
+			add = -100
+		}
+
+		# Destroy almost anything if you are aniconist
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			at_aniconist_should_destroy_artifact_trigger = { ARTIFACT = scope:target }
+			add = 200
+		}
+
+		# More likely to destroy if you are aniconist and "pious builder" 
+		modifier = {
+			has_game_rule = at_improved_destroy_artifact_enabled
+			at_has_aniconist_faith_trigger = yes
+			ai_has_pious_builder_personality = yes
+			add = 50
+		}
+
+		# Original modifiers
+		modifier = { # Rulers will always destroy unwanted artifacts
+			add = 100
+			NOT = { has_game_rule = at_improved_destroy_artifact_enabled }
+			scope:target = {
+				has_variable = unwanted_artifact
+			}
+		}
+		modifier = { # Rulers will consider destroying trash artifacts if they're poor
+			add = 100
+			NOT = { has_game_rule = at_improved_destroy_artifact_enabled }
+			scope:target = {
+				has_variable = ai_to_ai_destroy_in_sieges
+			}
+		}
+		modifier = { # AI rulers will destroy common unequipped artifacts if money is low
+			add = 100
+			NOT = { has_game_rule = at_improved_destroy_artifact_enabled }
+			OR = {
+				gold <= minor_gold_value # Poor rulers will consider getting rid of their trash for gold
+				AND = { # Economic boom personalities will bolster their treasury by getting rid of trash more often
+					gold <= medium_gold_value
+					ai_has_builder_or_pious_builder_personality = yes
+				}
+			}
+			scope:target = {
+				rarity = common
+			}
+		}
+		modifier = { # AI rulers will destroy all unequipped artifacts to get out of debt
+			add = 100
+			NOT = { has_game_rule = at_improved_destroy_artifact_enabled }
+			gold <= 0
+		}
+		modifier = { # Common artifact trinkets on their last legs can be considered for destruction if money is low
+			add = 100
+			NOT = { has_game_rule = at_improved_destroy_artifact_enabled }
+			OR = {
+				gold <= minor_gold_value # Poor rulers will consider getting rid of their trash for gold
+				AND = { # Economic boom personalities will bolster their treasury by getting rid of trash more often
+					gold <= medium_gold_value
+					ai_has_builder_or_pious_builder_personality = yes
+				}
+			}
+			scope:target = {
+				rarity = common
+				artifact_slot_type = miscellaneous
+				OR = {
+					AND = {
+						artifact_max_durability >= define:NInventory|ARTIFACT_DEFAULT_MAX_DURABILITY
+						artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
+					}
+					AND = {
+						artifact_max_durability < define:NInventory|ARTIFACT_DEFAULT_MAX_DURABILITY
+						artifact_durability_percent <= {
+							value = define:NInventory|ARTIFACT_LOW_DURABILITY
+							divide = 100
+						}
+					}
+				}
+			}
+		}
+		modifier = { # Aniconists destroy most things
+			add = 100
+			NOT = { has_game_rule = at_improved_destroy_artifact_enabled }
+			rite = {
+				rite_has_parameter = destroying_artifacts_is_pious
+			}
+			# The logic below relies on the idea that they have the destroying_artifacts_is_pious doctrine parameter. If the restrictions are loosened, these triggers should be updated
+			NOR = {
+				has_trait = cynical
+				AND = {
+					has_trait = greedy
+					NOT = { has_trait = zealous }
+				}
+			}
+			scope:target = { is_holy_relic = yes }
+		}
+		modifier = { #Piety _and_ gold? Sign me up!
+			add = 50
+			NOT = { has_game_rule = at_improved_destroy_artifact_enabled }
+			ai_has_pious_builder_personality = yes
+			scope:target = { is_holy_relic = yes }
+			rite = {
+				rite_has_parameter = destroying_artifacts_is_pious
+			}
+		}
+		# NEVER destroy your crown
+		modifier = {
+			add = -500
+			coronation_trigger = yes
+			any_character_artifact = {
+				is_coronation_artifact_trigger = yes
+				count = 1
+			}
+			scope:target = {
+				is_coronation_artifact_trigger = yes
+			}
+		}
+		modifier = {
+			add = -500
+			scope:target = {
+				var:artifact_succession_title ?= scope:actor.primary_title
+			}
+		}
+	}
+}

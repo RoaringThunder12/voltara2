@@ -1,0 +1,235 @@
+﻿cof_shed_flesh_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	common_interaction = yes
+	category = interaction_category_friendly
+	icon = icon_thralldom
+
+	desc = cof_shed_flesh_interaction_desc
+
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		scope:actor = {
+			is_ai = no
+			has_trait = vt_ek_lich_character
+											#			NOT = {
+											#				has_character_flag = cof_shed_flesh
+											#			}
+			}
+		scope:recipient = {
+			has_trait = vt_ek_lich_character
+			is_ai = no
+											#			NOT = {
+											#				has_character_flag = cof_shed_flesh
+											#			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		always = yes
+	}
+
+	force_notification = yes
+	show_answer_notification = no
+	
+	ai_potential = {
+		always = no
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+
+	on_accept = {
+		custom_tooltip = { text = cof_shed_flesh_tooltip }
+		scope:actor = {
+										#			add_character_flag = cof_shed_flesh
+			set_predetermined_decay_effect = {
+				DECAY = 1
+			}
+		}
+	}
+
+	auto_accept = yes
+}
+
+cof_craft_flesh_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	interface_priority = 199	
+	common_interaction = yes
+	category = interaction_category_prison
+	icon = icon_thralldom
+
+	desc = cof_craft_flesh_interaction_desc
+
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		scope:actor = {
+			is_ai = no
+			has_trait = vt_ek_lich_character
+			}
+		scope:recipient = {
+			is_imprisoned_by = scope:actor
+			NOT = {
+				OR = {
+					is_adult = no
+					is_pregnant = yes
+					has_trait = laid_egg
+					has_trait = vt_ek_undead_character
+					has_trait = vt_ek_lich_character
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		always = yes
+	}
+
+	force_notification = yes
+	show_answer_notification = no
+	
+	ai_potential = {
+		always = no
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				magicka_max > 150
+			}
+		}
+		flag = cof_ekue_major_restoration
+		localization = "cof_craft_flesh_interaction_major_restoration"
+	}
+
+	send_option = {
+		is_shown = {
+			NOT = {
+				scope:recipient = {
+					has_trait = disfigured
+				}
+			}
+			OR = {
+				AND = {
+					scope:actor = {
+						is_female = no
+					}
+					scope:recipient = {
+						is_female = no
+					}
+				}
+				AND = {
+					scope:actor = {
+						is_female = yes
+					}
+					scope:recipient = {
+						is_female = yes
+					}
+				}
+			}
+		}
+		flag = cof_ekue_steal_face
+		localization = "cof_craft_flesh_interaction_steal_face"
+	}
+
+	on_accept = {
+		if = {
+			limit = {
+				scope:cof_ekue_major_restoration = yes
+			}
+
+
+
+			scope:actor = {
+				add_magicka = { VALUE = 100.negate }
+				change_variable = { name = magicka add = -100 }
+				cof_ekue_major_restoration_effect = yes
+				custom_tooltip = { text = cof_ekue_major_restoration_tooltip }
+			}
+		}
+
+		if = {
+			limit = {
+				scope:cof_ekue_steal_face = yes
+			}
+
+
+
+			scope:actor = {
+				custom_tooltip = { text = cof_steal_face_tooltip }
+				
+				if = {
+					limit = {
+						has_trait = disfigured
+					}
+					remove_trait = disfigured
+				}
+
+				copy_inheritable_appearance_from = scope:recipient
+
+				create_character_memory = {
+					type = cof_ekue_steal_face_memory
+
+					participants = {
+						victim = scope:recipient
+					}
+				}
+			}
+
+			scope:recipient = {
+				add_trait = disfigured
+			}
+		}
+
+		if = {
+			limit = {
+					AND = {
+						scope:cof_ekue_steal_face = no
+						scope:cof_ekue_major_restoration = no						
+					}
+					
+			}
+
+			scope:actor = {
+				custom_tooltip = { text = cof_craft_flesh_tooltip }
+			}
+
+		}
+
+		scope:actor = {
+											#			remove_character_flag = cof_shed_flesh
+			set_predetermined_decay_effect = {
+				DECAY = 0
+			}
+		}
+
+		execute_prisoner_effect = {
+			VICTIM = scope:recipient
+			EXECUTIONER = scope:actor
+		}
+
+
+	}
+	send_options_exclusive = no
+	auto_accept = yes
+}

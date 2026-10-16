@@ -1,0 +1,18 @@
+﻿voltara_open_threadbinding = {
+ picture = { reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds" }
+ desc = voltara_open_threadbinding_desc selection_tooltip = voltara_open_threadbinding_tooltip confirm_text = voltara_open_threadbinding_confirm
+ ai_check_interval = 0 decision_group_type = major
+ is_shown = { is_ai = no NOT = { has_trait = dragon } }
+ is_valid = { is_adult = yes is_incapable = no }
+ effect = {
+  if = { limit = { NOT = { can_magic_trigger = yes } } add_trait = vt_ek_education_magic_1 add_trait = vt_ek_education_magic_1 }
+  voltara_initialize_threadbinder = yes
+  if = { limit = { NOT = { has_perk = alteration_novice_perk } } add_perk = alteration_novice_perk }
+  set_variable = spells_open
+  set_variable = { name = spell_caster value = root }
+  set_variable = { name = spell_recipient value = root }
+  set_variable = { name = spell_school value = flag:alteration }
+  init_alteration = yes
+  set_variable = { name = spell_selected value = flag:no_spell }
+ }
+}

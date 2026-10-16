@@ -1,0 +1,188 @@
+﻿ASK_VASSAL_MILITARY_SUPPORT_NOT_VALID_TEXT = {
+	global = ASK_VASSAL_MILITARY_SUPPORT_NOT_VALID
+	first = ASK_VASSAL_MILITARY_SUPPORT_NOT_VALID
+	third = ASK_VASSAL_MILITARY_SUPPORT_NOT_VALID
+	global_not = ASK_VASSAL_MILITARY_SUPPORT_NOT_VALID
+	first_not = ASK_VASSAL_MILITARY_SUPPORT_NOT_VALID
+	third_not = ASK_VASSAL_MILITARY_SUPPORT_NOT_VALID
+}
+
+ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR_TEXT = {
+	global = ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR
+	first = ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR
+	third = ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR
+	global_not = ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR
+	first_not = ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR
+	third_not = ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR
+}
+
+ASK_VASSAL_MILITARY_SUPPORT_CIVIL_WAR_BLOCKED_TEXT = {
+	global = ASK_VASSAL_MILITARY_SUPPORT_CIVIL_WAR_BLOCKED
+	first = ASK_VASSAL_MILITARY_SUPPORT_CIVIL_WAR_BLOCKED
+	third = ASK_VASSAL_MILITARY_SUPPORT_CIVIL_WAR_BLOCKED
+	global_not = ASK_VASSAL_MILITARY_SUPPORT_CIVIL_WAR_BLOCKED
+	first_not = ASK_VASSAL_MILITARY_SUPPORT_CIVIL_WAR_BLOCKED
+	third_not = ASK_VASSAL_MILITARY_SUPPORT_CIVIL_WAR_BLOCKED
+}
+
+ASK_SUPPORT_CANNOT_AFFORD_PRESTIGE_TEXT = {
+	global = ASK_SUPPORT_CANNOT_AFFORD_PRESTIGE
+	first = ASK_SUPPORT_CANNOT_AFFORD_PRESTIGE
+	third = ASK_SUPPORT_CANNOT_AFFORD_PRESTIGE
+	global_not = ASK_SUPPORT_CANNOT_AFFORD_PRESTIGE
+	first_not = ASK_SUPPORT_CANNOT_AFFORD_PRESTIGE
+	third_not = ASK_SUPPORT_CANNOT_AFFORD_PRESTIGE
+}
+
+ASK_SUPPORT_CANNOT_AFFORD_INFLUENCE_TEXT = {
+	global = ASK_SUPPORT_CANNOT_AFFORD_INFLUENCE
+	first = ASK_SUPPORT_CANNOT_AFFORD_INFLUENCE
+	third = ASK_SUPPORT_CANNOT_AFFORD_INFLUENCE
+	global_not = ASK_SUPPORT_CANNOT_AFFORD_INFLUENCE
+	first_not = ASK_SUPPORT_CANNOT_AFFORD_INFLUENCE
+	third_not = ASK_SUPPORT_CANNOT_AFFORD_INFLUENCE
+}
+
+ASK_STOP_VASSAL_WAR_TEXT = {
+	global = ASK_STOP_VASSAL_WAR
+	first = ASK_STOP_VASSAL_WAR
+	third = ASK_STOP_VASSAL_WAR
+	global_not = ASK_STOP_VASSAL_WAR
+	first_not = ASK_STOP_VASSAL_WAR
+	third_not = ASK_STOP_VASSAL_WAR
+}
+
+INTERACTIVE_COMPATIBILITY_DISABLED_TEXT = {
+	global = interactive_compatibility_disabled_tooltip
+	first = interactive_compatibility_disabled_tooltip
+	third = interactive_compatibility_disabled_tooltip
+	global_not = interactive_compatibility_disabled_tooltip
+	first_not = interactive_compatibility_disabled_tooltip
+	third_not = interactive_compatibility_disabled_tooltip
+}
+
+miv_commander_is_oathbreaker_text = {
+	global = miv_commander_is_oathbreaker
+	first = miv_commander_is_oathbreaker
+	third = miv_commander_is_oathbreaker
+	global_not = miv_commander_is_oathbreaker
+	first_not = miv_commander_is_oathbreaker
+	third_not = miv_commander_is_oathbreaker
+}
+
+INTERACTIVE_VASSAL_NOT_ELIGIBLE_TEXT = {
+	global = interactive_vassal_not_eligible_tooltip
+	first = interactive_vassal_not_eligible_tooltip
+	third = interactive_vassal_not_eligible_tooltip
+	global_not = interactive_vassal_not_eligible_tooltip
+	first_not = interactive_vassal_not_eligible_tooltip
+	third_not = interactive_vassal_not_eligible_tooltip
+}
+
+INTERACTIVE_VASSAL_GOVERNMENT_INELIGIBLE_TEXT = {
+	global = interactive_vassal_government_ineligible_tooltip
+	first = interactive_vassal_government_ineligible_tooltip
+	third = interactive_vassal_government_ineligible_tooltip
+	global_not = interactive_vassal_government_ineligible_tooltip
+	first_not = interactive_vassal_government_ineligible_tooltip
+	third_not = interactive_vassal_government_ineligible_tooltip
+}
+
+interactive_bannermen_distance_target_text = {
+	global = interactive_bannermen_distance_target
+	first = interactive_bannermen_distance_target
+	third = interactive_bannermen_distance_target
+	global_not = interactive_bannermen_distance_target
+	first_not = interactive_bannermen_distance_target
+	third_not = interactive_bannermen_distance_target
+}
+
+interactive_cannot_call_same_character_text = {
+	global = interactive_cannot_call_same_character
+	first = interactive_cannot_call_same_character
+	third = interactive_cannot_call_same_character
+	global_not = interactive_cannot_call_same_character
+	first_not = interactive_cannot_call_same_character
+	third_not = interactive_cannot_call_same_character
+}
+
+interactive_bannermen_recipient_rebellion_text = {
+	global = interactive_bannermen_recipient_rebellion
+	first = interactive_bannermen_recipient_rebellion
+	third = interactive_bannermen_recipient_rebellion
+	global_not = interactive_bannermen_recipient_rebellion
+	first_not = interactive_bannermen_recipient_rebellion
+	third_not = interactive_bannermen_recipient_rebellion
+}
+
+interactive_bannermen_recipient_indisposed_text = {
+	global = interactive_bannermen_recipient_indisposed
+	first = interactive_bannermen_recipient_indisposed
+	third = interactive_bannermen_recipient_indisposed
+	global_not = interactive_bannermen_recipient_indisposed
+	first_not = interactive_bannermen_recipient_indisposed
+	third_not = interactive_bannermen_recipient_indisposed
+}
+
+interactive_bannermen_already_called_text = {
+	global = interactive_bannermen_already_called
+	first = interactive_bannermen_already_called
+	third = interactive_bannermen_already_called
+	global_not = interactive_bannermen_already_called
+	first_not = interactive_bannermen_already_called
+	third_not = interactive_bannermen_already_called
+}
+
+MIV_BANNERMEN_UNCALLED_WAR_TEXT = {
+	global = MIV_BANNERMEN_UNCALLED_WAR
+	first = MIV_BANNERMEN_UNCALLED_WAR
+	third = MIV_BANNERMEN_UNCALLED_WAR
+	global_not = MIV_BANNERMEN_UNCALLED_WAR
+	first_not = MIV_BANNERMEN_UNCALLED_WAR
+	third_not = MIV_BANNERMEN_UNCALLED_WAR
+}
+
+interactive_request_support_no_wars_text = {
+	global = interactive_request_support_no_wars
+	first = interactive_request_support_no_wars
+	third = interactive_request_support_no_wars
+	global_not = interactive_request_support_no_wars
+	first_not = interactive_request_support_no_wars
+	third_not = interactive_request_support_no_wars
+}
+
+interactive_request_support_all_called_text = {
+	global = interactive_request_support_all_called
+	first = interactive_request_support_all_called
+	third = interactive_request_support_all_called
+	global_not = interactive_request_support_all_called
+	first_not = interactive_request_support_all_called
+	third_not = interactive_request_support_all_called
+}
+
+miv_request_support_not_at_war_text = {
+	global = miv_request_support_not_at_war
+	first = miv_request_support_not_at_war
+	third = miv_request_support_not_at_war
+	global_not = miv_request_support_not_at_war
+	first_not = miv_request_support_not_at_war
+	third_not = miv_request_support_not_at_war
+}
+
+miv_request_support_not_ruler_text = {
+	global = miv_request_support_not_ruler
+	first = miv_request_support_not_ruler
+	third = miv_request_support_not_ruler
+	global_not = miv_request_support_not_ruler
+	first_not = miv_request_support_not_ruler
+	third_not = miv_request_support_not_ruler
+}
+
+miv_request_support_already_in_war_text = {
+	global = miv_request_support_already_in_war
+	first = miv_request_support_already_in_war
+	third = miv_request_support_already_in_war
+	global_not = miv_request_support_already_in_war
+	first_not = miv_request_support_already_in_war
+	third_not = miv_request_support_already_in_war
+}

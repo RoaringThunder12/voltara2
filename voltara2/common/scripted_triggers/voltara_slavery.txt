@@ -1,0 +1,16 @@
+﻿voltara_historical_slavery_realm = {
+ top_liege = { OR = {
+  has_title = title:k_voltara_40
+  culture = culture:voltara_culture_20 culture = culture:voltara_culture_22 culture = culture:voltara_culture_43
+ } }
+}
+voltara_slavery_is_legal = {
+ is_landed = yes NOT = { voltara_is_ruins_placeholder = yes }
+ top_liege = { has_realm_law = voltara_slavery_legal }
+}
+voltara_slave_can_be_sold = {
+ has_trait = voltara_slave is_alive = yes is_landed = no is_imprisoned = no
+ is_courtier_of = scope:actor
+ var:voltara_slave_owner ?= scope:actor
+ NOT = { has_character_flag = voltara_slave_sale_pending }
+}

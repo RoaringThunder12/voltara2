@@ -1,0 +1,12 @@
+﻿2492 = {
+ culture = voltara_culture_44
+ religion = voltara_faith_0
+
+# Provisional holding layout; source culture/faith retained.
+
+
+holding = castle_holding
+
+ special_building_slot = voltara_shattered_crystal_tower_01
+ special_building = voltara_shattered_crystal_tower_01
+}

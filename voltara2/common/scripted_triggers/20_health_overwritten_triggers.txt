@@ -1,0 +1,96 @@
+﻿#############################
+# OVERWRITTEN TRIGGERS #
+#############################
+
+# Will this character suffer age-related health issues, factoring how healthy they actually are vs. what their age is?
+age_ranked_health_vulnerability_threshold_trigger = {
+	voltara_has_protected_lifespan_trigger = no
+	OR = {
+		# If you're already having problems...
+		has_trait = infirm
+		# Otherwise, we check health crossed against age.
+		## Characters that are this old are vulnerable regardless of health.
+		age >= 90
+		## Else, the higher your health is, the older you need to be to suffer age-related health problems.
+		AND = {
+			health <= good_health
+			age >= 80
+		}
+		AND = {
+			health <= medium_health
+			age >= 70
+		}
+		AND = {
+			health <= fine_health
+			age >= 60
+		}
+		AND = {
+			health <= poor_health
+			age >= 50
+		}
+		AND = {
+			health <= dying_health
+			age >= 40
+		}
+	}
+	NOT = { has_trait = immortal }
+    NOT = { has_trait_with_flag = is_immortal }
+	NOR = {
+		AND = {
+			has_trait = archmage
+			has_trait_xp = {
+				trait = archmage
+				track = secret_knowledge
+				value > 99
+			}
+		}
+		has_trait = supernatural_vampire
+		has_trait = supernatural_werewolf
+		has_trait = supernatural_hybrid
+		has_trait = supernatural_hunter
+		is_a_demon_trigger = yes
+		has_trait = yaga
+		is_the_choosen_one_trigger = yes
+		any_character_artifact = {
+			has_variable = magic_ring
+		}
+		has_trait = immortal1
+		has_trait = immortal2
+		has_trait = necromancer
+		has_character_flag = me_death_project_done
+		is_immortal = no
+	}
+}
+#Has this character already developed immunity to the epidemic?
+immune_to_epidemic = {
+	NOR = {
+		is_target_in_variable_list = {
+			name = immunised_plagues
+			target = $EPIDEMIC$
+		}
+		has_trait = immortal1
+		has_trait = necromancer
+		has_trait = yaga
+		is_the_choosen_one_trigger = yes
+		is_a_demon_trigger = yes
+		has_trait = golem
+		has_trait = supernatural_vampire
+		has_trait = supernatural_werewolf
+		has_trait = supernatural_hybrid
+	}
+}
+is_witch_known_by_trigger = {
+	OR = {
+		has_trait = witch
+		has_trait = true_witch
+		custom_description = {
+			text = has_a_witch_secret_known_by_character
+			subject = this
+			object = $CHARACTER$
+			any_secret = {
+				type = secret_witch
+				is_known_by = $CHARACTER$
+			}
+		}
+	}
+}

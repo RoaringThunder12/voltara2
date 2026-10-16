@@ -1,0 +1,20 @@
+﻿on_game_start_after_lobby = { on_actions = { voltara_seed_elven_lifespans } }
+voltara_seed_elven_lifespans = { effect = { every_living_character = { voltara_elven_lifespan_seed_effect = yes } } }
+on_character_created = { on_actions = { voltara_created_elven_lifespan } }
+voltara_created_elven_lifespan = { effect = { voltara_elven_lifespan_seed_effect = yes } }
+on_birth_child = { on_actions = { voltara_inherit_elven_lifespan } }
+voltara_inherit_elven_lifespan = {
+ effect = {
+  if = {
+   limit = { NOT = { has_character_flag = voltara_char_setup } }
+   scope:real_father ?= { voltara_elven_lifespan_seed_effect = yes }
+   scope:mother ?= { voltara_elven_lifespan_seed_effect = yes }
+   voltara_lifespan_inheritance_effect = yes
+   voltara_elven_immortality_effect = yes
+  }
+ 
+voltara_stone_giant_lifespan_floor_effect = yes
+}
+}
+yearly_playable_pulse = { on_actions = { voltara_elven_immortality_check } }
+voltara_elven_immortality_check = { effect = { voltara_elven_immortality_effect = yes } }

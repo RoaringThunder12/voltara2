@@ -1,0 +1,6 @@
+﻿l_english:
+ # Message group types
+ message_group_type_accou_active_courtiers: "@courtier_icon! Active Courtiers"
+ # Message filter types
+ message_filter_accou_search_failed: "@courtier_icon! Active Courtiers Search Failures"
+ message_filter_accou_search_failed_desc: "Courtiers failures to find suitable spouses, characters to invite to court, or guardians"

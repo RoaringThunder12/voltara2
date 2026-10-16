@@ -1,0 +1,10 @@
+﻿##############################
+## GM1 opinion_modifiers
+##############################
+
+l_english:
+ demanded_transfer_prisoner: "Forcibly Demanded [prisoner|E]"
+ refused_transfer_prisoner: "Refused to Give [prisoner|E]"
+ transferred_me: "Given Away"
+ transferred_me_different_faith: "Given Away to Non-Believer"
+ transferred_family_member: "Given Away [imprisoned|E] Family Member"

@@ -1,0 +1,33 @@
+﻿kECV_setup_summary_setting = {
+    effect = {
+        # creates the list of sorting options
+        clear_global_variable_list = kECV_summary_settings
+
+        add_to_global_variable_list = {
+            name = kECV_summary_settings
+            target = flag:kECV_summary_setting_none
+        }
+        add_to_global_variable_list = {
+            name = kECV_summary_settings
+            target = flag:kECV_summary_setting_buildings
+        }
+        add_to_global_variable_list = {
+            name = kECV_summary_settings
+            target = flag:kECV_summary_setting_modifiers
+        }
+    }
+
+    # to supress errors
+    is_shown = {
+        has_global_variable_list = kECV_summary_settings
+        is_target_in_global_variable_list = { name = kECV_summary_settings target = flag:kECV_summary_setting_none }
+        is_target_in_global_variable_list = { name = kECV_summary_settings target = flag:kECV_summary_setting_buildings }
+        is_target_in_global_variable_list = { name = kECV_summary_settings target = flag:kECV_summary_setting_modifiers }
+    }
+}
+
+kECV_population_warning_scripted_gui = {
+    is_shown = {
+        T_kECV_population_warning = yes
+    }
+}

@@ -1,0 +1,18 @@
+﻿adding_building_slot_interaction = {
+	category = interaction_category_uncategorized
+	hidden = yes
+
+	target_type = title
+	target_filter = recipient_domain_titles_including_leases
+	
+	auto_accept = yes
+
+	is_valid = { always = no }
+	is_shown = {
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+	can_be_picked_title = {}
+	cost = {}
+	on_accept = {}
+}

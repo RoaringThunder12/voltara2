@@ -1,0 +1,10 @@
+texticon = {
+	icon = ansf_icon
+	iconsize = {
+		texture = "gfx/interface/icons/icon_ansf_mod.dds"
+		size = { 30 25 }
+		offset = { 0 8 }
+		fontsize = 16
+	}
+}
+

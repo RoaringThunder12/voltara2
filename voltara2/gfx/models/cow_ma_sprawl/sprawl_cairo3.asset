@@ -1,0 +1,98 @@
+pdxmesh = {
+	name = "sprawl_cairo3_mesh"
+	file = "sprawl_cairo3.mesh"
+
+	meshsettings = {
+		name = "cairo_sprawl1"
+		index = 0
+		texture_diffuse = "building_mena_atlas_diffuse.dds"
+		texture_normal = "building_mena_atlas_normal.dds"
+		texture_specular = "building_mena_atlas_properties.dds"
+		texture = { file = "sprawl_cairo.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "al_azhar_mosque"
+		index = 0
+		texture_diffuse = "building_mena_atlas_diffuse.dds"
+		texture_normal = "building_mena_atlas_normal.dds"
+		texture_specular = "building_mena_atlas_properties.dds"
+		texture = { file = "sprawl_cairo.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "cairo_sprawl2"
+		index = 0
+		texture_diffuse = "building_mena_atlas_diffuse.dds"
+		texture_normal = "building_mena_atlas_normal.dds"
+		texture_specular = "building_mena_atlas_properties.dds"
+		texture = { file = "sprawl_cairo.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "cairo_sprawl3"
+		index = 0
+		texture_diffuse = "building_mena_atlas_diffuse.dds"
+		texture_normal = "building_mena_atlas_normal.dds"
+		texture_specular = "building_mena_atlas_properties.dds"
+		texture = { file = "sprawl_cairo.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "babylon_fortress"
+		index = 0
+		texture_diffuse = "building_mena_atlas_diffuse.dds"
+		texture_normal = "building_mena_atlas_normal.dds"
+		texture_specular = "building_mena_atlas_properties.dds"
+		texture = { file = "sprawl_cairo.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "fatimid_palaces"
+		index = 0
+		texture_diffuse = "building_mena_atlas_diffuse.dds"
+		texture_normal = "building_mena_atlas_normal.dds"
+		texture_specular = "building_mena_atlas_properties.dds"
+		texture = { file = "sprawl_cairo.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "fatimid_walls"
+		index = 0
+		texture_diffuse = "building_mena_atlas_diffuse.dds"
+		texture_normal = "building_mena_atlas_normal.dds"
+		texture_specular = "building_mena_atlas_properties.dds"
+		texture = { file = "sprawl_cairo.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "saladin_citadel"
+		index = 0
+		texture_diffuse = "building_mena_atlas_diffuse.dds"
+		texture_normal = "building_mena_atlas_normal.dds"
+		texture_specular = "building_mena_atlas_properties.dds"
+		texture = { file = "sprawl_cairo.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+}
+
+entity = {
+	name = "sprawl_cairo3_entity"
+	pdxmesh = "sprawl_cairo3_mesh"
+}

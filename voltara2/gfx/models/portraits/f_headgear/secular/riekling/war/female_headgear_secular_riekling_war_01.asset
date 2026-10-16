@@ -1,0 +1,29 @@
+pdxmesh = {
+	name = "female_headgear_secular_riekling_war_01_mesh"
+	file = "female_headgear_secular_riekling_war_01.mesh"
+
+	
+	#EK2
+	blend_shape = { id = "female_argonian_blendshape"		type = "female_headgear_secular_riekling_war_01_bs_argonian.mesh" }
+	blend_shape = { id = "female_khajiit_blendshape"		type = "female_headgear_secular_riekling_war_01_bs_khajiit.mesh" }
+	#EK2
+	
+	meshsettings = {
+		name = "skullhelm"
+		index = 0
+		texture_diffuse = "male_headgear_secular_riekling_war_01_diffuse.dds"
+		texture_normal = "male_headgear_secular_riekling_war_01_normal.dds"
+		texture_specular = "male_headgear_secular_riekling_war_01_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "female_headgear_secular_riekling_war_01_entity"
+	pdxmesh = "female_headgear_secular_riekling_war_01_mesh"
+
+	attribute = { name = "argonian_head_bs"					blend_shape = "female_argonian_blendshape" }
+	attribute = { name = "khajiit_head_bs"					blend_shape = "female_khajiit_blendshape" }
+
+}

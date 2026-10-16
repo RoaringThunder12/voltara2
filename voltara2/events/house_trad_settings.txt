@@ -1,0 +1,114 @@
+﻿namespace = house_trad_settings
+
+house_trad_settings.0001 = {
+	# type = none # Always CTD as of 1.9.0.3 'Lance'. None and Empty seems to be no longer supported.
+	#type=empty has been replaced with scope=none?
+	scope = none
+	# type = character_event
+	title = house_trad_settings.0001.t
+	desc = {
+		desc = house_trad_settings.0001.desc
+		desc = new_paragraph
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { global_var:marriage_compatibility = no } }
+				desc = house_trad_settings.0001.on_desc
+			}
+			triggered_desc = {
+				trigger = { global_var:marriage_compatibility = no }
+				desc = house_trad_settings.0001.off_desc
+			}
+		}
+	}
+
+
+	theme = dynasty
+	override_background = council_chamber
+
+	# left_portrait = {
+	# 	character = ROOT
+	# 	animation = personality_honorable
+	# }
+	# lower_left_portrait = {
+	# 	character = root.random_child
+	# }
+	# lower_center_portrait = {
+	# 	random_child = {
+	# 		character = THIS
+	# 	}
+	# }
+	# lower_right_portrait = {
+	# 	character = random_house_member
+	# }
+
+	weight_multiplier = {
+
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = house_trad_settings.0001.on
+		trigger = {
+			global_var:marriage_compatibility = no
+		}
+
+		#effects here
+		set_global_variable = {
+			name = marriage_compatibility
+			value = yes
+		}
+
+		ai_chance = {
+			base = 0
+		}
+	}
+	option = {
+		name = house_trad_settings.0001.off
+		trigger = {
+			NOT = {
+				global_var:marriage_compatibility = no
+			}
+		}
+
+		#effects here
+		set_global_variable = {
+			name = marriage_compatibility
+			value = no
+		}
+
+		ai_chance = {
+			base = 0
+		}
+	}
+	option = {
+		name = house_trad_settings.0001.hide
+		trigger = {
+			NOT = {
+				global_var:hide_house_trad_settings = yes
+			}
+		}
+
+		#effects here
+		set_global_variable = {
+			name = hide_house_trad_settings
+			value = yes
+		}
+
+		ai_chance = {
+			base = 0
+		}
+	}
+	option = {
+		name = house_trad_settings.0001.cancel
+
+		#effects here
+		# No Effect (Cancel)
+
+		ai_chance = {
+			base = 0
+		}
+	}
+}

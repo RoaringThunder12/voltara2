@@ -1,0 +1,21 @@
+pdxmesh = {
+	name = "iberian_toledo_mesh"
+	file = "iberian_toledo.mesh"
+	
+	
+	meshsettings = {
+		name = "walls_04_iberian"
+		index = 0
+		texture_diffuse = "building_mediterranean_atlas_diffuse.dds"
+		texture_normal = "building_mediterranean_atlas_normal.dds"
+		texture_specular = "building_mediterranean_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+}
+
+entity = {
+	name = "iberian_toledo_entity"
+	pdxmesh = "iberian_toledo_mesh"
+}

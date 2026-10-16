@@ -1,0 +1,7 @@
+﻿voltara_dragon_lifecycle = {
+ on_setup = { }
+ on_end = { }
+ on_owner_death = { story_owner = { voltara_dragon_unpit_effect = yes } scope:story = { end_story = yes } }
+ effect_group = { days = 30 triggered_effect = { trigger = { story_owner = { is_alive = yes } } effect = { story_owner = { voltara_dragon_pit_check_effect = yes } } } }
+ effect_group = { days = 365 triggered_effect = { trigger = { story_owner = { is_alive = yes } } effect = { story_owner = { voltara_dragon_year_effect = yes } } } }
+}

@@ -1,0 +1,1807 @@
+﻿can_potentially_call_ally_trigger = {
+	custom_description = {
+		text = cannot_call_vassal_to_war
+		OR = {
+			$JOINER$ = {
+				NOT = {
+					is_vassal_or_below_of = $WARRIOR$
+				}
+			}
+			$JOINER$ = {
+				this ?= $WARRIOR$.diarch
+			}
+			$JOINER$ = {
+				is_confederation_member = yes
+				$WARRIOR$ = {
+					is_member_of_confederation = $JOINER$.confederation
+				}
+			}
+			has_game_rule = call_allied_vassals_enabled
+		}
+	}
+	custom_description = {
+		text = cannot_call_liege_to_war
+		OR = {
+			$JOINER$ = {
+				trigger_if = {
+					limit = {
+						target_is_vassal_or_below = $WARRIOR$
+						$WARRIOR$ = {
+							vassal_contract_has_flag = vassal_contract_liege_forced_war_override
+						}
+					}
+					always = yes
+				}
+				trigger_else_if = {
+					limit = {
+						$JOINER$ = {
+							NOT = {
+								target_is_vassal_or_below = $WARRIOR$
+							}
+						}
+					}
+					always = yes
+				}
+				trigger_else = {
+					always = no
+				}
+			}
+			has_game_rule = call_allied_vassals_enabled
+		}
+	}
+}
+
+interactive_map_generation_ruler_trigger = {
+	is_landed = yes
+	highest_held_title_tier >= tier_county
+	NOT = {
+		is_in_list = miv_map_generation_placeholders
+	}
+}
+
+miv_nights_watch_government_trigger = {
+	always = no
+}
+
+miv_uninteractable_government_trigger = {
+	always = no
+}
+
+miv_placeholder_government_trigger = {
+	OR = {
+		miv_nights_watch_government_trigger = yes
+		always = no
+		always = no
+		always = no
+		miv_uninteractable_government_trigger = yes
+	}
+}
+
+interactive_map_generation_placeholder_trigger = {
+	OR = {
+		miv_placeholder_government_trigger = yes
+		AND = {
+			NOT = {
+				government_has_flag = government_has_herd
+			}
+			max_military_strength < interactive_map_generation_minimum_strength
+		}
+	}
+}
+
+miv_knight_age_override_trigger = {
+	miv_knight_age_enabled_trigger = yes
+	is_adult = no
+	age >= miv_knight_minimum_age
+	NOT = {
+		miv_is_dragon_trigger = yes
+	}
+	is_available_quick = {
+		alive = yes
+		imprisoned = no
+		incapable = no
+		hostage = no
+	}
+	is_clergy = no
+	can_be_combatant_based_on_gender_trigger = {
+		ARMY_OWNER = $ARMY_OWNER$
+	}
+	NOR = {
+		has_trait = blind
+		has_court_position = master_assassin_court_position
+	}
+	trigger_if = {
+		limit = {
+			government_has_flag = government_has_influence
+			exists = primary_title
+		}
+		primary_title = {
+			tier < tier_duchy
+			trigger_if = {
+				limit = {
+					is_noble_family_title = yes
+				}
+				always = no
+			}
+		}
+	}
+	trigger_if = {
+		limit = {
+			$ARMY_OWNER$.culture = {
+				has_cultural_parameter = minimum_prowess_for_knights
+			}
+		}
+		prowess >= 12
+	}
+	trigger_if = {
+		limit = {
+			exists = liege.diarch
+		}
+		this != liege.diarch
+	}
+	trigger_if = {
+		limit = {
+			$ARMY_OWNER$ = {
+				is_ai = no
+			}
+		}
+		is_knight_permitted = $ARMY_OWNER$
+	}
+	is_ai = yes
+	tgp_is_ceremonial_liege_trigger = no
+}
+
+miv_commander_age_override_trigger = {
+	miv_commander_age_enabled_trigger = yes
+	is_adult = no
+	age >= miv_commander_minimum_age
+	NOT = {
+		miv_is_dragon_trigger = yes
+	}
+	is_available_quick = {
+		alive = yes
+		incapable = no
+		hostage = no
+	}
+	is_clergy = no
+	OR = {
+		this = $ARMY_OWNER$
+		can_be_combatant_based_on_gender_trigger = {
+			ARMY_OWNER = $ARMY_OWNER$
+		}
+	}
+	trigger_if = {
+		limit = {
+			$ARMY_OWNER$ = {
+				is_ai = yes
+			}
+		}
+		is_ai = yes
+		highest_held_title_tier < tier_hegemony
+	}
+}
+
+miv_commander_age_now_override_trigger = {
+	miv_commander_age_enabled_trigger = yes
+	is_adult = no
+	age >= miv_commander_minimum_age
+	NOT = {
+		miv_is_dragon_trigger = yes
+	}
+	is_available_quick = {
+		alive = yes
+		imprisoned = no
+		travel = no
+	}
+	OR = {
+		this = $ARMY_OWNER$
+		can_be_combatant_based_on_gender_trigger = {
+			ARMY_OWNER = $ARMY_OWNER$
+		}
+	}
+	trigger_if = {
+		limit = {
+			$ARMY_OWNER$ = {
+				is_ai = yes
+			}
+		}
+		is_ai = yes
+	}
+	custom_description = {
+		text = ALREADY_IN_ACTIVITY
+		NOR = {
+			exists = involved_activity
+			has_variable = homage_liege_scope
+			has_character_flag = meditation_character_flag
+			has_character_flag = local_shrine_rite
+			has_character_flag = petition_liege_character_flag
+			has_character_flag = holding_court_character_flag
+			is_being_visited_on_tour_strict = yes
+		}
+	}
+}
+
+miv_knight_age_enabled_trigger = {
+	OR = {
+		has_game_rule = knight_age_15
+		has_game_rule = knight_age_14
+		has_game_rule = knight_age_13
+		has_game_rule = knight_age_12
+		has_game_rule = knight_age_11
+		has_game_rule = knight_age_10
+	}
+}
+
+miv_commander_age_enabled_trigger = {
+	OR = {
+		has_game_rule = commander_age_15
+		has_game_rule = commander_age_14
+		has_game_rule = commander_age_13
+		has_game_rule = commander_age_12
+		has_game_rule = commander_age_11
+		has_game_rule = commander_age_10
+	}
+}
+
+interactive_bannermen_fit_trigger = {
+	is_capable_adult = yes
+	NOT = {
+		is_imprisoned = yes
+	}
+	trigger_if = {
+		limit = {
+			is_at_war = yes
+		}
+		NOT = {
+			any_character_war = {
+				primary_defender = prev
+				primary_attacker = {
+					is_vassal_or_below_of = prev.primary_defender
+				}
+			}
+		}
+	}
+}
+
+interactive_bannermen_rebellion_trigger = {
+	is_at_war_with = $LIEGE$
+}
+
+interactive_bannermen_serving_trigger = {
+	any_character_war = {
+		is_participant = $LIEGE$
+	}
+	NOT = {
+		interactive_bannermen_rebellion_trigger = {
+			LIEGE = $LIEGE$
+		}
+	}
+}
+
+interactive_bannermen_available_trigger = {
+	interactive_bannermen_fit_trigger = yes
+	NOT = {
+		interactive_bannermen_rebellion_trigger = {
+			LIEGE = $LIEGE$
+		}
+	}
+}
+
+interactive_vassal_government_eligibility_trigger = {
+	NOT = {
+		miv_uninteractable_government_trigger = yes
+	}
+}
+
+interactive_vassal_tier_eligibility_trigger = {
+	trigger_if = {
+		limit = {
+			has_game_rule = vassal_eligibility_disabled
+		}
+		OR = {
+			$LIEGE$ = {
+				highest_held_title_tier < tier_empire
+			}
+			highest_held_title_tier >= tier_duchy
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			has_game_rule = vassal_eligibility_three_tiers
+		}
+		tier_difference = {
+			target = $LIEGE$
+			value >= -3
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			has_game_rule = vassal_eligibility_two_tiers
+		}
+		tier_difference = {
+			target = $LIEGE$
+			value >= -2
+		}
+	}
+	trigger_else = {
+		always = yes
+	}
+}
+
+interactive_vassal_performance_eligibility_trigger = {
+	trigger_if = {
+		limit = {
+			OR = {
+				has_game_rule = miv_performance_mode_enabled
+				has_game_rule = miv_performance_mode_full
+			}
+		}
+		trigger_if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			is_house_head = yes
+			house ?= {
+				is_powerful_family = yes
+			}
+			trigger_if = {
+				limit = {
+					exists = top_liege.house
+				}
+				NOT = {
+					house = top_liege.house
+				}
+			}
+		}
+		trigger_else = {
+			OR = {
+				is_powerful_vassal = yes
+				AND = {
+					liege ?= {
+						NOT = {
+							any_powerful_vassal = {
+								always = yes
+							}
+						}
+					}
+					is_councillor_of = liege
+				}
+			}
+		}
+	}
+}
+
+interactive_vassal_eligibility_trigger = {
+	interactive_vassal_government_eligibility_trigger = yes
+	OR = {
+		interactive_vassal_tier_eligibility_trigger = {
+			LIEGE = $LIEGE$
+		}
+		miv_has_tamed_dragon_trigger = yes
+		miv_has_owned_dragon_trigger = yes
+	}
+}
+
+interactive_improved_civil_wars_trigger = {
+	OR = {
+		NOT = {
+			has_game_rule = improved_civil_wars_disabled
+		}
+		AND = {
+			has_global_variable = AGOT_is_loaded
+			has_game_rule = bannermen_mode_enabled
+		}
+	}
+}
+
+interactive_bannermen_callable_vassal_trigger = {
+	highest_held_title_tier >= tier_county
+	interactive_vassal_eligibility_trigger = {
+		LIEGE = $LIEGE$
+	}
+	interactive_vassal_performance_eligibility_trigger = yes
+	trigger_if = {
+		limit = {
+			is_landed = no
+		}
+		max_military_strength > interactive_minimum_landless_vassal_strength
+	}
+	trigger_else = {
+		max_military_strength > interactive_minimum_vassal_strength
+	}
+	OR = {
+		is_landed = yes
+		NOT = {
+			government_has_flag = government_is_landless_adventurer
+		}
+	}
+}
+
+interactive_bannermen_scope_trigger = {
+	interactive_bannermen_callable_vassal_trigger = {
+		LIEGE = $LIEGE$
+	}
+	is_ai = yes
+}
+
+interactive_bannermen_loyalist_faction_trigger = {
+	exists = joined_faction
+	joined_faction = {
+		OR = {
+			faction_is_type = crown_loyalist_faction
+			miv_agot_loyalist_faction_trigger = yes
+		}
+	}
+}
+
+interactive_bannermen_hostile_faction_trigger = {
+	exists = joined_faction
+	joined_faction = {
+		faction_target = $LIEGE$
+		NOR = {
+			faction_is_type = crown_loyalist_faction
+			miv_agot_loyalist_faction_trigger = yes
+		}
+	}
+}
+
+interactive_bannermen_civilwar_answered_trigger = {
+	exists = var:miv_cw_answer
+	exists = var:miv_cw_answer_war
+	var:miv_cw_answer_war = scope:miv_cw_war
+}
+
+interactive_bannermen_civilwar_loyal_trigger = {
+	OR = {
+		interactive_bannermen_loyalist_faction_trigger = yes
+		AND = {
+			interactive_bannermen_civilwar_answered_trigger = yes
+			var:miv_cw_answer <= 3
+		}
+	}
+}
+
+interactive_bannermen_civilwar_neutral_trigger = {
+	interactive_bannermen_civilwar_answered_trigger = yes
+	var:miv_cw_answer <= 5
+}
+
+miv_agot_loyalist_faction_trigger = {
+	has_global_variable = AGOT_is_loaded
+	always = no
+}
+
+miv_is_dragon_trigger = {
+	always = no
+}
+
+miv_has_tamed_dragon_trigger = {
+	has_global_variable = AGOT_is_loaded
+	any_courtier = {
+		has_variable = current_rider
+	}
+}
+
+miv_has_owned_dragon_trigger = {
+	has_global_variable = AGOT_is_loaded
+	any_courtier = {
+		has_character_flag = owned_dragon
+		NOT = {
+			has_variable = current_rider
+		}
+	}
+}
+
+interactive_agot_megawar_trigger = {
+	has_global_variable = AGOT_is_loaded
+	primary_defender = {
+		highest_held_title_tier = tier_hegemony
+	}
+}
+
+interactive_bannermen_foreign_enabled_trigger = {
+	NOT = {
+		has_game_rule = vassal_distance_disabled
+	}
+}
+
+interactive_bannermen_foreign_war_trigger = {
+	OR = {
+		is_civil_war = no
+		interactive_agot_megawar_trigger = yes
+	}
+}
+
+interactive_agot_megawar_empire_override_trigger = {
+	has_global_variable = AGOT_is_loaded
+	OR = {
+		has_game_rule = bannermen_extended_mode_enable
+		has_game_rule = bannermen_extended_mode_disabled
+	}
+	interactive_agot_megawar_trigger = yes
+	$LIEGE$ = {
+		highest_held_title_tier >= tier_empire
+	}
+}
+
+interactive_bannermen_worth_calling_trigger = {
+	trigger_if = {
+		limit = {
+			is_attacker = $LIEGE$
+		}
+		war_defender_total_strength_value >= interactive_bannermen_minimum_enemy_strength
+		war_attacker_total_strength_value < {
+			value = war_defender_total_strength_value
+			multiply = interactive_bannermen_side_advantage_ratio
+			divide = 100
+		}
+	}
+	trigger_else = {
+		war_attacker_total_strength_value >= interactive_bannermen_minimum_enemy_strength
+		war_defender_total_strength_value < {
+			value = war_attacker_total_strength_value
+			multiply = interactive_bannermen_side_advantage_ratio
+			divide = 100
+		}
+	}
+}
+
+interactive_bannermen_callable_war_trigger = {
+	interactive_bannermen_foreign_war_trigger = yes
+	trigger_if = {
+		limit = {
+			NOT = {
+				interactive_agot_megawar_trigger = yes
+			}
+		}
+		NOT = {
+			primary_attacker = {
+				interactive_bannermen_is_rebel_trigger = {
+					LIEGE = $LIEGE$
+				}
+			}
+		}
+		NOT = {
+			AND = {
+				has_global_variable = AGOT_is_loaded
+				primary_defender = $LIEGE$
+				primary_attacker = {
+					exists = var:agot_pwl_direct
+					var:agot_pwl_direct = $LIEGE$
+				}
+			}
+		}
+	}
+}
+
+interactive_bannermen_civilwar_eligible_trigger = {
+	interactive_bannermen_scope_trigger = {
+		LIEGE = $LIEGE$
+	}
+	NOT = {
+		is_at_war_with = $LIEGE$
+	}
+	NOT = {
+		has_game_rule = civil_war_distance_disabled
+	}
+	interactive_bannermen_civilwar_in_range_trigger = {
+		LEADER = $LEADER$
+	}
+}
+
+interactive_bannermen_civilwar_in_range_trigger = {
+	trigger_if = {
+		limit = {
+			OR = {
+				has_game_rule = civil_war_distance_massive
+				has_game_rule = civil_war_distance_almost_massive
+				has_game_rule = civil_war_distance_huge
+				has_game_rule = civil_war_distance_large
+				has_game_rule = civil_war_distance_major
+				has_game_rule = civil_war_distance_medium
+				has_game_rule = civil_war_distance_small
+			}
+			exists = capital_province
+			exists = $LEADER$.capital_province
+		}
+		capital_province = {
+			squared_distance = {
+				target = $LEADER$.capital_province
+				value <= miv_civil_war_distance_value
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			has_game_rule = civil_war_distance_land_or_sea
+			exists = capital_province
+			exists = $LEADER$.capital_province
+		}
+		any_sub_realm_county = {
+			any_title_to_title_neighboring_and_across_water_county = {
+				holder = {
+					OR = {
+						this = $LEADER$
+						is_vassal_or_below_of = $LEADER$
+					}
+				}
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			has_game_rule = civil_war_distance_land
+			exists = capital_province
+			exists = $LEADER$.capital_province
+		}
+		any_sub_realm_county = {
+			any_neighboring_county = {
+				holder = {
+					OR = {
+						this = $LEADER$
+						is_vassal_or_below_of = $LEADER$
+					}
+				}
+			}
+		}
+	}
+	trigger_else = {
+		always = yes
+	}
+}
+
+interactive_bannermen_primary_war_enemy_trigger = {
+	NOT = {
+		this = scope:vassal
+	}
+	any_character_war = {
+		OR = {
+			AND = {
+				primary_attacker = prev
+				is_defender = scope:liege
+			}
+			AND = {
+				primary_defender = prev
+				is_attacker = scope:liege
+			}
+		}
+	}
+}
+
+interactive_bannermen_house_relation_trigger = {
+	exists = house
+	exists = $OTHER$.house
+	NOT = {
+		house = $OTHER$.house
+	}
+	house = {
+		any_house_relation = {
+			has_house_relation_level = $LEVEL$
+			any_relation_house = {
+				this = $OTHER$.house
+			}
+		}
+	}
+}
+
+interactive_bannermen_civil_war_trigger = {
+	$LIEGE$ = {
+		any_character_war = {
+			is_civil_war = yes
+		}
+	}
+}
+
+interactive_bannermen_enemy_realm_trigger = {
+	OR = {
+		is_at_war_with = $LIEGE$
+		any_liege_or_above = {
+			is_at_war_with = $LIEGE$
+		}
+	}
+}
+
+interactive_bannermen_war_leader_trigger = {
+	$LIEGE$ = {
+		OR = {
+			any_character_war = {
+				primary_attacker = $LIEGE$
+			}
+			any_character_war = {
+				primary_defender = $LIEGE$
+			}
+		}
+	}
+}
+
+interactive_bannermen_called_in_trigger = {
+	$LIEGE$ = {
+		is_at_war = yes
+		NOT = {
+			any_character_war = {
+				primary_attacker = $LIEGE$
+			}
+		}
+		NOT = {
+			any_character_war = {
+				primary_defender = $LIEGE$
+			}
+		}
+	}
+}
+
+interactive_bannermen_influence_trigger = {
+	government_has_flag = government_has_influence
+}
+
+interactive_bannermen_is_rebel_trigger = {
+	is_vassal_or_below_of = $LIEGE$
+}
+
+miv_bannermen_borders_trigger = {
+	trigger_if = {
+		limit = {
+			OR = {
+				has_game_rule = vassal_distance_massive
+				has_game_rule = vassal_distance_almost_massive
+				has_game_rule = vassal_distance_huge
+				has_game_rule = vassal_distance_large
+				has_game_rule = vassal_distance_major
+				has_game_rule = vassal_distance_medium
+				has_game_rule = vassal_distance_small
+			}
+		}
+		exists = $VASSAL$.capital_province
+		trigger_if = {
+			limit = {
+				exists = capital_province
+			}
+			OR = {
+				capital_province = {
+					squared_distance = {
+						target = $VASSAL$.capital_province
+						value <= miv_vassal_distance_value
+					}
+				}
+				any_sub_realm_county = {
+					title_province = {
+						squared_distance = {
+							target = $VASSAL$.capital_province
+							value <= miv_vassal_distance_value
+						}
+					}
+				}
+			}
+		}
+		trigger_else = {
+			OR = {
+				any_army = {
+					location = {
+						squared_distance = {
+							target = $VASSAL$.capital_province
+							value <= miv_vassal_distance_value
+						}
+					}
+				}
+				location ?= {
+					squared_distance = {
+						target = $VASSAL$.capital_province
+						value <= miv_vassal_distance_value
+					}
+				}
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			has_game_rule = vassal_distance_land_or_sea
+		}
+		any_sub_realm_county = {
+			any_title_to_title_neighboring_and_across_water_county = {
+				holder = {
+					OR = {
+						this = $VASSAL$
+						is_vassal_or_below_of = $VASSAL$
+					}
+				}
+			}
+		}
+	}
+	trigger_else = {
+		any_sub_realm_county = {
+			any_neighboring_county = {
+				holder = {
+					OR = {
+						this = $VASSAL$
+						is_vassal_or_below_of = $VASSAL$
+					}
+				}
+			}
+		}
+	}
+}
+
+miv_bannermen_distance_trigger = {
+	trigger_if = {
+		limit = {
+			NOR = {
+				has_game_rule = vassal_distance_land
+				has_game_rule = vassal_distance_land_or_sea
+				has_game_rule = vassal_distance_massive
+				has_game_rule = vassal_distance_almost_massive
+				has_game_rule = vassal_distance_huge
+				has_game_rule = vassal_distance_large
+				has_game_rule = vassal_distance_major
+				has_game_rule = vassal_distance_medium
+				has_game_rule = vassal_distance_small
+			}
+		}
+		always = yes
+	}
+	trigger_else_if = {
+		limit = {
+			$VASSAL$ = {
+				is_landed = no
+			}
+		}
+		always = yes
+	}
+	trigger_else_if = {
+		limit = {
+			exists = scope:miv_enemy
+			OR = {
+				scope:miv_enemy = {
+					interactive_bannermen_is_rebel_trigger = {
+						LIEGE = $LIEGE$
+					}
+				}
+				$LIEGE$ = {
+					interactive_bannermen_is_rebel_trigger = {
+						LIEGE = scope:miv_enemy
+					}
+				}
+			}
+		}
+		always = yes
+	}
+	trigger_else_if = {
+		limit = {
+			exists = scope:miv_enemy
+		}
+		scope:miv_enemy = {
+			miv_bannermen_borders_trigger = {
+				VASSAL = $VASSAL$
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			$LIEGE$ = {
+				NOT = {
+					any_character_war = {
+						is_civil_war = no
+						NOT = {
+							interactive_agot_megawar_trigger = yes
+						}
+						interactive_bannermen_callable_war_trigger = {
+							LIEGE = $LIEGE$
+						}
+					}
+				}
+			}
+		}
+		always = yes
+	}
+	trigger_else = {
+		$LIEGE$ = {
+			any_character_war = {
+				is_civil_war = no
+				NOT = {
+					interactive_agot_megawar_trigger = yes
+				}
+				interactive_bannermen_callable_war_trigger = {
+					LIEGE = $LIEGE$
+				}
+				trigger_if = {
+					limit = {
+						any_war_attacker = {
+							this = $LIEGE$
+						}
+					}
+					primary_defender = {
+						miv_bannermen_borders_trigger = {
+							VASSAL = $VASSAL$
+						}
+					}
+				}
+				trigger_else = {
+					primary_attacker = {
+						miv_bannermen_borders_trigger = {
+							VASSAL = $VASSAL$
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+miv_bannermen_distance_war_trigger = {
+	trigger_if = {
+		limit = {
+			NOR = {
+				has_game_rule = vassal_distance_land
+				has_game_rule = vassal_distance_land_or_sea
+				has_game_rule = vassal_distance_massive
+				has_game_rule = vassal_distance_almost_massive
+				has_game_rule = vassal_distance_huge
+				has_game_rule = vassal_distance_large
+				has_game_rule = vassal_distance_major
+				has_game_rule = vassal_distance_medium
+				has_game_rule = vassal_distance_small
+			}
+		}
+		always = yes
+	}
+	trigger_else_if = {
+		limit = {
+			$VASSAL$ = {
+				is_landed = no
+			}
+		}
+		always = yes
+	}
+	trigger_else = {
+		$ENEMY$ = {
+			miv_bannermen_borders_trigger = {
+				VASSAL = $VASSAL$
+			}
+		}
+	}
+}
+
+miv_faction_threshold_applies_trigger = {
+	OR = {
+		has_game_rule = miv_faction_threshold_10
+		has_game_rule = miv_faction_threshold_20
+		has_game_rule = miv_faction_threshold_30
+		has_game_rule = miv_faction_threshold_40
+		has_game_rule = miv_faction_threshold_50
+		has_game_rule = miv_faction_threshold_60
+		has_game_rule = miv_faction_threshold_70
+		has_game_rule = miv_faction_threshold_80
+		has_game_rule = miv_faction_threshold_90
+		has_game_rule = miv_faction_threshold_100
+	}
+	faction_leader ?= {
+		is_vassal_or_below_of = root.faction_target
+	}
+}
+
+agot_loyalist_faction_character_validity_trigger = {
+	interactive_vassal_eligibility_trigger = {
+		LIEGE = $FACTION_TARGET$
+	}
+	NOR = {
+		miv_uninteractable_government_trigger = yes
+		trigger_if = {
+			limit = {
+				exists = cp:councillor_court_chaplain
+			}
+			this = cp:councillor_court_chaplain
+		}
+	}
+	$FACTION_TARGET$ = liege
+	highest_held_title_tier > tier_barony
+	custom_description = {
+		text = agot_loyalist_faction_character_blocked_from_joining
+		NOT = {
+			has_character_flag = recently_disbanded_loyalist_faction
+		}
+	}
+}
+
+war_declarer_needs_hook_on_liege = {
+	trigger_if = {
+		limit = {
+			exists = scope:puppet_or_actor
+		}
+		scope:puppet_or_actor = {
+			miv_war_declarer_needs_hook_on_liege_trigger = yes
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			exists = scope:actor
+		}
+		scope:actor = {
+			miv_war_declarer_needs_hook_on_liege_trigger = yes
+		}
+	}
+	trigger_else = {
+		miv_war_declarer_needs_hook_on_liege_trigger = yes
+	}
+}
+
+miv_war_declarer_needs_hook_on_liege_trigger = {
+	top_liege != this
+	liege != scope:recipient
+	NOT = {
+		vassal_contract_has_flag = vassal_contract_war_override
+	}
+	OR = {
+		AND = {
+			NAND = {
+				government_has_flag = government_has_influence
+				liege = {
+					government_has_flag = government_has_influence
+				}
+			}
+			OR = {
+				AND = {
+					liege = scope:recipient.liege
+					OR = {
+						liege = {
+							has_realm_law_flag = vassal_internal_wars_banned
+						}
+						has_game_rule = vassal_wars_miv_enabled
+						AND = {
+							has_game_rule = vassal_wars_miv_ai
+							is_ai = yes
+						}
+					}
+				}
+				liege = {
+					has_realm_law_flag = vassal_all_wars_banned
+				}
+			}
+		}
+		AND = {
+			top_liege != scope:recipient.top_liege
+			OR = {
+				has_game_rule = vassal_expansion_miv_enabled_all
+				AND = {
+					has_game_rule = vassal_expansion_miv_enabled
+					is_ai = yes
+				}
+				AND = {
+					OR = {
+						has_game_rule = vassal_expansion_miv_administrative_all
+						AND = {
+							has_game_rule = vassal_expansion_miv_administrative
+							is_ai = yes
+						}
+					}
+					OR = {
+						government_has_flag = government_has_influence
+						top_liege = {
+							government_has_flag = government_has_influence
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+miv_player_call_eligible_trigger = {
+	is_landed = yes
+	max_military_strength > interactive_minimum_vassal_strength
+	highest_held_title_tier > tier_barony
+	is_capable_adult = yes
+	interactive_vassal_performance_eligibility_trigger = yes
+	NOT = {
+		liege = {
+			has_opinion_modifier = {
+				modifier = miv_oathbreaker
+				target = scope:player
+			}
+		}
+	}
+	NOT = {
+		is_at_war_with_liege = yes
+	}
+	OR = {
+		is_vassal_or_below_of = scope:attacker
+		is_vassal_or_below_of = scope:defender
+	}
+	trigger_if = {
+		limit = {
+			scope:war = {
+				NOT = {
+					interactive_agot_megawar_trigger = yes
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				OR = {
+					scope:war = {
+						is_civil_war = yes
+					}
+					scope:attacker = {
+						interactive_bannermen_is_rebel_trigger = {
+							LIEGE = scope:defender
+						}
+					}
+				}
+			}
+			NOT = {
+				has_game_rule = civil_war_distance_disabled
+			}
+			interactive_bannermen_civilwar_in_range_trigger = {
+				LEADER = scope:attacker
+			}
+		}
+		trigger_else = {
+			interactive_bannermen_foreign_enabled_trigger = yes
+			trigger_if = {
+				limit = {
+					is_vassal_or_below_of = scope:attacker
+				}
+				miv_bannermen_distance_war_trigger = {
+					VASSAL = scope:player
+					ENEMY = scope:defender
+				}
+			}
+			trigger_else = {
+				miv_bannermen_distance_war_trigger = {
+					VASSAL = scope:player
+					ENEMY = scope:attacker
+				}
+			}
+		}
+	}
+}
+
+interactive_governor_support_trigger = {
+	always = no
+	has_game_rule = bannermen_mode_enabled
+	NOT = {
+		has_game_rule = administrative_governors_disabled
+	}
+	government_has_flag = government_has_influence
+	$LIEGE$ = {
+		government_has_flag = government_has_influence
+	}
+}
+
+miv_leave_war_valid_war_trigger = {
+	NOR = {
+		primary_attacker = $RECIPIENT$
+		primary_defender = $RECIPIENT$
+	}
+	trigger_if = {
+		limit = {
+			interactive_bannermen_foreign_war_trigger = yes
+		}
+		NOT = {
+			has_game_rule = bribe_to_leave_war_miv_disabled
+		}
+	}
+	trigger_else = {
+		NOT = {
+			has_game_rule = politics_miv_disabled
+		}
+	}
+	OR = {
+		AND = {
+			any_war_attacker = {
+				this = $ACTOR$
+			}
+			any_war_defender = {
+				this = $RECIPIENT$
+			}
+		}
+		AND = {
+			any_war_attacker = {
+				this = $RECIPIENT$
+			}
+			any_war_defender = {
+				this = $ACTOR$
+			}
+		}
+	}
+}
+
+miv_vassal_support_war_open_trigger = {
+	trigger_if = {
+		limit = {
+			has_game_rule = bannermen_mode_enabled
+		}
+		custom_description = {
+			text = ASK_VASSAL_MILITARY_SUPPORT_CIVIL_WAR_BLOCKED_TEXT
+			interactive_bannermen_foreign_war_trigger = yes
+		}
+	}
+	trigger_if = {
+		limit = {
+			miv_vassal_support_distance_applies_trigger = yes
+		}
+		custom_description = {
+			text = interactive_bannermen_distance_target_text
+			subject = scope:recipient
+			miv_vassal_support_war_reaches_enemy_trigger = yes
+		}
+	}
+	OR = {
+		has_game_rule = bannermen_mode_enabled
+		AND = {
+			custom_description = {
+				text = ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR_TEXT
+				NOT = {
+					is_civil_war = yes
+				}
+			}
+			is_war_leader = scope:actor
+		}
+	}
+}
+
+miv_vassal_support_war_trigger = {
+	miv_vassal_support_war_open_trigger = yes
+	custom_description = {
+		text = interactive_bannermen_already_called_text
+		subject = scope:recipient
+		NOT = {
+			was_called = scope:recipient
+		}
+	}
+	custom_description = {
+		text = miv_request_support_already_in_war_text
+		subject = scope:recipient
+		miv_vassal_support_recipient_not_in_war_trigger = yes
+	}
+}
+
+miv_vassal_support_distance_applies_trigger = {
+	has_game_rule = bannermen_mode_enabled
+	OR = {
+		has_game_rule = vassal_distance_land
+		has_game_rule = vassal_distance_land_or_sea
+		has_game_rule = vassal_distance_massive
+		has_game_rule = vassal_distance_almost_massive
+		has_game_rule = vassal_distance_huge
+		has_game_rule = vassal_distance_large
+		has_game_rule = vassal_distance_major
+		has_game_rule = vassal_distance_medium
+		has_game_rule = vassal_distance_small
+	}
+	NOT = {
+		scope:recipient = {
+			interactive_governor_support_trigger = {
+				LIEGE = scope:actor
+			}
+		}
+	}
+}
+
+miv_vassal_support_war_reaches_enemy_trigger = {
+	OR = {
+		interactive_agot_megawar_trigger = yes
+		AND = {
+			is_attacker = scope:actor
+			miv_bannermen_distance_war_trigger = {
+				VASSAL = scope:recipient
+				ENEMY = primary_defender
+			}
+		}
+		AND = {
+			NOT = {
+				is_attacker = scope:actor
+			}
+			miv_bannermen_distance_war_trigger = {
+				VASSAL = scope:recipient
+				ENEMY = primary_attacker
+			}
+		}
+	}
+}
+
+miv_vassal_support_recipient_not_in_war_trigger = {
+	NOR = {
+		any_war_attacker = {
+			this = scope:recipient
+		}
+		any_war_defender = {
+			this = scope:recipient
+		}
+	}
+}
+
+miv_governor_support_war_trigger = {
+	custom_description = {
+		text = ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR_TEXT
+		interactive_bannermen_foreign_war_trigger = yes
+	}
+	is_war_leader = scope:actor
+	custom_description = {
+		text = miv_request_support_already_in_war_text
+		miv_vassal_support_recipient_not_in_war_trigger = yes
+	}
+}
+
+interactive_bannermen_syncretic_with_liege_trigger = {
+	NOT = {
+		faith = scope:liege.faith
+	}
+	OR = {
+		rite = {
+			rite_is_syncretic_with = {
+				RITE = scope:liege.rite
+			}
+		}
+		scope:liege.faith = {
+			interactive_personal_syncretism_faith_matches_trigger = {
+				CHARACTER = scope:vassal
+			}
+		}
+	}
+}
+
+interactive_personal_syncretism_faith_matches_trigger = {
+	OR = {
+		AND = {
+			$CHARACTER$ = {
+				has_personal_tenet = tenet_sinitic_syncretism
+			}
+			religion = {
+				is_in_family = rf_sinitic
+			}
+		}
+		AND = {
+			$CHARACTER$ = {
+				has_personal_tenet = tenet_eastern_syncretism
+			}
+			religion = {
+				is_in_family = rf_eastern
+			}
+		}
+		AND = {
+			$CHARACTER$ = {
+				has_personal_tenet = tenet_unreformed_syncretism
+			}
+			has_doctrine_parameter = unreformed
+		}
+		AND = {
+			$CHARACTER$ = {
+				has_personal_tenet = tenet_christian_syncretism
+			}
+			religion_tag = christianity_religion
+		}
+		AND = {
+			$CHARACTER$ = {
+				has_personal_tenet = tenet_islamic_syncretism
+			}
+			religion_tag = islam_religion
+		}
+		AND = {
+			$CHARACTER$ = {
+				has_personal_tenet = tenet_jewish_syncretism
+			}
+			religion_tag = judaism_religion
+		}
+	}
+}
+
+miv_cb_cost_rule_active_trigger = {
+	NOT = {
+		has_game_rule = miv_cb_cost_disabled
+	}
+	trigger_if = {
+		limit = {
+			OR = {
+				has_game_rule = miv_cb_cost_minus_100_player
+				has_game_rule = miv_cb_cost_minus_50_player
+				has_game_rule = miv_cb_cost_plus_50_player
+				has_game_rule = miv_cb_cost_plus_100_player
+				has_game_rule = miv_cb_cost_plus_150_player
+				has_game_rule = miv_cb_cost_plus_200_player
+				has_game_rule = miv_cb_cost_plus_250_player
+				has_game_rule = miv_cb_cost_plus_300_player
+				has_game_rule = miv_cb_cost_plus_350_player
+				has_game_rule = miv_cb_cost_plus_400_player
+				has_game_rule = miv_cb_cost_plus_450_player
+				has_game_rule = miv_cb_cost_plus_500_player
+			}
+		}
+		scope:attacker ?= {
+			is_ai = no
+		}
+	}
+}
+
+miv_accolade_artifact_enabled_trigger = {
+	OR = {
+		has_game_rule = miv_accolade_artifact_enabled
+		has_game_rule = miv_accolade_artifact_players
+	}
+}
+
+miv_accolade_artifact_needs_repair_trigger = {
+	NOT = {
+		miv_accolade_artifact_enabled_trigger = yes
+		exists = var:miv_accolade_artifact_accolade
+		exists = var:miv_accolade_artifact_patron
+		exists = var:miv_accolade_artifact_accolade.accolade_owner
+		exists = var:miv_accolade_artifact_accolade.acclaimed_knight
+		var:miv_accolade_artifact_patron ?= {
+			is_alive = yes
+		}
+		var:miv_accolade_artifact_accolade.accolade_owner = var:miv_accolade_artifact_patron
+		artifact_owner = var:miv_accolade_artifact_accolade.acclaimed_knight
+		artifact_owner ?= {
+			is_alive = yes
+		}
+		is_equipped = yes
+		should_decay = no
+		has_variable = equipped_court_succession
+	}
+}
+
+miv_accolade_artifact_assignment_allowed_trigger = {
+	miv_accolade_artifact_enabled_trigger = yes
+	custom_tooltip = {
+		text = miv_accolade_artifact_assign_owner_tt
+		exists = scope:miv_accolade_artifact_accolade
+		scope:miv_accolade_artifact_accolade = {
+			accolade_owner = root
+		}
+	}
+	custom_tooltip = {
+		text = miv_accolade_artifact_assign_artifact_tt
+		exists = scope:miv_accolade_artifact_artifact
+		any_character_artifact = {
+			this = scope:miv_accolade_artifact_artifact
+		}
+		scope:miv_accolade_artifact_artifact = {
+			OR = {
+				artifact_slot_type = primary_armament
+				artifact_slot_type = armor
+			}
+			NOT = {
+				has_variable = miv_accolade_artifact_accolade
+			}
+			NOT = {
+				has_variable = artifact_prevent_transfer
+			}
+		}
+	}
+	custom_tooltip = {
+		text = miv_accolade_artifact_assign_knight_tt
+		scope:miv_accolade_artifact_accolade = {
+			exists = acclaimed_knight
+			acclaimed_knight = {
+				is_alive = yes
+				can_equip_artifact = scope:miv_accolade_artifact_artifact
+			}
+		}
+	}
+}
+
+miv_gui_character_cache_valid_trigger = {
+	has_character_flag = miv_gui_character_ready
+	exists = var:miv_gui_strength_eligible_count
+	exists = var:miv_gui_strength_eligible_strength
+	exists = var:miv_gui_strength_not_answering_count
+	exists = var:miv_gui_strength_answering_count
+	exists = var:miv_gui_strength_answering_strength
+}
+
+miv_gui_character_capture_needed_trigger = {
+	OR = {
+		any_vassal = {
+			is_alive = yes
+		}
+		exists = var:miv_gui_strength_eligible_count
+	}
+	has_game_rule = bannermen_mode_enabled
+	interactive_bannermen_foreign_enabled_trigger = yes
+	NOT = {
+		miv_gui_character_cache_valid_trigger = yes
+	}
+}
+
+miv_gui_banners_cache_valid_trigger = {
+	has_character_flag = miv_gui_banners_ready
+	exists = var:miv_widget_headline_eligible_strength
+	exists = var:miv_widget_headline_eligible_count
+	exists = var:miv_widget_headline_answer_strength
+	exists = var:miv_widget_headline_answer_count
+	exists = var:miv_banners_view_answering_count
+	exists = var:miv_banners_view_answering_strength
+	exists = var:miv_banners_view_withheld_count
+	exists = var:miv_banners_view_withheld_strength
+	exists = var:miv_banners_view_betraying_count
+	exists = var:miv_banners_view_betraying_strength
+	exists = var:miv_banners_view_distant_count
+	exists = var:miv_banners_view_distant_strength
+}
+
+miv_gui_wardec_cache_valid_trigger = {
+	exists = scope:miv_enemy
+	exists = var:miv_wardec_hover_answering_count
+	exists = var:miv_wardec_hover_answering_strength
+	exists = var:miv_wardec_hover_withheld_count
+	exists = var:miv_wardec_hover_withheld_strength
+	exists = var:miv_wardec_hover_betraying_count
+	exists = var:miv_wardec_hover_betraying_strength
+	exists = var:miv_wardec_hover_distant_count
+	exists = var:miv_wardec_hover_distant_strength
+	exists = var:miv_wardec_hover_eligible_count
+	exists = var:miv_wardec_hover_enemy
+	exists = var:miv_wardec_window_answering_strength
+	exists = var:miv_wardec_window_withheld_strength
+	exists = var:miv_wardec_window_betraying_strength
+	exists = var:miv_wardec_window_enemy
+	has_character_flag = miv_gui_wardec_ready
+	trigger_if = {
+		limit = {
+			exists = scope:miv_enemy
+			exists = var:miv_wardec_hover_enemy
+			exists = var:miv_wardec_window_enemy
+		}
+		var:miv_wardec_hover_enemy = scope:miv_enemy
+		var:miv_wardec_window_enemy = scope:miv_enemy
+	}
+}
+
+miv_accolade_artifact_ai_enabled_trigger = {
+	has_game_rule = miv_accolade_artifact_enabled
+}
+
+miv_accolade_artifact_stealing_enabled_trigger = {
+	miv_accolade_artifact_enabled_trigger = yes
+	has_game_rule = miv_accolade_artifact_stealing_enabled
+}
+
+miv_accolade_artifact_ai_candidate_trigger = {
+	is_unique = no
+	is_equipped = no
+	NOT = {
+		has_variable = miv_accolade_artifact_accolade
+	}
+	NOT = {
+		has_variable = artifact_prevent_transfer
+	}
+	scope:miv_accolade_artifact_ai_knight = {
+		can_equip_artifact = prev
+	}
+	trigger_if = {
+		limit = {
+			artifact_slot_type = primary_armament
+		}
+		miv_accolade_artifact_ai_ruler_outranks_trigger = {
+			SLOT = primary_armament
+		}
+	}
+	trigger_else = {
+		miv_accolade_artifact_ai_ruler_outranks_trigger = {
+			SLOT = armor
+		}
+	}
+}
+
+miv_accolade_artifact_ai_ruler_outranks_trigger = {
+	trigger_if = {
+		limit = {
+			rarity_level = famed
+		}
+		artifact_owner = {
+			any_equipped_character_artifact = {
+				artifact_slot_type = $SLOT$
+				rarity_level >= famed
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			rarity_level = masterwork
+		}
+		artifact_owner = {
+			any_equipped_character_artifact = {
+				artifact_slot_type = $SLOT$
+				rarity_level >= masterwork
+			}
+		}
+	}
+	trigger_else = {
+		artifact_owner = {
+			any_equipped_character_artifact = {
+				artifact_slot_type = $SLOT$
+			}
+		}
+	}
+}
+
+miv_accolade_artifact_slain_capture_trigger = {
+	miv_accolade_artifact_stealing_enabled_trigger = yes
+	exists = scope:old_acclaimed_knight
+	scope:old_acclaimed_knight = {
+		is_alive = no
+	}
+	exists = artifact_owner
+	artifact_owner = {
+		is_alive = yes
+	}
+	NOT = {
+		artifact_owner = scope:old_acclaimed_knight
+	}
+	trigger_if = {
+		limit = {
+			exists = var:miv_accolade_artifact_patron
+		}
+		NOT = {
+			artifact_owner = var:miv_accolade_artifact_patron
+		}
+	}
+	trigger_if = {
+		limit = {
+			exists = var:miv_accolade_artifact_accolade.accolade_owner
+		}
+		NOT = {
+			artifact_owner = var:miv_accolade_artifact_accolade.accolade_owner
+		}
+	}
+}
+
+miv_accolade_artifact_player_watched_trigger = {
+	trigger_if = {
+		limit = {
+			exists = var:miv_accolade_artifact_patron
+		}
+		NOT = {
+			var:miv_accolade_artifact_patron = {
+				is_alive = yes
+				is_ai = yes
+			}
+		}
+	}
+}
+
+miv_accolade_artifact_ai_upgradable_trigger = {
+	is_unique = no
+	exists = artifact_owner
+	OR = {
+		artifact_owner = scope:miv_accolade_artifact_ai_knight
+		artifact_owner = scope:miv_accolade_artifact_accolade.accolade_owner
+	}
+}
+
+miv_missing_cultural_maa_trigger = {
+	exists = this
+	exists = culture
+	has_game_rule = challenging_ai_enabled
+	is_ai = yes
+	is_landed = yes
+	OR = {
+		AND = {
+			culture ?= {
+				culture_has_light_cavalry_maa = yes
+			}
+			NOT = {
+				number_maa_regiments_of_base_type = {
+					type = light_cavalry
+					value >= 1
+				}
+			}
+		}
+		AND = {
+			culture ?= {
+				culture_has_heavy_cavalry_maa = yes
+			}
+			NOT = {
+				number_maa_regiments_of_base_type = {
+					type = heavy_cavalry
+					value >= 1
+				}
+			}
+		}
+		AND = {
+			culture ?= {
+				culture_has_heavy_infantry_maa = yes
+			}
+			NOT = {
+				number_maa_regiments_of_base_type = {
+					type = heavy_infantry
+					value >= 1
+				}
+			}
+		}
+		AND = {
+			culture ?= {
+				culture_has_pikemen_maa = yes
+			}
+			NOT = {
+				number_maa_regiments_of_base_type = {
+					type = pikemen
+					value >= 1
+				}
+			}
+		}
+		AND = {
+			culture ?= {
+				culture_has_archer_maa = yes
+			}
+			NOT = {
+				number_maa_regiments_of_base_type = {
+					type = archers
+					value >= 1
+				}
+			}
+		}
+		AND = {
+			culture ?= {
+				culture_has_skirmisher_maa = yes
+			}
+			NOT = {
+				number_maa_regiments_of_base_type = {
+					type = skirmishers
+					value >= 1
+				}
+			}
+		}
+		AND = {
+			culture ?= {
+				culture_has_archer_cavalry_maa = yes
+			}
+			NOT = {
+				number_maa_regiments_of_base_type = {
+					type = archer_cavalry
+					value >= 1
+				}
+			}
+		}
+	}
+}
+
+miv_ai_artifacts_candidate_trigger = {
+	is_ai = yes
+	is_adult = yes
+	is_imprisoned = no
+	highest_held_title_tier >= tier_duchy
+	NOT = {
+		has_character_flag = miv_ai_artifacts_received
+	}
+	NOT = {
+		miv_placeholder_government_trigger = yes
+	}
+	OR = {
+		NOT = {
+			any_character_artifact = {
+				artifact_slot_type = primary_armament
+			}
+		}
+		NOT = {
+			any_character_artifact = {
+				artifact_slot_type = armor
+			}
+		}
+	}
+}
+
+vassal_would_join_rebel_faction_base_trigger = {
+	NOR = {
+		has_game_rule = bannermen_mode_enabled
+		has_game_rule = improved_civil_wars_enabled
+	}
+	highest_held_title_tier > tier_barony
+	this != scope:rebel_temp
+	is_available_quick = {
+		ai = yes
+		incapable = no
+		imprisoned = no
+	}
+	NOR = {
+		is_at_war_with = scope:rebel_temp
+		is_at_war_with = scope:liege_temp
+		opinion = {
+			target = scope:liege_temp
+			value >= 80
+		}
+		dread_modified_ai_boldness = {
+			dreaded_character = scope:liege_temp
+			value <= -50
+		}
+	}
+}

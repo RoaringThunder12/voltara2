@@ -1,0 +1,195 @@
+﻿story_cycle_learn_necromancy = { # Story Cycle for Becoming a Necromancer
+	# by Ymeidor
+
+	on_setup = {
+		# Success Chance
+		set_variable = { 
+			name = necro_success
+			value = 0
+		}
+
+        # Modifier
+		story_owner = {
+			add_character_modifier = {
+				modifier = learning_necromancy
+			}
+            if = {
+                limit = { faith = { has_doctrine = doctrine_necromancy_crime } }
+                add_character_flag = is_learning_secret_necromancy
+            }
+            trigger_event = {
+				id = ek_story_cycle_necromancy_events.0001
+			}
+		}
+	}
+
+	on_end = {
+		story_owner = {
+            if = { 
+                limit = { has_character_flag = has_necromancy_tutor }
+                remove_character_flag = has_necromancy_tutor
+            }
+            if = { 
+                limit = { has_character_flag = is_learning_secret_necromancy }
+                remove_character_flag = is_learning_secret_necromancy
+            }
+            if = { 
+                limit = { has_character_modifier = learning_necromancy }
+                remove_character_modifier = learning_necromancy
+            }
+            if = { 
+                limit = { has_character_flag = has_necromancy_books }
+                remove_character_flag = has_necromancy_books
+            }            
+            if = { 
+                limit = { has_character_flag = has_necromancy_test_subject }
+                remove_character_flag = has_necromancy_test_subject
+            }
+			if = { 
+                limit = { has_character_flag = learned_something_from_necromancy }
+                remove_character_flag = learned_something_from_necromancy
+            }
+            if = { 
+                limit = { has_character_modifier = learning_necromancy }
+                remove_character_modifier = learning_necromancy
+            }
+			if = {
+				limit = { 
+					any_courtier = {
+						has_character_modifier = is_necromancy_tutor
+					}
+				}
+				random_courtier = {
+					limit = { 
+						has_character_modifier = is_necromancy_tutor
+					}
+					remove_character_modifier = is_necromancy_tutor
+				}
+			}
+        }
+	}
+
+	on_owner_death = {
+		scope:story = { end_story = yes }
+	}
+
+    # Fast Learning - Event Pulse
+	effect_group = {
+		days = { 40 80 }
+
+        trigger = {
+			story_owner = {
+				NOT = {
+					has_character_flag = is_learning_secret_necromancy
+				}
+			}
+		}
+
+		first_valid = {
+			triggered_effect = {
+				trigger = { always = yes }
+				effect = {
+					story_owner = {
+						trigger_event = {
+							on_action = ongoing_necromancy_events
+						}
+					}
+				}
+			}
+		}
+	}
+
+    # Secret Learning - Event Pulse
+    effect_group = {
+		days = { 60 120 }
+
+		trigger = {
+			story_owner = {
+				has_character_flag = is_learning_secret_necromancy
+			}
+		}
+
+		first_valid = {
+			triggered_effect = {
+				trigger = { always = yes }
+				effect = {
+					story_owner = {
+						trigger_event = {
+							on_action = ongoing_necromancy_events
+						}
+					}
+				}
+			}
+		}
+    }
+
+	# Fast Learning - Force Finish
+	effect_group = {
+		months =  { 12 18 }
+
+        trigger = {
+			story_owner = {
+				NOT = {
+					has_character_flag = is_learning_secret_necromancy
+				}
+			}
+		}
+
+		first_valid = {
+			triggered_effect = {
+				trigger = { var:necro_success >= 2 }
+				effect = {
+					story_owner = {
+						trigger_event = {
+							id = ek_story_cycle_necromancy_events.1000
+						}
+					}
+				}
+			}
+			triggered_effect = {
+				trigger = { var:necro_success < 2 }
+				effect = {
+					story_owner = {
+						trigger_event = {
+							id = ek_story_cycle_necromancy_events.1005
+						}
+					}
+				}
+			}
+		}
+	}
+
+    # Secret Learning - Force Finish
+    effect_group = {
+		months = { 18 24 }
+
+		trigger = {
+			story_owner = {
+				has_character_flag = is_learning_secret_necromancy
+			}
+		}
+
+		first_valid = {
+			triggered_effect = {
+				trigger = { var:necro_success >= 2 }
+				effect = {
+					story_owner = {
+						trigger_event = {
+							id = ek_story_cycle_necromancy_events.1000
+						}
+					}
+				}
+			}
+			triggered_effect = {
+				trigger = { var:necro_success < 2 }
+				effect = {
+					story_owner = {
+						trigger_event = {
+							id = ek_story_cycle_necromancy_events.1005
+						}
+					}
+				}
+			}
+		}
+    }
+}

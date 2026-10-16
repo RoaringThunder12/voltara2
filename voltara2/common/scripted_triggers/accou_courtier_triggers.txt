@@ -1,0 +1,1333 @@
+﻿accou_can_be_better_chancellor_trigger = {
+	accou_can_be_better_councillor_trigger = {
+		TYPE = councillor_chancellor
+		NAME = chancellor
+		LIEGE = $LIEGE$
+		SKILL = diplomacy
+		THRESHOLD = decent_skill_rating
+	}
+}
+
+accou_can_be_better_steward_trigger = {
+	accou_can_be_better_councillor_trigger = {
+		TYPE = councillor_steward
+		NAME = steward
+		LIEGE = $LIEGE$
+		SKILL = stewardship
+		THRESHOLD = decent_skill_rating
+	}
+}
+
+accou_can_be_better_marshal_trigger = {
+	accou_can_be_better_councillor_trigger = {
+		TYPE = councillor_marshal
+		NAME = marshal
+		LIEGE = $LIEGE$
+		SKILL = martial
+		THRESHOLD = decent_skill_rating
+	}
+}
+
+accou_can_be_better_spymaster_trigger = {
+	accou_can_be_better_councillor_trigger = {
+		TYPE = councillor_spymaster
+		NAME = spymaster
+		LIEGE = $LIEGE$
+		SKILL = intrigue
+		THRESHOLD = decent_skill_rating
+	}
+}
+
+accou_can_be_better_court_chaplain_trigger = {
+	accou_can_be_better_councillor_trigger = {
+		TYPE = councillor_court_chaplain
+		NAME = court_chaplain
+		LIEGE = $LIEGE$
+		SKILL = learning
+		THRESHOLD = decent_skill_rating
+	}
+}
+
+accou_can_be_better_kurultai_trigger = {
+	OR = {
+		accou_can_be_better_councillor_trigger = {
+			TYPE = councillor_kurultai_1
+			NAME = kurultai
+			LIEGE = $LIEGE$
+			SKILL = accou_kurultai_skill_value
+			THRESHOLD = low_skill_rating
+		}
+		accou_can_be_better_councillor_trigger = {
+			TYPE = councillor_kurultai_2
+			NAME = kurultai
+			LIEGE = $LIEGE$
+			SKILL = accou_kurultai_skill_value
+			THRESHOLD = low_skill_rating
+		}
+		accou_can_be_better_councillor_trigger = {
+			TYPE = councillor_kurultai_3
+			NAME = kurultai
+			LIEGE = $LIEGE$
+			SKILL = accou_kurultai_skill_value
+			THRESHOLD = low_skill_rating
+		}
+		accou_can_be_better_councillor_trigger = {
+			TYPE = councillor_kurultai_4
+			NAME = kurultai
+			LIEGE = $LIEGE$
+			SKILL = accou_kurultai_skill_value
+			THRESHOLD = low_skill_rating
+		}
+	}
+}
+
+accou_can_be_better_court_physician_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = court_physician_court_position
+		NAME = court_physician
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_charioteer_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = charioteer_court_position
+		NAME = charioteer
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_bookmaker_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = bookmaker_court_position
+		NAME = bookmaker
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_akolouthos_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = akolouthos_court_position
+		NAME = akolouthos
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_cultural_emissary_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = cultural_emissary_court_position
+		NAME = cultural_emissary
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_keeper_of_swans_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = keeper_of_swans_court_position
+		NAME = keeper_of_swans
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_chief_qadi_trigger = {
+	NOT = { has_global_variable = AGOT_is_loaded }
+	accou_can_be_better_court_position_trigger = {
+		TYPE = chief_qadi_court_position
+		NAME = chief_qadi
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_garuda_trigger = {
+	NOT = { has_global_variable = AGOT_is_loaded }
+	accou_can_be_better_court_position_trigger = {
+		TYPE = garuda_court_position
+		NAME = garuda
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_court_gardener_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = court_gardener_court_position
+		NAME = court_gardener
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_lady_in_waiting_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = lady_in_waiting_court_position
+		NAME = lady_in_waiting
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_antiquarian_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = antiquarian_court_position
+		NAME = antiquarian
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_travel_leader_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = travel_leader_court_position
+		NAME = travel_leader
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_wet_nurse_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = wet_nurse_court_position
+		NAME = wet_nurse
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_court_tutor_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = court_tutor_court_position
+		NAME = court_tutor
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_food_taster_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = food_taster_court_position
+		NAME = food_taster
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_master_of_horse_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = master_of_horse_court_position
+		NAME = master_of_horse
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_master_of_hunt_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = master_of_hunt_court_position
+		NAME = master_of_hunt
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_royal_architect_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = royal_architect_court_position
+		NAME = royal_architect
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_high_almoner_trigger = {
+	NOT = { has_global_variable = AGOT_is_loaded }
+	accou_can_be_better_court_position_trigger = {
+		TYPE = high_almoner_court_position
+		NAME = high_almoner
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_seneschal_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = seneschal_court_position
+		NAME = seneschal
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_cupbearer_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = cupbearer_court_position
+		NAME = cupbearer
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_chief_eunuch_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = chief_eunuch_court_position
+		NAME = chief_eunuch
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_court_jester_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = court_jester_court_position
+		NAME = court_jester
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_court_poet_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = court_poet_court_position
+		NAME = court_poet
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_court_musician_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = court_musician_court_position
+		NAME = court_musician
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_bodyguard_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = bodyguard_court_position
+		NAME = bodyguard
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_champion_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = champion_court_position
+		NAME = champion
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_executioner_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = executioner_court_position
+		NAME = executioner
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_court_artificer_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = court_artificer_court_position
+		NAME = court_artificer
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_cave_hermit_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = cave_hermit_court_position
+		NAME = cave_hermit
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_master_assassin_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = master_assassin_court_position
+		NAME = master_assassin
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_court_scholar_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = court_scholar_court_position
+		NAME = court_scholar
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_chronicler_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = chronicler_court_position
+		NAME = chronicler
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_court_brewmaster_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = court_brewmaster_court_position
+		NAME = court_brewmaster
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_eparch_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = eparch_court_position
+		NAME = eparch
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_court_astrologer_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = court_astrologer_court_position
+		NAME = court_astrologer
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_boyan_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = boyan_court_position
+		NAME = boyan
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_siege_engineer_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = siege_engineer_court_position
+		NAME = siege_engineer
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_yurtchi_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = yurtchi_court_position
+		NAME = yurtchi
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_cherbi_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = cherbi_court_position
+		NAME = cherbi
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_yeke_jarquchi_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = yeke_jarquchi_court_position
+		NAME = yeke_jarquchi
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_foreign_emissary_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = foreign_emissary_court_position
+		NAME = foreign_emissary
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_keeper_of_the_horses_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = keeper_of_the_horses_court_position
+		NAME = keeper_of_the_horses
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_grand_preceptor_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = grand_preceptor_court_position
+		NAME = grand_preceptor
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_grand_mentor_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = grand_mentor_court_position
+		NAME = grand_mentor
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_grand_guardian_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = grand_guardian_court_position
+		NAME = grand_guardian
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_fire_dragon_engineer_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = fire_dragon_engineer_court_position
+		NAME = fire_dragon_engineer
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_keeper_of_the_harem_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = keeper_of_the_harem_court_position
+		NAME = keeper_of_the_harem
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_favored_minister_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = favored_minister_court_position
+		NAME = favored_minister
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_minister_bureaucrat_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = minister_bureaucrat_court_position
+		NAME = minister_bureaucrat
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_court_guru_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = court_guru_court_position
+		NAME = court_guru
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_court_brahmin_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = court_brahmin_court_position
+		NAME = court_brahmin
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_khlon_glan_trigger = {
+	accou_can_be_better_court_position_trigger = {
+		TYPE = khlon_glan_court_position
+		NAME = khlon_glan
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_be_better_councillor_trigger = {
+	save_temporary_scope_as = character
+	accou_can_be_$NAME$_trigger = { COURT_OWNER = $LIEGE$ }
+	$SKILL$ >= $THRESHOLD$
+	$LIEGE$ = {
+		exists = council_task:$TYPE$
+		accou_can_appoint_$NAME$_trigger = yes
+		trigger_if = {
+			limit = { exists = cp:$TYPE$ }
+			cp:$TYPE$ = {
+				OR = {
+					$SKILL$ < scope:character.$SKILL$
+					this = scope:character
+				}
+			}
+		}
+		NOR = {
+			any_courtier = {
+				accou_can_be_$NAME$_trigger = { COURT_OWNER = $LIEGE$ }
+				NOT = { has_council_position = $TYPE$ }
+				$SKILL$ >= scope:character.$SKILL$
+				this != scope:character
+			}
+			any_vassal = {
+				accou_can_be_$NAME$_trigger = { COURT_OWNER = $LIEGE$ }
+				NOT = { has_council_position = $TYPE$ }
+				$SKILL$ >= scope:character.$SKILL$
+				this != scope:character
+			}
+		}
+	}
+}
+
+accou_can_be_better_court_position_trigger = {
+	save_temporary_scope_as = character
+	accou_can_be_$NAME$_trigger = { LIEGE = $LIEGE$ }
+	aptitude:$TYPE$ >= 2 # average_effectiveness
+	$LIEGE$ = {
+		OR = {
+			can_employ_court_position_type = $TYPE$
+			AND = {
+				employs_court_position = $TYPE$
+				any_court_position_holder = {
+					type = $TYPE$
+					OR = {
+						aptitude:$TYPE$ < scope:character.aptitude:$TYPE$
+						this = scope:character
+					}
+				}
+			}
+		}
+		NOT = {
+			any_courtier = {
+				can_be_employed_as = $TYPE$
+				NOT = { has_court_position = $TYPE$ }
+				aptitude:$TYPE$ >= scope:character.aptitude:$TYPE$
+				this != scope:character
+			}
+		}
+		trigger_if = {
+			limit = {
+				accou_is_court_position_available_to_vassals_trigger = { POSITION = flag:$TYPE$ }
+			}
+			NOT = {
+				any_vassal = {
+					can_be_employed_as = $TYPE$
+					NOT = { has_court_position = $TYPE$ }
+					aptitude:$TYPE$ >= scope:character.aptitude:$TYPE$
+					this != scope:character
+				}
+			}
+		}
+	}
+}
+
+accou_can_be_better_knight_trigger = {
+	save_temporary_scope_as = character
+	can_be_knight_trigger = { ARMY_OWNER = $LIEGE$ }
+	prowess >= decent_skill_rating
+	$LIEGE$ = {
+		highest_held_title_tier >= tier_county
+		OR = {
+			number_of_knights < max_number_of_knights
+			any_knight = {
+				OR = {
+					prowess < scope:character.prowess
+					this = scope:character
+				}
+			}
+		}
+		NOR = {
+			any_courtier = {
+				can_be_knight_trigger = { ARMY_OWNER = $LIEGE$ }
+				NOT = { is_knight_of = $LIEGE$ }
+				prowess >= scope:character.prowess
+				this != scope:character
+			}
+			any_vassal = {
+				can_be_knight_trigger = { ARMY_OWNER = $LIEGE$ }
+				NOT = { is_knight_of = $LIEGE$ }
+				prowess >= scope:character.prowess
+				this != scope:character
+			}
+		}
+	}
+}
+
+accou_can_be_better_commander_trigger = {
+	save_temporary_scope_as = character
+	can_be_commander_basic_trigger = { ARMY_OWNER = $LIEGE$ }
+	accou_commander_skill_value >= decent_skill_rating
+	$LIEGE$ = {
+		highest_held_title_tier >= tier_county
+		any_courtier = {
+			count = all
+			add_to_temporary_list = commanders
+		}
+		any_vassal = {
+			count = all
+			add_to_temporary_list = commanders
+		}
+		any_in_list = {
+			list = commanders
+			can_be_commander_basic_trigger = { ARMY_OWNER = $LIEGE$ }
+			accou_commander_skill_value >= scope:character.accou_commander_skill_value
+			this != scope:character
+			count < 3
+		}
+	}
+}
+
+accou_has_useful_claims_trigger = {
+	any_claim = {
+		neighboring_useful_courtier_or_guest_claim_trigger = { RULER = $RULER$ }
+	}
+}
+
+accou_can_apply_for_councillor_option_trigger = {
+	switch = {
+		trigger = $OPTION$
+		flag:chancellor = {
+			accou_can_apply_for_chancellor_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:steward = {
+			accou_can_apply_for_steward_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:marshal = {
+			accou_can_apply_for_marshal_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:spymaster = {
+			accou_can_apply_for_spymaster_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:court_chaplain = {
+			accou_can_apply_for_court_chaplain_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:kurultai = {
+			accou_can_apply_for_kurultai_trigger = { LIEGE = $LIEGE$ }
+		}
+	}
+}
+
+accou_can_apply_for_court_position_option_trigger = {
+	switch = {
+		trigger = $OPTION$
+		flag:court_physician = {
+			accou_can_apply_for_court_physician_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:charioteer = {
+			accou_can_apply_for_charioteer_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:bookmaker = {
+			accou_can_apply_for_bookmaker_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:akolouthos = {
+			accou_can_apply_for_akolouthos_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:cultural_emissary = {
+			accou_can_apply_for_cultural_emissary_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:keeper_of_swans = {
+			accou_can_apply_for_keeper_of_swans_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:chief_qadi = {
+			accou_can_apply_for_chief_qadi_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:garuda = {
+			accou_can_apply_for_garuda_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:court_gardener = {
+			accou_can_apply_for_court_gardener_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:lady_in_waiting = {
+			accou_can_apply_for_lady_in_waiting_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:antiquarian = {
+			accou_can_apply_for_antiquarian_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:travel_leader = {
+			accou_can_apply_for_travel_leader_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:wet_nurse = {
+			accou_can_apply_for_wet_nurse_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:court_tutor = {
+			accou_can_apply_for_court_tutor_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:food_taster = {
+			accou_can_apply_for_food_taster_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:master_of_horse = {
+			accou_can_apply_for_master_of_horse_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:master_of_hunt = {
+			accou_can_apply_for_master_of_hunt_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:royal_architect = {
+			accou_can_apply_for_royal_architect_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:high_almoner = {
+			accou_can_apply_for_high_almoner_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:seneschal = {
+			accou_can_apply_for_seneschal_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:cupbearer = {
+			accou_can_apply_for_cupbearer_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:chief_eunuch = {
+			accou_can_apply_for_chief_eunuch_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:court_jester = {
+			accou_can_apply_for_court_jester_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:court_poet = {
+			accou_can_apply_for_court_poet_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:court_musician = {
+			accou_can_apply_for_court_musician_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:bodyguard = {
+			accou_can_apply_for_bodyguard_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:champion = {
+			accou_can_apply_for_champion_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:executioner = {
+			accou_can_apply_for_executioner_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:court_artificer = {
+			accou_can_apply_for_court_artificer_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:cave_hermit = {
+			accou_can_apply_for_cave_hermit_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:master_assassin = {
+			accou_can_apply_for_master_assassin_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:court_scholar = {
+			accou_can_apply_for_court_scholar_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:chronicler = {
+			accou_can_apply_for_chronicler_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:court_brewmaster = {
+			accou_can_apply_for_court_brewmaster_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:eparch = {
+			accou_can_apply_for_eparch_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:court_astrologer = {
+			accou_can_apply_for_court_astrologer_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:boyan = {
+			accou_can_apply_for_boyan_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:siege_engineer = {
+			accou_can_apply_for_siege_engineer_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:yurtchi = {
+			accou_can_apply_for_yurtchi_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:cherbi = {
+			accou_can_apply_for_cherbi_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:_yeke_jarquchi = {
+			accou_can_apply_for_yeke_jarquchi_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:foreign_emissary = {
+			accou_can_apply_for_foreign_emissary_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:keeper_of_the_horses = {
+			accou_can_apply_for_keeper_of_the_horses_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:grand_preceptor = {
+			accou_can_apply_for_grand_preceptor_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:grand_mentor = {
+			accou_can_apply_for_grand_mentor_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:grand_guardian = {
+			accou_can_apply_for_grand_guardian_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:fire_dragon_engineer = {
+			accou_can_apply_for_fire_dragon_engineer_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:keeper_of_the_harem = {
+			accou_can_apply_for_keeper_of_the_harem_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:favored_minister = {
+			accou_can_apply_for_favored_minister_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:minister_bureaucrat = {
+			accou_can_apply_for_minister_bureaucrat_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:court_guru = {
+			accou_can_apply_for_court_guru_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:court_brahmin = {
+			accou_can_apply_for_court_brahmin_trigger = { LIEGE = $LIEGE$ }
+		}
+		flag:khlon_glan = {
+			accou_can_apply_for_khlon_glan_trigger = { LIEGE = $LIEGE$ }
+		}
+	}
+}
+
+accou_can_apply_for_chancellor_trigger = {
+	accou_can_apply_for_councillor_trigger = {
+		TYPE = councillor_chancellor
+		NAME = chancellor
+		LIEGE = $LIEGE$
+		SKILL = diplomacy
+		THRESHOLD = decent_skill_rating
+	}
+}
+
+accou_can_apply_for_steward_trigger = {
+	accou_can_apply_for_councillor_trigger = {
+		TYPE = councillor_steward
+		NAME = steward
+		LIEGE = $LIEGE$
+		SKILL = stewardship
+		THRESHOLD = decent_skill_rating
+	}
+}
+
+accou_can_apply_for_marshal_trigger = {
+	accou_can_apply_for_councillor_trigger = {
+		TYPE = councillor_marshal
+		NAME = marshal
+		LIEGE = $LIEGE$
+		SKILL = martial
+		THRESHOLD = decent_skill_rating
+	}
+}
+
+accou_can_apply_for_spymaster_trigger = {
+	accou_can_apply_for_councillor_trigger = {
+		TYPE = councillor_spymaster
+		NAME = spymaster
+		LIEGE = $LIEGE$
+		SKILL = intrigue
+		THRESHOLD = decent_skill_rating
+	}
+}
+
+accou_can_apply_for_court_chaplain_trigger = {
+	accou_can_apply_for_councillor_trigger = {
+		TYPE = councillor_court_chaplain
+		NAME = court_chaplain
+		LIEGE = $LIEGE$
+		SKILL = learning
+		THRESHOLD = decent_skill_rating
+	}
+}
+
+accou_can_apply_for_kurultai_trigger = {
+	OR = {
+		accou_can_apply_for_councillor_trigger = {
+			TYPE = councillor_kurultai_1
+			NAME = kurultai
+			LIEGE = $LIEGE$
+			SKILL = accou_kurultai_skill_value
+			THRESHOLD = low_skill_rating
+		}
+		accou_can_apply_for_councillor_trigger = {
+			TYPE = councillor_kurultai_2
+			NAME = kurultai
+			LIEGE = $LIEGE$
+			SKILL = accou_kurultai_skill_value
+			THRESHOLD = low_skill_rating
+		}
+		accou_can_apply_for_councillor_trigger = {
+			TYPE = councillor_kurultai_3
+			NAME = kurultai
+			LIEGE = $LIEGE$
+			SKILL = accou_kurultai_skill_value
+			THRESHOLD = low_skill_rating
+		}
+		accou_can_apply_for_councillor_trigger = {
+			TYPE = councillor_kurultai_4
+			NAME = kurultai
+			LIEGE = $LIEGE$
+			SKILL = accou_kurultai_skill_value
+			THRESHOLD = low_skill_rating
+		}
+	}
+}
+
+accou_can_apply_for_court_physician_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = court_physician_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_charioteer_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = charioteer_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_bookmaker_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = bookmaker_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_akolouthos_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = akolouthos_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_cultural_emissary_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = cultural_emissary_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_keeper_of_swans_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = keeper_of_swans_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_chief_qadi_trigger = {
+	NOT = { has_global_variable = AGOT_is_loaded }
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = chief_qadi_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_garuda_trigger = {
+	NOT = { has_global_variable = AGOT_is_loaded }
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = garuda_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_court_gardener_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = court_gardener_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_lady_in_waiting_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = lady_in_waiting_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_antiquarian_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = antiquarian_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_travel_leader_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = travel_leader_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_wet_nurse_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = wet_nurse_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_court_tutor_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = court_tutor_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_food_taster_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = food_taster_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_master_of_horse_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = master_of_horse_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_master_of_hunt_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = master_of_hunt_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_royal_architect_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = royal_architect_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_high_almoner_trigger = {
+	NOT = { has_global_variable = AGOT_is_loaded }
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = high_almoner_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_seneschal_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = seneschal_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_cupbearer_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = cupbearer_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_chief_eunuch_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = chief_eunuch_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_court_jester_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = court_jester_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_court_poet_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = court_poet_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_court_musician_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = court_musician_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_bodyguard_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = bodyguard_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_champion_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = champion_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_executioner_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = executioner_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_court_artificer_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = court_artificer_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_cave_hermit_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = cave_hermit_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_master_assassin_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = master_assassin_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_court_scholar_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = court_scholar_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_chronicler_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = chronicler_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_court_brewmaster_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = court_brewmaster_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_eparch_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = eparch_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_court_astrologer_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = court_astrologer_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_boyan_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = boyan_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_siege_engineer_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = siege_engineer_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_yurtchi_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = yurtchi_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_cherbi_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = cherbi_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_yeke_jarquchi_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = yeke_jarquchi_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_foreign_emissary_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = foreign_emissary_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_keeper_of_the_horses_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = keeper_of_the_horses_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_grand_preceptor_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = grand_preceptor_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_grand_mentor_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = grand_mentor_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_grand_guardian_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = grand_guardian_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_fire_dragon_engineer_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = fire_dragon_engineer_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_keeper_of_the_harem_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = keeper_of_the_harem_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_favored_minister_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = favored_minister_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_minister_bureaucrat_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = minister_bureaucrat_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_court_guru_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = court_guru_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_court_brahmin_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = court_brahmin_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_khlon_glan_trigger = {
+	accou_can_apply_for_court_position_trigger = {
+		TYPE = khlon_glan_court_position
+		LIEGE = $LIEGE$
+	}
+}
+
+accou_can_apply_for_councillor_trigger = {
+	save_temporary_scope_as = character
+	is_courtier_of = $LIEGE$
+	NOT = { has_council_position = $TYPE$ }
+	accou_can_be_$NAME$_trigger = { COURT_OWNER = $LIEGE$ }
+	$SKILL$ >= $THRESHOLD$
+	$LIEGE$ = {
+		exists = council_task:$TYPE$
+		accou_can_appoint_$NAME$_trigger = yes
+		trigger_if = {
+			limit = { exists = cp:$TYPE$ }
+			cp:$TYPE$ = {
+				NOT = {
+					is_blocked_from_being_fired_from_council_trigger = { COURT_OWNER = $LIEGE$ }
+				}
+				$SKILL$ < scope:character.$SKILL$
+			}
+		}
+	}
+}
+
+accou_can_apply_for_court_position_trigger = {
+	save_temporary_scope_as = character
+	is_courtier_of = $LIEGE$
+	NOT = { has_court_position = $TYPE$ }
+	can_be_employed_as = $TYPE$
+	aptitude:$TYPE$ >= 2 # average_effectiveness
+	$LIEGE$ = {
+		OR = {
+			can_employ_court_position_type = $TYPE$
+			AND = {
+				employs_court_position = $TYPE$
+				any_court_position_holder = {
+					type = $TYPE$
+					aptitude:$TYPE$ < scope:character.aptitude:$TYPE$
+				}
+			}
+		}
+	}
+}

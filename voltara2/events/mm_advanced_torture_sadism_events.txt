@@ -1,0 +1,21 @@
+﻿namespace = advanced_torture
+
+advanced_torture.5500 = {
+ type = character_event
+ theme = prison
+
+ override_background = {
+  reference = dungeon
+ }
+
+ title = advanced_torture.5500.t
+ desc = advanced_torture.5500.desc
+
+ left_portrait = root
+
+ option = {
+  name = advanced_torture.5500.a
+
+  add_trait = sadistic
+ }
+}

@@ -1,0 +1,795 @@
+﻿#################
+##  SPELLBOOK  ##
+#################
+
+spell_open = {
+	scope = character
+	effect = { remove_variable = spells_open }
+}
+
+spell_cleanup = { #observer in hud.gui actually triggers spellbook widget
+	scope = character
+	effect = { spell_cleanup = yes }
+}
+
+spell_switch_caster = {
+	scope = character
+
+	is_valid = {
+		exists = court_position:court_mage_court_position
+		# any_general_councillor = { #only check spouse and mage, slightly faster than any_councillor
+		# 	has_council_position = councillor_court_mage
+		# 	is_performing_council_task = task_court_mage_default
+		# }
+	}
+
+	effect = {
+		if = {
+			limit = {
+				var:spell_caster = ROOT
+				exists = court_position:court_mage_court_position
+				# any_general_councillor = { #needed for scope
+				# 	has_council_position = councillor_court_mage
+				# 	is_performing_council_task = task_court_mage_default
+				# 	save_temporary_scope_as = court_mage
+				# }
+			}
+			court_position:court_mage_court_position = {save_scope_as = court_mage}
+			set_variable = { name = spell_caster value = court_position:court_mage_court_position }
+		}
+		else = {
+			set_variable = { name = spell_caster value = ROOT }
+		}
+		if = { #reset selection if new caster doesn know spell.
+			limit = {
+				exists = var:spell_selected
+				save_temporary_scope_value_as = { name = spell value = var:spell_selected }
+				spell_known_trigger = no #throws an error because scope not set
+			}
+			set_variable = { name = spell_selected value = flag:no_spell }
+			# remove_variable = spell_province
+			spell_reset_recipient = yes
+		}
+	}
+}
+
+spell_select_province_clear = {
+	scope = character
+
+	effect = {
+		remove_variable = spell_county
+		clear_variable_list = spell_counties
+	}
+}
+
+spell_select_province = {
+	scope = character
+
+	effect = {
+		remove_variable = spell_county
+		clear_variable_list = spell_counties
+		if = {
+			limit = { NOT = { has_variable = spell_county } }
+			var:spell_recipient = {
+				ROOT = { set_variable = { name = spell_county value = PREV.location.county } }
+				save_temporary_scope_as = character
+				every_held_county = { #ordered_held_title
+					limit = { 
+						squared_distance = {
+							target = root.location
+							value <= "root.spell_range"
+						}						
+					} #need an is valid for execution to stop selecting, title being lost, casting
+					ROOT = { add_to_variable_list = { name = spell_counties target = PREV } } # 
+				}
+			}
+		}
+	}
+}
+
+spell_select_province_hostile = {
+	scope = character
+
+	effect = {
+		remove_variable = spell_county
+		clear_variable_list = spell_counties
+		if = {
+			limit = { NOT = { has_variable = spell_county } }
+			var:spell_recipient = {
+				save_temporary_scope_as = character
+				every_held_county = { #ordered_held_title
+					limit = { 
+						squared_distance = {							
+							target = root.location
+							value <= "root.spell_range"
+						}
+					} #need an is valid for execution to stop selecting, title being lost, casting
+					ROOT = { add_to_variable_list = { name = spell_counties target = PREV } } # 
+				}
+			}
+			set_variable = { name = spell_recipient_old value = var:spell_recipient }
+			set_variable = { name = spell_county value = var:spell_recipient.location.county }
+		}
+	}
+}
+
+spell_province_pick = {
+	scope = character
+
+	saved_scopes = { county }
+
+	effect = { set_variable = { name = spell_county value = scope:county } }
+}
+
+#############
+## Schools ##
+#############
+
+spell_school_alteration = {
+	scope = character
+
+	is_valid = { NOT = { var:spell_school = flag:alteration } }
+
+	effect = {
+		set_variable = { name = spell_school value = flag:alteration }
+		init_alteration = yes
+		set_variable = { name = spell_selected value = flag:no_spell }
+		# remove_variable = spell_province
+		# remove_variable = spell_is_hostile
+		# remove_variable = spell_is_province
+		spell_reset_recipient = yes
+	}
+}
+
+spell_school_conjuration = {
+	scope = character
+
+	is_valid = { NOT = { var:spell_school = flag:conjuration } }
+
+	effect = {
+		set_variable = { name = spell_school value = flag:conjuration }
+		init_conjuration = yes
+		set_variable = { name = spell_selected value = flag:no_spell }
+		# remove_variable = spell_province
+		# remove_variable = spell_is_hostile
+		# remove_variable = spell_is_province
+		spell_reset_recipient = yes
+	}
+}
+
+spell_school_destruction = {
+	scope = character
+
+	is_valid = { NOT = { var:spell_school = flag:destruction } }
+
+	effect = {
+		set_variable = { name = spell_school value = flag:destruction }
+		init_destruction = yes
+		set_variable = { name = spell_selected value = flag:no_spell }
+		# remove_variable = spell_province
+		# remove_variable = spell_is_hostile
+		# remove_variable = spell_is_province
+		spell_reset_recipient = yes
+	}
+}
+
+spell_school_illusion = {
+	scope = character
+
+	is_valid = { NOT = { var:spell_school = flag:illusion } }
+
+	effect = {
+		set_variable = { name = spell_school value = flag:illusion }
+		init_illusion = yes
+		set_variable = { name = spell_selected value = flag:no_spell }
+		# remove_variable = spell_province
+		# remove_variable = spell_is_hostile
+		# remove_variable = spell_is_province
+		spell_reset_recipient = yes
+	}
+}
+
+spell_school_restoration = {
+	scope = character
+
+	is_valid = { NOT = { var:spell_school = flag:restoration } }
+
+	effect = {
+		set_variable = { name = spell_school value = flag:restoration }
+		init_restoration = yes
+		set_variable = { name = spell_selected value = flag:no_spell }
+		# remove_variable = spell_province
+		# remove_variable = spell_is_hostile
+		# remove_variable = spell_is_province
+		spell_reset_recipient = yes
+	}
+}
+
+spell_school_necromancy = {
+	scope = character
+
+	is_valid = { NOT = { var:spell_school = flag:necromancy } }
+
+	effect = {
+		set_variable = { name = spell_school value = flag:necromancy }
+		init_necromancy = yes
+		set_variable = { name = spell_selected value = flag:no_spell }
+		# remove_variable = spell_province
+		# remove_variable = spell_is_hostile
+		# remove_variable = spell_is_province
+		spell_reset_recipient = yes
+	}
+}
+
+############
+## SPELLS ##
+############
+
+#need char death checks, move check, self/cm check
+#province location check
+#unlanded of block for no valid provinces
+#spell info showing unlanded, spell desc showing invalid/no provinces
+
+# ordered_in_list by script value, script value is any_in_list {limit = object=scope}
+# while loop that increments count, so check first, then second in ordered_list for match
+# scriptvalues evaluate properly for
+
+spell_list_item = {
+	scope = character
+	saved_scopes = { spell }
+
+	is_valid = { spell_known_trigger = yes }
+	is_shown = { spell_selectable_trigger = yes }
+	effect = {
+		set_variable = { name = spell_selected value = scope:spell }
+		spell_reset_recipient = yes
+		spell_get_skill_attribute = yes
+		spell_get_undead_maa = yes
+		spell_get_size = yes
+	}
+}
+
+spell_select_skill_attribute = {
+	scope = character
+	saved_scopes = { skill_attribute }
+
+	effect = {
+		set_variable = { name = spell_selected_skill_attribute value = scope:skill_attribute }
+	}
+}
+
+spell_select_undead_maa = {
+	scope = character
+	saved_scopes = { undead_maa }
+
+	effect = {
+		set_variable = { name = spell_selected_undead_maa value = scope:undead_maa }
+	}
+}
+
+spell_select_size = {
+	scope = character
+	saved_scopes = { size }
+
+	effect = {
+		set_variable = { name = spell_selected_size value = scope:size }
+	}
+}
+
+spell_cast_confirm = { #need 2nd for caster/castee effects. or use bool scope to switch which to execute. emulate by feeding player or not and checking exists
+	scope = character
+	saved_scopes = { castee spell }
+
+	#is_valid = { selected_spell_castable_trigger = yes } # save scope and use same effect?
+	is_shown = {
+		trigger_if = {
+			limit = { exists = var:spell_selected }
+			#save_scope_value_as = { name = spell value = var:spell_selected }
+			#var:spell_province = { save_temporary_scope_as = spell }
+			spell_castable_trigger = yes
+		}
+		trigger_else = { always = no }
+		# var:spell_province = { save_temporary_scope_as = spell }
+		# spell_castable_trigger = yes
+	}
+	#effect = { selected_spell_effect = yes }
+	effect = {
+		#save_scope_value_as = { name = spell value = var:spell_selected }
+		#var:spell_province = { save_temporary_scope_as = spell }
+		show_as_tooltip = {
+			if = { #effects for tooltip generation
+				limit = { exists = scope:castee }
+				spell_castee_effect = yes
+			}
+			else = {
+				spell_caster_effect = yes
+			}
+		}
+		hidden_effect = { #actual effects for execution
+			spell_castee_effect = yes
+			spell_caster_effect = yes
+		}
+	}
+}
+
+spell_perk_list = {
+	scope = character
+	saved_scopes = { school tier }
+
+	effect = {
+		show_as_tooltip = {
+			switch = {
+				trigger = scope:school
+				flag:alteration = { school_alteration_list = { EFFECT = spell_tooltip } }
+				flag:conjuration = { school_conjuration_list = { EFFECT = spell_tooltip } }
+				flag:destruction = { school_destruction_list = { EFFECT = spell_tooltip } }
+				flag:illusion = { school_illusion_list = { EFFECT = spell_tooltip } }
+				flag:restoration = { school_restoration_spell_list = { EFFECT = spell_tooltip } }
+				flag:necromancy = { school_necromancy_spell_list = { EFFECT = spell_tooltip } }
+			}
+		}
+	}
+}
+
+ritual_perk_list = {
+	scope = character
+	saved_scopes = { school tier }
+
+	effect = {
+		show_as_tooltip = {
+			switch = {
+				trigger = scope:school
+				flag:alteration = { school_alteration_ritual_list = { EFFECT = ritual_tooltip } }
+				flag:conjuration = { school_conjuration_ritual_list = { EFFECT = ritual_tooltip } }
+				flag:destruction = { school_destruction_ritual_list = { EFFECT = ritual_tooltip } }
+				flag:illusion = { school_illusion_ritual_list = { EFFECT = ritual_tooltip } }
+				flag:restoration = { school_restoration_ritual_list = { EFFECT = ritual_tooltip } }
+				flag:necromancy = { school_necromancy_ritual_list = { EFFECT = ritual_tooltip } }
+			}
+		}
+	}
+}
+
+#####################
+##  RITUAL SYSTEM  ##
+#####################
+
+ritual_init = {
+	scope = character
+	saved_scopes = { ritual }
+
+	is_shown = {
+		NOR = {
+			AND = {
+				exists = var:ritual_slot_1
+				var:ritual_slot_1 = scope:ritual
+			}
+			AND = {
+				exists = var:ritual_slot_2
+				var:ritual_slot_2 = scope:ritual
+			}
+			AND = {
+				exists = var:ritual_slot_3
+				var:ritual_slot_3 = scope:ritual
+			}
+			AND = {
+				exists = var:ritual_slot_4
+				var:ritual_slot_4 = scope:ritual
+			}
+			AND = {
+				exists = var:ritual_slot_5
+				var:ritual_slot_5 = scope:ritual
+			}
+			AND = {
+				exists = var:ritual_slot_6
+				var:ritual_slot_6 = scope:ritual
+			}
+			AND = {
+				exists = var:ritual_slot_7
+				var:ritual_slot_7 = scope:ritual
+			}
+			AND = {
+				exists = var:ritual_slot_8
+				var:ritual_slot_8 = scope:ritual
+			}
+		}
+	}
+
+	effect = {
+		ritual_build_list = yes
+		if = {
+			limit = { NOT = { has_variable = ritual_upkeep } }
+			set_variable = { name = ritual_upkeep value = 0 }
+		}
+	}
+}
+ritual_cleanup = {
+	scope = character
+
+	effect = {
+		clear_variable_list = ritual_available
+	}
+}
+
+ritual_slot_breakdown = {
+	scope = character
+	saved_scopes = { check }
+
+	is_shown = {
+		switch = {
+			trigger = scope:check
+			flag:edu_2 = { has_trait = vt_ek_education_magic_2 }
+			flag:edu_3 = { has_trait = vt_ek_education_magic_3 }
+			flag:edu_4 = { has_trait = vt_ek_education_magic_4 }
+			flag:edu_5 = { has_trait = vt_ek_education_magic_5 }
+			flag:legacy = { dynasty = { has_dynasty_perk = magicka_legacy_5 } }
+			flag:court_type = {
+				has_royal_court = yes
+				has_court_type = court_magical
+				court_grandeur_current_level >= 10
+			}
+			fallback = { always = no }
+		}
+		#always = no
+	}
+}
+
+ritual_slot_1 = {
+	scope = character
+	saved_scopes = { ritual suspend }
+
+	is_shown = {
+		trigger_if = {
+			limit = { has_variable_list = ritual_suspended }
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 1 } }
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = ritual_slot_less
+			value = 1
+			THIS.ritual_slot_limit >= 1
+		}
+	}
+
+	effect = {
+		save_scope_value_as = { name = slot value = 1 }
+		if = {
+			limit = { exists = scope:suspend }
+			if = {
+				limit = { is_target_in_variable_list = { name = ritual_suspended target = 1 } }
+				remove_list_variable = { name = ritual_suspended target = 1 }
+				set_ritual_modifier = { SLOT = 1 } #set based on slot var
+			}
+			else = {
+				remove_ritual_modifier = { SLOT = 1 }
+				add_to_variable_list = { name = ritual_suspended target = 1 }
+			}
+		}
+		else = {
+			if = {
+				limit = { exists = var:ritual_slot_1 } #variable doesnt exist if being set for first time = cant check
+				remove_ritual_modifier = { SLOT = 1 } #remove based on slot var if exists
+			}
+			set_variable = { name = ritual_slot_1 value = scope:ritual } #display empty slot in gui if variable not exist
+			set_ritual_modifier = { SLOT = 1 } #set based on new slot var
+			remove_list_variable = { name = ritual_suspended target = 1 }
+		}
+	}
+}
+
+ritual_slot_2 = {
+	scope = character
+	saved_scopes = { ritual suspend }
+
+	is_shown = {
+		trigger_if = {
+			limit = { has_variable_list = ritual_suspended }
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 2 } }
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = ritual_slot_less
+			value = 2
+			THIS.ritual_slot_limit >= 2
+		}
+	}
+
+	effect = {
+		save_scope_value_as = { name = slot value = 2 }
+		if = {
+			limit = { exists = scope:suspend }
+			if = {
+				limit = { is_target_in_variable_list = { name = ritual_suspended target = 2 } }
+				remove_list_variable = { name = ritual_suspended target = 2 }
+				set_ritual_modifier = { SLOT = 2 } #set based on slot var
+			}
+			else = {
+				remove_ritual_modifier = { SLOT = 2 }
+				add_to_variable_list = { name = ritual_suspended target = 2 }
+			}
+		}
+		else = {
+			if = {
+				limit = { exists = var:ritual_slot_2 } #variable doesnt exist if being set for first time = cant check
+				remove_ritual_modifier = { SLOT = 2 } #remove based on slot var if exists
+			}
+			set_variable = { name = ritual_slot_2 value = scope:ritual } #display empty slot in gui if variable not exist
+			set_ritual_modifier = { SLOT = 2 } #set based on new slot var
+			remove_list_variable = { name = ritual_suspended target = 2 }
+		}
+	}
+}
+
+ritual_slot_3 = {
+	scope = character
+	saved_scopes = { ritual suspend }
+
+	is_shown = {
+		trigger_if = {
+			limit = { has_variable_list = ritual_suspended }
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 3 } }
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = ritual_slot_less
+			value = 3
+			THIS.ritual_slot_limit >= 3
+		}
+	}
+
+	effect = {
+		save_scope_value_as = { name = slot value = 3 }
+		if = {
+			limit = { exists = scope:suspend }
+			if = {
+				limit = { is_target_in_variable_list = { name = ritual_suspended target = 3 } }
+				remove_list_variable = { name = ritual_suspended target = 3 }
+				set_ritual_modifier = { SLOT = 3 } #set based on slot var
+			}
+			else = {
+				remove_ritual_modifier = { SLOT = 3 }
+				add_to_variable_list = { name = ritual_suspended target = 3 }
+			}
+		}
+		else = {
+			if = {
+				limit = { exists = var:ritual_slot_3 } #variable doesnt exist if being set for first time = cant check
+				remove_ritual_modifier = { SLOT = 3 } #remove based on slot var if exists
+			}
+			set_variable = { name = ritual_slot_3 value = scope:ritual } #display empty slot in gui if variable not exist
+			set_ritual_modifier = { SLOT = 3 } #set based on new slot var
+			remove_list_variable = { name = ritual_suspended target = 3 }
+		}
+	}
+}
+
+ritual_slot_4 = {
+	scope = character
+	saved_scopes = { ritual suspend }
+
+	is_shown = {
+		trigger_if = {
+			limit = { has_variable_list = ritual_suspended }
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 4 } }
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = ritual_slot_less
+			value = 4
+			THIS.ritual_slot_limit >= 4
+		}
+	}
+
+	effect = {
+		save_scope_value_as = { name = slot value = 4 }
+		if = {
+			limit = { exists = scope:suspend }
+			if = {
+				limit = { is_target_in_variable_list = { name = ritual_suspended target = 4 } }
+				remove_list_variable = { name = ritual_suspended target = 4 }
+				set_ritual_modifier = { SLOT = 4 } #set based on slot var
+			}
+			else = {
+				remove_ritual_modifier = { SLOT = 4 }
+				add_to_variable_list = { name = ritual_suspended target = 4 }
+			}
+		}
+		else = {
+			if = {
+				limit = { exists = var:ritual_slot_4 } #variable doesnt exist if being set for first time = cant check
+				remove_ritual_modifier = { SLOT = 4 } #remove based on slot var if exists
+			}
+			set_variable = { name = ritual_slot_4 value = scope:ritual } #display empty slot in gui if variable not exist
+			set_ritual_modifier = { SLOT = 4 } #set based on new slot var
+			remove_list_variable = { name = ritual_suspended target = 4 }
+		}
+	}
+}
+
+ritual_slot_5 = {
+	scope = character
+	saved_scopes = { ritual suspend }
+
+	is_shown = {
+		trigger_if = {
+			limit = { has_variable_list = ritual_suspended }
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 5 } }
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = ritual_slot_less
+			value = 5
+			THIS.ritual_slot_limit >= 5
+		}
+	}
+
+	effect = {
+		save_scope_value_as = { name = slot value = 5 }
+		if = {
+			limit = { exists = scope:suspend }
+			if = {
+				limit = { is_target_in_variable_list = { name = ritual_suspended target = 5 } }
+				remove_list_variable = { name = ritual_suspended target = 5 }
+				set_ritual_modifier = { SLOT = 5 } #set based on slot var
+			}
+			else = {
+				remove_ritual_modifier = { SLOT = 5 }
+				add_to_variable_list = { name = ritual_suspended target = 5 }
+			}
+		}
+		else = {
+			if = {
+				limit = { exists = var:ritual_slot_5 } #variable doesnt exist if being set for first time = cant check
+				remove_ritual_modifier = { SLOT = 5 } #remove based on slot var if exists
+			}
+			set_variable = { name = ritual_slot_5 value = scope:ritual } #display empty slot in gui if variable not exist
+			set_ritual_modifier = { SLOT = 5 } #set based on new slot var
+			remove_list_variable = { name = ritual_suspended target = 5 }
+		}
+	}
+}
+
+ritual_slot_6 = {
+	scope = character
+	saved_scopes = { ritual suspend }
+
+	is_shown = {
+		trigger_if = {
+			limit = { has_variable_list = ritual_suspended }
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 6 } }
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = ritual_slot_less
+			value = 6
+			THIS.ritual_slot_limit >= 6
+		}
+	}
+
+	effect = {
+		save_scope_value_as = { name = slot value = 6 }
+		if = {
+			limit = { exists = scope:suspend }
+			if = {
+				limit = { is_target_in_variable_list = { name = ritual_suspended target = 6 } }
+				remove_list_variable = { name = ritual_suspended target = 6 }
+				set_ritual_modifier = { SLOT = 6 } #set based on slot var
+			}
+			else = {
+				remove_ritual_modifier = { SLOT = 6 }
+				add_to_variable_list = { name = ritual_suspended target = 6 }
+			}
+		}
+		else = {
+			if = {
+				limit = { exists = var:ritual_slot_6 } #variable doesnt exist if being set for first time = cant check
+				remove_ritual_modifier = { SLOT = 6 } #remove based on slot var if exists
+			}
+			set_variable = { name = ritual_slot_6 value = scope:ritual } #display empty slot in gui if variable not exist
+			set_ritual_modifier = { SLOT = 6 } #set based on new slot var
+			remove_list_variable = { name = ritual_suspended target = 6 }
+		}
+	}
+}
+
+ritual_slot_7 = {
+	scope = character
+	saved_scopes = { ritual suspend }
+
+	is_shown = {
+		trigger_if = {
+			limit = { has_variable_list = ritual_suspended }
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 7 } }
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = ritual_slot_less
+			value = 7
+			THIS.ritual_slot_limit >= 7
+		}
+	}
+
+	effect = {
+		save_scope_value_as = { name = slot value = 7 }
+		if = {
+			limit = { exists = scope:suspend }
+			if = {
+				limit = { is_target_in_variable_list = { name = ritual_suspended target = 7 } }
+				remove_list_variable = { name = ritual_suspended target = 7 }
+				set_ritual_modifier = { SLOT = 7 } #set based on slot var
+			}
+			else = {
+				remove_ritual_modifier = { SLOT = 7 }
+				add_to_variable_list = { name = ritual_suspended target = 7 }
+			}
+		}
+		else = {
+			if = {
+				limit = { exists = var:ritual_slot_7 } #variable doesnt exist if being set for first time = cant check
+				remove_ritual_modifier = { SLOT = 7 } #remove based on slot var if exists
+			}
+			set_variable = { name = ritual_slot_7 value = scope:ritual } #display empty slot in gui if variable not exist
+			set_ritual_modifier = { SLOT = 7 } #set based on new slot var
+			remove_list_variable = { name = ritual_suspended target = 7 }
+		}
+	}
+}
+
+ritual_slot_8 = {
+	scope = character
+	saved_scopes = { ritual suspend }
+
+	is_shown = {
+		trigger_if = {
+			limit = { has_variable_list = ritual_suspended }
+			NOT = { is_target_in_variable_list = { name = ritual_suspended target = 8 } }
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = ritual_slot_less
+			value = 8
+			THIS.ritual_slot_limit >= 8
+		}
+	}
+
+	effect = {
+		save_scope_value_as = { name = slot value = 8 }
+		if = {
+			limit = { exists = scope:suspend }
+			if = {
+				limit = { is_target_in_variable_list = { name = ritual_suspended target = 8 } }
+				remove_list_variable = { name = ritual_suspended target = 8 }
+				set_ritual_modifier = { SLOT = 8 } #set based on slot var
+			}
+			else = {
+				remove_ritual_modifier = { SLOT = 8 }
+				add_to_variable_list = { name = ritual_suspended target = 8 }
+			}
+		}
+		else = {
+			if = {
+				limit = { exists = var:ritual_slot_8 } #variable doesnt exist if being set for first time = cant check
+				remove_ritual_modifier = { SLOT = 8 } #remove based on slot var if exists
+			}
+			set_variable = { name = ritual_slot_8 value = scope:ritual } #display empty slot in gui if variable not exist
+			set_ritual_modifier = { SLOT = 8 } #set based on new slot var
+			remove_list_variable = { name = ritual_suspended target = 8 }
+		}
+	}
+}

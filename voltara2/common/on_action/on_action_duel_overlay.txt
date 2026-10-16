@@ -1,0 +1,40 @@
+﻿on_death = {
+	on_actions = {
+		on_death_duel_overlay
+	}
+}
+
+# preserve settings on death
+on_death_duel_overlay = {
+
+	trigger = {
+		is_ai = no
+	}
+
+	effect = {
+		copy_var_to_heir = { var = nameplates }
+		copy_var_to_heir = { var = extra_duel_info }
+		copy_var_to_heir = { var = duel_icons }
+	}
+}
+
+
+on_game_start = {
+	on_actions = {
+		duel_overlay_on_start
+	}
+}
+
+# If the player has the Nameplates mod, enable the setting for them.
+duel_overlay_on_start = {
+	effect = {
+		if = {
+			limit = {
+				exists = global_var:nameplates_mod_version
+			}
+			every_player = {
+				set_variable = nameplates
+			}
+		}
+	}
+}

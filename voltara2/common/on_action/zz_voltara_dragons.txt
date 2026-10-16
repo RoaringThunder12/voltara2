@@ -1,0 +1,56 @@
+﻿on_game_start_after_lobby = { on_actions = { voltara_dragon_start } }
+voltara_dragon_start = { trigger = { NOT = { has_global_variable = voltara_dragons_started } } effect = {
+ set_global_variable = { name = voltara_dragons_started value = yes }
+create_character = { name = Voltara_Thornwing age = 82 gender_female_chance = 100 dynasty = none ethnicity = dragon
+ culture = culture:voltara_culture_0 faith = faith:voltara_faith_0 location = title:c_voltara_226.title_province
+ random_traits = no trait = dragon trait = education_dragon_3 save_scope_as = dragon }
+ scope:dragon = { voltara_register_dragon_effect = yes set_variable = { name = voltara_lair value = title:c_voltara_226 } }
+create_character = { name = Voltara_Frostscale age = 117 gender_female_chance = 0 dynasty = none ethnicity = dragon
+ culture = culture:voltara_culture_0 faith = faith:voltara_faith_0 location = title:c_voltara_267.title_province
+ random_traits = no trait = dragon trait = education_dragon_3 save_scope_as = dragon }
+ scope:dragon = { voltara_register_dragon_effect = yes set_variable = { name = voltara_lair value = title:c_voltara_267 } }
+create_character = { name = Voltara_Cindermaw age = 64 gender_female_chance = 100 dynasty = none ethnicity = dragon
+ culture = culture:voltara_culture_0 faith = faith:voltara_faith_0 location = title:c_voltara_10028.title_province
+ random_traits = no trait = dragon trait = education_dragon_3 save_scope_as = dragon }
+ scope:dragon = { voltara_register_dragon_effect = yes set_variable = { name = voltara_lair value = title:c_voltara_10028 } }
+} }
+on_death = { on_actions = { voltara_dragon_death_cleanup } }
+voltara_dragon_death_cleanup = { effect = {
+ if = { limit = { has_trait = dragon }
+ var:current_rider ?= { remove_variable = current_dragon remove_trait = dragonrider voltara_clear_deployment = yes }
+ remove_variable = current_rider remove_list_global_variable = { name = voltara_living_dragons target = this }
+ }
+ else_if = { limit = { exists = var:current_dragon }
+ var:current_dragon = { remove_variable = current_rider remove_character_flag = owned_dragon }
+ remove_variable = current_dragon }
+} }
+yearly_playable_pulse = { on_actions = { voltara_dragon_owner_year } }
+voltara_dragon_owner_year = { effect = { } }
+# Monthly cleanup also covers imprisonment/incapacity/peace and stale imported bonds.
+on_army_monthly = { on_actions = { voltara_dragon_owner_month } }
+voltara_dragon_owner_month = { trigger = { OR = { has_trait = dragonrider has_character_modifier = voltara_dragon_warfare } } effect = {
+ if = { limit = { NOT = { voltara_has_living_dragon = yes } } remove_variable = current_dragon remove_trait = dragonrider voltara_clear_deployment = yes }
+ else_if = { limit = { OR = { NOT = { is_current_dragonrider = yes } is_at_war = no NOT = { has_character_flag = voltara_dragon_deployed } } } voltara_clear_deployment = yes }
+} }
+
+on_game_start_after_lobby = { on_actions = { voltara_repair_existing_dragon_bonds } }
+voltara_repair_existing_dragon_bonds = { effect = {
+ every_in_global_list = { variable = voltara_living_dragons
+ if = { limit = { exists = var:current_rider }
+ save_scope_as = repair_dragon
+ if = { limit = { var:current_rider = { is_alive = yes var:current_dragon ?= scope:repair_dragon } }
+ var:current_rider = { add_trait = dragonrider set_relation_agot_dragon = { reason = voltara_dragon_bond_reason target = scope:repair_dragon } }
+ }
+ else = { var:current_rider = { remove_relation_agot_dragon = scope:repair_dragon } remove_variable = current_rider remove_character_flag = owned_dragon }
+ }
+ }
+} }
+
+on_game_start_after_lobby = { on_actions = { voltara_dragon_location_repair } }
+voltara_dragon_location_repair = { effect = {
+ every_in_global_list = { variable = voltara_living_dragons limit = { is_alive = yes }
+  if = { limit = { exists = var:voltara_lair NOT = { exists = var:current_rider } }
+   set_location = var:voltara_lair.title_province
+  }
+ }
+} }

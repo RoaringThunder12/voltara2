@@ -1,0 +1,218 @@
+﻿### Dragonfire - baked-mesh particle effect
+#
+# A skinned card mesh driven by a baked .anim, not a .particle2. Shader is
+# agot/gfx/FX/agot_particle_card.fxh. See "CK3 Model Particle System/README.md".
+#
+# ATTACHMENT: dragon.asset spawns this from a state start_event on a mouth bone.
+# Only that route inherits the full bone matrix, so the 0.06 root scale of an
+# infant dragon carries through. See ASSETS.md 2.1 and 5.
+
+pdxmesh = {
+	name = "dragonfire_mesh"
+	file = "dragonfire.mesh"
+
+	# Scales the whole effect, travel distance included. PARTICLE_SIZE_MULT below
+	# scales only the cards, so use the two together to set plume length and puff
+	# size apart. PARTICLE_AGE_DISTANCE tracks this value - rescale both together.
+	scale = 60.0
+
+	animation = { id = "dragonfire_idle"		type = "dragonfire.anim" }
+
+	meshsettings = {
+		# Must match the shape name inside dragonfire.mesh, not the pdxmesh name.
+		# One shape per Blender layer, named PDX_Cards_<layer>.
+		name = "PDX_Cards_fire"
+		index = 0
+		texture_diffuse = "fx_fire_a.dds"
+
+		# Unlit, billboarded, alpha blended, palette tinted, no shadow pass.
+		shader = "voltara_isolated_portrait_particle_card_dragon"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+
+		additional_shader_defines = {
+			"PARTICLE_ATLAS_COLUMNS 8"
+			"PARTICLE_ATLAS_ROWS 8"
+
+			# Moves the emitter, in the parent bone's space.
+			# +LEFT/-RIGHT, +UP/-DOWN, +FORWARD/-BACK
+			"PARTICLE_OFFSET float3(0.0f, 5.0f,-25.0f)"
+
+			"PARTICLE_TINT float3(1.0f,1.0f,1.0f)"
+			"PARTICLE_OPACITY_MULT 1.0f"
+			"PARTICLE_SIZE_MULT 1.0f"
+
+			##### PARENT BONE OPACITY DRIVE ########################
+			# The DRAGON's animation fades this layer, by scaling the bone the
+			# entity attaches to. Multiplies the per-card opacity from this
+			# rig's own bones rather than replacing it.
+			#
+			# The drive must be NON-UNIFORM: the shader measures the RATIO of
+			# two world axes, which cancels pdxmesh/scale and the dragon's own
+			# size and so needs no per-dragon calibration. Point the
+			# start_event at a bone nothing is skinned to.
+			"PARTICLE_PARENT_SCALE_OPACITY"
+			"PARTICLE_PARENT_SCALE_AXIS float3(0.0f,0.0f,1.0f)"
+			"PARTICLE_PARENT_SCALE_REF_AXIS float3(1.0f,0.0f,0.0f)"
+
+			# Ratio window mapped onto 0..1 opacity.
+			"PARTICLE_PARENT_SCALE_MIN 0.11f"
+			"PARTICLE_PARENT_SCALE_MAX 1.0f"
+
+			##### DRAGON PALETTE ###################################
+			# The flame takes the most vivid hide colour, weighted by how much
+			# of the dragon actually wears it.
+			#
+			# PLAYER OVERRIDE: gene_dragon_fire_color sits on top of this whole
+			# section with no defines - it arrives through the decal buffer as
+			# the ELEVENTH palette-marker decal (priority 10). The decal's
+			# diffuse blend mode is the template id:
+			#   replace  = _automatic - weight scales the recolor, plain orange
+			#              at 0 up to this section's full effect at 1
+			#   multiply = _custom    - recolor off, weight turns the flame's
+			#              hue instead (0..1 = once round the wheel)
+			# No gene decal at all = full automatic, as before the gene.
+
+			# Coverage model, fitted by eye. Tertiary reaches the dragon
+			# through decals ONLY; secondary also paints wing shading and the
+			# neck and spine webs with no decal involved.
+			"PARTICLE_PALETTE_AREA_BODY 0.65f"
+			"PARTICLE_PALETTE_AREA_WING 0.35f"
+			"PARTICLE_PALETTE_DECAL_COVER 0.5f"
+			"PARTICLE_PALETTE_BASE_SECONDARY 0.25f"
+
+			# Raise the primary bias when the fire picks a colour that is not
+			# what you see - area alone under-rates the hide.
+			"PARTICLE_PALETTE_BIAS_PRIMARY 1.35f"
+			"PARTICLE_PALETTE_BIAS_SECONDARY 1.10f"
+			"PARTICLE_PALETTE_BIAS_TERTIARY 1.00f"
+
+			# Bit mask of pickable slots: 1 primary, 2 secondary, 4 tertiary.
+			"PARTICLE_PALETTE_SELECT_SLOTS 7"
+
+			# How far the palette's saturation carries onto the flame.
+			"PARTICLE_PALETTE_SAT 0.65f"
+
+			# Lifts the blend midpoint through white instead of gray.
+			"PARTICLE_PALETTE_MID_LIFT 0.5f"
+
+			# Hide colours sit near 0.03 on a black dragon, so lift them or the
+			# flame goes black.
+			"PARTICLE_PALETTE_BOOST 6.0f"
+
+			"PARTICLE_PALETTE_STRENGTH 1.0f"
+
+			# Where in a card's life the palette fades back to the flipbook. An
+			# early end keeps the dragon colour at the mouth, where the plume is
+			# densest, and leaves plain fire as it thins out.
+			"PARTICLE_RAMP_START 0.1f"
+			"PARTICLE_RAMP_END 1.0f"
+
+			# Rig units AFTER pdxmesh/scale above, so rescale it whenever that
+			# changes. Sets the flipbook playback rate as well as the ramp.
+			"PARTICLE_AGE_DISTANCE 400.0f"
+		}
+	}
+
+	##### SMOKE LAYER ##########################################################
+	# Each Blender layer exports as its own shape, PDX_Cards_<layer>, holding one
+	# material. So a layer is addressed by NAME and `index` is always 0 - adding
+	# or removing a layer renumbers nothing. Skeleton and .anim stay shared.
+	# tools/export_mesh.py prints a ready-made block for every layer.
+	meshsettings = {
+		name = "PDX_Cards_smoke"
+		index = 0
+		texture_diffuse = "fx_smoke_a.dds"
+
+		# LIT, not emissive: the puff takes the portrait lights instead of
+		# glowing, which is what stops a black card reading as a hole punched in
+		# the portrait. Also gates the whole layer on how dark the dragon is.
+		shader = "voltara_isolated_portrait_particle_card_dragon_lit"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+
+		additional_shader_defines = {
+			"PARTICLE_ATLAS_COLUMNS 8"
+			"PARTICLE_ATLAS_ROWS 8"
+
+			"PARTICLE_OFFSET float3(0.0f,-5.0f,-25.0f)"
+
+			##### LOOK #############################################
+			# The sheet gives the SHAPE, this gives the colour. Diffuse light is
+			# albedo * light, so at pure black the puff returns nothing and reads
+			# as a silhouette. Raise it to lighten the smoke.
+			"PARTICLE_TINT float3(0.01f,0.01f,0.01f)"
+
+			# How far light carries past the terminator. 0 is hard lambert,
+			# which makes a puff read as a solid ball. Smoke scatters.
+			"PARTICLE_LIGHT_WRAP 0.5f"
+
+			# How far the normal bends outward across the card. 0 shades dead
+			# flat, 1 is a full dome and gives the puff its roundness.
+			"PARTICLE_NORMAL_BULGE 1.0f"
+
+			# The lit normal is anchored to the PLUME, not the camera - it
+			# points out of the mouth, pulled up by this much, so the smoke
+			# holds its shading from every viewing angle.
+			"PARTICLE_NORMAL_UP 0.75f"
+
+			"PARTICLE_OPACITY_MULT 1.0f"
+			"PARTICLE_SIZE_MULT 1.0f"
+
+			##### PARENT BONE OPACITY DRIVE ########################
+			# See the fire layer above.
+			"PARTICLE_PARENT_SCALE_OPACITY"
+			"PARTICLE_PARENT_SCALE_AXIS float3(0.0f,0.0f,1.0f)"
+			"PARTICLE_PARENT_SCALE_REF_AXIS float3(1.0f,0.0f,0.0f)"
+			"PARTICLE_PARENT_SCALE_MIN 0.11f"
+			"PARTICLE_PARENT_SCALE_MAX 1.0f"
+
+			##### WHEN TO SHOW AT ALL ##############################
+			# Smoke only belongs on a genuinely dark dragon. DARKNESS, not
+			# brightness: the score is the coverage-weighted mean value of the
+			# three hide colours, inverted - a black hide scores ~0.97.
+			#
+			# PLAYER OVERRIDE: gene_dragon_fire_smoke_custom (a multiply-tagged
+			# control decal, the 12th palette-marker match, priority 11)
+			# replaces this reading with its weight - 0 hides the smoke, 1 shows
+			# it in full, on ANY dragon. The _automatic template holds the
+			# marker slot and changes nothing.
+			"PARTICLE_DARK_FULL 0.85f"
+			"PARTICLE_DARK_NONE 0.6f"
+
+			# At or below this gate the cards collapse to zero area in the
+			# vertex shader - a pale dragon pays no fill cost.
+			"PARTICLE_DARK_CULL 0.0f"
+
+			# The gate's coverage model. Kept in step with the fire block by
+			# hand: defines are per meshsettings and do not carry over.
+			"PARTICLE_PALETTE_AREA_BODY 0.65f"
+			"PARTICLE_PALETTE_AREA_WING 0.35f"
+			"PARTICLE_PALETTE_DECAL_COVER 0.5f"
+			"PARTICLE_PALETTE_BASE_SECONDARY 0.25f"
+
+			# Drives the flipbook as well as the age. Keep in step with the
+			# fire - both layers ride the same pdxmesh scale.
+			"PARTICLE_AGE_DISTANCE 400.0f"
+		}
+	}
+}
+
+entity = {
+	name = "dragonfire_entity"
+	pdxmesh = "dragonfire_mesh"
+
+	# The rest pose puts every card at the origin, so the mesh bounding sphere is
+	# 0.707 while the animation throws cards several units out.
+	cull_radius = 800
+
+	# The dragon decides WHEN fire exists, through the state that fires the
+	# start_event. This entity decides only what it looks like.
+	get_state_from_parent = no
+
+	default_state = "idle"
+	state = {
+		name = "idle"
+		animation = "dragonfire_idle"
+		looping = yes
+		animation_speed = 1.0
+	}
+}

@@ -1,0 +1,1736 @@
+######################################################
+################### EVENT WINDOW #####################
+######################################################
+
+template "hide_score" {
+	alpha = 1
+	state = {
+		name = hide_result
+		alpha = 1
+		delay = 2.5
+		next = hide_it
+	}
+	state = {
+		name = hide_it
+		alpha = 0.3
+		duration = 0.4
+		# position_y = -4
+	}
+}
+
+types DuelTypes {
+	type skills_hbox = hbox {
+		margin = { 2 0 }
+		skill = {
+			blockoverride "text" { text = "[Character.GetSkill('diplomacy')]" }
+			blockoverride "frame" { frame = 1 }
+		}
+		skill = {
+			blockoverride "text" { text = "[Character.GetSkill('martial')]" }
+			blockoverride "frame" { frame = 2 }
+		}
+		skill = {
+			blockoverride "text" { text = "[Character.GetSkill('stewardship')]" }
+			blockoverride "frame" { frame = 3 }
+		}
+		skill = {
+			blockoverride "text" { text = "[Character.GetSkill('intrigue')]" }
+			blockoverride "frame" { frame = 4 }
+		}
+		skill = {
+			blockoverride "text" { text = "[Character.GetSkill('learning')]" }
+			blockoverride "frame" { frame = 5 }
+		}
+	}
+
+	type skill = vbox {
+		spacing = -3
+
+		icon = {
+			name = "skill_icon"
+			size = { 32 32 }
+			framesize = { 60 60 }
+			block "frame" {
+				frame = 1
+			}
+			block "icon" {
+				texture = "gfx/interface/icons/icon_skills.dds"
+			}
+		}
+
+		text_single = {
+			name = "skill_value"
+			block "text" {
+				text = "[Character.GetSkill('diplomacy')]"
+			}
+			default_format = "#high"
+			align = nobaseline
+
+			background = {
+				name = "skill_icon_bg"
+				texture = "gfx/interface/window_character/character_view_skills_bg.dds"
+				block "frame" {
+					frame = 1
+				}
+				framesize = { 70 26 }
+				margin = { 10 0 }
+			}
+		}
+	}
+
+	type chess_overlay = hbox {
+		datacontext = "[EventWindow.AccessEventWindowData]"
+		# visible = "[GetPlayer.MakeScope.Var('engaged_in_board_game').IsSet]"
+		layoutpolicy_horizontal = expanding
+		margin = { 50 0 }
+		spacing = 10
+
+		background = {
+			using = Background_Area_Dark
+			alpha = 0.5
+			margin = { -30 9 }
+		}
+
+		widget = {
+			size = { 210 0 }
+			layoutpolicy_vertical = expanding
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				vbox = {
+					spacing = -3
+					datacontext = "[GetPlayer]"
+					alpha = "[Select_float(Or(Character.MakeScope.Var('bg_win_tally').IsSet, Character.MakeScope.Var('bg_loss_tally').IsSet), '(float)1', '(float)0.5')]"
+					tooltip = "bg_win_tally"
+					# visible = "[Or(Character.MakeScope.Var('bg_win_tally').IsSet, Character.MakeScope.Var('bg_loss_tally').IsSet)]"
+
+					icon = {
+						size = { 32 32 }
+						texture = "gfx/interface/icons/portraits/liege.dds"
+					}
+
+					text_single = {
+						text = "[GuiScope.SetRoot(Character.MakeScope).ScriptValue('bg_tally')|0]"
+						default_format = "#high"
+						align = nobaseline
+					}
+				}
+
+				skills_hbox = {
+					datacontext = "[GetPlayer]"
+				}
+			}
+		}
+
+		widget = {
+			size = { 670 50 }
+			# layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			widget = {
+				size = { 100% 100% }
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				scissor = yes
+
+				hbox = {
+					margin_top = 5
+
+					progressbar = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						size = { 0 0 }
+						value = "[GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('chess_progress')]"
+
+						progresstexture = "gfx/interface/progressbars/war_progress_blue.dds"
+						noprogresstexture = "gfx/interface/progressbars/war_progress_noprogress.dds"
+					}
+
+					progressbar = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						size = { 0 0 }
+						value = "[GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('chess_progress_right')]"
+
+						noprogresstexture = "gfx/interface/progressbars/war_progress_red.dds"
+						progresstexture = "gfx/interface/progressbars/war_progress_noprogress.dds"
+					}
+				}
+
+				hbox = {
+					margin_top = 6
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					visible = no
+
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+
+						widget = {
+							layoutstretchfactor_horizontal = "[FixedPointToInt(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('chess_progress'))]"
+
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = expanding
+							size = { 0 0 }
+
+							animation_progessbar_center_glow = {
+								size = { 100% 100% }
+								position = { -15 0 }
+								visible = "[GreaterThan_CFixedPoint(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope.Var('bg_current_score').GetValue, '(CFixedPoint)1')]"
+							}
+						}
+
+						widget = {
+							layoutstretchfactor_horizontal = "[FixedPointToInt(GuiScope.SetRoot(GetPlayer.MakeScope).ScriptValue('chess_progress_right'))]"
+
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = expanding
+							size = { 0 0 }
+						}
+					}
+
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+
+						widget = {
+							layoutstretchfactor_horizontal = "[FixedPointToInt(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('chess_progress_right'))]"
+
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = expanding
+							size = { 0 0 }
+
+						}
+
+						widget = {
+							layoutstretchfactor_horizontal = "[FixedPointToInt(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('chess_progress'))]"
+
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = expanding
+							size = { 0 0 }
+
+							widget = {
+								visible = "[GreaterThan_CFixedPoint(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('bg_current_score').GetValue, '(CFixedPoint)1')]"
+								size = { 80 100% }
+								position = { -30 0 }
+
+								widget = {
+									size = { 100% 100% }
+									scissor = yes
+
+									button = {
+										# parentanchor = right
+										size = { 100 100% }
+										framesize = { 192 112 }
+										texture = "gfx/interface/component_effects/sparks.dds"
+										alpha = 0.1
+										alwaystransparent = yes
+										mirror = horizontal
+
+										gfxtype = animatedbuttongfx
+										loopinterval = 4
+
+										modify_texture = {
+											texture = "gfx/interface/component_masks/mask_fade_horizontal.dds"
+											blend_mode = alphamultiply
+										}
+									}
+
+									icon = {
+										# parentanchor = right
+										size = { 80 100% }
+										texture = "gfx/interface/colors/white.dds"
+										shaderfile = "gfx/FX/pdxgui_repeat_texture.shader"
+										alpha = 0.4
+										mirror = horizontal
+
+										#   block "glow_color"
+										#  {
+										using = Color_Bright_Yellow
+
+										#   }
+
+										modify_texture = {
+											texture = "gfx/interface/component_masks/mask_fade_horizontal.dds"
+											blend_mode = alphamultiply
+										}
+
+										modify_texture = {
+											name = "clouds"
+											texture = "gfx/interface/component_masks/mask_clouds.dds"
+											blend_mode = alphamultiply
+											spriteType = corneredtiled
+											texture_density = 2
+										}
+
+										state = {
+											name = a
+											next = b
+											trigger_on_create = yes
+
+											modify_texture = {
+												name = "clouds"
+												translate_uv = { 1 0 }
+											}
+										}
+
+										state = {
+											name = b
+											next = a
+											duration = 2
+
+											modify_texture = {
+												name = "clouds"
+												translate_uv = { -1 0 }
+											}
+										}
+									}
+								}
+
+								icon = {
+									mirror = horizontal
+									parentanchor = vcenter
+									position = { -20 0 }
+									size = { 80 100% }
+									texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
+
+									# block "glow_color"
+									# {
+									#     using = Color_Bright_Yellow
+
+									# }
+
+									state = {
+										name = a
+										next = b
+										trigger_on_create = yes
+										duration = 0.1
+										alpha = 1
+									}
+
+									state = {
+										name = b
+										next = a
+										duration = 0.2
+										alpha = 0.9
+									}
+								}
+							}
+						}
+					}
+				}
+
+				widget = {
+					name = "power_bar_frame"
+					parentanchor = top
+					size = { 100% 100% }
+					alwaystransparent = yes
+
+					background = {
+						texture = "gfx/interface/progressbars/siege_frame.dds"
+						spriteType = Corneredstretched
+						spriteborder = { 30 40 }
+						margin = { 5 0 }
+						margin_bottom = 10
+						texture_density = 2
+					}
+				}
+
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					margin = { 15 0 }
+					spacing = 15
+					alwaystransparent = yes
+
+					text_single = {
+						text = "[GetPlayer.MakeScope.Var('bg_current_score').GetValue]"
+						default_format = "#T #DIE1"
+						align = nobaseline
+						tooltip = "bg_your_score"
+						using = tooltip_ne
+						minimumsize = { 30 10 }
+					}
+
+					widget = {
+						size = { 0 20 }
+
+						text_single = {
+							raw_text = "[GetPlayer.MakeScope.Var('bg_move_result').GetFlagName]"
+							default_format = "#high"
+							visible = "[GetPlayer.MakeScope.Var('bg_move_result').IsSet]"
+							align = nobaseline
+							resizeparent = yes
+							using = hide_score
+							tooltip = "bg_last_move"
+						}
+					}
+
+					expand = { }
+
+					# widget = {
+					# 	size = { 0 20 }
+					#
+					# 	text_single = {
+					# 		raw_text = "[EventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('bg_move_result').GetFlagName]"
+					# 		default_format = "#high"
+					# 		resizeparent = yes
+					# 		visible = "[EventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('bg_move_result').IsSet]"
+					# 		align = nobaseline
+					# 		using = hide_score
+					# 	}
+					# }
+
+					text_single = {
+						minimumsize = { 30 10 }
+						text = "[EventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('bg_current_score').GetValue]"
+						default_format = "#T #DIE1"
+						align = nobaseline|right
+						tooltip = "bg_enemy_score"
+					}
+				}
+			}
+
+			#round
+			widget = {
+				tooltip = "bg_current_round"
+				size = { 55 55 }
+				# alwaystransparent = yes
+				allow_outside = yes
+				parentanchor = center
+				position = { 0 1 }
+				datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
+
+				button_icon = {
+					size = { 100% 100% }
+					alwaystransparent = yes
+					texture = "gfx/interface/buttons/button_round_frame.dds"
+
+				}
+
+				icon = {
+					size = { 87% 87% }
+					parentanchor = center
+					texture = "gfx/interface/colors/white.dds"
+					tintcolor = { 0.2 0.2 0.2 1 }
+
+					modify_texture = {
+						texture = "gfx/interface/component_masks/mask_circle.dds"
+						blend_mode = alphamultiply
+					}
+				}
+
+				icon = {
+					size = { 100% 100% }
+					block "round" {
+						datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
+					}
+
+					visible = "[GreaterThan_CFixedPoint(Character.MakeScope.Var('bg_current_round').GetValue, '(CFixedPoint)1')]"
+
+					icon = {
+						size = { 87% 87% }
+						parentanchor = center
+						texture = "gfx/interface/colors/white.dds"
+						tintcolor = { 0.4 0.5 0.6 0.4 }
+
+						modify_texture = {
+							texture = "gfx/interface/component_masks/mask_circle.dds"
+							blend_mode = alphamultiply
+						}
+						visible = "[GetScriptedGui('bg_winning').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('target', EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).End )]"
+					}
+
+					icon = {
+						size = { 87% 87% }
+						parentanchor = center
+						texture = "gfx/interface/colors/white.dds"
+						tintcolor = { 1 0.4 0.35 0.2 }
+
+						modify_texture = {
+							texture = "gfx/interface/component_masks/mask_circle.dds"
+							blend_mode = alphamultiply
+						}
+						visible = "[Not(GetScriptedGui('bg_winning').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('target', EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).End ))]"
+					}
+				}
+
+
+				icon = {
+					texture = "gfx/interface/colors/white.dds"
+					parentanchor = center
+					tintcolor = { 0.9 0.8 0.6 1 }
+					position = { -1 0 }
+
+					block "round" {
+						datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
+					}
+
+					modify_texture = {
+						texture = "gfx/interface/icons/laws/crown_authority_0.dds"
+						blend_mode = alphamultiply
+						visible = "[EqualTo_CFixedPoint(Character.MakeScope.Var('bg_current_round').GetValue, '(CFixedPoint)1')]"
+					}
+
+					modify_texture = {
+						texture = "gfx/interface/icons/laws/crown_authority_1.dds"
+						blend_mode = alphamultiply
+						visible = "[EqualTo_CFixedPoint(Character.MakeScope.Var('bg_current_round').GetValue, '(CFixedPoint)2')]"
+					}
+
+					modify_texture = {
+						texture = "gfx/interface/icons/laws/crown_authority_2.dds"
+						blend_mode = alphamultiply
+						visible = "[EqualTo_CFixedPoint(Character.MakeScope.Var('bg_current_round').GetValue, '(CFixedPoint)3')]"
+					}
+
+					modify_texture = {
+						texture = "gfx/interface/icons/laws/crown_authority_3.dds"
+						blend_mode = alphamultiply
+						visible = "[EqualTo_CFixedPoint(Character.MakeScope.Var('bg_current_round').GetValue, '(CFixedPoint)4')]"
+					}
+
+					size = { 40 40 }
+				}
+
+				widget = {
+					block "round" {
+						datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
+					}
+					size = { 40 40 }
+					visible = "[EqualTo_CFixedPoint(Character.MakeScope.Var('bg_current_round').GetValue, '(CFixedPoint)4')]"
+					parentanchor = center
+					# tintcolor = { 0.9 0.8 0.6 1 }
+					position = { 45 -7 }
+
+					icon = {
+						texture = "gfx/interface/icons/schemes/icon_discovered_scheme.dds"
+						visible = "[EventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('bg_current_round').IsSet]"
+						tooltip = "bg_sudden_death_losing"
+					}
+
+					icon = {
+						texture = "gfx/interface/icons/icon_dread.dds"
+						visible = "[GetPlayer.MakeScope.Var('bg_current_round').IsSet]"
+						tooltip = "bg_sudden_death_winning"
+					}
+				}
+			}
+
+			progresspie = {
+				block "round" {
+					datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
+				}
+				size = { 61 61 }
+				texture = "gfx/interface/progressbars/action_progress_thin.dds"
+				framesize = { 124 124 }
+				frame = 2
+				position = { 2 2 }
+
+				parentanchor = center
+				widgetanchor = center
+
+				min = 0
+				max = 100
+				visible = no# "[EqualTo_CFixedPoint(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('bg_current_round').GetValue, '(CFixedPoint)3')]"
+
+				value = "[FixedPointToFloat(GuiScope.SetRoot(Character.MakeScope).ScriptValue('bg_current_round_pie'))]"
+			}
+
+			progresspie = {
+				block "round" {
+					datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
+				}
+				size = { 61 61 }
+				texture = "gfx/interface/progressbars/action_progress_thin.dds"
+				framesize = { 128 128 }
+				frame = 2
+				position = { 0 1 }
+
+				parentanchor = center
+				widgetanchor = center
+
+				min = 0
+				max = 100
+				# visible = "[Not(EqualTo_CFixedPoint(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('bg_current_round').GetValue, '(CFixedPoint)3'))]"
+
+				value = "[FixedPointToFloat(GuiScope.SetRoot(Character.MakeScope).ScriptValue('bg_current_round_pie'))]"
+			}
+		}
+
+		widget = {
+			size = { 210 0 }
+			layoutpolicy_vertical = expanding
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+
+				skills_hbox = {
+					datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
+				}
+
+				vbox = {
+					datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
+					spacing = -3
+					# alpha = "[Select_float(Or(Character.MakeScope.Var('bg_win_tally').IsSet, Character.MakeScope.Var('bg_loss_tally').IsSet), '(float)1', '(float)0.5')]"
+					# visible = "[Or(Character.MakeScope.Var('bg_win_tally').IsSet, Character.MakeScope.Var('bg_loss_tally').IsSet)]"
+					visible = no
+
+					icon = {
+						size = { 32 32 }
+						texture = "gfx/interface/icons/portraits/liege.dds"
+					}
+
+					text_single = {
+						text = "[GuiScope.SetRoot(Character.MakeScope).ScriptValue('bg_tally')|0]"
+						default_format = "#high"
+						align = nobaseline
+					}
+				}
+			}
+		}
+	}
+
+	type duel_dud = margin_widget {
+		block "size" {
+			size = { 100% 45 }
+		}
+		visible = "[GetScriptedGui('is_duel').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+	}
+	type chess_dud = margin_widget {
+		block "size" {
+			size = { 100% 50 }
+		}
+		visible = "[GetScriptedGui('boardgame_overlay').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+	}
+
+	type injury_score = flowcontainer {
+		parentanchor = vcenter
+		margin_top = 5
+		spacing = 5
+		ignoreinvisible = yes
+		visible = "[GetScriptedGui('extra_duel_info').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		block "margins" {
+			margin_left = 30
+			margin_right = 0
+		}
+
+		block "icon_left" { }
+
+		text_single = {
+			block "injury_score" {
+				text = "[GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('injury_risk')|0-]"
+			}
+			align = nobaseline
+			fontsize = 16
+		}
+		text_single = {
+			block "injury_bonus" {
+				raw_text = "#low ([GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('injury_bonus')|-=0])"
+			}
+			align = nobaseline
+			fontsize = 15
+			margin_top = 1
+		}
+	}
+
+	type duel_overlay = hbox {
+		datacontext = "[EventWindow.AccessEventWindowData]"
+		layoutpolicy_horizontal = expanding
+		margin = { 50 0 }
+		maximumsize = { -1 42 }
+		
+		block "duel_attacker" {
+			visible = "[GetScriptedGui('is_attacker').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		}
+		
+		background = {
+			using = Background_Area_Dark
+			margin = { -30 9 }
+			margin_right = -25
+
+			modify_texture = {
+				texture = "gfx/mask_center.dds"
+				blend_mode = alphamultiply
+			}
+		}
+		
+		container = {
+			ignoreinvisible = yes
+			flowcontainer = {
+				ignoreinvisible = yes
+				maximumsize = { 400 45 }
+				minimumsize = { 190 45 }
+				position = { 0 5 }
+
+				using = Animation_Character_Window_Refresh
+				
+				flowcontainer = {
+					parentanchor = vcenter
+					using = tooltip_below
+
+					tooltipwidget = {
+						container = {
+							using = GeneralTooltipSetup
+							alwaystransparent = no
+
+							widget = {
+								name = "background"
+								using = DefaultTooltipBackground
+								size = { 100% 100% }
+								alwaystransparent = no
+							}
+
+							flowcontainer = {
+								margin = { 20 20 }
+								direction = vertical
+								spacing = 10
+
+								text_multi = {
+									max_width = 350
+									autoresize = yes
+									text = "[EventWindowData.GetPortraitCharacter('left_portrait').GetProwessBreakdown]"
+								}
+
+								margin_widget = {
+									size = { 100% 3 }
+									margin_right = 40
+									divider_light = {
+										size = { 100% 3 }
+									}
+								}
+
+
+								text_multi = {
+									max_width = 350
+									autoresize = yes
+									text = "prowess_tip"
+								}
+							}
+						}
+					}
+					
+					icon = {
+						parentanchor = vcenter
+						name = "prowess_icon"
+						size = { 40 40 }
+						texture = "gfx/interface/icons/icon_prowess.dds"
+					}
+
+					text_single = {
+						name = "prowess_value"
+						raw_text = "#high [EventWindowData.GetPortraitCharacter('left_portrait').GetProwess|0]"
+						align = vcenter|nobaseline
+						fontsize = 20
+						autoresize = no
+						size = { 25 40 }
+						margin_top = 1
+					}
+				}
+
+				widget = {
+					size = { 15 0 }
+				}
+
+				flowcontainer = {
+					ignoreinvisible = yes
+					parentanchor = vcenter
+					using = tooltip_below
+
+					block "injury_risk_left" {
+						tooltip = "injury_risk_tt"
+					}
+
+					block "injury_left" {
+						injury_risk_widget = {}
+					}
+
+					widget = {
+						size = { 10 0 }
+					}
+
+					text_single = {
+						block "injury_text_left" {
+							visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI'), '(CFixedPoint)0.0')]"
+							datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
+							raw_text = "#n [GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI')|%0]"
+						}
+						align = vcenter
+						fontsize = 20
+						autoresize = no
+						size = { 70 40 }
+					}
+
+					text_single = {
+						block "injury_text_left_0" {
+							visible = "[LessThanOrEqualTo_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI'), '(CFixedPoint)0.0')]"
+						}
+						raw_text = " 0% "
+						align = vcenter
+						fontsize = 20
+						autoresize = no
+						size = { 70 40 }
+					}
+				}
+			}
+		}
+
+		margin_widget = {
+			layoutpolicy_horizontal = expanding
+			margin = { 0 0 }
+
+			widget = {
+				size = { 100% 100% }
+				scissor = yes
+
+				hbox = {
+					margin_top = 5
+
+					icon = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						block "stretch_left" {
+							layoutstretchfactor_horizontal = "[FixedPointToInt(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_attacker_bar'))]"
+						}
+						size = { 0 0 }
+
+						texture = "gfx/interface/progressbars/war_progress_blue.dds"
+						spriteType = Corneredtiled
+
+						icon = {
+							parentanchor = right|vcenter
+							position = { 5 0 }
+
+							size = { 25 100% }
+							texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
+							color = { 0.9 0.9 0.9 1 }
+
+							state = {
+								name = a
+								next = b
+								trigger_on_create = yes
+								duration = 1
+								alpha = 1
+							}
+
+							state = {
+								name = b
+								next = a
+								duration = 1
+								alpha = 0.85
+							}
+						}
+
+						widget = {
+							size = { 100% 100% }
+							block "highlight_left" {
+								visible =  "[GreaterThan_CFixedPoint(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope.Var('sc_attacker_duel_success_score').GetValue, EventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('sc_defender_duel_success_score').GetValue)]"
+							}
+
+
+							icon = {
+								state = {
+									name = a
+									next = b
+									trigger_on_create = yes
+									duration = 1
+									alpha = 0.45
+								}
+
+								state = {
+									name = b
+									next = a
+									duration = 1
+									alpha = 0.15
+								}
+								# visible = "[Not(SiegeWindow.GetSiege.IsPlayerInAttackerSide)]"
+								size = { 100% 100% }
+								texture = "gfx/interface/colors/white.dds"
+								using = Color_Blue
+								alpha = 1
+								#shaderfile = "gfx/FX/repeat_texture.shader"
+
+								modify_texture = {
+									name = "flash"
+									texture = "gfx/interface/colors/blue.dds"
+									blend_mode = colordodge
+									alpha = 1
+								}
+							}
+
+							icon = {
+								parentanchor = right
+								size = { 80 100% }
+								texture = "gfx/interface/colors/white.dds"
+								# #shaderfile = "gfx/FX/repeat_texture.shader"
+								alpha = "[FixedPointToFloat(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_defender_highlight'))]"
+
+								#   block "glow_color"
+								#  {
+								using = Color_Bright_Yellow
+
+								#   }
+
+								modify_texture = {
+									texture = "gfx/interface/component_masks/mask_fade_horizontal.dds"
+									blend_mode = alphamultiply
+								}
+
+								modify_texture = {
+									name = "clouds"
+									texture = "gfx/interface/component_masks/mask_clouds.dds"
+									blend_mode = alphamultiply
+									spriteType = corneredtiled
+									texture_density = 2
+								}
+
+								state = {
+									name = a
+									next = b
+									trigger_on_create = yes
+
+									modify_texture = {
+										name = "clouds"
+										translate_uv = { -1 0 }
+									}
+								}
+
+								state = {
+									name = b
+									next = a
+									duration = 3.7
+
+									modify_texture = {
+										name = "clouds"
+										translate_uv = { 1 0 }
+									}
+								}
+							}
+						}
+					}
+
+					icon = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						block "stretch_right" {
+							layoutstretchfactor_horizontal = "[FixedPointToInt(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_defender_bar'))]"
+						}
+						size = { 0 0 }
+
+						texture = "gfx/interface/progressbars/war_progress_red.dds"
+						spriteType = Corneredtiled
+
+						icon = {
+							parentanchor = left|vcenter
+							position = { -6 0 }
+							mirror = horizontal
+
+							size = { 25 100% }
+							texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
+							color = { 0.9 0.9 0.9 1 }
+
+							state = {
+								name = a
+								next = b
+								trigger_on_create = yes
+								duration = 1
+								alpha = 1
+							}
+
+							state = {
+								name = b
+								next = a
+								duration = 1
+								alpha = 0.85
+							}
+						}
+
+						widget = {
+							size = { 100% 100% }
+
+							block "highlight_right" {
+								visible = "[LessThan_CFixedPoint(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope.Var('sc_attacker_duel_success_score').GetValue, EventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('sc_defender_duel_success_score').GetValue)]"
+							}
+
+
+							icon = {
+								state = {
+									name = a
+									next = b
+									trigger_on_create = yes
+									duration = 1.5
+									alpha = 0.2
+								}
+
+								state = {
+									name = b
+									next = a
+									duration = 1.5
+									alpha = 0.05
+								}
+								size = { 100% 100% }
+								texture = "gfx/interface/colors/white.dds"
+								using = Color_Red
+								alpha = 1
+								#shaderfile = "gfx/FX/repeat_texture.shader"
+
+								modify_texture = {
+									name = "flash"
+									texture = "gfx/interface/colors/orange.dds"
+									blend_mode = colordodge
+									alpha = 1
+								}
+							}
+
+							icon = {
+								position = { 0 0 }
+								size = { 80 100% }
+								texture = "gfx/interface/colors/white.dds"
+								# #shaderfile = "gfx/FX/repeat_texture.shader"
+								alpha = "[FixedPointToFloat(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_defender_highlight'))]"
+
+								#   block "glow_color"
+								#  {
+								using = Color_Bright_Yellow
+
+								#   }
+
+								modify_texture = {
+									texture = "gfx/interface/component_masks/mask_fade_horizontal_right.dds"
+									blend_mode = alphamultiply
+								}
+
+								modify_texture = {
+									name = "clouds"
+									texture = "gfx/interface/component_masks/mask_clouds.dds"
+									blend_mode = alphamultiply
+									spriteType = corneredtiled
+									texture_density = 2
+								}
+
+								state = {
+									name = a
+									next = b
+									trigger_on_create = yes
+
+									modify_texture = {
+										name = "clouds"
+										translate_uv = { 1 0 }
+									}
+								}
+
+								state = {
+									name = b
+									next = a
+									duration = 3.7
+
+									modify_texture = {
+										name = "clouds"
+										translate_uv = { -1 0 }
+									}
+								}
+							}
+						}
+					}
+
+					block "bar_attacker" {
+						tooltip = "chance_of_success_attacker_tt"
+						using = tooltip_below
+					}
+				}
+
+				widget = {
+					size = { 100% 100% }
+					visible = "[GetScriptedGui('extra_duel_info').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+					icon = {
+						texture = "gfx/prowess_blue_score.dds"
+						size = { 20 20 }
+						position = { 8 15 }
+					}
+
+					text_single = {
+						block "score_left" {
+							text = "[EventWindowData.GetPortraitCharacter('left_portrait').MakeScope.Var('sc_attacker_duel_success_score').GetValue|0]"
+						}
+						fontsize = 18
+						position = { 35 9 }
+					}
+
+					# text_single = {
+					# 	fontsize = 20
+					# 	position = { 0 7 }
+					# 	parentanchor = hcenter
+					# 	align = center
+					# 	autoresize = yes
+					# 	block "score_center" {
+					# 		text = "[GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('success_check')|0]/[EventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('success_threshold').GetValue|0]"
+					# 	}
+					# 	default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+					# 	alpha = 0.8
+					# }
+
+					text_single = {
+						block "score_right" {
+							text = "[EventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('sc_defender_duel_success_score').GetValue|0]"
+						}
+						fontsize = 18
+						position = { -35 9 }
+						parentanchor = right
+						align = right
+					}
+
+					icon = {
+						parentanchor = right
+						texture = "gfx/prowess_red_score.dds"
+						size = { 20 20 }
+						position = { -8 15 }
+					}
+				}
+
+			}
+
+			widget = {
+				name = "power_bar_frame"
+				parentanchor = top
+				size = { 100% 100% }
+				alwaystransparent = yes
+
+				background = {
+					texture = "gfx/interface/progressbars/siege_frame.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 30 40 }
+					margin = { 5 0 }
+					margin_bottom = 10
+					texture_density = 2
+				}
+			}
+		}
+
+		container = {
+			ignoreinvisible = yes
+			flowcontainer = {
+				position = { 0 5 }
+				ignoreinvisible = yes
+				minimumsize = { 190 45 }
+				maximumsize = { 400 45 }
+				
+				using = Animation_Character_Window_Refresh
+				
+				flowcontainer = {
+					ignoreinvisible = yes
+					parentanchor = vcenter
+					using = tooltip_below
+					
+					block "injury_risk_right" {
+						tooltip = "injury_risk_defender_tt"
+					}
+					
+					text_single = {
+						block "injury_text_right" {
+							visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI'), '(CFixedPoint)0.0')]"
+							raw_text = "#n [GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI')|%0]"
+						}
+						align = vcenter|right
+						fontsize = 20
+						autoresize = no
+						size = { 70 40 }
+					}
+					
+					text_single = {
+						block "injury_text_right_0" {
+							visible = "[LessThanOrEqualTo_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI'), '(CFixedPoint)0.0')]"
+						}
+						raw_text = "0% "
+						align = vcenter|right
+						fontsize = 20
+						autoresize = no
+						size = { 70 40 }
+					}
+					
+					widget = {
+						size = { 10 0 }
+					}
+					
+					block "injury_right" {
+						injury_risk_widget_right = {}
+					}
+				}
+				
+				widget = {
+					size = { 15 0 }
+				}
+				
+				flowcontainer = {
+					ignoreinvisible = yes
+					parentanchor = vcenter
+					
+					using = tooltip_below
+					tooltipwidget = {
+						container = {
+							using = GeneralTooltipSetup
+							alwaystransparent = no
+							
+							widget = {
+								name = "background"
+								using = DefaultTooltipBackground
+								size = { 100% 100% }
+								alwaystransparent = no
+							}
+							
+							flowcontainer = {
+								margin = { 20 20 }
+								direction = vertical
+								spacing = 10
+								
+								text_multi = {
+									max_width = 350
+									autoresize = yes
+									text = "[EventWindowData.GetPortraitCharacter('right_portrait').GetProwessBreakdown]"
+								}
+								
+								margin_widget = {
+									size = { 100% 3 }
+									margin_right = 40
+									divider_light = {
+										size = { 100% 3 }
+									}
+								}
+								
+								
+								text_multi = {
+									max_width = 350
+									autoresize = yes
+									text = "prowess_tip"
+								}
+							}
+						}
+					}
+					
+					text_single = {
+						name = "prowess_value"
+						raw_text = "#high [EventWindowData.GetPortraitCharacter('right_portrait').GetProwess|0]"
+						align = right|nobaseline
+						fontsize = 20
+						autoresize = no
+						size = { 25 40 }
+						margin_top = 1
+					}
+					
+					icon = {
+						parentanchor = vcenter
+						name = "prowess_icon"
+						size = { 40 40 }
+						texture = "gfx/interface/icons/icon_prowess.dds"
+					}
+				}
+			}
+		}
+	}
+
+	type duel_overlay_defender = duel_overlay {
+		blockoverride "duel_attacker" {
+			visible = "[GetScriptedGui('is_defender').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		}
+		blockoverride "injury_text_left" {
+			visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI'), '(CFixedPoint)0.0')]"
+			raw_text = "#n [GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI')|%0]"
+		}
+		blockoverride "injury_text_left_0" {
+			visible = "[LessThanOrEqualTo_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI'), '(CFixedPoint)0.0')]"
+		}
+		blockoverride "stretch_left" {
+			layoutstretchfactor_horizontal = "[FixedPointToInt(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_defender_bar'))]"
+		}
+		blockoverride "highlight_left" {
+			visible =  "[GreaterThan_CFixedPoint(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope.Var('sc_defender_duel_success_score').GetValue, EventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('sc_attacker_duel_success_score').GetValue)]"
+		}
+		blockoverride "score_left" {
+			text = "[EventWindowData.GetPortraitCharacter('left_portrait').MakeScope.Var('sc_defender_duel_success_score').GetValue|0]"
+		}
+		blockoverride "stretch_right" {
+			layoutstretchfactor_horizontal = "[FixedPointToInt(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_attacker_bar'))]"
+		}
+		blockoverride "highlight_right" {
+			visible = "[LessThan_CFixedPoint(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope.Var('sc_defender_duel_success_score').GetValue, EventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('sc_attacker_duel_success_score').GetValue)]"
+		}
+		blockoverride "bar_attacker" {
+			tooltip = "chance_of_success_defender_tt"
+		}
+		# blockoverride "score_center" {
+		# 	text = "[GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('success_check')|0]/[EventWindowData.GetPortraitCharacter('left_portrait').MakeScope.Var('success_threshold').GetValue|0]"
+		#
+		# }
+		blockoverride "score_right" {
+			text = "[EventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('sc_attacker_duel_success_score').GetValue|0]"
+		}
+		blockoverride "injury_text_right" {
+			visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI'), '(CFixedPoint)0.0')]"
+			raw_text = "#n [GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI')|%0]"
+		}
+		blockoverride "injury_text_right_0" {
+			visible = "[LessThanOrEqualTo_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI'), '(CFixedPoint)0.0')]"
+		}
+		blockoverride "injury_left" {
+			injury_risk_widget = {
+				blockoverride "value" {
+					value = "[FixedPointToFloat(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_defender_injury_check_grey'))]"
+				}
+				blockoverride "value_red" {
+					value = "[FixedPointToFloat(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI'))]"
+				}
+				blockoverride "w_1" {
+					visible = "[LessThanOrEqualTo_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI'), '(CFixedPoint)0.0')]"
+				}
+				blockoverride "w_1_not" {
+					visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI'), '(CFixedPoint)0.0')]"
+				}
+				blockoverride "glow1" {
+					visible = "[LessThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI'), '(CFixedPoint)0.2')]"
+				}
+				blockoverride "glow2" {
+					visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI'), '(CFixedPoint)0.2')]"
+				}
+			}
+		}
+		blockoverride "injury_risk_left" {
+			tooltip = "injury_risk_tt_left_defender"
+		}
+		blockoverride "injury_right" {
+			injury_risk_widget = {
+				blockoverride "value" {
+					value = "[FixedPointToFloat(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI'))]"
+				}
+				blockoverride "value_red" {
+					value = "[FixedPointToFloat(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI'))]"
+				}
+				blockoverride "w_1" {
+					visible = "[LessThanOrEqualTo_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI'), '(CFixedPoint)0.0')]"
+				}
+				blockoverride "w_1_not" {
+					visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI'), '(CFixedPoint)0.0')]"
+				}
+				blockoverride "glow1" {
+					visible = "[LessThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI'), '(CFixedPoint)0.2')]"
+				}
+				blockoverride "glow2" {
+					visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI'), '(CFixedPoint)0.2')]"
+				}
+			}
+		}
+		blockoverride "injury_risk_right" {
+			tooltip = "injury_risk_tt_right_attacker"
+		}
+	}
+
+	type injury_risk_widget = icon {
+		size = { 46 46 }
+		parentanchor = vcenter
+
+		container = {
+			parentanchor = center
+			icon = {
+				size = { 100% 100% }
+				texture = "gfx/interface/buttons/button_lifestyles_base.dds"
+				alpha = 0.7
+				# tintcolor = { 1 0.6 0.6 1 }
+			}
+			block "w_1" {
+				visible = "[LessThanOrEqualTo_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI'), '(CFixedPoint)0.0')]"
+			}
+			icon = {
+				parentanchor = center
+				size = { 32 32 }
+				texture = "gfx/interface/icons/traits/_frame_health.dds"
+				alpha = 0.4
+			}
+			progresspie = {
+				size = { 46 46 }
+				texture = "gfx/action_progress_grey.dds"
+				framesize = { 124 124 }
+				frame = 2
+				min = 0
+				max = 1
+				parentanchor = center
+				block "value" {
+					value = "[FixedPointToFloat(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_grey'))]"
+				}
+			}
+		}
+
+		container = {
+			parentanchor = center
+			block "w_1_not" {
+				visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI'), '(CFixedPoint)0.0')]"
+			}
+
+			icon = {
+				size = { 46 46 }
+				texture = "gfx/interface/buttons/button_lifestyles_base.dds"
+				tintcolor = { 1 0.4 0.4 1 }
+				parentanchor = center
+			}
+
+			icon = {
+				block "glow1" {
+					visible = "[LessThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI'), '(CFixedPoint)0.2')]"
+				}
+				texture = "gfx/interface/colors/white.dds"
+				using = Color_Red
+				size = { 46 46 }
+				alpha = 0
+				parentanchor = center
+				position = { 1 0 }
+
+				modify_texture = {
+					name = "mask_1"
+					texture = "gfx/interface/component_masks/mask_glow.dds"
+					blend_mode = alphamultiply
+					rotate_uv = 1
+				}
+
+				modify_texture = {
+					name = "mask_2"
+					texture = "gfx/interface/component_masks/mask_glow.dds"
+					blend_mode = alphamultiply
+					rotate_uv = -1
+				}
+
+				state = {
+					name = a
+					next = b
+					trigger_on_create = yes
+					duration = 1.5
+
+					using = Animation_Curve_Default
+					alpha = 0.3
+				}
+
+				state = {
+					name = b
+					next = a
+
+					duration = 1.5
+					bezier = { 0.5 0 1 0.5 }
+
+					alpha = 0.2
+				}
+			}
+
+			icon = {
+				block "glow2" {
+					visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI'), '(CFixedPoint)0.2')]"
+				}
+				texture = "gfx/interface/colors/white.dds"
+				using = Color_Red
+				size = { 46 46 }
+				alpha = 0
+				parentanchor = center
+				position = { 1 0 }
+
+				modify_texture = {
+					name = "mask_1"
+					texture = "gfx/interface/component_masks/mask_glow.dds"
+					blend_mode = alphamultiply
+					rotate_uv = 1
+				}
+
+				modify_texture = {
+					name = "mask_2"
+					texture = "gfx/interface/component_masks/mask_glow.dds"
+					blend_mode = alphamultiply
+					rotate_uv = -1
+				}
+
+				state = {
+					name = a
+					next = b
+					trigger_on_create = yes
+					duration = 1.5
+
+					using = Animation_Curve_Default
+					alpha = 0.4
+				}
+
+				state = {
+					name = b
+					next = a
+
+					duration = 1.5
+					bezier = { 0.5 0 1 0.5 }
+
+					alpha = 0.2
+				}
+			}
+
+			icon = {
+				parentanchor = center
+				size = { 32 32 }
+				texture = "gfx/interface/icons/traits/maimed.dds"
+			}
+
+			progresspie = {
+				name = "progress"
+				size = { 46 46 }
+				texture = "gfx/action_progress_red.dds"
+				framesize = { 124 124 }
+				frame = 2
+				min = 0
+				max = 1
+				parentanchor = center
+				block "value_red" {
+					value = "[FixedPointToFloat(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('sc_attacker_injury_check_UI'))]"
+				}
+			}
+		}
+	}
+
+	type injury_risk_widget_right = injury_risk_widget {
+		blockoverride "value" {
+			value = "[FixedPointToFloat(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_defender_injury_check_grey'))]"
+		}
+		blockoverride "value_red" {
+			value = "[FixedPointToFloat(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI'))]"
+		}
+		blockoverride "w_1" {
+			visible = "[LessThanOrEqualTo_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI'), '(CFixedPoint)0.0')]"
+		}
+		blockoverride "w_1_not" {
+			visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI'), '(CFixedPoint)0.0')]"
+		}
+		blockoverride "glow1" {
+			visible = "[LessThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI'), '(CFixedPoint)0.2')]"
+		}
+		blockoverride "glow2" {
+			visible = "[GreaterThan_CFixedPoint(GuiScope.SetRoot(EventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('sc_defender_injury_check_UI'), '(CFixedPoint)0.2')]"
+		}
+	}
+
+	type event_settings = widget {
+		position = { -70 60 }
+		size = { 400 80 }
+		allow_outside = yes
+		alwaystransparent = no
+
+		#onmousehierarchyenter = "[PdxGuiInterruptThenTriggerAllAnimations('b', 'show_event_settings')]"
+		onmousehierarchyenter = "[PdxGuiInterruptThenTriggerAllAnimations('c', 'show_event_settings')]"
+		onmousehierarchyleave = "[PdxGuiTriggerAllAnimations('c')]"
+		parentanchor = right
+
+		flowcontainer = {
+			alwaystransparent = no
+			# visible = "[GetVariableSystem.Exists('event_settings_strip')]"
+			parentanchor = right
+			state = {
+				delay = 0.7
+				name = c
+				duration = 0.3
+				alpha = 0
+				on_finish = "[GetVariableSystem.Clear('event_settings_strip')]"
+			}
+
+			state = {
+				name = show_event_settings
+				alpha = 1
+				on_finish = "[GetVariableSystem.Toggle('event_settings_strip')]"
+			}
+
+			direction = vertical
+			ignoreinvisible = yes
+
+			flowcontainer = {
+				alwaystransparent = no
+				parentanchor = right
+
+				# background = {
+				# 	using = Background_Area_Light
+				# 	visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				# 	margin = { -20 -20 }
+				# 	margin_right = -25
+				# }
+
+				ignoreinvisible = yes
+				spacing = 7
+				margin = { 0 20 }
+				alpha = 0.6
+
+				flowcontainer = {
+					name = "debug_stuff"
+					visible = "[InDebugMode]"
+					ignoreinvisible = yes
+
+					button_round = {
+						alwaystransparent = no
+						tooltip = "REGENERATE_EVENT_CONTENTS"
+						using = tooltip_below
+
+						using = Animation_ShowHide_Quick
+						onclick = "[EventWindow.ResetContents]"
+
+						button_replace = {
+							parentanchor = center
+							alwaystransparent = yes
+						}
+					}
+
+					button_round = {
+						size = { 40 40 }
+
+						button_icon = {
+							size = { 100% 100% }
+							texture = "gfx/interface/icons/flat_icons/data_system.dds"
+							tooltip = "TOGGLE_DATA_SYSTEM"
+							using = tooltip_below
+							onclick = "[ExecuteConsoleCommand('Localization.ToggleSkipDataSystemInLocOutput')]"
+							fontsize = 24
+						}
+					}
+
+					button_round = {
+						size = { 40 40 }
+						button_copy = {
+							parentanchor = center
+							onclick = "[EventWindowData.CopyToClipboard]"
+							tooltip = "COPY_EVENT_CONTENTS"
+						}
+					}
+
+					container = {
+						tooltip = "[EventWindowData.GetTriggerBreakdown]"
+						using = tooltip_below
+						icon = {
+							visible = "[EventWindowData.IsTriggerFulfilled]"
+							size = { 40 40 }
+							texture = "gfx/interface/icons/symbols/icon_check.dds"
+						}
+
+						icon = {
+							visible = "[Not( EventWindowData.IsTriggerFulfilled )]"
+							size = { 40 40 }
+							texture = "gfx/interface/icons/symbols/icon_cross.dds"
+						}
+					}
+
+					button = {
+						name = "debug_icon"
+						size = { 40 40 }
+
+						button = {
+							size = { 100% 100% }
+							tooltip = "[EventWindowData.GetDebugInfo]"
+							using = tooltip_below
+							onclick = "[EventWindowData.CopyToClipboard]"
+							onrightclick = "[EventWindowData.DebugOpen]"
+							button_ignore = none
+							raw_text = "?"
+							fontsize = 24
+						}
+					}
+				}
+
+				button_menu = {
+					size = { 40 40 }
+					#tooltip = "settings"
+
+					onclick = "[GetVariableSystem.Toggle('event_settings')]"
+					#using = tooltip_ne
+				}
+			}
+
+			flowcontainer = {
+				visible = "[GetVariableSystem.Exists('event_settings')]"
+				direction = vertical
+				alwaystransparent = no
+				margin_bottom = 5
+
+				onmousehierarchyleave = "[GetVariableSystem.Clear('event_settings')]"
+
+				background = {
+					margin = { 10 10 }
+					using = Background_Area_Light
+					alpha = 0.8
+				}
+
+				minimumsize = { 330 0 }
+
+				event_settings_button = {
+					datacontext = "[GetScriptedGui('boardgame_overlay')]"
+
+					blockoverride "text" {
+						text = "boardgame_overlay"
+						max_width = 280
+					}
+
+					blockoverride "checked" {
+						checked = "[Not(GetPlayer.MakeScope.Var('boardgame_overlay').IsSet)]"
+					}
+				}
+
+				button_standard = {
+					size = { 100% 32 }
+					datacontext = "[GetScriptedGui('extra_duel_info')]"
+					onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+					button_checkbox_label = {
+						alwaystransparent = yes
+						position = { 1 1 }
+
+						blockoverride "text" {
+							text = "duel_score"
+							max_width = 280
+						}
+
+						blockoverride "checkbox" {
+							alwaystransparent = yes
+							checked = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						}
+					}
+				}
+
+				button_standard = {
+					size = { 100% 32 }
+					datacontext = "[GetScriptedGui('duel_icons')]"
+					onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+					button_checkbox_label = {
+						alwaystransparent = yes
+						position = { 1 1 }
+						tooltip = "duel_icons_tt"
+
+						blockoverride "text" {
+							text = "duel_icons"
+							max_width = 280
+						}
+
+						blockoverride "checkbox" {
+							alwaystransparent = yes
+							checked = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						}
+					}
+				}
+			}
+		}
+	}
+
+	type event_settings_button = button_standard {
+		size = { 100% 32 }
+		# datacontext = "[GetScriptedGui('nameplates')]"
+		onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+		button_checkbox_label = {
+			alwaystransparent = yes
+			position = { 1 1 }
+
+			blockoverride "checkbox" {
+				alwaystransparent = yes
+				block "checked" {
+					checked = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,281 @@
+﻿advanced_torture_give_torturer_nickname_effect = {
+ if = {
+  limit = {
+   NOT = { has_character_flag = advanced_torture_nickname_torturer_given }
+  }
+
+  add_character_flag = advanced_torture_nickname_torturer_given
+  give_nickname = nick_advanced_torture_the_torturer
+
+  trigger_event = {
+   id = advanced_torture.2001
+  }
+ }
+}
+
+advanced_torture_give_eye_taker_nickname_effect = {
+ if = {
+  limit = {
+   NOT = { has_character_flag = advanced_torture_nickname_eye_taker_given }
+  }
+
+  add_character_flag = advanced_torture_nickname_eye_taker_given
+  give_nickname = nick_advanced_torture_the_eye_taker
+
+  trigger_event = {
+   id = advanced_torture.2002
+  }
+ }
+}
+
+advanced_torture_give_bone_breaker_nickname_effect = {
+ if = {
+  limit = {
+   NOT = { has_character_flag = advanced_torture_nickname_bone_breaker_given }
+  }
+
+  add_character_flag = advanced_torture_nickname_bone_breaker_given
+  give_nickname = nick_advanced_torture_the_bone_breaker
+
+  trigger_event = {
+   id = advanced_torture.2003
+  }
+ }
+}
+
+advanced_torture_give_disfigurer_nickname_effect = {
+ if = {
+  limit = {
+   NOT = { has_character_flag = advanced_torture_nickname_disfigurer_given }
+  }
+
+  add_character_flag = advanced_torture_nickname_disfigurer_given
+  give_nickname = nick_advanced_torture_the_disfigurer
+
+  trigger_event = {
+   id = advanced_torture.2004
+  }
+ }
+}
+
+advanced_torture_give_maimer_nickname_effect = {
+ if = {
+  limit = {
+   NOT = { has_character_flag = advanced_torture_nickname_maimer_given }
+  }
+
+  add_character_flag = advanced_torture_nickname_maimer_given
+  give_nickname = nick_advanced_torture_the_maimer
+
+  trigger_event = {
+   id = advanced_torture.2005
+  }
+ }
+}
+
+advanced_torture_give_blinder_nickname_effect = {
+ if = {
+  limit = {
+   NOT = { has_character_flag = advanced_torture_nickname_blinder_given }
+  }
+
+  add_character_flag = advanced_torture_nickname_blinder_given
+  give_nickname = nick_advanced_torture_the_blinder
+
+  trigger_event = {
+   id = advanced_torture.2006
+  }
+ }
+}
+
+advanced_torture_give_patient_tormentor_nickname_effect = {
+ if = {
+  limit = {
+   NOT = { has_character_flag = advanced_torture_nickname_patient_tormentor_given }
+  }
+
+  add_character_flag = advanced_torture_nickname_patient_tormentor_given
+  give_nickname = nick_advanced_torture_the_patient_tormentor
+
+  trigger_event = {
+   id = advanced_torture.2007
+  }
+ }
+}
+
+advanced_torture_give_crimson_questioner_nickname_effect = {
+ if = {
+  limit = {
+   NOT = { has_character_flag = advanced_torture_nickname_crimson_questioner_given }
+  }
+
+  add_character_flag = advanced_torture_nickname_crimson_questioner_given
+  give_nickname = nick_advanced_torture_the_crimson_questioner
+
+  trigger_event = {
+   id = advanced_torture.2008
+  }
+ }
+}
+
+advanced_torture_give_red_hand_nickname_effect = {
+ if = {
+  limit = {
+   NOT = { has_character_flag = advanced_torture_nickname_red_hand_given }
+  }
+
+  add_character_flag = advanced_torture_nickname_red_hand_given
+  give_nickname = nick_advanced_torture_the_red_hand
+
+  trigger_event = {
+   id = advanced_torture.2009
+  }
+ }
+}
+
+advanced_torture_give_truthbreaker_nickname_effect = {
+ if = {
+  limit = {
+   NOT = { has_character_flag = advanced_torture_nickname_truthbreaker_given }
+  }
+
+  add_character_flag = advanced_torture_nickname_truthbreaker_given
+  give_nickname = nick_advanced_torture_the_truthbreaker
+
+  trigger_event = {
+   id = advanced_torture.2010
+  }
+ }
+}
+
+advanced_torture_give_butcher_of_cells_nickname_effect = {
+ if = {
+  limit = {
+   NOT = { has_character_flag = advanced_torture_nickname_butcher_of_cells_given }
+  }
+
+  add_character_flag = advanced_torture_nickname_butcher_of_cells_given
+  give_nickname = nick_advanced_torture_the_butcher_of_cells
+
+  trigger_event = {
+   id = advanced_torture.2011
+  }
+ }
+}
+
+advanced_torture_check_torture_nickname_effect = {
+ if = {
+  limit = {
+   has_variable = advanced_torture_tortures_total
+   has_variable = advanced_torture_eye_tortures
+   has_variable = advanced_torture_leg_tortures
+   has_variable = advanced_torture_disfigure_tortures
+   has_variable = advanced_torture_scar_tortures
+   has_variable = advanced_torture_maim_tortures
+   has_variable = advanced_torture_blind_tortures
+   has_variable = advanced_torture_minor_tortures
+   has_variable = advanced_torture_medium_tortures
+   has_variable = advanced_torture_severe_tortures
+   has_variable = advanced_torture_secret_reveals
+  }
+
+  if = {
+   limit = {
+    var:advanced_torture_tortures_total >= 15
+   }
+
+   advanced_torture_give_red_hand_nickname_effect = yes
+  }
+
+  else_if = {
+   limit = {
+    var:advanced_torture_tortures_total >= 10
+   }
+
+   advanced_torture_give_crimson_questioner_nickname_effect = yes
+  }
+
+  else_if = {
+   limit = {
+    var:advanced_torture_secret_reveals >= 5
+   }
+
+   advanced_torture_give_truthbreaker_nickname_effect = yes
+  }
+
+  else_if = {
+   limit = {
+    var:advanced_torture_severe_tortures >= 5
+   }
+
+   advanced_torture_give_butcher_of_cells_nickname_effect = yes
+  }
+
+  else_if = {
+   limit = {
+    var:advanced_torture_eye_tortures >= 5
+   }
+
+   advanced_torture_give_eye_taker_nickname_effect = yes
+  }
+
+  else_if = {
+   limit = {
+    var:advanced_torture_leg_tortures >= 5
+   }
+
+   advanced_torture_give_bone_breaker_nickname_effect = yes
+  }
+
+  else_if = {
+   limit = {
+    var:advanced_torture_disfigure_tortures >= 5
+   }
+
+   advanced_torture_give_disfigurer_nickname_effect = yes
+  }
+
+  else_if = {
+   limit = {
+    var:advanced_torture_maim_tortures >= 5
+   }
+
+   advanced_torture_give_maimer_nickname_effect = yes
+  }
+
+  else_if = {
+   limit = {
+    var:advanced_torture_blind_tortures >= 5
+   }
+
+   advanced_torture_give_blinder_nickname_effect = yes
+  }
+
+  else_if = {
+   limit = {
+    var:advanced_torture_minor_tortures >= 5
+   }
+
+   advanced_torture_give_patient_tormentor_nickname_effect = yes
+  }
+
+  else_if = {
+   limit = {
+    var:advanced_torture_tortures_total >= 5
+    NOT = { has_character_flag = advanced_torture_nickname_torturer_given }
+    NOT = { has_character_flag = advanced_torture_nickname_eye_taker_given }
+    NOT = { has_character_flag = advanced_torture_nickname_bone_breaker_given }
+    NOT = { has_character_flag = advanced_torture_nickname_disfigurer_given }
+    NOT = { has_character_flag = advanced_torture_nickname_maimer_given }
+    NOT = { has_character_flag = advanced_torture_nickname_blinder_given }
+    NOT = { has_character_flag = advanced_torture_nickname_patient_tormentor_given }
+    NOT = { has_character_flag = advanced_torture_nickname_crimson_questioner_given }
+    NOT = { has_character_flag = advanced_torture_nickname_red_hand_given }
+    NOT = { has_character_flag = advanced_torture_nickname_truthbreaker_given }
+    NOT = { has_character_flag = advanced_torture_nickname_butcher_of_cells_given }
+   }
+
+   advanced_torture_give_torturer_nickname_effect = yes
+  }
+ }
+}

@@ -1,0 +1,255 @@
+﻿namespace = spn_miscellaneous_events
+
+#Set Visual Age
+spn_miscellaneous_events.0001 = { 
+	type = character_event
+	title = spn_miscellaneous_events.0001.t
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:recipient = { has_variable = spn_current_visual_age } }
+				desc = spn_miscellaneous_events.0001has.desc
+			}
+			desc = spn_miscellaneous_events.0001nohas.desc
+		}
+	}
+
+	theme = healthcare
+
+	right_portrait = {
+		character = scope:recipient
+		animation = idle
+	}
+
+	option = {
+		name = spn_miscellaneous_events.0001.a
+		custom_tooltip = spn_miscellaneous_events.0001.a.tt
+		trigger = {
+			scope:recipient = { var:spn_current_visual_age < 100 }
+		}
+		scope:recipient = { spn_add_visual_age = { AGEINCREASE = 1 } }
+		scope:recipient = { add_character_flag = spn_overwrite_visual_age }
+		trigger_event = spn_miscellaneous_events.0001
+	}
+
+	option = {
+		name = spn_miscellaneous_events.0001.b
+		custom_tooltip = spn_miscellaneous_events.0001.b.tt
+		trigger = {
+			scope:recipient = { var:spn_current_visual_age < 96 }
+		}
+		scope:recipient = { spn_add_visual_age = { AGEINCREASE = 5 } }
+		scope:recipient = { add_character_flag = spn_overwrite_visual_age }
+		trigger_event = spn_miscellaneous_events.0001
+	}
+
+	option = {
+		name = spn_miscellaneous_events.0001.c
+		custom_tooltip = spn_miscellaneous_events.0001.c.tt
+		trigger = {
+			scope:recipient = { var:spn_current_visual_age < 91 }
+		}
+		scope:recipient = { spn_add_visual_age = { AGEINCREASE = 10 } }
+		scope:recipient = { add_character_flag = spn_overwrite_visual_age }
+		trigger_event = spn_miscellaneous_events.0001
+	}
+
+	option = {
+		name = spn_miscellaneous_events.0001.i
+		custom_tooltip = spn_miscellaneous_events.0001.i.tt
+		trigger = {
+			scope:recipient = { var:spn_current_visual_age < 81 }
+		}
+		scope:recipient = { spn_add_visual_age = { AGEINCREASE = 20 } }
+		scope:recipient = { add_character_flag = spn_overwrite_visual_age }
+		trigger_event = spn_miscellaneous_events.0001
+	}
+
+	option = {
+		name = spn_miscellaneous_events.0001.d
+		custom_tooltip = spn_miscellaneous_events.0001.d.tt
+		trigger = {
+			scope:recipient = { var:spn_current_visual_age > 0 }
+		}
+		scope:recipient = { spn_add_visual_age = { AGEINCREASE = -1 } }
+		scope:recipient = { add_character_flag = spn_overwrite_visual_age }
+		trigger_event = spn_miscellaneous_events.0001
+	}
+
+	option = {
+		name = spn_miscellaneous_events.0001.e
+		custom_tooltip = spn_miscellaneous_events.0001.e.tt
+		trigger = {
+			scope:recipient = { var:spn_current_visual_age > 4 }
+		}
+		scope:recipient = { spn_add_visual_age = { AGEINCREASE = -5 } }
+		scope:recipient = { add_character_flag = spn_overwrite_visual_age }
+		trigger_event = spn_miscellaneous_events.0001
+	}
+
+	option = {
+		name = spn_miscellaneous_events.0001.f
+		custom_tooltip = spn_miscellaneous_events.0001.f.tt
+		trigger = {
+			scope:recipient = { var:spn_current_visual_age > 9 }
+		}
+		scope:recipient = { spn_add_visual_age = { AGEINCREASE = -10 } }
+		scope:recipient = { add_character_flag = spn_overwrite_visual_age }
+		trigger_event = spn_miscellaneous_events.0001
+	}
+
+	option = {
+		name = spn_miscellaneous_events.0001.j
+		custom_tooltip = spn_miscellaneous_events.0001.j.tt
+		trigger = {
+			scope:recipient = { var:spn_current_visual_age > 19 }
+		}
+		scope:recipient = { spn_add_visual_age = { AGEINCREASE = -20 } }
+		scope:recipient = { add_character_flag = spn_overwrite_visual_age }
+		trigger_event = spn_miscellaneous_events.0001
+	}
+
+	option = { #Initialize
+		name = spn_miscellaneous_events.0001.g
+		custom_tooltip = spn_miscellaneous_events.0001.g.tt
+		trigger = {
+			scope:recipient = { NOT = { has_variable = spn_current_visual_age } }
+		}
+		scope:recipient = { spn_track_current_visual_age = { VISUALAGE = age } }
+		scope:recipient = { add_character_flag = spn_overwrite_visual_age }
+		trigger_event = spn_miscellaneous_events.0001
+	}
+
+	option = { #Stop Overwriting
+		name = spn_miscellaneous_events.0001.k
+		custom_tooltip = spn_miscellaneous_events.0001.k.tt
+		trigger = {
+			scope:recipient = { has_variable = spn_current_visual_age }
+		}
+		scope:recipient = { remove_character_flag = spn_overwrite_visual_age }
+	}
+
+	option = { #Done
+		name = spn_miscellaneous_events.0001.h
+		custom_tooltip = spn_miscellaneous_events.0001.h.tt
+	}
+}
+
+spn_miscellaneous_events.0002 = {
+    type = character_event
+    hidden = yes
+
+    trigger = {
+        has_character_flag = vampire_blood_in_system
+    }
+
+    immediate = {
+		if = {
+			limit = {
+				has_character_modifier = ingested_vampire_blood_modifier
+			}
+			remove_character_modifier = ingested_vampire_blood_modifier
+		}
+		remove_variable = spn_vampire_blood_donor
+        remove_character_flag = vampire_blood_in_system
+    }
+}
+
+spn_miscellaneous_events.0003 = {
+    type = character_event
+    hidden = yes
+
+    immediate = {
+		if = {
+			limit = {
+				AND = {
+					has_character_flag = vampire_blood_in_system
+					NOT = { has_character_flag = changed_mind_on_immortality }
+				}
+			}
+			spn_bind_blood_donor_as_maker_effect = yes
+			trigger_event = spn_miscellaneous_events.0005
+			trigger_event = spn_initiate.0001
+			#trigger_event = spn_message.0001
+			trigger_event = {
+				id = spn_initiate.9002 #Initiate Secret knowledge when asking for confer
+				days = 1
+			}
+			remove_character_modifier = ingested_vampire_blood_modifier
+			remove_character_flag = vampire_blood_in_system
+		}
+        else_if = { #If they have changed their mind, we don't want anything to happen
+			limit = {
+				has_character_flag = changed_mind_on_immortality
+			}
+			trigger_event = spn_initiate.0002
+		}
+		# 2.35 part two: was `else`. CK3 ignores a `limit` inside an `else`, so this branch fired
+		# unconditionally -- including for characters who already had the blood in them or were
+		# already vampires, which is exactly what the limit was written to prevent. `else_if`
+		# honours it. Only occurrence of the pattern in the mod (swept 9 Sep).
+		else_if = {
+			limit = {
+				NOR = { 
+					has_character_flag = vampire_blood_in_system
+					has_trait =  supernatural_vampire
+				}
+			}
+			trigger_event = spn_miscellaneous_events.0004
+		}
+    }
+}
+
+spn_miscellaneous_events.0004 = {
+    type = character_event
+	title = spn_miscellaneous_events.0004.t
+	desc = spn_miscellaneous_events.0004.desc
+	theme = plague
+	
+	right_portrait = {
+		character = root
+		animation = shock
+	}
+	
+	#left_portrait = {
+	#	character = scope:courtier_from_realm
+	#	animation = shock
+	#}
+
+	option = {
+		name = spn_miscellaneous_events.0004.a
+		custom_tooltip = spn_miscellaneous_events.0004.a.tt	
+		
+		death = {
+			death_reason = spn_broken_neck
+		}
+	}
+}
+
+spn_miscellaneous_events.0005 = {
+    type = character_event
+	title = spn_miscellaneous_events.0005.t
+	desc = spn_miscellaneous_events.0005.desc
+	theme = secret
+	
+	immediate = {
+		debug_log_scopes = yes
+	}
+	
+	left_portrait = {
+		character = scope:spn_vampire_turner # Reference the saved scope for the vampire
+		animation = shock
+	}
+	
+	right_portrait = {
+		character = root
+		animation = shock
+	}
+
+	option = {
+		name = spn_miscellaneous_events.0005.a
+		custom_tooltip = spn_miscellaneous_events.0005.a.tt	
+		
+	}
+}

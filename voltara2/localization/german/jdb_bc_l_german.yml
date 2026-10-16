@@ -1,0 +1,14 @@
+﻿l_german:
+ jdb_bc_commander_flavor_text_retreat_dominant:0 "Verdammt, diese Bastarde! Rückzug!"
+ jdb_bc_commander_flavor_text_retreat_zeal_forsaken:0 "[ROOT.Char.GetFaith.WarGodName|U] warum hast du uns verlassen?"
+ jdb_bc_commander_flavor_text_retreat_fallback:0 "Wir müssen uns zurückfallen lassen!"
+ jdb_bc_commander_flavor_text_retreat:0 "Rückzug! Rückzug!"
+ jdb_bc_commander_flavor_text_retreat_we_need_more_allies:0 "Wir brauchen mehr Verbündete!"
+ jdb_bc_commander_flavor_text_siege_tear_walls:0 "Reißt diese Mauern nieder!"
+ jdb_bc_commander_flavor_text_siege_archers:0 "Bogenschützen, schießt!"
+ jdb_bc_commander_flavor_text_siege_burn_them:0 "Brennt sie nieder!"
+ jdb_bc_commander_flavor_text_siege_storm_gate:0 "Stürmt das Tor!"
+ jdb_bc_commander_flavor_text_siege_towers:0 "Belagerungstürme, vorwärts!"
+ jdb_bc_commander_flavor_text_siege_mine:0 "Ich werde mir nehmen, was rechtmäßig mir gehört. Bogenschützen, schießt!"
+
+ jdb_bc_battle_stance:1 "Random Commander Stance #weak (Battleground Commanders)#!"

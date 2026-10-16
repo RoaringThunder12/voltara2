@@ -1,0 +1,8 @@
+﻿500 = {
+# Provisional holding layout; source culture/faith retained.
+culture = voltara_culture_48
+religion = voltara_faith_0
+holding = castle_holding
+ special_building_slot = voltara_regional_site_500
+ special_building = voltara_regional_site_500
+}

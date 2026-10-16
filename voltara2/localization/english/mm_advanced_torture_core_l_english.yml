@@ -1,0 +1,49 @@
+﻿l_english:
+ advanced_torture_interaction:0 "Advanced Torture"
+ advanced_torture_interaction_desc:0 "Subject [recipient.GetShortUINameNoTooltip] to a chosen torment through an advanced torture menu."
+
+ advanced_torture_cooldown:0 "Recently Tortured"
+ advanced_torture_cooldown_desc:0 "This character has been tortured recently and cannot be subjected to another advanced torture session for now."
+
+ advanced_torture_recently_tortured:0 "Recently Tortured"
+ advanced_torture_recently_tortured_desc:0 "This character has suffered recent torture. Pain, fear, and wounds still weigh upon body and spirit."
+
+ advanced_torture_recovery_minor:0 "Recovering from Lesser Torture"
+ advanced_torture_recovery_minor_desc:0 "This character is recovering from a minor torment. The marks are visible, but the damage does not seem irreversible."
+
+ advanced_torture_recovery_medium:0 "Recovering from Moderate Torture"
+ advanced_torture_recovery_medium_desc:0 "This character is recovering from serious torture. The body remains weakened, and the mind still remembers the ordeal."
+
+ advanced_torture_recovery_severe:0 "Recovering from Severe Torture"
+ advanced_torture_recovery_severe_desc:0 "This character bears the consequences of brutal torture. Wounds, fear, and humiliation have left a deep mark."
+
+ advanced_torture_tortured_me_opinion:0 "Tortured Me"
+ advanced_torture_tortured_family_member_opinion:0 "Tortured a Family Member"
+
+ advanced_torture_house_relation_torture_minor_desc:0 "Lesser torture against a house member"
+ advanced_torture_house_relation_torture_medium_desc:0 "Torture against a house member"
+ advanced_torture_house_relation_torture_severe_desc:0 "Severe torture against a house member"
+
+ advanced_torture.menu.back:0 "Back"
+ advanced_torture_unique_slot_01:0 "Dragon Tortures"
+ advanced_torture_unique_slot_02:0 "Cultural Tortures"
+ advanced_torture_unique_slot_03:0 "House Tortures"
+ advanced_torture_unique_slot_04:0 "Empty Unique Slot"
+ advanced_torture_unique_slot_05:0 "Empty Unique Slot"
+
+ advanced_torture_light_torture_tt:0 "A lesser torture. It causes minor harm, humiliation, and resentment, but rarely leaves permanent consequences."
+ advanced_torture_medium_torture_tt:0 "A moderate torture. It may cause wounds, physical deterioration, lasting fear, and a greater chance of revealing secrets."
+ advanced_torture_strong_torture_tt:0 "A severe torture. It may leave grave consequences, mutilation, illness, mental damage, or even accidental death."
+ advanced_torture_sadistic_torture_tt:0 "A sadistic torture. Only those with exceptional cruelty can order these torments without hesitation."
+ advanced_torture_enucleation_tt:0 "Tear out one of the prisoner's eyes. This cannot be used against characters who are already one-eyed or blind."
+ advanced_torture_leg_amputation_tt:0 "Amputate one of the prisoner's legs. This cannot be used against characters who have already lost a leg."
+ advanced_torture_tortured_to_survive:0 "Tortured to Survive"
+ advanced_torture_tortured_to_survive_desc:0 "This prisoner is being kept at the edge of death by an expert torturer, not out of mercy, but to prolong the torment."
+ advanced_torture_tortured_me_light_opinion:0 "Tortured Me"
+ advanced_torture_tortured_me_medium_opinion:0 "Tortured Me"
+ advanced_torture_tortured_me_severe_opinion:0 "Tortured Me"
+ advanced_torture_tortured_me_sadistic_opinion:0 "Tortured Me"
+ advanced_torture_tortured_family_member_light_opinion:0 "Tortured a Family Member"
+ advanced_torture_tortured_family_member_medium_opinion:0 "Tortured a Family Member"
+ advanced_torture_tortured_family_member_severe_opinion:0 "Tortured a Family Member"
+ advanced_torture_tortured_family_member_sadistic_opinion:0 "Tortured a Family Member"

@@ -1,0 +1,20 @@
+﻿voltara_first_measure_sanctuary_01 = { type = special construction_time = 1095 cost_gold = 800 type_icon = "icon_structure_hagia_sophia.dds"
+ province_modifier = { monthly_income = 0.5 } county_modifier = { development_growth = 0.05 } character_modifier = { monthly_piety = 0.2 }
+ flag = travel_point_of_interest_religious
+}
+voltara_titania_sanctuary_01 = { type = special construction_time = 1095 cost_gold = 800 type_icon = "icon_structure_hagia_sophia.dds"
+ province_modifier = { monthly_income = 0.2 } county_modifier = { development_growth = 0.05 } character_modifier = { monthly_piety = 0.2 }
+ flag = travel_point_of_interest_religious
+}
+voltara_kartholos_sanctuary_01 = { type = special construction_time = 1095 cost_gold = 800 type_icon = "icon_structure_hagia_sophia.dds"
+ province_modifier = { monthly_income = 0.2 } county_modifier = { development_growth = 0.05 } character_modifier = { monthly_piety = 0.2 }
+ flag = travel_point_of_interest_religious
+}
+voltara_thornfall_sanctuary_01 = { type = special construction_time = 1095 cost_gold = 800 type_icon = "icon_structure_hagia_sophia.dds"
+ province_modifier = { monthly_income = 0.2 } county_modifier = { development_growth = 0.05 } character_modifier = { monthly_piety = 0.2 }
+ flag = travel_point_of_interest_religious
+}
+voltara_enderal_sanctuary_01 = { type = special construction_time = 1095 cost_gold = 800 type_icon = "icon_structure_hagia_sophia.dds"
+ province_modifier = { monthly_income = 0.2 } county_modifier = { development_growth = 0.05 } character_modifier = { monthly_piety = 0.2 }
+ flag = travel_point_of_interest_religious
+}

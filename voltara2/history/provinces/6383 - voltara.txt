@@ -1,0 +1,8 @@
+﻿6383 = {
+# Provisional holding layout; source culture/faith retained.
+culture = voltara_culture_45
+rite = voltara_order_rite_23
+holding = castle_holding
+ special_building_slot = voltara_regional_site_6383
+ special_building = voltara_regional_site_6383
+}

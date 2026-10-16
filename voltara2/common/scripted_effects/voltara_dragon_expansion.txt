@@ -1,0 +1,90 @@
+﻿agot_send_to_dragonpit_no_event = {
+	$DRAGONPIT_COUNTY$ = {
+		add_to_variable_list = {
+			name = dragons_in_pit
+			target = $DRAGON$
+		}
+	}
+	$DRAGON$ = {
+		add_character_flag = in_dragonpit
+		add_character_modifier = agot_dragon_in_dragonpit
+		set_variable = {
+			name = pitted_dragon_location
+			value = $DRAGONPIT_COUNTY$
+		}
+		remove_variable = travelling_from_pit
+	}
+}
+agot_remove_from_dragonpit_no_event = {
+	$DRAGONPIT_COUNTY$ = {
+		remove_list_variable = {
+			name = dragons_in_pit
+			target = $DRAGON$
+		}
+		save_scope_as = dragon_pit_location
+	}
+	$DRAGON$ = {
+		remove_character_flag = in_dragonpit
+		remove_character_modifier = agot_dragon_in_dragonpit
+		remove_variable = pitted_dragon_location
+		if = {
+			limit = { has_character_flag = dragon_put_in_different_pit }
+			remove_character_flag = dragon_put_in_different_pit
+		}
+		save_scope_as = removed_dragon
+	}
+}
+voltara_dragon_start_lifecycle_effect = {
+ if = { limit = { NOT = { has_character_flag = voltara_lifecycle_started } }
+  add_character_flag = voltara_lifecycle_started create_story = voltara_dragon_lifecycle
+ }
+}
+voltara_dragon_unpit_effect = {
+ if = { limit = { exists = var:pitted_dragon_location }
+ save_scope_as = dragon
+ agot_remove_from_dragonpit_no_event = { DRAGON = scope:dragon DRAGONPIT_COUNTY = var:pitted_dragon_location }
+ }
+ remove_character_flag = in_dragonpit remove_character_modifier = agot_dragon_in_dragonpit
+}
+voltara_dragon_pit_check_effect = {
+ if = { limit = { exists = var:pitted_dragon_location }
+  if = { limit = { var:pitted_dragon_location = { exists = holder any_county_province = { voltara_active_dragonpit = yes } } }
+   set_location = var:pitted_dragon_location.title_province
+   if = { limit = { NOT = { exists = var:current_rider } }
+    save_scope_as = captive_dragon var:pitted_dragon_location.holder = { add_courtier = scope:captive_dragon }
+   }
+   else_if = { limit = { NOT = { var:pitted_dragon_location.holder = var:current_rider } }
+    voltara_dragon_unpit_effect = yes set_location = var:current_rider.location
+   }
+  }
+  else = { voltara_dragon_unpit_effect = yes }
+ }
+
+if = { limit = { exists = var:current_rider }
+ if = { limit = { has_trait = dragon_glowing_scales }
+  var:current_rider = { add_character_modifier = { modifier = voltara_glowing_dragon_prestige months = 2 } }
+ }
+ else = { var:current_rider = { remove_character_modifier = voltara_glowing_dragon_prestige } }
+}
+}
+voltara_dragon_year_effect = {
+ set_variable = { name = dragon_size value = { value = age multiply = 1.5 min = 1 max = 400 } }
+ if = { limit = { has_character_flag = in_dragonpit } change_variable = { name = dragon_size multiply = 0.85 } }
+ if = { limit = { has_trait = dragon_ill } random = { chance = 55 remove_trait = dragon_ill } }
+ if = { limit = { has_trait = dragon_wounded_1 } random = { chance = 50 remove_trait = dragon_wounded_1 } }
+ if = { limit = { is_female = yes age >= 15 age < 200 exists = employer NOT = { has_character_flag = voltara_clutch_cooldown } }
+  save_scope_as = egg_mother
+  random = { chance = { value = 20 if = { limit = { has_trait = dragon_fertile } add = 15 } if = { limit = { has_game_rule = voltara_clutches_rare } multiply = 0.25 } }
+   add_character_flag = { flag = voltara_clutch_cooldown years = 3 }
+   employer = {
+    voltara_create_egg_effect = yes
+    if = { limit = { has_game_rule = voltara_clutches_abundant } voltara_create_egg_effect = yes voltara_create_egg_effect = yes }
+    else = { random = { chance = 40 voltara_create_egg_effect = yes } }
+    trigger_event = voltara_dragons.30
+   }
+  }
+ }
+ if = { limit = { exists = var:current_rider }
+  random = { chance = 12 var:current_rider = { trigger_event = voltara_dragon_expansion.20 } }
+ }
+}

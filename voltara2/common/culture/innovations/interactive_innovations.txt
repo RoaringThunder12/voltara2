@@ -1,0 +1,280 @@
+﻿cultural_tradition_limit_1 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = 1
+	}
+}
+
+cultural_tradition_limit_2 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = 2
+	}
+}
+
+cultural_tradition_limit_3 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = 3
+	}
+}
+
+cultural_tradition_limit_4 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = 4
+	}
+}
+
+cultural_tradition_limit_5 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = 5
+	}
+}
+
+cultural_tradition_limit_6 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = 6
+	}
+}
+
+cultural_tradition_limit_7 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = 7
+	}
+}
+
+cultural_tradition_limit_8 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = 8
+	}
+}
+
+cultural_tradition_limit_9 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = 9
+	}
+}
+
+cultural_tradition_limit_10 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = 10
+	}
+}
+
+
+cultural_tradition_limit_minus_1 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = -1
+	}
+}
+
+cultural_tradition_limit_minus_2 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = -2
+	}
+}
+
+cultural_tradition_limit_minus_3 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = -3
+	}
+}
+
+cultural_tradition_limit_minus_4 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = -4
+	}
+}
+
+cultural_tradition_limit_minus_5 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = -5
+	}
+}
+
+cultural_tradition_limit_minus_6 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = -6
+	}
+}
+
+cultural_tradition_limit_minus_7 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = -7
+	}
+}
+
+cultural_tradition_limit_minus_8 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = -8
+	}
+}
+
+cultural_tradition_limit_minus_9 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = -9
+	}
+}
+
+cultural_tradition_limit_minus_10 = {
+	culture_era = culture_era_tribal
+	group = culture_group_civic
+	potential = {
+		always = no
+	}
+	can_progress = {
+		always = no
+	}
+	culture_modifier = {
+		culture_tradition_max_add = -10
+	}
+}

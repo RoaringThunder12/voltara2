@@ -1,0 +1,264 @@
+﻿advanced_torture_apply_light_category_torture_effect = {
+ advanced_torture_mark_last_light_torture_effect = yes
+ advanced_torture_pay_light_torture_cost_effect = yes
+ add_dread = 4
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_light_torture_cooldown_effect = yes
+ advanced_torture_apply_minor_torture_health_effect = yes
+ advanced_torture_apply_torture_opinion_light_effect = yes
+ advanced_torture_apply_house_relation_damage_minor_effect = yes
+
+ hidden_effect = {
+  advanced_torture_record_light_category_torture_effect = yes
+  advanced_torture_try_secret_reveal_minor_effect = yes
+ }
+
+ advanced_torture_apply_light_random_consequences_effect = yes
+}
+
+advanced_torture_apply_branding_torture_effect = {
+ advanced_torture_mark_last_light_torture_effect = yes
+ advanced_torture_pay_light_torture_cost_effect = yes
+ add_dread = 5
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_light_torture_cooldown_effect = yes
+ advanced_torture_apply_minor_torture_health_effect = yes
+ advanced_torture_apply_torture_opinion_light_effect = yes
+ advanced_torture_apply_house_relation_damage_minor_effect = yes
+
+ hidden_effect = {
+  advanced_torture_record_branding_torture_effect = yes
+  advanced_torture_try_secret_reveal_minor_effect = yes
+ }
+
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    is_alive = yes
+    NOT = { has_trait = scarred }
+   }
+
+   add_trait = scarred
+  }
+ }
+
+ advanced_torture_apply_light_random_consequences_effect = yes
+}
+
+advanced_torture_apply_medium_category_torture_effect = {
+ advanced_torture_mark_last_medium_torture_effect = yes
+ advanced_torture_pay_medium_torture_cost_effect = yes
+ add_dread = 9
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_medium_torture_cooldown_effect = yes
+ advanced_torture_apply_medium_torture_health_effect = yes
+ advanced_torture_apply_torture_opinion_medium_effect = yes
+ advanced_torture_apply_house_relation_damage_medium_effect = yes
+
+ hidden_effect = {
+  advanced_torture_record_medium_category_torture_effect = yes
+  advanced_torture_try_secret_reveal_medium_effect = yes
+ }
+
+ advanced_torture_apply_medium_random_consequences_effect = yes
+}
+
+advanced_torture_apply_strong_category_torture_effect = {
+ advanced_torture_mark_last_strong_torture_effect = yes
+ advanced_torture_pay_strong_torture_cost_effect = yes
+ add_dread = 15
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_severe_torture_cooldown_effect = yes
+ advanced_torture_apply_severe_torture_health_effect = yes
+ advanced_torture_apply_torture_opinion_severe_effect = yes
+ advanced_torture_apply_house_relation_damage_severe_effect = yes
+
+ hidden_effect = {
+  advanced_torture_record_strong_category_torture_effect = yes
+  advanced_torture_try_secret_reveal_severe_effect = yes
+ }
+
+ advanced_torture_apply_strong_random_consequences_effect = yes
+}
+
+advanced_torture_apply_enucleation_torture_effect = {
+ advanced_torture_mark_last_strong_torture_effect = yes
+ advanced_torture_pay_strong_torture_cost_effect = yes
+ add_dread = 16
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_severe_torture_cooldown_effect = yes
+ advanced_torture_apply_severe_torture_health_effect = yes
+ advanced_torture_apply_torture_opinion_severe_effect = yes
+ advanced_torture_apply_house_relation_damage_severe_effect = yes
+
+ hidden_effect = {
+  advanced_torture_record_enucleation_torture_effect = yes
+  advanced_torture_try_secret_reveal_severe_effect = yes
+ }
+
+ advanced_torture_apply_strong_random_consequences_effect = yes
+}
+
+advanced_torture_apply_leg_amputation_torture_effect = {
+ advanced_torture_mark_last_strong_torture_effect = yes
+ advanced_torture_pay_strong_torture_cost_effect = yes
+ add_dread = 18
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_severe_torture_cooldown_effect = yes
+ advanced_torture_apply_severe_torture_health_effect = yes
+ advanced_torture_apply_torture_opinion_severe_effect = yes
+ advanced_torture_apply_house_relation_damage_severe_effect = yes
+
+ hidden_effect = {
+  advanced_torture_record_leg_amputation_torture_effect = yes
+  advanced_torture_try_secret_reveal_severe_effect = yes
+ }
+
+ scope:advanced_torture_prisoner = {
+  if = {
+   limit = {
+    is_alive = yes
+    NOT = { has_trait = one_legged }
+   }
+
+   add_trait = one_legged
+  }
+ }
+
+ advanced_torture_apply_strong_random_consequences_effect = yes
+}
+
+advanced_torture_apply_sadistic_category_torture_effect = {
+ advanced_torture_mark_last_sadistic_torture_effect = yes
+ advanced_torture_pay_sadistic_torture_cost_effect = yes
+ add_dread = 25
+
+ advanced_torture_torture_stress_effect = yes
+ advanced_torture_apply_sadistic_torture_cooldown_effect = yes
+ advanced_torture_apply_severe_torture_health_effect = yes
+ advanced_torture_apply_torture_opinion_sadistic_effect = yes
+ advanced_torture_apply_house_relation_damage_severe_effect = yes
+
+ hidden_effect = {
+  advanced_torture_record_sadistic_category_torture_effect = yes
+  advanced_torture_try_secret_reveal_severe_effect = yes
+ }
+
+ advanced_torture_apply_sadistic_random_consequences_effect = yes
+}
+
+advanced_torture_torture_simple_whipping_effect = {
+ advanced_torture_set_result_text_simple_whipping_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_torture_branding_iron_effect = {
+ advanced_torture_set_result_text_branding_iron_effect = yes
+ advanced_torture_apply_branding_torture_effect = yes
+}
+
+advanced_torture_torture_stocks_effect = {
+ advanced_torture_set_result_text_stocks_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_torture_walk_of_shame_effect = {
+ advanced_torture_set_result_text_walk_of_shame_effect = yes
+ advanced_torture_apply_light_category_torture_effect = yes
+}
+
+advanced_torture_torture_bastinado_effect = {
+ advanced_torture_set_result_text_bastinado_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_torture_water_torment_effect = {
+ advanced_torture_set_result_text_water_torment_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_torture_compression_cords_effect = {
+ advanced_torture_set_result_text_compression_cords_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_torture_strappado_effect = {
+ advanced_torture_set_result_text_strappado_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_torture_thumbscrew_effect = {
+ advanced_torture_set_result_text_thumbscrew_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_torture_short_stretching_bench_effect = {
+ advanced_torture_set_result_text_short_stretching_bench_effect = yes
+ advanced_torture_apply_medium_category_torture_effect = yes
+}
+
+advanced_torture_torture_rack_effect = {
+ advanced_torture_set_result_text_rack_effect = yes
+ advanced_torture_apply_strong_category_torture_effect = yes
+}
+
+advanced_torture_torture_wedged_boot_effect = {
+ advanced_torture_set_result_text_wedged_boot_effect = yes
+ advanced_torture_apply_strong_category_torture_effect = yes
+}
+
+advanced_torture_torture_rats_effect = {
+ advanced_torture_set_result_text_rats_effect = yes
+ advanced_torture_apply_strong_category_torture_effect = yes
+}
+
+advanced_torture_torture_enucleation_effect = {
+ advanced_torture_set_result_text_enucleation_effect = yes
+ advanced_torture_apply_enucleation_torture_effect = yes
+}
+
+advanced_torture_torture_leg_amputation_effect = {
+ advanced_torture_set_result_text_leg_amputation_effect = yes
+ advanced_torture_apply_leg_amputation_torture_effect = yes
+}
+
+advanced_torture_torture_nail_cleaner_effect = {
+ advanced_torture_set_result_text_nail_cleaner_effect = yes
+ advanced_torture_apply_strong_category_torture_effect = yes
+}
+
+advanced_torture_torture_phalaris_bull_effect = {
+ advanced_torture_set_result_text_phalaris_bull_effect = yes
+ advanced_torture_apply_sadistic_category_torture_effect = yes
+}
+
+advanced_torture_torture_judas_cradle_effect = {
+ advanced_torture_set_result_text_judas_cradle_effect = yes
+ advanced_torture_apply_sadistic_category_torture_effect = yes
+}
+
+advanced_torture_torture_pear_of_anguish_effect = {
+ advanced_torture_set_result_text_pear_of_anguish_effect = yes
+ advanced_torture_apply_sadistic_category_torture_effect = yes
+}
+
+advanced_torture_torture_iron_spider_effect = {
+ advanced_torture_set_result_text_iron_spider_effect = yes
+ advanced_torture_apply_sadistic_category_torture_effect = yes
+}
+
+advanced_torture_torture_chair_effect = {
+ advanced_torture_set_result_text_torture_chair_effect = yes
+ advanced_torture_apply_sadistic_category_torture_effect = yes
+}
+
+advanced_torture_torture_skull_crusher_effect = {
+ advanced_torture_set_result_text_skull_crusher_effect = yes
+ advanced_torture_apply_sadistic_category_torture_effect = yes
+}

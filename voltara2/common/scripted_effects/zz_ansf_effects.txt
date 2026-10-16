@@ -1,0 +1,962 @@
+﻿######################################################################
+# ANSF EFFECTS
+######################################################################
+
+ansf_validate_character_traits = {
+	# Too many personality traits
+	if = {
+		limit = {
+			number_of_personality_traits > 5
+		}
+		random_character_trait = {
+			limit = { has_trait_category = personality }
+			weight = {
+				base = 10
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_diplomacy }
+					ansf_is_diplomacy_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_martial }
+					ansf_is_martial_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_stewardship }
+					ansf_is_stewardship_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_intrigue }
+					ansf_is_intrigue_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_learning }
+					ansf_is_learning_trait = yes
+				}
+			}
+			prev = { remove_trait = prev }
+		}
+	}
+	if = {
+		limit = {
+			number_of_personality_traits > 4
+		}
+		random_character_trait = {
+			limit = { has_trait_category = personality }
+			weight = {
+				base = 10
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_diplomacy }
+					ansf_is_diplomacy_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_martial }
+					ansf_is_martial_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_stewardship }
+					ansf_is_stewardship_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_intrigue }
+					ansf_is_intrigue_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_learning }
+					ansf_is_learning_trait = yes
+				}
+			}
+			prev = { remove_trait = prev }
+		}
+	}
+	if = {
+		limit = {
+			number_of_personality_traits > 3
+		}
+		random_character_trait = {
+			limit = { has_trait_category = personality }
+			weight = {
+				base = 10
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_diplomacy }
+					ansf_is_diplomacy_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_martial }
+					ansf_is_martial_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_stewardship }
+					ansf_is_stewardship_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_intrigue }
+					ansf_is_intrigue_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_learning }
+					ansf_is_learning_trait = yes
+				}
+			}
+			prev = { remove_trait = prev }
+		}
+	}
+	if = {
+		limit = {
+			number_of_personality_traits > 2
+			age < 13
+		}
+		random_character_trait = {
+			limit = { has_trait_category = personality }
+			weight = {
+				base = 10
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_diplomacy }
+					ansf_is_diplomacy_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_martial }
+					ansf_is_martial_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_stewardship }
+					ansf_is_stewardship_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_intrigue }
+					ansf_is_intrigue_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_learning }
+					ansf_is_learning_trait = yes
+				}
+			}
+			prev = { remove_trait = prev }
+		}
+	}
+	if = {
+		limit = {
+			number_of_personality_traits > 1
+			age < 10
+		}
+		random_character_trait = {
+			limit = { has_trait_category = personality }
+			weight = {
+				base = 10
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_diplomacy }
+					ansf_is_diplomacy_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_martial }
+					ansf_is_martial_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_stewardship }
+					ansf_is_stewardship_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_intrigue }
+					ansf_is_intrigue_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_learning }
+					ansf_is_learning_trait = yes
+				}
+			}
+			prev = { remove_trait = prev }
+		}
+	}
+	if = {
+		limit = {
+			number_of_personality_traits > 0
+			age < 4
+		}
+		random_character_trait = {
+			limit = { has_trait_category = personality }
+			weight = {
+				base = 10
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_diplomacy }
+					ansf_is_diplomacy_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_martial }
+					ansf_is_martial_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_stewardship }
+					ansf_is_stewardship_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_intrigue }
+					ansf_is_intrigue_trait = yes
+				}
+				modifier = {
+					add = -5
+					prev = { has_character_flag = was_learning }
+					ansf_is_learning_trait = yes
+				}
+			}
+			prev = { remove_trait = prev }
+		}
+	}
+
+	# Track current traits
+	every_character_trait = {
+		limit = { has_trait_category = personality }
+		add_to_list = current_traits
+	}
+
+	# Too few personality traits
+	if = {
+		limit = {
+			number_of_personality_traits < 1
+			age > 3
+		}
+		random_trait_in_category = {
+			category = personality
+			limit = {
+				NOR = {
+					is_in_list = current_traits
+					any_opposite_trait = { is_in_list = current_traits }
+				}
+			}
+			weight = {
+				base = 5
+				modifier = {
+					add = 5
+					prev = { has_character_flag = was_diplomacy }
+					ansf_is_diplomacy_trait = yes
+				}
+				modifier = {
+					add = 5
+					prev = { has_character_flag = was_martial }
+					ansf_is_martial_trait = yes
+				}
+				modifier = {
+					add = 5
+					prev = { has_character_flag = was_stewardship }
+					ansf_is_stewardship_trait = yes
+				}
+				modifier = {
+					add = 5
+					prev = { has_character_flag = was_intrigue }
+					ansf_is_intrigue_trait = yes
+				}
+				modifier = {
+					add = 5
+					prev = { has_character_flag = was_learning }
+					ansf_is_learning_trait = yes
+				}
+			}
+			add_to_list = current_traits
+			prev = { add_trait = prev }
+		}
+	}
+	if = {
+		limit = {
+			number_of_personality_traits < 2
+			age > 9
+		}
+		random_trait_in_category = {
+			category = personality
+			limit = {
+				NOR = {
+					is_in_list = current_traits
+					any_opposite_trait = { is_in_list = current_traits }
+				}
+			}
+			weight = {
+				base = 5
+				modifier = {
+					add = 5
+					prev = { has_character_flag = was_diplomacy }
+					ansf_is_diplomacy_trait = yes
+				}
+				modifier = {
+					add = 5
+					prev = { has_character_flag = was_martial }
+					ansf_is_martial_trait = yes
+				}
+				modifier = {
+					add = 5
+					prev = { has_character_flag = was_stewardship }
+					ansf_is_stewardship_trait = yes
+				}
+				modifier = {
+					add = 5
+					prev = { has_character_flag = was_intrigue }
+					ansf_is_intrigue_trait = yes
+				}
+				modifier = {
+					add = 5
+					prev = { has_character_flag = was_learning }
+					ansf_is_learning_trait = yes
+				}
+			}
+			add_to_list = current_traits
+			prev = { add_trait = prev }
+		}
+	}
+	if = {
+		limit = {
+			number_of_personality_traits < 3
+			age > 12
+		}
+		random_trait_in_category = {
+			category = personality
+			limit = {
+				NOR = {
+					is_in_list = current_traits
+					any_opposite_trait = { is_in_list = current_traits }
+				}
+			}
+			weight = {
+				base = 5
+				modifier = {
+					add = 5
+					prev = { has_character_flag = was_diplomacy }
+					ansf_is_diplomacy_trait = yes
+				}
+				modifier = {
+					add = 5
+					prev = { has_character_flag = was_martial }
+					ansf_is_martial_trait = yes
+				}
+				modifier = {
+					add = 5
+					prev = { has_character_flag = was_stewardship }
+					ansf_is_stewardship_trait = yes
+				}
+				modifier = {
+					add = 5
+					prev = { has_character_flag = was_intrigue }
+					ansf_is_intrigue_trait = yes
+				}
+				modifier = {
+					add = 5
+					prev = { has_character_flag = was_learning }
+					ansf_is_learning_trait = yes
+				}
+			}
+			add_to_list = current_traits
+			prev = { add_trait = prev }
+		}
+	}
+	
+	# Now delete the list
+	every_in_list = {
+		list = current_traits
+		this = { remove_from_list = current_traits }
+	}
+
+	# Remove all adult traits for age 23 or less
+	if = {
+		limit = { age < 24 }
+		every_character_trait = {
+			limit = {
+				OR = {
+					has_trait_category = fame
+					has_trait_category = lifestyle
+					has_trait_category = commander
+					this = trait:shrewd
+					this = trait:strong
+				}
+				NOR = {
+					this = trait:bastard
+					this = trait:legitimized_bastard
+					this = trait:disputed_heritage
+					this = trait:child_of_concubine_female
+					this = trait:child_of_concubine_male
+					this = trait:wild_oat
+					this = trait:twin
+				}
+			}
+			prev = { remove_trait = prev }
+		}
+	}
+
+	# Remove commander traits for wrong gender
+	if = {
+		limit = {
+			number_of_commander_traits > 0
+			NOT = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root } }
+		}
+		every_character_trait = {
+			limit = { has_trait_category = commander }
+			prev = { remove_trait = prev }
+		}
+	}
+	
+	# Childhood traits
+	every_character_trait = {
+		limit = { has_trait_category = childhood }
+		prev = { remove_trait = prev }
+	}
+	if = {
+		limit = {
+			is_adult = no
+			age > 2
+		}
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = was_diplomacy
+						has_character_flag = was_stewardship
+						has_character_flag = was_learning
+					}
+				}
+				add_trait = rowdy
+				if = {
+					limit = { age > 5 }
+					random_list = {
+						1 = {
+							modifier = {
+								factor = 0
+								intrigue > martial
+							}
+							set_focus = education_martial
+							set_variable = { name = education_martial_variable value = age_minus_5 }
+						}
+						1 = {
+							modifier = {
+								factor = 0
+								martial > intrigue
+							}
+							set_focus = education_intrigue
+							set_variable = { name = education_intrigue_variable value = age_minus_5 }
+						}
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = was_martial
+						has_character_flag = was_stewardship
+						has_character_flag = was_learning
+					}
+				}
+				add_trait = charming
+				if = {
+					limit = { age > 5 }
+					random_list = {
+						1 = {
+							modifier = {
+								factor = 0
+								diplomacy > intrigue
+							}
+							set_focus = education_intrigue
+							set_variable = { name = education_intrigue_variable value = age_minus_5 }
+						}
+						1 = {
+							modifier = {
+								factor = 0
+								intrigue > diplomacy
+							}
+							set_focus = education_diplomacy
+							set_variable = { name = education_diplomacy_variable value = age_minus_5 }
+						}
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = was_martial
+						has_character_flag = was_stewardship
+						has_character_flag = was_intrigue
+					}
+				}
+				add_trait = curious
+				if = {
+					limit = { age > 5 }
+					random_list = {
+						1 = {
+							modifier = {
+								factor = 0
+								diplomacy > learning
+							}
+							set_focus = education_learning
+							set_variable = { name = education_learning_variable value = age_minus_5 }
+						}
+						1 = {
+							modifier = {
+								factor = 0
+								learning > diplomacy
+							}
+							set_focus = education_diplomacy
+							set_variable = { name = education_diplomacy_variable value = age_minus_5 }
+						}
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = was_diplomacy
+						has_character_flag = was_martial
+						has_character_flag = was_intrigue
+					}
+				}
+				add_trait = pensive
+				if = {
+					limit = { age > 5 }
+					random_list = {
+						1 = {
+							modifier = {
+								factor = 0
+								stewardship > learning
+							}
+							set_focus = education_learning
+							set_variable = { name = education_learning_variable value = age_minus_5 }
+						}
+						1 = {
+							modifier = {
+								factor = 0
+								learning > stewardship
+							}
+							set_focus = education_stewardship
+							set_variable = { name = education_stewardship_variable value = age_minus_5 }
+						}
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = was_diplomacy
+						has_character_flag = was_intrigue
+						has_character_flag = was_learning
+					}
+				}
+				add_trait = bossy
+				if = {
+					limit = { age > 5 }
+					random_list = {
+						1 = {
+							modifier = {
+								factor = 0
+								stewardship > martial
+							}
+							set_focus = education_martial
+							set_variable = { name = education_martial_variable value = age_minus_5 }
+						}
+						1 = {
+							modifier = {
+								factor = 0
+								martial > stewardship
+							}
+							set_focus = education_stewardship
+							set_variable = { name = education_stewardship_variable value = age_minus_5 }
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	remove_character_flag ?= was_diplomacy
+	remove_character_flag ?= was_martial
+	remove_character_flag ?= was_stewardship
+	remove_character_flag ?= was_intrigue
+	remove_character_flag ?= was_learning
+}
+
+ansf_add_legit_bastard_trait_based_on_faith_effect = {
+	if = {
+		limit = {
+			rite = { rite_has_parameter = bastards_none }
+		}
+		add_trait_force_tooltip = wild_oat
+	}
+	else_if = {
+		limit = {
+			rite = { rite_has_parameter = bastards_legitimize }
+		}
+		add_trait_force_tooltip = legitimized_bastard
+	}
+	else = {
+		add_trait_force_tooltip = bastard
+	}
+}
+
+ansf_add_bastard_trait_based_on_faith_effect = {
+	if = {
+		limit = {
+			rite = { rite_has_parameter = bastards_none }
+		}
+		add_trait_force_tooltip = wild_oat
+	}
+	else = {
+		add_trait_force_tooltip = bastard
+	}
+}
+
+ansf_disappear_effect = {
+	hidden_effect = {
+		if = {
+			limit = { root.var:do_not_delete ?= $KILLED$ }
+			remove_variable = do_not_delete
+		}
+		else = {
+			$KILLED$ = {
+				if = {
+					limit = { exists = mother }
+					set_mother = scope:new_dummy_female
+				}
+				if = {
+					limit = { exists = father }
+					set_father = scope:new_dummy_male
+				}
+				if = {
+					limit = { has_dynasty = yes }
+					set_to_lowborn = yes
+				}
+				death = { death_reason = death_vanished }
+			}
+		}
+	}
+}
+
+ansf_remove_all_gui_variables = {
+	remove_variable ?= show_ansf_regenerate_window
+	remove_variable ?= ansf_family_character
+	remove_variable ?= ansf_family_character_generate
+	remove_variable ?= ansf_family_character_is_existing_dynasty
+	remove_variable ?= ansf_family_character_randomize_age
+	remove_variable ?= ansf_family_character_cannot_change_age
+	remove_variable ?= ansf_family_character_age
+	remove_variable ?= ansf_family_character_age_min
+	remove_variable ?= ansf_family_character_age_max
+	remove_variable ?= ansf_family_character_education_random
+	remove_variable ?= ansf_family_character_education_learning
+	remove_variable ?= ansf_family_character_education_intrigue
+	remove_variable ?= ansf_family_character_education_stewardship
+	remove_variable ?= ansf_family_character_education_diplomacy
+	remove_variable ?= ansf_family_character_education_martial
+	remove_variable ?= ansf_family_character_is_clone
+	remove_variable ?= ansf_family_character_cannot_be_clone
+	remove_variable ?= ansf_family_character_must_be_clone
+	remove_variable ?= ansf_family_character_is_different
+	remove_variable ?= ansf_family_character_cannot_be_different
+	remove_variable ?= ansf_cannot_change_education
+	remove_variable ?= ansf_family_character_can_use_parent_dna
+	remove_variable ?= ansf_family_character_use_father_dna
+	remove_variable ?= ansf_family_character_use_mother_dna
+	remove_variable ?= ansf_has_culture_faith_template
+	remove_variable ?= culture_faith_template
+	remove_variable ?= ansf_can_set_lowborn_status
+	remove_variable ?= ansf_must_be_lowborn
+	remove_variable ?= ansf_must_not_be_lowborn
+}
+
+ansf_remove_all_flags_variables = {
+	ansf_remove_all_gui_variables = yes
+	remove_variable ?= target
+	remove_variable ?= is_maiden
+	remove_variable ?= potential_relative_1
+	remove_variable ?= actual_grandmother
+	remove_variable ?= actual_grandfather
+	remove_variable ?= will_be_bastard
+	remove_variable ?= will_be_legitimate_bastard
+	remove_variable ?= culture_faith_template
+	remove_variable ?= actual_father_in_law
+	remove_variable ?= actual_mother_in_law
+	remove_variable ?= dominant_in_law
+	remove_variable ?= num_siblings
+	remove_variable ?= do_not_delete
+	remove_character_flag ?= no_creation_override
+	remove_character_flag ?= otherparent_existing_dynasty
+	remove_character_flag ?= inlaw_existing_dynasty
+	remove_character_flag ?= spouse_existing_dynasty
+	remove_character_flag ?= created_spouse_lowborn
+	clear_global_variable_list ?= ansf_trait_list
+	remove_global_variable = ansf_glow_end
+}
+
+ansf_display_random_family_tooltips = {
+	if = {
+		limit = { exists = father }
+		custom_tooltip = ansf_random_family_no_father_tt
+	}
+	else_if = {
+		limit = {
+			NAND = {
+				exists = mother
+				dynasty = mother.dynasty
+			}
+			ansf_can_change_dynasty = yes
+			NOT = { any_held_title = { is_noble_family_title = yes } }
+		}
+		custom_tooltip = ansf_random_family_father_join_tt
+	}
+	else = {
+		custom_tooltip = ansf_random_family_father_tt
+	}
+	if = {
+		limit = { exists = mother }
+		custom_tooltip = ansf_random_family_no_mother_tt
+	}
+	else_if = {
+		limit = {
+			exists = father
+			NOT = { dynasty = father.dynasty }
+			ansf_can_change_dynasty = yes
+			NOT = { any_held_title = { is_noble_family_title = yes } }
+		}
+		custom_tooltip = ansf_random_family_mother_join_tt
+	}
+	else = {
+		custom_tooltip = ansf_random_family_mother_tt
+	}
+	if = {
+		limit = {
+			OR = {
+				NOT = { exists = mother }
+				NOT = { exists = father }
+			}
+			NOT = {
+				any_sibling = { is_alive = yes }
+			}
+		}
+		custom_tooltip = ansf_random_family_normal_siblings_tt
+	}
+	else_if = {
+		limit = {
+			OR = {
+				NOT = { exists = mother }
+				NOT = { exists = father }
+			}
+			any_sibling = { is_alive = yes }
+		}
+		custom_tooltip = ansf_random_family_normal_siblings2_tt
+	}
+	else_if = {
+		limit = {
+			any_sibling = { is_alive = yes }
+		}
+		custom_tooltip = ansf_random_family_has_siblings_tt
+	}
+	else = {
+		custom_tooltip = ansf_random_family_full_siblings_tt
+	}
+}
+
+ansf_create_dummy_characters = {
+	hidden_effect = {
+		# create a dead male and female character to serve as gender markers but also as parents
+		# for discarded characters (changing from use of vanilla dummies to avoid errors)
+		create_character = {
+			location = scope:target.location
+			culture = scope:target.culture
+			faith = scope:target.faith
+			rite = scope:target.rite
+			gender_female_chance = 0
+			dynasty = none
+			age = 65
+			save_scope_as = new_dummy_male
+			after_creation = {
+				death = { death_reason = death_disappearance }
+			}
+		}
+		create_character = {
+			location = scope:target.location
+			culture = scope:target.culture
+			faith = scope:target.faith
+			rite = scope:target.rite
+			gender_female_chance = 100
+			dynasty = none
+			age = 65
+			save_scope_as = new_dummy_female
+			after_creation = {
+				death = { death_reason = death_disappearance }
+			}
+		}
+	}
+}
+
+ansf_load_traits = {
+	every_trait = {
+		save_temporary_scope_as = current_trait
+
+		if = {
+			limit = {
+				OR = {
+					ansf_is_personality_trait = yes
+					ansf_is_education_trait = yes
+					ansf_is_education_focus_trait = yes
+					ansf_is_stress_trait = yes
+					ansf_is_lifestyle_trait = yes
+					ansf_is_physical_trait = yes
+					ansf_is_flaw_trait = yes
+					ansf_is_special_trait = yes
+					has_trait_category = commander
+					has_trait_category = childhood
+				}
+			}
+			add_to_global_variable_list = {
+				name = ansf_trait_list
+				target = scope:current_trait
+			}
+		}
+	}
+}
+
+ansf_remove_current_select_trait = {
+	if = {
+		limit = { var:current_select_trait = trait:ansf_virago }
+		remove_character_modifier = ignores_gender_army_rules
+	}
+	else_if = {
+		limit = { var:current_select_trait = trait:ansf_secret_witch }
+		random_secret = {
+			type = secret_witch
+			remove_secret = yes
+		}
+	}
+	else_if = {
+		limit = { var:current_select_trait = trait:ansf_secret_deviant }
+		random_secret = {
+			type = secret_deviant
+			remove_secret = yes
+		}
+	}
+	else_if = {
+		limit = { var:current_select_trait = trait:ansf_secret_cannibal }
+		random_secret = {
+			type = secret_cannibal
+			remove_secret = yes
+		}
+	}
+	else_if = {
+		limit = { var:current_select_trait = trait:ansf_secret_sodomite }
+		random_secret = {
+			type = secret_homosexual
+			remove_secret = yes
+		}
+	}
+	else_if = {
+		limit = { var:current_select_trait = trait:ansf_secret_incestuous }
+		random_secret = {
+			type = secret_incest
+			remove_secret = yes
+		}
+	}
+	else = {
+		remove_trait = var:current_select_trait
+	}
+}
+
+ansf_make_former_spouse = {
+	# first divorce them from their current spouse
+	$PARENT$ = { save_temporary_scope_as = divorcer }
+	$FORMER$ = { save_temporary_scope_as = divorcee }
+	custom_tooltip = ansf_make_former_spouse.tt
+	$PARENT$ = {
+		hidden_effect = {
+			if = {
+				limit = { is_married = yes }
+				primary_spouse = {
+					if = {
+						limit = { matrilinear_marriage = yes }
+						save_scope_as = matri_spouse
+					}
+					else = {
+						save_scope_as = patri_spouse
+					}
+				}
+				divorce = $PARENT$.primary_spouse
+			}
+			# now marry them to the former spouse & immediately divorce
+			marry = $FORMER$
+			if = {
+				limit = {
+					root = { has_character_flag = otherparent_will_be_dead }
+				}
+				divorce = $FORMER$
+			}
+			else = {
+				divorce_effect = { DIVORCER = $PARENT$ DIVORCEE = $FORMER$ }
+			}
+			# and re-marry to the previous spouse again
+			if = {
+				limit = { exists = scope:matri_spouse }
+				marry_matrilineal = scope:matri_spouse
+			}
+			if = {
+				limit = { exists = scope:patri_spouse }
+				marry = scope:patri_spouse
+			}
+		}
+		every_child = {
+			even_if_dead = yes
+			limit = { ansf_is_bastard = no }
+			if = {
+				limit = {
+					$FORMER$ = { is_female = yes }
+					NOT = { exists = mother }
+					age_including_death_plus_childbirth_start <= $FORMER$.age
+				}
+				set_mother = $FORMER$
+			}
+			if = {
+				limit = {
+					$FORMER$ = { is_male = yes }
+					NOT = { exists = father }
+					age_including_death_plus_childbirth_start <= $FORMER$.age
+				}
+				set_father = $FORMER$
+			}
+			if = {
+				limit = {
+					NOT = { has_trait = twin }
+					any_sibling = {
+						even_if_dead = yes
+						has_trait = twin
+						mother ?= prev.mother
+						father ?= prev.father
+						age_including_death_age = prev.age_including_death_age
+					}
+				}
+				add_trait = twin
+			}
+		}
+	}
+}
+

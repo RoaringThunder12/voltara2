@@ -1,0 +1,81 @@
+﻿war_exhaustion_vassal_opinion = {
+	years = 20
+	decaying = yes
+	stacking = yes
+}
+
+great_war_vassal_opinion = {
+	years = 20
+	decaying = yes
+	stacking = yes
+}
+
+civil_wars_vassal_opinion = {
+	years = 20
+	decaying = yes
+	stacking = yes
+}
+
+ally_civil_wars_vassal_opinion = {
+	years = 20
+	decaying = yes
+	stacking = yes
+}
+
+internal_turmoil_vassal_opinion = {
+	years = 20
+	decaying = yes
+	stacking = yes
+}
+
+ally_exhaustion_opinion = {
+	years = 20
+	decaying = yes
+	stacking = yes
+}
+
+ally_called_on_alliance_opinion = {
+	years = 20
+	decaying = yes
+	stacking = yes
+}
+
+miv_oathbreaker = {
+	opinion = -50
+	years = 10
+	decaying = yes
+	revoke_title_reason = yes
+	imprisonment_reason = yes
+	banish_reason = yes
+	execute_reason = yes
+}
+
+vassal_lost_faction_revolt_war = {
+	opinion = -50
+	years = 10
+	decaying = yes
+	revoke_title_reason = yes
+	imprisonment_reason = yes
+	banish_reason = yes
+	execute_reason = yes
+}
+
+vassal_wp_faction_revolt_war = {
+	opinion = -50
+	years = 10
+	decaying = yes
+	revoke_title_reason = yes
+	imprisonment_reason = yes
+	banish_reason = yes
+	execute_reason = yes
+}
+
+declared_war = {
+	opinion = -50
+	years = 10
+	decaying = yes
+	revoke_title_reason = yes
+	imprisonment_reason = yes
+	banish_reason = yes
+	execute_reason = yes
+}

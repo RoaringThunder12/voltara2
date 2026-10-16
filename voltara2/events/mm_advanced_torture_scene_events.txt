@@ -1,0 +1,617 @@
+﻿namespace = advanced_torture
+
+advanced_torture.7001 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7001.t
+ desc = advanced_torture.7001.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_simple_whipping_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0002 }
+  }
+ }
+}
+
+advanced_torture.7002 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7002.t
+ desc = advanced_torture.7002.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_branding_iron_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1002 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0002 }
+  }
+ }
+}
+
+advanced_torture.7003 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7003.t
+ desc = advanced_torture.7003.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_stocks_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0002 }
+  }
+ }
+}
+
+advanced_torture.7004 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7004.t
+ desc = advanced_torture.7004.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_walk_of_shame_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0002 }
+  }
+ }
+}
+
+advanced_torture.7011 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7011.t
+ desc = advanced_torture.7011.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_bastinado_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0003 }
+  }
+ }
+}
+
+advanced_torture.7012 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7012.t
+ desc = advanced_torture.7012.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_water_torment_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0003 }
+  }
+ }
+}
+
+advanced_torture.7013 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7013.t
+ desc = advanced_torture.7013.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_compression_cords_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0003 }
+  }
+ }
+}
+
+advanced_torture.7014 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7014.t
+ desc = advanced_torture.7014.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_strappado_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0003 }
+  }
+ }
+}
+
+advanced_torture.7015 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7015.t
+ desc = advanced_torture.7015.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_thumbscrew_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0003 }
+  }
+ }
+}
+
+advanced_torture.7016 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7016.t
+ desc = advanced_torture.7016.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_short_stretching_bench_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0003 }
+  }
+ }
+}
+
+advanced_torture.7021 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7021.t
+ desc = advanced_torture.7021.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_rack_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0004 }
+  }
+ }
+}
+
+advanced_torture.7022 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7022.t
+ desc = advanced_torture.7022.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_wedged_boot_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1007 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0004 }
+  }
+ }
+}
+
+advanced_torture.7023 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7023.t
+ desc = advanced_torture.7023.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_rats_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0004 }
+  }
+ }
+}
+
+advanced_torture.7024 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7024.t
+ desc = advanced_torture.7024.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_enucleation_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1004 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0004 }
+  }
+ }
+}
+
+advanced_torture.7025 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7025.t
+ desc = advanced_torture.7025.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_leg_amputation_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1007 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0004 }
+  }
+ }
+}
+
+advanced_torture.7026 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7026.t
+ desc = advanced_torture.7026.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_nail_cleaner_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0004 }
+  }
+ }
+}
+
+advanced_torture.7031 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7031.t
+ desc = advanced_torture.7031.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_phalaris_bull_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0006 }
+  }
+ }
+}
+
+advanced_torture.7032 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7032.t
+ desc = advanced_torture.7032.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_judas_cradle_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0006 }
+  }
+ }
+}
+
+advanced_torture.7033 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7033.t
+ desc = advanced_torture.7033.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_pear_of_anguish_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0006 }
+  }
+ }
+}
+
+advanced_torture.7034 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7034.t
+ desc = advanced_torture.7034.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_iron_spider_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0006 }
+  }
+ }
+}
+
+advanced_torture.7035 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7035.t
+ desc = advanced_torture.7035.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_chair_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0006 }
+  }
+ }
+}
+
+advanced_torture.7036 = {
+ type = character_event
+ theme = prison
+ override_background = { reference = dungeon }
+ title = advanced_torture.7036.t
+ desc = advanced_torture.7036.desc
+ left_portrait = root
+ right_portrait = scope:advanced_torture_prisoner
+
+ option = {
+  name = advanced_torture.scene.proceed
+  hidden_effect = {
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } remove_character_flag = advanced_torture_last_torture_killed_prisoner }
+   advanced_torture_torture_skull_crusher_effect = yes
+   if = { limit = { has_character_flag = advanced_torture_last_torture_killed_prisoner } trigger_event = { id = advanced_torture.1008 } }
+   else = { trigger_event = { id = advanced_torture.1001 } }
+  }
+ }
+
+
+ option = {
+  name = advanced_torture.menu.back
+  hidden_effect = {
+   trigger_event = { id = advanced_torture.0006 }
+  }
+ }
+}

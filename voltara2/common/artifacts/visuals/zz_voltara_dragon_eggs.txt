@@ -1,0 +1,353 @@
+﻿dragon_egg_balerion = {
+	icon = "dragon_egg_black.dds"
+	pedestal = "default"
+	asset = dragon_egg2_entity
+}
+
+dragon_egg_meraxes = {
+	icon = "dragon_egg_meraxes.dds"
+	pedestal = "default"
+	asset = dragon_egg_meraxes_entity
+}
+
+dragon_egg_vhagar = {
+	icon = "dragon_egg_vhagar.dds"
+	pedestal = "default"
+	asset = dragon_egg1_entity
+}
+
+dragon_egg_black = {
+	icon = "dragon_egg_black.dds"
+	pedestal = "default"
+	asset = dragon_egg_black_entity
+}
+
+dragon_egg_blackdarkred = {
+	icon = "dragon_egg_drogon.dds"
+	pedestal = "default"
+	asset = dragon_egg2_entity
+}
+
+dragon_egg_icefire = {
+	icon = "dragon_egg_iceFire.dds"
+	pedestal = "default"
+	asset = dragon_egg_icefire_entity
+}
+
+dragon_egg_brown = {
+	icon = "dragon_egg_brown.dds"
+	pedestal = "default"
+	asset = dragon_egg_brown_entity
+}
+
+dragon_egg_blue = {
+	icon = "dragon_egg_blue.dds"
+	pedestal = "default"
+	asset = dragon_egg_blue_entity
+}
+
+dragon_egg_red = {
+	icon = "dragon_egg_red.dds"
+	pedestal = "default"
+	asset = dragon_egg_red_entity
+}
+
+dragon_egg_purple = {
+	icon = "dragon_egg_purple.dds"
+	pedestal = "default"
+	asset = dragon_egg_purple_entity
+}
+
+dragon_egg_yellow = {
+	icon = "dragon_egg_yellow.dds"
+	pedestal = "default"
+	asset = dragon_egg_yellow_entity
+}
+
+dragon_egg_tan = {
+	icon = "dragon_egg_tan.dds"
+	pedestal = "default"
+	asset = dragon_egg3_entity
+}
+
+dragon_egg_green_1 = {
+	icon = "dragon_egg_green.dds"
+	pedestal = "default"
+	asset = dragon_egg_green_entity
+}
+
+dragon_egg_green_2 = {
+	icon = "dragon_egg_vhagar.dds"
+	pedestal = "default"
+	asset = dragon_egg1_entity
+}
+
+dragon_egg_pink = {
+	icon = "dragon_egg_pink.dds"
+	pedestal = "default"
+	asset = dragon_egg_pink_entity
+}
+
+dragon_egg_white = {
+	icon = "dragon_egg_white.dds"
+	pedestal = "default"
+	asset = dragon_egg_white_entity
+}
+
+dragon_egg_orange = {
+	icon = "dragon_egg_orange.dds"
+	pedestal = "default"
+	asset = dragon_egg_orange_entity
+}
+
+dragon_egg_grey_1 = {
+	icon = "dragon_egg_grey.dds"
+	pedestal = "default"
+	asset = dragon_egg_grey_entity
+}
+
+dragon_egg_grey_2 = {
+	icon = "dragon_egg_meraxes.dds"
+	pedestal = "default"
+	asset = dragon_egg_meraxes_entity
+}
+
+dragon_egg_rainbow = {
+	icon = "dragon_egg_rainbow.dds"
+	pedestal = "default"
+	asset = dragon_egg_rainbow_entity
+}
+
+dragon_egg_gold = {
+	icon = "dragon_egg_gold.dds"
+	pedestal = "default"
+	asset = dragon_egg_gold_entity
+}
+
+dragon_egg_whitegold = {
+	icon = "dragon_egg_whitegold.dds"
+	pedestal = "default"
+	asset = dragon_egg_whitegold_entity
+}
+
+dragon_egg_purplegold = {
+	icon = "dragon_egg_purplegold.dds"
+	pedestal = "default"
+	asset = dragon_egg_purplegold_entity
+}
+
+dragon_egg_flame = {
+	icon = "dragon_egg_flame.dds"
+	pedestal = "default"
+	asset = dragon_egg_flame_entity
+}
+
+dragon_egg_blackred = {
+	icon = "dragon_egg_blackred.dds"
+	pedestal = "default"
+	asset = dragon_egg_blackred_entity
+}
+
+dragon_egg_brownspots = {
+	icon = "dragon_egg_brownspots.dds"
+	pedestal = "default"
+	asset = dragon_egg_brownspots_entity
+}
+
+dragon_egg_redblackgold = {
+	icon = "dragon_egg_redblackgold.dds"
+	pedestal = "default"
+	asset = dragon_egg_redblackgold_entity
+}
+
+dragon_egg_palered = {
+	icon = "dragon_egg_palered.dds"
+	pedestal = "default"
+	asset = dragon_egg_palered_entity
+}
+
+dragon_egg_darkblue = {
+	icon = "dragon_egg_darkblue.dds"
+	pedestal = "default"
+	asset = dragon_egg_darkblue_entity
+}
+
+dragon_egg_darkred = {
+	icon = "dragon_egg_darkred.dds"
+	pedestal = "default"
+	asset = dragon_egg_darkred_entity
+}
+
+dragon_egg_frost = {
+	icon = "dragon_egg_frost.dds"
+	pedestal = "default"
+	asset = dragon_egg_frost_entity
+}
+
+dragon_egg_greengrey = {
+	icon = "dragon_egg_greengrey.dds"
+	pedestal = "default"
+	asset = dragon_egg_greengrey_entity
+}
+
+dragon_egg_magma = {
+	icon = "dragon_egg_magma.dds"
+	pedestal = "default"
+	asset = dragon_egg_magma_entity
+}
+
+dragon_egg_darkpurple = {
+	icon = "dragon_egg_darkpurple.dds"
+	pedestal = "default"
+	asset = dragon_egg_darkpurple_entity
+}
+
+dragon_egg_palepink = {
+	icon = "dragon_egg_palepink.dds"
+	pedestal = "default"
+	asset = dragon_egg_palepink_entity
+}
+
+dragon_egg_palebluepink = {
+	icon = "dragon_egg_palebluepink.dds"
+	pedestal = "default"
+	asset = dragon_egg_palebluepink_entity
+}
+
+dragon_egg_pinkspot = {
+	icon = "dragon_egg_pinkspot.dds"
+	pedestal = "default"
+	asset = dragon_egg_pinkspot_entity
+}
+
+dragon_egg_rainbowgold = {
+	icon = "dragon_egg_rainbowgold.dds"
+	pedestal = "default"
+	asset = dragon_egg_rainbowgold_entity
+}
+
+dragon_egg_sunburst = {
+	icon = "dragon_egg_sunburst.dds"
+	pedestal = "default"
+	asset = dragon_egg_sunburst_entity
+}
+
+dragon_egg_goldpink = {
+	icon = "dragon_egg_goldpink.dds"
+	pedestal = "default"
+	asset = dragon_egg_goldpink_entity
+}
+
+dragon_egg_bluebronze = {
+	icon = "dragon_egg_bluebronze.dds"
+	pedestal = "default"
+	asset = dragon_egg_bluebronze_entity
+}
+
+dragon_egg_greenorange = {
+	icon = "dragon_egg_greenorange.dds"
+	pedestal = "default"
+	asset = dragon_egg_greenorange_entity
+}
+
+dragon_egg_bronze = {
+	icon = "dragon_egg_bronze.dds"
+	pedestal = "default"
+	asset = dragon_egg_bronze_entity
+}
+
+dragon_egg_blackgreen = {
+	icon = "dragon_egg_blackgreen.dds"
+	pedestal = "default"
+	asset = dragon_egg_blackgreen_entity
+}
+
+dragon_egg_greygreenyellow = {
+	icon = "dragon_egg_greygreenyellow.dds"
+	pedestal = "default"
+	asset = dragon_egg_greygreenyellow_entity
+}
+
+dragon_egg_blackyellow = {
+	icon = "dragon_egg_blackyellow.dds"
+	pedestal = "default"
+	asset = dragon_egg_blackyellow_entity
+}
+
+dragon_egg_yellowgreen = {
+	icon = "dragon_egg_yellowgreen.dds"
+	pedestal = "default"
+	asset = dragon_egg_yellowgreen_entity
+}
+
+dragon_egg_silver = {
+	icon = "dragon_egg_silver.dds"
+	pedestal = "default"
+	asset = dragon_egg_silver_entity
+}
+
+dragon_egg_america = {
+	icon = "dragon_egg_america.dds"
+	pedestal = "default"
+	asset = dragon_egg_america_entity
+}
+
+dragon_egg_greyBlue = {
+	icon = "dragon_egg_greyBlue.dds"
+	pedestal = "default"
+	asset = dragon_egg_greyBlue_entity
+}
+
+dragon_egg_redGreen = {
+	icon = "dragon_egg_redGreen.dds"
+	pedestal = "default"
+	asset = dragon_egg_redGreen_entity
+}
+
+dragon_egg_lightBrown = {
+	icon = "dragon_egg_lightBrown.dds"
+	pedestal = "default"
+	asset = dragon_egg_lightBrown_entity
+}
+
+dragon_egg_redYellow = {
+	icon = "dragon_egg_redYellow.dds"
+	pedestal = "default"
+	asset = dragon_egg_redYellow_entity
+}
+
+dragon_egg_blackWhite = {
+	icon = "dragon_egg_blackWhite.dds"
+	pedestal = "default"
+	asset = dragon_egg_blackWhite_entity
+}
+
+dragon_egg_spotPurple = {
+	icon = "dragon_egg_spotPurple.dds"
+	pedestal = "default"
+	asset = dragon_egg_spotPurple_entity
+}
+
+dragon_egg_teal = {
+	icon = "dragon_egg_teal.dds"
+	pedestal = "default"
+	asset = dragon_egg_teal_entity
+}
+
+dragon_egg_tealSpot = {
+	icon = "dragon_egg_tealSpot.dds"
+	pedestal = "default"
+	asset = dragon_egg_tealSpot_entity
+}
+
+dragon_egg_weirwood = {
+	icon = "dragon_egg_weirwood.dds"
+	pedestal = "default"
+	asset = dragon_egg_weirwood_entity
+}
+
+dragon_egg_lime = {
+	icon = "dragon_egg_lime.dds"
+	pedestal = "default"
+	asset = dragon_egg_lime_entity
+}

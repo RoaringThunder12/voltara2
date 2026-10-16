@@ -1,0 +1,310 @@
+pdxmesh = {
+	name = "tgp_building_japanese_wall_05_mesh"
+	file = "tgp_building_japanese_wall_05.mesh"
+	lod_percentages = {
+		lod = { index = 1 percent = 30.0 }
+		lod = { index = 2 percent = 10.0 }
+	}
+
+	meshsettings = {
+		name = "japanese_wall_decal_LOD0Shape"
+		index = 0
+		texture_diffuse = "japanese_wall_decal_diffuse.dds"
+		texture_normal = "japanese_wall_decal_normal.dds"
+		texture_specular = "japanese_wall_decal_properties.dds"
+		
+		shader = "decal_local"
+		shader_file = "gfx/FX/pdxmesh_decal.shader"
+		subpass = "LocalDecals"
+	}
+
+	meshsettings = {
+		name = "japanese_wall_decal_LOD1Shape"
+		index = 0
+		texture_diffuse = "japanese_wall_decal_diffuse.dds"
+		texture_normal = "japanese_wall_decal_normal.dds"
+		texture_specular = "japanese_wall_decal_properties.dds"
+		
+		shader = "decal_local"
+		shader_file = "gfx/FX/pdxmesh_decal.shader"
+		subpass = "LocalDecals"
+	}
+
+	meshsettings = {
+		name = "japanese_wall_decal_LOD2Shape"
+		index = 0
+		texture_diffuse = "japanese_wall_decal_diffuse.dds"
+		texture_normal = "japanese_wall_decal_normal.dds"
+		texture_specular = "japanese_wall_decal_properties.dds"
+		
+		shader = "decal_local"
+		shader_file = "gfx/FX/pdxmesh_decal.shader"
+		subpass = "LocalDecals"
+	}
+
+	meshsettings = {
+		name = "tgp_building_japanese_wall_04_LOD0Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_japanese_wall_04_LOD1Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_japanese_wall_04_LOD2Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_japanese_city_01_LOD0Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_japanese_city_01_LOD1Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_japanese_city_01_LOD2Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		#texture = { file = "tgp_building_japanese_city_01_unique.dds" index = 5 }
+		shader = "snap_to_terrain_atlas_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_japanese_city_02_LOD0Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_japanese_city_02_LOD1Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_japanese_city_02_LOD2Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_special_japanese_temple_03_LOD0Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_special_japanese_temple_03_LOD1Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_special_japanese_temple_03_LOD2Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+	
+	meshsettings = {
+		name = "trees_sakura_temple_LOD0Shape"
+		index = 0
+		texture_diffuse = "tree_sakura_diffuse.dds"
+		texture_normal = "tree_sakura_normal.dds"
+		texture_specular = "tree_sakura_properties.dds"
+		
+		shader = "snap_to_terrain_alpha_to_coverage"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+	meshsettings = {
+		name = "trees_sakura_temple_LOD1Shape"
+		index = 0
+		texture_diffuse = "tree_sakura_diffuse.dds"
+		texture_normal = "tree_sakura_normal.dds"
+		texture_specular = "tree_sakura_properties.dds"
+		
+		shader = "snap_to_terrain_alpha_to_coverage"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+	meshsettings = {
+		name = "trees_sakura_temple_LOD2Shape"
+		index = 0
+		texture_diffuse = "tree_sakura_diffuse.dds"
+		texture_normal = "tree_sakura_normal.dds"
+		texture_specular = "tree_sakura_properties.dds"
+		
+		shader = "snap_to_terrain_alpha_to_coverage"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+
+	meshsettings = {
+		name = "tgp_building_special_japanese_pagoda_03_LOD0Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_special_japanese_pagoda_03_LOD1Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_special_japanese_pagoda_03_LOD2Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		#texture = { file = "tgp_building_special_japanese_pagoda_03_unique.dds" index = 5 }
+		shader = "snap_to_terrain_atlas_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+	
+	meshsettings = {
+		name = "trees_sakura_pagoda_LOD0Shape"
+		index = 0
+		texture_diffuse = "tree_sakura_diffuse.dds"
+		texture_normal = "tree_sakura_normal.dds"
+		texture_specular = "tree_sakura_properties.dds"
+		
+		shader = "snap_to_terrain_alpha_to_coverage"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+	meshsettings = {
+		name = "trees_sakura_pagoda_LOD1Shape"
+		index = 0
+		texture_diffuse = "tree_sakura_diffuse.dds"
+		texture_normal = "tree_sakura_normal.dds"
+		texture_specular = "tree_sakura_properties.dds"
+		
+		shader = "snap_to_terrain_alpha_to_coverage"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+	meshsettings = {
+		name = "trees_sakura_pagoda_LOD2Shape"
+		index = 0
+		texture_diffuse = "tree_sakura_diffuse.dds"
+		texture_normal = "tree_sakura_normal.dds"
+		texture_specular = "tree_sakura_properties.dds"
+		
+		shader = "snap_to_terrain_alpha_to_coverage"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_japanese_temple_02_LOD0Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_japanese_temple_02_LOD1Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "tgp_building_japanese_temple_02_LOD2Shape"
+		index = 0
+		texture_diffuse = "building_japanese_atlas_diffuse.dds"
+		texture_normal = "building_japanese_atlas_normal.dds"
+		texture_specular = "building_japanese_atlas_properties.dds"
+		texture = { file = "building_x_AO_placeholder.dds" index = 5 }
+		shader = "snap_to_terrain_atlas_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+}
+entity = {
+	name = "tgp_building_japanese_wall_05_entity"
+	pdxmesh = "tgp_building_japanese_wall_05_mesh"
+}

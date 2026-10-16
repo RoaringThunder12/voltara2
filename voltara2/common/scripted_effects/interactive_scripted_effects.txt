@@ -1,0 +1,3490 @@
+﻿ai_chance_to_become_conqueror_effect = {
+	if = {
+		limit = {
+			has_trait = greatest_of_khans
+			has_game_rule = challenging_ai_enabled
+			is_ai = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_game_rule = no_conquerors_frequency
+				}
+				top_liege = this
+				is_landed = yes
+				NOR = {
+					has_trait = conqueror
+					has_character_flag = used_to_be_conqueror
+					any_owned_story = {
+						story_type = story_conqueror
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_character_modifier = ai_extreme_conqueror_modifier
+					}
+				}
+				add_character_modifier = {
+					modifier = ai_extreme_conqueror_modifier
+				}
+			}
+			trigger_event = conqueror.0001
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_game_rule = no_conquerors_frequency
+			}
+			is_immortal = no
+			ai_has_cautious_personality = no
+			is_independent_ruler = yes
+			is_tributary = no
+			is_landed = yes
+			is_adult = yes
+			NOT = {
+				is_incapable = yes
+			}
+			ai_boldness >= 0
+			ai_greed >= 0
+			highest_held_title_tier >= tier_duchy
+			OR = {
+				is_ai = yes
+				NOT = {
+					has_game_rule = miv_player_conquerors_disabled
+				}
+			}
+			NOR = {
+				any_ally = {
+					is_ai = no
+				}
+				has_character_flag = used_to_be_conqueror
+			}
+			OR = {
+				is_ai = no
+				has_game_rule = miv_conqueror_limit_miv_enabled_unlimited
+				AND = {
+					NOT = {
+						exists = global_var:active_conquerors
+					}
+					NOT = {
+						has_game_rule = miv_conqueror_limit_miv_enabled_0
+					}
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 12
+					has_game_rule = miv_conqueror_limit_miv_disabled
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 0
+					has_game_rule = miv_conqueror_limit_miv_enabled_0
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 1
+					has_game_rule = miv_conqueror_limit_miv_enabled_1
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 2
+					has_game_rule = miv_conqueror_limit_miv_enabled_2
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 3
+					has_game_rule = miv_conqueror_limit_miv_enabled_3
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 4
+					has_game_rule = miv_conqueror_limit_miv_enabled_4
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 5
+					has_game_rule = miv_conqueror_limit_miv_enabled_5
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 6
+					has_game_rule = miv_conqueror_limit_miv_enabled_6
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 7
+					has_game_rule = miv_conqueror_limit_miv_enabled_7
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 8
+					has_game_rule = miv_conqueror_limit_miv_enabled_8
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 9
+					has_game_rule = miv_conqueror_limit_miv_enabled_9
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 10
+					has_game_rule = miv_conqueror_limit_miv_enabled_10
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 11
+					has_game_rule = miv_conqueror_limit_miv_enabled_11
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 12
+					has_game_rule = miv_conqueror_limit_miv_enabled_12
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 13
+					has_game_rule = miv_conqueror_limit_miv_enabled_13
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 14
+					has_game_rule = miv_conqueror_limit_miv_enabled_14
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 15
+					has_game_rule = miv_conqueror_limit_miv_enabled_15
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 16
+					has_game_rule = miv_conqueror_limit_miv_enabled_16
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 17
+					has_game_rule = miv_conqueror_limit_miv_enabled_17
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 18
+					has_game_rule = miv_conqueror_limit_miv_enabled_18
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 19
+					has_game_rule = miv_conqueror_limit_miv_enabled_19
+				}
+				AND = {
+					exists = global_var:active_conquerors
+					global_var:active_conquerors < 20
+					has_game_rule = miv_conqueror_limit_miv_enabled_20
+				}
+			}
+			NOT = {
+				government_has_flag = government_is_theocracy
+			}
+			NOT = {
+				government_has_flag = government_has_influence
+			}
+		}
+		random = {
+			chance = {
+				value = 0.5
+				if = {
+					limit = {
+						highest_held_title_tier >= tier_empire
+						NOT = {
+							government_has_flag = government_is_nomadic
+						}
+					}
+					add = -100
+				}
+				if = {
+					limit = {
+						OR = {
+							government_has_flag = government_is_clan
+							government_has_flag = government_is_tribal
+							government_has_flag = government_is_nomadic
+						}
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						government_has_flag = government_is_nomadic
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						government_has_flag = government_is_nomadic
+						domicile.herd >= 1000
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						government_has_flag = government_is_nomadic
+						domicile.herd >= 2500
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						government_has_flag = government_is_nomadic
+						domicile.herd >= 5000
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						government_has_flag = government_is_nomadic
+						domicile.herd >= 10000
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						government_has_flag = government_is_nomadic
+						domicile.herd >= 15000
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						government_has_flag = government_is_nomadic
+						domicile.herd >= 20000
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						government_has_flag = government_is_nomadic
+						domicile.herd >= 25000
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						can_use_conquest_cbs_trigger = yes
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						ai_has_warlike_personality = yes
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						faith = {
+							has_doctrine = eastern_hostility_doctrine
+						}
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						martial >= 15
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						martial >= 20
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						martial >= 25
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						martial >= 30
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						has_trait = ambitious
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						has_trait = brave
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						has_trait = education_martial_3
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						has_trait = education_martial_4
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						has_trait = education_martial_5
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						faith = {
+							has_doctrine = doctrine_temporal_head
+						}
+						OR = {
+							this = faith.religious_head
+							any_vassal_or_below = {
+								this = faith.religious_head
+							}
+						}
+						NOT = {
+							highest_held_title_tier >= tier_empire
+						}
+					}
+					add = 1
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = a_cultures_great_defender_modifier
+							has_character_modifier = inspired_defenders_modifier
+							has_character_modifier = uniter_and_conqueror_modifier
+							has_character_modifier = bp2_destined_modifier
+							has_character_modifier = bp2_tool_of_fate_modifier
+						}
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						highest_held_title_tier < tier_empire
+						any_neighboring_and_across_water_top_liege_realm_owner = {
+							highest_held_title_tier >= tier_empire
+						}
+					}
+					multiply = 3
+				}
+				if = {
+					limit = {
+						highest_held_title_tier >= tier_kingdom
+					}
+					multiply = 0.75
+				}
+				if = {
+					limit = {
+						any_player = {
+							NOT = {
+								this = prev
+							}
+							highest_held_title_tier <= tier_county
+							in_diplomatic_range = prev
+						}
+					}
+					multiply = 0.1
+				}
+				else_if = {
+					limit = {
+						any_player = {
+							NOT = {
+								this = prev
+							}
+							highest_held_title_tier = tier_duchy
+							in_diplomatic_range = prev
+						}
+					}
+					multiply = 0.25
+				}
+				else_if = {
+					limit = {
+						any_player = {
+							NOT = {
+								this = prev
+							}
+							highest_held_title_tier = tier_kingdom
+							in_diplomatic_range = prev
+						}
+					}
+					multiply = 0.5
+				}
+				if = {
+					limit = {
+						OR = {
+							has_game_rule = very_few_conquerors_frequency
+							has_game_rule = strong_very_few_conquerors_frequency
+						}
+					}
+					multiply = 0.1
+				}
+				if = {
+					limit = {
+						OR = {
+							has_game_rule = few_conquerors_frequency
+							has_game_rule = strong_few_conquerors_frequency
+						}
+					}
+					multiply = 0.5
+				}
+				if = {
+					limit = {
+						OR = {
+							has_game_rule = many_conquerors_frequency
+							has_game_rule = strong_many_conquerors_frequency
+						}
+					}
+					multiply = 2
+				}
+				if = {
+					limit = {
+						is_ai = no
+						has_game_rule = miv_player_conquerors_low
+					}
+					multiply = 0.5
+				}
+				if = {
+					limit = {
+						is_ai = no
+						has_game_rule = miv_player_conquerors_high
+					}
+					multiply = 2
+				}
+			}
+			if = {
+				limit = {
+					is_ai = yes
+					OR = {
+						has_game_rule = scourge_of_the_gods_miv_enabled_100
+						has_game_rule = scourge_of_the_gods_miv_enabled_200
+						has_game_rule = scourge_of_the_gods_miv_enabled_300
+						has_game_rule = scourge_of_the_gods_miv_enabled_400
+						has_game_rule = scourge_of_the_gods_miv_enabled_immediate
+						has_game_rule = scourge_of_the_gods_miv_enabled_every_100
+						has_game_rule = scourge_of_the_gods_miv_enabled_every_200
+						has_game_rule = scourge_of_the_gods_miv_enabled_every_300
+						has_game_rule = scourge_of_the_gods_miv_enabled_every_400
+					}
+					NOT = {
+						exists = global_var:miv_scourge_waiting
+					}
+					NOT = {
+						exists = global_var:miv_scourge_used
+					}
+					NOT = {
+						has_character_modifier = ai_extreme_conqueror_modifier
+					}
+				}
+				add_character_modifier = {
+					modifier = ai_extreme_conqueror_modifier
+				}
+				if = {
+					limit = {
+						has_game_rule = scourge_of_the_gods_miv_enabled_every_100
+					}
+					set_global_variable = {
+						name = miv_scourge_waiting
+						value = yes
+						years = 100
+					}
+				}
+				else_if = {
+					limit = {
+						has_game_rule = scourge_of_the_gods_miv_enabled_every_200
+					}
+					set_global_variable = {
+						name = miv_scourge_waiting
+						value = yes
+						years = 200
+					}
+				}
+				else_if = {
+					limit = {
+						has_game_rule = scourge_of_the_gods_miv_enabled_every_300
+					}
+					set_global_variable = {
+						name = miv_scourge_waiting
+						value = yes
+						years = 300
+					}
+				}
+				else_if = {
+					limit = {
+						has_game_rule = scourge_of_the_gods_miv_enabled_every_400
+					}
+					set_global_variable = {
+						name = miv_scourge_waiting
+						value = yes
+						years = 400
+					}
+				}
+				else = {
+					set_global_variable = {
+						name = miv_scourge_used
+						value = yes
+					}
+				}
+			}
+			trigger_event = conqueror.0001
+		}
+	}
+}
+
+interactive_bannermen_toll_commit_effect = {
+	if = {
+		limit = {
+			NOR = {
+				is_target_in_variable_list = {
+					name = miv_toll_r1
+					target = $WAR$
+				}
+				is_target_in_variable_list = {
+					name = miv_toll_r3
+					target = $WAR$
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = $TOLL$
+			target = $WAR$
+			days = 400
+		}
+	}
+}
+
+interactive_bannermen_toll_pay_effect = {
+	if = {
+		limit = {
+			is_target_in_variable_list = {
+				name = miv_toll_r1
+				target = $WAR$
+			}
+		}
+		add_opinion = {
+			target = $LIEGE$
+			modifier = war_exhaustion_vassal_opinion
+			opinion = -10
+		}
+		remove_list_variable = {
+			name = miv_toll_r1
+			target = $WAR$
+		}
+	}
+	else_if = {
+		limit = {
+			is_target_in_variable_list = {
+				name = miv_toll_r3
+				target = $WAR$
+			}
+		}
+		add_opinion = {
+			target = $LIEGE$
+			modifier = war_exhaustion_vassal_opinion
+			opinion = -20
+		}
+		remove_list_variable = {
+			name = miv_toll_r3
+			target = $WAR$
+		}
+	}
+}
+
+interactive_bannermen_summon_effect = {
+	save_temporary_scope_value_as = {
+		name = miv_score
+		value = interactive_bannermen_muster_score
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_character_flag = miv_bannermen_summoned
+			}
+		}
+		add_character_flag = {
+			flag = miv_bannermen_summoned
+			days = 1
+		}
+		if = {
+			limit = {
+				scope:miv_score >= interactive_bannermen_prompt_threshold
+			}
+			trigger_event = {
+				id = interactive.0004
+				days = { 10 30 }
+			}
+		}
+		else_if = {
+			limit = {
+				scope:miv_score >= interactive_bannermen_reluctant_threshold
+			}
+			trigger_event = {
+				id = interactive.0004
+				days = { 60 90 }
+			}
+		}
+		else = {
+			trigger_event = {
+				id = interactive.0004
+				days = { 150 180 }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_game_rule = war_exhaustion_miv_disabled
+			}
+			NOT = {
+				scope:miv_score >= interactive_bannermen_prompt_threshold
+			}
+		}
+		if = {
+			limit = {
+				scope:miv_score >= interactive_bannermen_reluctant_threshold
+			}
+			interactive_bannermen_toll_commit_effect = {
+				TOLL = miv_toll_r1
+				WAR = scope:war
+			}
+		}
+		else = {
+			interactive_bannermen_toll_commit_effect = {
+				TOLL = miv_toll_r3
+				WAR = scope:war
+			}
+		}
+	}
+}
+
+interactive_bannermen_war_started_betrayal_effect = {
+	if = {
+		limit = {
+			has_game_rule = bannermen_mode_enabled
+			has_game_rule = miv_oathbreakers_enabled
+			interactive_bannermen_foreign_enabled_trigger = yes
+			scope:war = {
+				interactive_bannermen_foreign_war_trigger = yes
+			}
+		}
+		clear_saved_scope = miv_enemy
+		scope:war = {
+			primary_attacker = {
+				interactive_bannermen_automatic_betrayal_effect = yes
+			}
+			primary_defender = {
+				interactive_bannermen_automatic_betrayal_effect = yes
+			}
+		}
+	}
+}
+
+interactive_bannermen_automatic_betrayal_effect = {
+	save_temporary_scope_as = liege
+	if = {
+		limit = {
+			highest_held_title_tier >= tier_duchy
+			is_landed = yes
+			is_ruler = yes
+			scope:war = {
+				interactive_bannermen_callable_war_trigger = {
+					LIEGE = scope:liege
+				}
+			}
+			OR = {
+				is_ai = no
+				scope:war = {
+					interactive_bannermen_worth_calling_trigger = {
+						LIEGE = scope:liege
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					is_ai = yes
+					has_game_rule = miv_performance_mode_full
+				}
+				any_player = {
+					in_diplomatic_range = scope:liege
+				}
+			}
+		}
+		save_scope_as = miv_bannermen_liege
+		every_vassal = {
+			limit = {
+				interactive_bannermen_scope_trigger = {
+					LIEGE = scope:liege
+				}
+				interactive_bannermen_available_trigger = {
+					LIEGE = scope:liege
+				}
+			}
+			save_temporary_scope_as = vassal
+			if = {
+				limit = {
+					miv_bannermen_distance_trigger = {
+						LIEGE = scope:liege
+						VASSAL = scope:vassal
+					}
+				}
+				interactive_bannermen_refuse_effect = yes
+			}
+		}
+	}
+}
+
+interactive_bannermen_refuse_effect = {
+	save_temporary_scope_value_as = {
+		name = miv_score
+		value = interactive_bannermen_muster_score
+	}
+	if = {
+		limit = {
+			scope:miv_score < interactive_bannermen_betrayal_threshold
+			exists = scope:miv_bannermen_liege
+			NOT = {
+				is_target_in_variable_list = {
+					name = miv_betrayal_pending_lieges
+					target = scope:miv_bannermen_liege
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = miv_betrayal_pending_lieges
+			target = scope:miv_bannermen_liege
+			days = 91
+		}
+		trigger_event = {
+			id = interactive.0008
+			days = { 60 90 }
+		}
+	}
+}
+
+interactive_bannermen_toast_side_effect = {
+	$WAR$ = {
+		save_temporary_scope_as = miv_toast_war
+	}
+	$SIDE_OF$ = {
+		save_temporary_scope_as = miv_toast_anchor
+	}
+	$VASSAL$ = {
+		save_scope_as = VASSAL
+	}
+	every_player = {
+		limit = {
+			OR = {
+				NOT = {
+					this = scope:VASSAL
+				}
+				exists = scope:miv_toast_grouped
+			}
+			is_participant_in_war = scope:miv_toast_war
+			OR = {
+				AND = {
+					is_attacker_in_war = scope:miv_toast_war
+					scope:miv_toast_anchor = {
+						is_attacker_in_war = scope:miv_toast_war
+					}
+				}
+				AND = {
+					is_defender_in_war = scope:miv_toast_war
+					scope:miv_toast_anchor = {
+						is_defender_in_war = scope:miv_toast_war
+					}
+				}
+			}
+		}
+		send_interface_toast = {
+			type = $TYPE$
+			title = $TITLE$
+			left_icon = scope:VASSAL
+			custom_tooltip = $TOOLTIP$
+		}
+	}
+}
+
+interactive_bannermen_toast_war_effect = {
+	$WAR$ = {
+		save_temporary_scope_as = miv_toast_war
+		primary_defender = {
+			save_temporary_scope_as = miv_toast_crown
+		}
+	}
+	$SIDE_OF$ = {
+		save_temporary_scope_as = miv_toast_anchor
+	}
+	$VASSAL$ = {
+		save_scope_as = VASSAL
+	}
+	every_player = {
+		limit = {
+			OR = {
+				NOT = {
+					this = scope:VASSAL
+				}
+				exists = scope:miv_toast_grouped
+			}
+			OR = {
+				is_participant_in_war = scope:miv_toast_war
+				target_is_liege_or_above = scope:miv_toast_crown
+			}
+		}
+		send_interface_toast = {
+			type = $TYPE$
+			title = $TITLE$
+			left_icon = scope:VASSAL
+			custom_tooltip = $TOOLTIP$
+		}
+	}
+}
+
+interactive_bannermen_toast_realm_effect = {
+	$WAR$ = {
+		save_temporary_scope_as = miv_toast_war
+	}
+	$SIDE_OF$ = {
+		save_temporary_scope_as = miv_toast_anchor
+	}
+	$VASSAL$ = {
+		save_scope_as = VASSAL
+	}
+	every_player = {
+		limit = {
+			OR = {
+				AND = {
+					this = scope:VASSAL
+					exists = scope:miv_toast_grouped
+				}
+				AND = {
+					is_participant_in_war = scope:miv_toast_war
+					this = scope:miv_toast_anchor
+				}
+			}
+		}
+		send_interface_toast = {
+			type = $TYPE$
+			title = $TITLE$
+			left_icon = scope:VASSAL
+			custom_tooltip = $TOOLTIP$
+		}
+	}
+}
+
+interactive_bannermen_toast_realm_viewer_effect = {
+	$WAR$ = {
+		save_temporary_scope_as = miv_toast_war
+	}
+	$SIDE_OF$ = {
+		save_temporary_scope_as = miv_toast_anchor
+	}
+	$VASSAL$ = {
+		save_scope_as = VASSAL
+	}
+	every_player = {
+		limit = {
+			OR = {
+				AND = {
+					this = scope:VASSAL
+					exists = scope:miv_toast_grouped
+				}
+				AND = {
+					is_participant_in_war = scope:miv_toast_war
+					this = scope:miv_toast_anchor
+				}
+			}
+		}
+		if = {
+			limit = {
+				this = scope:VASSAL
+			}
+			send_interface_toast = {
+				type = $TYPE$
+				title = $TITLE$
+				left_icon = scope:VASSAL
+				custom_tooltip = $TOOLTIP$_self
+			}
+		}
+		else_if = {
+			limit = {
+				exists = scope:VASSAL.liege
+				this = scope:VASSAL.liege
+			}
+			send_interface_toast = {
+				type = $TYPE$
+				title = $TITLE$
+				left_icon = scope:VASSAL
+				custom_tooltip = $TOOLTIP$_liege
+			}
+		}
+		else = {
+			send_interface_toast = {
+				type = $TYPE$
+				title = $TITLE$
+				left_icon = scope:VASSAL
+				custom_tooltip = $TOOLTIP$_other
+			}
+		}
+	}
+}
+
+interactive_bannermen_toast_side_viewer_effect = {
+	$WAR$ = {
+		save_temporary_scope_as = miv_toast_war
+	}
+	$SIDE_OF$ = {
+		save_temporary_scope_as = miv_toast_anchor
+	}
+	$VASSAL$ = {
+		save_scope_as = VASSAL
+	}
+	every_player = {
+		limit = {
+			OR = {
+				NOT = {
+					this = scope:VASSAL
+				}
+				exists = scope:miv_toast_grouped
+			}
+			is_participant_in_war = scope:miv_toast_war
+			OR = {
+				AND = {
+					is_attacker_in_war = scope:miv_toast_war
+					scope:miv_toast_anchor = {
+						is_attacker_in_war = scope:miv_toast_war
+					}
+				}
+				AND = {
+					is_defender_in_war = scope:miv_toast_war
+					scope:miv_toast_anchor = {
+						is_defender_in_war = scope:miv_toast_war
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:VASSAL.liege
+				this = scope:VASSAL.liege
+			}
+			send_interface_toast = {
+				type = $TYPE$
+				title = $TITLE$
+				left_icon = scope:VASSAL
+				custom_tooltip = $TOOLTIP$_liege
+			}
+		}
+		else = {
+			send_interface_toast = {
+				type = $TYPE$
+				title = $TITLE$
+				left_icon = scope:VASSAL
+				custom_tooltip = $TOOLTIP$_other
+			}
+		}
+	}
+}
+
+interactive_bannermen_toast_leave_effect = {
+	$WAR$ = {
+		save_temporary_scope_as = miv_toast_war
+	}
+	$SIDE_OF$ = {
+		save_temporary_scope_as = miv_toast_anchor
+	}
+	$VASSAL$ = {
+		save_scope_as = VASSAL
+		var:miv_leave_persuader ?= {
+			save_temporary_scope_as = miv_toast_persuader
+		}
+	}
+	every_player = {
+		limit = {
+			OR = {
+				AND = {
+					this = scope:VASSAL
+					exists = scope:miv_toast_grouped
+				}
+				AND = {
+					is_participant_in_war = scope:miv_toast_war
+					this = scope:miv_toast_anchor
+				}
+				AND = {
+					exists = scope:miv_toast_persuader
+					this = scope:miv_toast_persuader
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:miv_toast_persuader
+				this = scope:miv_toast_persuader
+			}
+			send_interface_toast = {
+				type = $TYPE$
+				title = $TITLE$
+				left_icon = scope:VASSAL
+				custom_tooltip = $TOOLTIP$_you
+			}
+		}
+		else = {
+			send_interface_toast = {
+				type = $TYPE$
+				title = $TITLE$
+				left_icon = scope:VASSAL
+				custom_tooltip = $TOOLTIP$_other
+			}
+		}
+	}
+}
+
+interactive_bannermen_civilwar_rebel_toast_effect = {
+	$WAR$ = {
+		primary_defender = {
+			save_temporary_scope_as = miv_batch_crown
+		}
+	}
+	if = {
+		limit = {
+			any_player = {
+				OR = {
+					is_participant_in_war = $WAR$
+					this = $VASSAL$
+					target_is_liege_or_above = scope:miv_batch_crown
+				}
+			}
+		}
+		$LIEGE$ = {
+			if = {
+				limit = {
+					NOT = {
+						exists = var:miv_cw_betrayal_pending
+					}
+				}
+				set_variable = {
+					name = miv_cw_betrayal_pending
+					value = yes
+					days = miv_toast_batch_lifetime
+				}
+				set_variable = {
+					name = miv_cw_betrayer
+					value = $VASSAL$
+					days = miv_toast_batch_lifetime
+				}
+				set_variable = {
+					name = miv_cw_betrayal_war
+					value = $WAR$
+					days = miv_toast_batch_lifetime
+				}
+				$VASSAL$ = {
+					set_variable = {
+						name = miv_fellow_rebels
+						value = 0
+						days = miv_toast_batch_lifetime
+					}
+				}
+				trigger_event = {
+					id = interactive.0012
+					days = miv_toast_batch_window
+				}
+			}
+			else_if = {
+				limit = {
+					exists = var:miv_cw_betrayer
+					exists = var:miv_cw_betrayal_war
+					var:miv_cw_betrayal_war = $WAR$
+				}
+				var:miv_cw_betrayer = {
+					change_variable = {
+						name = miv_fellow_rebels
+						add = 1
+					}
+				}
+			}
+		}
+	}
+}
+
+interactive_bannermen_batch_toast_effect = {
+	$WAR$ = {
+		primary_defender = {
+			save_temporary_scope_as = miv_batch_crown
+		}
+	}
+	if = {
+		limit = {
+			any_player = {
+				OR = {
+					is_participant_in_war = $WAR$
+					this = $VASSAL$
+					target_is_liege_or_above = scope:miv_batch_crown
+				}
+			}
+		}
+		$WAR$ = {
+			save_scope_as = miv_batch_war
+		}
+		$SIDE_OF$ = {
+			save_scope_as = miv_batch_side
+		}
+		$HOLDER$ = {
+			if = {
+				limit = {
+					NOT = {
+						exists = var:miv_$KEY$_pending
+					}
+				}
+				set_variable = {
+					name = miv_$KEY$_pending
+					value = yes
+					days = miv_toast_batch_lifetime
+				}
+				set_variable = {
+					name = miv_$KEY$_spokesman
+					value = $VASSAL$
+					days = miv_toast_batch_lifetime
+				}
+				set_variable = {
+					name = miv_$KEY$_batchwar
+					value = $WAR$
+					days = miv_toast_batch_lifetime
+				}
+				set_variable = {
+					name = miv_$KEY$_batchside
+					value = $SIDE_OF$
+					days = miv_toast_batch_lifetime
+				}
+				$VASSAL$ = {
+					set_variable = {
+						name = miv_$KEY$_fellows
+						value = 0
+						days = miv_toast_batch_lifetime
+					}
+				}
+				trigger_event = {
+					id = interactive.$EVENT$
+					days = miv_toast_batch_window
+				}
+			}
+			else_if = {
+				limit = {
+					exists = var:miv_$KEY$_spokesman
+					exists = var:miv_$KEY$_batchwar
+					var:miv_$KEY$_batchwar = $WAR$
+				}
+				var:miv_$KEY$_spokesman = {
+					change_variable = {
+						name = miv_$KEY$_fellows
+						add = 1
+					}
+				}
+			}
+			else = {
+				add_to_variable_list = {
+					name = miv_$KEY$_overflow
+					target = $VASSAL$
+				}
+				$VASSAL$ = {
+					set_variable = {
+						name = miv_$KEY$_overflow_war
+						value = $WAR$
+						days = miv_toast_batch_lifetime
+					}
+					set_variable = {
+						name = miv_$KEY$_overflow_side
+						value = $SIDE_OF$
+						days = miv_toast_batch_lifetime
+					}
+				}
+			}
+		}
+	}
+}
+
+interactive_bannermen_preview_effect = {
+	every_vassal = {
+		limit = {
+			interactive_bannermen_scope_trigger = {
+				LIEGE = scope:liege
+			}
+		}
+		save_temporary_scope_as = vassal
+		save_temporary_scope_value_as = {
+			name = miv_score
+			value = interactive_bannermen_muster_score
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					is_ai = no
+				}
+			}
+			set_variable = {
+				name = miv_widget_sort
+				value = scope:miv_score
+				days = 1
+			}
+		}
+		if = {
+			limit = {
+				interactive_bannermen_serving_trigger = {
+					LIEGE = scope:liege
+				}
+			}
+			add_to_list = interactive_bannermen_serving
+		}
+		if = {
+			limit = {
+				interactive_bannermen_rebellion_trigger = {
+					LIEGE = scope:liege
+				}
+			}
+			add_to_list = interactive_bannermen_rebellion
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					interactive_bannermen_available_trigger = {
+						LIEGE = scope:liege
+					}
+				}
+			}
+			add_to_list = interactive_bannermen_unavailable
+		}
+		else = {
+			if = {
+				limit = {
+					scope:miv_score >= interactive_bannermen_prompt_threshold
+				}
+				add_to_list = interactive_bannermen_prompt
+			}
+			else_if = {
+				limit = {
+					scope:miv_score >= interactive_bannermen_reluctant_threshold
+				}
+				add_to_list = interactive_bannermen_reluctant
+			}
+			else_if = {
+				limit = {
+					scope:miv_score >= interactive_bannermen_answer_threshold
+				}
+				add_to_list = interactive_bannermen_grudging
+			}
+			else_if = {
+				limit = {
+					scope:miv_score < interactive_bannermen_betrayal_threshold
+				}
+				add_to_list = interactive_bannermen_betray
+			}
+			else = {
+				add_to_list = interactive_bannermen_refuse
+			}
+		}
+	}
+}
+
+interactive_bannermen_support_exhaustion_effect = {
+	if = {
+		limit = {
+			has_game_rule = bannermen_mode_enabled
+			NOT = {
+				has_game_rule = war_exhaustion_miv_disabled
+			}
+		}
+		save_temporary_scope_value_as = {
+			name = miv_interaction_score
+			value = interactive_bannermen_interaction_score
+		}
+		if = {
+			limit = {
+				NOT = {
+					scope:miv_interaction_score >= interactive_bannermen_prompt_threshold
+				}
+			}
+			if = {
+				limit = {
+					scope:miv_interaction_score >= interactive_bannermen_reluctant_threshold
+				}
+				scope:recipient = {
+					interactive_bannermen_toll_commit_effect = {
+						TOLL = miv_toll_r1
+						WAR = scope:target
+					}
+				}
+			}
+			else = {
+				scope:recipient = {
+					interactive_bannermen_toll_commit_effect = {
+						TOLL = miv_toll_r3
+						WAR = scope:target
+					}
+				}
+			}
+		}
+	}
+}
+
+interactive_bannermen_support_delay_effect = {
+	save_temporary_scope_value_as = {
+		name = miv_interaction_score
+		value = interactive_bannermen_interaction_score
+	}
+	save_scope_as = miv_support_war
+	scope:actor = {
+		save_scope_as = miv_support_liege
+	}
+	scope:recipient = {
+		save_scope_as = miv_support_vassal
+	}
+	if = {
+		limit = {
+			scope:miv_interaction_score >= interactive_bannermen_prompt_threshold
+		}
+		scope:recipient = {
+			custom_tooltip = interactive_bannermen_support_delay_prompt
+		}
+		hidden_effect = {
+			scope:recipient = {
+				trigger_event = {
+					id = interactive.0009
+					days = { 10 30 }
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			scope:miv_interaction_score >= interactive_bannermen_reluctant_threshold
+		}
+		scope:recipient = {
+			custom_tooltip = interactive_bannermen_support_delay_reluctant
+		}
+		hidden_effect = {
+			scope:recipient = {
+				trigger_event = {
+					id = interactive.0009
+					days = { 60 90 }
+				}
+			}
+		}
+	}
+	else = {
+		scope:recipient = {
+			if = {
+				limit = {
+					scope:miv_interaction_score >= interactive_bannermen_answer_threshold
+				}
+				custom_tooltip = interactive_bannermen_support_delay_grudging
+			}
+			else_if = {
+				limit = {
+					scope:miv_interaction_score >= interactive_bannermen_betrayal_threshold
+				}
+				custom_tooltip = interactive_bannermen_support_delay_refuse
+			}
+			else = {
+				custom_tooltip = interactive_bannermen_support_delay_betray
+			}
+		}
+		hidden_effect = {
+			scope:recipient = {
+				trigger_event = {
+					id = interactive.0009
+					days = { 150 180 }
+				}
+			}
+		}
+	}
+}
+
+interactive_bannermen_widget_fill_effect = {
+	save_temporary_scope_as = miv_widget_owner
+	scope:miv_widget_owner = {
+		clear_variable_list = miv_widget_serving
+		clear_variable_list = miv_widget_prompt
+		clear_variable_list = miv_widget_reluctant
+		clear_variable_list = miv_widget_grudging
+		clear_variable_list = miv_widget_refuse
+		clear_variable_list = miv_widget_betray
+		clear_variable_list = miv_widget_rebellion
+		clear_variable_list = miv_widget_unavailable
+	}
+	every_in_list = {
+		list = interactive_bannermen_serving
+		remove_from_list = interactive_bannermen_prompt
+		remove_from_list = interactive_bannermen_reluctant
+		remove_from_list = interactive_bannermen_grudging
+		remove_from_list = interactive_bannermen_refuse
+		remove_from_list = interactive_bannermen_betray
+		remove_from_list = interactive_bannermen_unavailable
+	}
+	interactive_bannermen_widget_list_effect = {
+		LIST = interactive_bannermen_serving
+		COUNT = interactive_bannermen_serving_count
+		WIDGET = miv_widget_serving
+	}
+	interactive_bannermen_widget_list_effect = {
+		LIST = interactive_bannermen_prompt
+		COUNT = interactive_bannermen_prompt_count
+		WIDGET = miv_widget_prompt
+	}
+	interactive_bannermen_widget_list_effect = {
+		LIST = interactive_bannermen_reluctant
+		COUNT = interactive_bannermen_reluctant_count
+		WIDGET = miv_widget_reluctant
+	}
+	interactive_bannermen_widget_list_effect = {
+		LIST = interactive_bannermen_grudging
+		COUNT = interactive_bannermen_grudging_count
+		WIDGET = miv_widget_grudging
+	}
+	interactive_bannermen_widget_list_effect = {
+		LIST = interactive_bannermen_refuse
+		COUNT = interactive_bannermen_refuse_count
+		WIDGET = miv_widget_refuse
+	}
+	interactive_bannermen_widget_list_effect = {
+		LIST = interactive_bannermen_betray
+		COUNT = interactive_bannermen_betray_count
+		WIDGET = miv_widget_betray
+	}
+	interactive_bannermen_widget_list_effect = {
+		LIST = interactive_bannermen_rebellion
+		COUNT = interactive_bannermen_rebellion_count
+		WIDGET = miv_widget_rebellion
+	}
+	interactive_bannermen_widget_list_effect = {
+		LIST = interactive_bannermen_unavailable
+		COUNT = interactive_bannermen_unavailable_count
+		WIDGET = miv_widget_unavailable
+	}
+}
+
+interactive_bannermen_widget_list_effect = {
+	ordered_in_list = {
+		list = $LIST$
+		order_by = var:miv_widget_sort
+		max = $COUNT$
+		save_temporary_scope_as = vassal
+		if = {
+			limit = {
+				exists = var:miv_widget_sort
+			}
+			set_variable = {
+				name = miv_widget_row_score
+				value = var:miv_widget_sort
+			}
+			set_variable = {
+				name = miv_widget_row_liege
+				value = scope:miv_widget_owner
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					exists = var:miv_widget_row_score
+				}
+				remove_variable = miv_widget_row_score
+			}
+			if = {
+				limit = {
+					exists = var:miv_widget_row_liege
+				}
+				remove_variable = miv_widget_row_liege
+			}
+		}
+		scope:miv_widget_owner = {
+			add_to_variable_list = {
+				name = $WIDGET$
+				target = scope:vassal
+			}
+		}
+	}
+}
+
+interactive_bannermen_civilwar_commit_effect = {
+	if = {
+		limit = {
+			NOT = {
+				interactive_bannermen_civilwar_answered_trigger = yes
+			}
+		}
+		save_temporary_scope_value_as = {
+			name = miv_score
+			value = interactive_bannermen_muster_score
+		}
+		set_variable = {
+			name = miv_cw_answer
+			value = miv_bannermen_civilwar_verdict
+			days = 200
+		}
+		set_variable = {
+			name = miv_cw_answer_war
+			value = scope:miv_cw_war
+			days = 200
+		}
+	}
+}
+
+interactive_bannermen_civilwar_schedule_effect = {
+	interactive_bannermen_civilwar_commit_effect = yes
+	set_variable = {
+		name = miv_cw_depth
+		value = 1
+		years = 5
+	}
+	if = {
+		limit = {
+			NOT = {
+				interactive_bannermen_fit_trigger = yes
+			}
+		}
+		trigger_event = {
+			id = interactive.0010
+			days = { 10 30 }
+		}
+	}
+	else_if = {
+		limit = {
+			interactive_bannermen_civilwar_loyal_trigger = yes
+		}
+		if = {
+			limit = {
+				interactive_bannermen_civilwar_answered_trigger = yes
+				var:miv_cw_answer <= 1
+			}
+			trigger_event = {
+				id = interactive.0010
+				days = { 10 30 }
+			}
+		}
+		else_if = {
+			limit = {
+				interactive_bannermen_civilwar_answered_trigger = yes
+				var:miv_cw_answer <= 3
+			}
+			trigger_event = {
+				id = interactive.0010
+				days = { 60 90 }
+			}
+		}
+		else = {
+			trigger_event = {
+				id = interactive.0010
+				days = { 60 90 }
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				interactive_bannermen_civilwar_answered_trigger = yes
+				var:miv_cw_answer = 7
+			}
+			trigger_event = {
+				id = interactive.0010
+				days = { 10 30 }
+			}
+		}
+		else_if = {
+			limit = {
+				interactive_bannermen_civilwar_answered_trigger = yes
+				var:miv_cw_answer >= 6
+			}
+			trigger_event = {
+				id = interactive.0010
+				days = { 60 90 }
+			}
+		}
+		else = {
+			trigger_event = {
+				id = interactive.0010
+				days = { 150 180 }
+			}
+		}
+	}
+}
+
+interactive_bannermen_civilwar_cascade_effect = {
+	interactive_bannermen_civilwar_schedule_effect = yes
+	set_variable = {
+		name = miv_cw_depth
+		value = 2
+		years = 5
+	}
+}
+
+interactive_bannermen_brand_oathbreaker_effect = {
+	$LIEGE$ = {
+		if = {
+			limit = {
+				is_alive = yes
+				$VASSAL$ = {
+					is_alive = yes
+				}
+			}
+			add_opinion = {
+				target = $VASSAL$
+				modifier = miv_oathbreaker
+			}
+		}
+	}
+}
+
+interactive_call_ally_oathbreaker_effect = {
+	scope:recipient = {
+		if = {
+			limit = {
+				any_liege_or_above = {
+					is_$ENEMY$_in_war = scope:target
+				}
+				NOT = {
+					liege = {
+						is_$OWN$_in_war = scope:target
+					}
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						top_liege = {
+							is_$ENEMY$_in_war = scope:target
+						}
+					}
+					top_liege = {
+						save_temporary_scope_as = miv_oath_holder
+					}
+				}
+				else = {
+					random_liege_or_above = {
+						limit = {
+							is_$ENEMY$_in_war = scope:target
+						}
+						save_temporary_scope_as = miv_oath_holder
+					}
+				}
+			}
+			interactive_bannermen_brand_oathbreaker_effect = {
+				LIEGE = scope:recipient.liege
+				VASSAL = scope:recipient
+			}
+			interactive_bannermen_batch_toast_effect = {
+				KEY = defect_enemy
+				EVENT = 13
+				HOLDER = scope:miv_oath_holder
+				WAR = scope:target
+				SIDE_OF = scope:miv_oath_holder
+				VASSAL = scope:recipient
+			}
+			interactive_bannermen_batch_toast_effect = {
+				KEY = defect_us
+				EVENT = 19
+				HOLDER = scope:miv_oath_holder
+				WAR = scope:target
+				SIDE_OF = scope:recipient
+				VASSAL = scope:recipient
+			}
+		}
+	}
+}
+
+interactive_bannermen_civilwar_far_effect = {
+	$LIEGE$ = {
+		every_vassal = {
+			limit = {
+				interactive_bannermen_scope_trigger = {
+					LIEGE = $LIEGE$
+				}
+				NOT = {
+					is_at_war_with = $LIEGE$
+				}
+				NOT = {
+					has_game_rule = civil_war_distance_disabled
+				}
+				NOT = {
+					interactive_bannermen_civilwar_in_range_trigger = {
+						LEADER = $LEADER$
+					}
+				}
+				NOR = {
+					is_attacker_in_war = $WAR$
+					is_defender_in_war = $WAR$
+					exists = var:miv_cw_far_war
+				}
+			}
+			set_variable = {
+				name = miv_cw_far_war
+				value = $WAR$
+				days = 200
+			}
+			trigger_event = {
+				id = interactive.0026
+				days = { 150 180 }
+			}
+		}
+	}
+}
+
+interactive_bannermen_civilwar_core_cascade_effect = {
+	save_temporary_scope_as = liege
+	interactive_bannermen_civilwar_far_effect = {
+		LIEGE = scope:liege
+		LEADER = scope:miv_cw_war.primary_attacker
+		WAR = scope:miv_cw_war
+	}
+	every_vassal = {
+		limit = {
+			interactive_bannermen_civilwar_eligible_trigger = {
+				LIEGE = scope:liege
+				LEADER = scope:miv_cw_war.primary_attacker
+			}
+		}
+		save_temporary_scope_as = vassal
+		interactive_bannermen_civilwar_schedule_effect = yes
+		set_variable = {
+			name = miv_cw_depth
+			value = 2
+			years = 5
+		}
+	}
+}
+
+interactive_bannermen_civilwar_effect = {
+	scope:war_to_join = {
+		save_scope_as = miv_cw_war
+	}
+	scope:liege_to_join = {
+		save_temporary_scope_as = liege
+	}
+	scope:vassal = {
+		save_temporary_scope_as = vassal
+		interactive_bannermen_civilwar_schedule_effect = yes
+	}
+}
+
+interactive_random_ruler_placement_shuffle_list_effect = {
+	random_in_list = {
+		list = $LIST_NAME$
+		save_scope_as = previous_ruler
+		remove_from_list = $LIST_NAME$
+	}
+	while = {
+		limit = {
+			any_in_list = {
+				list = $LIST_NAME$
+				NOT = {
+					has_character_flag = already_swapped
+				}
+			}
+		}
+		random_in_list = {
+			limit = {
+				NOT = {
+					has_character_flag = already_swapped
+				}
+			}
+			list = $LIST_NAME$
+			create_title_and_vassal_change = {
+				type = conquest
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			every_held_title = {
+				title_tier >= county
+				change_title_holder_include_vassals = {
+					holder = scope:previous_ruler
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+			if = {
+				limit = {
+					has_game_rule = random_ruler_placement_on_conversion
+				}
+				set_character_faith_with_conversion = scope:previous_ruler.faith
+			}
+			save_scope_as = previous_ruler
+			add_character_flag = {
+				flag = already_swapped
+				days = 3
+			}
+		}
+	}
+}
+
+interactive_random_ruler_placement_effect = {
+	every_ruler = {
+		limit = {
+			save_temporary_scope_as = ruler_for_list
+			NOR = {
+				is_ai = no
+				any_liege_or_above = {
+					is_ai = no
+					dynasty = scope:ruler_for_list.dynasty
+				}
+			}
+		}
+		if = {
+			limit = {
+				highest_held_title_tier = tier_barony
+			}
+			add_to_list = random_placement_barons
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier = tier_county
+			}
+			add_to_list = random_placement_counts
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier = tier_duchy
+			}
+			add_to_list = random_placement_dukes
+		}
+		else = {
+			add_to_list = random_placement_emperors_kings
+		}
+	}
+	interactive_random_ruler_placement_shuffle_list_effect = {
+		LIST_NAME = random_placement_barons
+	}
+	interactive_random_ruler_placement_shuffle_list_effect = {
+		LIST_NAME = random_placement_counts
+	}
+	interactive_random_ruler_placement_shuffle_list_effect = {
+		LIST_NAME = random_placement_dukes
+	}
+	interactive_random_ruler_placement_shuffle_list_effect = {
+		LIST_NAME = random_placement_emperors_kings
+	}
+	every_ruler = {
+		limit = {
+			top_liege != this
+			save_temporary_scope_as = exclave_check
+			NOT = {
+				any_held_title = {
+					title_tier = county
+					any_neighboring_county = {
+						holder = {
+							NOR = {
+								this = scope:exclave_check
+								target_is_liege_or_above = scope:exclave_check
+							}
+							top_liege = scope:exclave_check.top_liege
+						}
+					}
+				}
+			}
+		}
+		create_title_and_vassal_change = {
+			type = independency
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		becomes_independent = {
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+}
+
+interactive_divided_china_effect = {
+	title:h_china.holder = {
+		save_scope_as = miv_china_emperor
+	}
+	scope:miv_china_emperor = {
+		every_vassal_or_below = {
+			add_to_list = miv_china_former_vassals
+		}
+		every_held_title = {
+			limit = {
+				tier > tier_kingdom
+			}
+			scope:miv_china_emperor = {
+				destroy_title = prev
+			}
+		}
+		create_title_and_vassal_change = {
+			type = independency
+			save_scope_as = miv_china_change
+			add_claim_on_loss = yes
+		}
+		every_vassal = {
+			limit = {
+				primary_title = {
+					NOT = {
+						target_is_de_jure_liege_or_above = scope:miv_china_emperor.primary_title
+					}
+				}
+			}
+			becomes_independent = {
+				change = scope:miv_china_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:miv_china_change
+	}
+	every_in_list = {
+		list = miv_china_former_vassals
+		limit = {
+			is_landed = yes
+			is_ai = yes
+			OR = {
+				AND = {
+					highest_held_title_tier = tier_empire
+					sub_realm_size < interactive_divided_china_empire_size
+				}
+				AND = {
+					highest_held_title_tier = tier_kingdom
+					sub_realm_size < interactive_divided_china_kingdom_size
+				}
+			}
+		}
+		every_held_title = {
+			limit = {
+				tier > tier_duchy
+			}
+			prev = {
+				destroy_title = prev
+			}
+		}
+	}
+	every_in_list = {
+		list = miv_china_former_vassals
+		every_held_title = {
+			limit = {
+				tier = tier_empire
+				is_landless_type_title = yes
+			}
+			prev = {
+				destroy_title = prev
+			}
+		}
+	}
+	every_in_list = {
+		list = miv_china_former_vassals
+		ai_chance_to_become_conqueror_effect = yes
+	}
+	scope:miv_china_emperor = {
+		force_step_down_landed_titles = yes
+	}
+}
+
+interactive_divided_japan_effect = {
+	every_ruler = {
+		limit = {
+			government_has_flag = government_is_japan_administrative
+		}
+		change_government = japan_feudal_government
+	}
+	title:e_japan.holder = {
+		if = {
+			limit = {
+				NOT = {
+					has_realm_law = japanese_bureaucracy_0
+				}
+			}
+			add_realm_law = japanese_bureaucracy_0
+		}
+	}
+}
+
+interactive_divided_japan_blocs_effect = {
+	every_confederation = {
+		limit = {
+			has_leading_house = yes
+		}
+		add_to_list = miv_divided_japan_blocs
+	}
+	every_in_list = {
+		list = miv_divided_japan_blocs
+		disband_confederation = yes
+	}
+}
+
+interactive_war_joined_effect = {
+	if = {
+		limit = {
+			exists = scope:war
+			any_player = {
+				is_participant_in_war = scope:war
+			}
+		}
+		save_temporary_scope_as = miv_joiner
+		scope:war = {
+			if = {
+				limit = {
+					is_attacker = scope:miv_joiner
+				}
+				primary_attacker = {
+					save_temporary_scope_as = miv_join_ally
+				}
+				primary_defender = {
+					save_temporary_scope_as = miv_join_foe
+				}
+			}
+			else = {
+				primary_defender = {
+					save_temporary_scope_as = miv_join_ally
+				}
+				primary_attacker = {
+					save_temporary_scope_as = miv_join_foe
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:miv_join_ally
+				exists = scope:miv_join_foe
+				NOT = {
+					scope:miv_join_ally = scope:miv_joiner
+				}
+			}
+			interactive_bannermen_batch_toast_effect = {
+				KEY = ally_join
+				EVENT = 21
+				HOLDER = scope:miv_join_ally
+				WAR = scope:war
+				SIDE_OF = scope:miv_join_ally
+				VASSAL = scope:miv_joiner
+			}
+			interactive_bannermen_batch_toast_effect = {
+				KEY = enemy_join
+				EVENT = 22
+				HOLDER = scope:miv_join_foe
+				WAR = scope:war
+				SIDE_OF = scope:miv_join_foe
+				VASSAL = scope:miv_joiner
+			}
+		}
+	}
+}
+
+miv_leave_war_withdraw_effect = {
+	if = {
+		limit = {
+			is_attacker = scope:recipient
+		}
+		primary_attacker = {
+			add_opinion = {
+				modifier = betrayed_me_opinion
+				target = scope:recipient
+				opinion = -50
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			is_defender = scope:recipient
+		}
+		primary_defender = {
+			add_opinion = {
+				modifier = betrayed_me_opinion
+				target = scope:recipient
+				opinion = -50
+			}
+		}
+	}
+	hidden_effect = {
+		remove_participant = scope:recipient
+		save_scope_as = miv_leave_war
+		scope:recipient = {
+			set_variable = {
+				name = miv_leave_persuader
+				value = scope:actor
+				days = miv_toast_batch_lifetime
+			}
+		}
+		scope:recipient.liege ?= {
+			miv_gui_cache_reset_effect = yes
+		}
+		interactive_bannermen_batch_toast_effect = {
+			KEY = leave
+			EVENT = 24
+			HOLDER = scope:recipient.liege
+			WAR = scope:miv_leave_war
+			SIDE_OF = scope:recipient.liege
+			VASSAL = scope:recipient
+		}
+	}
+}
+
+miv_leave_war_ally_check_effect = {
+	if = {
+		limit = {
+			exists = scope:war
+			is_ai = yes
+			exists = liege
+			NOT = {
+				has_variable = miv_ally_suitor
+			}
+			any_ally = {
+				is_ai = yes
+				is_at_war_with = prev
+			}
+			trigger_if = {
+				limit = {
+					has_game_rule = miv_performance_mode_full
+					has_game_rule = bannermen_mode_enabled
+				}
+				any_player = {
+					in_diplomatic_range = prev
+				}
+			}
+		}
+		save_temporary_scope_as = miv_lw_joiner
+		every_ally = {
+			limit = {
+				is_ai = yes
+				is_at_war_with = scope:miv_lw_joiner
+			}
+			save_temporary_scope_as = miv_lw_ally
+			if = {
+				limit = {
+					NOT = {
+						scope:miv_lw_joiner = {
+							has_variable = miv_ally_suitor
+						}
+					}
+					scope:war = {
+						miv_leave_war_valid_war_trigger = {
+							ACTOR = scope:miv_lw_ally
+							RECIPIENT = scope:miv_lw_joiner
+						}
+					}
+				}
+				scope:miv_lw_joiner = {
+					set_variable = {
+						name = miv_ally_suitor
+						value = scope:miv_lw_ally
+						days = 120
+					}
+					trigger_event = {
+						id = interactive.0025
+						days = { 60 90 }
+					}
+				}
+			}
+		}
+	}
+}
+
+
+interactive_apply_cultural_tradition_rule_effect = {
+	if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_1
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_1
+				}
+			}
+			add_innovation = cultural_tradition_limit_1
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_2
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_2
+				}
+			}
+			add_innovation = cultural_tradition_limit_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_3
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_3
+				}
+			}
+			add_innovation = cultural_tradition_limit_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_4
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_4
+				}
+			}
+			add_innovation = cultural_tradition_limit_4
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_5
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_5
+				}
+			}
+			add_innovation = cultural_tradition_limit_5
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_6
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_6
+				}
+			}
+			add_innovation = cultural_tradition_limit_6
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_7
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_7
+				}
+			}
+			add_innovation = cultural_tradition_limit_7
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_8
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_8
+				}
+			}
+			add_innovation = cultural_tradition_limit_8
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_9
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_9
+				}
+			}
+			add_innovation = cultural_tradition_limit_9
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_10
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_10
+				}
+			}
+			add_innovation = cultural_tradition_limit_10
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_minus_1
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_minus_1
+				}
+			}
+			add_innovation = cultural_tradition_limit_minus_1
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_minus_2
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_minus_2
+				}
+			}
+			add_innovation = cultural_tradition_limit_minus_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_minus_3
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_minus_3
+				}
+			}
+			add_innovation = cultural_tradition_limit_minus_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_minus_4
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_minus_4
+				}
+			}
+			add_innovation = cultural_tradition_limit_minus_4
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_minus_5
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_minus_5
+				}
+			}
+			add_innovation = cultural_tradition_limit_minus_5
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_minus_6
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_minus_6
+				}
+			}
+			add_innovation = cultural_tradition_limit_minus_6
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_minus_7
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_minus_7
+				}
+			}
+			add_innovation = cultural_tradition_limit_minus_7
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_minus_8
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_minus_8
+				}
+			}
+			add_innovation = cultural_tradition_limit_minus_8
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_minus_9
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_minus_9
+				}
+			}
+			add_innovation = cultural_tradition_limit_minus_9
+		}
+	}
+	else_if = {
+		limit = {
+			has_game_rule = cultural_tradition_limit_minus_10
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_innovation = cultural_tradition_limit_minus_10
+				}
+			}
+			add_innovation = cultural_tradition_limit_minus_10
+		}
+	}
+}
+
+miv_accolade_artifact_find_patron_effect = {
+	clear_saved_scope = miv_accolade_artifact_current_patron
+	if = {
+		limit = {
+			exists = var:miv_accolade_artifact_patron
+			var:miv_accolade_artifact_patron = {
+				is_alive = yes
+			}
+		}
+		var:miv_accolade_artifact_patron = {
+			save_scope_as = miv_accolade_artifact_current_patron
+		}
+	}
+	var:miv_accolade_artifact_accolade ?= {
+		accolade_owner ?= {
+			if = {
+				limit = {
+					is_alive = yes
+				}
+				save_scope_as = miv_accolade_artifact_current_patron
+			}
+		}
+	}
+	scope:miv_accolade_artifact_next_patron ?= {
+		if = {
+			limit = {
+				is_alive = yes
+			}
+			save_scope_as = miv_accolade_artifact_current_patron
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				exists = scope:miv_accolade_artifact_current_patron
+			}
+		}
+		var:miv_accolade_artifact_patron ?= {
+			primary_heir ?= {
+				if = {
+					limit = {
+						is_alive = yes
+					}
+					save_scope_as = miv_accolade_artifact_current_patron
+				}
+			}
+		}
+	}
+}
+
+miv_accolade_artifact_protect_item_effect = {
+	if = {
+		limit = {
+			should_decay = yes
+		}
+		set_variable = miv_accolade_artifact_owns_decay_lock
+		hidden_effect = {
+			set_should_decay = no
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_variable = equipped_court_succession
+			}
+		}
+		set_variable = miv_accolade_artifact_owns_succession_lock
+		set_variable = equipped_court_succession
+	}
+}
+
+miv_accolade_artifact_select_knight_effect = {
+	save_scope_as = miv_accolade_artifact_candidate_knight
+	if = {
+		limit = {
+			is_alive = yes
+			OR = {
+				can_equip_artifact = scope:miv_accolade_artifact_sync_item
+				scope:miv_accolade_artifact_sync_item = {
+					artifact_owner = scope:miv_accolade_artifact_candidate_knight
+					is_equipped = yes
+				}
+			}
+		}
+		save_scope_as = miv_accolade_artifact_current_knight
+	}
+}
+
+miv_accolade_artifact_safekeep_item_effect = {
+	miv_accolade_artifact_find_patron_effect = yes
+	if = {
+		limit = {
+			exists = scope:miv_accolade_artifact_current_patron
+		}
+		set_variable = {
+			name = miv_accolade_artifact_patron
+			value = scope:miv_accolade_artifact_current_patron
+		}
+		if = {
+			limit = {
+				NOT = {
+					artifact_owner = scope:miv_accolade_artifact_current_patron
+				}
+			}
+			unequip_artifact_from_owner = yes
+			set_owner = {
+				target = scope:miv_accolade_artifact_current_patron
+			}
+		}
+	}
+}
+
+miv_accolade_artifact_release_item_effect = {
+	miv_accolade_artifact_find_patron_effect = yes
+	miv_accolade_artifact_unbind_item_effect = yes
+	if = {
+		limit = {
+			exists = scope:miv_accolade_artifact_current_patron
+			NOT = {
+				artifact_owner = scope:miv_accolade_artifact_current_patron
+			}
+		}
+		unequip_artifact_from_owner = yes
+		set_owner = {
+			target = scope:miv_accolade_artifact_current_patron
+		}
+	}
+}
+
+miv_accolade_artifact_sync_item_effect = {
+	if = {
+		limit = {
+			miv_accolade_artifact_enabled_trigger = yes
+			exists = var:miv_accolade_artifact_accolade
+		}
+		miv_accolade_artifact_protect_item_effect = yes
+		miv_accolade_artifact_find_patron_effect = yes
+		clear_saved_scope = miv_accolade_artifact_current_knight
+		save_scope_as = miv_accolade_artifact_sync_item
+		var:miv_accolade_artifact_accolade = {
+			acclaimed_knight ?= {
+				miv_accolade_artifact_select_knight_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:miv_accolade_artifact_next_knight
+			}
+			clear_saved_scope = miv_accolade_artifact_current_knight
+			scope:miv_accolade_artifact_next_knight = {
+				miv_accolade_artifact_select_knight_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:miv_accolade_artifact_current_patron
+			}
+			set_variable = {
+				name = miv_accolade_artifact_patron
+				value = scope:miv_accolade_artifact_current_patron
+			}
+			if = {
+				limit = {
+					exists = scope:miv_accolade_artifact_current_knight
+				}
+				if = {
+					limit = {
+						NOT = {
+							artifact_owner = scope:miv_accolade_artifact_current_knight
+						}
+					}
+					unequip_artifact_from_owner = yes
+					set_owner = {
+						target = scope:miv_accolade_artifact_current_knight
+					}
+				}
+				if = {
+					limit = {
+						is_equipped = no
+					}
+					equip_artifact_to_owner_replace = yes
+				}
+			}
+			else = {
+				miv_accolade_artifact_safekeep_item_effect = yes
+			}
+		}
+		else = {
+			miv_accolade_artifact_release_item_effect = yes
+		}
+	}
+	else = {
+		miv_accolade_artifact_release_item_effect = yes
+	}
+}
+
+miv_accolade_artifact_sync_accolade_effect = {
+	miv_accolade_artifact_sync_weapon_effect = yes
+	miv_accolade_artifact_sync_armor_effect = yes
+}
+
+miv_accolade_artifact_safekeep_accolade_effect = {
+	var:miv_accolade_artifact_weapon_artifact ?= {
+		miv_accolade_artifact_safekeep_item_effect = yes
+	}
+	var:miv_accolade_artifact_armor_artifact ?= {
+		miv_accolade_artifact_safekeep_item_effect = yes
+	}
+}
+
+miv_accolade_artifact_queue_repair_effect = {
+	save_scope_as = miv_accolade_artifact_changed_artifact
+	miv_accolade_artifact_find_patron_effect = yes
+	if = {
+		limit = {
+			exists = scope:miv_accolade_artifact_current_patron
+		}
+		scope:miv_accolade_artifact_current_patron = {
+			trigger_event = {
+				id = interactive.0027
+				days = 1
+			}
+		}
+	}
+	else = {
+		artifact_owner ?= {
+			if = {
+				limit = {
+					is_alive = yes
+				}
+				trigger_event = {
+					id = interactive.0027
+					days = 1
+				}
+			}
+		}
+	}
+	miv_accolade_artifact_ensure_watch_effect = yes
+}
+
+miv_accolade_artifact_ensure_watch_effect = {
+	if = {
+		limit = {
+			NOT = {
+				has_global_variable = miv_accolade_artifact_watch_pending
+			}
+			any_in_global_list = {
+				variable = miv_accolade_artifact_bound_artifacts
+				miv_accolade_artifact_player_watched_trigger = yes
+			}
+		}
+		set_global_variable = miv_accolade_artifact_watch_pending
+		trigger_event = {
+			on_action = miv_accolade_artifact_watch
+			days = 1
+		}
+	}
+}
+
+miv_accolade_artifact_maintenance_effect = {
+	clear_saved_scope = miv_accolade_artifact_next_patron
+	clear_saved_scope = miv_accolade_artifact_next_knight
+	every_in_global_list = {
+		variable = miv_accolade_artifact_bound_artifacts
+		limit = {
+			miv_accolade_artifact_needs_repair_trigger = yes
+		}
+		miv_accolade_artifact_sync_item_effect = yes
+	}
+}
+
+miv_accolade_artifact_recall_weapon_effect = {
+	var:miv_accolade_artifact_weapon_artifact ?= {
+		miv_accolade_artifact_release_item_effect = yes
+	}
+	remove_variable = miv_accolade_artifact_weapon_artifact
+}
+
+miv_accolade_artifact_sync_weapon_effect = {
+	if = {
+		limit = {
+			exists = var:miv_accolade_artifact_weapon_artifact
+		}
+		var:miv_accolade_artifact_weapon_artifact = {
+			miv_accolade_artifact_sync_item_effect = yes
+		}
+	}
+	else = {
+		remove_variable = miv_accolade_artifact_weapon_artifact
+	}
+}
+
+miv_accolade_artifact_recall_armor_effect = {
+	var:miv_accolade_artifact_armor_artifact ?= {
+		miv_accolade_artifact_release_item_effect = yes
+	}
+	remove_variable = miv_accolade_artifact_armor_artifact
+}
+
+miv_accolade_artifact_sync_armor_effect = {
+	if = {
+		limit = {
+			exists = var:miv_accolade_artifact_armor_artifact
+		}
+		var:miv_accolade_artifact_armor_artifact = {
+			miv_accolade_artifact_sync_item_effect = yes
+		}
+	}
+	else = {
+		remove_variable = miv_accolade_artifact_armor_artifact
+	}
+}
+
+miv_gui_cache_reset_effect = {
+	if = {
+		limit = {
+			is_ai = no
+		}
+		remove_character_flag = miv_gui_banners_ready
+		remove_character_flag = miv_gui_wardec_ready
+		remove_character_flag = miv_gui_character_ready
+	}
+}
+
+miv_wardec_hover_init_effect = {
+	if = {
+		limit = {
+			exists = scope:miv_enemy
+			has_game_rule = bannermen_mode_enabled
+			interactive_bannermen_foreign_enabled_trigger = yes
+			NOT = { miv_gui_wardec_cache_valid_trigger = yes }
+		}
+		set_variable = {
+			name = miv_wardec_hover_answering_count
+			value = miv_wardec_answering_count
+		}
+		set_variable = {
+			name = miv_wardec_hover_answering_strength
+			value = miv_wardec_answering_strength
+		}
+		set_variable = {
+			name = miv_wardec_hover_withheld_count
+			value = miv_wardec_withheld_count
+		}
+		set_variable = {
+			name = miv_wardec_hover_withheld_strength
+			value = miv_wardec_withheld_strength
+		}
+		set_variable = {
+			name = miv_wardec_hover_betraying_count
+			value = miv_wardec_betraying_count
+		}
+		set_variable = {
+			name = miv_wardec_hover_betraying_strength
+			value = miv_wardec_betraying_strength
+		}
+		set_variable = {
+			name = miv_wardec_hover_distant_count
+			value = miv_wardec_distant_count
+		}
+		set_variable = {
+			name = miv_wardec_hover_distant_strength
+			value = miv_wardec_distant_strength
+		}
+		set_variable = {
+			name = miv_wardec_hover_eligible_count
+			value = interactive_bannermen_eligible_count
+		}
+		set_variable = {
+			name = miv_wardec_hover_enemy
+			value = scope:miv_enemy
+		}
+		set_variable = {
+			name = miv_wardec_window_answering_strength
+			value = var:miv_wardec_hover_answering_strength
+		}
+		set_variable = {
+			name = miv_wardec_window_withheld_strength
+			value = var:miv_wardec_hover_withheld_strength
+		}
+		set_variable = {
+			name = miv_wardec_window_betraying_strength
+			value = var:miv_wardec_hover_betraying_strength
+		}
+		set_variable = {
+			name = miv_wardec_window_enemy
+			value = scope:miv_enemy
+		}
+		add_character_flag = { flag = miv_gui_wardec_ready days = 3 }
+	}
+}
+
+miv_accolade_artifact_unbind_item_effect = {
+	save_scope_as = miv_accolade_artifact_released_item
+	var:miv_accolade_artifact_accolade ?= {
+		if = {
+			limit = {
+				exists = var:miv_accolade_artifact_weapon_artifact
+				var:miv_accolade_artifact_weapon_artifact = scope:miv_accolade_artifact_released_item
+			}
+			remove_variable = miv_accolade_artifact_weapon_artifact
+		}
+		if = {
+			limit = {
+				exists = var:miv_accolade_artifact_armor_artifact
+				var:miv_accolade_artifact_armor_artifact = scope:miv_accolade_artifact_released_item
+			}
+			remove_variable = miv_accolade_artifact_armor_artifact
+		}
+	}
+	remove_variable = miv_accolade_artifact_accolade
+	remove_variable = miv_accolade_artifact_patron
+	if = {
+		limit = {
+			has_variable = miv_accolade_artifact_owns_transfer_lock
+		}
+		remove_variable = artifact_prevent_transfer
+		remove_variable = miv_accolade_artifact_owns_transfer_lock
+	}
+	if = {
+		limit = {
+			has_variable = miv_accolade_artifact_owns_decay_lock
+		}
+		hidden_effect = {
+			set_should_decay = yes
+		}
+		remove_variable = miv_accolade_artifact_owns_decay_lock
+	}
+	if = {
+		limit = {
+			has_variable = miv_accolade_artifact_owns_succession_lock
+		}
+		remove_variable = equipped_court_succession
+		remove_variable = miv_accolade_artifact_owns_succession_lock
+	}
+	remove_list_global_variable = {
+		name = miv_accolade_artifact_bound_artifacts
+		target = this
+	}
+}
+
+miv_accolade_artifact_steal_item_effect = {
+	save_scope_as = miv_accolade_artifact_stolen
+	scope:old_acclaimed_knight = {
+		save_scope_as = miv_accolade_artifact_slain_knight
+	}
+	artifact_owner = {
+		save_scope_as = miv_accolade_artifact_slayer
+		if = {
+			limit = {
+				exists = liege
+			}
+			liege = {
+				save_scope_as = miv_accolade_artifact_taker
+			}
+		}
+		else = {
+			save_scope_as = miv_accolade_artifact_taker
+		}
+	}
+	miv_accolade_artifact_find_patron_effect = yes
+	if = {
+		limit = {
+			exists = scope:miv_accolade_artifact_current_patron
+			scope:miv_accolade_artifact_taker = scope:miv_accolade_artifact_current_patron
+		}
+		if = {
+			limit = {
+				NOT = {
+					artifact_owner = scope:miv_accolade_artifact_current_patron
+				}
+			}
+			set_variable = {
+				name = suppress_artifact_notifications
+				value = yes
+				days = 1
+			}
+		}
+		miv_accolade_artifact_safekeep_item_effect = yes
+	}
+	else = {
+		miv_accolade_artifact_unbind_item_effect = yes
+		if = {
+			limit = {
+				NOT = {
+					artifact_owner = scope:miv_accolade_artifact_taker
+				}
+			}
+			set_variable = {
+				name = suppress_artifact_notifications
+				value = yes
+				days = 1
+			}
+			unequip_artifact_from_owner = yes
+			set_owner = {
+				target = scope:miv_accolade_artifact_taker
+			}
+		}
+		scope:miv_accolade_artifact_current_patron ?= {
+			if = {
+				limit = {
+					NOT = {
+						has_personal_artifact_claim = scope:miv_accolade_artifact_stolen
+					}
+					scope:miv_accolade_artifact_stolen = {
+						NOT = {
+							artifact_owner = scope:miv_accolade_artifact_current_patron
+						}
+					}
+				}
+				add_personal_artifact_claim = scope:miv_accolade_artifact_stolen
+			}
+			house ?= {
+				save_scope_as = miv_accolade_artifact_claim_house
+				if = {
+					limit = {
+						scope:miv_accolade_artifact_stolen = {
+							NOT = {
+								any_artifact_house_claimant = {
+									this = scope:miv_accolade_artifact_claim_house
+								}
+							}
+						}
+					}
+					add_house_artifact_claim = scope:miv_accolade_artifact_stolen
+				}
+			}
+			send_interface_toast = {
+				type = msg_artifact_lost
+				title = miv_accolade_artifact_stolen_lost
+				left_icon = scope:miv_accolade_artifact_slain_knight
+				right_icon = scope:miv_accolade_artifact_stolen
+				custom_tooltip = miv_accolade_artifact_stolen_lost_tt
+			}
+		}
+		scope:miv_accolade_artifact_taker = {
+			send_interface_toast = {
+				type = event_artifact_good
+				title = miv_accolade_artifact_stolen_won
+				left_icon = scope:miv_accolade_artifact_slayer
+				right_icon = scope:miv_accolade_artifact_stolen
+				custom_tooltip = miv_accolade_artifact_stolen_won_tt
+			}
+		}
+	}
+}
+
+miv_accolade_artifact_assign_effect = {
+	save_scope_as = miv_accolade_artifact_assigner
+	scope:miv_accolade_artifact_accolade = {
+		if = {
+			limit = {
+				scope:miv_accolade_artifact_artifact = {
+					artifact_slot_type = primary_armament
+				}
+			}
+			miv_accolade_artifact_recall_weapon_effect = yes
+			set_variable = {
+				name = miv_accolade_artifact_weapon_artifact
+				value = scope:miv_accolade_artifact_artifact
+			}
+		}
+		else = {
+			miv_accolade_artifact_recall_armor_effect = yes
+			set_variable = {
+				name = miv_accolade_artifact_armor_artifact
+				value = scope:miv_accolade_artifact_artifact
+			}
+		}
+	}
+	custom_tooltip = miv_accolade_artifact_assign_equip_tt
+	scope:miv_accolade_artifact_artifact = {
+		set_variable = {
+			name = miv_accolade_artifact_accolade
+			value = scope:miv_accolade_artifact_accolade
+		}
+		set_variable = {
+			name = miv_accolade_artifact_patron
+			value = scope:miv_accolade_artifact_assigner
+		}
+		set_variable = miv_accolade_artifact_owns_transfer_lock
+		set_variable = artifact_prevent_transfer
+		add_to_global_variable_list = {
+			name = miv_accolade_artifact_bound_artifacts
+			target = this
+		}
+		miv_accolade_artifact_sync_item_effect = yes
+		miv_accolade_artifact_ensure_watch_effect = yes
+	}
+}
+
+miv_accolade_artifact_ai_fill_accolade_effect = {
+	if = {
+		limit = {
+			miv_accolade_artifact_ai_enabled_trigger = yes
+			exists = accolade_owner
+			accolade_owner = {
+				is_ai = yes
+				is_alive = yes
+			}
+		}
+		clear_saved_scope = miv_accolade_artifact_ai_knight
+		if = {
+			limit = {
+				exists = scope:miv_accolade_artifact_next_knight
+			}
+			scope:miv_accolade_artifact_next_knight = {
+				save_scope_as = miv_accolade_artifact_ai_knight
+			}
+		}
+		else = {
+			acclaimed_knight ?= {
+				save_scope_as = miv_accolade_artifact_ai_knight
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:miv_accolade_artifact_ai_knight
+				scope:miv_accolade_artifact_ai_knight = {
+					is_alive = yes
+				}
+			}
+			save_scope_as = miv_accolade_artifact_accolade
+			if = {
+				limit = {
+					NOT = {
+						exists = var:miv_accolade_artifact_weapon_artifact
+					}
+				}
+				miv_accolade_artifact_ai_pick_weapon_effect = yes
+			}
+			else_if = {
+				limit = {
+					var:miv_accolade_artifact_weapon_artifact = {
+						rarity_level = common
+						miv_accolade_artifact_ai_upgradable_trigger = yes
+					}
+				}
+				miv_accolade_artifact_ai_pick_weapon_above_common_effect = yes
+			}
+			else_if = {
+				limit = {
+					var:miv_accolade_artifact_weapon_artifact = {
+						rarity_level = masterwork
+						miv_accolade_artifact_ai_upgradable_trigger = yes
+					}
+				}
+				miv_accolade_artifact_ai_pick_weapon_above_masterwork_effect = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						exists = var:miv_accolade_artifact_armor_artifact
+					}
+				}
+				miv_accolade_artifact_ai_pick_armor_effect = yes
+			}
+			else_if = {
+				limit = {
+					var:miv_accolade_artifact_armor_artifact = {
+						rarity_level = common
+						miv_accolade_artifact_ai_upgradable_trigger = yes
+					}
+				}
+				miv_accolade_artifact_ai_pick_armor_above_common_effect = yes
+			}
+			else_if = {
+				limit = {
+					var:miv_accolade_artifact_armor_artifact = {
+						rarity_level = masterwork
+						miv_accolade_artifact_ai_upgradable_trigger = yes
+					}
+				}
+				miv_accolade_artifact_ai_pick_armor_above_masterwork_effect = yes
+			}
+		}
+	}
+}
+
+miv_accolade_artifact_player_maintenance_effect = {
+	clear_saved_scope = miv_accolade_artifact_next_patron
+	clear_saved_scope = miv_accolade_artifact_next_knight
+	every_in_global_list = {
+		variable = miv_accolade_artifact_bound_artifacts
+		limit = {
+			miv_accolade_artifact_player_watched_trigger = yes
+			miv_accolade_artifact_needs_repair_trigger = yes
+		}
+		miv_accolade_artifact_sync_item_effect = yes
+	}
+}
+
+miv_accolade_artifact_ai_yearly_effect = {
+	if = {
+		limit = {
+			miv_accolade_artifact_ai_enabled_trigger = yes
+		}
+		clear_saved_scope = miv_accolade_artifact_next_patron
+		clear_saved_scope = miv_accolade_artifact_next_knight
+		every_ruler = {
+			limit = {
+				is_ai = yes
+				any_accolade = {
+					exists = acclaimed_knight
+				}
+			}
+			every_accolade = {
+				miv_accolade_artifact_ai_fill_accolade_effect = yes
+			}
+		}
+	}
+}
+
+miv_accolade_artifact_ai_pick_weapon_effect = {
+	clear_saved_scope = miv_accolade_artifact_artifact
+	accolade_owner = {
+		if = {
+			limit = {
+				any_character_artifact = {
+					artifact_slot_type = primary_armament
+					rarity_level = famed
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = primary_armament
+					rarity_level = famed
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+				save_scope_as = miv_accolade_artifact_artifact
+			}
+		}
+		else_if = {
+			limit = {
+				any_character_artifact = {
+					artifact_slot_type = primary_armament
+					rarity_level = masterwork
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = primary_armament
+					rarity_level = masterwork
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+				save_scope_as = miv_accolade_artifact_artifact
+			}
+		}
+		else_if = {
+			limit = {
+				any_character_artifact = {
+					artifact_slot_type = primary_armament
+					rarity_level = common
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = primary_armament
+					rarity_level = common
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+				save_scope_as = miv_accolade_artifact_artifact
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:miv_accolade_artifact_artifact
+			}
+			miv_accolade_artifact_assign_effect = yes
+		}
+	}
+	clear_saved_scope = miv_accolade_artifact_artifact
+}
+
+miv_accolade_artifact_ai_pick_armor_effect = {
+	clear_saved_scope = miv_accolade_artifact_artifact
+	accolade_owner = {
+		if = {
+			limit = {
+				any_character_artifact = {
+					artifact_slot_type = armor
+					rarity_level = famed
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = armor
+					rarity_level = famed
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+				save_scope_as = miv_accolade_artifact_artifact
+			}
+		}
+		else_if = {
+			limit = {
+				any_character_artifact = {
+					artifact_slot_type = armor
+					rarity_level = masterwork
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = armor
+					rarity_level = masterwork
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+				save_scope_as = miv_accolade_artifact_artifact
+			}
+		}
+		else_if = {
+			limit = {
+				any_character_artifact = {
+					artifact_slot_type = armor
+					rarity_level = common
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = armor
+					rarity_level = common
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+				save_scope_as = miv_accolade_artifact_artifact
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:miv_accolade_artifact_artifact
+			}
+			miv_accolade_artifact_assign_effect = yes
+		}
+	}
+	clear_saved_scope = miv_accolade_artifact_artifact
+}
+
+miv_accolade_artifact_ai_pick_weapon_above_common_effect = {
+	clear_saved_scope = miv_accolade_artifact_artifact
+	accolade_owner = {
+		if = {
+			limit = {
+				any_character_artifact = {
+					artifact_slot_type = primary_armament
+					rarity_level = famed
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = primary_armament
+					rarity_level = famed
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+				save_scope_as = miv_accolade_artifact_artifact
+			}
+		}
+		else_if = {
+			limit = {
+				any_character_artifact = {
+					artifact_slot_type = primary_armament
+					rarity_level = masterwork
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = primary_armament
+					rarity_level = masterwork
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+				save_scope_as = miv_accolade_artifact_artifact
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:miv_accolade_artifact_artifact
+			}
+			miv_accolade_artifact_assign_effect = yes
+		}
+	}
+	clear_saved_scope = miv_accolade_artifact_artifact
+}
+
+miv_accolade_artifact_ai_pick_weapon_above_masterwork_effect = {
+	clear_saved_scope = miv_accolade_artifact_artifact
+	accolade_owner = {
+		if = {
+			limit = {
+				any_character_artifact = {
+					artifact_slot_type = primary_armament
+					rarity_level = famed
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = primary_armament
+					rarity_level = famed
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+				save_scope_as = miv_accolade_artifact_artifact
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:miv_accolade_artifact_artifact
+			}
+			miv_accolade_artifact_assign_effect = yes
+		}
+	}
+	clear_saved_scope = miv_accolade_artifact_artifact
+}
+
+miv_accolade_artifact_ai_pick_armor_above_common_effect = {
+	clear_saved_scope = miv_accolade_artifact_artifact
+	accolade_owner = {
+		if = {
+			limit = {
+				any_character_artifact = {
+					artifact_slot_type = armor
+					rarity_level = famed
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = armor
+					rarity_level = famed
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+				save_scope_as = miv_accolade_artifact_artifact
+			}
+		}
+		else_if = {
+			limit = {
+				any_character_artifact = {
+					artifact_slot_type = armor
+					rarity_level = masterwork
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = armor
+					rarity_level = masterwork
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+				save_scope_as = miv_accolade_artifact_artifact
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:miv_accolade_artifact_artifact
+			}
+			miv_accolade_artifact_assign_effect = yes
+		}
+	}
+	clear_saved_scope = miv_accolade_artifact_artifact
+}
+
+miv_accolade_artifact_ai_pick_armor_above_masterwork_effect = {
+	clear_saved_scope = miv_accolade_artifact_artifact
+	accolade_owner = {
+		if = {
+			limit = {
+				any_character_artifact = {
+					artifact_slot_type = armor
+					rarity_level = famed
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					artifact_slot_type = armor
+					rarity_level = famed
+					miv_accolade_artifact_ai_candidate_trigger = yes
+				}
+				save_scope_as = miv_accolade_artifact_artifact
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:miv_accolade_artifact_artifact
+			}
+			miv_accolade_artifact_assign_effect = yes
+		}
+	}
+	clear_saved_scope = miv_accolade_artifact_artifact
+}
+
+miv_ai_artifacts_yearly_effect = {
+	random_ruler = {
+		limit = {
+			miv_ai_artifacts_candidate_trigger = yes
+		}
+		weight = {
+			base = 2
+			modifier = {
+				highest_held_title_tier = tier_kingdom
+				add = 1
+			}
+			modifier = {
+				highest_held_title_tier >= tier_empire
+				add = 2
+			}
+		}
+		add_character_flag = miv_ai_artifacts_received
+		save_scope_value_as = {
+			name = quality
+			value = 40
+		}
+		save_scope_value_as = {
+			name = wealth
+			value = 40
+		}
+		if = {
+			limit = {
+				NOT = {
+					any_character_artifact = {
+						artifact_slot_type = primary_armament
+					}
+				}
+			}
+			create_artifact_weapon_effect = {
+				OWNER = this
+				CREATOR = this
+				SET_WEAPON_TYPE = flag:no
+			}
+		}
+		else = {
+			create_artifact_armor_effect = {
+				OWNER = this
+				CREATOR = this
+				SET_ARMOR_TYPE = flag:no
+			}
+		}
+	}
+}

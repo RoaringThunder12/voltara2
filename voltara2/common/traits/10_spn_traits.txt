@@ -1,0 +1,1274 @@
+﻿supernatural_vampire = {
+	flag = blocks_getting_non_epidemic_disease # vanilla can_get_non_epidemic_disease_trigger reads this
+	icon = supernatural_vampire.dds
+	immortal = yes
+	flag = is_immortal
+	intrigue = 3
+	stewardship = 2
+	learning = 1
+	prowess_no_portrait = 10
+	can_have_children = no
+	no_prowess_loss_from_age = yes
+	
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+	ruler_designer_cost = 150
+	physical = yes
+	
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = supernatural_vampire
+			}
+			triggered_desc = {
+				trigger = { NOT = { has_trait = supernatural_vampire } }
+				desc = supernatural_vampire
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = supernatural_vampire
+						track = vampirism
+						value < 35
+					}
+				}
+				desc = trait_supernatural_vampire_1  # Fledgling Vampire
+			}
+			triggered_desc = {
+				trigger = {
+					AND = {
+						has_trait_xp = {
+							trait = supernatural_vampire
+							track = vampirism
+							value >= 35
+						}
+						has_trait_xp = {
+							trait = supernatural_vampire
+							track = vampirism
+							value < 71
+						}
+					}
+				}
+				desc = trait_supernatural_vampire_2  # Vampire
+			}
+			triggered_desc = {
+				trigger = {
+					AND = {
+						has_trait_xp = {
+							trait = supernatural_vampire
+							track = vampirism
+							value >= 71
+						}
+						has_trait_xp = {
+							trait = supernatural_vampire
+							track = vampirism
+							value < 100
+						}
+					}
+				}
+				desc = trait_supernatural_vampire_3  # Revered Vampire
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = supernatural_vampire
+						track = vampirism
+						value >= 100
+					}
+				}
+				desc = trait_supernatural_vampire_4  # Elder Vampire
+			}
+		}
+	}
+
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_supernatural_vampire_desc
+			}
+			triggered_desc = {
+				trigger = {
+					AND = {
+						has_character_flag = spn_has_conferred_sire 
+						has_character_flag = spn_has_conferred_progeny
+					}
+				}
+				desc = trait_spn_vampire_1_both_desc
+			}
+			triggered_desc = {
+				trigger = { 
+					has_character_flag = spn_has_conferred_sire 
+				}
+				desc = trait_spn_vampire_1_sire_desc
+			}
+			triggered_desc = {
+				trigger = { 
+					has_character_flag = spn_has_conferred_progeny 
+				}
+				desc = trait_spn_vampire_1_progeny_desc
+			}
+
+			desc = trait_supernatural_vampire_character_desc
+		}
+	}
+	
+	tracks = {
+		vampirism = {
+			20 = { #Fledgling Vampire
+			
+				monthly_vampire_lifestyle_xp_gain_mult = 0.05
+				intrigue = 1
+				diplomacy = 1
+				prowess_no_portrait = 8
+				movement_speed = 0.15
+				
+			}
+			40 = { #Vampire (Vampire)
+			
+				monthly_vampire_lifestyle_xp_gain_mult = 0.10
+				intrigue = 1
+				stewardship = 2
+				prowess_no_portrait = 8
+				movement_speed = 0.10
+				
+			}
+			60 = { #Vampire (Vampire)
+			
+				monthly_vampire_lifestyle_xp_gain_mult = 0.05
+				intrigue = 2
+				stewardship = 2
+				learning = 3
+				prowess_no_portrait = 9
+				long_reign_bonus_mult = 0.05
+
+			}
+			80 = { #Revered Vampire
+			
+				monthly_vampire_lifestyle_xp_gain_mult = 0.10
+				intrigue = 2
+				stewardship = 2
+				martial = 2
+				prowess_no_portrait = 10
+				dread_decay_mult = -0.05
+
+			}
+			100 = { #Elder Vampire
+			
+				monthly_vampire_lifestyle_xp_gain_mult = 0.05
+				intrigue = 4
+				stewardship = 2
+				martial = 2
+				learning = 2
+				prowess_no_portrait = 10
+				scheme_discovery_chance_mult = 0.15
+				domain_limit = 1
+				long_reign_bonus_mult = 0.10
+
+			}
+		}
+		#blood_magic = {
+		#	25 = {	
+		#		attraction_opinion = 5
+		#		stewardship = 1
+		#		learning = 1
+		#		courtly_opinion = 5
+		#		monthly_prestige = 0.25
+		#	}
+		#	50 = {
+		#		attraction_opinion = 5
+		#		stewardship = 2
+		#		learning = 1
+		#		courtly_opinion = 10
+		#		monthly_prestige = 0.5
+		#	}
+		#	75 = {
+		#		attraction_opinion = 5
+		#		stewardship = 2
+		#		learning = 1
+		#		courtly_opinion = 10
+		#		monthly_prestige = 0.5
+		#	}
+		#	100 = {
+		#		attraction_opinion = 5
+		#		stewardship = 2
+		#		learning = 1
+		#		courtly_opinion = 10
+		#		monthly_prestige = 0.5
+		#	}
+		#}
+	}
+	
+	compatibility = {
+		witch = -10
+		supernatural_werewolf = -20
+		supernatural_hybrid = -10
+		supernatural_hunter = -30
+		spn_known_hunter = -30
+	}
+	
+	opposites = {
+		demon0
+		demon1
+		demon2
+		witch_hunter
+		supernatural_werewolf
+		supernatural_hybrid
+		supernatural_hunter
+	}
+	
+}
+
+# 2.34 -- True Monster Hunter, the capstone of the monster_hunter tree (witcher_perk), modelled on spn_true_vampire
+# below. Removed by spn_initiate.3002 with the rest of the hunter identity, so it needs no opposites of its own.
+# Icon reuses supernatural_hunter.dds -- there is no true_monster_hunter.dds; drop one in and change this line.
+spn_true_monster_hunter = { #True Monster Hunter Trait
+	icon = supernatural_hunter.dds
+	shown_in_ruler_designer = no
+	physical = yes
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+
+	prowess = 5
+	martial = 3
+	monthly_prestige = 0.5
+}
+
+spn_true_vampire = { #True Vampire Trait
+	icon = true_vampire.dds
+	shown_in_ruler_designer = no
+	physical = yes
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+
+	prowess = 5
+	intrigue = 2
+	learning = 4
+	spouse_opinion = 50
+	max_personal_schemes_add = 1
+	
+}
+
+spn_known_vampire = { #Known Vampire Trait
+	shown_in_ruler_designer = no
+
+	same_opinion = 20
+	dread_baseline_add = 15
+	opposite_opinion = -15
+
+	triggered_opinion = {
+		parameter = spn_vampirism_illegal
+		opinion_modifier = spn_vampirism_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = spn_vampirism_shunned
+		opinion_modifier = spn_vampirism_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	# 2.36 (CK3 1.20) -- known for what you are, in a faith that outlaws your kind: that faith matters less to
+	# you, and one that only shuns your kind a little less. Accepted or Virtuous: no change. It stacks with
+	# zealous (+100% loss) and cynical (-75% loss); a cynic is never charged at all. It is on this trait, not the
+	# hidden one: kept secret, you keep your faith as fully as anyone (zz_spn_fulfillment_effects.txt).
+	rite_modifier = {
+		parameter = spn_vampirism_illegal
+		character_spiritual_fulfillment_gain_mult = -0.25
+		character_spiritual_fulfillment_loss_mult = -0.25
+	}
+	rite_modifier = {
+		parameter = spn_vampirism_shunned
+		character_spiritual_fulfillment_gain_mult = -0.1
+		character_spiritual_fulfillment_loss_mult = -0.1
+	}
+
+	opposites = {
+		supernatural_hunter
+	}
+
+}
+
+
+#Werewolf Traits
+supernatural_werewolf = {
+	flag = blocks_getting_non_epidemic_disease # vanilla can_get_non_epidemic_disease_trigger reads this
+	icon = supernatural_werewolf.dds
+	life_expectancy = 10
+	immortal = no
+	martial = 2 # 2.38e: was 3 (Thomas, 9 Oct: wolves reached about 100 Martial)
+	diplomacy = 2
+	learning = 1
+	prowess = 15
+
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+	ruler_designer_cost = 100
+	physical = yes
+	
+	# 2.32 -- the werewolf had NO name block at all, while the vampire renames by tier
+	# (Fledgling -> Vampire -> Revered -> Elder). Five power tiers were invisible in the UI, so a
+	# track that IS advancing read as nothing happening -- which is a large part of why werewolf
+	# progress felt absent as well as slow.
+	#
+	# The 50 boundary is deliberate: lycanthropy >= 50 is what unlocks the `werewolves` MAA
+	# regiment, so the name changes exactly when the player gains something real.
+	# These are loc keys -- rename freely in 10_spn_traits_l_english.yml.
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = supernatural_werewolf
+			}
+			triggered_desc = {
+				trigger = { NOT = { has_trait = supernatural_werewolf } }
+				desc = supernatural_werewolf
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = supernatural_werewolf track = lycanthropy value < 20 }
+				}
+				desc = trait_supernatural_werewolf_1  # Fledgling Werewolf
+			}
+			triggered_desc = {
+				trigger = {
+					AND = {
+						has_trait_xp = { trait = supernatural_werewolf track = lycanthropy value >= 20 }
+						has_trait_xp = { trait = supernatural_werewolf track = lycanthropy value < 50 }
+					}
+				}
+				desc = trait_supernatural_werewolf_2  # Werewolf
+			}
+			triggered_desc = {
+				trigger = {
+					AND = {
+						has_trait_xp = { trait = supernatural_werewolf track = lycanthropy value >= 50 }
+						has_trait_xp = { trait = supernatural_werewolf track = lycanthropy value < 80 }
+					}
+				}
+				desc = trait_supernatural_werewolf_3  # Seasoned Werewolf (2.38e; was Feral) - MAA regiment unlocks here
+			}
+			triggered_desc = {
+				trigger = {
+					AND = {
+						has_trait_xp = { trait = supernatural_werewolf track = lycanthropy value >= 80 }
+						has_trait_xp = { trait = supernatural_werewolf track = lycanthropy value < 100 }
+					}
+				}
+				desc = trait_supernatural_werewolf_4  # Dread Werewolf
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = { trait = supernatural_werewolf track = lycanthropy value >= 100 }
+				}
+				desc = trait_supernatural_werewolf_5  # Elder Werewolf (2.38e; was Primal)
+			}
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_supernatural_werewolf_desc
+			}
+			triggered_desc = {
+				trigger = { has_character_flag = spn_has_conferred_sire }
+				desc = trait_spn_werewolf_3_confer_desc
+			}
+			triggered_desc = {
+				trigger = { 
+					has_character_flag = spn_has_father_sire 
+					has_character_flag = spn_has_mother_sire 
+				}
+				desc = trait_spn_werewolf_3_both_parents_desc
+			}
+			triggered_desc = {
+				trigger = { has_character_flag = spn_has_mother_sire }
+				desc = trait_spn_werewolf_3_mother_desc
+			}
+			triggered_desc = {
+				trigger = { has_character_flag = spn_has_father_sire }
+				desc = trait_spn_werewolf_3_father_desc
+			}
+			desc = trait_supernatural_werewolf_character_desc
+		}
+	}
+	
+	tracks = {
+		lycanthropy = {
+			20 = {
+			
+				life_expectancy = 8
+				monthly_werewolf_lifestyle_xp_gain_mult = 0.05
+				martial = 1 # 2.38e: was 2
+				diplomacy = 1
+				prowess = 7
+				dynasty_opinion = 10
+				
+			}
+			40 = {
+			
+				life_expectancy = 8
+				monthly_werewolf_lifestyle_xp_gain_mult = 0.05
+				martial = 1 # 2.38e: was 2
+				prowess = 7
+				supernatural_animal_max_size_add = 1
+				inbreeding_chance = -0.15
+
+			}
+			60 = {
+			
+				life_expectancy = 8
+				monthly_werewolf_lifestyle_xp_gain_mult = 0.05
+				martial = 1 # 2.38e: was 2
+				diplomacy = 1
+				prowess = 7
+				no_prowess_loss_from_age = yes
+			}
+			80 = {
+			
+				life_expectancy = 8
+				monthly_werewolf_lifestyle_xp_gain_mult = 0.05
+				martial = 1 # 2.38e: was 2
+				prowess = 7
+			}
+			100 = {
+			
+				life_expectancy = 8
+				monthly_werewolf_lifestyle_xp_gain_mult = 0.05
+				martial = 1 # 2.38e: was 2
+				diplomacy = 1
+				prowess = 7
+				supernatural_monster_max_size_add = 1
+				max_personal_schemes_add = 1
+				powerful_vassal_opinion = 15
+
+			}
+		}
+		# 2.37 -- PACK STANDING (§13, §4.2). The track was written and commented out; it is the pack's rank now.
+		wolf_pack = {
+			25 = {		
+				attraction_opinion = 5
+				stewardship = 1
+				learning = 1
+				courtly_opinion = 5
+				monthly_prestige = 0.25
+			}
+			50 = {
+				attraction_opinion = 5
+				stewardship = 2
+				learning = 1
+				courtly_opinion = 10
+				monthly_prestige = 0.5
+			}
+			75 = {
+				attraction_opinion = 5
+				stewardship = 2
+				learning = 1
+				courtly_opinion = 10
+				monthly_prestige = 0.5
+			}
+			100 = {
+				attraction_opinion = 5
+				stewardship = 2
+				learning = 1
+				courtly_opinion = 10
+				monthly_prestige = 0.5
+			}
+		}
+	}
+	
+	compatibility = {
+		witch = -10
+		supernatural_vampire = -20
+		supernatural_hybrid = -10
+		supernatural_hunter = -30
+	}
+	
+	opposites = {
+		demon0
+		demon1
+		demon2
+		witch_hunter
+		supernatural_vampire
+		supernatural_hybrid
+		supernatural_hunter
+	}
+	
+}
+
+spn_known_werewolf = {
+	shown_in_ruler_designer = no
+
+	same_opinion = 25
+	opposite_opinion = -30
+
+	triggered_opinion = {
+		parameter = spn_lycanthropy_illegal
+		opinion_modifier =  spn_lycanthropy_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter =  spn_lycanthropy_shunned
+		opinion_modifier =  spn_lycanthropy_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+	
+	# 2.36 (CK3 1.20) -- known for what you are, in a faith that outlaws your kind: that faith matters less to
+	# you, and one that only shuns your kind a little less. Accepted or Virtuous: no change. It stacks with
+	# zealous (+100% loss) and cynical (-75% loss); a cynic is never charged at all. It is on this trait, not the
+	# hidden one: kept secret, you keep your faith as fully as anyone (zz_spn_fulfillment_effects.txt).
+	rite_modifier = {
+		parameter = spn_lycanthropy_illegal
+		character_spiritual_fulfillment_gain_mult = -0.25
+		character_spiritual_fulfillment_loss_mult = -0.25
+	}
+	rite_modifier = {
+		parameter = spn_lycanthropy_shunned
+		character_spiritual_fulfillment_gain_mult = -0.1
+		character_spiritual_fulfillment_loss_mult = -0.1
+	}
+
+	opposites = {
+		supernatural_hunter
+	}
+	
+}
+
+spn_true_werewolf = {
+	icon = true_werewolf.dds
+	shown_in_ruler_designer = no
+	physical = yes
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+
+	prowess = 5
+	life_expectancy = 20
+	martial = 2
+	knight_limit = 2
+	vassal_limit = 2
+	domain_limit = 2
+	men_at_arms_limit = 1
+	
+}
+
+#Hybrid Traits
+supernatural_hybrid = {
+	flag = blocks_getting_non_epidemic_disease # vanilla can_get_non_epidemic_disease_trigger reads this
+	icon = supernatural_hybrid.dds
+	immortal = yes
+	flag = is_immortal
+	intrigue = 3
+	martial = 2 # 2.38e: was 3, as the werewolf
+	learning = 2
+	prowess = 18
+	fertility = -0.15
+	no_prowess_loss_from_age = yes
+
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+	ruler_designer_cost = 150
+	physical = yes
+	#good = yes	#commented out because game update 1.9 shows errors because trait is not genetic
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_supernatural_hybrid_desc
+			}
+			triggered_desc = {
+				trigger = { has_character_flag = spn_has_conferred_sire }
+				desc = trait_spn_hybrid_1_sire_desc
+			}
+			triggered_desc = {
+				trigger = { 
+					has_character_flag = spn_has_father_sire 
+					has_character_flag = spn_has_mother_sire 
+				}
+				desc = trait_spn_hybrid_1_both_parents_desc
+			}
+			triggered_desc = {
+				trigger = { has_character_flag = spn_has_mother_sire }
+				desc = trait_spn_hybrid_1_mother_desc
+			}
+			triggered_desc = {
+				trigger = { has_character_flag = spn_has_father_sire }
+				desc = trait_spn_hybrid_1_father_desc
+			}
+			triggered_desc = {
+				trigger = { 
+					has_character_flag = spn_has_conferred_progeny 
+				}
+				desc = trait_spn_hybrid_1_progeny_desc
+			}
+			desc = trait_supernatural_hybrid_character_desc
+		}
+	}
+	
+	tracks = {
+		hybrid_vampirism = {
+			20 = {
+			
+				monthly_hybrid_lifestyle_xp_gain_mult = 0.05
+				intrigue = 2
+				prowess_no_portrait = 6
+				
+			}
+			40 = {
+			
+				monthly_hybrid_lifestyle_xp_gain_mult = 0.05
+				intrigue = 2
+				prowess_no_portrait = 7
+
+			}
+			60 = {
+			
+				monthly_hybrid_lifestyle_xp_gain_mult = 0.05
+				intrigue = 2
+				stewardship = 1
+				prowess_no_portrait = 8
+
+			}
+			80 = {
+			
+				monthly_hybrid_lifestyle_xp_gain_mult = 0.05
+				intrigue = 2
+				prowess_no_portrait = 9
+
+			}
+			100 = {
+			
+				monthly_hybrid_lifestyle_xp_gain_mult = 0.05
+				intrigue = 2
+				stewardship = 1
+				prowess_no_portrait = 10
+
+			}
+		}
+		hybrid_lycanthropy = {
+			20 = {
+			
+				monthly_hybrid_lifestyle_xp_gain_mult = 0.05
+				martial = 1 # 2.38e: was 2
+				diplomacy = 1
+				prowess = 4
+
+			}
+			40 = {
+			
+				monthly_hybrid_lifestyle_xp_gain_mult = 0.05
+				martial = 1 # 2.38e: was 2
+				fertility = 0.05
+				prowess = 4
+
+			}
+			60 = {
+			
+				monthly_hybrid_lifestyle_xp_gain_mult = 0.05
+				martial = 1 # 2.38e: was 2
+				diplomacy = 1
+				prowess = 4
+
+			}
+			80 = {
+			
+				monthly_hybrid_lifestyle_xp_gain_mult = 0.05
+				martial = 1 # 2.38e: was 2
+				fertility = 0.05
+				prowess = 4
+
+			}
+			100 = {
+			
+				monthly_hybrid_lifestyle_xp_gain_mult = 0.05
+				martial = 1 # 2.38e: was 2
+				diplomacy = 1
+				prowess = 4
+
+			}
+		}
+		# 2.37 -- Pack Standing, the werewolf's own track: a wolf who becomes a hybrid keeps his place (§13.3b).
+		wolf_pack = {
+			25 = {		
+				attraction_opinion = 5
+				stewardship = 1
+				learning = 1
+				courtly_opinion = 5
+				monthly_prestige = 0.25
+			}
+			50 = {
+				attraction_opinion = 5
+				stewardship = 2
+				learning = 1
+				courtly_opinion = 10
+				monthly_prestige = 0.5
+			}
+			75 = {
+				attraction_opinion = 5
+				stewardship = 2
+				learning = 1
+				courtly_opinion = 10
+				monthly_prestige = 0.5
+			}
+			100 = {
+				attraction_opinion = 5
+				stewardship = 2
+				learning = 1
+				courtly_opinion = 10
+				monthly_prestige = 0.5
+			}
+		}
+	}
+	
+	compatibility = {
+		witch = -10
+		supernatural_vampire = -10
+		supernatural_werewolf = -10
+		supernatural_hunter = -30
+	}
+	
+	opposites = {
+		demon0
+		demon1
+		demon2
+		witch_hunter
+		supernatural_vampire
+		supernatural_werewolf
+		supernatural_hunter
+	}
+	
+}
+
+spn_known_hybrid = {
+	shown_in_ruler_designer = no
+
+	same_opinion = 35
+	opposite_opinion = -10
+	dread_baseline_add = 20
+
+	triggered_opinion = {
+		parameter = spn_hybrid_illegal
+		opinion_modifier = spn_hybrid_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = spn_hybrid_shunned
+		opinion_modifier = spn_hybrid_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+	
+	# 2.36 (CK3 1.20) -- known for what you are, in a faith that outlaws your kind: that faith matters less to
+	# you, and one that only shuns your kind a little less. Accepted or Virtuous: no change. It stacks with
+	# zealous (+100% loss) and cynical (-75% loss); a cynic is never charged at all. It is on this trait, not the
+	# hidden one: kept secret, you keep your faith as fully as anyone (zz_spn_fulfillment_effects.txt).
+	rite_modifier = {
+		parameter = spn_hybrid_illegal
+		character_spiritual_fulfillment_gain_mult = -0.25
+		character_spiritual_fulfillment_loss_mult = -0.25
+	}
+	rite_modifier = {
+		parameter = spn_hybrid_shunned
+		character_spiritual_fulfillment_gain_mult = -0.1
+		character_spiritual_fulfillment_loss_mult = -0.1
+	}
+
+	opposites = {
+		supernatural_hunter
+	}
+	
+}
+
+#spn_fae
+
+#spn_halffae
+
+#spn_shapeshifter
+
+
+#Hunter Traits
+supernatural_hunter = {
+	icon = supernatural_hunter.dds
+	life_expectancy = 5
+	monthly_hunter_lifestyle_xp_gain_mult = 0.10
+	advantage = 2
+	diplomacy = 3
+	learning = 2
+	prowess = 4
+
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+	ruler_designer_cost = 100
+	category = fame 
+	#good = yes	#commented out because game update 1.9 shows errors because trait is not genetic
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_supernatural_hunter_desc
+			}
+			triggered_desc = {
+				trigger = { has_character_flag = spn_has_hunter_trainer }
+				desc = trait_spn_hunter_3_confer_desc
+			}
+			desc = trait_supernatural_hunter_desc
+		}
+	}
+	
+	tracks = {
+		monster_hunting = {
+			25 = {
+			
+				monthly_hunter_lifestyle_xp_gain_mult = 0.05
+				diplomacy = 2
+				prowess = 3
+				advantage = 2
+				
+			}
+			50 = {
+			
+				monthly_hunter_lifestyle_xp_gain_mult = 0.05
+				diplomacy = 3
+				prowess = 3
+				advantage = 1
+				knight_effectiveness_mult = 0.15
+				general_opinion = 10
+
+			}
+			75 = {
+			
+				monthly_hunter_lifestyle_xp_gain_mult = 0.05
+				diplomacy = 2
+				prowess = 3
+				advantage = 1
+				learning = 4
+				holy_order_hire_cost_mult = -0.15
+
+			}
+			100 = {
+			
+				monthly_hunter_lifestyle_xp_gain_mult = 0.05
+				diplomacy = 3
+				prowess = 3
+				advantage = 1
+
+			}
+		}
+		witch_hunting = {
+			25 = {
+			
+				monthly_hunter_lifestyle_xp_gain_mult = 0.05
+				intrigue = 2
+				learning = 2
+				stewardship = 2
+				owned_hostile_scheme_success_chance_add = 4
+				wh_spec_BH_terrain_cancel_negative_supply = yes
+				wh_spec1_terrain_cancel_negative_supply = yes
+				life_expectancy = 4
+
+			}
+			50 = {
+			
+				wh_spec2_terrain_cancel_negative_supply = yes
+				monthly_hunter_lifestyle_xp_gain_mult = 0.05
+				learning = 2
+				prowess = 3
+				life_expectancy = 4
+			}
+			75 = {
+			
+				monthly_hunter_lifestyle_xp_gain_mult = 0.05
+				owned_hostile_scheme_success_chance_add = 10
+				monthly_piety_gain_mult = 0.1
+				dread_baseline_add = 10
+				advantage = 1
+				stewardship = 3
+
+			}
+			100 = {
+			
+				monthly_hunter_lifestyle_xp_gain_mult = 0.05
+				diplomacy = 2
+				diplomatic_range_mult = 1
+				wh_spec3_terrain_cancel_negative_supply = yes
+				advantage = 1
+
+			}
+		}
+	}
+	
+	compatibility = {
+		source = -5
+		witch = -10
+		witch_hunter = 15
+		supernatural_vampire = -15
+		supernatural_werewolf = -15
+		supernatural_hybrid = -30
+	}
+	
+	opposites = {
+		demon0
+		demon1
+		demon2
+		supernatural_vampire
+		supernatural_werewolf
+		supernatural_hybrid
+		witch
+		necromancer
+		warlock
+	}
+	
+}
+
+spn_known_hunter = {
+	shown_in_ruler_designer = no
+
+	same_opinion = 15
+	opposite_opinion = -20
+
+	triggered_opinion = {
+		parameter = spn_hunter_illegal
+		opinion_modifier = spn_hunter_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = spn_hunter_shunned
+		opinion_modifier = spn_hunter_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+	
+	# 2.36 (CK3 1.20) -- known for what you are, in a faith that outlaws your kind: that faith matters less to
+	# you, and one that only shuns your kind a little less. Accepted or Virtuous: no change. It stacks with
+	# zealous (+100% loss) and cynical (-75% loss); a cynic is never charged at all. It is on this trait, not the
+	# hidden one: kept secret, you keep your faith as fully as anyone (zz_spn_fulfillment_effects.txt).
+	rite_modifier = {
+		parameter = spn_hunter_illegal
+		character_spiritual_fulfillment_gain_mult = -0.25
+		character_spiritual_fulfillment_loss_mult = -0.25
+	}
+	rite_modifier = {
+		parameter = spn_hunter_shunned
+		character_spiritual_fulfillment_gain_mult = -0.1
+		character_spiritual_fulfillment_loss_mult = -0.1
+	}
+
+	opposites = {
+		supernatural_vampire
+		supernatural_werewolf
+		supernatural_hybrid
+	}
+}
+
+##############################################################
+### Infected Wound — werewolf turning incubation (temporary) ###
+### XP on the "infection" track (0-100) IS the score.       ###
+### TRACK MECHANIC: total = base + EVERY reached level        ###
+### (CUMULATIVE). Level blocks below are DELTAS; the totals   ###
+### they sum to are noted per line.                           ###
+##############################################################
+ww_infected_wound = {
+	icon = werewolf_scratch.dds
+	category = health
+	physical = yes
+	immortal = no
+	disables_combat_leadership = yes   # Fevered and failing, the afflicted cannot lead armies while turning. (Top-level: trait flags can't be track-gated, so this applies for the whole incubation rather than only at the Dangerous tier.)
+
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+	shown_in_ruler_designer = no
+
+	# Tier label follows the infection track XP
+	name = {
+		first_valid = {
+			# scope guards (validation / no-character scope) BEFORE any character trigger
+			triggered_desc = { trigger = { NOT = { exists = this } } desc = trait_ww_infected_wound_1 }
+			triggered_desc = { trigger = { NOT = { has_trait = ww_infected_wound } } desc = trait_ww_infected_wound_1 }
+			triggered_desc = { trigger = { has_trait_xp = { trait = ww_infected_wound track = infection value < 20 } } desc = trait_ww_infected_wound_1 } # Mild
+			triggered_desc = { trigger = { has_trait_xp = { trait = ww_infected_wound track = infection value < 40 } } desc = trait_ww_infected_wound_2 } # Worsening
+			triggered_desc = { trigger = { has_trait_xp = { trait = ww_infected_wound track = infection value < 60 } } desc = trait_ww_infected_wound_3 } # Dangerous
+			triggered_desc = { trigger = { has_trait_xp = { trait = ww_infected_wound track = infection value < 80 } } desc = trait_ww_infected_wound_4 } # Severe
+			desc = trait_ww_infected_wound_5 # Critical
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = { trigger = { NOT = { exists = this } } desc = trait_ww_infected_wound_desc }
+			desc = trait_ww_infected_wound_character_desc
+		}
+	}
+
+	# ===== Tier 1 / Mild (XP 0-19) — always-on base =====
+	# Totals at Mild: health -0.75, martial -2, intrigue -1, prowess -3, fertility -5%
+	health = -0.75
+	martial = -2
+	intrigue = -1
+	prowess = -3
+	fertility = -0.05
+
+	# martial/prowess get steeper each tier (Thomas: -2 martial, -3 prowess PER LEVEL, cumulative)
+	tracks = {
+		infection = {
+			# --- deltas; cumulative totals shown per tier ---
+			20 = {  # Tier 2 / Worsening   totals: health -1.0,  martial -4, prowess -6,  fertility -10%, +5% stress
+				health = -0.25
+				martial = -2
+				prowess = -3
+				fertility = -0.05
+				stress_gain_mult = 0.05
+			}
+			40 = {  # Tier 3 / Dangerous   totals: health -1.25, martial -6, prowess -9,  fertility -15%, +10% stress (combat leadership disabled trait-wide; see top of trait)
+				health = -0.25
+				martial = -2
+				prowess = -3
+				fertility = -0.05
+				stress_gain_mult = 0.05
+			}
+			60 = {  # Tier 4 / Severe      totals: health -1.75, martial -8, prowess -12, fertility -25%, +15% stress, dread -5
+				health = -0.5
+				martial = -2
+				prowess = -3
+				fertility = -0.10
+				stress_gain_mult = 0.05
+				dread_baseline_add = -5
+			}
+			80 = {  # Tier 5 / Critical    totals: health -2.5,  martial -10, prowess -15, fertility -45%, +20% stress, dread -10
+				health = -0.75
+				martial = -2
+				prowess = -3
+				fertility = -0.20
+				stress_gain_mult = 0.05
+				dread_baseline_add = -5
+			}
+		}
+	}
+}
+
+########################################################################################
+# education_learning_5 - RESTORED FROM VANILLA 1.19
+#
+# 00_traits_magic.txt (witchcraft half) overrides this vanilla trait. Its copy predates a
+# vanilla update and lost two things that were never meant to change:
+#   - domain_limit 3 -> 1   (every other level-5 education gives 3; this quietly cost two
+#                            domain slots to EVERY Scholarly-educated ruler in the game, AI
+#                            included). Reported by Angel DeStaar, Jun 2026.
+#   - county_fertility_growth_mult was deleted outright.
+# The only deliberate change was intrigue lifestyle XP -> magic lifestyle XP, which is kept.
+# This file loads after 00_traits_magic.txt and traits replace wholesale, so re-declaring the
+# whole trait here restores vanilla without editing the witchcraft author's file.
+########################################################################################
+education_learning_5 = {
+	minimum_age = 16
+	learning = 10
+	intrigue = 3
+	category = education
+	monthly_learning_lifestyle_xp_gain_mult = 0.5
+	monthly_magic_lifestyle_xp_gain_mult = 0.25
+	development_growth = 0.1
+	county_fertility_growth_mult = small_county_fertility_growth_gain
+	domain_limit = 3
+
+	culture_modifier = {
+		parameter = prowess_from_religious_traits
+		prowess = 4
+	}
+
+	culture_modifier = {
+		parameter = innovation_from_learning_traits
+		cultural_head_fascination_mult = 0.25
+	}
+
+	culture_modifier = {
+		parameter = build_bonuses_on_religious_traits
+		church_holding_build_speed = -0.2
+		church_holding_holding_build_speed = -0.2
+		church_holding_build_gold_cost = -0.05
+	}
+
+	culture_modifier = {
+		parameter = elephant_bonuses_for_rank_4_education
+		world_innovation_elephants_development_growth_factor = 0.3
+		elephant_cavalry_maintenance_mult = -0.2
+		elephant_cavalry_toughness_mult = 0.1
+		elephant_cavalry_screen_add = 20
+		jungle_attrition_mult = -0.35
+	}
+
+	ruler_designer_cost = 150
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_education_learning_5_desc
+			}
+			desc = trait_education_learning_5_character_desc
+		}
+	}
+
+	random_creation_weight = 0
+	group = education_learning
+	level = 5
+	flag = level_5_education
+	flag = civilian_province
+	flag = gnostic_learning_piety_trait
+}
+
+########################################################################################
+# heresiarch - RESTORED FROM VANILLA 1.19
+# 00_traits_magic.txt's copy predates a vanilla update and lost monthly_influence = 0.75
+# (the Roads to Power influence yield). Supernatural's magic XP and the higher ruler-designer
+# cost are kept; everything else is vanilla's current text.
+########################################################################################
+heresiarch = {
+	category = fame
+	martial = 2
+	learning = 2
+	prowess = 2
+
+	same_faith_opinion = 10
+
+	monthly_influence = 0.75          # restored from vanilla
+	monthly_magic_lifestyle_xp_gain_mult = 0.1   # Supernatural
+	
+	advantage_against_coreligionists = 5
+
+	ai_war_chance = 1
+	
+	ruler_designer_cost = 70          # Supernatural (vanilla is 50)
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_heresiarch_desc
+			}
+			desc = trait_heresiarch_character_desc
+		}
+	}
+
+	ai_zeal = 20
+	flag = gnostic_learning_piety_trait
+}
+
+########################################################################################
+# leper - VANILLA 1.20, VERBATIM (was 1.19; 1.20 added flag = lowers_health)
+# The copy in 00_traits_magic.txt contains NOTHING Supernatural. Its only difference from
+# vanilla is prowess = -10, which is simply vanilla's OWN older value: Paradox since replaced
+# it with prowess_mult = -0.8 and added dread_baseline_add / dread_loss_mult. Pure staleness.
+# This copy exists to out-rank that one. RE-DIFF AFTER EVERY CK3 UPDATE.
+########################################################################################
+leper = {
+	health = -1.5
+	prowess_mult = -0.8
+	fertility = -0.95
+	category = health
+	flag = lowers_health
+
+	dread_baseline_add = -20
+	dread_loss_mult = 1
+
+	attraction_opinion = -35
+	general_opinion = -10
+
+	ruler_designer_cost = -30
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_leper_desc
+			}
+			desc = trait_leper_character_desc
+		}
+	}
+
+	ai_energy = -15
+}
+
+########################################################################################
+# erudite (was `scholar` until CK3 1.20, which renamed the trait; saves convert, script does not)
+# Vanilla 1.20's block with Supernatural's deliberate work re-applied: learning 3 -> 5, magic lifestyle XP,
+# mr_add_option_terrain_advantage. RE-DIFF AFTER EVERY CK3 UPDATE: this is a vanilla shadow.
+########################################################################################
+erudite = {
+	category = lifestyle
+
+	learning = 5                                 # Supernatural (vanilla is 3)
+	owned_personal_scheme_success_chance_add = 10
+	owned_hostile_scheme_success_chance_add = 10
+	development_growth_factor = 0.15
+	development_decline_factor = -0.15
+	county_fertility_growth_mult = 0.15
+	monthly_magic_lifestyle_xp_gain_mult = 0.2   # Supernatural
+	mr_add_option_terrain_advantage = 1          # Supernatural
+
+	ruler_designer_cost = 50
+
+	culture_modifier = {
+		parameter = prowess_from_religious_traits
+		prowess = 2
+	}
+
+	culture_modifier = {
+		parameter = innovation_from_learning_traits
+		cultural_head_fascination_mult = 0.1
+	}
+
+	culture_modifier = {
+		parameter = build_bonuses_on_religious_traits
+		church_holding_build_speed = -0.1
+		church_holding_holding_build_speed = -0.1
+		church_holding_build_gold_cost = -0.05
+		church_holding_holding_build_gold_cost = -0.05
+	}
+
+	culture_modifier = { #for FP3's "Irrigation Expert" tradition
+		parameter = innovative_traits_more_valued
+		drylands_tax_mult = 0.1
+		desert_tax_mult = 0.1
+		desert_mountains_tax_mult = 0.1
+	}
+
+	ai_rationality = 30
+
+	compatibility = {
+		whole_of_body = @pos_compat_medium
+		erudite = @pos_compat_medium
+		theologian = @pos_compat_medium
+		lifestyle_gardener = @pos_compat_medium
+		intellect_good_1 = @pos_compat_low
+		intellect_good_2 = @pos_compat_low
+		intellect_good_3 = @pos_compat_low
+		pensive = @pos_compat_low
+		shrewd = @pos_compat_low
+		diligent = @pos_compat_low
+		lazy = @neg_compat_low
+		intellect_bad_1 = @neg_compat_low
+		intellect_bad_2 = @neg_compat_low
+		intellect_bad_3 = @neg_compat_low
+	}
+
+	flag = gnostic_learning_piety_trait
+}

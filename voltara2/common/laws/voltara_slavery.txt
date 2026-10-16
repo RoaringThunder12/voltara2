@@ -1,0 +1,16 @@
+﻿voltara_slavery_banned = {
+ law_group_type = voltara_slavery_laws index = 0
+ can_realm_have = { always = yes }
+ should_start_with = { NOT = { voltara_historical_slavery_realm = yes } }
+ can_pass = { is_landed = yes }
+ pass_cost = { prestige = 300 }
+ on_after_pass = { voltara_abolish_slavery = yes voltara_report_slavery_crime = yes }
+}
+voltara_slavery_legal = {
+ law_group_type = voltara_slavery_laws index = 1 flag = voltara_slavery_legal
+ can_realm_have = { always = yes }
+ should_start_with = { voltara_historical_slavery_realm = yes }
+ can_pass = { is_landed = yes }
+ pass_cost = { prestige = 300 }
+ on_after_pass = { voltara_report_slavery_crime = yes every_vassal_or_below = { voltara_report_slavery_crime = yes } }
+}

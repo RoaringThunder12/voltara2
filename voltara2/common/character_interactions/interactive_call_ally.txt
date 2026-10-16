@@ -1,0 +1,1183 @@
+﻿call_ally_interaction = {
+is_valid = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+}
+
+	common_interaction = yes
+	category = interaction_category_diplomacy
+	desc = call_ally_interaction_desc
+	interface_priority = 69
+	interface = call_ally
+	special_interaction = call_ally_interaction
+	popup_on_receive = yes
+	pause_on_receive = yes
+	icon = alliance
+	greeting = positive
+	notification_text = CALL_ALLY_NOTIFICATION
+	is_available = {
+		is_at_war = yes
+	}
+	is_shown = {
+ # Voltara: ruins are colonized through the county panel, not character diplomacy.
+ scope:actor = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+ scope:recipient = { NOR = { has_trait = voltara_ruins_keeper has_government = voltara_ruins_government has_title = title:e_voltara_ruins } }
+
+		scope:actor = {
+			trigger_if = {
+				limit = {
+					is_ai = yes
+				}
+				scope:recipient.current_military_strength >= 100
+			}
+			trigger_if = {
+				limit = {
+					liege = scope:recipient
+					NOT = {
+						has_game_rule = call_allied_vassals_enabled
+					}
+				}
+				subject_contract_has_flag = vassal_contract_liege_forced_war_override
+			}
+			trigger_if = {
+				limit = {
+					scope:recipient = {
+						is_tributary_of = scope:actor
+						NOT = { is_allied_to = scope:actor }
+					}
+				}
+				has_realm_law_flag = can_call_tributaries_for_piety
+				piety >= 50
+			}
+		}
+		scope:recipient = {
+			OR = {
+				is_allied_to = scope:actor
+				AND = {
+					this ?= scope:actor.diarch
+					scope:actor = {
+						any_character_war = { diarch_callable_in_internal_war_trigger = yes }
+					}
+				}
+				scope:actor = {
+					is_vassal_of = prev
+					subject_contract_has_flag = vassal_contract_liege_forced_war_override
+				}
+				scope:actor = {
+					is_tributary_of = prev
+					subject_contract_has_flag = tributary_contract_suzerain_guarantee_override
+				}
+				AND = {
+					is_tributary_of = scope:actor
+					scope:actor = {
+						piety >= 50
+						has_realm_law_flag = can_call_tributaries_for_piety
+					}
+				}
+			}
+		}
+	}
+	has_valid_target = {
+		exists = scope:target
+	}
+	has_valid_target_showing_failures_only = {
+		scope:target = {
+			is_war_leader = scope:actor
+		}
+		scope:actor = {
+			trigger_if = {
+				limit = {
+					NOT = { is_allied_to = scope:recipient }
+					suzerain = scope:recipient
+					subject_contract_has_flag = tributary_contract_suzerain_guarantee_override
+				}
+				scope:target = {
+					primary_defender = scope:actor
+				}
+			}
+			trigger_if = {
+				limit = {
+					scope:target = {
+						OR = {
+							using_cb = undirected_great_holy_war
+							using_cb = directed_great_holy_war
+						}
+					}
+				}
+				trigger_if = {
+					limit = {
+						this = scope:target.casus_belli.primary_attacker
+					}
+					custom_description = {
+						text = is_of_wrong_faith_for_holy_war
+						subject = scope:actor
+						object = scope:recipient
+						faith = scope:recipient.faith
+					}
+				}
+				trigger_else = {
+					custom_description = {
+						text = is_of_attacker_faith_in_holy_war
+						subject = scope:actor
+						object = scope:recipient
+						scope:target = { primary_attacker.faith != scope:recipient.faith }
+					}
+				}
+			}
+		}
+		joiner_not_already_in_another_war_with_any_target_war_participants_trigger = {
+			WARRIOR = scope:actor
+			JOINER = scope:recipient
+		}
+	}
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			is_ruler = yes
+			custom_tooltip = {
+				text = too_low_rank_to_call_hegemon
+				trigger_if = {
+					limit = { highest_held_title_tier = tier_hegemony }
+					scope:actor = { highest_held_title_tier >= tier_empire }
+				}
+			}
+		}
+		scope:actor = {
+			custom_description = {
+				text = must_be_war_leader
+				any_character_war = {
+					is_war_leader = scope:actor
+				}
+			}
+			custom_description = {
+				text = cannot_call_same_character_multiple_times
+				object = scope:recipient
+				any_character_war = {
+					ALL_FALSE = {
+						was_called = scope:recipient
+						is_participant = scope:recipient
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					faith != scope:recipient.faith
+				}
+				custom_description = {
+					text = is_of_wrong_faith_for_holy_war
+					subject = scope:actor
+					object = scope:recipient
+					any_character_war = {
+						NOR = {
+							using_cb = undirected_great_holy_war
+							using_cb = directed_great_holy_war
+						}
+					}
+				}
+			}
+		}
+		can_potentially_call_ally_trigger = {
+			WARRIOR = scope:actor
+			JOINER = scope:recipient
+		}
+	}
+	can_be_picked = {
+		trigger_if = {
+			limit = {
+				has_game_rule = call_allied_vassals_enabled
+				scope:actor = {
+					is_vassal_or_below_of = scope:recipient
+				}
+			}
+			custom_description = {
+				text = "basic_ally_can_join_because_liege_or_vassals"
+				subject = scope:recipient
+				trigger_if = {
+					limit = {
+						scope:actor = {
+							is_defender_in_war = scope:target
+						}
+					}
+					scope:recipient = {
+						NOT = {
+							any_vassal = {
+								is_attacker_in_war = scope:target
+							}
+						}
+						trigger_if = {
+							limit = {
+								NOT = {
+									has_game_rule = traitor_vassals_miv_enabled
+								}
+							}
+							NOT = {
+								any_liege_or_above = {
+									is_attacker_in_war = scope:target
+								}
+							}
+						}
+					}
+				}
+				trigger_else_if = {
+					limit = {
+						scope:actor = {
+							is_attacker_in_war = scope:target
+						}
+					}
+					scope:recipient = {
+						NOT = {
+							any_vassal = {
+								is_defender_in_war = scope:target
+							}
+						}
+						trigger_if = {
+							limit = {
+								NOT = {
+									has_game_rule = traitor_vassals_miv_enabled
+								}
+							}
+							NOT = {
+								any_liege_or_above = {
+									is_defender_in_war = scope:target
+								}
+							}
+						}
+					}
+				}
+				trigger_else = {
+					always = yes
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = {
+				has_game_rule = traitor_vassals_miv_enabled
+			}
+			custom_description = {
+				text = "basic_ally_can_join_because_liege_or_vassals"
+				subject = scope:recipient
+				trigger_if = {
+					limit = {
+						scope:actor = {
+							is_defender_in_war = scope:target
+						}
+					}
+					scope:recipient = {
+						trigger_if = {
+							limit = {
+								NOT = {
+									this ?= scope:actor.diarch
+								}
+							}
+							NOT = {
+								any_vassal_or_below = {
+									is_attacker_in_war = scope:target
+								}
+							}
+						}
+					}
+				}
+				trigger_else_if = {
+					limit = {
+						scope:actor = {
+							is_attacker_in_war = scope:target
+						}
+					}
+					scope:recipient = {
+						NOT = {
+							any_vassal_or_below = {
+								is_defender_in_war = scope:target
+							}
+						}
+					}
+				}
+				trigger_else = {
+					always = yes
+				}
+			}
+		}
+		trigger_else = {
+			can_join_war_liege_vassal_check_trigger = {
+				WARRIOR = scope:actor
+				JOINER = scope:recipient
+			}
+		}
+		custom_description = {
+			text = "is_already_war_enemy_of_primary_enemy"
+			subject = scope:recipient
+			object = scope:actor
+			NOT = {
+				scope:actor = {
+					is_at_war_with = scope:recipient
+				}
+			}
+		}
+		scope:target = {
+			is_war_leader = scope:actor
+			custom_description = {
+				text = join_war_interaction_already_in_target_war
+				NOR = {
+					any_war_attacker = { this = scope:recipient }
+					any_war_defender = { this = scope:recipient }
+				}
+			}
+			custom_tooltip = {
+				text = call_ally_interaction.tt.diarchs_called_to_internal_wars
+				trigger_if = {
+					limit = { scope:recipient ?= scope:actor.diarch }
+					primary_defender = scope:actor
+					diarch_callable_in_internal_war_trigger = yes
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				scope:target.casus_belli.primary_defender = scope:actor
+				scope:target.casus_belli.primary_attacker = { is_tributary_of_suzerain_or_above = scope:recipient }
+			}
+			NOT = {
+				scope:target.casus_belli.primary_attacker = { is_tributary_of_suzerain_or_above = scope:recipient }
+			}
+		}
+		trigger_else_if = {
+			limit = {
+				scope:target.casus_belli.primary_attacker = scope:actor
+				scope:target.casus_belli.primary_defender = { is_tributary_of_suzerain_or_above = scope:recipient }
+			}
+			NOT = {
+				scope:target.casus_belli.primary_defender = { is_tributary_of_suzerain_or_above = scope:recipient }
+			}
+		}
+		trigger_else = { }
+		trigger_if = {
+			limit = {
+				scope:target.casus_belli.primary_defender = scope:actor
+				scope:recipient = { is_tributary_of_suzerain_or_above = scope:target.casus_belli.primary_attacker }
+			}
+			NOT = {
+				scope:recipient = { is_tributary_of_suzerain_or_above = scope:target.casus_belli.primary_attacker }
+			}
+		}
+		trigger_else_if = {
+			limit = {
+				scope:target.casus_belli.primary_attacker = scope:actor
+				scope:recipient = { is_tributary_of_suzerain_or_above = scope:target.casus_belli.primary_defender }
+			}
+			NOT = {
+				scope:recipient = { is_tributary_of_suzerain_or_above = scope:target.casus_belli.primary_defender }
+			}
+		}
+		trigger_else = { }
+	}
+	on_auto_accept = {
+		scope:recipient = {
+			trigger_event = call_ally.0001
+		}
+		scope:target = {
+			if = {
+				limit = {
+					is_religious_war = yes
+					scope:recipient = {
+						any_active_accolade = {
+							accolade_parameter = acclaimed_knight_piety_from_battle
+						}
+					}
+				}
+				scope:recipient = {
+					add_piety = miniscule_piety_gain
+				}
+			}
+			if = {
+				limit = {
+					is_religious_war = yes
+					scope:recipient = {
+						any_active_accolade = {
+							accolade_parameter = acclaimed_knight_piety_from_battle_high
+						}
+					}
+				}
+				scope:recipient = {
+					add_piety = minor_piety_gain
+				}
+			}
+			if = {
+				limit = {
+					has_game_rule = miv_oathbreakers_enabled
+					scope:actor = {
+						is_defender_in_war = scope:target
+					}
+				}
+				interactive_call_ally_oathbreaker_effect = {
+					ENEMY = attacker
+					OWN = defender
+				}
+			}
+			else_if = {
+				limit = {
+					has_game_rule = miv_oathbreakers_enabled
+					scope:actor = {
+						is_attacker_in_war = scope:target
+					}
+				}
+				interactive_call_ally_oathbreaker_effect = {
+					ENEMY = defender
+					OWN = attacker
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_game_rule = ally_exhaustion_miv_disabled
+					}
+					scope:actor = {
+						is_ai = no
+					}
+				}
+				scope:recipient = {
+					add_opinion = {
+						target = scope:actor
+						modifier = ally_exhaustion_opinion
+						opinion = -10
+					}
+				}
+			}
+		}
+	}
+	on_accept = {
+		call_ally_interaction_effect = yes
+		save_scope_value_as = {
+			name = call_ally_interaction
+			value = yes
+		}
+		scope:actor = {
+			hidden_effect = {
+				if = {
+					limit = {
+						NOR = {
+							has_relation_friend = scope:recipient
+							has_relation_potential_friend = scope:recipient
+						}
+					}
+					set_relation_potential_friend = scope:recipient
+				}
+			}
+			trigger_event = call_ally.0100
+		}
+		scope:target = {
+			if = {
+				limit = {
+					is_religious_war = yes
+					scope:recipient = {
+						any_active_accolade = {
+							accolade_parameter = acclaimed_knight_piety_from_battle
+						}
+					}
+				}
+				scope:recipient = {
+					add_piety = minor_piety_gain
+				}
+			}
+			if = {
+				limit = {
+					is_religious_war = yes
+					scope:recipient = {
+						any_active_accolade = {
+							accolade_parameter = acclaimed_knight_piety_from_battle_high
+						}
+					}
+				}
+				scope:recipient = {
+					add_piety = medium_piety_gain
+				}
+			}
+			if = {
+				limit = {
+					has_game_rule = miv_oathbreakers_enabled
+					scope:actor = {
+						is_defender_in_war = scope:target
+					}
+				}
+				interactive_call_ally_oathbreaker_effect = {
+					ENEMY = attacker
+					OWN = defender
+				}
+			}
+			else_if = {
+				limit = {
+					has_game_rule = miv_oathbreakers_enabled
+					scope:actor = {
+						is_attacker_in_war = scope:target
+					}
+				}
+				interactive_call_ally_oathbreaker_effect = {
+					ENEMY = defender
+					OWN = attacker
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_game_rule = ally_exhaustion_miv_disabled
+					}
+					scope:actor = {
+						is_ai = no
+					}
+				}
+				scope:recipient = {
+					add_opinion = {
+						target = scope:actor
+						modifier = ally_exhaustion_opinion
+						opinion = -10
+					}
+				}
+			}
+		}
+	}
+	on_decline = {
+		if = {
+			limit = {
+				exists = scope:target
+			}
+			scope:target = {
+				if = {
+					limit = {
+						is_attacker = scope:actor
+					}
+					scope:actor = {
+						add_opinion = {
+							modifier = rejected_call_to_offensive_war
+							target = scope:recipient
+						}
+					}
+					scope:recipient = {
+						if = {
+							limit = {
+								NOT = { government_has_flag = government_is_mandala }
+							}
+							add_prestige_experience = major_prestige_loss
+						}
+					}
+				}
+				else = {
+					scope:actor = {
+						add_opinion = {
+							modifier = rejected_call_to_defensive_war
+							target = scope:recipient
+						}
+					}
+					scope:recipient = {
+						if = {
+							limit = { government_has_flag = government_is_mandala }
+							add_prestige_experience = major_prestige_loss
+							add_piety_level = -1
+						}
+						else = { add_prestige_experience = massive_prestige_loss }
+					}
+				}
+				if = {
+					limit = {
+						scope:actor = {
+							has_relation_blood_brother = scope:recipient
+						}
+					}
+					scope:recipient = {
+						add_piety_experience = massive_piety_loss
+						add_character_modifier = {
+							modifier = broke_blood_brotherhood_modifier
+							desc = broke_blood_brotherhood_modifier_acceptance_tt
+							years = 25
+						}
+						remove_relation_blood_brother = scope:actor
+					}
+					scope:actor = {
+						set_relation_rival = {
+							target = scope:recipient
+							reason = rival_blood_brother_refused_call_reason
+						}
+					}
+				}
+				if = {
+					limit = {
+						scope:recipient = scope:actor.obedience_target
+						scope:actor = {
+							OR = {
+								subject_contract_has_flag = vassal_contract_liege_forced_war_override
+								subject_contract_has_flag = tributary_contract_suzerain_guarantee_override
+							}
+						}
+					}
+					scope:actor = {
+						set_variable = {
+							name = not_obedient_declined_call
+							value = scope:recipient
+							years = 5
+						}
+					}
+				}
+				if = {
+					limit = {
+						scope:recipient = scope:actor.suzerain
+						is_defender = scope:actor
+						scope:actor = {
+							subject_contract_has_flag = tributary_contract_suzerain_guarantee_override
+						}
+					}
+					scope:actor = {
+						end_tributary = yes
+					}
+				}
+				hidden_effect = {
+					if = {
+						limit = {
+							NOT = { was_called = scope:recipient }
+						}
+						set_called_to = scope:recipient
+					}
+				}
+			}
+			scope:actor = {
+				trigger_event = call_ally.0101
+			}
+			refuse_call_to_arms_add_clan_unity_effect = yes
+			scope:recipient = {
+				if = {
+					limit = {
+						exists = house
+						is_house_head = yes
+						exists = scope:actor.house
+					}
+					house = {
+						change_house_relation_effect = {
+							HOUSE = scope:actor.house
+							VALUE = house_relation_damage_medium_value
+							REASON = ally_call_ignored
+							CHAR = scope:recipient
+							TARGET_CHAR = scope:actor
+							TITLE = scope:dummy_gender
+						}
+					}
+				}
+			}
+		}
+	}
+	auto_accept = {
+		OR = {
+			custom_description = {
+				text = "recipient_is_spouse"
+				subject = scope:actor
+				object = scope:recipient
+				scope:recipient = {
+					is_spouse_of = scope:actor
+					is_ai = yes
+				}
+			}
+			custom_description = {
+				text = "is_recipients_player_heir"
+				subject = scope:actor
+				object = scope:recipient
+				exists = scope:recipient.player_heir
+				scope:recipient = {
+					player_heir = scope:actor
+					is_close_or_extended_family_of = scope:actor
+					is_ai = yes
+				}
+			}
+			custom_description = {
+				text = "is_player_heir"
+				subject = scope:recipient
+				object = scope:actor
+				exists = scope:actor.player_heir
+				scope:actor.player_heir = scope:recipient
+				scope:actor = {
+					is_close_or_extended_family_of = scope:recipient
+				}
+				scope:recipient = {
+					is_ai = yes
+				}
+			}
+		}
+	}
+	ai_accept = {
+		base = 20
+		modifier = {
+			add = -1000
+			desc = NO_FRIVOLOUS_ACTIVITIES_REASON
+			scope:recipient = { has_trait = conqueror }
+		}
+		modifier = {
+			add = -1000
+			desc = NO_FRIVOLOUS_ACTIVITIES_REASON
+			scope:actor = {
+				is_ai = yes
+				primary_title.tier < scope:recipient.primary_title.tier
+			}
+			scope:target.casus_belli = {
+				primary_attacker = { is_ai = yes }
+				primary_defender = { is_ai = yes }
+			}
+			scope:recipient = { ai_should_focus_on_building_in_their_capital = yes }
+		}
+		modifier = {
+			add = -1000
+			desc = WONT_FIGHT_MEANINGLESS_REASON
+			trigger_if = {
+				limit = { exists = scope:target }
+				scope:target = { using_cb = fp2_border_raid }
+				scope:recipient = {
+					NOR = {
+						has_trait = viking
+						has_trait = reaver
+					}
+				}
+			}
+			trigger_else = { always = no }
+		}
+		modifier = {
+			add = -1000
+			exists = scope:recipient.player_heir
+			trigger_if = {
+				limit = { scope:target.casus_belli.primary_defender = scope:actor }
+				scope:target.casus_belli.primary_attacker = scope:recipient.player_heir
+			}
+			trigger_else = {
+				scope:target.casus_belli.primary_defender = scope:recipient.player_heir
+			}
+			desc = WONT_FIGHT_HEIR_REASON
+		}
+		modifier = {
+			add = -1000
+			scope:recipient = {
+				trigger_if = {
+					limit = { scope:target.casus_belli.primary_defender = scope:actor }
+					any_spouse = {
+						this = scope:target.casus_belli.primary_attacker
+					}
+				}
+				trigger_else = {
+					any_spouse = {
+						this = scope:target.casus_belli.primary_defender
+					}
+				}
+			}
+			desc = WONT_FIGHT_SPOUSE_REASON
+		}
+		modifier = {
+			add = -1000
+			trigger_if = {
+				limit = {
+					exists = scope:recipient.suzerain
+					trigger_if = {
+						limit = { scope:target.casus_belli.primary_defender = scope:actor }
+						scope:recipient.suzerain = scope:target.casus_belli.primary_attacker
+					}
+					trigger_else = {
+						scope:recipient.suzerain = scope:target.casus_belli.primary_defender
+					}
+					scope:recipient = {
+						exists = obedience_target
+						is_obedient = yes
+					}
+				}
+			}
+			trigger_else = { always = no }
+			desc = WONT_FIGHT_OBEDIENT_REASON
+		}
+		opinion_modifier = {
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = 1.0
+			desc = AI_OPINION_REASON
+		}
+		ai_value_modifier = {
+			ai_honor = 1
+			min = 0
+		}
+		modifier = {
+			add = 50
+			scope:target.casus_belli.primary_defender = scope:actor
+			desc = DEFENSIVE_WAR_REASON
+		}
+		modifier = {
+			add = 5
+			desc = speaks_same_language_interaction_reason
+			trigger = {
+				scope:actor = {
+					knows_language_of_culture = scope:recipient.culture
+				}
+			}
+		}
+		modifier = {
+			add = 10
+			desc = foreign_realm_court_language_non_spoken_interaction_reason
+			trigger = {
+				scope:actor = {
+					has_royal_court = yes
+					has_dlc_feature = royal_court
+					NOT = { knows_court_language_of = this }
+				}
+				scope:actor.top_liege != scope:recipient.top_liege
+				OR = {
+					AND = {
+						scope:recipient = {
+							has_royal_court = yes
+						}
+						scope:actor = {
+							has_same_court_language = scope:recipient
+						}
+					}
+					scope:recipient = {
+						liege != this
+						has_royal_court = no
+						any_liege_or_above = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+							save_temporary_scope_as = liege_temp
+							NOT = {
+								prev = {
+									any_liege_or_above = {
+										has_royal_court = yes
+										is_vassal_or_below_of = scope:liege_temp
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 30
+			desc = foreign_realm_court_language_spoken_interaction_reason
+			trigger = {
+				scope:actor = {
+					has_royal_court = yes
+					has_dlc_feature = royal_court
+					knows_court_language_of = this
+				}
+				scope:actor.top_liege != scope:recipient.top_liege
+				OR = {
+					AND = {
+						scope:recipient = {
+							has_royal_court = yes
+						}
+						scope:actor = {
+							has_same_court_language = scope:recipient
+						}
+					}
+					scope:recipient = {
+						liege != this
+						has_royal_court = no
+						any_liege_or_above = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+							save_temporary_scope_as = liege_temp
+							NOT = {
+								prev = {
+									any_liege_or_above = {
+										has_royal_court = yes
+										is_vassal_or_below_of = scope:liege_temp
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 50
+			desc = ENTRENCHED_REGENT_WILL_SUPPORT_LIEGE
+			trigger_if = {
+				limit = { scope:recipient ?= scope:actor.diarch }
+				scope:actor = { has_diarchy_parameter = diarchy_type_is_entrenched_regency }
+			}
+			trigger_else = { always = no }
+		}
+		compare_modifier = {
+			trigger = {
+				scope:recipient.faith = scope:actor.faith
+				OR = {
+					AND = {
+						scope:target.casus_belli.primary_attacker = {
+							this = scope:actor
+							faith = {
+								faith_hostility_level = {
+									target = scope:target.casus_belli.primary_defender.faith
+									value >= religious_cb_enabled_hostility_level
+								}
+							}
+						}
+					}
+					AND = {
+						scope:target.casus_belli.primary_defender = {
+							this = scope:actor
+							faith = {
+								faith_hostility_level = {
+									target = scope:target.casus_belli.primary_defender.faith
+									value >= religious_cb_enabled_hostility_level
+								}
+							}
+						}
+					}
+				}
+			}
+			target = scope:recipient
+			value = ai_zeal
+			desc = "ZEAL_AGAINST_INFIDELS"
+			min = 0
+			multiplier = 0.5
+		}
+		modifier = {
+			add = -40
+			has_game_rule = miv_oathbreakers_enabled
+			scope:actor = {
+				is_defender_in_war = scope:target
+			}
+			scope:recipient = {
+				any_liege_or_above = {
+					is_attacker_in_war = scope:target
+				}
+				NOT = {
+					liege = {
+						is_defender_in_war = scope:target
+					}
+				}
+			}
+			desc = WILL_BECOME_OATHBREAKER
+		}
+		modifier = {
+			add = -40
+			has_game_rule = miv_oathbreakers_enabled
+			scope:actor = {
+				is_attacker_in_war = scope:target
+			}
+			scope:recipient = {
+				any_liege_or_above = {
+					is_defender_in_war = scope:target
+				}
+				NOT = {
+					liege = {
+						is_attacker_in_war = scope:target
+					}
+				}
+			}
+			desc = WILL_BECOME_OATHBREAKER
+		}
+		modifier = {
+			add = -50
+			scope:target.casus_belli.primary_attacker = scope:actor
+			scope:recipient = {
+				is_allied_to = scope:target.casus_belli.primary_defender
+			}
+			desc = ATTACK_ON_ALLY_REASON
+		}
+		modifier = {
+			add = -25
+			scope:target.casus_belli.primary_defender = scope:actor
+			scope:recipient = {
+				is_allied_to = scope:target.casus_belli.primary_attacker
+			}
+			desc = WAR_WITH_ALLY_REASON
+		}
+		modifier = {
+			add = -50
+			scope:recipient.faith != scope:actor.faith
+			scope:target.casus_belli.primary_attacker = scope:actor
+			scope:target.casus_belli.primary_defender.faith = scope:recipient.faith
+			scope:target.casus_belli.war = {
+				OR = {
+					using_cb = minor_religious_war
+					using_cb = religious_war
+					using_cb = major_religious_war
+					using_cb = undirected_great_holy_war
+					using_cb = directed_great_holy_war
+				}
+			}
+			desc = WONT_ATTACK_RELIGIOUS_BRETHREN_REASON
+		}
+		modifier = {
+			add = -50
+			trigger_if = {
+				limit = {
+					scope:target.casus_belli.primary_defender = scope:actor
+				}
+				has_relation_friend = scope:target.casus_belli.primary_attacker
+			}
+			trigger_else = {
+				has_relation_friend = scope:target.casus_belli.primary_defender
+			}
+			desc = WONT_FIGHT_FRIEND_REASON
+		}
+		modifier = {
+			add = -100
+			trigger_if = {
+				limit = {
+					scope:target.casus_belli.primary_defender = scope:actor
+				}
+				has_relation_best_friend = scope:target.casus_belli.primary_attacker
+			}
+			trigger_else = {
+				has_relation_best_friend = scope:target.casus_belli.primary_defender
+			}
+			desc = WONT_FIGHT_BEST_FRIEND_REASON
+		}
+		modifier = {
+			add = -100
+			trigger_if = {
+				limit = {
+					scope:target.casus_belli.primary_defender = scope:actor
+				}
+				has_relation_lover = scope:target.casus_belli.primary_attacker
+			}
+			trigger_else = {
+				has_relation_lover = scope:target.casus_belli.primary_defender
+			}
+			desc = WONT_FIGHT_LOVER_REASON
+		}
+		modifier = {
+			add = -200
+			trigger_if = {
+				limit = {
+					scope:target.casus_belli.primary_defender = scope:actor
+				}
+				has_relation_soulmate = scope:target.casus_belli.primary_attacker
+			}
+			trigger_else = {
+				has_relation_soulmate = scope:target.casus_belli.primary_defender
+			}
+			desc = WONT_FIGHT_SOULMATE_REASON
+		}
+		modifier = {
+			add = -200
+			scope:actor = {
+				is_tributary_of = scope:recipient
+				NOT = { subject_contract_has_flag = tributary_contract_suzerain_guarantee_override }
+			}
+			scope:recipient = {
+				NOR = {
+					has_relation_lover = scope:actor
+					has_relation_friend = scope:actor
+					is_allied_to = scope:actor
+				}
+			}
+			desc = WONT_FIGHT_MEANINGLESS_REASON
+		}
+		modifier = {
+			any_home_court_hostage = {
+				warden = {
+					OR = {
+						is_at_war_with = scope:actor
+						any_ally = { is_at_war_with = scope:actor }
+					}
+				}
+			}
+			add = {
+				value = 0
+				every_home_court_hostage = {
+					limit = {
+						warden = {
+							OR = {
+								is_at_war_with = scope:actor
+								any_ally = { is_at_war_with = scope:actor }
+							}
+						}
+					}
+					subtract = call_to_arms_hostage_value
+				}
+				multiply = 0.25
+			}
+			desc = HOSTAGE_ENEMY_CALL_TO_ARMS_REASON
+		}
+		modifier = {
+			scope:recipient.house.house_confederation ?= {
+				trigger_if = {
+					limit = { scope:actor = { is_defender_in_war = scope:target } }
+					this = scope:target.casus_belli.primary_attacker.house.house_confederation
+				}
+				trigger_else = { this = scope:target.casus_belli.primary_defender.house.house_confederation }
+			}
+			add = -100
+			desc = BLOC_MEMBER_CALL_TO_ARMS_REASON
+		}
+		modifier = {
+			add = 200
+			scope:actor = {
+				is_tributary_of = scope:recipient
+				subject_contract_has_flag = tributary_contract_suzerain_guarantee_override
+			}
+			desc = MANDALA_GUARANTEE_REASON
+		}
+		fp3_struggle_resist_allied_wars_modifier = yes
+	}
+	ai_will_do = {
+		base = 100
+		modifier = {
+			scope:target.casus_belli.primary_attacker = scope:actor
+			scope:recipient = {
+				is_ai = no
+				any_character_war = {
+					primary_defender = scope:recipient
+				}
+			}
+			factor = 0
+		}
+		modifier = {
+			scope:recipient = {
+				is_ai = no
+				gold <= -1
+			}
+			factor = 0
+		}
+		modifier = {
+			exists = scope:recipient.player_heir
+			scope:recipient = {
+				is_ai = no
+			}
+			trigger_if = {
+				limit = { scope:target.casus_belli.primary_defender = scope:actor }
+				scope:target.casus_belli.primary_attacker = scope:recipient.player_heir
+			}
+			trigger_else = {
+				scope:target.casus_belli.primary_defender = scope:recipient.player_heir
+			}
+			factor = 0
+		}
+		modifier = {
+			scope:recipient = {
+				is_ai = no
+			}
+			trigger_if = {
+				limit = { scope:target.casus_belli.primary_defender = scope:actor }
+				any_spouse = {
+					this = scope:target.casus_belli.primary_attacker
+				}
+			}
+			trigger_else = {
+				any_spouse = {
+					this = scope:target.casus_belli.primary_defender
+				}
+			}
+			factor = 0
+		}
+		modifier = {
+			has_variable = delay_calling_recent_ally
+			var:delay_calling_recent_ally = scope:recipient
+			scope:target = {
+				war_days >= 30
+			}
+			factor = 0
+		}
+		modifier = {
+			scope:target.casus_belli.primary_attacker = scope:actor
+			scope:target.casus_belli.primary_defender = {
+				is_allied_to = scope:recipient
+			}
+			factor = 0
+		}
+		modifier = {
+			scope:actor = { subject_contract_has_flag = tributary_contract_suzerain_guarantee_override }
+			scope:recipient = scope:actor.suzerain
+			add = 500
+		}
+	}
+}

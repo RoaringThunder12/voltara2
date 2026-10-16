@@ -1,0 +1,2342 @@
+pdxmesh = {
+	name = "dragon_egg1_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "rhaegal_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "rhaegal_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg2_mesh"
+	file = "dragon_egg2.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "drogon_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "drogon_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg3_mesh"
+	file = "dragon_egg3.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "viserion_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "viserion_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_meraxes_mesh"
+	file = "dragon_egg3.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "meraxes_diffuse.dds"
+		texture_normal = "meraxes_normal.dds"
+		texture_specular = "meraxes_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_black_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_black_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_blue_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_blue_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_red_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_red_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_purple_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_purple_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_yellow_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_yellow_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_orange_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_orange_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_white_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_white_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_pink_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_pink_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_brown_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_brown_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_green_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_blue_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_grey_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_grey_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_rainbow_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_rainbow_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_gold_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_gold_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_whitegold_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_elaena_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_elaena_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_purplegold_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_purplegold_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_flame_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_flame_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_blackred_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_blackred_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_brownspots_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_brownspots_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_redblackgold_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_redblackgold_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "meraxes_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_palered_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_palered_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_darkblue_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_darkblue_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_darkred_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_darkred_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_icefire_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_iceFire_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_frost_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_frost_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_greengrey_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_greengrey_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_magma_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_magma_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_darkpurple_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_darkpurple_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_palepink_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_palepink_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_palebluepink_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_palebluepink_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_pinkspot_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_pinkspot_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_rainbowgold_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_rainbowgold_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_sunburst_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_sunburst_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_goldpink_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_goldpink_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_bluebronze_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_bluebronze_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_greenorange_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_greenorange_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_bronze_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_bronze_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_blackgreen_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_blackgreen_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_greygreenyellow_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_greygreenyellow_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		 shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_blackyellow_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_blackyellow_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		 shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_yellowgreen_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_yellowgreen_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		 shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_silver_mesh"
+	file = "dragon_egg1.mesh"
+	  scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_white_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		 shader = "court"
+		  shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_america_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_america_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_greyBlue_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_greyBlue_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_redGreen_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_redGreen_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_lightBrown_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_lightBrown_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_redYellow_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_redYellow_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_blackWhite_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_blackWhite_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_spotPurple_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_spotPurple_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_teal_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_teal_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_tealSpot_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_tealSpot_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_weirwood_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_weirwood_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_lime_mesh"
+	file = "dragon_egg1.mesh"
+	scale = 2.8
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_lime_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+####
+#### MESHES FOR EQUIP
+#### For holding the egg bois
+pdxmesh = {
+	name = "dragon_egg1_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "rhaegal_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "rhaegal_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg2_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "drogon_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "drogon_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg3_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "viserion_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "viserion_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_meraxes_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "meraxes_diffuse.dds"
+		texture_normal = "meraxes_normal.dds"
+		texture_specular = "meraxes_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_blue_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_blue_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_black_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_black_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_red_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_red_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_purple_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_purple_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_yellow_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_yellow_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_orange_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_orange_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_white_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_white_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_pink_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_pink_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_brown_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_brown_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_green_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_green_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_grey_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_grey_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_rainbow_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_rainbow_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_gold_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_gold_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_whitegold_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_elaena_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_elaena_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_purplegold_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_purplegold_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_flame_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_flame_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_blackred_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_blackred_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_brownspots_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_brownspots_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_redblackgold_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_redblackgold_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "meraxes_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_palered_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_palered_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_darkblue_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_darkblue_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_darkred_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_darkred_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_icefire_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_iceFire_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+ }
+
+pdxmesh = {
+	name = "dragon_egg_frost_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_frost_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_greengrey_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_greengrey_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_magma_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_magma_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_darkpurple_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_darkpurple_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_palepink_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_palepink_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_palebluepink_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_palebluepink_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_pinkspot_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_pinkspot_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_rainbowgold_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_rainbowgold_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_sunburst_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_sunburst_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_goldpink_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_goldpink_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_bluebronze_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_bluebronze_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_greenorange_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_greenorange_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_bronze_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_bronze_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_blackgreen_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_blackgreen_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_greygreenyellow_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_greygreenyellow_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_blackyellow_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_blackyellow_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_yellowgreen_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_yellowgreen_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_silver_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_white_diffuse.dds"
+		texture_normal = "egg_normal.dds"
+		texture_specular = "dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+pdxmesh = {
+	name = "dragon_egg_america_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_america_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular="dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_greyBlue_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_greyBlue_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular="dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_redGreen_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_redGreen_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular="dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_lightBrown_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_lightBrown_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular="dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_redYellow_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_redYellow_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular="dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_blackWhite_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_blackWhite_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular="dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_spotPurple_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_spotPurple_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular="dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_teal_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_teal_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular="dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_tealSpot_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_tealSpot_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular="dragon_egg_gold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_weirwood_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_weirwood_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular="dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "dragon_egg_lime_equip_mesh"
+	file = "dragon_egg_hold.mesh"
+	scale = 1
+
+	meshsettings = {
+		name = "egg1"
+		index = 0
+		texture_diffuse = "dragon_egg_lime_diffuse.dds"
+		texture_normal = "dragon_egg_normal.dds"
+		texture_specular="dragon_egg_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+
+
+##### ENTITY
+entity = {
+	name = "dragon_egg_brown_entity"
+	pdxmesh = "dragon_egg_brown_mesh"
+}
+
+entity = {
+	name = "dragon_egg_red_entity"
+	pdxmesh = "dragon_egg_red_mesh"
+}
+entity = {
+	name = "dragon_egg_purple_entity"
+	pdxmesh = "dragon_egg_purple_mesh"
+}
+entity = {
+	name = "dragon_egg_blue_entity"
+	pdxmesh = "dragon_egg_blue_mesh"
+}
+entity = {
+	name = "dragon_egg_yellow_entity"
+	pdxmesh = "dragon_egg_yellow_mesh"
+}
+entity = {
+	name = "dragon_egg1_entity"
+	pdxmesh = "dragon_egg1_mesh"
+}
+
+entity = {
+	name = "dragon_egg2_entity"
+	pdxmesh = "dragon_egg2_mesh"
+}
+
+entity = {
+	name = "dragon_egg3_entity"
+	pdxmesh = "dragon_egg3_mesh"
+}
+
+entity = {
+	name = "dragon_egg_meraxes_entity"
+	pdxmesh = "dragon_egg_meraxes_mesh"
+}
+
+entity = {
+	name = "dragon_egg_black_entity"
+	pdxmesh = "dragon_egg_black_mesh"
+}
+
+entity = {
+	name = "dragon_egg_green_entity"
+	pdxmesh = "dragon_egg_green_mesh"
+}
+
+entity = {
+	name = "dragon_egg_pink_entity"
+	pdxmesh = "dragon_egg_pink_mesh"
+}
+
+entity = {
+	name = "dragon_egg_white_entity"
+	pdxmesh = "dragon_egg_white_mesh"
+}
+
+entity = {
+	name = "dragon_egg_orange_entity"
+	pdxmesh = "dragon_egg_orange_mesh"
+}
+
+entity = {
+	name = "dragon_egg_grey_entity"
+	pdxmesh = "dragon_egg_grey_mesh"
+}
+
+entity = {
+	name = "dragon_egg_rainbow_entity"
+	pdxmesh = "dragon_egg_rainbow_mesh"
+}
+
+entity = {
+	name = "dragon_egg_gold_entity"
+	pdxmesh = "dragon_egg_gold_mesh"
+}
+
+entity = {
+	name = "dragon_egg_whitegold_entity"
+	pdxmesh = "dragon_egg_whitegold_mesh"
+}
+
+entity = {
+	name = "dragon_egg_purplegold_entity"
+	pdxmesh = "dragon_egg_purplegold_mesh"
+}
+
+entity = {
+	name = "dragon_egg_flame_entity"
+	pdxmesh = "dragon_egg_flame_mesh"
+}
+
+entity = {
+	name = "dragon_egg_blackred_entity"
+	pdxmesh = "dragon_egg_blackred_mesh"
+}
+
+entity = {
+	name = "dragon_egg_brownspots_entity"
+	pdxmesh = "dragon_egg_brownspots_mesh"
+}
+
+entity = {
+	name = "dragon_egg_redblackgold_entity"
+	pdxmesh = "dragon_egg_redblackgold_mesh"
+}
+
+entity = {
+	name = "dragon_egg_palered_entity"
+	pdxmesh = "dragon_egg_palered_mesh"
+}
+
+entity = {
+	name = "dragon_egg_darkblue_entity"
+	pdxmesh = "dragon_egg_darkblue_mesh"
+}
+
+entity = {
+	name = "dragon_egg_darkred_entity"
+	pdxmesh = "dragon_egg_darkred_mesh"
+}
+
+entity = {
+	name = "dragon_egg_frost_entity"
+	pdxmesh = "dragon_egg_frost_mesh"
+}
+
+entity = {
+	name = "dragon_egg_icefire_entity"
+	pdxmesh = "dragon_egg_icefire_mesh"
+}
+
+entity = {
+	name = "dragon_egg_greengrey_entity"
+	pdxmesh = "dragon_egg_greengrey_mesh"
+}
+
+entity = {
+	name = "dragon_egg_magma_entity"
+	pdxmesh = "dragon_egg_magma_mesh"
+}
+
+entity = {
+	name = "dragon_egg_darkpurple_entity"
+	pdxmesh = "dragon_egg_darkpurple_mesh"
+}
+
+entity = {
+	name = "dragon_egg_palepink_entity"
+	pdxmesh = "dragon_egg_palepink_mesh"
+}
+
+entity = {
+	name = "dragon_egg_palebluepink_entity"
+	pdxmesh = "dragon_egg_palebluepink_mesh"
+}
+
+entity = {
+	name = "dragon_egg_pinkspot_entity"
+	pdxmesh = "dragon_egg_pinkspot_mesh"
+}
+
+entity = {
+	name = "dragon_egg_rainbowgold_entity"
+	pdxmesh = "dragon_egg_rainbowgold_mesh"
+}
+
+entity = {
+	name = "dragon_egg_sunburst_entity"
+	pdxmesh = "dragon_egg_sunburst_mesh"
+}
+
+entity = {
+	name = "dragon_egg_goldpink_entity"
+	pdxmesh = "dragon_egg_goldpink_mesh"
+}
+
+entity = {
+	name = "dragon_egg_bluebronze_entity"
+	pdxmesh = "dragon_egg_bluebronze_mesh"
+}
+
+entity = {
+	name = "dragon_egg_greenorange_entity"
+	pdxmesh = "dragon_egg_greenorange_mesh"
+}
+
+entity = {
+	name = "dragon_egg_bronze_entity"
+	pdxmesh = "dragon_egg_bronze_mesh"
+}
+entity = {
+	name = "dragon_egg_blackgreen_entity"
+	pdxmesh = "dragon_egg_blackgreen_mesh"
+}
+
+entity = {
+	name = "dragon_egg_greygreenyellow_entity"
+	pdxmesh = "dragon_egg_greygreenyellow_mesh"
+}
+
+entity = {
+	name = "dragon_egg_blackyellow_entity"
+	pdxmesh = "dragon_egg_blackyellow_mesh"
+}
+
+entity = {
+	name = "dragon_egg_yellowgreen_entity"
+	pdxmesh = "dragon_egg_yellowgreen_mesh"
+}
+
+entity = {
+	name = "dragon_egg_silver_entity"
+	pdxmesh = "dragon_egg_silver_mesh"
+}
+
+entity = {
+	name = "dragon_egg_america_entity"
+	pdxmesh = "dragon_egg_america_mesh"
+}
+
+entity = {
+	name = "dragon_egg_greyBlue_entity"
+	pdxmesh = "dragon_egg_greyBlue_mesh"
+}
+
+entity = {
+	name = "dragon_egg_redGreen_entity"
+	pdxmesh = "dragon_egg_redGreen_mesh"
+}
+
+entity = {
+	name = "dragon_egg_lightBrown_entity"
+	pdxmesh = "dragon_egg_lightBrown_mesh"
+}
+
+entity = {
+	name = "dragon_egg_redYellow_entity"
+	pdxmesh = "dragon_egg_redYellow_mesh"
+}
+
+entity = {
+	name = "dragon_egg_blackWhite_entity"
+	pdxmesh = "dragon_egg_blackWhite_mesh"
+}
+
+entity = {
+	name = "dragon_egg_spotPurple_entity"
+	pdxmesh = "dragon_egg_spotPurple_mesh"
+}
+
+entity = {
+	name = "dragon_egg_teal_entity"
+	pdxmesh = "dragon_egg_teal_mesh"
+}
+
+entity = {
+	name = "dragon_egg_tealSpot_entity"
+	pdxmesh = "dragon_egg_tealSpot_mesh"
+}
+
+entity = {
+	name = "dragon_egg_weirwood_entity"
+	pdxmesh = "dragon_egg_weirwood_mesh"
+}
+
+entity = {
+	name = "dragon_egg_lime_entity"
+	pdxmesh = "dragon_egg_lime_mesh"
+}
+
+##EQUIP
+entity = {
+	name = "dragon_egg1_equip_entity"
+	pdxmesh = "dragon_egg1_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg2_equip_entity"
+	pdxmesh = "dragon_egg2_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg3_equip_entity"
+	pdxmesh = "dragon_egg3_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_meraxes_equip_entity"
+	pdxmesh = "dragon_egg_meraxes_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_green_equip_entity"
+	pdxmesh = "dragon_egg_green_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_pink_equip_entity"
+	pdxmesh = "dragon_egg_pink_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_white_equip_entity"
+	pdxmesh = "dragon_egg_white_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_orange_equip_entity"
+	pdxmesh = "dragon_egg_orange_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_grey_equip_entity"
+	pdxmesh = "dragon_egg_grey_equip_mesh"
+}
+entity = {
+	name = "dragon_egg_brown_equip_entity"
+	pdxmesh = "dragon_egg_brown_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_red_equip_entity"
+	pdxmesh = "dragon_egg_red_equip_mesh"
+}
+entity = {
+	name = "dragon_egg_purple_equip_entity"
+	pdxmesh = "dragon_egg_purple_equip_mesh"
+}
+entity = {
+	name = "dragon_egg_black_equip_entity"
+	pdxmesh = "dragon_egg_black_equip_mesh"
+}
+entity = {
+	name = "dragon_egg_blue_equip_entity"
+	pdxmesh = "dragon_egg_blue_equip_mesh"
+}
+entity = {
+	name = "dragon_egg_yellow_equip_entity"
+	pdxmesh = "dragon_egg_yellow_equip_mesh"
+}
+entity = {
+	name = "dragon_egg_rainbow_equip_entity"
+	pdxmesh = "dragon_egg_rainbow_equip_mesh"
+}
+entity = {
+	name = "dragon_egg_gold_equip_entity"
+	pdxmesh = "dragon_egg_gold_equip_mesh"
+}
+entity = {
+	name = "dragon_egg_whitegold_equip_entity"
+	pdxmesh = "dragon_egg_whitegold_equip_mesh"
+}
+entity = {
+	name = "dragon_egg_purplegold_equip_entity"
+	pdxmesh = "dragon_egg_purplegold_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_flame_equip_entity"
+	pdxmesh = "dragon_egg_flame_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_blackred_equip_entity"
+	pdxmesh = "dragon_egg_blackred_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_brownspots_equip_entity"
+	pdxmesh = "dragon_egg_brownspots_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_redblackgold_equip_entity"
+	pdxmesh = "dragon_egg_redblackgold_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_palered_equip_entity"
+	pdxmesh = "dragon_egg_palered_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_darkblue_equip_entity"
+	pdxmesh = "dragon_egg_darkblue_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_darkred_equip_entity"
+	pdxmesh = "dragon_egg_darkred_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_frost_equip_entity"
+	pdxmesh = "dragon_egg_frost_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_icefire_equip_entity"
+	pdxmesh = "dragon_egg_icefire_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_greengrey_equip_entity"
+	pdxmesh = "dragon_egg_greengrey_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_magma_equip_entity"
+	pdxmesh = "dragon_egg_magma_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_darkpurple_equip_entity"
+	pdxmesh = "dragon_egg_darkpurple_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_palepink_equip_entity"
+	pdxmesh = "dragon_egg_palepink_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_palebluepink_equip_entity"
+	pdxmesh = "dragon_egg_palebluepink_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_pinkspot_equip_entity"
+	pdxmesh = "dragon_egg_pinkspot_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_rainbowgold_equip_entity"
+	pdxmesh = "dragon_egg_rainbowgold_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_sunburst_equip_entity"
+	pdxmesh = "dragon_egg_sunburst_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_goldpink_equip_entity"
+	pdxmesh = "dragon_egg_goldpink_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_bluebronze_equip_entity"
+	pdxmesh = "dragon_egg_bluebronze_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_greenorange_equip_entity"
+	pdxmesh = "dragon_egg_greenorange_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_bronze_equip_entity"
+	pdxmesh = "dragon_egg_bronze_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_blackgreen_equip_entity"
+	pdxmesh = "dragon_egg_blackgreen_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_greygreenyellow_equip_entity"
+	pdxmesh = "dragon_egg_greygreenyellow_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_blackyellow_equip_entity"
+	pdxmesh = "dragon_egg_blackyellow_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_yellowgreen_equip_entity"
+	pdxmesh = "dragon_egg_yellowgreen_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_silver_equip_entity"
+	pdxmesh = "dragon_egg_silver_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_america_equip_entity"
+	pdxmesh = "dragon_egg_america_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_greyBlue_equip_entity"
+	pdxmesh = "dragon_egg_greyBlue_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_redGreen_equip_entity"
+	pdxmesh = "dragon_egg_redGreen_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_lightBrown_equip_entity"
+	pdxmesh = "dragon_egg_lightBrown_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_redYellow_equip_entity"
+	pdxmesh = "dragon_egg_redYellow_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_blackWhite_equip_entity"
+	pdxmesh = "dragon_egg_blackWhite_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_spotPurple_equip_entity"
+	pdxmesh = "dragon_egg_spotPurple_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_teal_equip_entity"
+	pdxmesh = "dragon_egg_teal_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_tealSpot_equip_entity"
+	pdxmesh = "dragon_egg_tealSpot_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_weirwood_equip_entity"
+	pdxmesh = "dragon_egg_weirwood_equip_mesh"
+}
+
+entity = {
+	name = "dragon_egg_lime_equip_entity"
+	pdxmesh = "dragon_egg_lime_equip_mesh"
+}

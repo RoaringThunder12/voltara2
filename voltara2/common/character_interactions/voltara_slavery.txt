@@ -1,0 +1,56 @@
+﻿voltara_enslave_prisoner_interaction = {
+ category = interaction_category_prison icon = prison common_interaction = yes
+ desc = voltara_enslave_prisoner_interaction_desc
+ is_shown = { scope:actor = { NOT = { voltara_is_ruins_placeholder = yes } } scope:recipient = { NOT = { voltara_is_ruins_placeholder = yes } } scope:recipient = { is_imprisoned_by = scope:actor is_landed = no NOT = { has_trait = voltara_slave } } }
+ is_valid_showing_failures_only = { scope:actor = { voltara_slavery_is_legal = yes } scope:recipient = { is_alive = yes } }
+ auto_accept = yes
+ on_accept = { scope:actor = { save_scope_as = voltara_owner } scope:recipient = { voltara_enslave_character = yes } }
+ ai_targets = { ai_recipients = prisoners }
+ ai_frequency = 12
+ ai_will_do = { base = 20 modifier = { factor = 0 scope:actor = { has_trait = compassionate } } }
+}
+voltara_free_slave_interaction = {
+ category = interaction_category_friendly icon = prison common_interaction = yes
+ desc = voltara_free_slave_interaction_desc
+ is_shown = { scope:actor = { NOT = { voltara_is_ruins_placeholder = yes } } scope:recipient = { NOT = { voltara_is_ruins_placeholder = yes } } scope:recipient = { has_trait = voltara_slave is_courtier_of = scope:actor } }
+ is_valid_showing_failures_only = { scope:recipient = { is_alive = yes is_imprisoned = no } }
+ auto_accept = yes
+ on_accept = { scope:actor = { save_scope_as = voltara_liberator } scope:recipient = { voltara_free_character = yes } }
+ ai_targets = { ai_recipients = courtiers }
+ ai_frequency = 12
+ ai_will_do = { base = 0 modifier = { add = 35 scope:actor = { has_trait = compassionate } } }
+}
+voltara_sell_slave_interaction = {
+ category = interaction_category_friendly icon = icon_gold common_interaction = yes
+ desc = voltara_sell_slave_interaction_desc
+ populate_actor_list = { scope:actor = { every_courtier = { limit = { voltara_slave_can_be_sold = yes } add_to_list = characters } } }
+ is_shown = { scope:actor = { NOT = { voltara_is_ruins_placeholder = yes } } scope:recipient = { NOT = { voltara_is_ruins_placeholder = yes } }
+  scope:actor != scope:recipient
+  scope:actor = { voltara_slavery_is_legal = yes any_courtier = { voltara_slave_can_be_sold = yes } }
+  scope:recipient = { voltara_slavery_is_legal = yes }
+ }
+ is_valid_showing_failures_only = {
+  scope:actor = { in_diplomatic_range = scope:recipient }
+  scope:recipient = { gold >= 30 is_alive = yes NOT = { is_at_war_with = scope:actor } }
+ }
+ can_send = { exists = scope:secondary_actor scope:secondary_actor = { voltara_slave_can_be_sold = yes } }
+ on_send = { scope:secondary_actor = { add_character_flag = { flag = voltara_slave_sale_pending days = 90 } } }
+ on_decline = { scope:secondary_actor = { remove_character_flag = voltara_slave_sale_pending } }
+ on_accept = {
+  scope:secondary_actor = { remove_character_flag = voltara_slave_sale_pending }
+  if = { limit = {
+   scope:secondary_actor = { voltara_slave_can_be_sold = yes }
+   scope:actor = { voltara_slavery_is_legal = yes is_alive = yes }
+   scope:recipient = { voltara_slavery_is_legal = yes is_alive = yes gold >= 30 }
+  }
+   scope:recipient = { remove_short_term_gold = 30 add_trait = voltara_slaver }
+   scope:actor = { add_gold = 30 add_trait = voltara_slaver }
+   scope:secondary_actor = { set_variable = { name = voltara_slave_owner value = scope:recipient } }
+   scope:recipient = { add_courtier = scope:secondary_actor }
+  }
+ }
+ ai_accept = { base = 10 modifier = { add = -100 scope:recipient = { has_trait = compassionate } } modifier = { add = 20 scope:recipient = { has_trait = voltara_slaver } } }
+ ai_targets = { ai_recipients = neighboring_rulers }
+ ai_frequency = 24
+ ai_will_do = { base = 10 }
+}

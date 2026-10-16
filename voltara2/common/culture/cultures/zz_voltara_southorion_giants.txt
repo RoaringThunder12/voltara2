@@ -1,0 +1,30 @@
+﻿voltara_southorion = {
+ color = { 196 126 59 }
+ ethos = ethos_bellicose
+ heritage = heritage_voltara_southorion
+ language = language_voltara_southorion
+ martial_custom = martial_custom_male_only
+ head_determination = head_determination_domain
+ traditions = { tradition_dryland_dwellers tradition_forest_folk }
+ name_list = name_list_voltara_southorion
+ coa_gfx = { western_coa_gfx }
+ building_gfx = { western_building_gfx }
+ clothing_gfx = { vt_southern_clothing_gfx western_clothing_gfx }
+ unit_gfx = { western_unit_gfx }
+ ethnicities = { 100 = voltara_southorion }
+}
+voltara_giants = {
+ color = { 129 105 159 }
+ ethos = ethos_bellicose
+ heritage = heritage_voltara_giants
+ language = language_voltara_giants
+ martial_custom = martial_custom_male_only
+ head_determination = head_determination_domain
+ traditions = { tradition_mountain_homes }
+ name_list = name_list_voltara_giants
+ coa_gfx = { western_coa_gfx }
+ building_gfx = { western_building_gfx }
+ clothing_gfx = { vt_highland_clothing_gfx western_clothing_gfx }
+ unit_gfx = { western_unit_gfx }
+ ethnicities = { 100 = voltara_giant }
+}

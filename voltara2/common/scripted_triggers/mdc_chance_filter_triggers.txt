@@ -1,0 +1,39 @@
+﻿# Queries run in the requester; RECIPIENT is the candidate.
+# Shared by filtered counts and sends; none retains the original query unchanged.
+mdc_vassal_conversion_cutoff_query = {
+    is_character_interaction_potentially_accepted = {
+        recipient = $RECIPIENT$
+        interaction = demand_conversion_vassal_ruler_interaction
+        ai_accept = $MINIMUM$
+    }
+}
+
+# Read native selected flags, never GUI-only variables or a saved preference.
+mdc_selected_vassal_conversion_query = {
+    trigger_if = {
+        limit = {
+            OR = {
+                scope:mdc_convert_direct_vassals_100 ?= yes
+                scope:mdc_convert_indirect_vassals_100 ?= yes
+                scope:mdc_convert_tributaries_100 ?= yes
+            }
+        }
+        mdc_vassal_conversion_cutoff_query = { RECIPIENT = $RECIPIENT$ MINIMUM = 100 }
+    }
+    trigger_else_if = {
+        limit = {
+            OR = {
+                scope:mdc_convert_direct_vassals_80 ?= yes
+                scope:mdc_convert_indirect_vassals_80 ?= yes
+                scope:mdc_convert_tributaries_80 ?= yes
+            }
+        }
+        mdc_vassal_conversion_cutoff_query = { RECIPIENT = $RECIPIENT$ MINIMUM = 80 }
+    }
+    trigger_else = {
+        is_character_interaction_potentially_accepted = {
+            recipient = $RECIPIENT$
+            interaction = demand_conversion_vassal_ruler_interaction
+        }
+    }
+}

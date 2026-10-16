@@ -1,0 +1,2 @@
+﻿voltara_order_hostility = { parameters = { has_clerical_regions } doctrine_group_type = hostility_group index = 4 visible = no special_parameters = { hostility_levels = { same_religion = astray same_family = hostile unrelated = evil } hostility_level_override = { voltara_khaos_hostility = evil } } }
+voltara_khaos_hostility = { doctrine_group_type = hostility_group index = 5 visible = no special_parameters = { hostility_levels = { same_religion = astray same_family = hostile unrelated = evil } hostility_level_override = { voltara_order_hostility = evil } } }

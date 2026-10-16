@@ -1,0 +1,3 @@
+﻿on_game_start_after_lobby = { on_actions = { voltara_repair_ruins_union } }
+yearly_global_pulse = { on_actions = { voltara_repair_ruins_union } }
+voltara_repair_ruins_union = { effect = { voltara_reconsolidate_ruins = yes } }

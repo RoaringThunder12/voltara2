@@ -1,0 +1,109 @@
+﻿namespace = voltara_dragons
+voltara_dragons.1 = { type = character_event title = voltara_dragons.1.t desc = voltara_dragons.1.desc theme = martial
+immediate = { random_in_global_list = { variable = voltara_living_dragons limit = { is_alive = yes NOT = { exists = var:current_rider } } save_scope_as = dragon } }
+option = { name = voltara_dragons.1.o0 trigger = { NOT = { voltara_has_living_dragon = yes } exists = scope:dragon scope:dragon = { voltara_free_dragon = yes } } random_list = { 30 = { voltara_bond_dragon_effect = yes trigger_event = voltara_dragons.3 } 50 = { trigger_event = voltara_dragons.4 } 20 = { add_trait = wounded_1 trigger_event = voltara_dragons.4 } } }
+option = { name = voltara_dragons.1.o1  }
+}
+
+voltara_dragons.3 = { type = character_event title = voltara_dragons.3.t desc = voltara_dragons.3.desc theme = martial
+option = { name = voltara_dragons.3.o0 add_prestige = 150 }
+}
+
+voltara_dragons.4 = { type = character_event title = voltara_dragons.4.t desc = voltara_dragons.4.desc theme = martial
+option = { name = voltara_dragons.4.o0  }
+}
+
+voltara_dragons.10 = { type = character_event title = voltara_dragons.10.t desc = voltara_dragons.10.desc theme = martial
+immediate = { random_character_artifact = { limit = { has_variable = voltara_dragon_egg } save_scope_as = egg } }
+option = { name = voltara_dragons.10.o0 trigger = { NOT = { voltara_has_living_dragon = yes } exists = scope:egg scope:egg = { owner = root } } random_list = { 45 = { voltara_hatch_egg_effect = yes trigger_event = voltara_dragons.11 } 45 = { trigger_event = voltara_dragons.12 } 10 = { destroy_artifact = scope:egg trigger_event = voltara_dragons.13 } } }
+option = { name = voltara_dragons.10.o1  }
+}
+
+voltara_dragons.11 = { type = character_event title = voltara_dragons.11.t desc = voltara_dragons.11.desc theme = martial
+option = { name = voltara_dragons.11.o0 add_prestige = 100 }
+}
+
+voltara_dragons.12 = { type = character_event title = voltara_dragons.12.t desc = voltara_dragons.12.desc theme = martial
+option = { name = voltara_dragons.12.o0  }
+}
+
+voltara_dragons.13 = { type = character_event title = voltara_dragons.13.t desc = voltara_dragons.13.desc theme = martial
+option = { name = voltara_dragons.13.o0 add_learning_lifestyle_xp = 100 }
+}
+
+voltara_dragons.20 = { type = character_event title = voltara_dragons.20.t desc = voltara_dragons.20.desc theme = martial
+option = { name = voltara_dragons.20.o0 random_list = { 35 = { voltara_create_egg_effect = yes } 65 = { add_learning_lifestyle_xp = 100 } } }
+}
+
+voltara_dragons.30 = { type = character_event title = voltara_dragons.30.t desc = voltara_dragons.30.desc theme = martial
+option = { name = voltara_dragons.30.o0  }
+}
+
+voltara_dragons.40 = { type = character_event title = voltara_dragons.40.t desc = voltara_dragons.40.desc theme = martial
+option = { name = voltara_dragons.40.o0 trigger = { voltara_has_living_dragon = yes } add_trait_xp = { trait = dragonrider track = dragon_training value = 10 } add_trait_xp = { trait = dragonrider track = dragon_bond value = 5 } add_character_modifier = { modifier = voltara_dragon_training years = 3 } add_prestige = 50 }
+}
+
+voltara_dragons.50 = { type = character_event title = voltara_dragons.50.t desc = voltara_dragons.50.desc theme = martial
+option = { name = voltara_dragons.50.o0 trigger = { is_current_dragonrider = yes is_at_war = yes } add_character_flag = { flag = voltara_dragon_deployed years = 1 } add_character_modifier = { modifier = voltara_dragon_warfare years = 1 } }
+}
+
+voltara_dragons.60 = {
+ type = character_event title = voltara_dragons.60.t desc = voltara_dragons.60.desc theme = martial
+ option = { name = voltara_dragons.60.attack
+ trigger = { voltara_opposing_commander = yes scope:actor = { is_current_dragonrider_warfare = yes } scope:recipient = { is_current_dragonrider_warfare = yes } }
+ random_list = {
+ 100 = { modifier = { factor = scope:actor.voltara_dragon_combat_power always = yes }
+ scope:actor = { save_scope_as = voltara_winner } scope:recipient = { save_scope_as = voltara_loser }
+ voltara_dragon_duel_victory = yes trigger_event = voltara_dragons.61 }
+ 100 = { modifier = { factor = scope:recipient.voltara_dragon_combat_power always = yes }
+ scope:recipient = { save_scope_as = voltara_winner } scope:actor = { save_scope_as = voltara_loser }
+ voltara_dragon_duel_victory = yes trigger_event = voltara_dragons.61 }
+ } }
+ option = { name = voltara_dragons.60.retreat voltara_clear_deployment = yes voltara_dragon_duel_cleanup = yes }
+}
+voltara_dragons.61 = { type = character_event title = voltara_dragons.61.t desc = voltara_dragons.61.desc theme = martial
+ option = { name = voltara_dragons.61.mercy add_prestige = 25 }
+ option = { name = voltara_dragons.61.pursue
+ trigger = { this = scope:voltara_winner scope:voltara_loser = { is_alive = yes voltara_has_living_dragon = yes } }
+ random_list = {
+ 70 = { scope:voltara_loser = { add_trait = wounded_2 } }
+ 20 = { scope:voltara_loser.var:current_dragon = { death = { death_reason = death_battle killer = scope:voltara_winner } } }
+ 10 = { var:current_dragon = { add_character_modifier = { modifier = voltara_dragon_wounded years = 2 } } add_trait = wounded_2 }
+ }
+ }
+}
+voltara_dragons.70 = { hidden = yes immediate = {
+ scope:sc_victor ?= { add_prestige = 100 add_character_modifier = { modifier = voltara_battlefield_veteran years = 5 }
+ change_variable = { name = voltara_battlefield_victories add = 1 } }
+} }
+voltara_dragons.80 = { type = character_event title = voltara_dragons.80.t desc = voltara_dragons.80.desc theme = realm
+ left_portrait = { character = root.var:current_dragon }
+ option = { name = voltara_dragons.80.close }
+}
+voltara_dragons.90 = { hidden = yes immediate = {
+ if = { limit = { is_alive = yes voltara_has_living_dragon = yes }
+ if = { limit = { OR = { NOT = { is_current_dragonrider = yes } is_at_war = no NOT = { has_character_flag = voltara_dragon_deployed } } } voltara_clear_deployment = yes }
+ trigger_event = { id = voltara_dragons.90 days = 30 }
+ }
+ else = { remove_trait = dragonrider remove_variable = current_dragon voltara_clear_deployment = yes }
+} }
+
+voltara_dragons.101 = { type = character_event title = voltara_dragons.101.t desc = voltara_dragons.101.desc theme = diplomacy
+ option = { name = voltara_dragons.101.accept
+ trigger = { NOT = { voltara_has_living_dragon = yes } scope:dragon ?= { voltara_free_dragon = yes } }
+ set_variable = { name = voltara_bond_candidate value = scope:dragon }
+ trigger_event = { id = voltara_dragons.102 months = 6 }
+ }
+ option = { name = voltara_dragons.cancel }
+}
+voltara_dragons.102 = { type = character_event title = voltara_dragons.102.t desc = voltara_dragons.102.desc theme = martial
+ immediate = { if = { limit = { exists = var:voltara_bond_candidate } var:voltara_bond_candidate = { save_scope_as = dragon } remove_variable = voltara_bond_candidate } }
+ option = { name = voltara_dragons.102.accept
+ trigger = { NOT = { voltara_has_living_dragon = yes } exists = scope:dragon scope:dragon ?= { voltara_free_dragon = yes } }
+ random = { chance = { value = scope:dragon.taming_chance min = 15 max = 85 }
+ voltara_bond_dragon_effect = yes }
+ if = { limit = { voltara_has_living_dragon = yes } trigger_event = voltara_dragons.3 }
+ else = { add_trait = wounded_1 trigger_event = voltara_dragons.4 }
+ }
+ option = { name = voltara_dragons.cancel }
+}

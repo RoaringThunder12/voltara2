@@ -1,0 +1,31 @@
+﻿otherparent_relation_type = {
+	type = character
+	
+	text = {
+		trigger = {
+			exists = var:is_former_spouse
+			scope:second = { is_male = yes }
+		}
+		localization_key = ansf_relation_ex_husband
+	}
+	text = {
+		trigger = {
+			exists = var:is_former_spouse
+			scope:second = { is_female = yes }
+		}
+		localization_key = ansf_relation_ex_wife
+	}
+	text = {
+		trigger = {
+			exists = var:is_concubine
+		}
+		localization_key = concubine
+	}
+	text = {
+		trigger = {
+			exists = var:is_lover_bastard
+		}
+		localization_key = consort_lover
+	}
+}
+

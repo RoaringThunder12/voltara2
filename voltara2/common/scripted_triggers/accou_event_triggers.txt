@@ -1,0 +1,80 @@
+﻿accou_is_valid_event_liege_trigger = {
+ NOR = { has_trait = voltara_ruins_keeper has_trait = dragon has_government = voltara_ruins_government }
+
+	# Available
+	trigger_if = {
+		limit = {
+			has_domicile = yes
+			current_travel_plan ?= {
+				is_travel_with_domicile = yes
+			}
+		}
+		is_available_allow_travelling = yes
+	}
+	trigger_else = {
+		is_available = yes
+	}
+}
+
+accou_is_valid_event_participant_trigger = {
+ NOR = { has_trait = voltara_ruins_keeper has_trait = dragon has_government = voltara_ruins_government }
+
+	# Available
+	trigger_if = {
+		limit = {
+			liege ?= {
+				has_domicile = yes
+				current_travel_plan ?= {
+					is_travel_with_domicile = yes
+				}
+			}
+		}
+		accou_is_available_ai_allow_travelling_trigger = yes
+	}
+	trigger_else = {
+		accou_is_available_ai_trigger = yes
+	}
+
+	# Health conditions
+	NOT = { has_trait = infirm }
+	has_serious_disease_trigger = no
+}
+
+accou_is_valid_adult_event_participant_trigger = {
+	accou_is_valid_event_participant_trigger = yes
+	is_adult = yes
+
+	# Not a hostage or traveling hostage, guardian, or ward
+	bp2_valid_for_standard_interactions_trigger = yes
+}
+
+accou_is_valid_child_event_participant_trigger = {
+	accou_is_valid_event_participant_trigger = yes
+	is_adult = no
+}
+
+accou_is_available_ai_trigger = {
+	accou_is_available_ai_allow_travelling_trigger = yes
+	is_travelling = no
+}
+
+accou_is_available_ai_allow_travelling_trigger = {
+	is_available_quick = {
+		alive = yes
+		ai = yes
+		imprisoned = no
+		incapable = no
+		in_army = no
+		activity = no
+	}
+	has_contagious_deadly_disease_trigger = no
+	NOT = { has_variable = gone_adventuring }
+}
+
+accou_is_landless_ruler_trigger = {
+	OR = {
+		is_landless_adventurer = yes
+		is_landless_administrative = yes
+		is_landless_nomad = yes
+	}
+}

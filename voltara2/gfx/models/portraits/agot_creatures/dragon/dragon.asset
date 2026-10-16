@@ -1,0 +1,441 @@
+﻿skeletal_animation_set = {
+    name = "dragon_animations"
+    reference_skeleton = "dragon_mesh"
+
+	animation = { 			id = "dragon_idle_flair_lookingleft" 		type = "dragon_idle_flair_lookingleft.anim" } # 300 frames
+	animation = { 			id = "dragon_idle_1" 						type = "dragon_idle_1.anim" } # 120 frames
+	animation = { 			id = "dragon_flying_1" 						type = "dragon_glide.anim" } # 300 frames
+	animation = { 			id = "dragon_flying_2" 						type = "dragon_glide_wing_flap.anim" } # 75 frames
+	animation = { 			id = "dragon_flying_1_fire" 				type = "dragon_glide_fire.anim" } # 300 frames
+	animation = { 			id = "dragon_flying_2_fire" 				type = "dragon_glide_wing_flap_fire.anim" } # 75 frames
+	animation = { 			id = "dragon_roar_1" 						type = "dragon_roar.anim" } # 300 frames
+	#animation = { 			id = "dragon_roar_1" 						type = "dragon_idle_flair_lookingleft.anim" } # 300 frames
+	animation = { 			id = "dragon_hover_1" 						type = "dragon_hover_1.anim" } # 60 frames
+	animation = { 			id = "dragon_baby_idle_1" 					type = "dragon_baby_idle_1.anim" }
+	animation = { 			id = "dragon_baby_idle_2" 					type = "dragon_baby_idle_2.anim" }
+	animation = { 			id = "dragon_baby_idle_burp" 				type = "dragon_baby_idle_burp.anim" }
+	animation = { 			id = "dragon_roar_1_fire" 					type = "dragon_roar_fire.anim" }
+	animation = { 			id = "dragon_hover_1_fire" 					type = "dragon_hover_1_fire.anim" }
+
+}	
+
+
+
+pdxmesh = {
+	name = "dragon_mesh"
+	file = "dragon.mesh"
+	scale = 1.0
+
+	animation = { 			id = "dragon_idle_flair_lookingleft" 		type = "dragon_idle_flair_lookingleft.anim" }
+animation = { 			id = "dragon_idle_1" 						type = "dragon_idle_1.anim" }
+animation = { 			id = "dragon_flying_1" 						type = "dragon_glide.anim" }
+animation = { 			id = "dragon_flying_2" 						type = "dragon_glide_wing_flap.anim" }
+animation = { 			id = "dragon_flying_1_fire" 				type = "dragon_glide_fire.anim" }
+animation = { 			id = "dragon_flying_2_fire" 				type = "dragon_glide_wing_flap_fire.anim" }
+animation = { 			id = "dragon_roar_1" 						type = "dragon_roar.anim" }
+animation = { 			id = "dragon_hover_1" 						type = "dragon_hover_1.anim" }
+animation = { 			id = "dragon_baby_idle_1" 					type = "dragon_baby_idle_1.anim" }
+animation = { 			id = "dragon_baby_idle_2" 					type = "dragon_baby_idle_2.anim" }
+animation = { 			id = "dragon_baby_idle_burp" 				type = "dragon_baby_idle_burp.anim" }
+animation = { 			id = "dragon_roar_1_fire" 					type = "dragon_roar_fire.anim" }
+animation = { 			id = "dragon_hover_1_fire" 					type = "dragon_hover_1_fire.anim" }
+
+	additive_animation = { 	id = "dragon_infant_proportions"			type = "dragon_infant.anim" }
+	additive_animation = { 	id = "dragon_large_proportions"				type = "dragon_large.anim" }
+
+	additive_animation = { 	id = "dragon_neck_length"					type = "dragon_neck_length.anim" }
+	additive_animation = { 	id = "dragon_tail_length"					type = "dragon_tail_length.anim" }
+	additive_animation = { 	id = "dragon_body_shape"					type = "dragon_body_shape.anim" }
+
+	blend_shape = { 		id = "dragon_infant"						type = "blendshapes/dragon_infant.mesh" }
+	blend_shape = { 		id = "dragon_large"							type = "blendshapes/dragon_large.mesh" }
+
+	blend_shape = { 		id = "dragon_brow_width"								type = "blendshapes/dragon_brow_width.mesh" }
+	blend_shape = { 		id = "dragon_cheek_width_neg"							type = "blendshapes/dragon_cheek_width_neg.mesh" }
+	blend_shape = { 		id = "dragon_cheek_width_pos"							type = "blendshapes/dragon_cheek_width_pos.mesh" }
+	blend_shape = { 		id = "dragon_chin_profile"								type = "blendshapes/dragon_chin_profile.mesh" }
+	blend_shape = { 		id = "dragon_crest_depth"								type = "blendshapes/dragon_crest_depth.mesh" }
+	blend_shape = { 		id = "dragon_head_roundness"							type = "blendshapes/dragon_head_roundness.mesh" }
+	blend_shape = { 		id = "dragon_horns_eyebrow_length"						type = "blendshapes/dragon_horns_eyebrow_length.mesh" }
+	blend_shape = { 		id = "dragon_horns_meleys"								type = "blendshapes/dragon_horns_meleys.mesh" }
+	blend_shape = { 		id = "dragon_jaw_width_neg"								type = "blendshapes/dragon_jaw_width_neg.mesh" }
+	blend_shape = { 		id = "dragon_jaw_width_pos"								type = "blendshapes/dragon_jaw_width_pos.mesh" }
+	blend_shape = { 		id = "dragon_lower_jaw_height_neg"						type = "blendshapes/dragon_lower_jaw_height_neg.mesh" }
+	blend_shape = { 		id = "dragon_lower_jaw_height_pos"						type = "blendshapes/dragon_lower_jaw_height_pos.mesh" }
+	blend_shape = { 		id = "dragon_lower_jaw_width"							type = "blendshapes/dragon_lower_jaw_width.mesh" }
+	blend_shape = { 		id = "dragon_old_neck"									type = "blendshapes/dragon_old_neck.mesh" }
+	blend_shape = { 		id = "dragon_outer_brow_height"							type = "blendshapes/dragon_outer_brow_height.mesh" }
+	blend_shape = { 		id = "dragon_snout_height_neg"							type = "blendshapes/dragon_snout_height_neg.mesh" }
+	blend_shape = { 		id = "dragon_snout_height_pos"							type = "blendshapes/dragon_snout_height_pos.mesh" }
+	blend_shape = { 		id = "dragon_snout_length_neg"							type = "blendshapes/dragon_snout_length_neg.mesh" }
+	blend_shape = { 		id = "dragon_snout_length_pos"							type = "blendshapes/dragon_snout_length_pos.mesh" }
+	blend_shape = { 		id = "dragon_snout_profile_neg"							type = "blendshapes/dragon_snout_profile_neg.mesh" }
+	blend_shape = { 		id = "dragon_snout_profile_pos"							type = "blendshapes/dragon_snout_profile_pos.mesh" }
+	blend_shape = { 		id = "dragon_snout_width"								type = "blendshapes/dragon_snout_width.mesh" }
+	blend_shape = { 		id = "dragon_upper_jaw_width"							type = "blendshapes/dragon_upper_jaw_width.mesh" }
+
+	blend_shape = { 		id = "dragon_back_spike_size"							type = "blendshapes/dragon_back_spike_size.mesh" }
+	blend_shape = { 		id = "dragon_center_fin_size_neg"						type = "blendshapes/dragon_center_fin_size_neg.mesh" }
+	blend_shape = { 		id = "dragon_center_fin_size_pos"						type = "blendshapes/dragon_center_fin_size_pos.mesh" }
+	blend_shape = { 		id = "dragon_horns_balerion"							type = "blendshapes/dragon_horns_balerion.mesh" }
+	blend_shape = { 		id = "dragon_horns_cannibal"							type = "blendshapes/dragon_horns_cannibal.mesh" }
+	blend_shape = { 		id = "dragon_horns_curvy"								type = "blendshapes/dragon_horns_curvy.mesh" }
+	blend_shape = { 		id = "dragon_horns_dreamfyre"							type = "blendshapes/dragon_horns_dreamfyre.mesh" }
+	blend_shape = { 		id = "dragon_horns_eyebrow"								type = "blendshapes/dragon_horns_eyebrow.mesh" }
+	blend_shape = { 		id = "dragon_horns_grey_ghost"							type = "blendshapes/dragon_horns_grey_ghost.mesh" }
+	blend_shape = { 		id = "dragon_horns_long"								type = "blendshapes/dragon_horns_long.mesh" }
+	blend_shape = { 		id = "dragon_horns_meraxes"								type = "blendshapes/dragon_horns_meraxes.mesh" }
+	blend_shape = { 		id = "dragon_horns_silverwing"							type = "blendshapes/dragon_horns_silverwing.mesh" }
+	blend_shape = { 		id = "dragon_horns_small"								type = "blendshapes/dragon_horns_small.mesh" }
+	blend_shape = { 		id = "dragon_neck_spike_size"							type = "blendshapes/dragon_neck_spike_size.mesh" }
+	blend_shape = { 		id = "dragon_side_fin_size_neg"							type = "blendshapes/dragon_side_fin_size_neg.mesh" }
+	blend_shape = { 		id = "dragon_side_fin_size_pos"							type = "blendshapes/dragon_side_fin_size_pos.mesh" }
+	blend_shape = { 		id = "dragon_snout_end_width_neg"						type = "blendshapes/dragon_snout_end_width_neg.mesh" }
+	blend_shape = { 		id = "dragon_snout_end_width_pos"						type = "blendshapes/dragon_snout_end_width_pos.mesh" }
+
+
+
+	meshsettings = {
+		name = "body"
+		index = 0
+		texture_diffuse = "dragon_body_diffuse.dds"
+		texture_normal = "dragon_body_normal.dds"
+		texture_specular = "dragon_body_properties.dds"
+		texture = { file = "dragon_body_mask.dds" index = 3 }
+		shader = "voltara_isolated_portrait_dragon_decals"
+		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
+		additional_shader_defines = {
+            "DRAGON_BODYPART_MARKER float3(1.0f,0.0f,0.0f)"
+            }
+	}
+
+	meshsettings = {
+		name = "wings"
+		index = 0
+		texture_diffuse = "dragon_wing_diffuse.dds"
+		texture_normal = "dragon_wing_normal.dds"
+		texture_specular = "dragon_wing_properties.dds"
+		texture = { file = "dragon_wing_mask.dds" index = 3 }
+		shader = "voltara_isolated_portrait_dragon_wing_decals"
+		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
+		additional_shader_defines = {
+            "DRAGON_BODYPART_MARKER float3(0.0f,0.0f,1.0f)"
+            }
+	}
+
+	meshsettings = {
+		name = "eye"
+		index = 0
+		texture_diffuse = "dragon_eye_inside_diffuse.dds"
+		texture_normal = "dragon_eye_inside_normal.dds"
+		texture_specular = "dragon_eye_inside_properties.dds"
+		texture = { file = "dragon_eye_mask.dds" index = 3 }
+		shader = "voltara_isolated_portrait_dragon_decals"
+		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
+		additional_shader_defines = {
+            "DRAGON_BODYPART_MARKER float3(0.0f,1.0f,1.0f)"
+			"EMISSIVE_PROPERTIES_RED"
+            }
+	}
+
+	meshsettings = {
+		name = "horns"
+		index = 0
+		texture_diffuse = "dragon_horns_diffuse.dds"
+		texture_normal = "dragon_horns_normal.dds"
+		texture_specular = "no_properties.dds"
+		texture = { file = "dragon_horns_mask.dds" index = 3 }
+		shader = "voltara_isolated_portrait_dragon_decals"
+		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
+		additional_shader_defines = {
+            "DRAGON_BODYPART_MARKER float3(1.0f,1.0f,0.0f)"
+            }
+	}
+}
+
+entity = {
+	name = "dragon_entity"
+	pdxmesh = "dragon_mesh"
+	
+    game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+		}
+	 }
+	 
+	attribute = { name = "dragon_infant_proportions" 			additive_animation = "dragon_infant_proportions" default = 0.5 }
+	attribute = { name = "dragon_large_proportions" 			additive_animation = "dragon_large_proportions" default = 0.5 }
+
+	attribute = { name = "bs_dragon_infant"							blend_shape = "dragon_infant" }
+	attribute = { name = "bs_dragon_large"							blend_shape = "dragon_large" }
+
+	attribute = { name = "bs_dragon_brow_width"							blend_shape = "dragon_brow_width" }
+	attribute = { name = "bs_dragon_cheek_width_neg"					blend_shape = "dragon_cheek_width_neg" }
+	attribute = { name = "bs_dragon_cheek_width_pos"					blend_shape = "dragon_cheek_width_pos" }
+	attribute = { name = "bs_dragon_chin_profile"						blend_shape = "dragon_chin_profile" }
+	attribute = { name = "bs_dragon_crest_depth"						blend_shape = "dragon_crest_depth" }
+	attribute = { name = "bs_dragon_head_roundness"						blend_shape = "dragon_head_roundness" }
+	attribute = { name = "bs_dragon_horns_eyebrow_length"				blend_shape = "dragon_horns_eyebrow_length" }
+	attribute = { name = "bs_dragon_horns_meleys"						blend_shape = "dragon_horns_meleys" }
+	attribute = { name = "bs_dragon_jaw_width_neg"						blend_shape = "dragon_jaw_width_neg" }
+	attribute = { name = "bs_dragon_jaw_width_pos"						blend_shape = "dragon_jaw_width_pos" }
+	attribute = { name = "bs_dragon_lower_jaw_height_neg"				blend_shape = "dragon_lower_jaw_height_neg" }
+	attribute = { name = "bs_dragon_lower_jaw_height_pos"				blend_shape = "dragon_lower_jaw_height_pos" }
+	attribute = { name = "bs_dragon_lower_jaw_width"					blend_shape = "dragon_lower_jaw_width" }
+	attribute = { name = "bs_dragon_old_neck"							blend_shape = "dragon_old_neck" }
+	attribute = { name = "bs_dragon_outer_brow_height"					blend_shape = "dragon_outer_brow_height" }
+	attribute = { name = "bs_dragon_snout_height_neg"					blend_shape = "dragon_snout_height_neg" }
+	attribute = { name = "bs_dragon_snout_height_pos"					blend_shape = "dragon_snout_height_pos" }
+	attribute = { name = "bs_dragon_snout_length_neg"					blend_shape = "dragon_snout_length_neg" }
+	attribute = { name = "bs_dragon_snout_length_pos"					blend_shape = "dragon_snout_length_pos" }
+	attribute = { name = "bs_dragon_snout_profile_neg"					blend_shape = "dragon_snout_profile_neg" }
+	attribute = { name = "bs_dragon_snout_profile_pos"					blend_shape = "dragon_snout_profile_pos" }
+	attribute = { name = "bs_dragon_snout_width"						blend_shape = "dragon_snout_width" }
+	attribute = { name = "bs_dragon_upper_jaw_width"					blend_shape = "dragon_upper_jaw_width" }
+
+	attribute = { name = "bs_dragon_back_spike_size"					blend_shape = "dragon_back_spike_size" }
+	attribute = { name = "bs_dragon_center_fin_size_neg"				blend_shape = "dragon_center_fin_size_neg" }
+	attribute = { name = "bs_dragon_center_fin_size_pos"				blend_shape = "dragon_center_fin_size_pos" }
+	attribute = { name = "bs_dragon_horns_balerion"						blend_shape = "dragon_horns_balerion" }
+	attribute = { name = "bs_dragon_horns_cannibal"						blend_shape = "dragon_horns_cannibal" }
+	attribute = { name = "bs_dragon_horns_curvy"						blend_shape = "dragon_horns_curvy" }
+	attribute = { name = "bs_dragon_horns_dreamfyre"					blend_shape = "dragon_horns_dreamfyre" }
+	attribute = { name = "bs_dragon_horns_eyebrow"						blend_shape = "dragon_horns_eyebrow" }
+	attribute = { name = "bs_dragon_horns_grey_ghost"					blend_shape = "dragon_horns_grey_ghost" }
+	attribute = { name = "bs_dragon_horns_long"							blend_shape = "dragon_horns_long" }
+	attribute = { name = "bs_dragon_horns_meraxes"						blend_shape = "dragon_horns_meraxes" }
+	attribute = { name = "bs_dragon_horns_silverwing"					blend_shape = "dragon_horns_silverwing" }
+	attribute = { name = "bs_dragon_horns_small"						blend_shape = "dragon_horns_small" }
+	attribute = { name = "bs_dragon_neck_spike_size"					blend_shape = "dragon_neck_spike_size" }
+	attribute = { name = "bs_dragon_side_fin_size_neg"					blend_shape = "dragon_side_fin_size_neg" }
+	attribute = { name = "bs_dragon_side_fin_size_pos"					blend_shape = "dragon_side_fin_size_pos" }
+	attribute = { name = "bs_dragon_snout_end_width_neg"				blend_shape = "dragon_snout_end_width_neg" }
+	attribute = { name = "bs_dragon_snout_end_width_pos"				blend_shape = "dragon_snout_end_width_pos" }
+	
+	attribute = { name = "dragon_neck_length" 			additive_animation = "dragon_neck_length" default = 0.0 }
+	attribute = { name = "dragon_tail_length" 			additive_animation = "dragon_tail_length" default = 0.0 }
+	attribute = { name = "dragon_body_shape" 			additive_animation = "dragon_body_shape" default = 0.0 }
+
+	get_state_from_parent = no
+ default_state = "dragon_idle"
+
+	state = {	name = "dragon_static"						animation = "dragon_idle_1" 					looping = no animation_speed = 1.0 animation_blend_time = 0.3  }
+	state = {	name = "dragon_idle_loop"					animation = "dragon_idle_1" 					looping = no animation_speed = 1.0 animation_blend_time = 0.3  }
+	state = {	name = "dragon_idle_entry"					animation = "dragon_idle_flair_lookingleft" 	looping = no animation_speed = 1.0 animation_blend_time = 0.3  }
+	state = {	name = "dragon_idle"						animation = "dragon_idle_1" 					looping = no animation_speed = 1.0 animation_blend_time = 0.3  }
+	state = {	name = "dragon_flying"						animation = "dragon_flying_1" 					looping = no animation_speed = 1.0 animation_blend_time = 0.3  }
+	state = {	name = "dragon_flying_2"					animation = "dragon_flying_2" 					looping = no animation_speed = 1.0 animation_blend_time = 0.3  }
+	state = {	name = "dragon_flying_fire"					animation = "dragon_flying_1_fire"	 			looping = no animation_speed = 1.0 animation_blend_time = 0.3 
+		 }
+	state = {	name = "dragon_flying_2_fire"				animation = "dragon_flying_2_fire"	 			looping = no animation_speed = 1.0 animation_blend_time = 0.3
+		 }
+	state = {	name = "dragon_roar"						animation = "dragon_roar_1" 					looping = no animation_speed = 1.0 animation_blend_time = 0.3  }
+	state = {	name = "dragon_hover"						animation = "dragon_hover_1" 					looping = no animation_speed = 1.0 animation_blend_time = 0.3  }
+	state = {	name = "dragon_roar_fire"					animation = "dragon_roar_1_fire" 				looping = no animation_speed = 1.0 animation_blend_time = 0.3  }
+	state = {	name = "dragon_hover_fire"					animation = "dragon_hover_1_fire" 				looping = no animation_speed = 1.0 animation_blend_time = 0.3  }
+
+	state = {	name = "dragon_baby_idle"					animation = "dragon_baby_idle_1" 				looping = no animation_speed = 1.0 animation_blend_time = 0.3  }
+	state = {	name = "dragon_baby_idle_2"					animation = "dragon_baby_idle_2" 				looping = no animation_speed = 1.0 animation_blend_time = 0.3  }
+	state = {	name = "dragon_baby_idle_burp"				animation = "dragon_baby_idle_burp" 			looping = no animation_speed = 1.0 animation_blend_time = 0.3  }
+	state = {	name = "dragon_baby_fire"					animation = "dragon_baby_idle_burp" 			looping = no animation_speed = 1.0 animation_blend_time = 0.3  }
+	state = {	name = "dragon_baby_fire_idle"				animation = "dragon_baby_idle_1" 				looping = no animation_speed = 1.0 animation_blend_time = 0.3  }
+	############################################################################
+}
+
+pdxmesh = {
+	name = "dragon_shadow_mesh"
+	file = "dragon.mesh"
+	scale = 1.0
+
+	animation = { 			id = "dragon_idle_flair_lookingleft" 		type = "dragon_idle_flair_lookingleft.anim" }
+animation = { 			id = "dragon_idle_1" 						type = "dragon_idle_1.anim" }
+animation = { 			id = "dragon_flying_1" 						type = "dragon_glide.anim" }
+animation = { 			id = "dragon_flying_2" 						type = "dragon_glide_wing_flap.anim" }
+animation = { 			id = "dragon_flying_1_fire" 				type = "dragon_glide_fire.anim" }
+animation = { 			id = "dragon_flying_2_fire" 				type = "dragon_glide_wing_flap_fire.anim" }
+animation = { 			id = "dragon_roar_1" 						type = "dragon_roar.anim" }
+animation = { 			id = "dragon_hover_1" 						type = "dragon_hover_1.anim" }
+animation = { 			id = "dragon_baby_idle_1" 					type = "dragon_baby_idle_1.anim" }
+animation = { 			id = "dragon_baby_idle_2" 					type = "dragon_baby_idle_2.anim" }
+animation = { 			id = "dragon_baby_idle_burp" 				type = "dragon_baby_idle_burp.anim" }
+animation = { 			id = "dragon_roar_1_fire" 					type = "dragon_roar_fire.anim" }
+animation = { 			id = "dragon_hover_1_fire" 					type = "dragon_hover_1_fire.anim" }
+
+	additive_animation = { 	id = "dragon_infant_proportions"			type = "dragon_infant.anim" }
+	additive_animation = { 	id = "dragon_large_proportions"				type = "dragon_large.anim" }
+
+	additive_animation = { 	id = "dragon_neck_length"					type = "dragon_neck_length.anim" }
+	additive_animation = { 	id = "dragon_tail_length"					type = "dragon_tail_length.anim" }
+	additive_animation = { 	id = "dragon_body_shape"					type = "dragon_body_shape.anim" }
+
+	blend_shape = { 		id = "dragon_infant"						type = "blendshapes/dragon_infant.mesh" }
+	blend_shape = { 		id = "dragon_large"							type = "blendshapes/dragon_large.mesh" }
+
+	blend_shape = { 		id = "dragon_brow_width"								type = "blendshapes/dragon_brow_width.mesh" }
+	blend_shape = { 		id = "dragon_cheek_width_neg"							type = "blendshapes/dragon_cheek_width_neg.mesh" }
+	blend_shape = { 		id = "dragon_cheek_width_pos"							type = "blendshapes/dragon_cheek_width_pos.mesh" }
+	blend_shape = { 		id = "dragon_chin_profile"								type = "blendshapes/dragon_chin_profile.mesh" }
+	blend_shape = { 		id = "dragon_crest_depth"								type = "blendshapes/dragon_crest_depth.mesh" }
+	blend_shape = { 		id = "dragon_head_roundness"							type = "blendshapes/dragon_head_roundness.mesh" }
+	blend_shape = { 		id = "dragon_horns_eyebrow_length"						type = "blendshapes/dragon_horns_eyebrow_length.mesh" }
+	blend_shape = { 		id = "dragon_horns_meleys"								type = "blendshapes/dragon_horns_meleys.mesh" }
+	blend_shape = { 		id = "dragon_jaw_width_neg"								type = "blendshapes/dragon_jaw_width_neg.mesh" }
+	blend_shape = { 		id = "dragon_jaw_width_pos"								type = "blendshapes/dragon_jaw_width_pos.mesh" }
+	blend_shape = { 		id = "dragon_lower_jaw_height_neg"						type = "blendshapes/dragon_lower_jaw_height_neg.mesh" }
+	blend_shape = { 		id = "dragon_lower_jaw_height_pos"						type = "blendshapes/dragon_lower_jaw_height_pos.mesh" }
+	blend_shape = { 		id = "dragon_lower_jaw_width"							type = "blendshapes/dragon_lower_jaw_width.mesh" }
+	blend_shape = { 		id = "dragon_old_neck"									type = "blendshapes/dragon_old_neck.mesh" }
+	blend_shape = { 		id = "dragon_outer_brow_height"							type = "blendshapes/dragon_outer_brow_height.mesh" }
+	blend_shape = { 		id = "dragon_snout_height_neg"							type = "blendshapes/dragon_snout_height_neg.mesh" }
+	blend_shape = { 		id = "dragon_snout_height_pos"							type = "blendshapes/dragon_snout_height_pos.mesh" }
+	blend_shape = { 		id = "dragon_snout_length_neg"							type = "blendshapes/dragon_snout_length_neg.mesh" }
+	blend_shape = { 		id = "dragon_snout_length_pos"							type = "blendshapes/dragon_snout_length_pos.mesh" }
+	blend_shape = { 		id = "dragon_snout_profile_neg"							type = "blendshapes/dragon_snout_profile_neg.mesh" }
+	blend_shape = { 		id = "dragon_snout_profile_pos"							type = "blendshapes/dragon_snout_profile_pos.mesh" }
+	blend_shape = { 		id = "dragon_snout_width"								type = "blendshapes/dragon_snout_width.mesh" }
+	blend_shape = { 		id = "dragon_upper_jaw_width"							type = "blendshapes/dragon_upper_jaw_width.mesh" }
+
+	blend_shape = { 		id = "dragon_back_spike_size"							type = "blendshapes/dragon_back_spike_size.mesh" }
+	blend_shape = { 		id = "dragon_center_fin_size_neg"						type = "blendshapes/dragon_center_fin_size_neg.mesh" }
+	blend_shape = { 		id = "dragon_center_fin_size_pos"						type = "blendshapes/dragon_center_fin_size_pos.mesh" }
+	blend_shape = { 		id = "dragon_horns_balerion"							type = "blendshapes/dragon_horns_balerion.mesh" }
+	blend_shape = { 		id = "dragon_horns_cannibal"							type = "blendshapes/dragon_horns_cannibal.mesh" }
+	blend_shape = { 		id = "dragon_horns_curvy"								type = "blendshapes/dragon_horns_curvy.mesh" }
+	blend_shape = { 		id = "dragon_horns_dreamfyre"							type = "blendshapes/dragon_horns_dreamfyre.mesh" }
+	blend_shape = { 		id = "dragon_horns_eyebrow"								type = "blendshapes/dragon_horns_eyebrow.mesh" }
+	blend_shape = { 		id = "dragon_horns_grey_ghost"							type = "blendshapes/dragon_horns_grey_ghost.mesh" }
+	blend_shape = { 		id = "dragon_horns_long"								type = "blendshapes/dragon_horns_long.mesh" }
+	blend_shape = { 		id = "dragon_horns_meraxes"								type = "blendshapes/dragon_horns_meraxes.mesh" }
+	blend_shape = { 		id = "dragon_horns_silverwing"							type = "blendshapes/dragon_horns_silverwing.mesh" }
+	blend_shape = { 		id = "dragon_horns_small"								type = "blendshapes/dragon_horns_small.mesh" }
+	blend_shape = { 		id = "dragon_neck_spike_size"							type = "blendshapes/dragon_neck_spike_size.mesh" }
+	blend_shape = { 		id = "dragon_side_fin_size_neg"							type = "blendshapes/dragon_side_fin_size_neg.mesh" }
+	blend_shape = { 		id = "dragon_side_fin_size_pos"							type = "blendshapes/dragon_side_fin_size_pos.mesh" }
+	blend_shape = { 		id = "dragon_snout_end_width_neg"						type = "blendshapes/dragon_snout_end_width_neg.mesh" }
+	blend_shape = { 		id = "dragon_snout_end_width_pos"						type = "blendshapes/dragon_snout_end_width_pos.mesh" }
+
+
+
+	meshsettings = {
+		name = "body"
+		index = 0
+		texture_diffuse = "black.dds"
+		texture_normal = "no_normal.dds"
+		texture_specular = "no_properties.dds"
+		shader = "voltara_isolated_portrait_dragon_shadow"
+		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
+	}
+
+	meshsettings = {
+		name = "wings"
+		index = 0
+		texture_diffuse = "black.dds"
+		texture_normal = "no_normal.dds"
+		texture_specular = "no_properties.dds"
+		shader = "voltara_isolated_portrait_dragon_shadow"
+		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
+	}
+
+	meshsettings = {
+		name = "eye"
+		index = 0
+		texture_diffuse = "black.dds"
+		texture_normal = "no_normal.dds"
+		texture_specular = "no_properties.dds"
+		shader = "voltara_isolated_portrait_dragon_shadow"
+		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
+	}
+
+	meshsettings = {
+		name = "horns"
+		index = 0
+		texture_diffuse = "black.dds"
+		texture_normal = "no_normal.dds"
+		texture_specular = "no_properties.dds"
+		shader = "voltara_isolated_portrait_dragon_shadow"
+		shader_file = "gfx/FX/voltara_dragon/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "dragon_shadow_entity"
+	pdxmesh = "dragon_shadow_mesh"
+	 
+	attribute = { name = "dragon_infant_proportions" 			additive_animation = "dragon_infant_proportions" default = 0.5 }
+	attribute = { name = "dragon_large_proportions" 			additive_animation = "dragon_large_proportions" default = 0.5 }
+
+	attribute = { name = "bs_dragon_infant"							blend_shape = "dragon_infant" }
+	attribute = { name = "bs_dragon_large"							blend_shape = "dragon_large" }
+
+	attribute = { name = "bs_dragon_brow_width"							blend_shape = "dragon_brow_width" }
+	attribute = { name = "bs_dragon_cheek_width_neg"					blend_shape = "dragon_cheek_width_neg" }
+	attribute = { name = "bs_dragon_cheek_width_pos"					blend_shape = "dragon_cheek_width_pos" }
+	attribute = { name = "bs_dragon_chin_profile"						blend_shape = "dragon_chin_profile" }
+	attribute = { name = "bs_dragon_crest_depth"						blend_shape = "dragon_crest_depth" }
+	attribute = { name = "bs_dragon_head_roundness"						blend_shape = "dragon_head_roundness" }
+	attribute = { name = "bs_dragon_horns_eyebrow_length"				blend_shape = "dragon_horns_eyebrow_length" }
+	attribute = { name = "bs_dragon_horns_meleys"						blend_shape = "dragon_horns_meleys" }
+	attribute = { name = "bs_dragon_jaw_width_neg"						blend_shape = "dragon_jaw_width_neg" }
+	attribute = { name = "bs_dragon_jaw_width_pos"						blend_shape = "dragon_jaw_width_pos" }
+	attribute = { name = "bs_dragon_lower_jaw_height_neg"				blend_shape = "dragon_lower_jaw_height_neg" }
+	attribute = { name = "bs_dragon_lower_jaw_height_pos"				blend_shape = "dragon_lower_jaw_height_pos" }
+	attribute = { name = "bs_dragon_lower_jaw_width"					blend_shape = "dragon_lower_jaw_width" }
+	attribute = { name = "bs_dragon_old_neck"							blend_shape = "dragon_old_neck" }
+	attribute = { name = "bs_dragon_outer_brow_height"					blend_shape = "dragon_outer_brow_height" }
+	attribute = { name = "bs_dragon_snout_height_neg"					blend_shape = "dragon_snout_height_neg" }
+	attribute = { name = "bs_dragon_snout_height_pos"					blend_shape = "dragon_snout_height_pos" }
+	attribute = { name = "bs_dragon_snout_length_neg"					blend_shape = "dragon_snout_length_neg" }
+	attribute = { name = "bs_dragon_snout_length_pos"					blend_shape = "dragon_snout_length_pos" }
+	attribute = { name = "bs_dragon_snout_profile_neg"					blend_shape = "dragon_snout_profile_neg" }
+	attribute = { name = "bs_dragon_snout_profile_pos"					blend_shape = "dragon_snout_profile_pos" }
+	attribute = { name = "bs_dragon_snout_width"						blend_shape = "dragon_snout_width" }
+	attribute = { name = "bs_dragon_upper_jaw_width"					blend_shape = "dragon_upper_jaw_width" }
+
+	attribute = { name = "bs_dragon_back_spike_size"					blend_shape = "dragon_back_spike_size" }
+	attribute = { name = "bs_dragon_center_fin_size_neg"				blend_shape = "dragon_center_fin_size_neg" }
+	attribute = { name = "bs_dragon_center_fin_size_pos"				blend_shape = "dragon_center_fin_size_pos" }
+	attribute = { name = "bs_dragon_horns_balerion"						blend_shape = "dragon_horns_balerion" }
+	attribute = { name = "bs_dragon_horns_cannibal"						blend_shape = "dragon_horns_cannibal" }
+	attribute = { name = "bs_dragon_horns_curvy"						blend_shape = "dragon_horns_curvy" }
+	attribute = { name = "bs_dragon_horns_dreamfyre"					blend_shape = "dragon_horns_dreamfyre" }
+	attribute = { name = "bs_dragon_horns_eyebrow"						blend_shape = "dragon_horns_eyebrow" }
+	attribute = { name = "bs_dragon_horns_grey_ghost"					blend_shape = "dragon_horns_grey_ghost" }
+	attribute = { name = "bs_dragon_horns_long"							blend_shape = "dragon_horns_long" }
+	attribute = { name = "bs_dragon_horns_meraxes"						blend_shape = "dragon_horns_meraxes" }
+	attribute = { name = "bs_dragon_horns_silverwing"					blend_shape = "dragon_horns_silverwing" }
+	attribute = { name = "bs_dragon_horns_small"						blend_shape = "dragon_horns_small" }
+	attribute = { name = "bs_dragon_neck_spike_size"					blend_shape = "dragon_neck_spike_size" }
+	attribute = { name = "bs_dragon_side_fin_size_neg"					blend_shape = "dragon_side_fin_size_neg" }
+	attribute = { name = "bs_dragon_side_fin_size_pos"					blend_shape = "dragon_side_fin_size_pos" }
+	attribute = { name = "bs_dragon_snout_end_width_neg"				blend_shape = "dragon_snout_end_width_neg" }
+	attribute = { name = "bs_dragon_snout_end_width_pos"				blend_shape = "dragon_snout_end_width_pos" }
+	
+	attribute = { name = "dragon_neck_length" 			additive_animation = "dragon_neck_length" default = 0.0 }
+	attribute = { name = "dragon_tail_length" 			additive_animation = "dragon_tail_length" default = 0.0 }
+	attribute = { name = "dragon_body_shape" 			additive_animation = "dragon_body_shape" default = 0.0 }
+
+	get_state_from_parent = no
+ default_state = "dragon_idle"
+
+	state = {	name = "dragon_static"						animation = "dragon_idle_1" 					looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+	state = {	name = "dragon_idle_loop"					animation = "dragon_idle_1" 					looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+	state = {	name = "dragon_idle_entry"					animation = "dragon_idle_flair_lookingleft" 	looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+	state = {	name = "dragon_idle"						animation = "dragon_idle_1" 					looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+	state = {	name = "dragon_flying"						animation = "dragon_flying_1" 					looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+	state = {	name = "dragon_flying_2"					animation = "dragon_flying_2" 					looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+	state = {	name = "dragon_flying_fire"					animation = "dragon_flying_1_fire" 				looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+	state = {	name = "dragon_flying_2_fire"				animation = "dragon_flying_2_fire" 				looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+	state = {	name = "dragon_roar"						animation = "dragon_roar_1" 					looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+	state = {	name = "dragon_hover"						animation = "dragon_hover_1" 					looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+	state = {	name = "dragon_roar_fire"					animation = "dragon_roar_1_fire" 				looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+	state = {	name = "dragon_hover_fire"					animation = "dragon_hover_1_fire" 				looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+
+	state = {	name = "dragon_baby_idle"					animation = "dragon_baby_idle_1" 				looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+	state = {	name = "dragon_baby_idle_2"					animation = "dragon_baby_idle_2" 				looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+	state = {	name = "dragon_baby_idle_burp"				animation = "dragon_baby_idle_burp" 			looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+	state = {	name = "dragon_baby_fire"					animation = "dragon_baby_idle_burp" 			looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+	state = {	name = "dragon_baby_fire_idle"				animation = "dragon_baby_idle_1" 				looping = no animation_speed = 1.0 animation_blend_time = 0.3 }
+}
+

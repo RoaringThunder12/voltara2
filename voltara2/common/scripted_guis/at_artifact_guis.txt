@@ -1,0 +1,815 @@
+﻿at_artifacts_window_init_gui = {
+	scope = character
+	saved_scopes = { flavor }
+
+	is_shown = {
+		NOT = { has_game_rule = at_artifact_trading_disabled }
+	}
+
+	is_valid = {
+		trigger_if = {
+			limit = {
+				OR = {
+					scope:flavor = flag:sell
+					scope:flavor = flag:buy
+				}
+			}
+			at_can_trade_artifacts_trigger = yes
+		}
+		trigger_if = {
+			limit = { scope:flavor = flag:sell }
+			has_any_artifact = yes
+		}
+	}
+
+	effect = {
+		clear_global_variable_list = at_artifacts_window_artifact_sort_options
+		add_to_global_variable_list = { name = at_artifacts_window_artifact_sort_options target = flag:_rarity }
+		add_to_global_variable_list = { name = at_artifacts_window_artifact_sort_options target = flag:_durability }
+		add_to_global_variable_list = { name = at_artifacts_window_artifact_sort_options target = flag:_type }
+		add_to_global_variable_list = { name = at_artifacts_window_artifact_sort_options target = flag:_price }
+
+		if = {
+			limit = {
+				NOT = { has_variable = at_artifacts_window_selected_artifact_sort_option }
+			}
+			set_variable = {
+				name = at_artifacts_window_selected_artifact_sort_option
+				value = flag:_rarity
+			}
+		}
+
+		clear_global_variable_list = at_artifacts_window_max_count_options
+		add_to_global_variable_list = { name = at_artifacts_window_max_count_options target = flag:_100 }
+		add_to_global_variable_list = { name = at_artifacts_window_max_count_options target = flag:_200 }
+		add_to_global_variable_list = { name = at_artifacts_window_max_count_options target = flag:_500 }
+		add_to_global_variable_list = { name = at_artifacts_window_max_count_options target = flag:_1000 }
+		add_to_global_variable_list = { name = at_artifacts_window_max_count_options target = flag:_2000 }
+		add_to_global_variable_list = { name = at_artifacts_window_max_count_options target = flag:_5000 }
+		add_to_global_variable_list = { name = at_artifacts_window_max_count_options target = flag:_10000 }
+		add_to_global_variable_list = { name = at_artifacts_window_max_count_options target = flag:_20000 }
+		add_to_global_variable_list = { name = at_artifacts_window_max_count_options target = flag:_50000 }
+
+		if = {
+			limit = {
+				NOT = { has_variable = at_artifacts_window_selected_max_count_option }
+			}
+			set_variable = {
+				name = at_artifacts_window_selected_max_count_option
+				value = flag:_100
+			}
+		}
+
+		clear_global_variable_list = at_artifacts_window_rarity_filter_options
+		add_to_global_variable_list = { name = at_artifacts_window_rarity_filter_options target = flag:_all }
+		add_to_global_variable_list = { name = at_artifacts_window_rarity_filter_options target = flag:_common }
+		add_to_global_variable_list = { name = at_artifacts_window_rarity_filter_options target = flag:_masterwork }
+		add_to_global_variable_list = { name = at_artifacts_window_rarity_filter_options target = flag:_famed }
+		add_to_global_variable_list = { name = at_artifacts_window_rarity_filter_options target = flag:_illustrious }
+		add_to_global_variable_list = { name = at_artifacts_window_rarity_filter_options target = flag:_not_common }
+		add_to_global_variable_list = { name = at_artifacts_window_rarity_filter_options target = flag:_not_masterwork }
+		add_to_global_variable_list = { name = at_artifacts_window_rarity_filter_options target = flag:_not_famed }
+		add_to_global_variable_list = { name = at_artifacts_window_rarity_filter_options target = flag:_not_illustrious }
+
+		if = {
+			limit = {
+				NOT = { has_variable = at_artifacts_window_selected_rarity_filter_option }
+			}
+			set_variable = {
+				name = at_artifacts_window_selected_rarity_filter_option
+				value = flag:_all
+			}
+		}
+
+		clear_global_variable_list = at_artifacts_window_slot_type_filter_options
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_all }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_inventory }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_court }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_helmet }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_regalia }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_armor }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_primary_armament }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_miscellaneous }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_journal }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_sculpture }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_pedestal }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_wall_big }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_wall_small }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_throne }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_book }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_not_helmet }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_not_regalia }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_not_armor }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_not_primary_armament }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_not_miscellaneous }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_not_journal }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_not_sculpture }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_not_pedestal }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_not_wall_big }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_not_wall_small }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_not_throne }
+		add_to_global_variable_list = { name = at_artifacts_window_slot_type_filter_options target = flag:_not_book }
+
+		if = {
+			limit = {
+				NOT = { has_variable = at_artifacts_window_selected_slot_type_filter_option }
+			}
+			set_variable = {
+				name = at_artifacts_window_selected_slot_type_filter_option
+				value = flag:_all
+			}
+		}
+
+		clear_global_variable_list = at_artifacts_window_unique_filter_options
+		add_to_global_variable_list = { name = at_artifacts_window_unique_filter_options target = flag:_all }
+		add_to_global_variable_list = { name = at_artifacts_window_unique_filter_options target = flag:_unique }
+		add_to_global_variable_list = { name = at_artifacts_window_unique_filter_options target = flag:_not_unique }
+
+		if = {
+			limit = {
+				NOT = { has_variable = at_artifacts_window_selected_unique_filter_option }
+			}
+			set_variable = {
+				name = at_artifacts_window_selected_unique_filter_option
+				value = flag:_all
+			}
+		}
+
+		clear_global_variable_list = at_artifacts_window_modifier_filter_options
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_all }
+		# Prestige, piety, court grandeur, renown, tyranny, dread, fertility, health, stress
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_prestige }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_piety }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_short_reign_duration }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_court_grandeur_baseline }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_dynasty_prestige }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_tyranny }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_dread }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_fertility }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_health }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_stress_gain }
+		# Opinion
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_general_opinion }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_vassal_opinion }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_independent_ruler_opinion }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_courtier_and_guest_opinion }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_spouse_opinion }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_dynasty_opinion }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_attraction_opinion }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_child_opinion }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_clergy_opinion }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_same_faith_opinion }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_different_faith_opinion }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_same_culture_opinion }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_different_culture_opinion }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_county_opinion }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_religion_opinion }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_culture_opinion }
+		# Domain, vassals, income, buildings, development
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_domain_limit }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_vassal_limit }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_monthly_income }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_men_at_arms_maintenance }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_mercenary_hire_cost }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_domain_tax }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_vassal_tax_contribution }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_vassal_levy_contribution }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_development_growth }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_build_gold_cost }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_build_speed }
+		# Scheme
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_scheme_success_chance }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_scheme_secrecy }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_scheme_power }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_seduce_scheme_power }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_courting_scheme_power }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_befriend_scheme_power }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_learn_language_scheme_power }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_hostile_scheme_resistance }
+		# Lifestyle XP
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_lifestyle_xp }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_diplomacy_lifestyle_xp }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_martial_lifestyle_xp }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_stewardship_lifestyle_xp }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_intrigue_lifestyle_xp }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_learning_lifestyle_xp }
+		# Skills
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_diplomacy }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_martial }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_stewardship }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_intrigue }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_learning }
+		# Prowess
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_prowess }
+		# Combat
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_knights }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_levy_reinforcement_rate }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_raid_speed }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_hard_casualty_modifier }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_damage_toughness_pursuit_screen }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_advantage}
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_naval_speed }
+		# CE1
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_legend_spread }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_epidemic_resistance }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_legitimacy }
+		# RtP
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_travel }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_influence }
+		# MPO
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_fertility_growth }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_herd_gain }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_herd_conversion }
+		# TGP
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_merit }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_poet_trait_xp }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_confucian_education_trait_xp }
+		add_to_global_variable_list = { name = at_artifacts_window_modifier_filter_options target = flag:_study_confucian_classics_power }
+
+		if = {
+			limit = {
+				NOT = { has_variable = at_artifacts_window_selected_modifier_filter_option }
+			}
+			set_variable = {
+				name = at_artifacts_window_selected_modifier_filter_option
+				value = flag:_all
+			}
+		}
+
+		clear_global_variable_list = at_artifacts_window_equipped_filter_options
+		add_to_global_variable_list = { name = at_artifacts_window_equipped_filter_options target = flag:_all }
+		add_to_global_variable_list = { name = at_artifacts_window_equipped_filter_options target = flag:_equipped }
+		add_to_global_variable_list = { name = at_artifacts_window_equipped_filter_options target = flag:_not_equipped }
+
+		if = {
+			limit = {
+				NOT = { has_variable = at_artifacts_window_selected_equipped_filter_option }
+			}
+			set_variable = {
+				name = at_artifacts_window_selected_equipped_filter_option
+				value = flag:_all
+			}
+		}
+
+		clear_global_variable_list = at_artifacts_window_owned_filter_options
+		add_to_global_variable_list = { name = at_artifacts_window_owned_filter_options target = flag:_all }
+		add_to_global_variable_list = { name = at_artifacts_window_owned_filter_options target = flag:_owned_by_you }
+		add_to_global_variable_list = { name = at_artifacts_window_owned_filter_options target = flag:_not_owned_by_you }
+
+		if = {
+			limit = {
+				NOT = { has_variable = at_artifacts_window_selected_owned_filter_option }
+			}
+			set_variable = {
+				name = at_artifacts_window_selected_owned_filter_option
+				value = flag:_all
+			}
+		}
+
+		clear_global_variable_list = at_artifacts_window_claimed_filter_options
+		add_to_global_variable_list = { name = at_artifacts_window_claimed_filter_options target = flag:_all }
+		add_to_global_variable_list = { name = at_artifacts_window_claimed_filter_options target = flag:_claimed_by_you }
+		add_to_global_variable_list = { name = at_artifacts_window_claimed_filter_options target = flag:_claimed_by_others }
+		add_to_global_variable_list = { name = at_artifacts_window_claimed_filter_options target = flag:_not_claimed }
+
+		if = {
+			limit = {
+				NOT = { has_variable = at_artifacts_window_selected_claimed_filter_option }
+			}
+			set_variable = {
+				name = at_artifacts_window_selected_claimed_filter_option
+				value = flag:_all
+			}
+		}
+
+		clear_global_variable_list = at_artifacts_window_equippable_filter_options
+		add_to_global_variable_list = { name = at_artifacts_window_equippable_filter_options target = flag:_all }
+		add_to_global_variable_list = { name = at_artifacts_window_equippable_filter_options target = flag:_equippable_by_you }
+		add_to_global_variable_list = { name = at_artifacts_window_equippable_filter_options target = flag:_not_equippable_by_you }
+
+		if = {
+			limit = {
+				NOT = { has_variable = at_artifacts_window_selected_equippable_filter_option }
+			}
+			set_variable = {
+				name = at_artifacts_window_selected_equippable_filter_option
+				value = flag:_all
+			}
+		}
+
+		clear_global_variable_list = at_artifacts_window_unwanted_filter_options
+		add_to_global_variable_list = { name = at_artifacts_window_unwanted_filter_options target = flag:_all }
+		add_to_global_variable_list = { name = at_artifacts_window_unwanted_filter_options target = flag:_unwanted }
+		add_to_global_variable_list = { name = at_artifacts_window_unwanted_filter_options target = flag:_not_unwanted }
+
+		if = {
+			limit = {
+				NOT = { has_variable = at_artifacts_window_selected_unwanted_filter_option }
+			}
+			set_variable = {
+				name = at_artifacts_window_selected_unwanted_filter_option
+				value = flag:_all
+			}
+		}
+
+		clear_global_variable_list = at_artifacts_window_trash_filter_options
+		add_to_global_variable_list = { name = at_artifacts_window_trash_filter_options target = flag:_all }
+		add_to_global_variable_list = { name = at_artifacts_window_trash_filter_options target = flag:_trash }
+		add_to_global_variable_list = { name = at_artifacts_window_trash_filter_options target = flag:_not_trash }
+
+		if = {
+			limit = {
+				NOT = { has_variable = at_artifacts_window_selected_trash_filter_option }
+			}
+			set_variable = {
+				name = at_artifacts_window_selected_trash_filter_option
+				value = flag:_all
+			}
+		}
+
+		clear_global_variable_list = at_artifacts_window_special_filter_options
+		add_to_global_variable_list = { name = at_artifacts_window_special_filter_options target = flag:_all }
+		add_to_global_variable_list = { name = at_artifacts_window_special_filter_options target = flag:_historical_unique }
+		add_to_global_variable_list = { name = at_artifacts_window_special_filter_options target = flag:_relic }
+		add_to_global_variable_list = { name = at_artifacts_window_special_filter_options target = flag:_not_historical_unique }
+		add_to_global_variable_list = { name = at_artifacts_window_special_filter_options target = flag:_not_relic }
+		at_artifacts_window_add_special_filter_options_effect = yes
+
+		if = {
+			limit = {
+				NOT = { has_variable = at_artifacts_window_selected_special_filter_option }
+			}
+			set_variable = {
+				name = at_artifacts_window_selected_special_filter_option
+				value = flag:_all
+			}
+		}
+
+		clear_global_variable_list = at_artifacts_window_owner_filter_options
+		add_to_global_variable_list = { name = at_artifacts_window_owner_filter_options target = flag:_all }
+		add_to_global_variable_list = { name = at_artifacts_window_owner_filter_options target = flag:_ruler_with_rc }
+		add_to_global_variable_list = { name = at_artifacts_window_owner_filter_options target = flag:_ruler_without_rc }
+		add_to_global_variable_list = { name = at_artifacts_window_owner_filter_options target = flag:_not_ruler }
+
+		if = {
+			limit = {
+				NOT = { has_variable = at_artifacts_window_selected_owner_filter_option }
+			}
+			set_variable = {
+				name = at_artifacts_window_selected_owner_filter_option
+				value = flag:_all
+			}
+		}
+
+		clear_global_variable_list = at_artifacts_window_owner_valid_buyer_or_seller_filter_options
+		add_to_global_variable_list = { name = at_artifacts_window_owner_valid_buyer_or_seller_filter_options target = flag:_all }
+		add_to_global_variable_list = { name = at_artifacts_window_owner_valid_buyer_or_seller_filter_options target = flag:_valid_buyer_or_seller }
+		add_to_global_variable_list = { name = at_artifacts_window_owner_valid_buyer_or_seller_filter_options target = flag:_not_valid_buyer_or_seller }
+
+		if = {
+			limit = {
+				NOT = { has_variable = at_artifacts_window_selected_owner_valid_buyer_or_seller_filter_option }
+			}
+			set_variable = {
+				name = at_artifacts_window_selected_owner_valid_buyer_or_seller_filter_option
+				value = flag:_all
+			}
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+
+		if = {
+			limit = { has_variable = at_artifacts_window_selected_artifact }
+			remove_variable = at_artifacts_window_selected_artifact
+		}
+	}
+}
+
+at_artifacts_window_send_gui = {
+	scope = character
+	saved_scopes = { flavor artifact }
+
+	effect = {
+		at_artifacts_window_clear_artifacts_effect = yes
+
+		set_variable = {
+			name = at_artifacts_window_selected_artifact
+			value = scope:artifact
+			days = 1
+		}
+
+		if = {
+			limit = { scope:flavor = flag:sell }
+			open_interaction_window = {
+				interaction = at_sell_artifacts_interaction
+				actor = ROOT
+				recipient = ROOT
+			}
+		}
+		else_if = {
+			limit = { scope:flavor = flag:buy }
+			open_interaction_window = {
+				interaction = at_buy_artifact_interaction
+				actor = ROOT
+				recipient = var:at_artifacts_window_selected_artifact.artifact_owner
+			}
+			remove_variable = at_artifacts_window_selected_artifact
+		}
+	}
+}
+
+at_artifacts_window_close_gui = {
+	scope = character
+
+	effect = {
+		at_artifacts_window_clear_artifacts_effect = yes
+
+		if = {
+			limit = { has_variable = at_artifacts_window_selected_artifact }
+			remove_variable = at_artifacts_window_selected_artifact
+		}
+	}
+}
+
+at_artifacts_window_select_artifact_sort_option_gui = {
+	scope = character
+	saved_scopes = { sort_option flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_artifact_sort_option
+			value = scope:sort_option
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_toggle_artifact_sort_order_gui = {
+	scope = character
+	saved_scopes = { flavor }
+
+	effect = {
+		if = {
+			limit = { has_variable = at_artifacts_window_is_artifact_sort_order_ascending }
+			remove_variable = at_artifacts_window_is_artifact_sort_order_ascending
+		}
+		else = {
+			set_variable = at_artifacts_window_is_artifact_sort_order_ascending
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_select_max_count_option_gui = {
+	scope = character
+	saved_scopes = { max_count_option flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_max_count_option
+			value = scope:max_count_option
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_artifacts_gui = {
+	scope = character
+
+	is_shown = {
+		NOT = { has_variable = at_artifacts_window_is_getting_artifacts }
+	}
+}
+
+at_artifacts_window_has_personal_claim_gui = {
+	scope = character
+	saved_scopes = { artifact }
+
+	is_shown = {
+		any_personal_claimed_artifact = {
+			this = scope:artifact
+		}
+	}
+}
+
+at_artifacts_window_has_house_claim_gui = {
+	scope = character
+	saved_scopes = { artifact }
+
+	is_shown = {
+		exists = house
+		house = {
+			any_house_claimed_artifact = {
+				this = scope:artifact
+			}
+		}
+	}
+}
+
+at_artifacts_window_has_non_default_filter_options_gui = {
+	scope = character
+
+	is_shown = {
+		trigger_if = {
+			limit = {
+				has_variable = at_artifacts_window_selected_rarity_filter_option
+				has_variable = at_artifacts_window_selected_slot_type_filter_option
+				has_variable = at_artifacts_window_selected_unique_filter_option
+				has_variable = at_artifacts_window_selected_modifier_filter_option
+				has_variable = at_artifacts_window_selected_equipped_filter_option
+				has_variable = at_artifacts_window_selected_owned_filter_option
+				has_variable = at_artifacts_window_selected_claimed_filter_option
+				has_variable = at_artifacts_window_selected_equippable_filter_option
+				has_variable = at_artifacts_window_selected_unwanted_filter_option
+				has_variable = at_artifacts_window_selected_trash_filter_option
+				has_variable = at_artifacts_window_selected_special_filter_option
+				has_variable = at_artifacts_window_selected_owner_filter_option
+				has_variable = at_artifacts_window_selected_owner_valid_buyer_or_seller_filter_option
+			}
+			NAND = {
+				var:at_artifacts_window_selected_rarity_filter_option = flag:_all
+				var:at_artifacts_window_selected_slot_type_filter_option = flag:_all
+				var:at_artifacts_window_selected_unique_filter_option = flag:_all
+				var:at_artifacts_window_selected_modifier_filter_option = flag:_all
+				var:at_artifacts_window_selected_equipped_filter_option = flag:_all
+				var:at_artifacts_window_selected_owned_filter_option = flag:_all
+				var:at_artifacts_window_selected_claimed_filter_option = flag:_all
+				var:at_artifacts_window_selected_equippable_filter_option = flag:_all
+				var:at_artifacts_window_selected_unwanted_filter_option = flag:_all
+				var:at_artifacts_window_selected_trash_filter_option = flag:_all
+				var:at_artifacts_window_selected_special_filter_option = flag:_all
+				var:at_artifacts_window_selected_owner_filter_option = flag:_all
+				var:at_artifacts_window_selected_owner_valid_buyer_or_seller_filter_option = flag:_all
+			}
+		}
+		trigger_else = {
+			always = no
+		}
+	}
+}
+
+at_artifacts_window_select_rarity_filter_option_gui = {
+	scope = character
+	saved_scopes = { filter_option flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_rarity_filter_option
+			value = scope:filter_option
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_select_slot_type_filter_option_gui = {
+	scope = character
+	saved_scopes = { filter_option flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_slot_type_filter_option
+			value = scope:filter_option
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_select_unique_filter_option_gui = {
+	scope = character
+	saved_scopes = { filter_option flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_unique_filter_option
+			value = scope:filter_option
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_select_modifier_filter_option_gui = {
+	scope = character
+	saved_scopes = { filter_option flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_modifier_filter_option
+			value = scope:filter_option
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_select_equipped_filter_option_gui = {
+	scope = character
+	saved_scopes = { filter_option flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_equipped_filter_option
+			value = scope:filter_option
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_select_owned_filter_option_gui = {
+	scope = character
+	saved_scopes = { filter_option flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_owned_filter_option
+			value = scope:filter_option
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_select_claimed_filter_option_gui = {
+	scope = character
+	saved_scopes = { filter_option flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_claimed_filter_option
+			value = scope:filter_option
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_select_equippable_filter_option_gui = {
+	scope = character
+	saved_scopes = { filter_option flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_equippable_filter_option
+			value = scope:filter_option
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_select_unwanted_filter_option_gui = {
+	scope = character
+	saved_scopes = { filter_option flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_unwanted_filter_option
+			value = scope:filter_option
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_select_trash_filter_option_gui = {
+	scope = character
+	saved_scopes = { filter_option flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_trash_filter_option
+			value = scope:filter_option
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_select_special_filter_option_gui = {
+	scope = character
+	saved_scopes = { filter_option flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_special_filter_option
+			value = scope:filter_option
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_select_owner_filter_option_gui = {
+	scope = character
+	saved_scopes = { filter_option flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_owner_filter_option
+			value = scope:filter_option
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_select_owner_valid_buyer_or_seller_filter_option_gui = {
+	scope = character
+	saved_scopes = { filter_option flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_owner_valid_buyer_or_seller_filter_option
+			value = scope:filter_option
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_artifacts_window_reset_filter_options_gui = {
+	scope = character
+	saved_scopes = { flavor }
+
+	effect = {
+		set_variable = {
+			name = at_artifacts_window_selected_rarity_filter_option
+			value = flag:_all
+		}
+		set_variable = {
+			name = at_artifacts_window_selected_slot_type_filter_option
+			value = flag:_all
+		}
+		set_variable = {
+			name = at_artifacts_window_selected_unique_filter_option
+			value = flag:_all
+		}
+		set_variable = {
+			name = at_artifacts_window_selected_modifier_filter_option
+			value = flag:_all
+		}
+		set_variable = {
+			name = at_artifacts_window_selected_equipped_filter_option
+			value = flag:_all
+		}
+		set_variable = {
+			name = at_artifacts_window_selected_owned_filter_option
+			value = flag:_all
+		}
+		set_variable = {
+			name = at_artifacts_window_selected_claimed_filter_option
+			value = flag:_all
+		}
+		set_variable = {
+			name = at_artifacts_window_selected_equippable_filter_option
+			value = flag:_all
+		}
+		set_variable = {
+			name = at_artifacts_window_selected_unwanted_filter_option
+			value = flag:_all
+		}
+		set_variable = {
+			name = at_artifacts_window_selected_trash_filter_option
+			value = flag:_all
+		}
+		set_variable = {
+			name = at_artifacts_window_selected_special_filter_option
+			value = flag:_all
+		}
+		set_variable = {
+			name = at_artifacts_window_selected_owner_filter_option
+			value = flag:_all
+		}
+		set_variable = {
+			name = at_artifacts_window_selected_owner_valid_buyer_or_seller_filter_option
+			value = flag:_all
+		}
+
+		at_artifacts_window_get_artifacts_effect = yes
+	}
+}
+
+at_find_artifacts_widget_gui = {
+	scope = none
+	saved_scopes = { position }
+
+	is_shown = {
+		trigger_if = {
+			limit = { scope:position = flag:left }
+			has_game_rule = at_widget_position_left
+		}
+		trigger_else_if = {
+			limit = { scope:position = flag:center }
+			has_game_rule = at_widget_position_center
+		}
+		trigger_else = {
+			has_game_rule = at_widget_position_right
+		}
+	}
+}

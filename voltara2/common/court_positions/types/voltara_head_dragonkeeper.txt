@@ -1,0 +1,15 @@
+﻿voltara_head_dragonkeeper = {
+ sort_order = 980 skill = learning max_available_positions = 1
+ court_position_asset = { animation = personality_rational background = "gfx/interface/illustrations/event_scenes/agot_dragonpit.dds" }
+ opinion = { value = 10 } aptitude_level_breakpoints = { 20 40 60 80 }
+ aptitude = { value = 0 add = { value = learning multiply = 3 } add = { value = prowess multiply = 1 } }
+ is_shown = { voltara_owns_dragonpit = yes }
+ valid_position = { voltara_owns_dragonpit = yes }
+ is_shown_character = { is_adult = yes NOT = { has_trait = dragon } }
+ valid_character = { is_adult = yes is_imprisoned = no NOT = { has_trait = dragon } NOT = { is_incapable = yes } }
+ revoke_cost = { prestige = 0 }
+ salary = { gold = { value = 0.5 } }
+ scaling_employer_modifiers = { terrible = { monthly_prestige = 0.1 } poor = { monthly_prestige = 0.2 } average = { monthly_prestige = 0.3 } good = { monthly_prestige = 0.4 } excellent = { monthly_prestige = 0.5 } }
+ modifier = { learning = 2 }
+ ai_candidate_score = { value = scope:base_value }
+}

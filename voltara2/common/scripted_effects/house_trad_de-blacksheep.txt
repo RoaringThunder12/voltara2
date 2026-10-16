@@ -1,0 +1,1260 @@
+﻿deblack_valor = {
+	random_list = {
+		30 = {
+			trigger = { has_trait = craven }
+			hidden_effect = { remove_trait = craven }
+			add_trait_force_tooltip = brave
+			house_trait_weight = { trait = brave }
+			blacksheep_trait_weight = { trait = craven weight = 0.5 }
+		}
+		30 = {
+			trigger = { 
+				has_trait = craven
+				NOT = {
+					has_trait = stubborn
+					has_trait = fickle
+				}
+			}
+			hidden_effect = { remove_trait = craven }
+			add_trait_force_tooltip = stubborn
+			house_trait_weight = { trait = stubborn }
+			blacksheep_trait_weight = { trait = craven weight = 0.5 }
+		}
+		30 = {
+			trigger = { 
+				has_trait = craven
+				NOT = {
+					has_trait = impatient
+					has_trait = patient
+				}
+			}
+			hidden_effect = { remove_trait = craven }
+			add_trait_force_tooltip = impatient
+			house_trait_weight = { trait = impatient }
+			blacksheep_trait_weight = { trait = craven weight = 0.5 }
+		}
+	}
+}
+
+deblack_honor = {
+	random_list = {
+		30 = {
+			trigger = { has_trait = deceitful }
+			hidden_effect = { remove_trait = deceitful }
+			add_trait_force_tooltip = honest
+			house_trait_weight = { trait = honest }
+			blacksheep_trait_weight = { trait = deceitful weight = 0.5 }
+		}
+		30 = {
+			trigger = { has_trait = arbitrary }
+			hidden_effect = { remove_trait = arbitrary }
+			add_trait_force_tooltip = just
+			house_trait_weight = { trait = just }
+			blacksheep_trait_weight = { trait = arbitrary weight = 0.5 }
+		}
+		30 = {
+			trigger = { has_trait = fickle }
+			hidden_effect = { remove_trait = fickle }
+			add_trait_force_tooltip = stubborn
+			house_trait_weight = { trait = stubborn }
+			blacksheep_trait_weight = { trait = fickle weight = 0.5 }
+		}
+	}
+}
+
+deblack_duty = {
+	random_list = {
+		30 = {
+			trigger = { has_trait = lazy }
+			hidden_effect = { remove_trait = lazy }
+			add_trait_force_tooltip = diligent
+			house_trait_weight = { trait = diligent }
+			blacksheep_trait_weight = { trait = lazy weight = 0.5 }
+		}
+		30 = {
+			trigger = { has_trait = arrogant }
+			hidden_effect = { remove_trait = arrogant }
+			add_trait_force_tooltip = humble
+			house_trait_weight = { trait = humble }
+			blacksheep_trait_weight = { trait = arrogant weight = 0.5 }
+		}
+		30 = {
+			trigger = {
+				has_trait = ambitious
+				NOT = {
+					has_trait = patient
+					has_trait = impatient
+				}
+			}
+			hidden_effect = { remove_trait = ambitious }
+			add_trait_force_tooltip = impatient
+			house_trait_weight = { trait = impatient }
+			blacksheep_trait_weight = { trait = ambitious weight = 0.5 }
+		}
+		30 = {
+			trigger = {
+				has_trait = ambitious
+				NOT = {
+					has_trait = humble
+					has_trait = arrogant
+				}
+			}
+			hidden_effect = { remove_trait = ambitious }
+			add_trait_force_tooltip = humble
+			house_trait_weight = { trait = humble }
+			blacksheep_trait_weight = { trait = ambitious weight = 0.5 }
+		}
+		30 = {
+			trigger = {
+				has_trait = ambitious
+				NOT = {
+					has_trait = diligent
+					has_trait = lazy
+				}
+			}
+			hidden_effect = { remove_trait = ambitious }
+			add_trait_force_tooltip = diligent
+			house_trait_weight = { trait = diligent }
+			blacksheep_trait_weight = { trait = ambitious weight = 0.5 }
+		}
+	}
+}
+
+deblack_justice = {
+	random_list = {
+		30 = {
+			trigger = { has_trait = arbitrary }
+			hidden_effect = { remove_trait = arbitrary }
+			add_trait_force_tooltip = just
+			house_trait_weight = { trait = just }
+			blacksheep_trait_weight = { trait = arbitrary weight = 0.5 }
+		}
+		30 = {
+			trigger = { has_trait = forgiving }
+			hidden_effect = { remove_trait = forgiving }
+			add_trait_force_tooltip = vengeful
+			house_trait_weight = { trait = vengeful }
+			blacksheep_trait_weight = { trait = forgiving weight = 0.5 }
+		}
+		#Zealous isn't as important as the other 2
+	}
+}
+
+deblack_vengeance = {
+	random_list = {
+		60 = {
+			trigger = { has_trait = forgiving }
+			hidden_effect = { remove_trait = forgiving }
+			add_trait_force_tooltip = vengeful
+			house_trait_weight = { trait = vengeful }
+			blacksheep_trait_weight = { trait = forgiving weight = 0.5 }
+		}
+		30 = {
+			trigger = {
+				has_trait = compassionate
+				NOT = {
+					has_trait = just
+					has_trait = arbitrary
+				}
+			}
+			hidden_effect = { remove_trait = compassionate }
+			add_trait_force_tooltip = just
+			house_trait_weight = { trait = just }
+			blacksheep_trait_weight = { trait = compassionate weight = 0.5 }
+		}
+		30 = {
+			trigger = {
+				has_trait = compassionate
+			}
+			hidden_effect = { remove_trait = compassionate }
+			add_trait_force_tooltip = sadistic
+			house_trait_weight = { trait = sadistic }
+			blacksheep_trait_weight = { trait = compassionate weight = 0.5 }
+		}
+	}
+}
+
+deblack_pride = {
+	random_list = {
+		30 = {
+			trigger = { has_trait = humble }
+			hidden_effect = { remove_trait = humble }
+			add_trait_force_tooltip = arrogant
+			house_trait_weight = { trait = arrogant }
+			blacksheep_trait_weight = { trait = arrogant weight = 0.5 }
+		}
+		30 = {
+			trigger = { has_trait = content }
+			hidden_effect = { remove_trait = content }
+			add_trait_force_tooltip = ambitious
+			house_trait_weight = { trait = ambitious }
+			blacksheep_trait_weight = { trait = content weight = 0.5 }
+		}
+		#wrathful isn't as important as the other 2
+	}
+}
+
+deblack_respect = {
+	random_list = {
+		30 = {
+			trigger = { has_trait = humble }
+			hidden_effect = { remove_trait = humble }
+			add_trait_force_tooltip = arrogant
+			house_trait_weight = { trait = arrogant }
+			blacksheep_trait_weight = { trait = humble weight = 0.5 }
+		}
+		30 = {
+			trigger = { has_trait = compassionate }
+			hidden_effect = { remove_trait = compassionate }
+			add_trait_force_tooltip = callous
+			house_trait_weight = { trait = callous }
+			blacksheep_trait_weight = { trait = compassionate weight = 0.5 }
+		}
+		#vengeful isn't as important as the other 2
+	}
+}
+
+deblack_power = {
+	random_list = {
+		10 = {
+			trigger = {
+				has_trait = lazy
+				NOT = {
+					has_trait = ambitious
+					has_trait = content
+				}
+			}
+			hidden_effect = { remove_trait = lazy }
+			add_trait_force_tooltip = ambitious
+			house_trait_weight = { trait = ambitious }
+			blacksheep_trait_weight = { trait = lazy weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = lazy
+				NOT = {
+					has_trait = impatient
+					has_trait = patient
+				}
+			}
+			hidden_effect = { remove_trait = lazy }
+			add_trait_force_tooltip = impatient
+			house_trait_weight = { trait = impatient }
+			blacksheep_trait_weight = { trait = lazy weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = lazy
+				NOT = {
+					has_trait = wrathful
+					has_trait = calm
+				}
+			}
+			hidden_effect = { remove_trait = lazy }
+			add_trait_force_tooltip = wrathful
+			house_trait_weight = { trait = wrathful }
+			blacksheep_trait_weight = { trait = lazy weight = 0.5 }
+		}
+		100 = {
+			trigger = {
+				has_trait = content
+			}
+			hidden_effect = { remove_trait = content }
+			add_trait_force_tooltip = ambitious
+			house_trait_weight = { trait = ambitious }
+			blacksheep_trait_weight = { trait = content weight = 0.5 }
+		}
+	}
+}
+
+deblack_influence = {
+	random_list = {
+		10 = {
+			trigger = {
+				has_trait = trusting
+				NOT = {
+					has_trait = gregarious
+					has_trait = shy
+				}
+			}
+			hidden_effect = { remove_trait = trusting }
+			add_trait_force_tooltip = gregarious
+			house_trait_weight = { trait = gregarious }
+			blacksheep_trait_weight = { trait = trusting weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = trusting
+				NOT = {
+					has_trait = calm
+					has_trait = wrathful
+				}
+			}
+			hidden_effect = { remove_trait = trusting }
+			add_trait_force_tooltip = calm
+			house_trait_weight = { trait = calm }
+			blacksheep_trait_weight = { trait = trusting weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = trusting
+				NOT = {
+					has_trait = deceitful
+					has_trait = honest
+				}
+			}
+			hidden_effect = { remove_trait = trusting }
+			add_trait_force_tooltip = deceitful
+			house_trait_weight = { trait = deceitful }
+			blacksheep_trait_weight = { trait = trusting weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = content
+				NOT = {
+					has_trait = gregarious
+					has_trait = shy
+				}
+			}
+			hidden_effect = { remove_trait = content }
+			add_trait_force_tooltip = gregarious
+			house_trait_weight = { trait = gregarious }
+			blacksheep_trait_weight = { trait = content weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = content
+				NOT = {
+					has_trait = calm
+					has_trait = wrathful
+				}
+			}
+			hidden_effect = { remove_trait = content }
+			add_trait_force_tooltip = calm
+			house_trait_weight = { trait = calm }
+			blacksheep_trait_weight = { trait = content weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = content
+				NOT = {
+					has_trait = deceitful
+					has_trait = honest
+				}
+			}
+			hidden_effect = { remove_trait = content }
+			add_trait_force_tooltip = deceitful
+			house_trait_weight = { trait = deceitful }
+			blacksheep_trait_weight = { trait = content weight = 0.5 }
+		}
+	}
+}
+
+deblack_guile = {
+	random_list = {
+		10 = {
+			trigger = {
+				has_trait = trusting
+				NOT = {
+					has_trait = deceitful
+					has_trait = honest
+				}
+			}
+			hidden_effect = { remove_trait = trusting }
+			add_trait_force_tooltip = deceitful
+			house_trait_weight = { trait = deceitful }
+			blacksheep_trait_weight = { trait = trusting weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = trusting
+				NOT = {
+					has_trait = fickle
+					has_trait = stubborn
+				}
+			}
+			hidden_effect = { remove_trait = trusting }
+			add_trait_force_tooltip = fickle
+			house_trait_weight = { trait = fickle }
+			blacksheep_trait_weight = { trait = trusting weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = trusting
+				NOT = {
+					has_trait = arbitrary
+					has_trait = just
+				}
+			}
+			hidden_effect = { remove_trait = trusting }
+			add_trait_force_tooltip = arbitrary
+			house_trait_weight = { trait = arbitrary }
+			blacksheep_trait_weight = { trait = trusting weight = 0.5 }
+		}
+		10 = {
+			trigger = { has_trait = honest }
+			hidden_effect = { remove_trait = honest }
+			add_trait_force_tooltip = deceitful
+			house_trait_weight = { trait = deceitful }
+			blacksheep_trait_weight = { trait = honest weight = 0.5 }
+		}
+	}
+}
+
+deblack_survival = {
+	random_list = {
+		30 = {
+			trigger = { has_trait = brave }
+			hidden_effect = { remove_trait = brave }
+			add_trait_force_tooltip = craven
+			house_trait_weight = { trait = craven }
+			blacksheep_trait_weight = { trait = brave weight = 0.5 }
+		}
+		30 = {
+			trigger = { has_trait = trusting }
+			hidden_effect = { remove_trait = trusting }
+			add_trait_force_tooltip = paranoid
+			house_trait_weight = { trait = paranoid }
+			blacksheep_trait_weight = { trait = trusting weight = 0.5 }
+		}
+		# Deceitful is not as important as the other 2
+	}
+}
+
+deblack_vigilance = {
+	random_list = {
+		10 = {
+			trigger = {
+				has_trait = impatient
+				NOT = {
+					has_trait = diligent
+					has_trait = lazy
+				}
+			}
+			hidden_effect = { remove_trait = impatient }
+			add_trait_force_tooltip = diligent
+			house_trait_weight = { trait = diligent }
+			blacksheep_trait_weight = { trait = impatient weight = 0.5 }
+		}
+		10 = {
+			trigger = { has_trait = impatient }
+			hidden_effect = { remove_trait = impatient }
+			add_trait_force_tooltip = patient
+			house_trait_weight = { trait = patient }
+			blacksheep_trait_weight = { trait = impatient weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = impatient
+				NOT = {
+					has_trait = paranoid
+					has_trait = trusting
+				}
+			}
+			hidden_effect = { remove_trait = impatient }
+			add_trait_force_tooltip = paranoid
+			house_trait_weight = { trait = paranoid }
+			blacksheep_trait_weight = { trait = impatient weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = trusting
+				NOT = {
+					has_trait = diligent
+					has_trait = lazy
+				}
+			}
+			hidden_effect = { remove_trait = trusting }
+			add_trait_force_tooltip = diligent
+			house_trait_weight = { trait = diligent }
+			blacksheep_trait_weight = { trait = trusting weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = trusting
+				NOT = {
+					has_trait = patient
+					has_trait = impatient
+				}
+			}
+			hidden_effect = { remove_trait = trusting }
+			add_trait_force_tooltip = patient
+			house_trait_weight = { trait = patient }
+			blacksheep_trait_weight = { trait = trusting weight = 0.5 }
+		}
+		10 = {
+			trigger = { has_trait = trusting }
+			hidden_effect = { remove_trait = trusting }
+			add_trait_force_tooltip = paranoid
+			house_trait_weight = { trait = paranoid }
+			blacksheep_trait_weight = { trait = trusting weight = 0.5 }
+		}
+	}
+}
+
+deblack_peace = {
+	random_list = {
+		10 = {
+			trigger = {
+				has_trait = wrathful
+				NOT = {
+					has_trait = forgiving
+					has_trait = vengeful
+				}
+			}
+			hidden_effect = { remove_trait = wrathful }
+			add_trait_force_tooltip = forgiving
+			house_trait_weight = { trait = forgiving }
+			blacksheep_trait_weight = { trait = wrathful weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = wrathful
+				NOT = {
+					has_trait = honest
+					has_trait = deceitful
+				}
+			}
+			hidden_effect = { remove_trait = wrathful }
+			add_trait_force_tooltip = honest
+			house_trait_weight = { trait = honest }
+			blacksheep_trait_weight = { trait = wrathful weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = wrathful
+				NOT = {
+					has_trait = trusting
+					has_trait = paranoid
+				}
+			}
+			hidden_effect = { remove_trait = wrathful }
+			add_trait_force_tooltip = trusting
+			house_trait_weight = { trait = trusting }
+			blacksheep_trait_weight = { trait = wrathful weight = 0.5 }
+		}
+		10 = {
+			trigger = { has_trait = vengeful }
+			hidden_effect = { remove_trait = vengeful }
+			add_trait_force_tooltip = forgiving
+			house_trait_weight = { trait = forgiving }
+			blacksheep_trait_weight = { trait = vengeful weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = vengeful
+				NOT = {
+					has_trait = honest
+					has_trait = deceitful
+				}
+			}
+			hidden_effect = { remove_trait = vengeful }
+			add_trait_force_tooltip = honest
+			house_trait_weight = { trait = honest }
+			blacksheep_trait_weight = { trait = vengeful weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = vengeful
+				NOT = {
+					has_trait = trusting
+					has_trait = paranoid
+				}
+			}
+			hidden_effect = { remove_trait = vengeful }
+			add_trait_force_tooltip = trusting
+			house_trait_weight = { trait = trusting }
+			blacksheep_trait_weight = { trait = vengeful weight = 0.5 }
+		}
+	}
+}
+
+deblack_fortune = {
+	random_list = {
+		10 = {
+			trigger = {
+				has_trait = shy
+				NOT = {
+					has_trait = greedy
+					has_trait = generous
+				}
+			}
+			hidden_effect = { remove_trait = shy }
+			add_trait_force_tooltip = greedy
+			house_trait_weight = { trait = greedy }
+			blacksheep_trait_weight = { trait = shy weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = shy
+				NOT = {
+					has_trait = diligent
+					has_trait = lazy
+				}
+			}
+			hidden_effect = { remove_trait = shy }
+			add_trait_force_tooltip = diligent
+			house_trait_weight = { trait = diligent }
+			blacksheep_trait_weight = { trait = shy weight = 0.5 }
+		}
+		10 = {
+			trigger = { has_trait = shy }
+			hidden_effect = { remove_trait = shy }
+			add_trait_force_tooltip = gregarious
+			house_trait_weight = { trait = gregarious }
+			blacksheep_trait_weight = { trait = shy weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = content
+				NOT = {
+					has_trait = greedy
+					has_trait = generous
+				}
+			}
+			hidden_effect = { remove_trait = content }
+			add_trait_force_tooltip = greedy
+			house_trait_weight = { trait = greedy }
+			blacksheep_trait_weight = { trait = content weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = content
+				NOT = {
+					has_trait = diligent
+					has_trait = lazy
+				}
+			}
+			hidden_effect = { remove_trait = content }
+			add_trait_force_tooltip = diligent
+			house_trait_weight = { trait = diligent }
+			blacksheep_trait_weight = { trait = content weight = 0.5 }
+		}
+	}
+}
+
+deblack_knowledge = {
+	random_list = {
+		10 = {
+			trigger = {
+				has_trait = lazy
+				NOT = {
+					has_trait = patient
+					has_trait = impatient
+				}
+			}
+			hidden_effect = { remove_trait = lazy }
+			add_trait_force_tooltip = patient
+			house_trait_weight = { trait = patient }
+			blacksheep_trait_weight = { trait = lazy weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = lazy
+				NOT = {
+					has_trait = cynical
+					has_trait = zealous
+				}
+			}
+			hidden_effect = { remove_trait = lazy }
+			add_trait_force_tooltip = cynical
+			house_trait_weight = { trait = cynical }
+			blacksheep_trait_weight = { trait = lazy weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = lazy
+				NOT = {
+					has_trait = shy
+					has_trait = gregarious
+				}
+			}
+			hidden_effect = { remove_trait = lazy }
+			add_trait_force_tooltip = shy
+			house_trait_weight = { trait = shy }
+			blacksheep_trait_weight = { trait = lazy weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = paranoid
+				NOT = {
+					has_trait = patient
+					has_trait = impatient
+				}
+			}
+			hidden_effect = { remove_trait = paranoid }
+			add_trait_force_tooltip = patient
+			house_trait_weight = { trait = paranoid }
+			blacksheep_trait_weight = { trait = paranoid weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = paranoid
+				NOT = {
+					has_trait = cynical
+					has_trait = zealous
+				}
+			}
+			hidden_effect = { remove_trait = paranoid }
+			add_trait_force_tooltip = cynical
+			house_trait_weight = { trait = paranoid }
+			blacksheep_trait_weight = { trait = paranoid weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = paranoid
+				NOT = {
+					has_trait = shy
+					has_trait = gregarious
+				}
+			}
+			hidden_effect = { remove_trait = paranoid }
+			add_trait_force_tooltip = shy
+			house_trait_weight = { trait = shy }
+			blacksheep_trait_weight = { trait = paranoid weight = 0.5 }
+		}
+	}
+}
+
+deblack_truth = {
+	random_list = {
+		10 = {
+			trigger = {
+				has_trait = arbitrary
+				NOT = {
+					has_trait = cynical
+					has_trait = zealous
+				}
+			}
+			hidden_effect = { remove_trait = arbitrary }
+			add_trait_force_tooltip = cynical
+			house_trait_weight = { trait = cynical }
+			blacksheep_trait_weight = { trait = arbitrary weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = arbitrary
+				NOT = {
+					has_trait = honest
+					has_trait = deceitful
+				}
+			}
+			hidden_effect = { remove_trait = arbitrary }
+			add_trait_force_tooltip = honest
+			house_trait_weight = { trait = honest }
+			blacksheep_trait_weight = { trait = arbitrary weight = 0.5 }
+		}
+		10 = {
+			trigger = { has_trait = arbitrary }
+			hidden_effect = { remove_trait = arbitrary }
+			add_trait_force_tooltip = just
+			house_trait_weight = { trait = just }
+			blacksheep_trait_weight = { trait = arbitrary weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = fickle
+				NOT = {
+					has_trait = cynical
+					has_trait = zealous
+				}
+			}
+			hidden_effect = { remove_trait = fickle }
+			add_trait_force_tooltip = cynical
+			house_trait_weight = { trait = cynical }
+			blacksheep_trait_weight = { trait = fickle weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = fickle
+				NOT = {
+					has_trait = honest
+					has_trait = deceitful
+				}
+			}
+			hidden_effect = { remove_trait = fickle }
+			add_trait_force_tooltip = honest
+			house_trait_weight = { trait = honest }
+			blacksheep_trait_weight = { trait = fickle weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = fickle
+				NOT = {
+					has_trait = just
+					has_trait = arbitrary
+				}
+			}
+			hidden_effect = { remove_trait = fickle }
+			add_trait_force_tooltip = just
+			house_trait_weight = { trait = just }
+			blacksheep_trait_weight = { trait = fickle weight = 0.5 }
+		}
+	}
+}
+
+deblack_wisdom = {
+	random_list = {
+		10 = {
+			trigger = {
+				has_trait = wrathful
+				NOT = {
+					has_trait = temperate
+					has_trait = gluttonous
+				}
+			}
+			hidden_effect = { remove_trait = wrathful }
+			add_trait_force_tooltip = temperate
+			house_trait_weight = { trait = temperate }
+			blacksheep_trait_weight = { trait = wrathful weight = 0.5 }
+		}
+		10 = {
+			trigger = { has_trait = wrathful }
+			hidden_effect = { remove_trait = wrathful }
+			add_trait_force_tooltip = calm
+			house_trait_weight = { trait = calm }
+			blacksheep_trait_weight = { trait = wrathful weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = wrathful
+				NOT = {
+					has_trait = patient
+					has_trait = impatient
+				}
+			}
+			hidden_effect = { remove_trait = wrathful }
+			add_trait_force_tooltip = patient
+			house_trait_weight = { trait = patient }
+			blacksheep_trait_weight = { trait = wrathful weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = impatient
+				NOT = {
+					has_trait = temperate
+					has_trait = gluttonous
+				}
+			}
+			hidden_effect = { remove_trait = impatient }
+			add_trait_force_tooltip = temperate
+			house_trait_weight = { trait = temperate }
+			blacksheep_trait_weight = { trait = impatient weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = impatient
+				NOT = {
+					has_trait = calm
+					has_trait = wrathful
+				}
+			}
+			hidden_effect = { remove_trait = impatient }
+			add_trait_force_tooltip = calm
+			house_trait_weight = { trait = calm }
+			blacksheep_trait_weight = { trait = impatient weight = 0.5 }
+		}
+		10 = {
+			trigger = { has_trait = impatient }
+			hidden_effect = { remove_trait = impatient }
+			add_trait_force_tooltip = patient
+			house_trait_weight = { trait = patient }
+			blacksheep_trait_weight = { trait = impatient weight = 0.5 }
+		}
+	}
+}
+
+deblack_devotion = {
+	random_list = {
+		10 = {
+			trigger = {
+				has_trait = cynical
+				NOT = {
+					has_trait = content
+					has_trait = ambitious
+				}
+			}
+			hidden_effect = { remove_trait = cynical }
+			add_trait_force_tooltip = content
+			house_trait_weight = { trait = content }
+			blacksheep_trait_weight = { trait = cynical weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = cynical
+				NOT = {
+					has_trait = diligent
+					has_trait = lazy
+				}
+			}
+			hidden_effect = { remove_trait = cynical }
+			add_trait_force_tooltip = diligent
+			house_trait_weight = { trait = diligent }
+			blacksheep_trait_weight = { trait = cynical weight = 0.5 }
+		}
+		10 = {
+			trigger = { has_trait = cynical }
+			hidden_effect = { remove_trait = cynical }
+			add_trait_force_tooltip = zealous
+			house_trait_weight = { trait = zealous }
+			blacksheep_trait_weight = { trait = cynical weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = fickle
+				NOT = {
+					has_trait = content
+					has_trait = ambitious
+				}
+			}
+			hidden_effect = { remove_trait = fickle }
+			add_trait_force_tooltip = content
+			house_trait_weight = { trait = content }
+			blacksheep_trait_weight = { trait = fickle weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = fickle
+				NOT = {
+					has_trait = diligent
+					has_trait = lazy
+				}
+			}
+			hidden_effect = { remove_trait = fickle }
+			add_trait_force_tooltip = diligent
+			house_trait_weight = { trait = diligent }
+			blacksheep_trait_weight = { trait = fickle weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = fickle
+				NOT = {
+					has_trait = zealous
+					has_trait = cynical
+				}
+			}
+			hidden_effect = { remove_trait = fickle }
+			add_trait_force_tooltip = zealous
+			house_trait_weight = { trait = zealous }
+			blacksheep_trait_weight = { trait = fickle weight = 0.5 }
+		}
+	}
+}
+
+deblack_family = {
+	random_list = {
+		10 = {
+			trigger = {
+				has_trait = lustful
+				NOT = {
+					has_trait = compassionate
+					has_trait = sadistic
+					has_trait = callous
+				}
+			}
+			hidden_effect = { remove_trait = lustful }
+			add_trait_force_tooltip = compassionate
+			house_trait_weight = { trait = compassionate }
+			blacksheep_trait_weight = { trait = lustful weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = lustful
+				NOT = {
+					has_trait = forgiving
+					has_trait = vengeful
+				}
+			}
+			hidden_effect = { remove_trait = lustful }
+			add_trait_force_tooltip = forgiving
+			house_trait_weight = { trait = forgiving }
+			blacksheep_trait_weight = { trait = lustful weight = 0.5 }
+		}
+		10 = {
+			trigger = { has_trait = lustful }
+			hidden_effect = { remove_trait = lustful }
+			add_trait_force_tooltip = chaste
+			house_trait_weight = { trait = chaste }
+			blacksheep_trait_weight = { trait = lustful weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = sadistic
+				NOT = {
+					has_trait = compassionate
+					has_trait = callous
+				}
+			}
+			hidden_effect = { remove_trait = sadistic }
+			add_trait_force_tooltip = compassionate
+			house_trait_weight = { trait = compassionate }
+			blacksheep_trait_weight = { trait = sadistic weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = sadistic
+				NOT = {
+					has_trait = forgiving
+					has_trait = vengeful
+				}
+			}
+			hidden_effect = { remove_trait = sadistic }
+			add_trait_force_tooltip = forgiving
+			house_trait_weight = { trait = forgiving }
+			blacksheep_trait_weight = { trait = sadistic weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = sadistic
+				NOT = {
+					has_trait = lustful
+					has_trait = chaste
+				}
+			}
+			hidden_effect = { remove_trait = sadistic }
+			add_trait_force_tooltip = chaste
+			house_trait_weight = { trait = chaste }
+			blacksheep_trait_weight = { trait = sadistic weight = 0.5 }
+		}
+	}
+}
+
+deblack_compassion = {
+	random_list = {
+		10 = {
+			trigger = {
+				has_trait = callous
+				NOT = {
+					has_trait = compassionate
+					has_trait = sadistic
+				}
+			}
+			hidden_effect = { remove_trait = callous }
+			add_trait_force_tooltip = compassionate
+			house_trait_weight = { trait = compassionate }
+			blacksheep_trait_weight = { trait = callous weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = callous
+				NOT = {
+					has_trait = forgiving
+					has_trait = vengeful
+				}
+			}
+			hidden_effect = { remove_trait = callous }
+			add_trait_force_tooltip = forgiving
+			house_trait_weight = { trait = forgiving }
+			blacksheep_trait_weight = { trait = callous weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = callous
+				NOT = {
+					has_trait = generous
+					has_trait = greedy
+				}
+			}
+			hidden_effect = { remove_trait = callous }
+			add_trait_force_tooltip = generous
+			house_trait_weight = { trait = generous }
+			blacksheep_trait_weight = { trait = callous weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = sadistic
+				NOT = {
+					has_trait = compassionate
+					has_trait = callous
+				}
+			}
+			hidden_effect = { remove_trait = sadistic }
+			add_trait_force_tooltip = compassionate
+			house_trait_weight = { trait = compassionate }
+			blacksheep_trait_weight = { trait = sadistic weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = sadistic
+				NOT = {
+					has_trait = forgiving
+					has_trait = vengeful
+				}
+			}
+			hidden_effect = { remove_trait = sadistic }
+			add_trait_force_tooltip = forgiving
+			house_trait_weight = { trait = forgiving }
+			blacksheep_trait_weight = { trait = sadistic weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = sadistic
+				NOT = {
+					has_trait = generous
+					has_trait = greedy
+				}
+			}
+			hidden_effect = { remove_trait = sadistic }
+			add_trait_force_tooltip = generous
+			house_trait_weight = { trait = generous }
+			blacksheep_trait_weight = { trait = sadistic weight = 0.5 }
+		}
+	}
+}
+
+deblack_joy = {
+	random_list = {
+		10 = {
+			trigger = { has_trait = chaste }
+			hidden_effect = { remove_trait = chaste }
+			add_trait_force_tooltip = lustful
+			house_trait_weight = { trait = lustful }
+			blacksheep_trait_weight = { trait = chaste weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = chaste
+				NOT = {
+					has_trait = gluttonous
+					has_trait = temperate
+				}
+			}
+			hidden_effect = { remove_trait = chaste }
+			add_trait_force_tooltip = gluttonous
+			house_trait_weight = { trait = gluttonous }
+			blacksheep_trait_weight = { trait = chaste weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = chaste
+				NOT = {
+					has_trait = generous
+					has_trait = greedy
+				}
+			}
+			hidden_effect = { remove_trait = chaste }
+			add_trait_force_tooltip = generous
+			house_trait_weight = { trait = generous }
+			blacksheep_trait_weight = { trait = chaste weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = temperate
+				NOT = {
+					has_trait = lustful
+					has_trait = chaste
+				}
+			}
+			hidden_effect = { remove_trait = temperate }
+			add_trait_force_tooltip = lustful
+			house_trait_weight = { trait = lustful }
+			blacksheep_trait_weight = { trait = temperate weight = 0.5 }
+		}
+		10 = {
+			trigger = { has_trait = temperate }
+			hidden_effect = { remove_trait = temperate }
+			add_trait_force_tooltip = gluttonous
+			house_trait_weight = { trait = gluttonous }
+			blacksheep_trait_weight = { trait = temperate weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = temperate
+				NOT = {
+					has_trait = generous
+					has_trait = greedy
+				}
+			}
+			hidden_effect = { remove_trait = temperate }
+			add_trait_force_tooltip = generous
+			house_trait_weight = { trait = generous }
+			blacksheep_trait_weight = { trait = temperate weight = 0.5 }
+		}
+	}
+}
+
+deblack_distinction = {
+	random_list = {
+		10 = {
+			trigger = {
+				has_trait = humble
+				NOT = {
+					has_trait = arbitrary
+					has_trait = just
+				}
+			}
+			hidden_effect = { remove_trait = humble }
+			add_trait_force_tooltip = arbitrary
+			house_trait_weight = { trait = arbitrary }
+			blacksheep_trait_weight = { trait = shy weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = humble
+				NOT = {
+					has_trait = eccentric
+					has_trait = stubborn
+					has_trait = fickle
+				}
+			}
+			hidden_effect = { remove_trait = humble }
+			add_trait_force_tooltip = eccentric
+			house_trait_weight = { trait = eccentric }
+			blacksheep_trait_weight = { trait = shy weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = humble
+				NOT = {
+					has_trait = brave
+					has_trait = craven
+				}
+			}
+			hidden_effect = { remove_trait = humble }
+			add_trait_force_tooltip = brave
+			house_trait_weight = { trait = brave }
+			blacksheep_trait_weight = { trait = shy weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = shy
+				NOT = {
+					has_trait = arbitrary
+					has_trait = just
+				}
+			}
+			hidden_effect = { remove_trait = humble }
+			add_trait_force_tooltip = arbitrary
+			house_trait_weight = { trait = arbitrary }
+			blacksheep_trait_weight = { trait = shy weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = shy
+				NOT = {
+					has_trait = eccentric
+					has_trait = stubborn
+					has_trait = fickle
+				}
+			}
+			hidden_effect = { remove_trait = humble }
+			add_trait_force_tooltip = eccentric
+			house_trait_weight = { trait = eccentric }
+			blacksheep_trait_weight = { trait = shy weight = 0.5 }
+		}
+		10 = {
+			trigger = {
+				has_trait = shy
+				NOT = {
+					has_trait = brave
+					has_trait = craven
+				}
+			}
+			hidden_effect = { remove_trait = humble }
+			add_trait_force_tooltip = brave
+			house_trait_weight = { trait = brave }
+			blacksheep_trait_weight = { trait = shy weight = 0.5 }
+		}
+	}
+}
+

@@ -1,0 +1,12 @@
+﻿# Both acceptance events share a feed type. Combining does not guarantee a count or recipient list.
+# No global message filter: event_outcome settings must not turn these acceptances into popups.
+mdc_conversion_accepted_message = {
+	display = feed
+	combine_into_one = yes
+	icon = "religious"
+	style = good
+	title = mdc_conversion_accepted_title
+	# Native template displays the description supplied by each event.
+	desc = event_message_text
+	tooltip = event_message_effect
+}

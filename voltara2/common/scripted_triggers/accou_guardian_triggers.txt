@@ -1,0 +1,51 @@
+﻿# Is this character a valid guardian recipient
+# See educate_child_interaction (is_shown, is_valid_showing_failures_only, can_be_picked)
+accou_is_valid_guardian_recipient_trigger = {
+	accou_is_valid_guardian_recipient_vanilla_trigger = { ACTOR = $ACTOR$ }
+}
+
+accou_is_valid_guardian_recipient_vanilla_trigger = {
+	exists = $ACTOR$
+	is_at_home = yes
+	num_of_relation_ward < 2
+	NOR = {
+		has_character_flag = under_offer_as_guardian_flag
+		exists = var:guardian_waiting_for_ward
+		exists = var:character_requested_as_educator
+	}
+}
+
+# Is this character a valid child recipient
+# See educate_child_interaction (is_shown, is_valid_showing_failures_only, can_be_picked)
+accou_is_valid_child_recipient_trigger = {
+	accou_is_valid_child_recipient_vanilla_trigger = { ACTOR = $ACTOR$ }
+}
+
+accou_is_valid_child_recipient_vanilla_trigger = {
+	is_at_home = yes
+	num_of_relation_guardian = 0
+	trigger_if = {
+		limit = { is_hostage = yes }
+		is_hostage_of = $ACTOR$
+	}
+	NOR = {
+		has_character_flag = under_offer_as_ward_flag
+		exists = var:ward_waiting_for_guardian
+		exists = var:ward_travelling_to_guardian
+		exists = var:hostage_travelling_to_warden
+	}
+}
+
+accou_has_education_focus_trigger = {
+	trigger_if = {
+		limit = { has_variable = accou_education_focus }
+		var:accou_education_focus = flag:$FOCUS$
+	}
+	trigger_else = {
+		has_focus = $FOCUS$
+	}
+}
+
+accou_is_innovation_knighthood_better_guardians_trigger = {
+	always = yes
+}

@@ -1,0 +1,54 @@
+﻿sensible_family_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
+	
+	desc = ansf_decision_desc
+	
+	ai_check_interval = 0
+
+	is_shown = {
+ NOR = { has_trait = voltara_ruins_keeper has_trait = dragon has_government = voltara_ruins_government }
+
+		is_ai = no
+		is_playable_character = yes
+		NOT = { has_game_rule = ansf_decision_deactivated }
+		trigger_if = {
+			limit = { has_game_rule = ansf_decision_normal_restrictions }
+			years_from_game_start < 1
+		}
+	}
+	
+	is_valid = {
+		exists = location
+		trigger_if = {
+			limit = {
+				NOT = { has_game_rule = ansf_decision_no_restriction }
+			}
+			custom_description = {
+				text = ansf_already_used_family_decision
+				subject = root
+				NOT = {
+					house = { has_variable = ansf_reflected_on_family }
+				}
+			}
+		}
+	}
+	
+	effect = {
+		root = {
+			save_scope_as = target
+			save_scope_as = target_liege
+		}
+		trigger_event = ansf.1001
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+

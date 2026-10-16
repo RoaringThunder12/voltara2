@@ -1,0 +1,28 @@
+﻿pdxmesh = {
+	name = "building_special_KL_dragonpit_ruin_mesh"
+	file = "building_special_KL_dragonpit_ruin.mesh"
+
+	meshsettings = {
+		name = "building_special_KL_dragonpit_ruinShape"
+		index = 0
+		texture_diffuse = "building_special_KL_dragonpit_ruin_diffuse.dds"
+		texture_normal = "building_special_KL_dragonpit_ruin_normal.dds"
+		texture_specular = "building_special_KL_dragonpit_ruin_properties.dds"
+		shader = "standard_winter"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+	meshsettings = {
+		name = "building_special_KL_DragonpitShape"
+		index = 0
+		texture_diffuse = "building_special_KL_dragonpit_ruin_diffuse.dds"
+		texture_normal = "building_special_KL_dragonpit_ruin_normal.dds"
+		texture_specular = "building_special_KL_dragonpit_ruin_properties.dds"
+		shader = "standard_winter"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+}
+
+entity = {
+	name = "building_special_KL_dragonpit_ruin_entity"
+	pdxmesh = "building_special_KL_dragonpit_ruin_mesh"
+}

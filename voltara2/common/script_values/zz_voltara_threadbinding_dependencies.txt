@@ -1,0 +1,574 @@
+﻿aptitude_from_alteration_perks = {
+	if = {
+		limit = {
+			has_perk = alteration_novice_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_alteration_novice_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = alteration_apprentice_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_alteration_apprentice_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = alteration_journeyman_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_alteration_journeyman_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = alteration_expert_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_alteration_expert_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = alteration_master_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_alteration_master_perk
+		}
+	}
+}
+
+aptitude_from_arcana_traits = {
+	if = {
+		limit = {
+			has_trait = vt_ek_necromancer
+		}
+		add = { 
+			value = 15
+			desc = court_position_necomancer_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = experimentalist
+		}
+		add = { 
+			value = 15
+			desc = court_position_experimentalist_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = vt_ek_education_magic_5
+		}
+		add = { 
+			value = 25
+			desc = court_position_education_magic_5_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = vt_ek_education_magic_4
+		}
+		add = { 
+			value = 20
+			desc = court_position_education_magic_4_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = vt_ek_education_magic_3
+		}
+		add = { 
+			value = 15
+			desc = court_position_education_magic_3_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = vt_ek_education_magic_2
+		}
+		add = { 
+			value = 10
+			desc = court_position_education_magic_2_trait
+		}
+	}
+	else_if = {
+		limit = { 
+			has_trait = vt_ek_education_magic_1
+		}
+		add = { 
+			value = 5
+			desc = court_position_education_magic_1_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = vt_ek_arcana_bad_1
+		}
+		add = {
+			value = -5
+			desc = court_position_arcana_bad_1_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = vt_ek_arcana_bad_2
+		}
+		add = {
+			value = -10
+			desc = court_position_arcana_bad_2_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = vt_ek_arcana_bad_3
+		}
+		add = {
+			value = -15
+			desc = court_position_arcana_bad_3_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = vt_ek_arcana_good_1
+		}
+		add = {
+			value = 5
+			desc = court_position_arcana_good_1_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = vt_ek_arcana_good_2
+		}
+		add = {
+			value = 10
+			desc = court_position_arcana_good_2_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = vt_ek_arcana_good_3
+		}
+		add = {
+			value = 15
+			desc = court_position_arcana_good_3_trait
+		}
+	}
+}
+
+aptitude_from_conjuration_perks = {
+	if = {
+		limit = {
+			has_perk = conjuration_novice_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_conjuration_novice_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = conjuration_apprentice_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_conjuration_apprentice_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = conjuration_journeyman_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_conjuration_journeyman_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = conjuration_expert_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_conjuration_expert_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = conjuration_master_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_conjuration_master_perk
+		}
+	}
+}
+
+aptitude_from_destruction_perks = {
+	if = {
+		limit = {
+			has_perk = destruction_novice_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_destruction_novice_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = destruction_apprentice_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_destruction_apprentice_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = destruction_journeyman_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_destruction_journeyman_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = destruction_expert_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_destruction_expert_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = destruction_master_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_destruction_master_perk
+		}
+	}
+}
+
+aptitude_from_illusion_perks = {
+	if = {
+		limit = {
+			has_perk = illusion_novice_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_illusion_novice_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = illusion_apprentice_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_illusion_apprentice_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = illusion_journeyman_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_illusion_journeyman_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = illusion_expert_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_illusion_expert_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = illusion_master_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_illusion_master_perk
+		}
+	}
+}
+
+aptitude_from_necromancy_perks = {
+	if = {
+		limit = {
+			has_perk = necromancy_novice_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_necromancy_novice_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = necromancy_apprentice_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_necromancy_apprentice_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = necromancy_journeyman_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_necromancy_journeyman_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = necromancy_expert_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_necromancy_expert_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = necromancy_master_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_necromancy_master_perk
+		}
+	}
+}
+
+aptitude_from_restoration_perks = {
+	if = {
+		limit = {
+			has_perk = restoration_novice_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_restoration_novice_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = restoration_apprentice_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_restoration_apprentice_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = restoration_journeyman_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_restoration_journeyman_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = restoration_expert_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_restoration_expert_perk
+		}
+	}
+	if = {
+		limit = {
+			has_perk = restoration_master_perk
+		}
+		add = {
+			value = 2
+			desc = court_position_restoration_master_perk
+		}
+	}
+}
+
+court_mage_prestige_salary_value = {
+	value = medium_court_position_prestige_salary # Update X_salary_tooltip if script_value is changed
+	# Set to 0 with Dynasty Perk Inner Circle
+	if = {
+		limit = { court_position_inner_circle_salary_trigger = { POS = court_mage } }
+		multiply = {
+			value = 0
+			desc = inner_circle_salary_mod
+			format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
+		}
+	}
+	# Halved via obligation hook
+	else_if = {
+		limit = {
+			court_position_obligation_hook_salary_trigger = {
+				POS = court_mage
+				LIEGE = scope:liege
+			}
+		}
+		multiply = {
+			value = 0.5
+			desc = obligation_hook_salary
+			format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
+		}
+	}
+	# Halved salary
+	if = {
+		limit = {
+			court_position_halved_salary_trigger = { POS = court_mage }
+		}
+	    multiply = {
+			value = 0.5
+			desc = court_position_halved_salary
+			format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
+		}
+	}
+	# Increased salary
+	if = {
+		limit = {
+			court_position_increased_salary_trigger = { POS = court_mage }
+		}
+		multiply = {
+			value = 1.5
+			desc = court_position_increased_salary
+			format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
+		}
+	}
+	#You're working with LAAMPS now
+	if = {
+		limit = { 
+			scope:liege ?= { government_has_flag = government_is_landless_adventurer }
+		}
+		multiply = {
+			value = 0
+			desc = court_position_laamps_free
+			format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
+		}
+	}
+}
+
+court_mage_total_salary_value = {
+	value = medium_court_position_salary # Update X_salary_tooltip if script_value is changed
+	# Set to 0 with Dynasty Perk Inner Circle
+	if = {
+		limit = { court_position_inner_circle_salary_trigger = { POS = court_mage } }
+		multiply = {
+			value = 0
+			desc = inner_circle_salary_mod
+			format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
+		}
+	}
+	# Halved via obligation hook
+    else_if = {
+		limit = {
+			court_position_obligation_hook_salary_trigger = {
+				POS = court_mage
+				LIEGE = scope:liege
+			}
+		}
+		multiply = {
+			value = 0.5
+			desc = obligation_hook_salary
+			format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
+		}
+	}
+    # Halved salary
+	if = {
+		limit = { court_position_halved_salary_trigger = { POS = court_mage } }
+		multiply = {
+			value = 0.5
+			desc = court_position_halved_salary
+			format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
+		}
+	}
+	# Increased salary
+	if = {
+		limit = { court_position_increased_salary_trigger = { POS = court_mage } }
+	    multiply = {
+			value = 1.5
+			desc = court_position_increased_salary
+			format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
+		}
+	}
+	#You're working with LAAMPS now
+	if = {
+		limit = { scope:liege ?= { government_has_flag = government_is_landless_adventurer } }
+		multiply = {
+			value = 0
+			desc = court_position_laamps_free
+			format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
+		}
+	}
+}
+
+ek_human_age_equivalent = { # returns the scope's age in human lifespan
+	if = {
+		limit = { age > 18 }
+		if = {
+			limit = { ek_human_age_equivalent_calc > 18 }
+			value = ek_human_age_equivalent_calc
+		}
+		else = {
+			value = 18
+		}
+	}
+	else = {
+		value = age
+	}
+}
+
+ek_human_age_equivalent_calc = {
+	value = age
+	divide = ek_life_expectancy
+	multiply = 60	
+}
+
+ek_life_expectancy = { #returns a number equivalent to age 60 in human lifespan
+	if = {
+		limit = { has_trait_with_flag = is_immortal }
+		value = 9999 # the values here are equivalent to age 60 of shortlived characters
+		# infertile at 7500
+	}
+	else_if = {
+		limit = { has_trait_with_flag = lifespan_5_flag }
+		value = 520 # infertile at 390
+	}
+	else_if = {
+		limit = { has_trait_with_flag = lifespan_4_flag }
+		value = 320 # infertile at 240
+	}
+	else_if = {
+		limit = { has_trait_with_flag = lifespan_3_flag }
+		value = 220	# characters become infertile at 45 or equivalent - in this case 165 - which is always 75% of equivalent of 60
+	}
+	else_if = {
+		limit = { has_trait_with_flag = lifespan_2_flag }
+		value = 170	# infertile at 128
+	}
+	else_if = {
+		limit = { has_trait_with_flag = lifespan_1_flag }
+		value = 120 # infertile at 90
+	}
+	else = {
+		value = 60
+	}
+}

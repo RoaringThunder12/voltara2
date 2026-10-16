@@ -1,0 +1,50 @@
+﻿l_english:
+
+injury_risk_tt: "#T [GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope).Custom('risk_injury_header')]#!\n$injury_risk_body$\n$injury_gain$"
+injury_risk_body: "[GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope).Custom('risk_chance_to_die')] as Risk Score ([EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope.Var('sc_attacker_injury_risk_check').GetValue|0]) is [GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope).Custom('risk_compared')] Success Score ([EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope.Var('sc_attacker_duel_success_score').GetValue|0])."
+injury_gain: "Natural risk gain: [GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope).ScriptValue('injury_bonus')|0-=]"
+injury_gain_right: "Natural risk gain: [GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').MakeScope).ScriptValue('injury_bonus')|0-=]"
+
+
+injury_risk_defender_tt: "#T [GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').MakeScope).Custom('risk_injury_header_def')]#!\n$injury_risk_body_def$\n$injury_gain_right$"
+injury_risk_body_def: "[GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').MakeScope).Custom('risk_chance_to_die_def')] as Risk Score ([EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('sc_defender_injury_risk_check').GetValue|0]) is [GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').MakeScope).Custom('risk_compared_def')] Success Score ([EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('sc_defender_duel_success_score').GetValue|0])."
+
+
+injury_risk_tt_right_attacker: "#T [GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').MakeScope).Custom('risk_injury_header')]#!\n$injury_risk_body_right$\n$injury_gain_right$"
+injury_risk_body_right: "[GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').MakeScope).Custom('risk_chance_to_die')] as Risk Score ([EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('sc_attacker_injury_risk_check').GetValue|0]) is [GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').MakeScope).Custom('risk_compared')] Success Score ([EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('sc_attacker_duel_success_score').GetValue|0])."
+
+
+
+injury_risk_tt_left_defender: "#T [GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope).Custom('risk_injury_header_def')]#!\n$injury_risk_body_def_left$\n$injury_gain$"
+injury_risk_body_def_left: "[GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope).Custom('risk_chance_to_die_def')] as Risk Score ([EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope.Var('sc_defender_injury_risk_check').GetValue|0]) is [GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope).Custom('risk_compared_def')] Success Score ([EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope.Var('sc_defender_duel_success_score').GetValue|0])."
+
+
+
+risk_injury_none: "No Risk of Injury"
+risk_injury_low: "Low Risk of Injury"
+risk_injury_medium: "Medium Risk of Injury"
+risk_injury_high: "High Risk of Injury"
+risk_injury_very_high: "Very high Risk of Injury"
+
+risk_equal: "equal to"
+risk_lower: "lower than"
+risk_higher: "higher than"
+
+risk_no_chance: "There is no chance of losing due to injury,"
+risk_to_lose: "There is a [SCOPE.ScriptValue('sc_attacker_injury_check_UI')|%0-] chance to lose due to injury,"
+risk_to_lose_def: "There is a [SCOPE.ScriptValue('sc_defender_injury_check_UI')|%0-] chance to lose due to injury,"
+
+chance_of_success_attacker_tt: "#t Likelihood of Success#!\n$chance_of_success_attacker_body$"
+chance_of_success_attacker_body: "Your Success Score ([EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope.Var('sc_attacker_duel_success_score').GetValue|0]) is [GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope).Custom('score_compared')] the opponent's ([EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('sc_defender_duel_success_score').GetValue|0]).\nTo win through skill, outscore [EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').GetHerHim] by [EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('success_threshold').GetValue|0] points$threshold_tip$"
+
+chance_of_success_defender_tt: "#t Likelihood of Success#!\n$chance_of_success_defender_body$"
+chance_of_success_defender_body: "Your Success Score ([EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope.Var('sc_defender_duel_success_score').GetValue|0]) is [GuiScope.SetRoot(EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope).Custom('score_compared')] the opponent's ([EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').MakeScope.Var('sc_attacker_duel_success_score').GetValue|0]).\nTo win through skill, outscore [EventWindow.AccessEventWindowData.GetPortraitCharacter('right_portrait').GetHerHim] by [EventWindow.AccessEventWindowData.GetPortraitCharacter('left_portrait').MakeScope.Var('success_threshold').GetValue|0] points$threshold_tip$"
+
+threshold_tip: " #low (this number is reduced in the last round)."
+
+toggle_duel: "Duel overlay"
+duel_score: "Duel score"
+
+duel_icons: "Icons for duel options*"
+duel_icons_tt: "*Changes will update on the next turn of the duel"
+prowess_tip: "#help Higher prowess provides better attack moves.\nIf the duel lasts for too long, prowess will determine the winner."

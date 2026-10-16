@@ -1,0 +1,9 @@
+﻿l_english:
+ voltara_seek_battlefield_duel:0 "Challenge to a Battlefield Duel"
+ voltara_seek_battlefield_duel_desc:0 "Seek out this enemy commander or knight for single combat. You must both be personally fighting on opposite sides of the same battle. The victor may capture, kill, or spare the defeated opponent. Both combatants must recover for 30 days before another battlefield duel."
+ voltara_duel_same_battle_tt:0 "Both characters must be commanders or knights on opposing sides of the same active battle."
+ voltara_battlefield_duel.2.t:0 "At Your Mercy"
+ voltara_battlefield_duel.2.desc:0 "The clash of steel falls silent between us. [sc_loser.GetTitledFirstName] lies defeated before me, while the battle rages around us. The choice is mine: a captive to carry away, a life to end, or mercy amid the slaughter."
+ voltara_battlefield_duel.capture:0 "Take [sc_loser.GetHerHim] prisoner."
+ voltara_battlefield_duel.kill:0 "Finish [sc_loser.GetHerHim]."
+ voltara_battlefield_duel.spare:0 "You have fought well. Live."

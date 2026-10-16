@@ -1,0 +1,67 @@
+﻿InteractiveVassalSupportDesc = {
+	type = character
+	text = {
+		trigger = {
+			interactive_governor_support_trigger = {
+				LIEGE = liege
+			}
+		}
+		localization_key = request_vassal_support_governor_desc
+	}
+	text = {
+		trigger = {
+			has_game_rule = bannermen_mode_enabled
+		}
+		localization_key = request_vassal_support_bannermen_desc
+	}
+	text = {
+		localization_key = request_vassal_support_hook_desc
+	}
+}
+
+InteractiveVassalSupportName = {
+	type = character
+	text = {
+		trigger = {
+			interactive_governor_support_trigger = {
+				LIEGE = liege
+			}
+		}
+		localization_key = interactive_administrative_governors
+	}
+	text = {
+		trigger = {
+			has_game_rule = bannermen_mode_enabled
+		}
+		localization_key = request_vassal_support_bannermen_name
+	}
+	text = {
+		localization_key = request_vassal_support_default_name
+	}
+}
+
+MivCallBannersDecision = {
+	type = character
+	text = {
+		trigger = {
+			has_global_variable = AGOT_is_loaded
+		}
+		localization_key = miv_call_the_banners_title
+	}
+	text = {
+		localization_key = miv_call_vassals_to_war_title
+	}
+}
+
+MivBannersWord = {
+	type = character
+	text = {
+		trigger = {
+			has_global_variable = AGOT_is_loaded
+		}
+		localization_key = miv_banners_word_agot
+	}
+	text = {
+		localization_key = miv_banners_word
+	}
+}

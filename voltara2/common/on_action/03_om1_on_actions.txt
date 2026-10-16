@@ -1,0 +1,22 @@
+﻿##############################
+## OM1 scripted_effects
+##############################
+
+#------------------------------
+# UniUI
+#------------------------------
+
+on_game_start = {
+    on_actions = {
+        gm1_prisoners_and_jailors_start
+    }
+}
+
+gm1_prisoners_and_jailors_start = {
+    effect = {
+        set_global_variable = {
+			name = gm1_is_loaded
+			value = yes
+		}
+    }
+}

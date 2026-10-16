@@ -1,0 +1,6 @@
+﻿voltara_dragon = { dragon = { traits = { dragon } dna_modifiers = { human = {
+ morph = { mode = replace gene = gene_camera_zoom template = no_camera_zoom value = 0 }
+ accessory = { mode = add gene = gene_dragon template = dragon value = 1.0 }
+ morph = { mode = replace gene = gene_no_portrait template = no_portrait value = 1.0 }
+ morph = { mode = replace gene = gene_dragon_size template = dragon_size value = voltara_dragon_visual_size }
+} } } }

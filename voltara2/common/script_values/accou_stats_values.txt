@@ -1,0 +1,1791 @@
+﻿# Statistics (all)
+
+accou_stats_count_rulers_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		add = 1
+	}
+}
+
+accou_stats_count_courtiers_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_courtier = {
+			add = 1
+		}
+	}
+}
+
+accou_stats_count_adult_courtiers_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_courtier = {
+			limit = { is_adult = yes }
+			add = 1
+		}
+	}
+}
+
+accou_stats_count_married_courtiers_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_courtier = {
+			limit = { is_married = yes }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_adult_courtier_soas_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_courtier = {
+			limit = { is_adult = yes }
+			add = sum_of_all_skills_value
+		}
+	}
+	divide = accou_stats_count_adult_courtiers_value
+}
+
+accou_stats_avg_adult_courtier_gcv_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_courtier = {
+			limit = { is_adult = yes }
+			add = genetic_character_value
+		}
+	}
+	divide = accou_stats_count_adult_courtiers_value
+}
+
+accou_stats_count_chancellors_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_chancellor }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_chancellor_skill_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_chancellor }
+			add = diplomacy
+		}
+	}
+	divide = accou_stats_count_chancellors_value
+}
+
+accou_stats_count_stewards_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_steward }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_steward_skill_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_steward }
+			add = stewardship
+		}
+	}
+	divide = accou_stats_count_stewards_value
+}
+
+accou_stats_count_marshals_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_marshal }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_marshal_skill_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_marshal }
+			add = martial
+		}
+	}
+	divide = accou_stats_count_marshals_value
+}
+
+accou_stats_count_spymasters_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_spymaster }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_spymaster_skill_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_spymaster }
+			add = intrigue
+		}
+	}
+	divide = accou_stats_count_spymasters_value
+}
+
+accou_stats_count_court_chaplains_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_court_chaplain }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_court_chaplain_skill_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_court_chaplain }
+			add = learning
+		}
+	}
+	divide = accou_stats_count_court_chaplains_value
+}
+
+accou_stats_count_court_physician_holders_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_court_position_holder = {
+			type = court_physician_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_court_physician_aptitude_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_court_position_holder = {
+			type = court_physician_court_position
+			add = aptitude:court_physician_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_court_physician_holders_value
+		min = 1
+	}
+}
+
+accou_stats_count_antiquarian_holders_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_court_position_holder = {
+			type = antiquarian_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_antiquarian_aptitude_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_court_position_holder = {
+			type = antiquarian_court_position
+			add = aptitude:antiquarian_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_antiquarian_holders_value
+		min = 1
+	}
+}
+
+accou_stats_count_travel_leader_holders_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_court_position_holder = {
+			type = travel_leader_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_travel_leader_aptitude_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_court_position_holder = {
+			type = travel_leader_court_position
+			add = aptitude:travel_leader_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_travel_leader_holders_value
+		min = 1
+	}
+}
+
+accou_stats_count_court_tutor_holders_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_court_position_holder = {
+			type = court_tutor_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_court_tutor_aptitude_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_court_position_holder = {
+			type = court_tutor_court_position
+			add = aptitude:court_tutor_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_court_tutor_holders_value
+		min = 1
+	}
+}
+
+accou_stats_count_master_of_hunt_holders_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_court_position_holder = {
+			type = master_of_hunt_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_master_of_hunt_aptitude_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_court_position_holder = {
+			type = master_of_hunt_court_position
+			add = aptitude:master_of_hunt_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_master_of_hunt_holders_value
+		min = 1
+	}
+}
+
+accou_stats_count_seneschal_holders_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_court_position_holder = {
+			type = seneschal_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_seneschal_aptitude_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_court_position_holder = {
+			type = seneschal_court_position
+			add = aptitude:seneschal_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_seneschal_holders_value
+		min = 1
+	}
+}
+
+accou_stats_count_knights_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_knight = {
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_knight_skill_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+		every_knight = {
+			add = prowess
+		}
+	}
+	divide = accou_stats_count_knights_value
+}
+
+# Statistics (counts)
+
+accou_stats_count_rulers_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		add = 1
+	}
+}
+
+accou_stats_count_courtiers_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_courtier = {
+			add = 1
+		}
+	}
+}
+
+accou_stats_count_adult_courtiers_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_courtier = {
+			limit = { is_adult = yes }
+			add = 1
+		}
+	}
+}
+
+accou_stats_count_married_courtiers_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_courtier = {
+			limit = { is_married = yes }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_adult_courtier_soas_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_courtier = {
+			limit = { is_adult = yes }
+			add = sum_of_all_skills_value
+		}
+	}
+	divide = accou_stats_count_adult_courtiers_c_value
+}
+
+accou_stats_avg_adult_courtier_gcv_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_courtier = {
+			limit = { is_adult = yes }
+			add = genetic_character_value
+		}
+	}
+	divide = accou_stats_count_adult_courtiers_c_value
+}
+
+accou_stats_count_chancellors_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_chancellor }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_chancellor_skill_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_chancellor }
+			add = diplomacy
+		}
+	}
+	divide = accou_stats_count_chancellors_c_value
+}
+
+accou_stats_count_stewards_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_steward }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_steward_skill_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_steward }
+			add = stewardship
+		}
+	}
+	divide = accou_stats_count_stewards_c_value
+}
+
+accou_stats_count_marshals_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_marshal }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_marshal_skill_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_marshal }
+			add = martial
+		}
+	}
+	divide = accou_stats_count_marshals_c_value
+}
+
+accou_stats_count_spymasters_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_spymaster }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_spymaster_skill_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_spymaster }
+			add = intrigue
+		}
+	}
+	divide = accou_stats_count_spymasters_c_value
+}
+
+accou_stats_count_court_chaplains_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_court_chaplain }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_court_chaplain_skill_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_court_chaplain }
+			add = learning
+		}
+	}
+	divide = accou_stats_count_court_chaplains_c_value
+}
+
+accou_stats_count_court_physician_holders_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_court_position_holder = {
+			type = court_physician_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_court_physician_aptitude_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_court_position_holder = {
+			type = court_physician_court_position
+			add = aptitude:court_physician_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_court_physician_holders_c_value
+		min = 1
+	}
+}
+
+accou_stats_count_antiquarian_holders_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_court_position_holder = {
+			type = antiquarian_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_antiquarian_aptitude_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_court_position_holder = {
+			type = antiquarian_court_position
+			add = aptitude:antiquarian_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_antiquarian_holders_c_value
+		min = 1
+	}
+}
+
+accou_stats_count_travel_leader_holders_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_court_position_holder = {
+			type = travel_leader_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_travel_leader_aptitude_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_court_position_holder = {
+			type = travel_leader_court_position
+			add = aptitude:travel_leader_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_travel_leader_holders_c_value
+		min = 1
+	}
+}
+
+accou_stats_count_court_tutor_holders_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_court_position_holder = {
+			type = court_tutor_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_court_tutor_aptitude_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_court_position_holder = {
+			type = court_tutor_court_position
+			add = aptitude:court_tutor_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_court_tutor_holders_c_value
+		min = 1
+	}
+}
+
+accou_stats_count_master_of_hunt_holders_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_court_position_holder = {
+			type = master_of_hunt_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_master_of_hunt_aptitude_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_court_position_holder = {
+			type = master_of_hunt_court_position
+			add = aptitude:master_of_hunt_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_master_of_hunt_holders_c_value
+		min = 1
+	}
+}
+
+accou_stats_count_seneschal_holders_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_court_position_holder = {
+			type = seneschal_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_seneschal_aptitude_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_court_position_holder = {
+			type = seneschal_court_position
+			add = aptitude:seneschal_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_seneschal_holders_c_value
+		min = 1
+	}
+}
+
+accou_stats_count_knights_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_knight = {
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_knight_skill_c_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_county
+		}
+		every_knight = {
+			add = prowess
+		}
+	}
+	divide = accou_stats_count_knights_c_value
+}
+
+# Statistics (dukes)
+
+accou_stats_count_rulers_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		add = 1
+	}
+}
+
+accou_stats_count_courtiers_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_courtier = {
+			add = 1
+		}
+	}
+}
+
+accou_stats_count_adult_courtiers_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_courtier = {
+			limit = { is_adult = yes }
+			add = 1
+		}
+	}
+}
+
+accou_stats_count_married_courtiers_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_courtier = {
+			limit = { is_married = yes }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_adult_courtier_soas_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_courtier = {
+			limit = { is_adult = yes }
+			add = sum_of_all_skills_value
+		}
+	}
+	divide = accou_stats_count_adult_courtiers_d_value
+}
+
+accou_stats_avg_adult_courtier_gcv_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_courtier = {
+			limit = { is_adult = yes }
+			add = genetic_character_value
+		}
+	}
+	divide = accou_stats_count_adult_courtiers_d_value
+}
+
+accou_stats_count_chancellors_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_chancellor }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_chancellor_skill_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_chancellor }
+			add = diplomacy
+		}
+	}
+	divide = accou_stats_count_chancellors_d_value
+}
+
+accou_stats_count_stewards_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_steward }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_steward_skill_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_steward }
+			add = stewardship
+		}
+	}
+	divide = accou_stats_count_stewards_d_value
+}
+
+accou_stats_count_marshals_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_marshal }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_marshal_skill_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_marshal }
+			add = martial
+		}
+	}
+	divide = accou_stats_count_marshals_d_value
+}
+
+accou_stats_count_spymasters_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_spymaster }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_spymaster_skill_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_spymaster }
+			add = intrigue
+		}
+	}
+	divide = accou_stats_count_spymasters_d_value
+}
+
+accou_stats_count_court_chaplains_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_court_chaplain }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_court_chaplain_skill_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_court_chaplain }
+			add = learning
+		}
+	}
+	divide = accou_stats_count_court_chaplains_d_value
+}
+
+accou_stats_count_court_physician_holders_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_court_position_holder = {
+			type = court_physician_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_court_physician_aptitude_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_court_position_holder = {
+			type = court_physician_court_position
+			add = aptitude:court_physician_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_court_physician_holders_d_value
+		min = 1
+	}
+}
+
+accou_stats_count_antiquarian_holders_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_court_position_holder = {
+			type = antiquarian_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_antiquarian_aptitude_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_court_position_holder = {
+			type = antiquarian_court_position
+			add = aptitude:antiquarian_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_antiquarian_holders_d_value
+		min = 1
+	}
+}
+
+accou_stats_count_travel_leader_holders_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_court_position_holder = {
+			type = travel_leader_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_travel_leader_aptitude_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_court_position_holder = {
+			type = travel_leader_court_position
+			add = aptitude:travel_leader_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_travel_leader_holders_d_value
+		min = 1
+	}
+}
+
+accou_stats_count_court_tutor_holders_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_court_position_holder = {
+			type = court_tutor_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_court_tutor_aptitude_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_court_position_holder = {
+			type = court_tutor_court_position
+			add = aptitude:court_tutor_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_court_tutor_holders_d_value
+		min = 1
+	}
+}
+
+accou_stats_count_master_of_hunt_holders_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_court_position_holder = {
+			type = master_of_hunt_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_master_of_hunt_aptitude_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_court_position_holder = {
+			type = master_of_hunt_court_position
+			add = aptitude:master_of_hunt_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_master_of_hunt_holders_d_value
+		min = 1
+	}
+}
+
+accou_stats_count_seneschal_holders_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_court_position_holder = {
+			type = seneschal_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_seneschal_aptitude_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_court_position_holder = {
+			type = seneschal_court_position
+			add = aptitude:seneschal_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_seneschal_holders_d_value
+		min = 1
+	}
+}
+
+accou_stats_count_knights_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_knight = {
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_knight_skill_d_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier = tier_duchy
+		}
+		every_knight = {
+			add = prowess
+		}
+	}
+	divide = accou_stats_count_knights_d_value
+}
+
+# Statistics (kings)
+
+accou_stats_count_rulers_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		add = 1
+	}
+}
+
+accou_stats_count_courtiers_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_courtier = {
+			add = 1
+		}
+	}
+}
+
+accou_stats_count_adult_courtiers_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_courtier = {
+			limit = { is_adult = yes }
+			add = 1
+		}
+	}
+}
+
+accou_stats_count_married_courtiers_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_courtier = {
+			limit = { is_married = yes }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_adult_courtier_soas_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_courtier = {
+			limit = { is_adult = yes }
+			add = sum_of_all_skills_value
+		}
+	}
+	divide = accou_stats_count_adult_courtiers_k_value
+}
+
+accou_stats_avg_adult_courtier_gcv_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_courtier = {
+			limit = { is_adult = yes }
+			add = genetic_character_value
+		}
+	}
+	divide = accou_stats_count_adult_courtiers_k_value
+}
+
+accou_stats_count_chancellors_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_chancellor }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_chancellor_skill_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_chancellor }
+			add = diplomacy
+		}
+	}
+	divide = accou_stats_count_chancellors_k_value
+}
+
+accou_stats_count_stewards_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_steward }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_steward_skill_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_steward }
+			add = stewardship
+		}
+	}
+	divide = accou_stats_count_stewards_k_value
+}
+
+accou_stats_count_marshals_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_marshal }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_marshal_skill_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_marshal }
+			add = martial
+		}
+	}
+	divide = accou_stats_count_marshals_k_value
+}
+
+accou_stats_count_spymasters_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_spymaster }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_spymaster_skill_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_spymaster }
+			add = intrigue
+		}
+	}
+	divide = accou_stats_count_spymasters_k_value
+}
+
+accou_stats_count_court_chaplains_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_court_chaplain }
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_court_chaplain_skill_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_councillor = {
+			limit = { has_council_position = councillor_court_chaplain }
+			add = learning
+		}
+	}
+	divide = accou_stats_count_court_chaplains_k_value
+}
+
+accou_stats_count_court_physician_holders_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_court_position_holder = {
+			type = court_physician_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_court_physician_aptitude_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_court_position_holder = {
+			type = court_physician_court_position
+			add = aptitude:court_physician_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_court_physician_holders_k_value
+		min = 1
+	}
+}
+
+accou_stats_count_antiquarian_holders_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_court_position_holder = {
+			type = antiquarian_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_antiquarian_aptitude_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_court_position_holder = {
+			type = antiquarian_court_position
+			add = aptitude:antiquarian_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_antiquarian_holders_k_value
+		min = 1
+	}
+}
+
+accou_stats_count_travel_leader_holders_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_court_position_holder = {
+			type = travel_leader_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_travel_leader_aptitude_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_court_position_holder = {
+			type = travel_leader_court_position
+			add = aptitude:travel_leader_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_travel_leader_holders_k_value
+		min = 1
+	}
+}
+
+accou_stats_count_court_tutor_holders_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_court_position_holder = {
+			type = court_tutor_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_court_tutor_aptitude_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_court_position_holder = {
+			type = court_tutor_court_position
+			add = aptitude:court_tutor_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_court_tutor_holders_k_value
+		min = 1
+	}
+}
+
+accou_stats_count_master_of_hunt_holders_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_court_position_holder = {
+			type = master_of_hunt_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_master_of_hunt_aptitude_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_court_position_holder = {
+			type = master_of_hunt_court_position
+			add = aptitude:master_of_hunt_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_master_of_hunt_holders_k_value
+		min = 1
+	}
+}
+
+accou_stats_count_seneschal_holders_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_court_position_holder = {
+			type = seneschal_court_position
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_seneschal_aptitude_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_court_position_holder = {
+			type = seneschal_court_position
+			add = aptitude:seneschal_court_position
+		}
+	}
+	divide = {
+		value = accou_stats_count_seneschal_holders_k_value
+		min = 1
+	}
+}
+
+accou_stats_count_knights_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_knight = {
+			add = 1
+		}
+	}
+}
+
+accou_stats_avg_knight_skill_k_value = {
+	value = 0
+	every_ruler = {
+		limit = {
+			is_landed = yes
+			highest_held_title_tier >= tier_kingdom
+		}
+		every_knight = {
+			add = prowess
+		}
+	}
+	divide = accou_stats_count_knights_k_value
+}

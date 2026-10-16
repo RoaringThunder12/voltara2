@@ -1,0 +1,10 @@
+﻿object = {
+ name = "Titania imperial city" render_pass = MapUnderWater clamp_to_water_level = no
+ generated_content = no layer = "voltara_titania_layer" pdxmesh = "ep3_constantinople_sprawl_mesh"
+ count = 1 transform = "2581 0 1637 0 0.70710678 0 -0.70710678 1 1 1"
+}
+object = {
+ name = "Titania arena" render_pass = MapUnderWater clamp_to_water_level = no
+ generated_content = no layer = "voltara_titania_layer" pdxmesh = "building_special_colosseum_mesh"
+ count = 1 transform = "2581 0 1620 0 0.00000000 0 1.00000000 1.1 1.1 1.1"
+}

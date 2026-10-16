@@ -1,0 +1,13 @@
+﻿on_game_start_after_lobby = { on_actions = { voltara_ecclesiastical_setup } }
+voltara_ecclesiastical_setup = {
+ trigger = { NOT = { has_global_variable = voltara_ecclesiastical_setup_done } }
+ effect = {
+  every_living_character = {
+   limit = { faith = faith:voltara_aeluinist government_has_flag = government_is_theocracy }
+   change_government = ecclesiastical_government
+   if = { limit = { should_use_theocratic_elective_succession_law_trigger = yes } add_realm_law = theocratic_elective_succession_law }
+   else_if = { limit = { should_use_clerical_appointment_law_trigger = yes } add_realm_law = clerical_appointment_law }
+  }
+  set_global_variable = { name = voltara_ecclesiastical_setup_done value = yes }
+ }
+}

@@ -1,0 +1,36 @@
+﻿voltara_read_faiths = { picture = { reference = "gfx/interface/illustrations/decisions/decision_family_tree.dds" }
+ desc = voltara_read_faiths_desc selection_tooltip = voltara_read_faiths_tooltip confirm_text = voltara_read_faiths_confirm ai_check_interval = 0 decision_group_type = major
+ is_shown = { is_landed = yes faith = faith:voltara_aeluinist  }
+ is_valid = { is_adult = yes is_imprisoned = no }
+  effect = { trigger_event = voltara_faith.1 }
+}
+voltara_council_measure = { picture = { reference = "gfx/interface/illustrations/decisions/decision_family_tree.dds" }
+ desc = voltara_council_measure_desc selection_tooltip = voltara_council_measure_tooltip confirm_text = voltara_council_measure_confirm ai_check_interval = 0 decision_group_type = major
+ is_shown = { is_landed = yes faith = faith:voltara_aeluinist  }
+ is_valid = { is_adult = yes is_imprisoned = no }
+ cost = { gold = 75 } cooldown = { years = 5 } effect = { trigger_event = voltara_faith.10 }
+}
+voltara_temple_alms = { picture = { reference = "gfx/interface/illustrations/decisions/decision_family_tree.dds" }
+ desc = voltara_temple_alms_desc selection_tooltip = voltara_temple_alms_tooltip confirm_text = voltara_temple_alms_confirm ai_check_interval = 0 decision_group_type = major
+ is_shown = { is_landed = yes faith = faith:voltara_aeluinist  }
+ is_valid = { is_adult = yes is_imprisoned = no }
+ cost = { gold = 60 } cooldown = { years = 5 } effect = { trigger_event = voltara_faith.11 }
+}
+voltara_relic_inventory = { picture = { reference = "gfx/interface/illustrations/decisions/decision_family_tree.dds" }
+ desc = voltara_relic_inventory_desc selection_tooltip = voltara_relic_inventory_tooltip confirm_text = voltara_relic_inventory_confirm ai_check_interval = 0 decision_group_type = major
+ is_shown = { is_landed = yes faith = faith:voltara_aeluinist  }
+ is_valid = { is_adult = yes is_imprisoned = no }
+ cost = { gold = 40 } cooldown = { years = 5 } effect = { trigger_event = voltara_faith.12 }
+}
+voltara_embrace_veiled_balance = { picture = { reference = "gfx/interface/illustrations/decisions/decision_family_tree.dds" }
+ desc = voltara_embrace_veiled_balance_desc selection_tooltip = voltara_embrace_veiled_balance_tooltip confirm_text = voltara_embrace_veiled_balance_confirm ai_check_interval = 0 decision_group_type = major
+ is_shown = { is_landed = yes faith = faith:voltara_aeluinist piety >= 250 learning >= 12 NOT = { rite = rite:voltara_veiled_balance } }
+ is_valid = { is_adult = yes is_imprisoned = no }
+  cooldown = { years = 5 } effect = { trigger_event = voltara_faith.20 }
+}
+voltara_embrace_uncrowned_light = { picture = { reference = "gfx/interface/illustrations/decisions/decision_family_tree.dds" }
+ desc = voltara_embrace_uncrowned_light_desc selection_tooltip = voltara_embrace_uncrowned_light_tooltip confirm_text = voltara_embrace_uncrowned_light_confirm ai_check_interval = 0 decision_group_type = major
+ is_shown = { is_landed = yes faith = faith:voltara_aeluinist piety >= 250 learning >= 12 NOT = { rite = rite:voltara_uncrowned_light } }
+ is_valid = { is_adult = yes is_imprisoned = no }
+  cooldown = { years = 5 } effect = { trigger_event = voltara_faith.21 }
+}

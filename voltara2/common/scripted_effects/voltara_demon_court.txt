@@ -1,0 +1,51 @@
+﻿voltara_demon_court_setup = {
+ if = {
+  limit = { this = character:9999401 is_alive = yes NOT = { has_character_flag = voltara_five_demons_arrived } }
+  add_character_flag = voltara_five_demons_arrived
+ create_character = {
+ name = Vaelrath age = 35 female = no culture = culture:voltara_demon
+ rite = rite:voltara_unbound_weave dynasty = none
+ trait = demon1 trait = witch
+ martial = 14 learning = 18 prowess = 20
+ save_scope_as = voltara_demon_arrival
+ after_creation = { voltara_demon_culture_setup = yes }
+ }
+ add_courtier = scope:voltara_demon_arrival
+create_character = {
+ name = Nyssara age = 35 female = yes culture = culture:voltara_demon
+ rite = rite:voltara_unbound_weave dynasty = none
+ trait = demon1 trait = witch
+ martial = 14 learning = 18 prowess = 20
+ save_scope_as = voltara_demon_arrival
+ after_creation = { voltara_demon_culture_setup = yes }
+ }
+ add_courtier = scope:voltara_demon_arrival
+create_character = {
+ name = Korveth age = 35 female = no culture = culture:voltara_demon
+ rite = rite:voltara_unbound_weave dynasty = none
+ trait = demon1 trait = witch
+ martial = 14 learning = 18 prowess = 20
+ save_scope_as = voltara_demon_arrival
+ after_creation = { voltara_demon_culture_setup = yes }
+ }
+ add_courtier = scope:voltara_demon_arrival
+create_character = {
+ name = Ashrila age = 35 female = yes culture = culture:voltara_demon
+ rite = rite:voltara_unbound_weave dynasty = none
+ trait = demon1 trait = witch
+ martial = 14 learning = 18 prowess = 20
+ save_scope_as = voltara_demon_arrival
+ after_creation = { voltara_demon_culture_setup = yes }
+ }
+ add_courtier = scope:voltara_demon_arrival
+create_character = {
+ name = Zharak age = 35 female = no culture = culture:voltara_demon
+ rite = rite:voltara_unbound_weave dynasty = none
+ trait = demon2 trait = witch
+ martial = 14 learning = 18 prowess = 20
+ save_scope_as = voltara_demon_arrival
+ after_creation = { voltara_demon_culture_setup = yes }
+ }
+ add_courtier = scope:voltara_demon_arrival
+ }
+}

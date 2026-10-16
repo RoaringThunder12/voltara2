@@ -1,0 +1,79 @@
+﻿
+##################################################
+# Form a Local Kingdom
+# by Ard Ri Brandon
+##################################################
+
+found_local_kingdom_decision = {
+	picture = { reference = "gfx/interface/illustrations/frontend/credits.dds" }
+	decision_group_type = major
+	ai_check_interval = 600
+	desc = found_local_kingdom_decision_desc
+
+	is_shown = {
+ NOR = { has_trait = voltara_ruins_keeper has_trait = dragon has_government = voltara_ruins_government }
+
+		is_ai = no
+		highest_held_title_tier <= tier_duchy
+		is_independent_ruler = yes
+		is_landed = yes
+		has_game_rule = use_backgrounds
+	}
+
+	is_valid = {		
+		is_independent_ruler = yes
+		highest_held_title_tier = tier_duchy
+		custom_description = {
+			text = found_a_burge_decision_custom_valid3
+			root.capital_province = {
+				OR = {
+					has_province_modifier = city_of_wonder_modifier
+					has_province_modifier = city_of_wonder_NO_modifier
+					has_province_modifier = city_of_wonder_2_modifier
+					has_province_modifier = city_of_wonder_2_NO_modifier
+					has_province_modifier = city_of_wonder_3_modifier
+					has_province_modifier = city_of_wonder_3_NO_modifier
+				}
+			}
+		}
+		
+		
+	}
+	
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		create_custom_kingdom_effect = yes
+		if = {
+			limit = {
+				is_ai = no
+				NOT = { exists = global_var:found_kingdom_decision  }
+			}
+			set_global_variable = {
+				name = found_kingdom_decision
+				value = root
+			}
+			set_global_variable = {
+				name = found_kingdom_decision_kingdom
+				value = root.primary_title
+			}
+		}
+	}
+
+	cost = {
+		gold = 300
+		prestige = 500
+		piety = 200
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = -100
+	}
+}

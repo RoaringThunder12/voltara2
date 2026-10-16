@@ -1,0 +1,1784 @@
+﻿# Standard Values
+@pos_compat_high = 30
+@pos_compat_medium = 15
+@pos_compat_low = 5
+
+@neg_compat_high = -30
+@neg_compat_medium = -15
+@neg_compat_low = -5
+
+#source = {
+#	physical = yes
+#	good = yes
+#	genetic = yes
+#	shown_in_ruler_designer = yes
+#	ruler_designer_cost = 1000
+#	same_opinion = 5	
+#	arcane_terrain_cancel_negative_supply = yes
+#	monthly_magic_lifestyle_xp_gain_mult = 0.1
+#	birth = 0.01
+#	random_creation = 0
+	#group = source
+	#level = 1
+#
+#	triggered_opinion = {
+#		parameter = witchcraft_illegal
+#		opinion_modifier = kinslayer_intolerant
+#		ignore_opinion_value_if_same_trait = yes
+#	}
+#	triggered_opinion = {
+#		parameter = witchcraft_shunned
+#		opinion_modifier = kinslayer_intolerant
+#		ignore_opinion_value_if_same_trait = yes
+#	}
+#	triggered_opinion = {
+#		parameter = witchcraft_accepted
+#		#opinion_modifier = perk_negotiated_alliance_opinion
+#		opinion_modifier = became_vassal
+#		ignore_opinion_value_if_same_trait = yes
+#	}
+#
+#	desc = trait_source0_desc
+#}
+
+source = {
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_source
+			}
+			triggered_desc = {
+				trigger = { NOT = { has_trait = source } }
+				desc = trait_source
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = source
+						track = magic_potential
+						value < 20
+					}
+				}
+				desc = trait_source_0
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = source
+						track = magic_potential
+						value < 40
+					}
+				}
+				desc = trait_source_1
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = source
+						track = magic_potential
+						value < 60
+					}
+				}
+				desc = trait_source
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = source
+						track = magic_potential
+						value < 80
+					}
+				}
+				desc = trait_source_3
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = source
+						track = magic_potential
+						value < 100
+					}
+				}
+				desc = trait_source_4
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = source
+						track = magic_potential
+						value > 99
+					}
+				}
+				desc = trait_source3
+			}
+			desc = trait_source
+		}
+	}
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = source.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = source
+						track = magic_potential
+						value > 99
+					}
+				}
+				desc = source_full.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = source
+						track = instability
+						value > 59
+					}
+				}
+				desc = source_instability.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = source
+						track = magic_potential
+						value > 60
+					}
+				}
+				desc = source.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = source
+						track = instability
+						value > 29
+					}
+				}
+				desc = source_fritz.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = source
+						track = magic_potential
+						value < 20
+					}
+				}
+				desc = source_spark.dds
+			}
+			desc = source.dds
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_source0_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = source
+						track = magic_potential
+						value > 99
+					}
+				}
+				desc = trait_source3_character_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = source
+						track = instability
+						value > 34
+					}
+				}
+				desc = trait_source_desc
+			}
+			desc = trait_source0_desc
+		}
+	}
+	physical = yes
+	good = yes
+	genetic = yes
+	shown_in_ruler_designer = yes
+	ruler_designer_cost = 250
+	#same_opinion = 5	
+	arcane_terrain_cancel_negative_supply = yes
+	birth = 0.01
+	random_creation = 0
+	tracks = {
+		magic_potential = {
+			20 = {
+				true_source_terrain_cancel_negative_supply = yes
+				monthly_magic_lifestyle_xp_gain_mult = 0.1
+			}
+			40 = {
+				monthly_magic_lifestyle_xp_gain_mult = 0.1
+				source4B_terrain_cancel_negative_supply = yes
+				#negate_health_penalty_add = 0.4
+				#positive_random_genetic_chance = 0.1
+				#attraction_opinion = 10
+			}
+			60 = {
+				monthly_magic_lifestyle_xp_gain_mult = 0.1
+				life_expectancy = 10
+				years_of_fertility = 10
+				magic_gain_terrain_advantage = 0.5
+			}
+			80 = {
+				monthly_magic_lifestyle_xp_gain_mult = 0.1
+				demon_power_strike_terrain_cancel_negative_supply = yes
+				e_power_terrain_advantage = 1
+				#md_power_clash_terrain_advantage = 1
+				#yaga_childs_terrain_cancel_negative_supply = yes
+				#true2_source_terrain_advantage = 5	#+5 MP
+				#true2_source_terrain_cancel_negative_supply = yes
+			}
+			100 = {
+				monthly_magic_lifestyle_xp_gain_mult = 0.1
+				life_expectancy = 40
+				years_of_fertility = 40
+				magic_gain_terrain_advantage = 0.5
+				e_fire_terrain_advantage = 1
+				e_kinetic_terrain_advantage = 1
+				e_shadow_terrain_advantage = 1
+				e_necrotic_terrain_advantage = 1
+				#md_power_clash_terrain_advantage = 1
+				
+			}
+		}
+		instability = {
+			30 = {
+				source4_terrain_cancel_negative_supply = yes
+				
+			}
+			60 = {
+				stress_gain_mult = 0.3
+				health = -0.1
+			}
+			90 = {
+				health = -0.8
+			}
+		}
+	}
+	
+	
+	
+	triggered_opinion = {
+		parameter = witchcraft_illegal
+		opinion_modifier = kinslayer_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = witchcraft_shunned
+		opinion_modifier = kinslayer_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = witchcraft_accepted
+		opinion_modifier = became_vassal
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	desc = trait_source0_desc
+}
+
+source2 = {
+	name = yagas_blood_modifier
+	desc = trait_source0_desc
+	icon = source2.dds
+	physical = yes
+	good = yes
+	inherit_chance = 90
+	parent_inheritance_sex = female
+	child_inheritance_sex = female
+
+	shown_in_ruler_designer = no
+
+	life_expectancy = 10
+	years_of_fertility = 10
+	attraction_opinion = 20
+	
+	same_opinion = 5	
+	#true2_source_terrain_cancel_negative_supply = yes
+	true2_source_terrain_advantage = 5
+	monthly_magic_lifestyle_xp_gain_mult = 0.2
+
+	birth = 0
+	random_creation = 0
+	
+	triggered_opinion = {
+		parameter = witchcraft_illegal
+		opinion_modifier = kinslayer_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = witchcraft_shunned
+		opinion_modifier = kinslayer_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = witchcraft_accepted
+		#opinion_modifier = perk_negotiated_alliance_opinion
+		opinion_modifier = became_vassal
+		ignore_opinion_value_if_same_trait = yes
+	}
+}
+
+demon0 = {
+	name = trait_demon0
+	physical = yes
+	good = no
+	shown_in_ruler_designer = no
+	ai_boldness = 50
+	ai_honor = -50
+	ai_zeal = -50
+	ai_vengefulness = 10
+	ai_compassion = -10
+	#triggered_opinion = {
+	#	parameter = witchcraft_illegal
+	#	opinion_modifier = witchcraft_crime
+	#	ignore_opinion_value_if_same_trait = yes
+	#}
+	#triggered_opinion = {
+	#	parameter = witchcraft_shunned
+	#	opinion_modifier = witchcraft_crime
+	#	ignore_opinion_value_if_same_trait = yes
+	#}
+
+	birth = 0
+	random_creation = 0
+	
+	intrigue = 1
+	demon0_terrain_cancel_negative_supply = yes
+	
+	#ai_rationality = 50
+	ai_energy = 50
+	ai_honor = -50
+	ai_compassion = -50
+	ai_vengefulness = 50
+	ai_boldness = 50
+	#ai_zeal = 50
+	compatibility = {
+		witch = 10
+		true_witch = 10
+		witch_hunter = -30
+	}
+	opposites = {
+		supernatural_hybrid
+		supernatural_werewolf
+		supernatural_vampire
+		#supernatural_hunter
+		witch_hunter
+	}
+	desc = trait_demon0_desc
+}
+
+demon1 = {
+	flag = blocks_getting_non_epidemic_disease # 2.34 (Supernatural): demons do not sicken; the epidemic half is the immune_to_disease flag, set by spn_retro_disease_immunity
+	name = minor_demon
+	desc = trait_demon_desc
+	icon = demon.dds
+	physical = yes
+	good = no
+	health = 10
+	immortal = yes
+	shown_in_ruler_designer = yes
+	ruler_designer_cost = 666
+	ai_boldness = 50
+	ai_energy = 30
+	ai_honor = -50
+	ai_zeal = -50
+	ai_vengefulness = 30
+	ai_compassion = -10
+	triggered_opinion = {
+		parameter = witchcraft_illegal
+		opinion_modifier = demon_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = witchcraft_shunned
+		opinion_modifier = demon_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	birth = 0
+	random_creation = 0
+	demon1_terrain_cancel_negative_supply = yes
+	dread_baseline_add = 10
+	intrigue = 3
+	prowess = 3
+	general_opinion = -20
+	no_prowess_loss_from_age = yes
+	
+	ai_energy = 50
+	ai_honor = -50
+	ai_compassion = -50
+	ai_vengefulness = 50
+	ai_boldness = 50
+	compatibility = {
+		witch = 10
+		true_witch = 10
+		witch_hunter = -30
+	}
+	opposites = {
+		supernatural_hybrid
+		supernatural_werewolf
+		supernatural_vampire
+		#supernatural_hunter
+		witch_hunter
+	}
+	desc = trait_demon_desc
+	flag = is_immortal
+}
+
+demon2 = {
+	flag = blocks_getting_non_epidemic_disease # 2.34 (Supernatural): see demon1
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = greater_demon
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = demon2
+						track = hell_powers
+						value > 99
+					}
+					is_male = yes
+				}
+				desc = prince_demon
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = demon2
+						track = hell_powers
+						value > 99
+					}
+					is_male = no
+				}
+				desc = prince_demon2
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = demon2
+						track = hell_powers
+						value > 69
+					}
+				}
+				desc = major_demon
+			}
+			desc = greater_demon
+		}
+	}
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = demon2.dds
+			}
+			triggered_desc = {
+				trigger = {
+					greater_demon_level = 5
+				}
+				desc = demon2e.dds
+			}
+			triggered_desc = {
+				trigger = {
+					greater_demon_level = 4
+				}
+				desc = demon2d.dds
+			}
+			triggered_desc = {
+				trigger = {
+					greater_demon_level = 3
+				}
+				desc = demon2c.dds
+			}
+			triggered_desc = {
+				trigger = {
+					greater_demon_level = 2
+				}
+				desc = demon2b.dds
+			}
+			triggered_desc = {
+				trigger = {
+					greater_demon_level = 1
+				}
+				desc = demon2a.dds
+			}
+			desc = demon2.dds
+		}
+	}
+	#icon = demon2.dds
+	physical = yes
+	good = no
+	health = 10
+	immortal = yes
+	shown_in_ruler_designer = no
+	martial = 6
+	prowess = 6
+	intrigue = 6
+	general_opinion = -20
+
+	ai_boldness = 60
+	ai_energy = 20
+	ai_honor = -60
+	ai_zeal = -50
+	ai_vengefulness = 40
+	ai_compassion = -20
+	triggered_opinion = {
+		parameter = witchcraft_illegal
+		opinion_modifier = demon_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = witchcraft_shunned
+		opinion_modifier = demon_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	birth = 0
+	random_creation = 0
+	#dread_baseline_add = 50
+	#magic_pro_less_terrain_cancel_negative_supply = yes
+	#md_demon_damage_terrain_cancel_negative_supply = yes
+	#cyrographer_terrain_cancel_negative_supply = yes
+	dread_baseline_add = 20
+	no_prowess_loss_from_age = yes
+	demon_power_strike_terrain_cancel_negative_supply = yes
+	immunity_banish_terrain_cancel_negative_supply = yes
+	demon_courtier_terrain_cancel_negative_supply = yes
+	tracks = {
+		hell_powers = {
+			35 = {
+				#e_shadow_terrain_cancel_negative_supply = yes
+				e_shadow_terrain_advantage = 1
+				owned_scheme_secrecy_add = 20
+				character_travel_safety = 20
+				prowess = 10
+			}
+			65 = {
+				max_hostile_schemes_add = 1
+				owned_hostile_scheme_success_chance_max_add = 20
+				enemy_hostile_scheme_success_chance_max_add = -20
+				prowess = 10
+			}
+			100 = {
+				#magic_pro_terrain_cancel_negative_supply = yes
+				#demon_army_terrain_cancel_negative_supply = yes
+				max_combat_roll = 50
+				e_fire_terrain_advantage = 1
+				demon_firestorm_terrain_cancel_negative_supply = yes
+				siege_phase_time = -0.5
+			}
+		}
+		demon_reputation = {
+			50 = {
+				demonic_knights_max_size_add = 2
+				knight_limit = 2
+				dread_baseline_add = 30
+				intrigue_per_prestige_level = 2
+				monthly_prestige_gain_mult = 0.25
+			}
+			100 = {
+				demonic_knights_max_size_add = 2
+				knight_limit = 2
+				dread_baseline_add = 30
+				#demon2_terrain_cancel_negative_supply = yes
+				demon2a_terrain_cancel_negative_supply = yes
+				monthly_prestige_gain_mult = 0.25
+			}
+		}
+	}
+	
+	compatibility = {
+		witch = 10
+		true_witch = 10
+		witch_hunter = -30
+	}
+	opposites = {
+		supernatural_hybrid
+		supernatural_werewolf
+		supernatural_vampire
+		#supernatural_hunter
+		witch_hunter
+	}
+	desc = trait_demon_desc
+	flag = is_immortal
+}
+
+true_witch = {
+	#lifestyle = yes
+	category = lifestyle
+	opposite_opinion = -50
+	intrigue = 3
+	same_opinion = 20
+	#convert_to_witchcraft_scheme_power_mult = 0.2
+	convert_to_witchcraft_scheme_phase_duration_add = -2
+	search_artifacts_terrain_cancel_negative_supply = yes
+	monthly_magic_lifestyle_xp_gain_mult = 0.1
+	dread_baseline_add = 10
+	diplomatic_range_mult = 0.5
+	shown_in_ruler_designer = no
+	#ruler_designer_cost = 50
+	culture_modifier = {
+		parameter = coven_rule3
+		same_culture_opinion = 10
+		stewardship = 2
+		#knight_limit = 1
+		monthly_influence = 0.5
+		monthly_prestige = 0.5
+		monthly_dynasty_prestige = 0.5
+	}
+
+	ai_rationality = -10
+	ai_zeal = -20
+
+	compatibility = {
+		witch = 10
+		lifestyle_mystic = 10
+		possessed_genetic = 30
+		possessed_1 = 30
+		demon1 = 10
+		demon2 = 10
+	}
+	opposites = {
+		supernatural_hunter
+		witch_hunter
+	}
+}
+
+yaga = {
+	#lifestyle = yes
+	category = lifestyle
+	health = 10
+	immortal = yes
+	monthly_magic_lifestyle_xp_gain_mult = 0.4
+	dread_baseline_add = 50
+	yaga_curse_terrain_cancel_negative_supply = yes
+	yaga_childs_terrain_cancel_negative_supply = yes
+	#true2_source_terrain_cancel_negative_supply = yes
+	yaga_childs2_terrain_cancel_negative_supply = yes
+	no_prowess_loss_from_age = yes
+	intrigue = 10
+	#md_power_clash_terrain_advantage = 1
+	e_shadow_terrain_advantage = 1
+	shown_in_ruler_designer = no
+	#ruler_designer_cost = 50
+	culture_modifier = {
+		parameter = coven_rule3
+		same_culture_opinion = 30
+		monthly_prestige = 2
+	}
+
+	#ai_rationality = -10
+	ai_zeal = -20
+	ai_honor = medium_negative_ai_value
+	ai_compassion = medium_negative_ai_value
+	ai_vengefulness = 10
+	ai_energy = -50
+	ai_boldness = -50
+
+	compatibility = {
+		witch = 10
+		lifestyle_mystic = 10
+		possessed_genetic = 30
+		possessed_1 = 30
+		demon1 = 10
+		demon2 = 10
+	}
+	flag = is_immortal	
+	opposites = {
+		supernatural_hunter
+		supernatural_hybrid
+		supernatural_vampire
+		supernatural_werewolf
+	}
+}
+
+corrupted = {
+	#lifestyle = yes
+	category = lifestyle
+	dread_baseline_add = 10
+	shown_in_ruler_designer = no
+	general_opinion = -10
+
+	#ai_rationality = -10
+	ai_zeal = -20
+	ai_boldness = low_positive_ai_value
+	ai_honor = medium_negative_ai_value
+	ai_compassion = medium_negative_ai_value
+	ai_vengefulness = 30
+}
+
+archmage = {
+	#lifestyle = yes
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = archmage
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = archmage
+						track = secret_knowledge
+						value < 100
+					}
+				}
+				desc = archmage
+			}
+			desc = archmage2
+		}
+	}
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = archmage.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = archmage
+						track = secret_knowledge
+						value < 100
+					}
+				}
+				desc = archmage.dds
+			}
+			desc = archmage2.dds
+		}
+	}
+	category = lifestyle
+	opposite_opinion = -50
+	learning = 1
+	intrigue = 1
+	monthly_prestige = 0.5
+	teach_sorcery_terrain_cancel_negative_supply = yes
+	mage_duel_terrain_cancel_negative_supply = yes
+	culture_modifier = {
+		parameter = mage_rulership_rule6
+		direct_vassal_opinion = 10
+		monthly_prestige = 0.5
+		monthly_merit_mult = 0.25
+		monthly_dynasty_prestige = 1
+	}
+	#ruler_designer_cost = 50
+	shown_in_ruler_designer = no
+	ai_vengefulness = 20
+	ai_zeal = -20
+	ai_boldness = 30
+	ai_energy = 20
+	tracks = {
+		secret_knowledge = {
+			25 = {
+				learning = 3
+				#magic_gain_terrain_advantage = 0.5
+				#md_doom_spell_terrain_advantage = 1
+				#mage_magic_research_terrain_cancel_negative_supply = yes
+				mr_progress_boost_terrain_advantage = 2
+				#monthly_lifestyle_xp_gain_mult = 0.1
+				mage_countering_spec1_terrain_cancel_negative_supply = yes
+			}
+			50 = {
+				learning = 3
+				#siege_phase_time = -0.4
+				magic_gain_terrain_advantage = 0.5
+				triangulation_terrain_cancel_negative_supply = yes
+				mr_progress_boost_terrain_advantage = 2
+			}
+			75 = {
+				learning = 3
+				owned_hostile_scheme_success_chance_add = 10
+				#md_doom_spell_terrain_advantage = 1
+				mr_progress_boost_terrain_advantage = 2
+				source3_terrain_cancel_negative_supply = yes
+			}
+			100 = {
+				learning = 3
+				#health = 50
+				#life_expectancy = 1000
+				#magic_pen_terrain_cancel_negative_supply = yes
+				undetectable_spells_terrain_cancel_negative_supply = yes
+				#legendary_mage_terrain_cancel_negative_supply = yes	#eternal life spec
+				legendary_mage2_terrain_cancel_negative_supply = yes
+				mr_progress_boost_terrain_advantage = 2
+			}
+		}
+		combat_magic = {
+			35 = {
+				advantage = 5
+				combat_spells_terrain_cancel_negative_supply = yes
+				enemy_hard_casualty_modifier = 0.25
+			}
+			65 = {
+				advantage = 5
+				e_shadow_terrain_advantage = 1
+				siege_phase_time = -0.25
+			}
+			100 = {
+				advantage = 5
+				e_fire_terrain_advantage = 1
+				character_travel_safety = 20
+				#custom_spell_terrain_cancel_negative_supply = yes
+			}
+		}
+		demonology = {
+			35 = {
+				summoning_demonology_terrain_cancel_negative_supply = yes
+				summoning_demonology2_terrain_cancel_negative_supply = yes
+			}
+			65 = {
+				diplomacy = 2
+				learning = 2
+			}
+			100 = {
+				hells_scepter1_terrain_cancel_negative_supply = yes
+				summoning_demonology3_terrain_cancel_negative_supply = yes
+			}
+		}
+		alchemy = {
+			30 = {
+				mage_alchemy_terrain_advantage = -0.5
+				#mage_alchemy2_terrain_advantage = -1
+				monthly_income = 1
+				negate_health_penalty_add = 0.5
+			}
+			70 = {
+				monthly_income = 3
+				mage_alchemy2_terrain_advantage = -1
+				life_expectancy = 5
+			}
+			100 = {
+				life_expectancy = 5
+				mage_alchemy3_terrain_cancel_negative_supply = yes
+				mage_alchemy4_terrain_cancel_negative_supply = yes
+			}
+		}
+		power_saturation = {
+			10 = {
+				health = 0.2
+				e_power_terrain_advantage = 1
+				e_fire_terrain_advantage = 1
+				e_kinetic_terrain_advantage = 1
+			}
+			50 = {
+				e_power_terrain_advantage = 1
+				e_fire_terrain_advantage = 1
+				character_travel_safety = 5
+				#md_power_clash_terrain_advantage = 1
+			}
+			100 = {
+				e_power_terrain_advantage = 1
+				prowess = 5
+				advantage = 5
+				#enemy_hard_casualty_modifier = 0.25
+				#character_travel_safety = 5
+				#md_power_clash_terrain_advantage = 1
+			}
+		}
+	}
+	compatibility = {
+		lifestyle_mystic=10
+		possessed_genetic = 30
+	}
+	opposites = {
+		# 2.34: `warlock` removed. archmage and warlock are both lifestyle capstones; with the exclusion whichever one
+		# was bought second silently failed to add (Workshop report, Aug 2026). witch_hunter stays -- the capstone perks
+		# now refuse to be picked by a hunter instead of failing silently.
+		supernatural_hunter
+		witch_hunter
+	}
+}
+
+witch_hunter = {
+	opposite_opinion = -80
+	
+	shown_in_ruler_designer = no
+	martial = 1
+	learning = 1
+	diplomacy = 1
+	ai_zeal = 50
+	triggered_opinion = {
+		parameter = witchcraft_accepted
+		opinion_modifier = witch_hunter_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	
+	same_opinion = 25
+
+	monthly_piety_gain_mult = 0.1
+	same_opinion = 25
+	ai_zeal = 50
+
+	compatibility = {
+		witch = -30
+		lifestyle_mystic=10
+		demon1 = -30
+		demon2 = -30
+	}
+	opposites = {
+		true_witch
+		archmage
+		necromancer
+	}
+}
+
+grandmaster_coven = {
+	#ruler_designer_cost = 50
+	shown_in_ruler_designer = no
+	ai_zeal = 50
+
+	monthly_lifestyle_xp_gain_mult = 0.1
+	cgm_spec_1_terrain_cancel_negative_supply = yes
+	culture_modifier = {
+		parameter = coven_rule3
+		vassal_tax_contribution_mult = 0.1
+		monthly_dynasty_prestige = 1
+	}
+
+	track = {
+		30 = {
+			diplomacy = 1
+			dread_gain_mult = 0.25
+			cgm_spec_2_terrain_cancel_negative_supply = yes
+		}
+		65 = {
+			diplomacy = 1
+			intrigue = 3
+			dynasty_house_opinion = 10
+			cgm_spec_3_terrain_cancel_negative_supply = yes
+		}
+		100 = {
+			diplomacy = 1
+			learning = 3
+			cgm_spec_4_terrain_cancel_negative_supply = yes
+			life_expectancy = 5
+			#monthly_influence = 1
+		}
+	}
+
+	compatibility = {
+		witch = 30
+		lifestyle_mystic=10
+		demon1 = 20
+		demon2 = 20
+		true_witch = 20
+	}
+}
+
+lifestyle_mystic = {
+	category = lifestyle
+	icon = mystic.dds
+
+	# Modifiers
+	learning = 1
+	monthly_magic_lifestyle_xp_gain_mult = 0.1
+	character_spiritual_fulfillment_gain_mult = 0.1
+	culture_modifier = {
+		parameter = prowess_from_religious_traits
+		prowess = 1
+	}
+	culture_modifier = {
+		parameter = build_bonuses_on_religious_traits
+		church_holding_build_gold_cost = -0.05
+		church_holding_holding_build_gold_cost = -0.05
+	}
+	culture_modifier = {
+		parameter = mystic_trait_gives_bonuses
+		monthly_income_mult = 0.02
+	}
+	rite_modifier = {
+		parameter = gnosticism_mystic_bonus
+		character_spiritual_fulfillment_loss_mult = -0.1
+	}
+
+	track = {
+		50 = {
+			learning = 1
+			monthly_magic_lifestyle_xp_gain_mult = 0.15
+			character_spiritual_fulfillment_gain_mult = 0.1
+			culture_modifier = {
+				parameter = prowess_from_religious_traits
+				prowess = 1
+			}
+
+			culture_modifier = {
+				parameter = build_bonuses_on_religious_traits
+				church_holding_build_gold_cost = -0.05
+				church_holding_holding_build_gold_cost = -0.05
+			}
+
+			culture_modifier = {
+				parameter = mystic_trait_gives_bonuses
+				monthly_income_mult = 0.02
+			}
+			rite_modifier = {
+				parameter = gnosticism_mystic_bonus
+				character_spiritual_fulfillment_loss_mult = -0.1
+				personal_tenet_slot_add = 1
+			}
+		}
+		100 = {
+			learning = 1
+			character_spiritual_fulfillment_gain_mult = 0.15
+			monthly_magic_lifestyle_xp_gain_mult = 0.25
+			culture_modifier = {
+				parameter = prowess_from_religious_traits
+				prowess = 1
+			}
+			culture_modifier = {
+				parameter = build_bonuses_on_religious_traits
+				church_holding_build_gold_cost = -0.05
+				church_holding_holding_build_gold_cost = -0.05
+			}
+			culture_modifier = {
+				parameter = mystic_trait_gives_bonuses
+				monthly_income_mult = 0.04
+			}
+			rite_modifier = {
+				parameter = gnosticism_mystic_bonus
+				character_spiritual_fulfillment_loss_mult = -0.15
+				monthly_piety_gain_mult = 0.1
+			}
+		}
+	}
+
+	ruler_designer_cost = 20
+
+	# AI Values
+	ai_rationality = -10
+	ai_zeal = -10
+
+	# Loc
+	name = {
+		first_valid = {
+			#Miracle Worker
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_mystic
+						value >= 100
+					}
+				}
+				desc = trait_mystic_3
+			}
+			#Mystic
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_mystic
+						value >= 50
+					}
+				}
+				desc = trait_mystic_2
+			}
+			#Wise Woman/Man
+			triggered_desc = {
+				trigger = {
+					exists = this
+					is_female = yes
+				}
+				desc = trait_mystic_female_1
+			}
+			desc = trait_mystic_male_1
+		}
+	}
+
+	# Loc
+	desc = {
+		first_valid = {
+			#The trait can never go higher than the first level if it's not assigned to a character
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mystic_1_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = lifestyle_mystic
+						value >= 100
+					}
+				}
+				desc = trait_mystic_3_character_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = lifestyle_mystic
+						value >= 50
+					}
+				}
+				desc = trait_mystic_2_character_desc
+			}
+			desc = trait_mystic_1_character_desc
+		}
+	}
+
+	flag = gnostic_learning_piety_trait
+}
+
+
+# `scholar` override removed for CK3 1.20 (Supernatural 2.36): vanilla renamed the trait to `erudite`, and this copy
+# was already shadowed by Supernatural's own in 10_spn_traits.txt. The magic-XP bonus lives on `erudite` there.
+
+witch = {
+	#fame = yes
+	category = fame
+
+	diplomacy = -1
+	intrigue = 1
+	learning = 1
+	monthly_magic_lifestyle_xp_gain_mult = 0.1
+	same_opinion = 20
+	witch_special_terrain_cancel_negative_supply = yes
+	ruler_designer_cost = 10
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_witch_desc
+			}
+			desc = trait_witch_character_desc
+		}
+	}
+
+	culture_modifier = {
+		parameter = coven_rule3
+		same_culture_opinion = 5
+		stewardship = 1
+	}
+	ai_compassion = very_low_negative_ai_value
+	ai_boldness = very_low_positive_ai_value
+	ai_rationality = very_low_positive_ai_value
+
+	triggered_opinion = {
+		parameter = witchcraft_illegal
+		opinion_modifier = witchcraft_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = witchcraft_shunned
+		opinion_modifier = witchcraft_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+	compatibility = {
+		true_witch = 40
+		demon1 = 10
+		demon2 = 10
+		witch_hunter = -50
+	}
+	flag = gnostic_learning_piety_trait
+}
+
+necromancer = {
+	category = fame
+	shown_in_ruler_designer = no
+	opposite_opinion = -50
+	desc = trait_necromancer_desc
+	general_opinion = 0
+	dread_baseline_add = 20
+	army_maintenance_mult = -0.1
+
+	ai_compassion = very_low_negative_ai_value
+	ai_boldness = very_low_positive_ai_value
+	ai_rationality = very_low_positive_ai_value
+	ai_vengefulness = 20
+	
+	triggered_opinion = {
+		parameter = necromancy_criminal
+		opinion_modifier = witchcraft_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	compatibility = {
+		supernatural_vampire = 5
+		true_witch = 10
+		demon1 = 10
+		demon2 = 10
+		supernatural_hunter = -50
+		witch_hunter = -50
+	}
+	opposites = {
+		supernatural_hunter
+		witch_hunter
+	}
+}
+
+warlock = {
+	category = fame
+	intrigue = 3
+	shown_in_ruler_designer = no
+	dread_baseline_add = 10
+	general_opinion = -5
+	opposite_opinion = -50
+	army_maintenance_mult = -0.05
+	health = 1.5
+	
+	ai_compassion = very_low_negative_ai_value
+	ai_boldness = very_low_positive_ai_value
+	ai_rationality = very_low_positive_ai_value
+	ai_vengefulness = 20
+	
+	triggered_opinion = {
+		opinion_modifier = witchcraft_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	
+	tracks = {
+		demonology = {
+			35 = {
+				summoning_demonology_terrain_cancel_negative_supply = yes
+				summoning_demonology2_terrain_cancel_negative_supply = yes
+			}
+			65 = {
+				diplomacy = 4
+				learning = 4
+			}
+			100 = {
+				hells_scepter1_terrain_cancel_negative_supply = yes
+				summoning_demonology3_terrain_cancel_negative_supply = yes
+			}
+		}
+		power_saturation = {
+			10 = {
+				health = 0.4
+				e_power_terrain_advantage = 2
+				e_fire_terrain_advantage = 2
+				e_kinetic_terrain_advantage = 2
+			}
+			50 = {
+				e_power_terrain_advantage = 2
+				e_fire_terrain_advantage = 2
+				character_travel_safety = 10
+				#md_power_clash_terrain_advantage = 2
+			}
+			100 = {
+				e_power_terrain_advantage = 2
+				prowess = 10
+				advantage = 10
+				#enemy_hard_casualty_modifier = 0.25
+				#character_travel_safety = 5
+				#md_power_clash_terrain_advantage = 1
+			}
+		}
+	}
+	
+	opposites = {
+		supernatural_hunter
+		witch_hunter
+		incapable
+	}
+}
+
+golem = {
+	physical = yes
+	shown_in_ruler_designer = no
+	desc = trait_golem_desc
+	dread_baseline_add = 10
+	immortal = yes
+	prowess = 25
+	health = 50
+	e_endurance_terrain_advantage = 2
+	character_travel_safety = 20
+	#incapacitating = yes
+	can_have_children = no
+	#immune_for_illness_terrain_cancel_negative_supply = yes
+	#magic_pro_less_terrain_cancel_negative_supply = yes
+	no_prowess_loss_from_age = yes
+	flag = is_immortal
+	opposites = {
+	#	incapable
+	#	cancer
+	#	ill
+	#	measles
+	#	maimed
+	#	infertile
+	#	infirm
+	#	lovers_pox
+	#	gout_ridden
+	#	consumption
+	#	typhus
+	#	bubonic_plague
+	#	smallpox
+	#	dysentery
+	#	ergotism
+	#	disfigured
+	#	measles
+		supernatural_vampire
+		supernatural_werewolf
+		supernatural_hybrid
+		demon0
+		demon1
+		warlock
+		necromancer
+	}
+}
+immortal1 = {
+	#lifestyle = yes
+	category = fame
+	health = 50
+	immortal = yes
+	no_prowess_loss_from_age = yes
+	dread_baseline_add = 20
+	general_opinion = -20
+	shown_in_ruler_designer = no
+	desc = trait_immortal1_desc
+	flag = is_immortal
+}
+immortal2 = {
+	#lifestyle = yes
+	category = fame
+	health = 50
+	immortal = yes
+	no_prowess_loss_from_age = yes
+	shown_in_ruler_designer = no
+	desc = trait_immortal2_desc
+	stress_gain_mult = 0.25
+	general_opinion = -30
+	owned_hostile_scheme_success_chance_add = -20
+	owned_personal_scheme_success_chance_add = -20
+	negative_random_genetic_chance = 2
+	flag = is_immortal
+}
+possessed_1 = { # Highly event driven, Temporal lobe epilepsy
+
+	group_equivalence = possessed
+	level = 1
+
+	#health_trait = yes
+	category = health
+	flag = lowers_health
+
+	monthly_learning_lifestyle_xp_gain_mult = 0.1
+	monthly_magic_lifestyle_xp_gain_mult = 0.1
+	health = -0.5
+
+	attraction_opinion = -10
+	same_opinion = 15
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_possessed_1_desc
+			}
+			desc = trait_possessed_1_character_desc
+		}
+	}
+
+	ai_rationality = -30
+	ai_boldness = 25
+	ai_vengefulness = 25
+
+	flag = gnostic_learning_piety_trait
+}
+
+possessed_genetic = { # Highly event driven, Temporal lobe epilepsy
+	birth = 0.5
+	random_creation = 0.5
+	genetic = yes
+	#health_trait = yes
+	category = health
+	flag = lowers_health
+
+	group_equivalence = possessed
+	level = 2
+
+	monthly_learning_lifestyle_xp_gain_mult = 0.1
+	monthly_magic_lifestyle_xp_gain_mult = 0.1
+	health = -0.5
+
+	attraction_opinion = -10
+	same_opinion = 15
+
+	shown_in_encyclopedia = no
+
+	ruler_designer_cost = -20
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_possessed_genetic_desc
+			}
+			desc = trait_possessed_genetic_character_desc
+		}
+	}
+
+	ai_rationality = -30
+	ai_boldness = 25
+	ai_vengefulness = 25
+}
+
+heresiarch = {
+	category = fame
+	martial = 2
+	learning = 2
+	prowess = 2
+	monthly_magic_lifestyle_xp_gain_mult = 0.1
+	#owned_personal_scheme_success_chance_add = 10
+
+	same_faith_opinion = 10
+	
+	advantage_against_coreligionists = 5
+	
+	ai_war_chance = 1
+	
+	ruler_designer_cost = 70
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_heresiarch_desc
+			}
+			desc = trait_heresiarch_character_desc
+		}
+	}
+
+	ai_zeal = 20
+}
+
+education_learning_5 = {
+	minimum_age = 16
+	learning = 10
+	intrigue = 3
+	category = education
+	monthly_learning_lifestyle_xp_gain_mult = 0.5
+	monthly_magic_lifestyle_xp_gain_mult = 0.25
+	development_growth = 0.1
+	#magic_epic_cooldown_terrain_advantage = -5
+	domain_limit = 3
+	
+	culture_modifier = {
+		parameter = prowess_from_religious_traits
+		prowess = 4
+	}
+
+	culture_modifier = {
+		parameter = innovation_from_learning_traits
+		cultural_head_fascination_mult = 0.25
+	}
+
+	culture_modifier = {
+		parameter = build_bonuses_on_religious_traits
+		church_holding_build_speed = -0.2
+		church_holding_holding_build_speed = -0.2
+		church_holding_build_gold_cost = -0.05
+	}
+	
+	culture_modifier = {
+		parameter = elephant_bonuses_for_rank_4_education
+		world_innovation_elephants_development_growth_factor = 0.3
+		elephant_cavalry_maintenance_mult = -0.2
+		elephant_cavalry_toughness_mult = 0.1
+		elephant_cavalry_screen_add = 20
+		jungle_attrition_mult = -0.35
+	}
+	
+	ruler_designer_cost = 150
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_education_learning_5_desc
+			}
+			desc = trait_education_learning_5_character_desc
+		}
+	}
+	
+	random_creation_weight = 0
+	group = education_learning
+	level = 5
+	flag = level_5_education
+	flag = civilian_province
+}
+
+cyrographer = {
+	name = trait_cyrographer2
+	desc = trait_cyrographer_desc
+	icon = cyrographer.dds
+
+	shown_in_ruler_designer = no
+	monthly_influence = 1
+	diplomacy = 6
+	intrigue = 6
+	corruption_chance_terrain_advantage = 0.1
+	cyrographer_terrain_advantage = -5
+
+	birth = 0
+	random_creation = 0
+}
+gallowsbait = {
+	category = fame
+	
+	ai_honor = -20
+	ai_energy = 20
+	legitimacy_gain_mult = -0.25
+	legitimacy_loss_mult = 0.25
+
+	same_opinion = 50
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_gallowsbait_desc
+			}
+			desc = trait_gallowsbait_character_desc
+		}
+	}
+
+	tracks = {
+		# Brigandry, highway robbery, etc.
+		bandit = {
+			20 = {
+				barons_and_minor_landholders_opinion = -5
+				general_opinion = -2
+				courtier_and_guest_opinion = 2
+				martial = 1
+			}
+			40 = {
+				barons_and_minor_landholders_opinion = -5
+				general_opinion = -2
+				courtier_and_guest_opinion = 2
+			}
+			60 = {
+				barons_and_minor_landholders_opinion = -5
+				general_opinion = -2
+				courtier_and_guest_opinion = 2
+				martial = 1
+			}
+			80 = {
+				barons_and_minor_landholders_opinion = -5
+				general_opinion = -5
+				courtier_and_guest_opinion = 5
+				monthly_prestige_gain_per_dread_add = 0.01
+			}
+			100 = {
+				barons_and_minor_landholders_opinion = -10
+				general_opinion = -10
+				courtier_and_guest_opinion = 10
+				monthly_prestige_gain_per_dread_add = 0.01
+			}
+		}
+		# Con artistry, huckstering, etc.
+		trickster = {
+			20 = {
+				courtly_opinion = -5
+				general_opinion = -2
+				courtier_and_guest_opinion = 2
+				diplomacy = 1
+			}
+			40 = {
+				courtly_opinion = -5
+				general_opinion = -2
+				courtier_and_guest_opinion = 2
+			}
+			60 = {
+				courtly_opinion = -5
+				general_opinion = -2
+				courtier_and_guest_opinion = 2
+				diplomacy = 1
+			}
+			80 = {
+				courtly_opinion = -5
+				general_opinion = -5
+				courtier_and_guest_opinion = 5
+			}
+			100 = {
+				courtly_opinion = -10
+				general_opinion = -10
+				courtier_and_guest_opinion = 10
+				diplomacy_per_prestige_level = 1
+			}
+		}
+		# Petty theft, heists, etc.
+		thief = {
+			20 = {
+				parochial_opinion = -5
+				general_opinion = -2
+				courtier_and_guest_opinion = 2
+				intrigue = 1
+			}
+			40 = {
+				parochial_opinion = -5
+				general_opinion = -2
+				courtier_and_guest_opinion = 2
+			}
+			60 = {
+				parochial_opinion = -5
+				general_opinion = -2
+				courtier_and_guest_opinion = 2
+				intrigue = 1
+				owned_scheme_secrecy_add = 5
+			}
+			80 = {
+				parochial_opinion = -5
+				general_opinion = -5
+				courtier_and_guest_opinion = 5
+				owned_scheme_secrecy_add = 5
+			}
+			100 = {
+				parochial_opinion = -10
+				general_opinion = -10
+				courtier_and_guest_opinion = 10
+				owned_scheme_secrecy_add = 10
+			}
+		}
+		# Rustling, horse theft, straight-up poaching, etc.
+		poacher = {
+			20 = {
+				glory_hound_opinion = -5
+				general_opinion = -2
+				courtier_and_guest_opinion = 2
+				stewardship = 1
+				provisions_gain_mult = 0.05
+			}
+			40 = {
+				glory_hound_opinion = -5
+				general_opinion = -2
+				courtier_and_guest_opinion = 2
+				provisions_gain_mult = 0.05
+			}
+			60 = {
+				glory_hound_opinion = -5
+				general_opinion = -2
+				courtier_and_guest_opinion = 2
+				stewardship = 1
+				provisions_gain_mult = 0.05
+			}
+			80 = {
+				glory_hound_opinion = -5
+				general_opinion = -5
+				courtier_and_guest_opinion = 5
+			}
+			100 = {
+				glory_hound_opinion = -10
+				general_opinion = -10
+				courtier_and_guest_opinion = 10
+			}
+		}
+		# Kidnapping, murder, etc.
+		marauder = {
+			20 = {
+				general_opinion = -4
+				courtier_and_guest_opinion = 4
+				prowess = 1
+			}
+			40 = {
+				general_opinion = -4
+				courtier_and_guest_opinion = 4
+			}
+			60 = {
+				general_opinion = -4
+				courtier_and_guest_opinion = 4
+				prowess = 1
+			}
+			80 = {
+				general_opinion = -10
+				courtier_and_guest_opinion = 10
+			}
+			100 = {
+				general_opinion = -20
+				courtier_and_guest_opinion = 20
+				max_murder_schemes_add = 1
+			}
+		}
+		cultist = {
+			20 = {
+				clergy_opinion = -5
+				general_opinion = -2
+				courtier_and_guest_opinion = 2
+				intrigue = 1
+			}
+			40 = {
+				clergy_opinion = -5
+				general_opinion = -2
+				prowess = 1
+			}
+			60 = {
+				clergy_opinion = -5
+				general_opinion = -2
+				courtier_and_guest_opinion = 2
+				diplomacy =1
+			}
+			80 = {
+				clergy_opinion = -5
+				general_opinion = -5
+				courtier_and_guest_opinion = 5
+				stewardship = 1
+			}
+			100 = {
+				clergy_opinion = -10
+				general_opinion = -10
+				courtier_and_guest_opinion = 10
+				learning = 1
+			}
+		}
+	}
+}
+
+leper = {
+	health = -1.5
+	prowess = -10
+	fertility = -0.95
+	category = health
+
+	attraction_opinion = -35
+	general_opinion = -10
+	
+	ruler_designer_cost = -30
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_leper_desc
+			}
+			desc = trait_leper_character_desc
+		}
+	}
+
+	ai_energy = -15
+}

@@ -1,0 +1,161 @@
+﻿#based on praxis stuff
+
+set_starting_decay_effect = {
+	if = {
+		limit = { 
+			OR = {
+				vt_ek_is_undead = yes
+				is_briarheart = yes
+			}
+			NOT = { has_character_flag = has_decay_value }
+		}
+		set_variable = {
+			name = ek_undead_decay
+			value = ek_fleshy_decay_min
+		}
+		trigger_event = { 
+			on_action = ek_decay_monthly_pulse
+			months = 1
+		}
+		add_character_flag = has_decay_value
+	}
+}
+
+set_random_decay_effect = {	#using the random values from ek_decay_values doesnt seem to work, using a range just results in the value always being 0.0
+	if = {
+		limit = { 
+			OR = {
+				vt_ek_is_undead = yes
+				is_briarheart = yes
+			}
+			NOT = { has_character_flag = has_decay_value }
+		}
+		set_variable = {
+			name = ek_undead_decay
+			value = 0.5
+		}
+		trigger_event = { 
+			on_action = ek_decay_monthly_pulse
+			months = 1
+		}
+		add_character_flag = has_decay_value
+	}
+}
+
+set_fleshy_decay_effect = {
+	if = {
+		limit = { 
+			OR = {
+				vt_ek_is_undead = yes
+				is_briarheart = yes
+			}
+			NOT = { has_character_flag = has_decay_value }
+		}
+		set_variable = {
+			name = ek_undead_decay
+			value = 0.5
+		}
+		trigger_event = { 
+			on_action = ek_decay_monthly_pulse
+			months = 1
+		}
+		add_character_flag = has_decay_value
+	}
+}
+
+set_skeleton_decay_effect = {
+	if = {
+		limit = { 
+			OR = {
+				vt_ek_is_undead = yes
+				is_briarheart = yes
+			}
+			NOT = { has_character_flag = has_decay_value }
+		}
+		set_variable = {
+			name = ek_undead_decay
+			value = 1.0
+		}
+		trigger_event = { 
+			on_action = ek_decay_monthly_pulse
+			months = 1
+		}
+		add_character_flag = has_decay_value
+	}
+}
+
+set_predetermined_decay_effect = {	# for characters that already start undead
+	set_variable = {
+		name = ek_undead_decay
+		value = $DECAY$
+	}
+	trigger_event = { 
+		on_action = ek_decay_monthly_pulse
+		months = 1
+	}
+	add_character_flag = has_decay_value
+}
+
+# monthly decay tick
+update_decay_monthly_effect = {
+	if = {
+		limit = { vt_ek_is_undead = yes }
+		change_variable = {
+			name = ek_undead_decay
+			add = monthly_decay_increase
+		}
+		check_decay_max_min_effect = yes
+	}
+	else_if = {
+		limit = { is_briarheart = yes }
+		change_variable = {
+			name = ek_undead_decay
+			add = 0.002
+		}
+		check_decay_max_min_effect = yes
+	}
+}
+
+# increase/decrease decay in a burst
+increase_decrease_decay_effect = {
+	if = {
+		limit = {
+			has_variable = ek_undead_decay
+		}
+		custom_description = {
+			text = ek_undead_decay_increase
+		}
+		change_variable = {
+			name = ek_undead_decay
+			add = $AMOUNT$
+		}
+		check_praxis_max_min_effect = yes
+	}
+}
+
+### When changing decay, check that the value isn't above 100 or below 0. If it is, reset it to the max/min value.
+check_decay_max_min_effect = {
+	if = {
+		limit = {
+			has_variable = ek_undead_decay
+		}
+		if = {
+			limit = {
+				var:ek_undead_decay > ek_max_decay
+			}
+			set_variable = {
+				name = ek_undead_decay
+				value = ek_max_decay
+			}
+		}
+		else_if = {
+			limit = {
+				var:ek_undead_decay < ek_min_decay
+			}
+			set_variable = {
+				name = ek_undead_decay
+				value = ek_min_decay
+			}
+		}
+	}
+}

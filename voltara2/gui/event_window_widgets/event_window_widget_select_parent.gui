@@ -1,0 +1,169 @@
+widget = {
+	name = "event_window_widget_select_parent"
+	layoutpolicy_horizontal = expanding
+	size = { 400 400 }
+	allow_outside = yes
+	
+	vbox = {
+		name = "potential_parents"
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		spacing = 3
+		
+		visible = "[GetGlobalVariable('ansf_show_possible_parents').IsSet]"
+
+		text_label_center = {
+			name = potential_parents_title
+			layoutpolicy_horizontal = expanding
+
+			text = "ansf_select_potential_parent"
+			fontsize = 18
+			default_format = "#high"
+			align = center|nobaseline
+		}
+
+		scrollbox = {
+			layoutpolicy_vertical = expanding
+			layoutpolicy_horizontal = expanding
+
+			blockoverride "scrollbox_content" {
+				vbox = {
+					name = "character_grid"
+					datamodel = "[GetPlayer.MakeScope.GetList('potential_parents')]"
+
+					item = {
+						potential_selectable_parent_portrait_widget = {
+							datacontext = "[Scope.Char]"
+						}
+					}
+				}
+			}
+		}	
+	}
+}
+
+types PotentialParentTypes
+{
+	type potential_selectable_parent_portrait_widget = widget
+	{
+		size = { 475 92 }
+
+		portrait_head_small = {
+			parentanchor = left|vcenter
+		}
+
+		button_standard = {
+			parentanchor = right|vcenter
+			size = { 380 82 }
+
+			block "onclick"
+			{
+				onclick = "[GetScriptedGui('ansf_select_parent_char').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selection', Character.MakeScope).End)]"
+				onclick = "[GetVariableSystem.Toggle('reset_event_options')]"
+				onclick = "[GetScriptedGui('ansf_close_parent_selection_screen').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				onclick = "[EventWindow.ResetContents]"
+			}
+
+			character_list_arrow = {
+				name = "character_list_arrow"
+			}
+
+
+			hbox = {
+				margin = { 16 0 }
+
+				vbox = {
+
+					expand = {}
+
+					text_single = {
+						name = "character_name"
+						layoutpolicy_horizontal = expanding
+
+						text = "[Character.GetUINameNoTooltip|U]"
+						align = nobaseline
+						default_format = "#high"
+						max_width = 320
+						using = Font_Size_Medium
+
+						alwaystransparent = yes
+					}
+					
+					text_single = {
+						name = "former_spouse"
+						layoutpolicy_horizontal = expanding
+						visible = "[GetScriptedGui('ansf_is_former_spouse').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
+
+						text = ansf_relation_former_spouse
+						default_format = "#i"
+						align = nobaseline
+						max_width = 320
+
+						alwaystransparent = yes
+					}
+					
+					text_single = {
+						name = "current_concubine"
+						layoutpolicy_horizontal = expanding
+						visible = "[GetScriptedGui('ansf_is_current_concubine').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
+
+						text = CONCUBINE
+						default_format = "#i"
+						align = nobaseline
+						max_width = 320
+
+						alwaystransparent = yes
+					}
+					
+					text_single = {
+						name = "former_concubine"
+						layoutpolicy_horizontal = expanding
+						visible = "[GetScriptedGui('ansf_is_former_concubine').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
+
+						text = ansf_relation_former_concubine
+						default_format = "#i"
+						align = nobaseline
+						max_width = 320
+
+						alwaystransparent = yes
+					}
+					
+					text_single = {
+						name = "current_lover"
+						layoutpolicy_horizontal = expanding
+						visible = "[GetScriptedGui('ansf_is_current_lover').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
+
+						text = secret_lover
+						default_format = "#i"
+						align = nobaseline
+						max_width = 320
+
+						alwaystransparent = yes
+					}
+					
+					text_single = {
+						name = "former_lover"
+						layoutpolicy_horizontal = expanding
+						visible = "[GetScriptedGui('ansf_is_former_lover').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
+
+						text = ansf_relation_former_lover
+						default_format = "#i"
+						align = nobaseline
+						max_width = 320
+
+						alwaystransparent = yes
+					}
+
+					expand = {}
+				}
+
+				expand = {}
+
+				block "extra_data"
+				{
+				}
+			}
+		}
+	}
+}
+

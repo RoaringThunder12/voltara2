@@ -1,0 +1,9 @@
+﻿# Both inherited and magically extended lifespan families.
+voltara_has_protected_lifespan_trigger = {
+ OR = {
+  has_trait = voltara_lifespan
+  has_trait = lifespan
+  has_trait = lifespan_magic
+  has_trait = lifespan_magic_6
+ }
+}
