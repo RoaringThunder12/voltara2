@@ -1,0 +1,362 @@
+﻿#### Local Types ####
+@administration_1 = "gfx/interface/icons/culture_innovations/innovation_administration_01.dds"
+@administration_2 = "gfx/interface/icons/culture_innovations/innovation_administration_02.dds"
+@administration_3 = "gfx/interface/icons/culture_innovations/innovation_administration_03.dds"
+@civil_construction_1 = "gfx/interface/icons/culture_innovations/innovation_civil_construction_01.dds"
+@civil_construction_2 = "gfx/interface/icons/culture_innovations/innovation_civil_construction_02.dds"
+@leadership_1 = "gfx/interface/icons/culture_innovations/innovation_leadership_01.dds"
+@leadership_2 = "gfx/interface/icons/culture_innovations/innovation_leadership_02.dds"
+@raised_banner = "gfx/interface/icons/culture_innovations/innovation_raised_banner.dds"
+@fortifications = "gfx/interface/icons/culture_innovations/innovation_fortifications.dds"
+@siege_weapons = "gfx/interface/icons/culture_innovations/innovation_siege_weapons.dds"
+@levy_building = "gfx/interface/icons/culture_innovations/innovation_levy_building.dds"
+@maa_01 = "gfx/interface/icons/culture_innovations/innovation_maa_01.dds"
+@maa_02 = "gfx/interface/icons/culture_innovations/innovation_maa_02.dds"
+@weapons_and_armor_01 = "gfx/interface/icons/culture_innovations/innovation_weapons_and_armor_01.dds"
+@weapons_and_armor_02 = "gfx/interface/icons/culture_innovations/innovation_weapons_and_armor_02.dds"
+@knight = "gfx/interface/icons/culture_innovations/innovation_knight.dds"
+@hird = "gfx/interface/icons/culture_innovations/innovation_hird.dds"
+@longboats = "gfx/interface/icons/culture_innovations/innovation_longboats.dds"
+@majesty_01 = "gfx/interface/icons/culture_innovations/innovation_majesty_01.dds"
+@majesty_02 = "gfx/interface/icons/culture_innovations/innovation_majesty_02.dds"
+@majesty_03 = "gfx/interface/icons/culture_innovations/innovation_majesty_03.dds"
+@nobility_01 = "gfx/interface/icons/culture_innovations/innovation_nobility_01.dds"
+@nobility_02 = "gfx/interface/icons/culture_innovations/innovation_nobility_02.dds"
+@nobility_03 = "gfx/interface/icons/culture_innovations/innovation_nobility_03.dds"
+@nobility_04 = "gfx/interface/icons/culture_innovations/innovation_nobility_04.dds"
+@misc_inventions = "gfx/interface/icons/culture_innovations/innovation_misc_inventions.dds"
+@gunpowder = "gfx/interface/icons/culture_innovations/innovation_gunpowder.dds"
+@caballeros = "gfx/interface/icons/culture_innovations/innovation_caballeros.dds"
+
+@camel = "gfx/interface/icons/culture_innovations/innovation_camel.dds"
+@elephant = "gfx/interface/icons/culture_innovations/innovation_elephant.dds"
+@special_maa_01 = "gfx/interface/icons/culture_innovations/innovation_special_maa_01.dds"
+@special_maa_02 = "gfx/interface/icons/culture_innovations/innovation_special_maa_02.dds"
+
+innovation_zweihanders = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_late_medieval
+	icon = @special_maa_01
+
+	potential = { OR = { this = culture:voltara_culture_23 this = culture:voltara_culture_32 this = culture:voltara_culture_46 any_parent_culture_or_above = { OR = { this = culture:voltara_culture_23 this = culture:voltara_culture_32 this = culture:voltara_culture_46 } } } }
+
+	unlock_maa = landsknecht
+
+	flag = global_regional
+	flag = global_maa
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_late_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+innovation_adaptive_militia = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_late_medieval
+	icon = @special_maa_02
+
+	potential = { OR = { this = culture:voltara_culture_21 this = culture:voltara_culture_45 this = culture:voltara_culture_48 this = culture:voltara_western_goblins any_parent_culture_or_above = { OR = { this = culture:voltara_culture_21 this = culture:voltara_culture_45 this = culture:voltara_culture_48 this = culture:voltara_western_goblins } } } }
+
+	unlock_maa = goedendag
+
+	flag = global_maa
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_late_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+innovation_valets = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_late_medieval
+	icon = @special_maa_01
+
+	potential = { OR = { this = culture:voltara_culture_22 this = culture:voltara_culture_46 this = culture:voltara_culture_48 any_parent_culture_or_above = { OR = { this = culture:voltara_culture_22 this = culture:voltara_culture_46 this = culture:voltara_culture_48 } } } }
+
+	unlock_maa = gendarme
+
+	flag = global_maa
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_late_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+innovation_pike_columns = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @special_maa_01
+
+	potential = { OR = { this = culture:voltara_culture_23 this = culture:voltara_culture_36 this = culture:voltara_culture_48 any_parent_culture_or_above = { OR = { this = culture:voltara_culture_23 this = culture:voltara_culture_36 this = culture:voltara_culture_48 } } } }
+
+	unlock_maa = picchieri
+
+	flag = global_maa
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+innovation_legionnaires = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_late_medieval
+	icon = @special_maa_02
+
+	potential = { OR = { this = culture:voltara_culture_22 this = culture:voltara_culture_43 any_parent_culture_or_above = { OR = { this = culture:voltara_culture_22 this = culture:voltara_culture_43 } } } }
+
+	unlock_maa = praetorian
+
+	flag = global_maa
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_late_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+innovation_desert_tactics = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @special_maa_02
+
+	potential = { has_innovation = innovation_war_camels OR = { this = culture:voltara_culture_26 this = culture:voltara_desert_southron this = culture:voltara_southorion any_parent_culture_or_above = { OR = { this = culture:voltara_culture_26 this = culture:voltara_desert_southron this = culture:voltara_southorion } } } }
+
+	unlock_maa = chasseur
+
+	flag = global_maa
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+innovation_caballeros = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_tribal
+
+	icon = @caballeros
+
+	unlock_maa = caballero
+
+	flag = global_regional
+	flag = tribal_era_regional
+	
+	ai_weight_for_fascination = {
+		value = 100
+	}
+
+ potential = { OR = { this = culture:voltara_culture_25 this = culture:voltara_culture_45 this = culture:voltara_culture_46 any_parent_culture_or_above = { OR = { this = culture:voltara_culture_25 this = culture:voltara_culture_45 this = culture:voltara_culture_46 } } } }
+}
+
+innovation_hobbies = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+
+	icon = @special_maa_02
+
+	unlock_maa = hobelar
+
+	flag = global_regional
+	flag = global_maa
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+
+ potential = { OR = { this = culture:voltara_culture_32 this = culture:voltara_culture_33 this = culture:voltara_culture_35 any_parent_culture_or_above = { OR = { this = culture:voltara_culture_32 this = culture:voltara_culture_33 this = culture:voltara_culture_35 } } } }
+}
+
+innovation_rectilinear_schiltron = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_late_medieval
+	icon = @special_maa_01
+
+	potential = { OR = { this = culture:voltara_culture_23 this = culture:voltara_culture_32 this = culture:voltara_culture_36 any_parent_culture_or_above = { OR = { this = culture:voltara_culture_23 this = culture:voltara_culture_32 this = culture:voltara_culture_36 } } } }
+
+	unlock_maa = schiltron
+
+	flag = global_maa
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_late_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+innovation_bamboo_bows = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_tribal
+
+	icon = @special_maa_02
+
+	unlock_maa = paiks
+
+	flag = global_regional
+	flag = global_maa
+	
+	ai_weight_for_fascination = {
+		value = 100
+	}
+
+ potential = { OR = { this = culture:voltara_culture_18 this = culture:voltara_culture_30 this = culture:voltara_culture_31 this = culture:voltara_culture_33 this = culture:voltara_culture_39 any_parent_culture_or_above = { OR = { this = culture:voltara_culture_18 this = culture:voltara_culture_30 this = culture:voltara_culture_31 this = culture:voltara_culture_33 this = culture:voltara_culture_39 } } } }
+}
+
+
+innovation_sahel_horsemen = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_tribal
+
+	icon = @special_maa_01
+
+	unlock_maa = sahel_horsemen
+
+	flag = global_regional
+	flag = tribal_era_regional
+	
+	ai_weight_for_fascination = {
+		value = 100
+	}
+
+ potential = { OR = { this = culture:voltara_culture_26 this = culture:voltara_desert_southron this = culture:voltara_southorion any_parent_culture_or_above = { OR = { this = culture:voltara_culture_26 this = culture:voltara_desert_southron this = culture:voltara_southorion } } } }
+}
+
+innovation_sarawit = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @maa_02
+
+	potential = { OR = { this = culture:voltara_culture_20 this = culture:voltara_ironcoil_naga any_parent_culture_or_above = { OR = { this = culture:voltara_culture_20 this = culture:voltara_ironcoil_naga } } } }
+
+	unlock_maa = sarawit
+
+	flag = global_maa
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+innovation_repeating_crossbow = {
+	skill = learning
+	group = culture_group_military
+	culture_era = culture_era_tribal
+	icon = @special_maa_02
+
+	potential = { OR = { this = culture:voltara_culture_23 this = culture:voltara_culture_42 any_parent_culture_or_above = { OR = { this = culture:voltara_culture_23 this = culture:voltara_culture_42 } } } }
+
+	asset = {
+		trigger = {
+			has_cultural_pillar = heritage_chinese
+		}
+		icon = @special_maa_02
+		name = innovation_repeating_crossbow_chinese
+	}
+
+	unlock_maa = shenbigong
+
+	flag = global_maa
+	
+	ai_weight_for_fascination = {
+		value = 100
+	}
+}
+
+innovation_pole_vault = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_tribal
+	icon = @weapons_and_armor_01
+
+	potential = { OR = { this = culture:voltara_culture_21 this = culture:voltara_culture_32 this = culture:voltara_western_goblins any_parent_culture_or_above = { OR = { this = culture:voltara_culture_21 this = culture:voltara_culture_32 this = culture:voltara_western_goblins } } } }
+
+	unlock_maa = guanch_vaulter
+
+	flag = global_maa
+	
+	ai_weight_for_fascination = {
+		value = 100
+	}
+}

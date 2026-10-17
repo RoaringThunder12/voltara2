@@ -2,7 +2,7 @@
 voltara_apply_tribal_southron_update = {
  if = { limit = { NOT = { has_global_variable = voltara_tribal_southron_applied } }
   every_living_character = {
-   limit = { is_landed = yes has_government = clan_government }
+   limit = { is_landed = yes has_government = clan_government NOT = { culture = culture:voltara_culture_23 } }
    every_held_title = { limit = { tier = tier_county }
     title_province = {
      if = { limit = { OR = { has_holding_type = castle_holding has_holding_type = tribal_holding } } set_holding_type = tribal_holding }

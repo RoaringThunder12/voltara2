@@ -1,0 +1,17 @@
+﻿voltara_culture_polish_apply = {
+ if = { limit = { NOT = { has_global_variable = voltara_culture_polish_applied } }
+  every_living_character = {
+   limit = { is_landed = yes culture = culture:voltara_culture_23 NOT = { voltara_is_ruins_placeholder = yes } }
+   every_held_title = { limit = { tier = tier_county } title_province = { if = { limit = { has_holding_type = tribal_holding } set_holding_type = castle_holding } } }
+   change_government = clan_government
+  }
+  every_living_character = { limit = { is_landed = yes OR = { culture = culture:voltara_culture_0 culture = culture:voltara_culture_19 culture = culture:voltara_culture_22 culture = culture:voltara_culture_24 culture = culture:voltara_culture_25 culture = culture:voltara_culture_26 culture = culture:voltara_culture_27 culture = culture:voltara_culture_30 culture = culture:voltara_culture_31 culture = culture:voltara_culture_32 culture = culture:voltara_culture_33 culture = culture:voltara_culture_35 culture = culture:voltara_culture_36 culture = culture:voltara_culture_43 culture = culture:voltara_culture_44 culture = culture:voltara_culture_45 culture = culture:voltara_culture_46 culture = culture:voltara_culture_47 culture = culture:voltara_culture_48 culture = culture:voltara_rhaullan culture = culture:voltara_desert_southron culture = culture:voltara_southorion } } set_court_language = language_voltara_common }
+  every_living_character = { limit = { is_landed = yes OR = { culture = culture:voltara_culture_20 } } set_court_language = language_voltara_orc }
+  every_living_character = { limit = { is_landed = yes OR = { culture = culture:voltara_culture_21 culture = culture:voltara_western_goblins } } set_court_language = language_voltara_goblin }
+  every_living_character = { limit = { is_landed = yes OR = { culture = culture:voltara_culture_18 culture = culture:voltara_culture_42 } } set_court_language = language_voltara_weave }
+  every_living_character = { limit = { is_landed = yes OR = { culture = culture:voltara_culture_23 } } set_court_language = language_voltara_dwarven }
+  every_living_character = { limit = { is_landed = yes OR = { culture = culture:voltara_culture_39 culture = culture:voltara_ironcoil_naga } } set_court_language = language_voltara_twin }
+  every_living_character = { limit = { is_landed = yes OR = { culture = culture:voltara_culture_40 culture = culture:voltara_giants culture = culture:voltara_gorilla } } set_court_language = language_voltara_none }
+  set_global_variable = { name = voltara_culture_polish_applied value = yes }
+ }
+}

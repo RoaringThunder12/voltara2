@@ -1,0 +1,7 @@
+﻿language_voltara_common = { type = language color = { 0.65 0.55 0.3 }  }
+language_voltara_orc = { type = language color = { 0.35 0.45 0.15 }  }
+language_voltara_goblin = { type = language color = { 0.45 0.65 0.25 }  }
+language_voltara_weave = { type = language color = { 0.6 0.4 0.75 }  }
+language_voltara_dwarven = { type = language color = { 0.5 0.4 0.3 }  }
+language_voltara_twin = { type = language color = { 0.3 0.65 0.6 }  }
+language_voltara_none = { type = language color = { 0.4 0.4 0.4 } is_shown = { always = no } }

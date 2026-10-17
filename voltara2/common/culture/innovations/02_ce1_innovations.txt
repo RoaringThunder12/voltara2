@@ -1,0 +1,34 @@
+﻿#### CE1 Types ####
+@innovation_welfare_02 = "gfx/interface/icons/culture_innovations/innovation_welfare_02.dds"
+
+
+# Culture-Specific Innovations
+innovation_sanitation = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_high_medieval
+	icon = @innovation_welfare_02
+	
+	potential = { OR = { this = culture:voltara_culture_18 this = culture:voltara_culture_22 this = culture:voltara_culture_23 this = culture:voltara_culture_30 this = culture:voltara_culture_42 this = culture:voltara_culture_43 any_parent_culture_or_above = { OR = { this = culture:voltara_culture_18 this = culture:voltara_culture_22 this = culture:voltara_culture_23 this = culture:voltara_culture_30 this = culture:voltara_culture_42 this = culture:voltara_culture_43 } } } }
+
+	county_modifier = {
+		epidemic_resistance = 10
+	}
+
+	#custom = unlocks_innovation_sanitation
+
+	flag = global_regional
+	flag = high_medieval_era_regional
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}

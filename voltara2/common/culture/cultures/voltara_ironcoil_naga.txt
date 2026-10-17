@@ -2,10 +2,10 @@
  color = { 99 131 92 }
  ethos = ethos_bellicose
  heritage = heritage_latin
- language = language_latin
+ language = language_voltara_twin
  martial_custom = martial_custom_male_only
  head_determination = head_determination_domain
- traditions = { tradition_formation_fighting }
+ traditions = { tradition_wetlanders tradition_warrior_culture tradition_strong_kinship tradition_mendicant_mystics }
  name_list = name_list_voltara_culture_39
  coa_gfx = { western_coa_gfx }
  building_gfx = { western_building_gfx }

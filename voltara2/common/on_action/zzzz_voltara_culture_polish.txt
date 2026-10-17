@@ -1,0 +1,2 @@
+﻿on_game_start_after_lobby = { on_actions = { voltara_culture_polish_start } }
+voltara_culture_polish_start = { effect = { random_player = { trigger_event = { id = voltara_culture_polish.1 days = 2 } } } }

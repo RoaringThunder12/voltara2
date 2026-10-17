@@ -1,0 +1,2 @@
+﻿namespace = voltara_culture_polish
+voltara_culture_polish.1 = { type = character_event hidden = yes immediate = { voltara_culture_polish_apply = yes } }

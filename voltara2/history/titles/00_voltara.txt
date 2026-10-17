@@ -248,7 +248,9 @@ d_voltara_test_121 = { 3781.1.1 = { holder = 9910121 liege = k_voltara_test_1037
 d_voltara_test_131 = { 3781.1.1 = { holder = 9910131 liege = k_voltara_test_1037 } }
 d_voltara_test_1676 = { 3781.1.1 = { holder = 9911676 liege = k_voltara_test_1037 } }
 d_voltara_test_1438 = { 3781.1.1 = { holder = 9911438 liege = k_voltara_test_1037 } }
-d_voltara_test_1784 = { 3781.1.1 = { holder = 9911784 liege = k_voltara_test_1037 } }
+d_voltara_test_1784 = { 3781.1.1 = { holder = 9911784 liege = k_voltara_test_1037 } 
+ 3781.1.1 = { government = clan_government }
+}
 d_voltara_test_1260 = { 3781.1.1 = { holder = 9911260 liege = k_voltara_test_1037 } }
 d_voltara_test_10395 = { 3781.1.1 = { holder = 9920395 liege = k_voltara_test_10395 government = tribal_government } }
 d_voltara_test_10396 = { 3781.1.1 = { holder = 9920396 liege = k_voltara_test_10395 government = tribal_government } }
@@ -715,7 +717,9 @@ d_voltara_test_2907 = { 3781.1.1 = { holder = 9912907 liege = k_voltara_38 } }
 d_voltara_test_294 = { 3781.1.1 = { holder = 9910294 liege = k_voltara_38 } }
 d_voltara_test_2949 = { 3781.1.1 = { holder = 9912949 liege = k_voltara_38 } }
 d_voltara_test_3050 = { 3781.1.1 = { holder = 9913050 liege = k_voltara_38 } }
-d_voltara_test_3101 = { 3781.1.1 = { holder = 9913101 liege = k_voltara_38 } }
+d_voltara_test_3101 = { 3781.1.1 = { holder = 9913101 liege = k_voltara_38 } 
+ 3781.1.1 = { government = clan_government }
+}
 d_voltara_test_390 = { 3781.1.1 = { holder = 9910390 liege = k_voltara_38 } }
 d_voltara_test_424 = { 3781.1.1 = { holder = 9910424 liege = k_voltara_38 } }
 d_voltara_test_441 = { 3781.1.1 = { holder = 9910441 liege = k_voltara_38 } }
@@ -803,17 +807,17 @@ c_voltara_2132 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara
 c_voltara_2136 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
 c_voltara_2127 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
 c_voltara_710 = { 3781.1.1 = { holder = 9910710 } }
-c_voltara_1001 = { 3781.1.1 = { holder = 18990000 liege = d_voltara_mosaic_ironroot government = tribal_government } }
+c_voltara_1001 = { 3781.1.1 = { holder = 18990000 liege = d_voltara_mosaic_ironroot government = clan_government } }
 c_voltara_1003 = { 3781.1.1 = { holder = 18990120 liege = d_voltara_mosaic_flinttooth government = tribal_government } }
 c_voltara_1012 = { 3781.1.1 = { holder = 18990120 liege = d_voltara_mosaic_flinttooth government = tribal_government } }
-c_voltara_1437 = { 3781.1.1 = { holder = 18990000 liege = d_voltara_mosaic_ironroot government = tribal_government } }
-c_voltara_1440 = { 3781.1.1 = { holder = 18990010 liege = d_voltara_mosaic_deepanvil government = tribal_government } }
+c_voltara_1437 = { 3781.1.1 = { holder = 18990000 liege = d_voltara_mosaic_ironroot government = clan_government } }
+c_voltara_1440 = { 3781.1.1 = { holder = 18990010 liege = d_voltara_mosaic_deepanvil government = clan_government } }
 c_voltara_1836 = { 3781.1.1 = { holder = 18990120 liege = d_voltara_mosaic_flinttooth government = tribal_government } }
 c_voltara_1002 = { 3781.1.1 = { holder = 18990080 liege = d_voltara_mosaic_blackeagle government = tribal_government } }
 c_voltara_1005 = { 3781.1.1 = { holder = 9911005 liege = d_voltara_37 } }
-c_voltara_1007 = { 3781.1.1 = { holder = 18990020 liege = d_voltara_mosaic_granitefist government = tribal_government } }
+c_voltara_1007 = { 3781.1.1 = { holder = 18990020 liege = d_voltara_mosaic_granitefist government = clan_government } }
 c_voltara_1835 = { 3781.1.1 = { holder = 18990080 liege = d_voltara_mosaic_blackeagle government = tribal_government } }
-c_voltara_1845 = { 3781.1.1 = { holder = 18990020 liege = d_voltara_mosaic_granitefist government = tribal_government } }
+c_voltara_1845 = { 3781.1.1 = { holder = 18990020 liege = d_voltara_mosaic_granitefist government = clan_government } }
 c_voltara_1004 = { 3781.1.1 = { holder = 18990100 liege = d_voltara_mosaic_reedscale government = tribal_government } }
 c_voltara_1011 = { 3781.1.1 = { holder = 18990100 liege = d_voltara_mosaic_reedscale government = tribal_government } }
 c_voltara_2179 = { 3781.1.1 = { holder = 18990070 liege = d_voltara_mosaic_thornknife government = tribal_government } }
@@ -821,24 +825,24 @@ c_voltara_2180 = { 3781.1.1 = { holder = 18990070 liege = d_voltara_mosaic_thorn
 c_voltara_96 = { 3781.1.1 = { holder = 18990100 liege = d_voltara_mosaic_reedscale government = tribal_government } }
 c_voltara_112 = { 3781.1.1 = { holder = 18990060 liege = d_voltara_mosaic_ashroad government = tribal_government } }
 c_voltara_1439 = { 3781.1.1 = { holder = 18990060 liege = d_voltara_mosaic_ashroad government = tribal_government } }
-c_voltara_1442 = { 3781.1.1 = { holder = 18990050 liege = d_voltara_mosaic_blackhammer government = tribal_government } }
+c_voltara_1442 = { 3781.1.1 = { holder = 18990050 liege = d_voltara_mosaic_blackhammer government = clan_government } }
 c_voltara_1451 = { 3781.1.1 = { holder = 18990060 liege = d_voltara_mosaic_ashroad government = tribal_government } }
-c_voltara_1436 = { 3781.1.1 = { holder = 18990040 liege = d_voltara_mosaic_coppergate government = tribal_government } }
+c_voltara_1436 = { 3781.1.1 = { holder = 18990040 liege = d_voltara_mosaic_coppergate government = clan_government } }
 c_voltara_116 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
-c_voltara_1524 = { 3781.1.1 = { holder = 18990030 liege = d_voltara_mosaic_oathstone government = tribal_government } }
+c_voltara_1524 = { 3781.1.1 = { holder = 18990030 liege = d_voltara_mosaic_oathstone government = clan_government } }
 c_voltara_1527 = { 3781.1.1 = { holder = 18990090 liege = d_voltara_mosaic_reedcoil government = tribal_government } }
 c_voltara_1530 = { 3781.1.1 = { holder = 18990130 liege = d_voltara_mosaic_sunspire government = tribal_government } }
-c_voltara_1535 = { 3781.1.1 = { holder = 18990030 liege = d_voltara_mosaic_oathstone government = tribal_government } }
-c_voltara_127 = { 3781.1.1 = { holder = 18990010 liege = d_voltara_mosaic_deepanvil government = tribal_government } }
-c_voltara_1838 = { 3781.1.1 = { holder = 18990050 liege = d_voltara_mosaic_blackhammer government = tribal_government } }
-c_voltara_1842 = { 3781.1.1 = { holder = 18990010 liege = d_voltara_mosaic_deepanvil government = tribal_government } }
+c_voltara_1535 = { 3781.1.1 = { holder = 18990030 liege = d_voltara_mosaic_oathstone government = clan_government } }
+c_voltara_127 = { 3781.1.1 = { holder = 18990010 liege = d_voltara_mosaic_deepanvil government = clan_government } }
+c_voltara_1838 = { 3781.1.1 = { holder = 18990050 liege = d_voltara_mosaic_blackhammer government = clan_government } }
+c_voltara_1842 = { 3781.1.1 = { holder = 18990010 liege = d_voltara_mosaic_deepanvil government = clan_government } }
 c_voltara_1843 = { 3781.1.1 = { holder = 18990080 liege = d_voltara_mosaic_blackeagle government = tribal_government } }
-c_voltara_2378 = { 3781.1.1 = { holder = 18990050 liege = d_voltara_mosaic_blackhammer government = tribal_government } }
-c_voltara_1444 = { 3781.1.1 = { holder = 18990000 liege = d_voltara_mosaic_ironroot government = tribal_government } }
-c_voltara_1528 = { 3781.1.1 = { holder = 18990030 liege = d_voltara_mosaic_oathstone government = tribal_government } }
-c_voltara_1522 = { 3781.1.1 = { holder = 18990040 liege = d_voltara_mosaic_coppergate government = tribal_government } }
+c_voltara_2378 = { 3781.1.1 = { holder = 18990050 liege = d_voltara_mosaic_blackhammer government = clan_government } }
+c_voltara_1444 = { 3781.1.1 = { holder = 18990000 liege = d_voltara_mosaic_ironroot government = clan_government } }
+c_voltara_1528 = { 3781.1.1 = { holder = 18990030 liege = d_voltara_mosaic_oathstone government = clan_government } }
+c_voltara_1522 = { 3781.1.1 = { holder = 18990040 liege = d_voltara_mosaic_coppergate government = clan_government } }
 c_voltara_1529 = { 3781.1.1 = { holder = 18990110 liege = d_voltara_mosaic_mossfang government = tribal_government } }
-c_voltara_1928 = { 3781.1.1 = { holder = 18990040 liege = d_voltara_mosaic_coppergate government = tribal_government } }
+c_voltara_1928 = { 3781.1.1 = { holder = 18990040 liege = d_voltara_mosaic_coppergate government = clan_government } }
 c_voltara_10028 = { 3781.1.1 = { holder = 9920028 } }
 c_voltara_10034 = { 3781.1.1 = { holder = 9920034 liege = d_voltara_test_10028 } }
 c_voltara_10035 = { 3781.1.1 = { holder = 9920035 liege = d_voltara_test_10028 } }
@@ -1029,11 +1033,11 @@ c_voltara_1785 = { 3781.1.1 = { holder = 18990220 liege = d_voltara_mosaic_mistf
 c_voltara_1789 = { 3781.1.1 = { holder = 18990180 liege = d_voltara_mosaic_brokenspear government = tribal_government } }
 c_voltara_1791 = { 3781.1.1 = { holder = 18990180 liege = d_voltara_mosaic_brokenspear government = tribal_government } }
 c_voltara_1792 = { 3781.1.1 = { holder = 18990220 liege = d_voltara_mosaic_mistfang government = tribal_government } }
-c_voltara_133 = { 3781.1.1 = { holder = 18990160 liege = d_voltara_mosaic_rimeforge government = tribal_government } }
+c_voltara_133 = { 3781.1.1 = { holder = 18990160 liege = d_voltara_mosaic_rimeforge government = clan_government } }
 c_voltara_1968 = { 3781.1.1 = { holder = 18990180 liege = d_voltara_mosaic_brokenspear government = tribal_government } }
-c_voltara_1969 = { 3781.1.1 = { holder = 18990160 liege = d_voltara_mosaic_rimeforge government = tribal_government } }
-c_voltara_1970 = { 3781.1.1 = { holder = 18990150 liege = d_voltara_mosaic_flintbeard government = tribal_government } }
-c_voltara_1971 = { 3781.1.1 = { holder = 18990160 liege = d_voltara_mosaic_rimeforge government = tribal_government } }
+c_voltara_1969 = { 3781.1.1 = { holder = 18990160 liege = d_voltara_mosaic_rimeforge government = clan_government } }
+c_voltara_1970 = { 3781.1.1 = { holder = 18990150 liege = d_voltara_mosaic_flintbeard government = clan_government } }
+c_voltara_1971 = { 3781.1.1 = { holder = 18990160 liege = d_voltara_mosaic_rimeforge government = clan_government } }
 c_voltara_152 = { 3781.1.1 = { holder = 15000152 liege = d_voltara_33 } }
 c_voltara_2434 = { 3781.1.1 = { holder = 18990240 liege = d_voltara_mosaic_rimeclaw government = tribal_government } }
 c_voltara_2435 = { 3781.1.1 = { holder = 18990190 liege = d_voltara_mosaic_greywolf government = tribal_government } }
@@ -1043,9 +1047,9 @@ c_voltara_2449 = { 3781.1.1 = { holder = 18990210 liege = d_voltara_mosaic_ember
 c_voltara_2451 = { 3781.1.1 = { holder = 18990200 liege = d_voltara_mosaic_frostraven government = tribal_government } }
 c_voltara_2453 = { 3781.1.1 = { holder = 9912453 liege = d_voltara_33 } }
 c_voltara_2465 = { 3781.1.1 = { holder = 18990200 liege = d_voltara_mosaic_frostraven government = tribal_government } }
-c_voltara_1981 = { 3781.1.1 = { holder = 18990150 liege = d_voltara_mosaic_flintbeard government = tribal_government } }
+c_voltara_1981 = { 3781.1.1 = { holder = 18990150 liege = d_voltara_mosaic_flintbeard government = clan_government } }
 c_voltara_2396 = { 3781.1.1 = { holder = 18990230 liege = d_voltara_mosaic_frostscale government = tribal_government } }
-c_voltara_2401 = { 3781.1.1 = { holder = 18990150 liege = d_voltara_mosaic_flintbeard government = tribal_government } }
+c_voltara_2401 = { 3781.1.1 = { holder = 18990150 liege = d_voltara_mosaic_flintbeard government = clan_government } }
 c_voltara_2397 = { 3781.1.1 = { holder = 18990210 liege = d_voltara_mosaic_emberfang government = tribal_government } }
 c_voltara_2450 = { 3781.1.1 = { holder = 18990230 liege = d_voltara_mosaic_frostscale government = tribal_government } }
 c_voltara_2400 = { 3781.1.1 = { holder = 18990210 liege = d_voltara_mosaic_emberfang government = tribal_government } }
@@ -1164,13 +1168,13 @@ c_voltara_2193 = { 3781.1.1 = { holder = 18990440 liege = d_voltara_mosaic_shale
 c_voltara_2187 = { 3781.1.1 = { holder = 18990400 liege = d_voltara_mosaic_hollowcrown government = tribal_government } }
 c_voltara_1199 = { 3781.1.1 = { holder = 18990430 liege = d_voltara_mosaic_snowscale government = tribal_government } }
 c_voltara_135 = { 3781.1.1 = { holder = 18990340 liege = d_voltara_mosaic_rimeblade government = tribal_government } }
-c_voltara_2033 = { 3781.1.1 = { holder = 18990320 liege = d_voltara_mosaic_underhall government = tribal_government } }
-c_voltara_2034 = { 3781.1.1 = { holder = 18990310 liege = d_voltara_mosaic_runepeak government = tribal_government } }
-c_voltara_2035 = { 3781.1.1 = { holder = 18990300 liege = d_voltara_mosaic_greycrag government = tribal_government } }
+c_voltara_2033 = { 3781.1.1 = { holder = 18990320 liege = d_voltara_mosaic_underhall government = clan_government } }
+c_voltara_2034 = { 3781.1.1 = { holder = 18990310 liege = d_voltara_mosaic_runepeak government = clan_government } }
+c_voltara_2035 = { 3781.1.1 = { holder = 18990300 liege = d_voltara_mosaic_greycrag government = clan_government } }
 c_voltara_2036 = { 3781.1.1 = { holder = 18990350 liege = d_voltara_mosaic_saltknife government = tribal_government } }
 c_voltara_2037 = { 3781.1.1 = { holder = 9912037 liege = d_voltara_33 } }
 c_voltara_1526 = { 3781.1.1 = { holder = 18990470 liege = d_voltara_mosaic_dawnwatch government = tribal_government } }
-c_voltara_1539 = { 3781.1.1 = { holder = 18990290 liege = d_voltara_mosaic_vaultguard government = tribal_government } }
+c_voltara_1539 = { 3781.1.1 = { holder = 18990290 liege = d_voltara_mosaic_vaultguard government = clan_government } }
 c_voltara_2186 = { 3781.1.1 = { holder = 18990440 liege = d_voltara_mosaic_shalefang government = tribal_government } }
 c_voltara_2177 = { 3781.1.1 = { holder = 9912177 liege = d_voltara_33 } }
 c_voltara_2181 = { 3781.1.1 = { holder = 18990400 liege = d_voltara_mosaic_hollowcrown government = tribal_government } }
@@ -1181,10 +1185,10 @@ c_voltara_1591 = { 3781.1.1 = { holder = 18990460 liege = d_voltara_mosaic_starw
 c_voltara_1587 = { 3781.1.1 = { holder = 9911587 liege = d_voltara_33 } }
 c_voltara_2032 = { 3781.1.1 = { holder = 9912032 liege = d_voltara_33 } }
 c_voltara_144 = { 3781.1.1 = { holder = 18990420 liege = d_voltara_mosaic_marshcoil government = tribal_government } }
-c_voltara_2273 = { 3781.1.1 = { holder = 18990320 liege = d_voltara_mosaic_underhall government = tribal_government } }
+c_voltara_2273 = { 3781.1.1 = { holder = 18990320 liege = d_voltara_mosaic_underhall government = clan_government } }
 c_voltara_2275 = { 3781.1.1 = { holder = 18990380 liege = d_voltara_mosaic_ironjackal government = tribal_government } }
-c_voltara_1471 = { 3781.1.1 = { holder = 18990330 liege = d_voltara_mosaic_stonevein government = tribal_government } }
-c_voltara_776 = { 3781.1.1 = { holder = 18990320 liege = d_voltara_mosaic_underhall government = tribal_government } }
+c_voltara_1471 = { 3781.1.1 = { holder = 18990330 liege = d_voltara_mosaic_stonevein government = clan_government } }
+c_voltara_776 = { 3781.1.1 = { holder = 18990320 liege = d_voltara_mosaic_underhall government = clan_government } }
 c_voltara_10307 = { 3781.1.1 = { holder = 9999100  government = nomad_government } }
 c_voltara_10312 = { 3781.1.1 = { holder = 9920312 liege = d_voltara_test_10307  government = nomad_government } }
 c_voltara_10314 = { 3781.1.1 = { holder = 9920314 liege = d_voltara_test_10307  government = nomad_government } }
@@ -1315,7 +1319,9 @@ c_voltara_1438 = { 3781.1.1 = { holder = 9911438 } }
 c_voltara_2376 = { 3781.1.1 = { holder = 9912376 liege = d_voltara_test_1438 } }
 c_voltara_754 = { 3781.1.1 = { holder = 9910754 liege = d_voltara_test_1438 } }
 c_voltara_83 = { 3781.1.1 = { holder = 9910083 liege = d_voltara_test_1438 } }
-c_voltara_1784 = { 3781.1.1 = { holder = 9911784 } }
+c_voltara_1784 = { 3781.1.1 = { holder = 9911784 } 
+ 3781.1.1 = { government = clan_government }
+}
 c_voltara_1972 = { 3781.1.1 = { holder = 9911972 liege = d_voltara_test_1784 } }
 c_voltara_87 = { 3781.1.1 = { holder = 9910087 liege = d_voltara_test_1784 } }
 c_voltara_824 = { 3781.1.1 = { holder = 9910824 liege = d_voltara_test_1784 } }
@@ -1498,13 +1504,17 @@ c_voltara_2081 = { 3781.1.1 = { holder = 9912081 liege = d_voltara_test_137 } }
 c_voltara_148 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
 c_voltara_2341 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
 c_voltara_2342 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
-c_voltara_2348 = { 3781.1.1 = { holder = 9912348 liege = d_voltara_test_148 } }
+c_voltara_2348 = { 3781.1.1 = { holder = 9912348 liege = d_voltara_test_148 } 
+ 3781.1.1 = { government = clan_government }
+}
 c_voltara_2350 = { 3781.1.1 = { holder = 9912350 liege = d_voltara_test_148 } }
 c_voltara_1367 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
 c_voltara_1692 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
 c_voltara_1693 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
 c_voltara_2327 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
-c_voltara_2343 = { 3781.1.1 = { holder = 9912343 liege = d_voltara_test_1367 } }
+c_voltara_2343 = { 3781.1.1 = { holder = 9912343 liege = d_voltara_test_1367 } 
+ 3781.1.1 = { government = clan_government }
+}
 c_voltara_147 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
 c_voltara_2330 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
 c_voltara_717 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
@@ -1989,18 +1999,18 @@ c_voltara_1724 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara
 c_voltara_1725 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
 c_voltara_2420 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
 c_voltara_2417 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
-c_voltara_1111 = { 3781.1.1 = { holder = 18990490 liege = d_voltara_mosaic_emberdelve government = tribal_government } }
+c_voltara_1111 = { 3781.1.1 = { holder = 18990490 liege = d_voltara_mosaic_emberdelve government = clan_government } }
 c_voltara_142 = { 3781.1.1 = { holder = 18990520 liege = d_voltara_mosaic_cinderfang government = tribal_government } }
 c_voltara_1586 = { 3781.1.1 = { holder = 9911586 liege = d_voltara_33 } }
-c_voltara_1588 = { 3781.1.1 = { holder = 18990490 liege = d_voltara_mosaic_emberdelve government = tribal_government } }
-c_voltara_2228 = { 3781.1.1 = { holder = 18990490 liege = d_voltara_mosaic_emberdelve government = tribal_government } }
+c_voltara_1588 = { 3781.1.1 = { holder = 18990490 liege = d_voltara_mosaic_emberdelve government = clan_government } }
+c_voltara_2228 = { 3781.1.1 = { holder = 18990490 liege = d_voltara_mosaic_emberdelve government = clan_government } }
 c_voltara_2227 = { 3781.1.1 = { holder = 18990530 liege = d_voltara_mosaic_stormpeak government = tribal_government } }
 c_voltara_2230 = { 3781.1.1 = { holder = 18990530 liege = d_voltara_mosaic_stormpeak government = tribal_government } }
 c_voltara_2229 = { 3781.1.1 = { holder = 18990500 liege = d_voltara_mosaic_ashcoil government = tribal_government } }
 c_voltara_777 = { 3781.1.1 = { holder = 18990500 liege = d_voltara_mosaic_ashcoil government = tribal_government } }
 c_voltara_781 = { 3781.1.1 = { holder = 18990500 liege = d_voltara_mosaic_ashcoil government = tribal_government } }
-c_voltara_778 = { 3781.1.1 = { holder = 18990480 liege = d_voltara_mosaic_bronzehelm government = tribal_government } }
-c_voltara_780 = { 3781.1.1 = { holder = 18990480 liege = d_voltara_mosaic_bronzehelm government = tribal_government } }
+c_voltara_778 = { 3781.1.1 = { holder = 18990480 liege = d_voltara_mosaic_bronzehelm government = clan_government } }
+c_voltara_780 = { 3781.1.1 = { holder = 18990480 liege = d_voltara_mosaic_bronzehelm government = clan_government } }
 c_voltara_85 = { 3781.1.1 = { holder = 18990510 liege = d_voltara_mosaic_reedcoilwatch government = tribal_government } }
 c_voltara_11136 = { 3781.1.1 = { holder = 9921136 } }
 c_voltara_11140 = { 3781.1.1 = { holder = 9921140 liege = d_voltara_test_11136 } }
@@ -2114,33 +2124,33 @@ c_voltara_7262 = { 3781.1.1 = { holder = 9917262 liege = d_voltara_test_510 } }
 c_voltara_9263 = { 3781.1.1 = { holder = 9919263 liege = d_voltara_test_510 } }
 c_voltara_565 = { 3781.1.1 = { holder = 9910565 liege = d_voltara_test_510 } }
 c_voltara_113 = { 3781.1.1 = { holder = 15000113 liege = d_voltara_37 } }
-c_voltara_1472 = { 3781.1.1 = { holder = 18990580 liege = d_voltara_mosaic_darkanvil government = tribal_government } }
+c_voltara_1472 = { 3781.1.1 = { holder = 18990580 liege = d_voltara_mosaic_darkanvil government = clan_government } }
 c_voltara_1473 = { 3781.1.1 = { holder = 9911473 liege = d_voltara_37 } }
 c_voltara_1474 = { 3781.1.1 = { holder = 9911474 liege = d_voltara_37 } }
-c_voltara_1476 = { 3781.1.1 = { holder = 18990570 liege = d_voltara_mosaic_cragward government = tribal_government } }
-c_voltara_1479 = { 3781.1.1 = { holder = 18990570 liege = d_voltara_mosaic_cragward government = tribal_government } }
-c_voltara_143 = { 3781.1.1 = { holder = 18990590 liege = d_voltara_mosaic_ironrootwatch government = tribal_government } }
+c_voltara_1476 = { 3781.1.1 = { holder = 18990570 liege = d_voltara_mosaic_cragward government = clan_government } }
+c_voltara_1479 = { 3781.1.1 = { holder = 18990570 liege = d_voltara_mosaic_cragward government = clan_government } }
+c_voltara_143 = { 3781.1.1 = { holder = 18990590 liege = d_voltara_mosaic_ironrootwatch government = clan_government } }
 c_voltara_2248 = { 3781.1.1 = { holder = 18990630 liege = d_voltara_mosaic_palelantern government = tribal_government } }
 c_voltara_2251 = { 3781.1.1 = { holder = 18990650 liege = d_voltara_mosaic_nightglass government = tribal_government } }
-c_voltara_2252 = { 3781.1.1 = { holder = 18990590 liege = d_voltara_mosaic_ironrootwatch government = tribal_government } }
-c_voltara_2274 = { 3781.1.1 = { holder = 18990580 liege = d_voltara_mosaic_darkanvil government = tribal_government } }
-c_voltara_2249 = { 3781.1.1 = { holder = 18990600 liege = d_voltara_mosaic_deepanvilwatch government = tribal_government } }
-c_voltara_934 = { 3781.1.1 = { holder = 18990590 liege = d_voltara_mosaic_ironrootwatch government = tribal_government } }
+c_voltara_2252 = { 3781.1.1 = { holder = 18990590 liege = d_voltara_mosaic_ironrootwatch government = clan_government } }
+c_voltara_2274 = { 3781.1.1 = { holder = 18990580 liege = d_voltara_mosaic_darkanvil government = clan_government } }
+c_voltara_2249 = { 3781.1.1 = { holder = 18990600 liege = d_voltara_mosaic_deepanvilwatch government = clan_government } }
+c_voltara_934 = { 3781.1.1 = { holder = 18990590 liege = d_voltara_mosaic_ironrootwatch government = clan_government } }
 c_voltara_2250 = { 3781.1.1 = { holder = 18990650 liege = d_voltara_mosaic_nightglass government = tribal_government } }
 c_voltara_933 = { 3781.1.1 = { holder = 18990680 liege = d_voltara_mosaic_reedscalewatch government = tribal_government } }
 c_voltara_941 = { 3781.1.1 = { holder = 18990690 liege = d_voltara_mosaic_froststride government = tribal_government } }
-c_voltara_1613 = { 3781.1.1 = { holder = 18990610 liege = d_voltara_mosaic_granitefistwatch government = tribal_government } }
-c_voltara_931 = { 3781.1.1 = { holder = 18990550 liege = d_voltara_mosaic_basalt government = tribal_government } }
-c_voltara_932 = { 3781.1.1 = { holder = 18990610 liege = d_voltara_mosaic_granitefistwatch government = tribal_government } }
-c_voltara_935 = { 3781.1.1 = { holder = 18990540 liege = d_voltara_mosaic_hardrock government = tribal_government } }
+c_voltara_1613 = { 3781.1.1 = { holder = 18990610 liege = d_voltara_mosaic_granitefistwatch government = clan_government } }
+c_voltara_931 = { 3781.1.1 = { holder = 18990550 liege = d_voltara_mosaic_basalt government = clan_government } }
+c_voltara_932 = { 3781.1.1 = { holder = 18990610 liege = d_voltara_mosaic_granitefistwatch government = clan_government } }
+c_voltara_935 = { 3781.1.1 = { holder = 18990540 liege = d_voltara_mosaic_hardrock government = clan_government } }
 c_voltara_936 = { 3781.1.1 = { holder = 18990640 liege = d_voltara_mosaic_amberoath government = tribal_government } }
 c_voltara_94 = { 3781.1.1 = { holder = 15000094 liege = d_voltara_37 } }
 c_voltara_942 = { 3781.1.1 = { holder = 9910942 liege = d_voltara_37 } }
-c_voltara_119 = { 3781.1.1 = { holder = 18990620 liege = d_voltara_mosaic_oathstonewatch government = tribal_government } }
-c_voltara_1612 = { 3781.1.1 = { holder = 18990620 liege = d_voltara_mosaic_oathstonewatch government = tribal_government } }
-c_voltara_1614 = { 3781.1.1 = { holder = 18990560 liege = d_voltara_mosaic_silverpick government = tribal_government } }
-c_voltara_1616 = { 3781.1.1 = { holder = 18990610 liege = d_voltara_mosaic_granitefistwatch government = tribal_government } }
-c_voltara_1617 = { 3781.1.1 = { holder = 18990620 liege = d_voltara_mosaic_oathstonewatch government = tribal_government } }
+c_voltara_119 = { 3781.1.1 = { holder = 18990620 liege = d_voltara_mosaic_oathstonewatch government = clan_government } }
+c_voltara_1612 = { 3781.1.1 = { holder = 18990620 liege = d_voltara_mosaic_oathstonewatch government = clan_government } }
+c_voltara_1614 = { 3781.1.1 = { holder = 18990560 liege = d_voltara_mosaic_silverpick government = clan_government } }
+c_voltara_1616 = { 3781.1.1 = { holder = 18990610 liege = d_voltara_mosaic_granitefistwatch government = clan_government } }
+c_voltara_1617 = { 3781.1.1 = { holder = 18990620 liege = d_voltara_mosaic_oathstonewatch government = clan_government } }
 c_voltara_734 = { 3781.1.1 = { holder = 18990660 liege = d_voltara_mosaic_whitebriar government = tribal_government } }
 c_voltara_735 = { 3781.1.1 = { holder = 18990660 liege = d_voltara_mosaic_whitebriar government = tribal_government } }
 c_voltara_736 = { 3781.1.1 = { holder = 18990660 liege = d_voltara_mosaic_whitebriar government = tribal_government } }
@@ -2287,37 +2297,37 @@ c_voltara_243 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_
 c_voltara_3652 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
 c_voltara_244 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
 c_voltara_3662 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
-c_voltara_257 = { 3781.1.1 = { holder = 19020030 liege = d_voltara_iron_anvilcrown government = tribal_government } }
-c_voltara_3756 = { 3781.1.1 = { holder = 19020020 liege = d_voltara_iron_hearthguard government = tribal_government } }
-c_voltara_3757 = { 3781.1.1 = { holder = 19020040 liege = d_voltara_iron_stonelantern government = tribal_government } }
-c_voltara_3758 = { 3781.1.1 = { holder = 19020030 liege = d_voltara_iron_anvilcrown government = tribal_government } }
-c_voltara_3759 = { 3781.1.1 = { holder = 19020010 liege = d_voltara_iron_bronzeoath government = tribal_government } }
-c_voltara_261 = { 3781.1.1 = { holder = 19020010 liege = d_voltara_iron_bronzeoath government = tribal_government } }
-c_voltara_3811 = { 3781.1.1 = { holder = 19020010 liege = d_voltara_iron_bronzeoath government = tribal_government } }
+c_voltara_257 = { 3781.1.1 = { holder = 19020030 liege = d_voltara_iron_anvilcrown government = clan_government } }
+c_voltara_3756 = { 3781.1.1 = { holder = 19020020 liege = d_voltara_iron_hearthguard government = clan_government } }
+c_voltara_3757 = { 3781.1.1 = { holder = 19020040 liege = d_voltara_iron_stonelantern government = clan_government } }
+c_voltara_3758 = { 3781.1.1 = { holder = 19020030 liege = d_voltara_iron_anvilcrown government = clan_government } }
+c_voltara_3759 = { 3781.1.1 = { holder = 19020010 liege = d_voltara_iron_bronzeoath government = clan_government } }
+c_voltara_261 = { 3781.1.1 = { holder = 19020010 liege = d_voltara_iron_bronzeoath government = clan_government } }
+c_voltara_3811 = { 3781.1.1 = { holder = 19020010 liege = d_voltara_iron_bronzeoath government = clan_government } }
 c_voltara_3798 = { 3781.1.1 = { holder = 19020120 liege = d_voltara_iron_caverncoil government = tribal_government } }
-c_voltara_3762 = { 3781.1.1 = { holder = 19020030 liege = d_voltara_iron_anvilcrown government = tribal_government } }
+c_voltara_3762 = { 3781.1.1 = { holder = 19020030 liege = d_voltara_iron_anvilcrown government = clan_government } }
 c_voltara_3797 = { 3781.1.1 = { holder = 19020120 liege = d_voltara_iron_caverncoil government = tribal_government } }
-c_voltara_262 = { 3781.1.1 = { holder = 19020090 liege = d_voltara_iron_silverhearth government = tribal_government } }
-c_voltara_3819 = { 3781.1.1 = { holder = 19020050 liege = d_voltara_iron_copperdelve government = tribal_government } }
-c_voltara_3821 = { 3781.1.1 = { holder = 19020080 liege = d_voltara_iron_runeward government = tribal_government } }
+c_voltara_262 = { 3781.1.1 = { holder = 19020090 liege = d_voltara_iron_silverhearth government = clan_government } }
+c_voltara_3819 = { 3781.1.1 = { holder = 19020050 liege = d_voltara_iron_copperdelve government = clan_government } }
+c_voltara_3821 = { 3781.1.1 = { holder = 19020080 liege = d_voltara_iron_runeward government = clan_government } }
 c_voltara_3822 = { 3781.1.1 = { holder = 9913822 liege = d_voltara_test_262 } }
-c_voltara_3823 = { 3781.1.1 = { holder = 19020040 liege = d_voltara_iron_stonelantern government = tribal_government } }
-c_voltara_3827 = { 3781.1.1 = { holder = 19020090 liege = d_voltara_iron_silverhearth government = tribal_government } }
-c_voltara_258 = { 3781.1.1 = { holder = 19020100 liege = d_voltara_iron_oldforge government = tribal_government } }
-c_voltara_3856 = { 3781.1.1 = { holder = 19020100 liege = d_voltara_iron_oldforge government = tribal_government } }
-c_voltara_3857 = { 3781.1.1 = { holder = 19020070 liege = d_voltara_iron_basalthearth government = tribal_government } }
-c_voltara_263 = { 3781.1.1 = { holder = 19020070 liege = d_voltara_iron_basalthearth government = tribal_government } }
+c_voltara_3823 = { 3781.1.1 = { holder = 19020040 liege = d_voltara_iron_stonelantern government = clan_government } }
+c_voltara_3827 = { 3781.1.1 = { holder = 19020090 liege = d_voltara_iron_silverhearth government = clan_government } }
+c_voltara_258 = { 3781.1.1 = { holder = 19020100 liege = d_voltara_iron_oldforge government = clan_government } }
+c_voltara_3856 = { 3781.1.1 = { holder = 19020100 liege = d_voltara_iron_oldforge government = clan_government } }
+c_voltara_3857 = { 3781.1.1 = { holder = 19020070 liege = d_voltara_iron_basalthearth government = clan_government } }
+c_voltara_263 = { 3781.1.1 = { holder = 19020070 liege = d_voltara_iron_basalthearth government = clan_government } }
 c_voltara_260 = { 3781.1.1 = { holder = 19020120 liege = d_voltara_iron_caverncoil government = tribal_government } }
-c_voltara_3799 = { 3781.1.1 = { holder = 19020070 liege = d_voltara_iron_basalthearth government = tribal_government } }
-c_voltara_3855 = { 3781.1.1 = { holder = 19020050 liege = d_voltara_iron_copperdelve government = tribal_government } }
-c_voltara_3830 = { 3781.1.1 = { holder = 19020050 liege = d_voltara_iron_copperdelve government = tribal_government } }
-c_voltara_3871 = { 3781.1.1 = { holder = 19020060 liege = d_voltara_iron_oathhammer government = tribal_government } }
-c_voltara_259 = { 3781.1.1 = { holder = 19020000 liege = d_voltara_iron_deepgate government = tribal_government } }
+c_voltara_3799 = { 3781.1.1 = { holder = 19020070 liege = d_voltara_iron_basalthearth government = clan_government } }
+c_voltara_3855 = { 3781.1.1 = { holder = 19020050 liege = d_voltara_iron_copperdelve government = clan_government } }
+c_voltara_3830 = { 3781.1.1 = { holder = 19020050 liege = d_voltara_iron_copperdelve government = clan_government } }
+c_voltara_3871 = { 3781.1.1 = { holder = 19020060 liege = d_voltara_iron_oathhammer government = clan_government } }
+c_voltara_259 = { 3781.1.1 = { holder = 19020000 liege = d_voltara_iron_deepgate government = clan_government } }
 c_voltara_3783 = { 3781.1.1 = { holder = 19020110 liege = d_voltara_iron_cinderburrow government = tribal_government } }
 c_voltara_3780 = { 3781.1.1 = { holder = 19020110 liege = d_voltara_iron_cinderburrow government = tribal_government } }
-c_voltara_3781 = { 3781.1.1 = { holder = 19020080 liege = d_voltara_iron_runeward government = tribal_government } }
+c_voltara_3781 = { 3781.1.1 = { holder = 19020080 liege = d_voltara_iron_runeward government = clan_government } }
 c_voltara_3820 = { 3781.1.1 = { holder = 19020110 liege = d_voltara_iron_cinderburrow government = tribal_government } }
-c_voltara_3842 = { 3781.1.1 = { holder = 19020090 liege = d_voltara_iron_silverhearth government = tribal_government } }
+c_voltara_3842 = { 3781.1.1 = { holder = 19020090 liege = d_voltara_iron_silverhearth government = clan_government } }
 c_voltara_277 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
 c_voltara_278 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
 c_voltara_281 = { 3781.1.1 = { holder = 19999000 liege = 0 government = voltara_ruins_government } }
@@ -3394,8 +3404,10 @@ c_voltara_216 = { 3781.1.1 = { holder = 9910216 } }
 c_voltara_3103 = { 3781.1.1 = { holder = 9913103 liege = d_voltara_test_216 } }
 c_voltara_3104 = { 3781.1.1 = { holder = 9913104 liege = d_voltara_test_216 } }
 c_voltara_3105 = { 3781.1.1 = { holder = 9913105 liege = d_voltara_test_216 } }
-c_voltara_3107 = { 3781.1.1 = { holder = 9913107 liege = d_voltara_test_216 } }
-c_voltara_3115 = { 3781.1.1 = { holder = 19020080 liege = d_voltara_iron_runeward government = tribal_government } }
+c_voltara_3107 = { 3781.1.1 = { holder = 9913107 liege = d_voltara_test_216 } 
+ 3781.1.1 = { government = clan_government }
+}
+c_voltara_3115 = { 3781.1.1 = { holder = 19020080 liege = d_voltara_iron_runeward government = clan_government } }
 c_voltara_217 = { 3781.1.1 = { holder = 9910217 } }
 c_voltara_2844 = { 3781.1.1 = { holder = 9912844 liege = d_voltara_test_217 } }
 c_voltara_3140 = { 3781.1.1 = { holder = 9913140 liege = d_voltara_test_217 } }
@@ -3443,7 +3455,9 @@ c_voltara_3236 = { 3781.1.1 = { holder = 9913236 liege = d_voltara_test_2949 } }
 c_voltara_2973 = { 3781.1.1 = { holder = 9912973 liege = d_voltara_test_2949 } }
 c_voltara_3050 = { 3781.1.1 = { holder = 9913050 } }
 c_voltara_3156 = { 3781.1.1 = { holder = 9913156 liege = d_voltara_test_3050 } }
-c_voltara_3101 = { 3781.1.1 = { holder = 9913101 } }
+c_voltara_3101 = { 3781.1.1 = { holder = 9913101 } 
+ 3781.1.1 = { government = clan_government }
+}
 c_voltara_3109 = { 3781.1.1 = { holder = 9913109 liege = d_voltara_test_3101 } }
 c_voltara_390 = { 3781.1.1 = { holder = 9910390 } }
 c_voltara_424 = { 3781.1.1 = { holder = 9910424 } }

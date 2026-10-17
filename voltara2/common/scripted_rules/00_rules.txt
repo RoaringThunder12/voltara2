@@ -960,6 +960,9 @@ can_name_after_birth = {
 # scope:courts_with_language = how many royal courts use the same court language? Includes the target
 # scope:checking_native_language = are we scoring our own language?
 can_adopt_court_language = {
+ NOR = { culture = culture:voltara_culture_40 culture = culture:voltara_giants culture = culture:voltara_gorilla }
+ scope:target = { NOR = { culture = culture:voltara_culture_40 culture = culture:voltara_giants culture = culture:voltara_gorilla } }
+
 	in_diplomatic_range = scope:target
 	NOT = { has_title = title:k_papal_state } # The Papacy always keeps Latin, so never let the AI shop around
 }
